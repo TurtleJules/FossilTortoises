@@ -10,4 +10,4 @@ setwd("//naturkundemuseum-berlin.de/MuseumDFSRoot/Benutzer/Julia.Joos/Eigene Dat
 
 ALL<-read.csv(choose.files(" "), skip = 17,sep=",", header=TRUE) # read csv from line 18 (skip), separated with comma (NOT WORKING)
 
-lsknfcvlsndvljsadnkjv
+#try with paleobioDB instead of reading file
