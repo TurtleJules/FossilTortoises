@@ -18,6 +18,14 @@ ALLCL <- ALL %>%
   filter(gen_linien != "IX" & gen_linien != "VIII" & gen_linien != "X") # 3 Linien > 10 samples rausfiltern
 
 
+### Checklist ####
+
+Check<-read.csv(choose.files(" "), sep=";", header=TRUE)
+
+CheckCL <- Check %>% 
+  filter(CL..cm. != "na") %>%
+  filter(Family == "Testudinidae")
+
 #ALL<-read.csv(choose.files(" "), skip = 17,sep=",", header=TRUE) # read csv from line 18 (skip), separated with comma (NOT WORKING)
 
 #try with paleobioDB instead of reading file
