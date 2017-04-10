@@ -9,6 +9,15 @@ library(paleoTS) # analyze paleontological time-series
 #### Data basis ####
 setwd("//naturkundemuseum-berlin.de/MuseumDFSRoot/Benutzer/Julia.Joos/Eigene Dateien/MA")
 
-ALL<-read.csv(choose.files(" "), skip = 17,sep=",", header=TRUE) # read csv from line 18 (skip), separated with comma (NOT WORKING)
+### FosFarBase ####
+ALL<-read.csv(choose.files(" "), sep=";", header=TRUE)
+
+ALLCL <- ALL %>% 
+  filter(CL != "-") %>%
+  filter(!grepl("o.",gen_linien)) %>%
+  filter(gen_linien != "IX" & gen_linien != "VIII" & gen_linien != "X") # 3 Linien > 10 samples rausfiltern
+
+
+#ALL<-read.csv(choose.files(" "), skip = 17,sep=",", header=TRUE) # read csv from line 18 (skip), separated with comma (NOT WORKING)
 
 #try with paleobioDB instead of reading file
