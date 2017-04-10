@@ -26,6 +26,10 @@ CheckCL <- Check %>%
   filter(CL..cm. != "na") %>%
   filter(Family == "Testudinidae")
 
-#ALL<-read.csv(choose.files(" "), skip = 17,sep=",", header=TRUE) # read csv from line 18 (skip), separated with comma (NOT WORKING)
+ALL<-read.csv(choose.files(" "), skip = 17,sep=",", header=TRUE) # read csv from line 18 (skip), separated with comma (NOT WORKING)
 
 #try with paleobioDB instead of reading file
+x=read.csv("PBDB_fossil_testudines.csv")
+
+head(x)
+
