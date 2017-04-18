@@ -51,10 +51,10 @@ References <- Lit %>%
   merge(new, by = "TitleJournal", all.x= TRUE) %>%
   select(Country, Locality, Latitude, Longitude, Epoch, Taxon, Author,comment, collection,
          CL, RefNr, AuthorYear, RefYear, TitleJournal, Journal, note) %>%
-  arrange(Country, Locality, RefNr)
+  arrange(Country, Locality, Taxon, RefNr)
 
 
-write.table(References, "//naturkundemuseum-berlin.de/MuseumDFSRoot/Benutzer/Julia.Joos/Eigene Dateien/MA/References_new1.txt",  sep="\t", row.names = FALSE)
+write.table(References, "//naturkundemuseum-berlin.de/MuseumDFSRoot/Benutzer/Julia.Joos/Eigene Dateien/MA/References_new2.txt",  sep="\t", row.names = FALSE)
 
 # TO DO: Journal in eigene Spalte kriegen! #######
 #unique(Ref$RefNr[which(Ref$Locality == "Sandalja near Pula")])
