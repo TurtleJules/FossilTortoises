@@ -12,7 +12,10 @@ library(paleoTS) # analyze paleontological time-series
 setwd("//naturkundemuseum-berlin.de/MuseumDFSRoot/Benutzer/Julia.Joos/Eigene Dateien/MA")
 
 ### FosFarBase ####
-ALL<-read.csv(choose.files(" "), sep=";", header=TRUE)
+ALL<-read.csv(choose.files(" "), sep=";", header=TRUE) # file: tortoises13-04.csv
+
+# wie viele CLs verfügbar?
+# 01.05.: 34/768
 
 Ref <- ALL %>%
   filter(CL == "-") %>%
