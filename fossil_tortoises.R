@@ -64,6 +64,22 @@ write.table(References, "//naturkundemuseum-berlin.de/MuseumDFSRoot/Benutzer/Jul
 #Ref[6,29] # [line, column]
 
 
+
+###### 17.5.17: organize references: which paper do I need from which journals??#####
+references <- read.csv(choose.files(" "), sep=";", header = TRUE)  # file: REFERENCES.csv (17.5.17)
+
+journal <- unique(references$Journal)
+paper <- unique(references$TitleJournal)
+
+
+Ref <- references %>%
+  select(Journal, TitleJournal, note, AuthorYear, RefYear, RefNr, CL, Country, Locality, Latitude, Longitude, Epoch, Taxon, Author, comment, collection) %>%
+  filter(note == "not available")
+### TO DO: gather everything starting with Locality to get actual number of missing papers! ####
+
+
+######
+
 ALLCL <- ALL %>% 
   filter(CL != "-")
 
