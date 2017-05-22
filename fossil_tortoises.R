@@ -73,14 +73,14 @@ paper <- unique(references$TitleJournal)
 
 
 Ref <- references %>%
-  select(Journal, TitleJournal, note, AuthorYear, RefYear, RefNr, CL, Country, Locality, Latitude, Longitude, Epoch, Taxon, Author, comment, collection) %>%
+  dplyr::select(Journal, TitleJournal, note, AuthorYear, RefYear, RefNr, CL, Country, Locality, Latitude, Longitude, Epoch, Taxon, Author, comment, collection) %>%
   filter(note == "not available") %>%
   tidyr::unite(Taxa, Taxon, Author, comment, collection, sep="_", remove=FALSE) %>%
-  select(Journal, TitleJournal, note, AuthorYear, RefYear, RefNr, CL, Country, Locality, Latitude, Longitude, Epoch, Taxa) %>%
+  dplyr::select(Journal, TitleJournal, note, AuthorYear, RefYear, RefNr, CL, Country, Locality, Latitude, Longitude, Epoch, Taxa) %>%
   group_by(Journal, TitleJournal, AuthorYear, RefYear, RefNr)
   
 
-write.table(Ref, "//naturkundemuseum-berlin.de/MuseumDFSRoot/Benutzer/Julia.Joos/Eigene Dateien/MA/References_sonja.txt",  sep="\t", row.names = FALSE)
+write.table(Ref, "//naturkundemuseum-berlin.de/MuseumDFSRoot/Benutzer/Julia.Joos/Eigene Dateien/MA/References_22.5.txt",  sep="\t", row.names = FALSE)
 
 #  tidyr::unite(eggs, EggNumber, gen_linien, sep="-", remove=FALSE)
 ### TO DO: gather everything starting with Locality to get actual number of missing papers! ####
