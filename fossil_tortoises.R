@@ -120,12 +120,19 @@ write.table(CheckCL, "//naturkundemuseum-berlin.de/MuseumDFSRoot/Benutzer/Julia.
 test<-read.csv(choose.files(" "), sep=";", header=TRUE) # file: test26.5.csv
 
 Test <- test %>%
-  mutate(mm = mean(CL_mean), vv=var(CL_mean), nn= n, tt=Age_mean) %>%
+  mutate(mm = CL_mean, vv=0, nn= n, tt=Age_mean) %>%
   dplyr::select(mm, vv, nn, tt)
 
 paleoTest <-as.paleoTS(Test$mm, Test$vv, Test$nn, Test$tt, MM = NULL, genpars = NULL, label = "Testudinidae body size evolution mode")
 paleoTest
 plot(paleoTest)
+
+fit3models(paleoTest, silent=FALSE, method="AD", pool=FALSE)   #not working
+#a=fit3models(meg) 
+a
+str(a)
+a$AICc[1]
+
 
 
 
