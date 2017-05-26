@@ -2,7 +2,7 @@
 library(ggplot2) # for plots and graphs (cheat sheet available)
 library(dplyr) # for organizing data (data wrangling cheat sheet available)
 library(tidyr)
-library(stringi) # process character strings
+#library(stringi) # process character strings
 library(paleobioDB) #to load, visualize and process data from PDBD
 #The following object is masked from 'package:dplyr':  select
 library(speciesgeocodeR) # categorization of species occurrences for biodiversity, biogeography, ecology and evolution
@@ -109,7 +109,9 @@ CheckCL <- Check %>%
 
 
 #try with paleobioDB instead of reading file
-x=read.csv("PBDB_fossil_testudines.csv")
 
-head(x)
-
+turtles <- pbdb_occurrences (limit="all", base_name="Testudinidae",
+                  interval="Neogene", vocab="pbdb", show=c("coords", "phylo", "ident"))
+head (turtles)
+turtles$taxon_name
+unique (turtles$matched_name)
