@@ -17,6 +17,10 @@ ALL<-read.csv(choose.files(" "), sep=";", header=TRUE) # file: tortoises13-04.cs
 # wie viele CLs verfügbar?
 # 01.05.: 34/768
 
+
+species <- unique(ALL$Taxon)
+
+
 Ref <- ALL %>%
   filter(CL == "-") %>%
   group_by(Country, Locality) %>%
@@ -101,14 +105,33 @@ Check<-read.csv(choose.files(" "), sep=";", header=TRUE)
 
 CheckCL <- Check %>% 
   filter(CL..cm. != "na") %>%
-  filter(Family == "Testudinidae")
+  filter(Family == "Testudinidae") %>%
+  dplyr::select(Taxon.Species, Age, CL..cm.)
+
+age <- unique(CheckCL$Age)
 
 # ALL<-read.csv(choose.files(" "), skip = 17,sep=",", header=TRUE) # read csv from line 18 (skip), separated with comma (NOT WORKING)
 
+write.table(CheckCL, "//naturkundemuseum-berlin.de/MuseumDFSRoot/Benutzer/Julia.Joos/Eigene Dateien/MA/test26.5.txt",  sep="\t", row.names = FALSE)
 
 
 
-#try with paleobioDB instead of reading file
+
+test<-read.csv(choose.files(" "), sep=";", header=TRUE) # file: test26.5.csv
+
+Test <- test %>%
+  mutate(mm = mean(CL_mean), vv=var(CL_mean), nn= n, tt=Age_mean) %>%
+  dplyr::select(mm, vv, nn, tt)
+
+paleoTest <-as.paleoTS(Test$mm, Test$vv, Test$nn, Test$tt, MM = NULL, genpars = NULL, label = "Testudinidae body size evolution mode")
+paleoTest
+plot(paleoTest)
+
+
+
+#paleobioDB: works only with version 1.1 v6 (https://paleobiodb.org/data1.1/occs/single_doc.html)
+# PDBD 1.2 v2: https://paleobiodb.org/data1.2/specs_doc.html
+
 
 turtles <- pbdb_occurrences (limit="all", base_name="Testudinidae",
                   interval="Neogene", vocab="pbdb", show=c("coords", "phylo", "ident"))
