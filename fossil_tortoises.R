@@ -121,24 +121,35 @@ library(paleoTS)
 
 test<-read.csv(choose.files(" "), sep=";", header=TRUE) # file: test26.5.csv
 
-Test <- test %>%
+
+Test1 <- test %>%
+  mutate(mm = CL_mean, vv=0, nn= n, tt=Age_mean) %>%
+  dplyr::select(mm, vv, nn, tt)
+
+Test2 <- test %>%
   group_by(Age_mean) %>%
   summarise(mm = mean(CL_mean), nn=n(), vv=var(CL_mean)) %>%
   mutate(tt=Age_mean) %>%
   dplyr::select(mm, vv, nn, tt)
 
-
 # NA: column 2, rows 3, 10, 13, 14, 15
-Test[3,2] <- 0
-Test[10,2] <- 0
-Test[13,2] <- 0
-Test[14,2] <- 0
-Test[15,2] <- 0
+Test2[3,2] <- 0
+Test2[10,2] <- 0
+Test2[13,2] <- 0
+Test2[14,2] <- 0
+Test2[15,2] <- 0
 
 
-paleoTest <-as.paleoTS(Test$mm, Test$vv, Test$nn, Test$tt, MM = NULL, genpars = NULL, label = "Testudinidae body size evolution mode")
-paleoTest
-plot(paleoTest)
+paleoTest1 <-as.paleoTS(Test1$mm, Test1$vv, Test1$nn, Test1$tt, MM = NULL, genpars = NULL, label = "Testudinidae body size evolution mode")
+paleoTest1
+plot(paleoTest1)
+
+paleoTest2 <-as.paleoTS(Test2$mm, Test2$vv, Test2$nn, Test2$tt, MM = NULL, genpars = NULL, label = "Testudinidae body size evolution mode")
+paleoTest2
+plot(paleoTest2)
+
+
+
 
 fit3models(paleoTest, silent=FALSE, method="AD", pool=FALSE)   #not working
 #a=fit3models(meg) 
