@@ -121,6 +121,7 @@ library(paleoTS)
 
 test<-read.csv(choose.files(" "), sep=";", header=TRUE) # file: test26.5.csv
 
+test<-read.csv("test26.5.csv", sep=";", header=TRUE)
 
 Test1 <- test %>%
   mutate(mm = CL_mean, vv=0, nn= n, tt=Age_mean) %>%
@@ -151,7 +152,7 @@ plot(paleoTest2)
 
 
 
-fit3models(paleoTest, silent=FALSE, method="AD", pool=FALSE)   #not working
+fit3models(paleoTest2, silent=FALSE, method="AD", pool=FALSE)   #not working with Test1, because no variances/sample sizes available, I guess
 #a=fit3models(meg) 
 a
 str(a)

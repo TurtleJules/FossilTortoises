@@ -1,0 +1,91 @@
+---
+title: "Body size trends in Neogene tortoises"
+output:
+  pdf_document: default
+  html_notebook: default
+---
+
+```{r "setup", include=FALSE}
+require("knitr")
+opts_knit$set(root.dir = "//naturkundemuseum-berlin.de/MuseumDFSRoot/Benutzer/Julia.Joos/Eigene Dateien/MA")
+library(dplyr)
+```
+
+# 30.05.2017
+Test paleoTS with Fossil Checklist data (but is probably of no use, because they report average body sizes (means, median, something else? what are the respective sample size? maybe ask the authors!?), so this is just for playing around).
+
+Raw data:
+```{r}
+library(paleoTS)
+#setwd("//naturkundemuseum-berlin.de/MuseumDFSRoot/Benutzer/Julia.Joos/Eigene Dateien/MA")
+test<-read.csv("test26.5.csv", sep=";", header=TRUE)
+test
+```
+
+
+The first plot shows mean Cl size for each taxon as a single data point, so each data point is one species (in this case this equals one individual, since I don't have sample sizes), even within time bins.
+
+```{r}
+Test1 <- test %>%
+  mutate(mm = CL_mean, vv=0, nn= n, tt=Age_mean) %>%
+  dplyr::select(mm, vv, nn, tt)
+
+paleoTest1 <-as.paleoTS(Test1$mm, Test1$vv, Test1$nn, Test1$tt, MM = NULL,
+                        genpars = NULL, label = "Testudinidae body size evolution mode")
+paleoTest1
+plot(paleoTest1)
+```
+
+This is the underlying data for Test1:
+
+```{r}
+Test1
+```
+
+For the second plot, I averaged CL means across taxa for each time bin, which leaves one data point per time bin, comprising all taxa within the respective bin:
+
+```{r}
+Test2 <- test %>%
+  group_by(Age_mean) %>%
+  summarise(mm = mean(CL_mean), nn=n(), vv=var(CL_mean)) %>%
+  mutate(tt=Age_mean) %>%
+  dplyr::select(mm, vv, nn, tt)
+
+# NA: column 2, rows 3, 10, 13, 14, 15
+Test2[3,2] <- 0
+Test2[10,2] <- 0
+Test2[13,2] <- 0
+Test2[14,2] <- 0
+Test2[15,2] <- 0
+
+paleoTest2 <-as.paleoTS(Test2$mm, Test2$vv, Test2$nn, Test2$tt, MM = NULL,
+                        genpars = NULL, label = "Testudinidae body size evolution mode")
+paleoTest2
+plot(paleoTest2)
+```
+This is the underlying data for Test2:
+```{r}
+Test2
+```
+
+
+# To DO:
+\begin{itemize}
+\item figure out if Checklist data is of any use (means? medians? sample size?) or see if authors can provide necessary data
+\item do paleoTS analyses with FFB data set
+\item read Hunt papers (see citations in Catalina's paper 2006, 2008, 2008, 2010; also 2015)
+\item figure out how to implement phylogeny... well, figure out how to do paleoTS analyses with more than on taxon without pooling everything together (as in Test2)
+\end{itemize}
+
+
+
+
+#######################################################################################################
+
+This is an [R Markdown](http://rmarkdown.rstudio.com) Notebook. When you execute code within the notebook, the results appear beneath the code. 
+
+Try executing this chunk by clicking the *Run* button within the chunk or by placing your cursor inside it and pressing *Ctrl+Shift+Enter*. 
+
+Add a new chunk by clicking the *Insert Chunk* button on the toolbar or by pressing *Ctrl+Alt+I*.
+
+When you save the notebook, an HTML file containing the code and output will be saved alongside it (click the *Preview* button or press *Ctrl+Shift+K* to preview the HTML file).
