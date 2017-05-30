@@ -127,6 +127,15 @@ Test <- test %>%
   mutate(tt=Age_mean) %>%
   dplyr::select(mm, vv, nn, tt)
 
+
+# NA: column 2, rows 3, 10, 13, 14, 15
+Test[3,2] <- 0
+Test[10,2] <- 0
+Test[13,2] <- 0
+Test[14,2] <- 0
+Test[15,2] <- 0
+
+
 paleoTest <-as.paleoTS(Test$mm, Test$vv, Test$nn, Test$tt, MM = NULL, genpars = NULL, label = "Testudinidae body size evolution mode")
 paleoTest
 plot(paleoTest)
