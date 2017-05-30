@@ -115,12 +115,16 @@ age <- unique(CheckCL$Age)
 write.table(CheckCL, "//naturkundemuseum-berlin.de/MuseumDFSRoot/Benutzer/Julia.Joos/Eigene Dateien/MA/test26.5.txt",  sep="\t", row.names = FALSE)
 
 
+# Test paleoTS ####
+library(paleoTS)
 
 
 test<-read.csv(choose.files(" "), sep=";", header=TRUE) # file: test26.5.csv
 
 Test <- test %>%
-  mutate(mm = CL_mean, vv=0, nn= n, tt=Age_mean) %>%
+  group_by(Age_mean) %>%
+  summarise(mm = mean(CL_mean), nn=n(), vv=var(CL_mean)) %>%
+  mutate(tt=Age_mean) %>%
   dplyr::select(mm, vv, nn, tt)
 
 paleoTest <-as.paleoTS(Test$mm, Test$vv, Test$nn, Test$tt, MM = NULL, genpars = NULL, label = "Testudinidae body size evolution mode")
