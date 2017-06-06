@@ -80,7 +80,7 @@ Test2
 ```
 
 
-# To DO:
+## TO DO:
 \begin{itemize}
 \item figure out if Checklist data is of any use (means? medians? sample size?) or see if authors can provide necessary data
 \item do paleoTS analyses with FFB data set
@@ -88,6 +88,58 @@ Test2
 \item figure out how to implement phylogeny... well, figure out how to do paleoTS analyses with more than one taxon without pooling everything together (as in Test2)
 \end{itemize}
 
+
+# 06.06.2017
+Try paleoTS with some first real data.
+Here is the underlying data:
+
+```{r}
+tidyCL<-read.csv("tortoises_tidy.csv", sep=";", header=TRUE)
+tidyCL
+
+```
+
+Prepare data for conversion to paleoTS-object:
+
+```{r}
+TidyCL <- tidyCL %>%
+  select(MAmin, Mamax, CL) %>%
+  filter(CL != "NA") %>%
+  mutate(tt= (MAmin+Mamax)/2) %>% # create mean age
+  group_by(tt) %>% #create time bins
+  summarise(mm=mean(CL), vv=var(CL), nn=n()) #create means etc. for each time bin 
+
+TidyCL[is.na(TidyCL)]<-0 #subset NAs with O for 
+
+TidyCL
+
+bins <- tidyCL %>%
+#  select(MAmin, Mamax, CL) %>%
+  filter(CL != "NA") %>%
+  mutate(tt= (MAmin+Mamax)/2) %>% # create mean age
+  group_by(tt)
+
+bins
+
+```
+
+
+
+```{r}
+library(paleoTS)
+paleoTidyCL <-as.paleoTS(TidyCL$mm, TidyCL$vv, TidyCL$nn, TidyCL$tt, MM = NULL, genpars = NULL, label = "Testudinidae body size evolution mode")
+paleoTidyCL
+plot(paleoTidyCL)
+
+fit3models(paleoTidyCL, silent=FALSE, method="AD", pool=FALSE)   #not working with Test1, because no variances/sample sizes available, I guess
+
+```
+
+
+## TO DO:
+* map localities with differing colors for: CL available, CL extrapolated (from PL or figures), CL missing
+* complete data set! 
+  + get missing refences/make list of missing references
 
 
 

@@ -120,6 +120,7 @@ library(paleoTS)
 
 
 test<-read.csv(choose.files(" "), sep=";", header=TRUE) # file: test26.5.csv
+# tortoises_tidy.csv
 
 test<-read.csv("test26.5.csv", sep=";", header=TRUE)
 
@@ -157,6 +158,34 @@ fit3models(paleoTest2, silent=FALSE, method="AD", pool=FALSE)   #not working wit
 a
 str(a)
 a$AICc[1]
+
+#### try with tidy data 6.6.17 ####
+test<-read.csv("tortoises_tidy.csv", sep=";", header=TRUE)
+
+# write code for: meanAge, meanCL, SampleSize, TimeBins
+
+Test1 <- test %>%
+  select(MAmin, Mamax, CL) %>%
+  filter(CL != "NA") %>%
+  mutate(tt= (MAmin+Mamax)/2) %>%
+  group_by(tt) %>%
+  summarise(mm=mean(CL), vv=var(CL), nn=n())
+
+Test1[is.na(Test1)]<-0
+
+
+paleoTest1 <-as.paleoTS(Test1$mm, Test1$vv, Test1$nn, Test1$tt, MM = NULL, genpars = NULL, label = "Testudinidae body size evolution mode")
+paleoTest1
+plot(paleoTest1)
+
+fit3models(paleoTest1, silent=FALSE, method="AD", pool=FALSE)   #not working with Test1, because no variances/sample sizes available, I guess
+
+
+
+
+
+
+
 
 
 
