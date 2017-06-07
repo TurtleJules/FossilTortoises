@@ -9,6 +9,7 @@ output:
 require("knitr")
 opts_knit$set(root.dir = "//naturkundemuseum-berlin.de/MuseumDFSRoot/Benutzer/Julia.Joos/Eigene Dateien/MA")
 library(dplyr)
+library(ggplot2)
 ```
 
 # 30.05.2017
@@ -133,6 +134,23 @@ plot(paleoTidyCL)
 
 fit3models(paleoTidyCL, silent=FALSE, method="AD", pool=FALSE)   #not working with Test1, because no variances/sample sizes available, I guess
 
+```
+
+
+```{r}
+Map <- tidyCL %>%
+  select(Genus, Taxon, Latitude, Longitude, Country, CL, PL) %>%
+  group_by(Latitude) %>%
+  mutate(count= n())
+
+mapWorld <- borders("world", colour="gray50", fill="gray50") # create a layer of borders
+
+
+mp <- Map %>%
+  ggplot(aes( Longitude, Latitude,colour=CL)) + mapWorld +
+  geom_point(aes(size=count))
+
+mp
 ```
 
 

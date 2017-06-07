@@ -201,7 +201,7 @@ library(speciesgeocodeR)
 
 # tab-separated file: #SpeciesName Lat Long #additionalColumn
 Map <- tidyCL %>%
-  select(Taxon, Latitude, Longitude, CL)
+  select(Genus, Taxon, Latitude, Longitude, Country, CL, PL)
 
 write.table(Map, "//naturkundemuseum-berlin.de/MuseumDFSRoot/Benutzer/Julia.Joos/Eigene Dateien/MA/map.txt",  sep="\t", row.names = FALSE)
 
@@ -211,20 +211,38 @@ setwd("//naturkundemuseum-berlin.de/MuseumDFSRoot/Benutzer/Julia.Joos/Eigene Dat
 #occurrences
 ###occ <- read.table(system.file("extdata","map.csv", package = "speciesgeocodeR"), row.names = NULL)
 
-#maybe try with ggmap ####
+#map with ggplot ####
 
 #Using GGPLOT, plot the Base World Map
-map <- Map
 
+
+
+Map <- tidyCL %>%
+  select(Genus, Taxon, Latitude, Longitude, Country, CL, PL) %>%
+  group_by(Latitude) %>%
+  mutate(count= n())
 
 mapWorld <- borders("world", colour="gray50", fill="gray50") # create a layer of borders
-mp <- map %>%
-  ggplot(aes( Longitude, Latitude,colour = CL)) + mapWorld +
-  geom_point() 
+
+#count <- Map$Latitude %>%
+#  group_by(Latitude)%>%
+#  n()
+
+mp <- Map %>%
+  ggplot(aes( Longitude, Latitude,colour=CL)) + mapWorld +
+  geom_point(aes(size=count))
 
 mp
+####
 
 
+
+
+
+library(maps)
+
+map("world", fill=TRUE, col="white", bg="lightblue", ylim=c(-60, 90), mar=c(0,0,0,0))
+points(x=Map$Longitude,y=Map$Latitude.y, col="red", pch=16)
 
 #paleobioDB: works only with version 1.1 v6 (https://paleobiodb.org/data1.1/occs/single_doc.html)
 # PDBD 1.2 v2: https://paleobiodb.org/data1.2/specs_doc.html
@@ -235,3 +253,4 @@ turtles <- pbdb_occurrences (limit="all", base_name="Testudinidae",
 head (turtles)
 turtles$taxon_name
 unique (turtles$matched_name)
+
