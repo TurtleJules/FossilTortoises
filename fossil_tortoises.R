@@ -222,15 +222,12 @@ Map <- tidyCL %>%
   group_by(Latitude) %>%
   mutate(count= n())
 
-mapWorld <- borders("world", colour="gray50", fill="gray50") # create a layer of borders
+mapWorld <- borders("world", colour="azure3", fill="azure3") # create a layer of borders
 
-#count <- Map$Latitude %>%
-#  group_by(Latitude)%>%
-#  n()
 
 mp <- Map %>%
-  ggplot(aes( Longitude, Latitude,colour=CL)) + mapWorld +
-  geom_point(aes(size=count))
+  ggplot(aes(Longitude, Latitude)) + mapWorld +
+  geom_point(fill="red", colour="red", size=0.5) + geom_point(aes(Longitude, Latitude,colour=CL, size=count))
 
 mp
 ####
