@@ -3,7 +3,7 @@ library(ggplot2) # for plots and graphs (cheat sheet available)
 library(dplyr) # for organizing data (data wrangling cheat sheet available)
 library(tidyr)
 #library(stringi) # process character strings
-library(paleobioDB) #to load, visualize and process data from PDBD
+##library(paleobioDB) #to load, visualize and process data from PDBD
 #The following object is masked from 'package:dplyr':  select
 library(speciesgeocodeR) # categorization of species occurrences for biodiversity, biogeography, ecology and evolution
 library(paleoTS) # analyze paleontological time-series
@@ -160,33 +160,69 @@ str(a)
 a$AICc[1]
 
 #### try with tidy data 6.6.17 ####
-test<-read.csv("tortoises_tidy.csv", sep=";", header=TRUE)
+setwd("//naturkundemuseum-berlin.de/MuseumDFSRoot/Benutzer/Julia.Joos/Eigene Dateien/MA")
+tidyCL<-read.csv("tortoises_tidy.csv", sep=";", header=TRUE)
 
 # write code for: meanAge, meanCL, SampleSize, TimeBins
 
-Test1 <- test %>%
+
+TidyCL <- tidyCL %>%
   select(MAmin, Mamax, CL) %>%
   filter(CL != "NA") %>%
-  mutate(tt= (MAmin+Mamax)/2) %>%
-  group_by(tt) %>%
-  summarise(mm=mean(CL), vv=var(CL), nn=n())
+  mutate(tt= (MAmin+Mamax)/2) %>% # create mean age
+  group_by(tt) %>% #create time bins
+  summarise(mm=mean(CL), vv=var(CL), nn=n()) #create means etc. for each time bin 
 
-Test1[is.na(Test1)]<-0
+TidyCL[is.na(TidyCL)]<-0 #subset NAs with O for 
 
+TidyCL
 
-paleoTest1 <-as.paleoTS(Test1$mm, Test1$vv, Test1$nn, Test1$tt, MM = NULL, genpars = NULL, label = "Testudinidae body size evolution mode")
-paleoTest1
-plot(paleoTest1)
+bins <- tidyCL %>%
+  #  select(MAmin, Mamax, CL) %>%
+  filter(CL != "NA") %>%
+  mutate(tt= (MAmin+Mamax)/2) %>% # create mean age
+  group_by(tt)
 
-fit3models(paleoTest1, silent=FALSE, method="AD", pool=FALSE)   #not working with Test1, because no variances/sample sizes available, I guess
-
-
-
-
-
+bins
 
 
 
+library(paleoTS)
+paleoTidyCL <-as.paleoTS(TidyCL$mm, TidyCL$vv, TidyCL$nn, TidyCL$tt, MM = NULL, genpars = NULL, label = "Testudinidae body size evolution mode")
+paleoTidyCL
+plot(paleoTidyCL)
+
+fit3models(paleoTidyCL, silent=FALSE, method="AD", pool=FALSE)   #not working with Test1, because no variances/sample sizes available, I guess##### play around with speciesgeocodeR 07.06.17 #######
+
+
+
+### play around with speciesgeocodeR 7.7.17 ######
+library(speciesgeocodeR)
+
+# tab-separated file: #SpeciesName Lat Long #additionalColumn
+Map <- tidyCL %>%
+  select(Taxon, Latitude, Longitude, CL)
+
+write.table(Map, "//naturkundemuseum-berlin.de/MuseumDFSRoot/Benutzer/Julia.Joos/Eigene Dateien/MA/map.txt",  sep="\t", row.names = FALSE)
+
+setwd("//naturkundemuseum-berlin.de/MuseumDFSRoot/Benutzer/Julia.Joos/Eigene Dateien/MA")
+#map<-read.csv("map.csv", sep=";", header=TRUE)
+
+#occurrences
+###occ <- read.table(system.file("extdata","map.csv", package = "speciesgeocodeR"), row.names = NULL)
+
+#maybe try with ggmap ####
+
+#Using GGPLOT, plot the Base World Map
+map <- Map
+
+
+mapWorld <- borders("world", colour="gray50", fill="gray50") # create a layer of borders
+mp <- map %>%
+  ggplot(aes( Longitude, Latitude,colour = CL)) + mapWorld +
+  geom_point() 
+
+mp
 
 
 
