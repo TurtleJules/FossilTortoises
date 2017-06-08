@@ -120,7 +120,7 @@ library(paleoTS)
 
 
 test<-read.csv(choose.files(" "), sep=";", header=TRUE) # file: test26.5.csv
-# tortoises_tidy.csv
+
 
 test<-read.csv("test26.5.csv", sep=";", header=TRUE)
 
@@ -197,16 +197,16 @@ fit3models(paleoTidyCL, silent=FALSE, method="AD", pool=FALSE)   #not working wi
 
 
 ### play around with speciesgeocodeR 7.7.17 ######
-library(speciesgeocodeR)
-
-# tab-separated file: #SpeciesName Lat Long #additionalColumn
-Map <- tidyCL %>%
-  select(Genus, Taxon, Latitude, Longitude, Country, CL, PL)
-
-write.table(Map, "//naturkundemuseum-berlin.de/MuseumDFSRoot/Benutzer/Julia.Joos/Eigene Dateien/MA/map.txt",  sep="\t", row.names = FALSE)
-
-setwd("//naturkundemuseum-berlin.de/MuseumDFSRoot/Benutzer/Julia.Joos/Eigene Dateien/MA")
-#map<-read.csv("map.csv", sep=";", header=TRUE)
+# library(speciesgeocodeR)
+# 
+# # tab-separated file: #SpeciesName Lat Long #additionalColumn
+# Map <- tidyCL %>%
+#   select(Genus, Taxon, Latitude, Longitude, Country, CL, PL)
+# 
+# write.table(Map, "//naturkundemuseum-berlin.de/MuseumDFSRoot/Benutzer/Julia.Joos/Eigene Dateien/MA/map.txt",  sep="\t", row.names = FALSE)
+# 
+# setwd("//naturkundemuseum-berlin.de/MuseumDFSRoot/Benutzer/Julia.Joos/Eigene Dateien/MA")
+# #map<-read.csv("map.csv", sep=";", header=TRUE)
 
 #occurrences
 ###occ <- read.table(system.file("extdata","map.csv", package = "speciesgeocodeR"), row.names = NULL)
@@ -214,6 +214,8 @@ setwd("//naturkundemuseum-berlin.de/MuseumDFSRoot/Benutzer/Julia.Joos/Eigene Dat
 #map with ggplot ####
 
 #Using GGPLOT, plot the Base World Map
+setwd("//naturkundemuseum-berlin.de/MuseumDFSRoot/Benutzer/Julia.Joos/Eigene Dateien/MA")
+tidyCL<-read.csv("tortoises_tidy.csv", sep=";", header=TRUE)
 
 
 
@@ -227,11 +229,30 @@ mapWorld <- borders("world", colour="azure3", fill="azure3") # create a layer of
 
 mp <- Map %>%
   ggplot(aes(Longitude, Latitude)) + mapWorld +
-  geom_point(fill="red", colour="red", size=0.5) + geom_point(aes(Longitude, Latitude,colour=CL, size=count))
+  #geom_point(fill="red", colour="red", size=0.5) +
+  geom_point(aes(Longitude, Latitude,colour=CL, size=count))
 
 mp
-####
 
+ggplotly(mp)
+####
+library(tidyverse)
+
+library(plotly)
+
+#####
+
+
+
+TidyCL <- tidyCL %>%
+  select(MAmin, Mamax, CL) %>%
+  filter(CL != "NA") %>%
+  mutate(tt= (MAmin+Mamax)/2) %>% # create mean age
+  group_by(tt)
+
+
+
+############
 
 
 
