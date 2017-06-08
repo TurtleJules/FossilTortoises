@@ -1,8 +1,8 @@
 ---
 title: "Body size trends in Neogene tortoises"
 output:
-  pdf_document: default
   html_notebook: default
+  pdf_document: default
 ---
 
 ```{r "setup", include=FALSE}
@@ -152,6 +152,12 @@ mp <- Map %>%
   geom_point(aes(Longitude, Latitude,colour=CL, size=count))
 
 mp
+
+library(plotly)
+
+
+ggplotly(mp)
+
 ```
 
 
@@ -159,6 +165,35 @@ mp
 * map localities with differing colors for: CL available, CL extrapolated (from PL or figures), CL missing
 * complete data set! 
   + get missing refences/make list of missing references
+
+
+# 08.06.17
+
+Map all localities with sample size and age indicated (regardless of whether CL information is available):
+```{r}
+test<-read.csv("tortoises13-04.csv", sep=";", header=TRUE)
+
+colnames(test)[6] <- "Mamin"
+colnames(test)[7] <- "Mamax"
+
+Test <- test %>%
+  select(Locality, Country, Latitude, Longitude, Mamin, Mamax, Epoch, Genus, Species, Taxon, CL) %>%
+  mutate(Age= (Mamin+Mamax)/2) %>%   # create mean age
+  group_by(Latitude) %>%
+  mutate(count= n())
+
+mapWorld <- borders("world", colour="azure3", fill="azure3") # create a layer of borders  
+  
+map <- Test %>%
+  ggplot(aes(Longitude, Latitude)) + mapWorld +
+  #geom_point(fill="red", colour="red", size=0.5) +
+  geom_point(aes(Longitude, Latitude,colour=Age, size=count))
+
+map
+
+ggplotly(map)
+```
+
 
 
 

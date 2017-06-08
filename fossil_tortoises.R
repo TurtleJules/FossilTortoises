@@ -7,6 +7,7 @@ library(tidyr)
 #The following object is masked from 'package:dplyr':  select
 library(speciesgeocodeR) # categorization of species occurrences for biodiversity, biogeography, ecology and evolution
 library(paleoTS) # analyze paleontological time-series
+library(plotly)
 
 #### Data basis ####
 setwd("//naturkundemuseum-berlin.de/MuseumDFSRoot/Benutzer/Julia.Joos/Eigene Dateien/MA")
@@ -252,15 +253,16 @@ colnames(test)[7] <- "Mamax"
 
 Test <- test %>%
   select(Locality, Country, Latitude, Longitude, Mamin, Mamax, Epoch, Genus, Species, Taxon, CL) %>%
-  mutate(Age= (Mamin+Mamax)/2) %>% # create mean age
+  mutate(Age= (Mamin+Mamax)/2) %>%   # create mean age
+  group_by(Latitude) %>%
+  mutate(count= n())
 
-  
-#mapWorld <- borders("world", colour="azure3", fill="azure3") # create a layer of borders  
+mapWorld <- borders("world", colour="azure3", fill="azure3") # create a layer of borders  
   
 map <- Test %>%
   ggplot(aes(Longitude, Latitude)) + mapWorld +
   #geom_point(fill="red", colour="red", size=0.5) +
-  geom_point(aes(Longitude, Latitude))#,colour=Age, size=count))
+  geom_point(aes(Longitude, Latitude,colour=Age, size=count))
 
 map
 
