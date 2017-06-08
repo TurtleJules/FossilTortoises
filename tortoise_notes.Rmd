@@ -196,7 +196,8 @@ map
 ggplotly(map)
 ```
 
-
+## TO DO:
+* get general statistical overview over data (stru, normal distribution?, mean/mode/median/min/max, hist plot etc. --> see Catalina's paper)
 
 
 #######################################################################################################
