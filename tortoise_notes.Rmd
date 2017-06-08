@@ -1,8 +1,10 @@
 ---
 title: "Body size trends in Neogene tortoises"
 output:
-  html_notebook: default
   pdf_document: default
+  html_notebook: default
+  html_document: default
+always_allow_html: yes
 ---
 
 ```{r "setup", include=FALSE}
@@ -16,7 +18,7 @@ library(ggplot2)
 Test paleoTS with Fossil Checklist data (but is probably of no use, because they report average body sizes (means, median, something else? what are the respective sample size? maybe ask the authors!?), so this is just for playing around).
 
 Raw data:
-```{r}
+```{r "Checklist data"}
 library(paleoTS)
 #setwd("//naturkundemuseum-berlin.de/MuseumDFSRoot/Benutzer/Julia.Joos/Eigene Dateien/MA")
 test<-read.csv("test26.5.csv", sep=";", header=TRUE)
@@ -26,7 +28,7 @@ test
 
 The first plot shows mean Cl size for each taxon as a single data point, so each data point is one species (in this case this equals one individual, since I don't have sample sizes), even within time bins.
 
-```{r}
+```{r "Test paleoTS with Checklist data"}
 Test1 <- test %>%
   mutate(mm = CL_mean, vv=0, nn= n, tt=Age_mean) %>%
   dplyr::select(mm, vv, nn, tt)
@@ -39,13 +41,13 @@ plot(paleoTest1)
 
 This is the underlying data for Test1:
 
-```{r}
+```{r "Converted data for paleoTS"}
 Test1
 ```
 
 For the second plot, I averaged CL means across taxa for each time bin, which leaves one data point per time bin, comprising all taxa within the respective bin:
 
-```{r}
+```{r "Checklist data disregarding taxa"}
 Test2 <- test %>%
   group_by(Age_mean) %>%
   summarise(mm = mean(CL_mean), nn=n(), vv=var(CL_mean)) %>%
@@ -76,7 +78,7 @@ a$AICc[1] # not sure what this tells me...
 
 
 This is the underlying data for Test2:
-```{r}
+```{r "Converted data2 for paleoTS"}
 Test2
 ```
 
@@ -94,7 +96,7 @@ Test2
 Try paleoTS with some first real data.
 Here is the underlying data:
 
-```{r}
+```{r "Get actual data"}
 tidyCL<-read.csv("tortoises_tidy.csv", sep=";", header=TRUE)
 tidyCL
 
@@ -102,7 +104,7 @@ tidyCL
 
 Prepare data for conversion to paleoTS-object:
 
-```{r}
+```{r "Data preparation for analyses with paleoTS"}
 TidyCL <- tidyCL %>%
   select(MAmin, Mamax, CL) %>%
   filter(CL != "NA") %>%
@@ -126,7 +128,7 @@ bins
 
 
 
-```{r}
+```{r "Try paleoTS with actual data"}
 library(paleoTS)
 paleoTidyCL <-as.paleoTS(TidyCL$mm, TidyCL$vv, TidyCL$nn, TidyCL$tt, MM = NULL, genpars = NULL, label = "Testudinidae body size evolution mode")
 paleoTidyCL
@@ -137,7 +139,7 @@ fit3models(paleoTidyCL, silent=FALSE, method="AD", pool=FALSE)   #not working wi
 ```
 
 
-```{r}
+```{r "Map fossil records with CL information available"}
 Map <- tidyCL %>%
   select(Genus, Taxon, Latitude, Longitude, Country, CL, PL) %>%
   group_by(Latitude) %>%
@@ -170,7 +172,7 @@ ggplotly(mp)
 # 08.06.17
 
 Map all localities with sample size and age indicated (regardless of whether CL information is available):
-```{r}
+```{r "Map all records indicating age and sample size, disregarding availability of CL"}
 test<-read.csv("tortoises13-04.csv", sep=";", header=TRUE)
 
 colnames(test)[6] <- "Mamin"
