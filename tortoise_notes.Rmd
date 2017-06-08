@@ -148,7 +148,8 @@ mapWorld <- borders("world", colour="azure3", fill="azure3") # create a layer of
 
 mp <- Map %>%
   ggplot(aes(Longitude, Latitude)) + mapWorld +
-  geom_point(fill="red", colour="red", size=0.5) + geom_point(aes(Longitude, Latitude,colour=CL, size=count))
+#  geom_point(fill="red", colour="red", size=0.5) +
+  geom_point(aes(Longitude, Latitude,colour=CL, size=count))
 
 mp
 ```

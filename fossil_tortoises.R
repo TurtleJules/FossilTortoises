@@ -233,23 +233,38 @@ mp <- Map %>%
   geom_point(aes(Longitude, Latitude,colour=CL, size=count))
 
 mp
-
-ggplotly(mp)
 ####
 library(tidyverse)
 
 library(plotly)
 
+
+ggplotly(mp)
+
+
+
 #####
 
+test<-read.csv("tortoises13-04.csv", sep=";", header=TRUE)
 
+colnames(test)[6] <- "Mamin"
+colnames(test)[7] <- "Mamax"
 
-TidyCL <- tidyCL %>%
-  select(MAmin, Mamax, CL) %>%
-  filter(CL != "NA") %>%
-  mutate(tt= (MAmin+Mamax)/2) %>% # create mean age
-  group_by(tt)
+Test <- test %>%
+  select(Locality, Country, Latitude, Longitude, Mamin, Mamax, Epoch, Genus, Species, Taxon, CL) %>%
+  mutate(Age= (Mamin+Mamax)/2) %>% # create mean age
 
+  
+#mapWorld <- borders("world", colour="azure3", fill="azure3") # create a layer of borders  
+  
+map <- Test %>%
+  ggplot(aes(Longitude, Latitude)) + mapWorld +
+  #geom_point(fill="red", colour="red", size=0.5) +
+  geom_point(aes(Longitude, Latitude))#,colour=Age, size=count))
+
+map
+
+ggplotly(map)
 
 
 ############
