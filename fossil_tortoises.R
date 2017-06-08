@@ -268,6 +268,15 @@ map
 
 ggplotly(map)
 
+############
+
+plot <- tidyCL %>%
+  select(Country, Latitude, Longitude, MAmin, Mamax, Genus, Species, Taxon, CL) %>%
+  mutate(Age= (MAmin+Mamax)/2) %>%
+  ggplot(aes(Age, CL, colour=Genus)) + geom_point()
+
+plot
+ggplotly(plot)
 
 ############
 
