@@ -105,6 +105,12 @@ tidyCL
 Prepare data for conversion to paleoTS-object:
 
 ```{r "Data preparation for analyses with paleoTS"}
+SampleSize <- tidyCL %>%
+  select(MAmin, Mamax, CL) %>%
+  filter(CL != "NA")
+length(SampleSize$CL)
+
+
 TidyCL <- tidyCL %>%
   select(MAmin, Mamax, CL) %>%
   filter(CL != "NA") %>%
