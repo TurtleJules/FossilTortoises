@@ -20,8 +20,30 @@ colnames(tidyCL)[7] <- "Mamax"
 colnames(tidyCL)[17] <- "CL"
 colnames(tidyCL)[18] <- "PL"
 
-
 # write code for: meanAge, meanCL, SampleSize, TimeBins
+
+##### data exploration ####
+str(tidyCL)
+dim(tidyCL)
+names(tidyCL)
+attributes(tidyCL)
+head(tidyCL)
+summary(tidyCL)
+table(tidyCL$Country)
+hist(tidyCL$CL)
+#pairs(tidyCL)
+
+library(scatterplot3d)
+scatterplot3d(tidyCL$CL, tidyCL$Latitude, tidyCL$Longitude)
+library(rgl)
+plot3d(tidyCL$CL, tidyCL$Latitude, tidyCL$Longitude)
+
+
+statsCL <- tidyCL %>%
+  filter(!is.na(CL)) %>%
+  summarise(min = min(CL), max = max(CL), var(CL), mean= mean(CL), median= median(CL))#, skew(CL), kurtosi(CL)) n = n(), 
+
+write.csv(statsCL,file="StatsCL.csv")
 
 ##### Map localities with CL information and sample size (ggplot) ####
 #setwd("//naturkundemuseum-berlin.de/MuseumDFSRoot/Benutzer/Julia.Joos/Eigene Dateien/MA")
