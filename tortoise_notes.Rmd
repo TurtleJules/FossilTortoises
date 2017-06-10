@@ -82,7 +82,7 @@ colnames(test)[6] <- "Mamin"
 colnames(test)[7] <- "Mamax"
 
 Test <- test %>%
-  select(Locality, Country, Latitude, Longitude, Mamin, Mamax, Epoch, Genus, Species, Taxon, CL) %>%
+  dplyr::select(Locality, Country, Latitude, Longitude, Mamin, Mamax, Epoch, Genus, Species, Taxon, CL) %>%
   mutate(Age= (Mamin+Mamax)/2) %>%   # create mean age
   group_by(Latitude) %>%
   mutate(count= n())
