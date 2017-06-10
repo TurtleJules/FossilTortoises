@@ -36,6 +36,12 @@ colnames(tidyCL)[17] <- "CL"
 colnames(tidyCL)[18] <- "PL"
 
 
+statsCL <- tidyCL %>%
+  filter(!is.na(CL)) %>%
+  summarise(min = min(CL), max = max(CL), var(CL), mean= mean(CL), median= median(CL))#, skew(CL), kurtosi(CL)) n = n(), 
+
+
+
 Map <- tidyCL %>%
   select(Genus, Taxon, Latitude, Longitude, Country, CL, PL) %>%
   group_by(Latitude) %>%
@@ -113,6 +119,7 @@ Prepare data for conversion to paleoTS-object:
 SampleSize <- tidyCL %>%
   select(MAmin, Mamax, CL) %>%
   filter(CL != "NA")
+
 length(SampleSize$CL)
 
 

@@ -43,7 +43,7 @@ statsCL <- tidyCL %>%
   filter(!is.na(CL)) %>%
   summarise(min = min(CL), max = max(CL), var(CL), mean= mean(CL), median= median(CL))#, skew(CL), kurtosi(CL)) n = n(), 
 
-write.csv(statsCL,file="StatsCL.csv")
+write.table(statsCL,file="StatsCL.txt", sep="\t", row.names = FALSE)
 
 ##### Map localities with CL information and sample size (ggplot) ####
 #setwd("//naturkundemuseum-berlin.de/MuseumDFSRoot/Benutzer/Julia.Joos/Eigene Dateien/MA")
