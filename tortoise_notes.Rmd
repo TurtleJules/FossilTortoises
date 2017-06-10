@@ -15,73 +15,6 @@ library(ggplot2)
 ```
 
 # 30.05.2017
-Test paleoTS with Fossil Checklist data (but is probably of no use, because they report average body sizes (means, median, something else? what are the respective sample size? maybe ask the authors!?), so this is just for playing around).
-
-Raw data:
-```{r "Checklist data"}
-library(paleoTS)
-#setwd("//naturkundemuseum-berlin.de/MuseumDFSRoot/Benutzer/Julia.Joos/Eigene Dateien/MA")
-test<-read.csv("test26.5.csv", sep=";", header=TRUE)
-test
-```
-
-
-The first plot shows mean Cl size for each taxon as a single data point, so each data point is one species (in this case this equals one individual, since I don't have sample sizes), even within time bins.
-
-```{r "Test paleoTS with Checklist data"}
-Test1 <- test %>%
-  mutate(mm = CL_mean, vv=0, nn= n, tt=Age_mean) %>%
-  dplyr::select(mm, vv, nn, tt)
-
-paleoTest1 <-as.paleoTS(Test1$mm, Test1$vv, Test1$nn, Test1$tt, MM = NULL,
-                        genpars = NULL, label = "Testudinidae body size evolution mode")
-paleoTest1
-plot(paleoTest1)
-```
-
-This is the underlying data for Test1:
-
-```{r "Converted data for paleoTS"}
-Test1
-```
-
-For the second plot, I averaged CL means across taxa for each time bin, which leaves one data point per time bin, comprising all taxa within the respective bin:
-
-```{r "Checklist data disregarding taxa"}
-Test2 <- test %>%
-  group_by(Age_mean) %>%
-  summarise(mm = mean(CL_mean), nn=n(), vv=var(CL_mean)) %>%
-  mutate(tt=Age_mean) %>%
-  dplyr::select(mm, vv, nn, tt)
-
-# NA: column 2, rows 3, 10, 13, 14, 15
-Test2[3,2] <- 0
-Test2[10,2] <- 0
-Test2[13,2] <- 0
-Test2[14,2] <- 0
-Test2[15,2] <- 0
-
-paleoTest2 <-as.paleoTS(Test2$mm, Test2$vv, Test2$nn, Test2$tt, MM = NULL,
-                        genpars = NULL, label = "Testudinidae body size evolution mode")
-paleoTest2
-plot(paleoTest2)
-```
-Since "real" variances and sample sizes are available when pooling all taxa, you can even fit models (as you should be able to in the end).
-(when I remember correctly, the model with the highest Akaike.wt is the best supported one, in this case this would be URW = random walk)
-```{r}
-a=fit3models(paleoTest2, silent=FALSE, method="AD", pool=FALSE)   #not working with Test1, because no variances/sample sizes available, I guess
-str(a)
-a$AICc[1] # not sure what this tells me...
-```
-
-
-
-
-This is the underlying data for Test2:
-```{r "Converted data2 for paleoTS"}
-Test2
-```
-
 
 ## TO DO:
 \begin{itemize}
@@ -93,67 +26,16 @@ Test2
 
 
 # 06.06.2017
-Try paleoTS with some first real data.
-Here is the underlying data:
-
-```{r "Get actual data"}
+```{r "Map fossil records with CL information available"}
 tidyCL<-read.csv("tortoises_tidy.csv", sep=";", header=TRUE)
-tidyCL
 
-```
-
-Prepare data for conversion to paleoTS-object:
-
-```{r "Data preparation for analyses with paleoTS"}
 
 colnames(tidyCL)[6] <- "MAmin"
 colnames(tidyCL)[7] <- "Mamax"
 colnames(tidyCL)[17] <- "CL"
 colnames(tidyCL)[18] <- "PL"
 
-SampleSize <- tidyCL %>%
-  select(MAmin, Mamax, CL) %>%
-  filter(CL != "NA")
-length(SampleSize$CL)
 
-
-TidyCL <- tidyCL %>%
-  select(MAmin, Mamax, CL) %>%
-  filter(CL != "NA") %>%
-  mutate(tt= (MAmin+Mamax)/2) %>% # create mean age
-  group_by(tt) %>% #create time bins
-  summarise(mm=mean(CL), vv=var(CL), nn=n()) #create means etc. for each time bin 
-
-TidyCL[is.na(TidyCL)]<-0 #subset NAs with O for 
-
-TidyCL
-
-
-
-bins <- tidyCL %>%
-#  select(MAmin, Mamax, CL) %>%
-  filter(CL != "NA") %>%
-  mutate(tt= (MAmin+Mamax)/2) %>% # create mean age
-  group_by(tt)
-
-bins
-
-```
-
-
-
-```{r "Try paleoTS with actual data"}
-library(paleoTS)
-paleoTidyCL <-as.paleoTS(TidyCL$mm, TidyCL$vv, TidyCL$nn, TidyCL$tt, MM = NULL, genpars = NULL, label = "Testudinidae body size evolution mode")
-paleoTidyCL
-plot(paleoTidyCL)
-
-fit3models(paleoTidyCL, silent=FALSE, method="AD", pool=FALSE)   #not working with Test1, because no variances/sample sizes available, I guess
-
-```
-
-
-```{r "Map fossil records with CL information available"}
 Map <- tidyCL %>%
   select(Genus, Taxon, Latitude, Longitude, Country, CL, PL) %>%
   group_by(Latitude) %>%
@@ -168,6 +50,7 @@ mp <- Map %>%
   geom_point(aes(Longitude, Latitude,colour=CL, size=count))
 
 mp
+
 
 library(plotly)
 
@@ -212,6 +95,62 @@ ggplotly(map)
 
 ## TO DO:
 * get general statistical overview over data (stru, normal distribution?, mean/mode/median/min/max, hist plot etc. --> see Catalina's paper)
+
+
+
+Try paleoTS with some first real data.
+Here is the underlying data:
+
+```{r "Get actual data"}
+tidyCL
+
+```
+
+Prepare data for conversion to paleoTS-object:
+
+```{r "Data preparation for analyses with paleoTS"}
+
+SampleSize <- tidyCL %>%
+  select(MAmin, Mamax, CL) %>%
+  filter(CL != "NA")
+length(SampleSize$CL)
+
+
+TidyCL <- tidyCL %>%
+  select(MAmin, Mamax, CL) %>%
+  filter(CL != "NA") %>%
+  mutate(tt= (MAmin+Mamax)/2) %>% # create mean age
+  group_by(tt) %>% #create time bins
+  summarise(mm=mean(CL), vv=var(CL), nn=n()) #create means etc. for each time bin 
+
+TidyCL[is.na(TidyCL)]<-0 #subset NAs with O for 
+
+TidyCL
+
+
+
+bins <- tidyCL %>%
+#  select(MAmin, Mamax, CL) %>%
+  filter(CL != "NA") %>%
+  mutate(tt= (MAmin+Mamax)/2) %>% # create mean age
+  group_by(tt)
+
+bins
+
+```
+
+
+
+```{r "Try paleoTS with actual data"}
+library(paleoTS)
+paleoTidyCL <-as.paleoTS(TidyCL$mm, TidyCL$vv, TidyCL$nn, TidyCL$tt, MM = NULL, genpars = NULL, label = "Testudinidae body size evolution mode")
+paleoTidyCL
+plot(paleoTidyCL)
+
+fit3models(paleoTidyCL, silent=FALSE, method="AD", pool=FALSE)   #not working with Test1, because no variances/sample sizes available, I guess
+
+```
+
 
 
 #######################################################################################################

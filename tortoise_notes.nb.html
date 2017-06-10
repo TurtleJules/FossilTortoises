@@ -176,106 +176,6 @@ $(document).ready(function () {
 <!-- rnb-text-begin -->
 <div id="section" class="section level1">
 <h1>30.05.2017</h1>
-<p>Test paleoTS with Fossil Checklist data (but is probably of no use, because they report average body sizes (means, median, something else? what are the respective sample size? maybe ask the authors!?), so this is just for playing around).</p>
-<p>Raw data:</p>
-<!-- rnb-text-end -->
-<!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubGlicmFyeShwYWxlb1RTKVxuI3NldHdkKFwiLy9uYXR1cmt1bmRlbXVzZXVtLWJlcmxpbi5kZS9NdXNldW1ERlNSb290L0JlbnV0emVyL0p1bGlhLkpvb3MvRWlnZW5lIERhdGVpZW4vTUFcIilcbnRlc3Q8LXJlYWQuY3N2KFwidGVzdDI2LjUuY3N2XCIsIHNlcD1cIjtcIiwgaGVhZGVyPVRSVUUpXG50ZXN0XG5gYGAifQ== -->
-<pre class="r"><code>library(paleoTS)
-#setwd(&quot;//naturkundemuseum-berlin.de/MuseumDFSRoot/Benutzer/Julia.Joos/Eigene Dateien/MA&quot;)
-test&lt;-read.csv(&quot;test26.5.csv&quot;, sep=&quot;;&quot;, header=TRUE)
-test</code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-chunk-end -->
-<!-- rnb-text-begin -->
-<p>The first plot shows mean Cl size for each taxon as a single data point, so each data point is one species (in this case this equals one individual, since I don’t have sample sizes), even within time bins.</p>
-<!-- rnb-text-end -->
-<!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuVGVzdDEgPC0gdGVzdCAlPiVcbiAgbXV0YXRlKG1tID0gQ0xfbWVhbiwgdnY9MCwgbm49IG4sIHR0PUFnZV9tZWFuKSAlPiVcbiAgZHBseXI6OnNlbGVjdChtbSwgdnYsIG5uLCB0dClcblxucGFsZW9UZXN0MSA8LWFzLnBhbGVvVFMoVGVzdDEkbW0sIFRlc3QxJHZ2LCBUZXN0MSRubiwgVGVzdDEkdHQsIE1NID0gTlVMTCxcbiAgICAgICAgICAgICAgICAgICAgICAgIGdlbnBhcnMgPSBOVUxMLCBsYWJlbCA9IFwiVGVzdHVkaW5pZGFlIGJvZHkgc2l6ZSBldm9sdXRpb24gbW9kZVwiKVxucGFsZW9UZXN0MVxucGxvdChwYWxlb1Rlc3QxKVxuYGBgIn0= -->
-<pre class="r"><code>Test1 &lt;- test %&gt;%
-  mutate(mm = CL_mean, vv=0, nn= n, tt=Age_mean) %&gt;%
-  dplyr::select(mm, vv, nn, tt)
-
-paleoTest1 &lt;-as.paleoTS(Test1$mm, Test1$vv, Test1$nn, Test1$tt, MM = NULL,
-                        genpars = NULL, label = &quot;Testudinidae body size evolution mode&quot;)
-paleoTest1
-plot(paleoTest1)</code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-chunk-end -->
-<!-- rnb-text-begin -->
-<p>This is the underlying data for Test1:</p>
-<!-- rnb-text-end -->
-<!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuVGVzdDFcbmBgYCJ9 -->
-<pre class="r"><code>Test1</code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-chunk-end -->
-<!-- rnb-text-begin -->
-<p>For the second plot, I averaged CL means across taxa for each time bin, which leaves one data point per time bin, comprising all taxa within the respective bin:</p>
-<!-- rnb-text-end -->
-<!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuVGVzdDIgPC0gdGVzdCAlPiVcbiAgZ3JvdXBfYnkoQWdlX21lYW4pICU+JVxuICBzdW1tYXJpc2UobW0gPSBtZWFuKENMX21lYW4pLCBubj1uKCksIHZ2PXZhcihDTF9tZWFuKSkgJT4lXG4gIG11dGF0ZSh0dD1BZ2VfbWVhbikgJT4lXG4gIGRwbHlyOjpzZWxlY3QobW0sIHZ2LCBubiwgdHQpXG5cbiMgTkE6IGNvbHVtbiAyLCByb3dzIDMsIDEwLCAxMywgMTQsIDE1XG5UZXN0MlszLDJdIDwtIDBcblRlc3QyWzEwLDJdIDwtIDBcblRlc3QyWzEzLDJdIDwtIDBcblRlc3QyWzE0LDJdIDwtIDBcblRlc3QyWzE1LDJdIDwtIDBcblxucGFsZW9UZXN0MiA8LWFzLnBhbGVvVFMoVGVzdDIkbW0sIFRlc3QyJHZ2LCBUZXN0MiRubiwgVGVzdDIkdHQsIE1NID0gTlVMTCxcbiAgICAgICAgICAgICAgICAgICAgICAgIGdlbnBhcnMgPSBOVUxMLCBsYWJlbCA9IFwiVGVzdHVkaW5pZGFlIGJvZHkgc2l6ZSBldm9sdXRpb24gbW9kZVwiKVxucGFsZW9UZXN0MlxucGxvdChwYWxlb1Rlc3QyKVxuYGBgIn0= -->
-<pre class="r"><code>Test2 &lt;- test %&gt;%
-  group_by(Age_mean) %&gt;%
-  summarise(mm = mean(CL_mean), nn=n(), vv=var(CL_mean)) %&gt;%
-  mutate(tt=Age_mean) %&gt;%
-  dplyr::select(mm, vv, nn, tt)
-
-# NA: column 2, rows 3, 10, 13, 14, 15
-Test2[3,2] &lt;- 0
-Test2[10,2] &lt;- 0
-Test2[13,2] &lt;- 0
-Test2[14,2] &lt;- 0
-Test2[15,2] &lt;- 0
-
-paleoTest2 &lt;-as.paleoTS(Test2$mm, Test2$vv, Test2$nn, Test2$tt, MM = NULL,
-                        genpars = NULL, label = &quot;Testudinidae body size evolution mode&quot;)
-paleoTest2
-plot(paleoTest2)</code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-chunk-end -->
-<!-- rnb-text-begin -->
-<p>Since “real” variances and sample sizes are available when pooling all taxa, you can even fit models (as you should be able to in the end). (when I remember correctly, the model with the highest Akaike.wt is the best supported one, in this case this would be URW = random walk)</p>
-<!-- rnb-text-end -->
-<!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuYT1maXQzbW9kZWxzKHBhbGVvVGVzdDIsIHNpbGVudD1GQUxTRSwgbWV0aG9kPVwiQURcIiwgcG9vbD1GQUxTRSkgICAjbm90IHdvcmtpbmcgd2l0aCBUZXN0MSwgYmVjYXVzZSBubyB2YXJpYW5jZXMvc2FtcGxlIHNpemVzIGF2YWlsYWJsZSwgSSBndWVzc1xuYGBgIn0= -->
-<pre class="r"><code>a=fit3models(paleoTest2, silent=FALSE, method=&quot;AD&quot;, pool=FALSE)   #not working with Test1, because no variances/sample sizes available, I guess</code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-output-begin eyJkYXRhIjoiXG5Db21wYXJpbmcgMyBtb2RlbHMgW24gPSAxNCwgbWV0aG9kID0gQURdXG5cbiAgICAgICAgICAgIGxvZ0wgSyAgICAgQUlDYyBBa2Fpa2Uud3RcbkdSVyAgICAtNzAuNDAzOTggMiAxNDUuODk4OSAgICAgMC4zNzNcblVSVyAgICAtNzEuMjY4MTggMSAxNDQuODY5NyAgICAgMC42MjVcblN0YXNpcyAtNzUuNzA0NjAgMiAxNTYuNTAwMSAgICAgMC4wMDJcbiJ9 -->
-<pre><code>
-Comparing 3 models [n = 14, method = AD]
-
-            logL K     AICc Akaike.wt
-GRW    -70.40398 2 145.8989     0.373
-URW    -71.26818 1 144.8697     0.625
-Stasis -75.70460 2 156.5001     0.002</code></pre>
-<!-- rnb-output-end -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuc3RyKGEpXG5gYGAifQ== -->
-<pre class="r"><code>str(a)</code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-output-begin eyJkYXRhIjoiJ2RhdGEuZnJhbWUnOlx0MyBvYnMuIG9mICA0IHZhcmlhYmxlczpcbiAkIGxvZ0wgICAgIDogbnVtICAtNzAuNCAtNzEuMyAtNzUuN1xuICQgSyAgICAgICAgOiBudW0gIDIgMSAyXG4gJCBBSUNjICAgICA6IG51bSAgMTQ2IDE0NSAxNTdcbiAkIEFrYWlrZS53dDogbnVtICAwLjM3MyAwLjYyNSAwLjAwMlxuIn0= -->
-<pre><code>'data.frame':   3 obs. of  4 variables:
- $ logL     : num  -70.4 -71.3 -75.7
- $ K        : num  2 1 2
- $ AICc     : num  146 145 157
- $ Akaike.wt: num  0.373 0.625 0.002</code></pre>
-<!-- rnb-output-end -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuYSRBSUNjWzFdICMgbm90IHN1cmUgd2hhdCB0aGlzIHRlbGxzIG1lLi4uXG5gYGAifQ== -->
-<pre class="r"><code>a$AICc[1] # not sure what this tells me...</code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-output-begin eyJkYXRhIjoiWzFdIDE0NS44OTg5XG4ifQ== -->
-<pre><code>[1] 145.8989</code></pre>
-<!-- rnb-output-end -->
-<!-- rnb-chunk-end -->
-<!-- rnb-text-begin -->
-<p>This is the underlying data for Test2:</p>
-<!-- rnb-text-end -->
-<!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuVGVzdDJcbmBgYCJ9 -->
-<pre class="r"><code>Test2</code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-chunk-end -->
-<!-- rnb-text-begin -->
 <div id="to-do" class="section level2">
 <h2>TO DO:</h2>
 
@@ -283,65 +183,19 @@ Stasis -75.70460 2 156.5001     0.002</code></pre>
 </div>
 <div id="section-1" class="section level1">
 <h1>06.06.2017</h1>
-<p>Try paleoTS with some first real data. Here is the underlying data:</p>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxudGlkeUNMPC1yZWFkLmNzdihcInRvcnRvaXNlc190aWR5LmNzdlwiLCBzZXA9XCI7XCIsIGhlYWRlcj1UUlVFKVxudGlkeUNMXG5cbmBgYCJ9 -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxudGlkeUNMPC1yZWFkLmNzdihcInRvcnRvaXNlc190aWR5LmNzdlwiLCBzZXA9XCI7XCIsIGhlYWRlcj1UUlVFKVxuXG5cbmNvbG5hbWVzKHRpZHlDTClbNl0gPC0gXCJNQW1pblwiXG5jb2xuYW1lcyh0aWR5Q0wpWzddIDwtIFwiTWFtYXhcIlxuY29sbmFtZXModGlkeUNMKVsxN10gPC0gXCJDTFwiXG5jb2xuYW1lcyh0aWR5Q0wpWzE4XSA8LSBcIlBMXCJcblxuXG5NYXAgPC0gdGlkeUNMICU+JVxuICBzZWxlY3QoR2VudXMsIFRheG9uLCBMYXRpdHVkZSwgTG9uZ2l0dWRlLCBDb3VudHJ5LCBDTCwgUEwpICU+JVxuICBncm91cF9ieShMYXRpdHVkZSkgJT4lXG4gIG11dGF0ZShjb3VudD0gbigpKVxuXG5tYXBXb3JsZCA8LSBib3JkZXJzKFwid29ybGRcIiwgY29sb3VyPVwiYXp1cmUzXCIsIGZpbGw9XCJhenVyZTNcIikgIyBjcmVhdGUgYSBsYXllciBvZiBib3JkZXJzXG5cblxubXAgPC0gTWFwICU+JVxuICBnZ3Bsb3QoYWVzKExvbmdpdHVkZSwgTGF0aXR1ZGUpKSArIG1hcFdvcmxkICtcbiMgIGdlb21fcG9pbnQoZmlsbD1cInJlZFwiLCBjb2xvdXI9XCJyZWRcIiwgc2l6ZT0wLjUpICtcbiAgZ2VvbV9wb2ludChhZXMoTG9uZ2l0dWRlLCBMYXRpdHVkZSxjb2xvdXI9Q0wsIHNpemU9Y291bnQpKVxuXG5tcFxuXG5cbmxpYnJhcnkocGxvdGx5KVxuXG5cbmdncGxvdGx5KG1wKVxuXG5gYGAifQ== -->
 <pre class="r"><code>tidyCL&lt;-read.csv(&quot;tortoises_tidy.csv&quot;, sep=&quot;;&quot;, header=TRUE)
-tidyCL
-</code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-chunk-end -->
-<!-- rnb-text-begin -->
-<p>Prepare data for conversion to paleoTS-object:</p>
-<!-- rnb-text-end -->
-<!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuU2FtcGxlU2l6ZSA8LSB0aWR5Q0wgJT4lXG4gIHNlbGVjdChNQW1pbiwgTWFtYXgsIENMKSAlPiVcbiAgZmlsdGVyKENMICE9IFwiTkFcIilcbmxlbmd0aChTYW1wbGVTaXplJENMKVxuXG5cblRpZHlDTCA8LSB0aWR5Q0wgJT4lXG4gIHNlbGVjdChNQW1pbiwgTWFtYXgsIENMKSAlPiVcbiAgZmlsdGVyKENMICE9IFwiTkFcIikgJT4lXG4gIG11dGF0ZSh0dD0gKE1BbWluK01hbWF4KS8yKSAlPiUgIyBjcmVhdGUgbWVhbiBhZ2VcbiAgZ3JvdXBfYnkodHQpICU+JSAjY3JlYXRlIHRpbWUgYmluc1xuICBzdW1tYXJpc2UobW09bWVhbihDTCksIHZ2PXZhcihDTCksIG5uPW4oKSkgI2NyZWF0ZSBtZWFucyBldGMuIGZvciBlYWNoIHRpbWUgYmluIFxuXG5UaWR5Q0xbaXMubmEoVGlkeUNMKV08LTAgI3N1YnNldCBOQXMgd2l0aCBPIGZvciBcblxuVGlkeUNMXG5cbmJpbnMgPC0gdGlkeUNMICU+JVxuIyAgc2VsZWN0KE1BbWluLCBNYW1heCwgQ0wpICU+JVxuICBmaWx0ZXIoQ0wgIT0gXCJOQVwiKSAlPiVcbiAgbXV0YXRlKHR0PSAoTUFtaW4rTWFtYXgpLzIpICU+JSAjIGNyZWF0ZSBtZWFuIGFnZVxuICBncm91cF9ieSh0dClcblxuYmluc1xuXG5gYGAifQ== -->
-<pre class="r"><code>SampleSize &lt;- tidyCL %&gt;%
-  select(MAmin, Mamax, CL) %&gt;%
-  filter(CL != &quot;NA&quot;)
-length(SampleSize$CL)
 
 
-TidyCL &lt;- tidyCL %&gt;%
-  select(MAmin, Mamax, CL) %&gt;%
-  filter(CL != &quot;NA&quot;) %&gt;%
-  mutate(tt= (MAmin+Mamax)/2) %&gt;% # create mean age
-  group_by(tt) %&gt;% #create time bins
-  summarise(mm=mean(CL), vv=var(CL), nn=n()) #create means etc. for each time bin 
+colnames(tidyCL)[6] &lt;- &quot;MAmin&quot;
+colnames(tidyCL)[7] &lt;- &quot;Mamax&quot;
+colnames(tidyCL)[17] &lt;- &quot;CL&quot;
+colnames(tidyCL)[18] &lt;- &quot;PL&quot;
 
-TidyCL[is.na(TidyCL)]&lt;-0 #subset NAs with O for 
 
-TidyCL
-
-bins &lt;- tidyCL %&gt;%
-#  select(MAmin, Mamax, CL) %&gt;%
-  filter(CL != &quot;NA&quot;) %&gt;%
-  mutate(tt= (MAmin+Mamax)/2) %&gt;% # create mean age
-  group_by(tt)
-
-bins
-</code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-chunk-end -->
-<!-- rnb-text-begin -->
-<!-- rnb-text-end -->
-<!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubGlicmFyeShwYWxlb1RTKVxucGFsZW9UaWR5Q0wgPC1hcy5wYWxlb1RTKFRpZHlDTCRtbSwgVGlkeUNMJHZ2LCBUaWR5Q0wkbm4sIFRpZHlDTCR0dCwgTU0gPSBOVUxMLCBnZW5wYXJzID0gTlVMTCwgbGFiZWwgPSBcIlRlc3R1ZGluaWRhZSBib2R5IHNpemUgZXZvbHV0aW9uIG1vZGVcIilcbnBhbGVvVGlkeUNMXG5wbG90KHBhbGVvVGlkeUNMKVxuXG5maXQzbW9kZWxzKHBhbGVvVGlkeUNMLCBzaWxlbnQ9RkFMU0UsIG1ldGhvZD1cIkFEXCIsIHBvb2w9RkFMU0UpICAgI25vdCB3b3JraW5nIHdpdGggVGVzdDEsIGJlY2F1c2Ugbm8gdmFyaWFuY2VzL3NhbXBsZSBzaXplcyBhdmFpbGFibGUsIEkgZ3Vlc3NcblxuYGBgIn0= -->
-<pre class="r"><code>library(paleoTS)
-paleoTidyCL &lt;-as.paleoTS(TidyCL$mm, TidyCL$vv, TidyCL$nn, TidyCL$tt, MM = NULL, genpars = NULL, label = &quot;Testudinidae body size evolution mode&quot;)
-paleoTidyCL
-plot(paleoTidyCL)
-
-fit3models(paleoTidyCL, silent=FALSE, method=&quot;AD&quot;, pool=FALSE)   #not working with Test1, because no variances/sample sizes available, I guess
-</code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-chunk-end -->
-<!-- rnb-text-begin -->
-<!-- rnb-text-end -->
-<!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuTWFwIDwtIHRpZHlDTCAlPiVcbiAgc2VsZWN0KEdlbnVzLCBUYXhvbiwgTGF0aXR1ZGUsIExvbmdpdHVkZSwgQ291bnRyeSwgQ0wsIFBMKSAlPiVcbiAgZ3JvdXBfYnkoTGF0aXR1ZGUpICU+JVxuICBtdXRhdGUoY291bnQ9IG4oKSlcblxubWFwV29ybGQgPC0gYm9yZGVycyhcIndvcmxkXCIsIGNvbG91cj1cImF6dXJlM1wiLCBmaWxsPVwiYXp1cmUzXCIpICMgY3JlYXRlIGEgbGF5ZXIgb2YgYm9yZGVyc1xuXG5cbm1wIDwtIE1hcCAlPiVcbiAgZ2dwbG90KGFlcyhMb25naXR1ZGUsIExhdGl0dWRlKSkgKyBtYXBXb3JsZCArXG4jICBnZW9tX3BvaW50KGZpbGw9XCJyZWRcIiwgY29sb3VyPVwicmVkXCIsIHNpemU9MC41KSArXG4gIGdlb21fcG9pbnQoYWVzKExvbmdpdHVkZSwgTGF0aXR1ZGUsY29sb3VyPUNMLCBzaXplPWNvdW50KSlcblxubXBcblxubGlicmFyeShwbG90bHkpXG5cblxuZ2dwbG90bHkobXApXG5cbmBgYCJ9 -->
-<pre class="r"><code>Map &lt;- tidyCL %&gt;%
+Map &lt;- tidyCL %&gt;%
   select(Genus, Taxon, Latitude, Longitude, Country, CL, PL) %&gt;%
   group_by(Latitude) %&gt;%
   mutate(count= n())
@@ -355,6 +209,7 @@ mp &lt;- Map %&gt;%
   geom_point(aes(Longitude, Latitude,colour=CL, size=count))
 
 mp
+
 
 library(plotly)
 
@@ -408,6 +263,63 @@ ggplotly(map)</code></pre>
 <ul>
 <li>get general statistical overview over data (stru, normal distribution?, mean/mode/median/min/max, hist plot etc. –&gt; see Catalina’s paper)</li>
 </ul>
+<p>Try paleoTS with some first real data. Here is the underlying data:</p>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxudGlkeUNMXG5cbmBgYCJ9 -->
+<pre class="r"><code>tidyCL
+</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<p>Prepare data for conversion to paleoTS-object:</p>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuXG5TYW1wbGVTaXplIDwtIHRpZHlDTCAlPiVcbiAgc2VsZWN0KE1BbWluLCBNYW1heCwgQ0wpICU+JVxuICBmaWx0ZXIoQ0wgIT0gXCJOQVwiKVxubGVuZ3RoKFNhbXBsZVNpemUkQ0wpXG5cblxuVGlkeUNMIDwtIHRpZHlDTCAlPiVcbiAgc2VsZWN0KE1BbWluLCBNYW1heCwgQ0wpICU+JVxuICBmaWx0ZXIoQ0wgIT0gXCJOQVwiKSAlPiVcbiAgbXV0YXRlKHR0PSAoTUFtaW4rTWFtYXgpLzIpICU+JSAjIGNyZWF0ZSBtZWFuIGFnZVxuICBncm91cF9ieSh0dCkgJT4lICNjcmVhdGUgdGltZSBiaW5zXG4gIHN1bW1hcmlzZShtbT1tZWFuKENMKSwgdnY9dmFyKENMKSwgbm49bigpKSAjY3JlYXRlIG1lYW5zIGV0Yy4gZm9yIGVhY2ggdGltZSBiaW4gXG5cblRpZHlDTFtpcy5uYShUaWR5Q0wpXTwtMCAjc3Vic2V0IE5BcyB3aXRoIE8gZm9yIFxuXG5UaWR5Q0xcblxuXG5cbmJpbnMgPC0gdGlkeUNMICU+JVxuIyAgc2VsZWN0KE1BbWluLCBNYW1heCwgQ0wpICU+JVxuICBmaWx0ZXIoQ0wgIT0gXCJOQVwiKSAlPiVcbiAgbXV0YXRlKHR0PSAoTUFtaW4rTWFtYXgpLzIpICU+JSAjIGNyZWF0ZSBtZWFuIGFnZVxuICBncm91cF9ieSh0dClcblxuYmluc1xuXG5gYGAifQ== -->
+<pre class="r"><code>
+SampleSize &lt;- tidyCL %&gt;%
+  select(MAmin, Mamax, CL) %&gt;%
+  filter(CL != &quot;NA&quot;)
+length(SampleSize$CL)
+
+
+TidyCL &lt;- tidyCL %&gt;%
+  select(MAmin, Mamax, CL) %&gt;%
+  filter(CL != &quot;NA&quot;) %&gt;%
+  mutate(tt= (MAmin+Mamax)/2) %&gt;% # create mean age
+  group_by(tt) %&gt;% #create time bins
+  summarise(mm=mean(CL), vv=var(CL), nn=n()) #create means etc. for each time bin 
+
+TidyCL[is.na(TidyCL)]&lt;-0 #subset NAs with O for 
+
+TidyCL
+
+
+
+bins &lt;- tidyCL %&gt;%
+#  select(MAmin, Mamax, CL) %&gt;%
+  filter(CL != &quot;NA&quot;) %&gt;%
+  mutate(tt= (MAmin+Mamax)/2) %&gt;% # create mean age
+  group_by(tt)
+
+bins
+</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubGlicmFyeShwYWxlb1RTKVxucGFsZW9UaWR5Q0wgPC1hcy5wYWxlb1RTKFRpZHlDTCRtbSwgVGlkeUNMJHZ2LCBUaWR5Q0wkbm4sIFRpZHlDTCR0dCwgTU0gPSBOVUxMLCBnZW5wYXJzID0gTlVMTCwgbGFiZWwgPSBcIlRlc3R1ZGluaWRhZSBib2R5IHNpemUgZXZvbHV0aW9uIG1vZGVcIilcbnBhbGVvVGlkeUNMXG5wbG90KHBhbGVvVGlkeUNMKVxuXG5maXQzbW9kZWxzKHBhbGVvVGlkeUNMLCBzaWxlbnQ9RkFMU0UsIG1ldGhvZD1cIkFEXCIsIHBvb2w9RkFMU0UpICAgI25vdCB3b3JraW5nIHdpdGggVGVzdDEsIGJlY2F1c2Ugbm8gdmFyaWFuY2VzL3NhbXBsZSBzaXplcyBhdmFpbGFibGUsIEkgZ3Vlc3NcblxuYGBgIn0= -->
+<pre class="r"><code>library(paleoTS)
+paleoTidyCL &lt;-as.paleoTS(TidyCL$mm, TidyCL$vv, TidyCL$nn, TidyCL$tt, MM = NULL, genpars = NULL, label = &quot;Testudinidae body size evolution mode&quot;)
+paleoTidyCL
+plot(paleoTidyCL)
+
+fit3models(paleoTidyCL, silent=FALSE, method=&quot;AD&quot;, pool=FALSE)   #not working with Test1, because no variances/sample sizes available, I guess
+</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
 <div id="section-3" class="section level103">
 <p></p>
 <p>This is an <a href="http://rmarkdown.rstudio.com">R Markdown</a> Notebook. When you execute code within the notebook, the results appear beneath the code.</p>
@@ -419,7 +331,7 @@ ggplotly(map)</code></pre>
 </div>
 </div>
 
-<div id="rmd-source-code">LS0tDQp0aXRsZTogIkJvZHkgc2l6ZSB0cmVuZHMgaW4gTmVvZ2VuZSB0b3J0b2lzZXMiDQpvdXRwdXQ6DQogIHBkZl9kb2N1bWVudDogZGVmYXVsdA0KICBodG1sX25vdGVib29rOiBkZWZhdWx0DQogIGh0bWxfZG9jdW1lbnQ6IGRlZmF1bHQNCmFsd2F5c19hbGxvd19odG1sOiB5ZXMNCi0tLQ0KDQpgYGB7ciAic2V0dXAiLCBpbmNsdWRlPUZBTFNFfQ0KcmVxdWlyZSgia25pdHIiKQ0Kb3B0c19rbml0JHNldChyb290LmRpciA9ICIvL25hdHVya3VuZGVtdXNldW0tYmVybGluLmRlL011c2V1bURGU1Jvb3QvQmVudXR6ZXIvSnVsaWEuSm9vcy9FaWdlbmUgRGF0ZWllbi9NQSIpDQpsaWJyYXJ5KGRwbHlyKQ0KbGlicmFyeShnZ3Bsb3QyKQ0KYGBgDQoNCiMgMzAuMDUuMjAxNw0KVGVzdCBwYWxlb1RTIHdpdGggRm9zc2lsIENoZWNrbGlzdCBkYXRhIChidXQgaXMgcHJvYmFibHkgb2Ygbm8gdXNlLCBiZWNhdXNlIHRoZXkgcmVwb3J0IGF2ZXJhZ2UgYm9keSBzaXplcyAobWVhbnMsIG1lZGlhbiwgc29tZXRoaW5nIGVsc2U/IHdoYXQgYXJlIHRoZSByZXNwZWN0aXZlIHNhbXBsZSBzaXplPyBtYXliZSBhc2sgdGhlIGF1dGhvcnMhPyksIHNvIHRoaXMgaXMganVzdCBmb3IgcGxheWluZyBhcm91bmQpLg0KDQpSYXcgZGF0YToNCmBgYHtyICJDaGVja2xpc3QgZGF0YSJ9DQpsaWJyYXJ5KHBhbGVvVFMpDQojc2V0d2QoIi8vbmF0dXJrdW5kZW11c2V1bS1iZXJsaW4uZGUvTXVzZXVtREZTUm9vdC9CZW51dHplci9KdWxpYS5Kb29zL0VpZ2VuZSBEYXRlaWVuL01BIikNCnRlc3Q8LXJlYWQuY3N2KCJ0ZXN0MjYuNS5jc3YiLCBzZXA9IjsiLCBoZWFkZXI9VFJVRSkNCnRlc3QNCmBgYA0KDQoNClRoZSBmaXJzdCBwbG90IHNob3dzIG1lYW4gQ2wgc2l6ZSBmb3IgZWFjaCB0YXhvbiBhcyBhIHNpbmdsZSBkYXRhIHBvaW50LCBzbyBlYWNoIGRhdGEgcG9pbnQgaXMgb25lIHNwZWNpZXMgKGluIHRoaXMgY2FzZSB0aGlzIGVxdWFscyBvbmUgaW5kaXZpZHVhbCwgc2luY2UgSSBkb24ndCBoYXZlIHNhbXBsZSBzaXplcyksIGV2ZW4gd2l0aGluIHRpbWUgYmlucy4NCg0KYGBge3IgIlRlc3QgcGFsZW9UUyB3aXRoIENoZWNrbGlzdCBkYXRhIn0NClRlc3QxIDwtIHRlc3QgJT4lDQogIG11dGF0ZShtbSA9IENMX21lYW4sIHZ2PTAsIG5uPSBuLCB0dD1BZ2VfbWVhbikgJT4lDQogIGRwbHlyOjpzZWxlY3QobW0sIHZ2LCBubiwgdHQpDQoNCnBhbGVvVGVzdDEgPC1hcy5wYWxlb1RTKFRlc3QxJG1tLCBUZXN0MSR2diwgVGVzdDEkbm4sIFRlc3QxJHR0LCBNTSA9IE5VTEwsDQogICAgICAgICAgICAgICAgICAgICAgICBnZW5wYXJzID0gTlVMTCwgbGFiZWwgPSAiVGVzdHVkaW5pZGFlIGJvZHkgc2l6ZSBldm9sdXRpb24gbW9kZSIpDQpwYWxlb1Rlc3QxDQpwbG90KHBhbGVvVGVzdDEpDQpgYGANCg0KVGhpcyBpcyB0aGUgdW5kZXJseWluZyBkYXRhIGZvciBUZXN0MToNCg0KYGBge3IgIkNvbnZlcnRlZCBkYXRhIGZvciBwYWxlb1RTIn0NClRlc3QxDQpgYGANCg0KRm9yIHRoZSBzZWNvbmQgcGxvdCwgSSBhdmVyYWdlZCBDTCBtZWFucyBhY3Jvc3MgdGF4YSBmb3IgZWFjaCB0aW1lIGJpbiwgd2hpY2ggbGVhdmVzIG9uZSBkYXRhIHBvaW50IHBlciB0aW1lIGJpbiwgY29tcHJpc2luZyBhbGwgdGF4YSB3aXRoaW4gdGhlIHJlc3BlY3RpdmUgYmluOg0KDQpgYGB7ciAiQ2hlY2tsaXN0IGRhdGEgZGlzcmVnYXJkaW5nIHRheGEifQ0KVGVzdDIgPC0gdGVzdCAlPiUNCiAgZ3JvdXBfYnkoQWdlX21lYW4pICU+JQ0KICBzdW1tYXJpc2UobW0gPSBtZWFuKENMX21lYW4pLCBubj1uKCksIHZ2PXZhcihDTF9tZWFuKSkgJT4lDQogIG11dGF0ZSh0dD1BZ2VfbWVhbikgJT4lDQogIGRwbHlyOjpzZWxlY3QobW0sIHZ2LCBubiwgdHQpDQoNCiMgTkE6IGNvbHVtbiAyLCByb3dzIDMsIDEwLCAxMywgMTQsIDE1DQpUZXN0MlszLDJdIDwtIDANClRlc3QyWzEwLDJdIDwtIDANClRlc3QyWzEzLDJdIDwtIDANClRlc3QyWzE0LDJdIDwtIDANClRlc3QyWzE1LDJdIDwtIDANCg0KcGFsZW9UZXN0MiA8LWFzLnBhbGVvVFMoVGVzdDIkbW0sIFRlc3QyJHZ2LCBUZXN0MiRubiwgVGVzdDIkdHQsIE1NID0gTlVMTCwNCiAgICAgICAgICAgICAgICAgICAgICAgIGdlbnBhcnMgPSBOVUxMLCBsYWJlbCA9ICJUZXN0dWRpbmlkYWUgYm9keSBzaXplIGV2b2x1dGlvbiBtb2RlIikNCnBhbGVvVGVzdDINCnBsb3QocGFsZW9UZXN0MikNCmBgYA0KU2luY2UgInJlYWwiIHZhcmlhbmNlcyBhbmQgc2FtcGxlIHNpemVzIGFyZSBhdmFpbGFibGUgd2hlbiBwb29saW5nIGFsbCB0YXhhLCB5b3UgY2FuIGV2ZW4gZml0IG1vZGVscyAoYXMgeW91IHNob3VsZCBiZSBhYmxlIHRvIGluIHRoZSBlbmQpLg0KKHdoZW4gSSByZW1lbWJlciBjb3JyZWN0bHksIHRoZSBtb2RlbCB3aXRoIHRoZSBoaWdoZXN0IEFrYWlrZS53dCBpcyB0aGUgYmVzdCBzdXBwb3J0ZWQgb25lLCBpbiB0aGlzIGNhc2UgdGhpcyB3b3VsZCBiZSBVUlcgPSByYW5kb20gd2FsaykNCmBgYHtyfQ0KYT1maXQzbW9kZWxzKHBhbGVvVGVzdDIsIHNpbGVudD1GQUxTRSwgbWV0aG9kPSJBRCIsIHBvb2w9RkFMU0UpICAgI25vdCB3b3JraW5nIHdpdGggVGVzdDEsIGJlY2F1c2Ugbm8gdmFyaWFuY2VzL3NhbXBsZSBzaXplcyBhdmFpbGFibGUsIEkgZ3Vlc3MNCnN0cihhKQ0KYSRBSUNjWzFdICMgbm90IHN1cmUgd2hhdCB0aGlzIHRlbGxzIG1lLi4uDQpgYGANCg0KDQoNCg0KVGhpcyBpcyB0aGUgdW5kZXJseWluZyBkYXRhIGZvciBUZXN0MjoNCmBgYHtyICJDb252ZXJ0ZWQgZGF0YTIgZm9yIHBhbGVvVFMifQ0KVGVzdDINCmBgYA0KDQoNCiMjIFRPIERPOg0KXGJlZ2lue2l0ZW1pemV9DQpcaXRlbSBmaWd1cmUgb3V0IGlmIENoZWNrbGlzdCBkYXRhIGlzIG9mIGFueSB1c2UgKG1lYW5zPyBtZWRpYW5zPyBzYW1wbGUgc2l6ZT8pIG9yIHNlZSBpZiBhdXRob3JzIGNhbiBwcm92aWRlIG5lY2Vzc2FyeSBkYXRhDQpcaXRlbSBkbyBwYWxlb1RTIGFuYWx5c2VzIHdpdGggRkZCIGRhdGEgc2V0DQpcaXRlbSByZWFkIEh1bnQgcGFwZXJzIChzZWUgY2l0YXRpb25zIGluIENhdGFsaW5hJ3MgcGFwZXIgMjAwNiwgMjAwOCwgMjAwOCwgMjAxMDsgYWxzbyAyMDE1KQ0KXGl0ZW0gZmlndXJlIG91dCBob3cgdG8gaW1wbGVtZW50IHBoeWxvZ2VueS4uLiB3ZWxsLCBmaWd1cmUgb3V0IGhvdyB0byBkbyBwYWxlb1RTIGFuYWx5c2VzIHdpdGggbW9yZSB0aGFuIG9uZSB0YXhvbiB3aXRob3V0IHBvb2xpbmcgZXZlcnl0aGluZyB0b2dldGhlciAoYXMgaW4gVGVzdDIpDQpcZW5ke2l0ZW1pemV9DQoNCg0KIyAwNi4wNi4yMDE3DQpUcnkgcGFsZW9UUyB3aXRoIHNvbWUgZmlyc3QgcmVhbCBkYXRhLg0KSGVyZSBpcyB0aGUgdW5kZXJseWluZyBkYXRhOg0KDQpgYGB7ciAiR2V0IGFjdHVhbCBkYXRhIn0NCnRpZHlDTDwtcmVhZC5jc3YoInRvcnRvaXNlc190aWR5LmNzdiIsIHNlcD0iOyIsIGhlYWRlcj1UUlVFKQ0KdGlkeUNMDQoNCmBgYA0KDQpQcmVwYXJlIGRhdGEgZm9yIGNvbnZlcnNpb24gdG8gcGFsZW9UUy1vYmplY3Q6DQoNCmBgYHtyICJEYXRhIHByZXBhcmF0aW9uIGZvciBhbmFseXNlcyB3aXRoIHBhbGVvVFMifQ0KU2FtcGxlU2l6ZSA8LSB0aWR5Q0wgJT4lDQogIHNlbGVjdChNQW1pbiwgTWFtYXgsIENMKSAlPiUNCiAgZmlsdGVyKENMICE9ICJOQSIpDQpsZW5ndGgoU2FtcGxlU2l6ZSRDTCkNCg0KDQpUaWR5Q0wgPC0gdGlkeUNMICU+JQ0KICBzZWxlY3QoTUFtaW4sIE1hbWF4LCBDTCkgJT4lDQogIGZpbHRlcihDTCAhPSAiTkEiKSAlPiUNCiAgbXV0YXRlKHR0PSAoTUFtaW4rTWFtYXgpLzIpICU+JSAjIGNyZWF0ZSBtZWFuIGFnZQ0KICBncm91cF9ieSh0dCkgJT4lICNjcmVhdGUgdGltZSBiaW5zDQogIHN1bW1hcmlzZShtbT1tZWFuKENMKSwgdnY9dmFyKENMKSwgbm49bigpKSAjY3JlYXRlIG1lYW5zIGV0Yy4gZm9yIGVhY2ggdGltZSBiaW4gDQoNClRpZHlDTFtpcy5uYShUaWR5Q0wpXTwtMCAjc3Vic2V0IE5BcyB3aXRoIE8gZm9yIA0KDQpUaWR5Q0wNCg0KYmlucyA8LSB0aWR5Q0wgJT4lDQojICBzZWxlY3QoTUFtaW4sIE1hbWF4LCBDTCkgJT4lDQogIGZpbHRlcihDTCAhPSAiTkEiKSAlPiUNCiAgbXV0YXRlKHR0PSAoTUFtaW4rTWFtYXgpLzIpICU+JSAjIGNyZWF0ZSBtZWFuIGFnZQ0KICBncm91cF9ieSh0dCkNCg0KYmlucw0KDQpgYGANCg0KDQoNCmBgYHtyICJUcnkgcGFsZW9UUyB3aXRoIGFjdHVhbCBkYXRhIn0NCmxpYnJhcnkocGFsZW9UUykNCnBhbGVvVGlkeUNMIDwtYXMucGFsZW9UUyhUaWR5Q0wkbW0sIFRpZHlDTCR2diwgVGlkeUNMJG5uLCBUaWR5Q0wkdHQsIE1NID0gTlVMTCwgZ2VucGFycyA9IE5VTEwsIGxhYmVsID0gIlRlc3R1ZGluaWRhZSBib2R5IHNpemUgZXZvbHV0aW9uIG1vZGUiKQ0KcGFsZW9UaWR5Q0wNCnBsb3QocGFsZW9UaWR5Q0wpDQoNCmZpdDNtb2RlbHMocGFsZW9UaWR5Q0wsIHNpbGVudD1GQUxTRSwgbWV0aG9kPSJBRCIsIHBvb2w9RkFMU0UpICAgI25vdCB3b3JraW5nIHdpdGggVGVzdDEsIGJlY2F1c2Ugbm8gdmFyaWFuY2VzL3NhbXBsZSBzaXplcyBhdmFpbGFibGUsIEkgZ3Vlc3MNCg0KYGBgDQoNCg0KYGBge3IgIk1hcCBmb3NzaWwgcmVjb3JkcyB3aXRoIENMIGluZm9ybWF0aW9uIGF2YWlsYWJsZSJ9DQpNYXAgPC0gdGlkeUNMICU+JQ0KICBzZWxlY3QoR2VudXMsIFRheG9uLCBMYXRpdHVkZSwgTG9uZ2l0dWRlLCBDb3VudHJ5LCBDTCwgUEwpICU+JQ0KICBncm91cF9ieShMYXRpdHVkZSkgJT4lDQogIG11dGF0ZShjb3VudD0gbigpKQ0KDQptYXBXb3JsZCA8LSBib3JkZXJzKCJ3b3JsZCIsIGNvbG91cj0iYXp1cmUzIiwgZmlsbD0iYXp1cmUzIikgIyBjcmVhdGUgYSBsYXllciBvZiBib3JkZXJzDQoNCg0KbXAgPC0gTWFwICU+JQ0KICBnZ3Bsb3QoYWVzKExvbmdpdHVkZSwgTGF0aXR1ZGUpKSArIG1hcFdvcmxkICsNCiMgIGdlb21fcG9pbnQoZmlsbD0icmVkIiwgY29sb3VyPSJyZWQiLCBzaXplPTAuNSkgKw0KICBnZW9tX3BvaW50KGFlcyhMb25naXR1ZGUsIExhdGl0dWRlLGNvbG91cj1DTCwgc2l6ZT1jb3VudCkpDQoNCm1wDQoNCmxpYnJhcnkocGxvdGx5KQ0KDQoNCmdncGxvdGx5KG1wKQ0KDQpgYGANCg0KDQojIyBUTyBETzoNCiogbWFwIGxvY2FsaXRpZXMgd2l0aCBkaWZmZXJpbmcgY29sb3JzIGZvcjogQ0wgYXZhaWxhYmxlLCBDTCBleHRyYXBvbGF0ZWQgKGZyb20gUEwgb3IgZmlndXJlcyksIENMIG1pc3NpbmcNCiogY29tcGxldGUgZGF0YSBzZXQhIA0KICArIGdldCBtaXNzaW5nIHJlZmVuY2VzL21ha2UgbGlzdCBvZiBtaXNzaW5nIHJlZmVyZW5jZXMNCg0KDQojIDA4LjA2LjE3DQoNCk1hcCBhbGwgbG9jYWxpdGllcyB3aXRoIHNhbXBsZSBzaXplIGFuZCBhZ2UgaW5kaWNhdGVkIChyZWdhcmRsZXNzIG9mIHdoZXRoZXIgQ0wgaW5mb3JtYXRpb24gaXMgYXZhaWxhYmxlKToNCmBgYHtyICJNYXAgYWxsIHJlY29yZHMgaW5kaWNhdGluZyBhZ2UgYW5kIHNhbXBsZSBzaXplLCBkaXNyZWdhcmRpbmcgYXZhaWxhYmlsaXR5IG9mIENMIn0NCnRlc3Q8LXJlYWQuY3N2KCJ0b3J0b2lzZXMxMy0wNC5jc3YiLCBzZXA9IjsiLCBoZWFkZXI9VFJVRSkNCg0KY29sbmFtZXModGVzdClbNl0gPC0gIk1hbWluIg0KY29sbmFtZXModGVzdClbN10gPC0gIk1hbWF4Ig0KDQpUZXN0IDwtIHRlc3QgJT4lDQogIHNlbGVjdChMb2NhbGl0eSwgQ291bnRyeSwgTGF0aXR1ZGUsIExvbmdpdHVkZSwgTWFtaW4sIE1hbWF4LCBFcG9jaCwgR2VudXMsIFNwZWNpZXMsIFRheG9uLCBDTCkgJT4lDQogIG11dGF0ZShBZ2U9IChNYW1pbitNYW1heCkvMikgJT4lICAgIyBjcmVhdGUgbWVhbiBhZ2UNCiAgZ3JvdXBfYnkoTGF0aXR1ZGUpICU+JQ0KICBtdXRhdGUoY291bnQ9IG4oKSkNCg0KbWFwV29ybGQgPC0gYm9yZGVycygid29ybGQiLCBjb2xvdXI9ImF6dXJlMyIsIGZpbGw9ImF6dXJlMyIpICMgY3JlYXRlIGEgbGF5ZXIgb2YgYm9yZGVycyAgDQogIA0KbWFwIDwtIFRlc3QgJT4lDQogIGdncGxvdChhZXMoTG9uZ2l0dWRlLCBMYXRpdHVkZSkpICsgbWFwV29ybGQgKw0KICAjZ2VvbV9wb2ludChmaWxsPSJyZWQiLCBjb2xvdXI9InJlZCIsIHNpemU9MC41KSArDQogIGdlb21fcG9pbnQoYWVzKExvbmdpdHVkZSwgTGF0aXR1ZGUsY29sb3VyPUFnZSwgc2l6ZT1jb3VudCkpDQoNCm1hcA0KDQpnZ3Bsb3RseShtYXApDQpgYGANCg0KIyMgVE8gRE86DQoqIGdldCBnZW5lcmFsIHN0YXRpc3RpY2FsIG92ZXJ2aWV3IG92ZXIgZGF0YSAoc3RydSwgbm9ybWFsIGRpc3RyaWJ1dGlvbj8sIG1lYW4vbW9kZS9tZWRpYW4vbWluL21heCwgaGlzdCBwbG90IGV0Yy4gLS0+IHNlZSBDYXRhbGluYSdzIHBhcGVyKQ0KDQoNCiMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMNCg0KVGhpcyBpcyBhbiBbUiBNYXJrZG93bl0oaHR0cDovL3JtYXJrZG93bi5yc3R1ZGlvLmNvbSkgTm90ZWJvb2suIFdoZW4geW91IGV4ZWN1dGUgY29kZSB3aXRoaW4gdGhlIG5vdGVib29rLCB0aGUgcmVzdWx0cyBhcHBlYXIgYmVuZWF0aCB0aGUgY29kZS4gDQoNClRyeSBleGVjdXRpbmcgdGhpcyBjaHVuayBieSBjbGlja2luZyB0aGUgKlJ1biogYnV0dG9uIHdpdGhpbiB0aGUgY2h1bmsgb3IgYnkgcGxhY2luZyB5b3VyIGN1cnNvciBpbnNpZGUgaXQgYW5kIHByZXNzaW5nICpDdHJsK1NoaWZ0K0VudGVyKi4gDQoNCkFkZCBhIG5ldyBjaHVuayBieSBjbGlja2luZyB0aGUgKkluc2VydCBDaHVuayogYnV0dG9uIG9uIHRoZSB0b29sYmFyIG9yIGJ5IHByZXNzaW5nICpDdHJsK0FsdCtJKi4NCg0KV2hlbiB5b3Ugc2F2ZSB0aGUgbm90ZWJvb2ssIGFuIEhUTUwgZmlsZSBjb250YWluaW5nIHRoZSBjb2RlIGFuZCBvdXRwdXQgd2lsbCBiZSBzYXZlZCBhbG9uZ3NpZGUgaXQgKGNsaWNrIHRoZSAqUHJldmlldyogYnV0dG9uIG9yIHByZXNzICpDdHJsK1NoaWZ0K0sqIHRvIHByZXZpZXcgdGhlIEhUTUwgZmlsZSkuDQo=</div>
+<div id="rmd-source-code">LS0tDQp0aXRsZTogIkJvZHkgc2l6ZSB0cmVuZHMgaW4gTmVvZ2VuZSB0b3J0b2lzZXMiDQpvdXRwdXQ6DQogIHBkZl9kb2N1bWVudDogZGVmYXVsdA0KICBodG1sX25vdGVib29rOiBkZWZhdWx0DQogIGh0bWxfZG9jdW1lbnQ6IGRlZmF1bHQNCmFsd2F5c19hbGxvd19odG1sOiB5ZXMNCi0tLQ0KDQpgYGB7ciAic2V0dXAiLCBpbmNsdWRlPUZBTFNFfQ0KcmVxdWlyZSgia25pdHIiKQ0Kb3B0c19rbml0JHNldChyb290LmRpciA9ICIvL25hdHVya3VuZGVtdXNldW0tYmVybGluLmRlL011c2V1bURGU1Jvb3QvQmVudXR6ZXIvSnVsaWEuSm9vcy9FaWdlbmUgRGF0ZWllbi9NQSIpDQpsaWJyYXJ5KGRwbHlyKQ0KbGlicmFyeShnZ3Bsb3QyKQ0KYGBgDQoNCiMgMzAuMDUuMjAxNw0KDQojIyBUTyBETzoNClxiZWdpbntpdGVtaXplfQ0KXGl0ZW0gZmlndXJlIG91dCBpZiBDaGVja2xpc3QgZGF0YSBpcyBvZiBhbnkgdXNlIChtZWFucz8gbWVkaWFucz8gc2FtcGxlIHNpemU/KSBvciBzZWUgaWYgYXV0aG9ycyBjYW4gcHJvdmlkZSBuZWNlc3NhcnkgZGF0YQ0KXGl0ZW0gZG8gcGFsZW9UUyBhbmFseXNlcyB3aXRoIEZGQiBkYXRhIHNldA0KXGl0ZW0gcmVhZCBIdW50IHBhcGVycyAoc2VlIGNpdGF0aW9ucyBpbiBDYXRhbGluYSdzIHBhcGVyIDIwMDYsIDIwMDgsIDIwMDgsIDIwMTA7IGFsc28gMjAxNSkNClxpdGVtIGZpZ3VyZSBvdXQgaG93IHRvIGltcGxlbWVudCBwaHlsb2dlbnkuLi4gd2VsbCwgZmlndXJlIG91dCBob3cgdG8gZG8gcGFsZW9UUyBhbmFseXNlcyB3aXRoIG1vcmUgdGhhbiBvbmUgdGF4b24gd2l0aG91dCBwb29saW5nIGV2ZXJ5dGhpbmcgdG9nZXRoZXIgKGFzIGluIFRlc3QyKQ0KXGVuZHtpdGVtaXplfQ0KDQoNCiMgMDYuMDYuMjAxNw0KYGBge3IgIk1hcCBmb3NzaWwgcmVjb3JkcyB3aXRoIENMIGluZm9ybWF0aW9uIGF2YWlsYWJsZSJ9DQp0aWR5Q0w8LXJlYWQuY3N2KCJ0b3J0b2lzZXNfdGlkeS5jc3YiLCBzZXA9IjsiLCBoZWFkZXI9VFJVRSkNCg0KDQpjb2xuYW1lcyh0aWR5Q0wpWzZdIDwtICJNQW1pbiINCmNvbG5hbWVzKHRpZHlDTClbN10gPC0gIk1hbWF4Ig0KY29sbmFtZXModGlkeUNMKVsxN10gPC0gIkNMIg0KY29sbmFtZXModGlkeUNMKVsxOF0gPC0gIlBMIg0KDQoNCk1hcCA8LSB0aWR5Q0wgJT4lDQogIHNlbGVjdChHZW51cywgVGF4b24sIExhdGl0dWRlLCBMb25naXR1ZGUsIENvdW50cnksIENMLCBQTCkgJT4lDQogIGdyb3VwX2J5KExhdGl0dWRlKSAlPiUNCiAgbXV0YXRlKGNvdW50PSBuKCkpDQoNCm1hcFdvcmxkIDwtIGJvcmRlcnMoIndvcmxkIiwgY29sb3VyPSJhenVyZTMiLCBmaWxsPSJhenVyZTMiKSAjIGNyZWF0ZSBhIGxheWVyIG9mIGJvcmRlcnMNCg0KDQptcCA8LSBNYXAgJT4lDQogIGdncGxvdChhZXMoTG9uZ2l0dWRlLCBMYXRpdHVkZSkpICsgbWFwV29ybGQgKw0KIyAgZ2VvbV9wb2ludChmaWxsPSJyZWQiLCBjb2xvdXI9InJlZCIsIHNpemU9MC41KSArDQogIGdlb21fcG9pbnQoYWVzKExvbmdpdHVkZSwgTGF0aXR1ZGUsY29sb3VyPUNMLCBzaXplPWNvdW50KSkNCg0KbXANCg0KDQpsaWJyYXJ5KHBsb3RseSkNCg0KDQpnZ3Bsb3RseShtcCkNCg0KYGBgDQoNCg0KIyMgVE8gRE86DQoqIG1hcCBsb2NhbGl0aWVzIHdpdGggZGlmZmVyaW5nIGNvbG9ycyBmb3I6IENMIGF2YWlsYWJsZSwgQ0wgZXh0cmFwb2xhdGVkIChmcm9tIFBMIG9yIGZpZ3VyZXMpLCBDTCBtaXNzaW5nDQoqIGNvbXBsZXRlIGRhdGEgc2V0ISANCiAgKyBnZXQgbWlzc2luZyByZWZlbmNlcy9tYWtlIGxpc3Qgb2YgbWlzc2luZyByZWZlcmVuY2VzDQoNCg0KIyAwOC4wNi4xNw0KDQpNYXAgYWxsIGxvY2FsaXRpZXMgd2l0aCBzYW1wbGUgc2l6ZSBhbmQgYWdlIGluZGljYXRlZCAocmVnYXJkbGVzcyBvZiB3aGV0aGVyIENMIGluZm9ybWF0aW9uIGlzIGF2YWlsYWJsZSk6DQpgYGB7ciAiTWFwIGFsbCByZWNvcmRzIGluZGljYXRpbmcgYWdlIGFuZCBzYW1wbGUgc2l6ZSwgZGlzcmVnYXJkaW5nIGF2YWlsYWJpbGl0eSBvZiBDTCJ9DQp0ZXN0PC1yZWFkLmNzdigidG9ydG9pc2VzMTMtMDQuY3N2Iiwgc2VwPSI7IiwgaGVhZGVyPVRSVUUpDQoNCmNvbG5hbWVzKHRlc3QpWzZdIDwtICJNYW1pbiINCmNvbG5hbWVzKHRlc3QpWzddIDwtICJNYW1heCINCg0KVGVzdCA8LSB0ZXN0ICU+JQ0KICBzZWxlY3QoTG9jYWxpdHksIENvdW50cnksIExhdGl0dWRlLCBMb25naXR1ZGUsIE1hbWluLCBNYW1heCwgRXBvY2gsIEdlbnVzLCBTcGVjaWVzLCBUYXhvbiwgQ0wpICU+JQ0KICBtdXRhdGUoQWdlPSAoTWFtaW4rTWFtYXgpLzIpICU+JSAgICMgY3JlYXRlIG1lYW4gYWdlDQogIGdyb3VwX2J5KExhdGl0dWRlKSAlPiUNCiAgbXV0YXRlKGNvdW50PSBuKCkpDQoNCm1hcFdvcmxkIDwtIGJvcmRlcnMoIndvcmxkIiwgY29sb3VyPSJhenVyZTMiLCBmaWxsPSJhenVyZTMiKSAjIGNyZWF0ZSBhIGxheWVyIG9mIGJvcmRlcnMgIA0KICANCm1hcCA8LSBUZXN0ICU+JQ0KICBnZ3Bsb3QoYWVzKExvbmdpdHVkZSwgTGF0aXR1ZGUpKSArIG1hcFdvcmxkICsNCiAgI2dlb21fcG9pbnQoZmlsbD0icmVkIiwgY29sb3VyPSJyZWQiLCBzaXplPTAuNSkgKw0KICBnZW9tX3BvaW50KGFlcyhMb25naXR1ZGUsIExhdGl0dWRlLGNvbG91cj1BZ2UsIHNpemU9Y291bnQpKQ0KDQptYXANCg0KZ2dwbG90bHkobWFwKQ0KYGBgDQoNCiMjIFRPIERPOg0KKiBnZXQgZ2VuZXJhbCBzdGF0aXN0aWNhbCBvdmVydmlldyBvdmVyIGRhdGEgKHN0cnUsIG5vcm1hbCBkaXN0cmlidXRpb24/LCBtZWFuL21vZGUvbWVkaWFuL21pbi9tYXgsIGhpc3QgcGxvdCBldGMuIC0tPiBzZWUgQ2F0YWxpbmEncyBwYXBlcikNCg0KDQoNClRyeSBwYWxlb1RTIHdpdGggc29tZSBmaXJzdCByZWFsIGRhdGEuDQpIZXJlIGlzIHRoZSB1bmRlcmx5aW5nIGRhdGE6DQoNCmBgYHtyICJHZXQgYWN0dWFsIGRhdGEifQ0KdGlkeUNMDQoNCmBgYA0KDQpQcmVwYXJlIGRhdGEgZm9yIGNvbnZlcnNpb24gdG8gcGFsZW9UUy1vYmplY3Q6DQoNCmBgYHtyICJEYXRhIHByZXBhcmF0aW9uIGZvciBhbmFseXNlcyB3aXRoIHBhbGVvVFMifQ0KDQpTYW1wbGVTaXplIDwtIHRpZHlDTCAlPiUNCiAgc2VsZWN0KE1BbWluLCBNYW1heCwgQ0wpICU+JQ0KICBmaWx0ZXIoQ0wgIT0gIk5BIikNCmxlbmd0aChTYW1wbGVTaXplJENMKQ0KDQoNClRpZHlDTCA8LSB0aWR5Q0wgJT4lDQogIHNlbGVjdChNQW1pbiwgTWFtYXgsIENMKSAlPiUNCiAgZmlsdGVyKENMICE9ICJOQSIpICU+JQ0KICBtdXRhdGUodHQ9IChNQW1pbitNYW1heCkvMikgJT4lICMgY3JlYXRlIG1lYW4gYWdlDQogIGdyb3VwX2J5KHR0KSAlPiUgI2NyZWF0ZSB0aW1lIGJpbnMNCiAgc3VtbWFyaXNlKG1tPW1lYW4oQ0wpLCB2dj12YXIoQ0wpLCBubj1uKCkpICNjcmVhdGUgbWVhbnMgZXRjLiBmb3IgZWFjaCB0aW1lIGJpbiANCg0KVGlkeUNMW2lzLm5hKFRpZHlDTCldPC0wICNzdWJzZXQgTkFzIHdpdGggTyBmb3IgDQoNClRpZHlDTA0KDQoNCg0KYmlucyA8LSB0aWR5Q0wgJT4lDQojICBzZWxlY3QoTUFtaW4sIE1hbWF4LCBDTCkgJT4lDQogIGZpbHRlcihDTCAhPSAiTkEiKSAlPiUNCiAgbXV0YXRlKHR0PSAoTUFtaW4rTWFtYXgpLzIpICU+JSAjIGNyZWF0ZSBtZWFuIGFnZQ0KICBncm91cF9ieSh0dCkNCg0KYmlucw0KDQpgYGANCg0KDQoNCmBgYHtyICJUcnkgcGFsZW9UUyB3aXRoIGFjdHVhbCBkYXRhIn0NCmxpYnJhcnkocGFsZW9UUykNCnBhbGVvVGlkeUNMIDwtYXMucGFsZW9UUyhUaWR5Q0wkbW0sIFRpZHlDTCR2diwgVGlkeUNMJG5uLCBUaWR5Q0wkdHQsIE1NID0gTlVMTCwgZ2VucGFycyA9IE5VTEwsIGxhYmVsID0gIlRlc3R1ZGluaWRhZSBib2R5IHNpemUgZXZvbHV0aW9uIG1vZGUiKQ0KcGFsZW9UaWR5Q0wNCnBsb3QocGFsZW9UaWR5Q0wpDQoNCmZpdDNtb2RlbHMocGFsZW9UaWR5Q0wsIHNpbGVudD1GQUxTRSwgbWV0aG9kPSJBRCIsIHBvb2w9RkFMU0UpICAgI25vdCB3b3JraW5nIHdpdGggVGVzdDEsIGJlY2F1c2Ugbm8gdmFyaWFuY2VzL3NhbXBsZSBzaXplcyBhdmFpbGFibGUsIEkgZ3Vlc3MNCg0KYGBgDQoNCg0KDQojIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjDQoNClRoaXMgaXMgYW4gW1IgTWFya2Rvd25dKGh0dHA6Ly9ybWFya2Rvd24ucnN0dWRpby5jb20pIE5vdGVib29rLiBXaGVuIHlvdSBleGVjdXRlIGNvZGUgd2l0aGluIHRoZSBub3RlYm9vaywgdGhlIHJlc3VsdHMgYXBwZWFyIGJlbmVhdGggdGhlIGNvZGUuIA0KDQpUcnkgZXhlY3V0aW5nIHRoaXMgY2h1bmsgYnkgY2xpY2tpbmcgdGhlICpSdW4qIGJ1dHRvbiB3aXRoaW4gdGhlIGNodW5rIG9yIGJ5IHBsYWNpbmcgeW91ciBjdXJzb3IgaW5zaWRlIGl0IGFuZCBwcmVzc2luZyAqQ3RybCtTaGlmdCtFbnRlciouIA0KDQpBZGQgYSBuZXcgY2h1bmsgYnkgY2xpY2tpbmcgdGhlICpJbnNlcnQgQ2h1bmsqIGJ1dHRvbiBvbiB0aGUgdG9vbGJhciBvciBieSBwcmVzc2luZyAqQ3RybCtBbHQrSSouDQoNCldoZW4geW91IHNhdmUgdGhlIG5vdGVib29rLCBhbiBIVE1MIGZpbGUgY29udGFpbmluZyB0aGUgY29kZSBhbmQgb3V0cHV0IHdpbGwgYmUgc2F2ZWQgYWxvbmdzaWRlIGl0IChjbGljayB0aGUgKlByZXZpZXcqIGJ1dHRvbiBvciBwcmVzcyAqQ3RybCtTaGlmdCtLKiB0byBwcmV2aWV3IHRoZSBIVE1MIGZpbGUpLg0K</div>
 
 
 
