@@ -37,13 +37,13 @@ colnames(tidyCL)[18] <- "PL"
 
 
 statsCL <- tidyCL %>%
-  filter(!is.na(CL)) %>%
+  dplyr::filter(!is.na(CL)) %>%
   summarise(min = min(CL), max = max(CL), var(CL), mean= mean(CL), median= median(CL))#, skew(CL), kurtosi(CL)) n = n(), 
 
 
 
 Map <- tidyCL %>%
-  select(Genus, Taxon, Latitude, Longitude, Country, CL, PL) %>%
+  dplyr::select(Genus, Taxon, Latitude, Longitude, Country, CL, PL) %>%
   group_by(Latitude) %>%
   mutate(count= n())
 
@@ -87,7 +87,7 @@ Test <- test %>%
   group_by(Latitude) %>%
   mutate(count= n())
 
-mapWorld <- borders("world", colour="azure3", fill="azure3") # create a layer of borders  
+#mapWorld <- borders("world", colour="azure3", fill="azure3") # create a layer of borders  
   
 map <- Test %>%
   ggplot(aes(Longitude, Latitude)) + mapWorld +
@@ -117,15 +117,15 @@ Prepare data for conversion to paleoTS-object:
 ```{r "Data preparation for analyses with paleoTS"}
 
 SampleSize <- tidyCL %>%
-  select(MAmin, Mamax, CL) %>%
+  dplyr::select(MAmin, Mamax, CL) %>%
   filter(CL != "NA")
 
 length(SampleSize$CL)
 
 
 TidyCL <- tidyCL %>%
-  select(MAmin, Mamax, CL) %>%
-  filter(CL != "NA") %>%
+  dplyr::select(MAmin, Mamax, CL) %>%
+  dplyr::filter(CL != "NA") %>%
   mutate(tt= (MAmin+Mamax)/2) %>% # create mean age
   group_by(tt) %>% #create time bins
   summarise(mm=mean(CL), vv=var(CL), nn=n()) #create means etc. for each time bin 
