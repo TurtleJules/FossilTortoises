@@ -41,7 +41,7 @@ plot3d(tidyCL$CL, tidyCL$Latitude, tidyCL$Longitude)
 
 statsCL <- tidyCL %>%
   filter(!is.na(CL)) %>%
-  summarise(min = min(CL), max = max(CL), var(CL), mean= mean(CL), median= median(CL))#, skew(CL), kurtosi(CL)) n = n(), 
+  summarise(min = min(CL), max = max(CL), var(CL), mean= mean(CL), median= median(CL), n=n())#, skew(CL), kurtosi(CL)) n = n(), 
 
 write.table(statsCL,file="StatsCL.txt", sep="\t", row.names = FALSE)
 
