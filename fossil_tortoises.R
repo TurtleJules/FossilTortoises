@@ -21,6 +21,9 @@ colnames(tidyCL)[17] <- "CL"
 colnames(tidyCL)[18] <- "PL"
 
 # write code for: meanAge, meanCL, SampleSize, TimeBins
+tidyCL <-  tidyCL %>%
+  mutate(Age= (MAmin+Mamax)/2)
+
 
 ##### data exploration ####
 str(tidyCL)
@@ -31,12 +34,14 @@ head(tidyCL)
 summary(tidyCL)
 table(tidyCL$Country)
 hist(tidyCL$CL)
+hist(tidyCL$Age)
+
 #pairs(tidyCL)
 
-library(scatterplot3d)
-scatterplot3d(tidyCL$CL, tidyCL$Latitude, tidyCL$Longitude)
-library(rgl)
-plot3d(tidyCL$CL, tidyCL$Latitude, tidyCL$Longitude)
+#library(scatterplot3d)
+#scatterplot3d(tidyCL$CL, tidyCL$Latitude, tidyCL$Longitude)
+#library(rgl)
+#plot3d(tidyCL$CL, tidyCL$Latitude, tidyCL$Longitude)
 
 
 statsCL <- tidyCL %>%
@@ -110,6 +115,41 @@ paleoTidyCL
 plot(paleoTidyCL)
 
 fit3models(paleoTidyCL, silent=FALSE, method="AD", pool=FALSE)   #not working with Test1, because no variances/sample sizes available, I guess##### play around with speciesgeocodeR 07.06.17 #######
+
+
+### with relevant data ####
+unique(tidyCL$Epoch)
+
+PleiPlioCL <- tidyCL %>%
+  filter(Age < 10.000)
+
+length(PleiPlioCL$CL)
+
+PPCL <- PleiPlioCL %>%
+  select(MAmin, Mamax, CL) %>%
+  filter(CL != "NA") %>%
+  mutate(tt= (MAmin+Mamax)/2) %>% # create mean age
+  group_by(tt) %>% #create time bins
+  summarise(mm=mean(CL), vv=var(CL), nn=n()) #create means etc. for each time bin 
+
+PPCL[is.na(PPCL)]<-0 #subset NAs with O for 
+
+PPCL
+
+bins <- PleiPlioCL %>%
+  #  select(MAmin, Mamax, CL) %>%
+  filter(CL != "NA") %>%
+  mutate(tt= (MAmin+Mamax)/2) %>% # create mean age
+  group_by(tt)
+
+bins
+
+
+paleoPPCL <-as.paleoTS(PPCL$mm, PPCL$vv, PPCL$nn, PPCL$tt, MM = NULL, genpars = NULL, label = "Testudinidae body size evolution mode")
+paleoPPCL
+plot(paleoPPCL)
+
+fit3models(paleoPPCL, silent=FALSE, method="AD", pool=FALSE)   #not working with Test1, because no variances/sample sizes available, I guess##### play around with speciesgeocodeR 07.06.17 #######
 
 
 
