@@ -65,6 +65,17 @@ ggplotly(mp)
 
 ```
 
+Get an overview over body size data
+
+```{r "Data structure"}
+tidyCL <-  tidyCL %>%
+  mutate(Age= (MAmin+Mamax)/2)
+
+hist(tidyCL$CL)
+hist(tidyCL$Age)
+
+```
+
 
 ## TO DO:
 * map localities with differing colors for: CL available, CL extrapolated (from PL or figures), CL missing
@@ -159,6 +170,63 @@ fit3models(paleoTidyCL, silent=FALSE, method="AD", pool=FALSE)   #not working wi
 ```
 
 
+#15.06.2017
+
+Use paleoTS with data from the past 10 Mya (today - Pliocene, beginning of Miocene)
+
+```{r "Body size trends from Pliocene/Miocene until today"}
+unique(tidyCL$Epoch)
+
+PleiPlioCL <- tidyCL %>%
+  filter(Age < 10.000)
+
+length(PleiPlioCL$CL)
+
+PPCL <- PleiPlioCL %>%
+  select(MAmin, Mamax, CL) %>%
+  filter(CL != "NA") %>%
+  mutate(tt= (MAmin+Mamax)/2) %>% # create mean age
+  group_by(tt) %>% #create time bins
+  summarise(mm=mean(CL), vv=var(CL), nn=n()) #create means etc. for each time bin 
+
+PPCL[is.na(PPCL)]<-0 #subset NAs with O for 
+
+PPCL
+
+bins <- PleiPlioCL %>%
+  #  select(MAmin, Mamax, CL) %>%
+  filter(CL != "NA") %>%
+  mutate(tt= (MAmin+Mamax)/2) %>% # create mean age
+  group_by(tt)
+
+bins
+
+
+paleoPPCL <-as.paleoTS(PPCL$mm, PPCL$vv, PPCL$nn, PPCL$tt, MM = NULL, genpars = NULL, label = "Testudinidae body size evolution mode")
+paleoPPCL
+plot(paleoPPCL)
+
+fit3models(paleoPPCL, silent=FALSE, method="AD", pool=FALSE)   #not working with Test1, because no variances/sample sizes available, I guess##### play around with speciesgeocodeR 07.06.17 #######
+
+```
+
+
+```{r}
+PPmap <- PleiPlioCL %>%
+  select(Genus, Taxon, Latitude, Longitude, Country, CL, PL, Age) %>%
+  group_by(Latitude) %>%
+  mutate(count= n()) %>%
+  ggplot(aes(Longitude, Latitude)) + mapWorld +
+  geom_point(aes(Longitude, Latitude,colour=Age, size=count))
+
+PPmap
+
+ggplotly(PPmap)
+```
+
+## TO DO: 
+* finish data set
+* 
 
 #######################################################################################################
 

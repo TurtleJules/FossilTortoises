@@ -150,14 +150,32 @@ paleoPPCL
 plot(paleoPPCL)
 
 fit3models(paleoPPCL, silent=FALSE, method="AD", pool=FALSE)   #not working with Test1, because no variances/sample sizes available, I guess##### play around with speciesgeocodeR 07.06.17 #######
+####plot PlioPleiCL-data ###
 
+PPmap <- PleiPlioCL %>%
+  select(Genus, Taxon, Latitude, Longitude, Country, CL, PL, Age) %>%
+  group_by(Latitude) %>%
+  mutate(count= n()) %>%
+  ggplot(aes(Longitude, Latitude)) + mapWorld +
+  geom_point(aes(Longitude, Latitude,colour=Age, size=count))
+
+PPmap
+
+ggplotly(PPmap)
 
 
 ##### Plot all data on map, disregarding availablity of CL-information ####
 
 All<-read.csv("tortoises13-04.csv", sep=";", header=TRUE)
 
-colnames(All)[6] <- "Mamin"
+PPmap <- PleiPlioCL %>%
+  ggplot(aes(Longitude, Latitude)) + mapWorld +
+  #geom_point(fill="red", colour="red", size=0.5) +
+  geom_point(aes(Longitude, Latitude,colour=Age, size=count))
+
+PPmap
+
+ggplotly(PPmap)colnames(All)[6] <- "Mamin"
 colnames(All)[7] <- "Mamax"
 
 ALL <- All %>%
@@ -204,9 +222,9 @@ ggplotly(mapAll) # check if plotly and tidyverse have been loaded
 # PDBD 1.2 v2: https://paleobiodb.org/data1.2/specs_doc.html
 
 
-turtles <- pbdb_occurrences (limit="all", base_name="Testudinidae",
-                  interval="Neogene", vocab="pbdb", show=c("coords", "phylo", "ident"))
-head (turtles)
-turtles$taxon_name
-unique (turtles$matched_name)
+# turtles <- pbdb_occurrences (limit="all", base_name="Testudinidae",
+#                   interval="Neogene", vocab="pbdb", show=c("coords", "phylo", "ident"))
+# head (turtles)
+# turtles$taxon_name
+# unique (turtles$matched_name)
 
