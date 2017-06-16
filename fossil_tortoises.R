@@ -164,7 +164,7 @@ PPmap
 ggplotly(PPmap)
 
 
-##### Plot all data on map, disregarding availablity of CL-information ####
+
 
 
 
@@ -178,12 +178,13 @@ PPmap
 ggplotly(PPmap)
 
 
-colnames(All)[6] <- "Mamin"
-colnames(All)[7] <- "Mamax"
-
+##### Plot all data on map, disregarding availablity of CL-information ####
 
 All<-read.csv("tortoises13-04.csv", sep=";", header=TRUE)
 
+
+colnames(All)[6] <- "Mamin"
+colnames(All)[7] <- "Mamax"
 
 ALL <- All %>%
   select(Locality, Country, Latitude, Longitude, Mamin, Mamax, Epoch, Genus, Species, Taxon, CL) %>%
