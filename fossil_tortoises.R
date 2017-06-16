@@ -157,7 +157,7 @@ PPmap <- PleiPlioCL %>%
   group_by(Latitude) %>%
   mutate(count= n()) %>%
   ggplot(aes(Longitude, Latitude)) + mapWorld +
-  geom_point(aes(Longitude, Latitude,colour=Age, size=count))
+  geom_point(aes(Longitude, Latitude,colour=CL, size=count))
 
 PPmap
 
@@ -166,7 +166,7 @@ ggplotly(PPmap)
 
 ##### Plot all data on map, disregarding availablity of CL-information ####
 
-All<-read.csv("tortoises13-04.csv", sep=";", header=TRUE)
+
 
 PPmap <- PleiPlioCL %>%
   ggplot(aes(Longitude, Latitude)) + mapWorld +
@@ -175,8 +175,15 @@ PPmap <- PleiPlioCL %>%
 
 PPmap
 
-ggplotly(PPmap)colnames(All)[6] <- "Mamin"
+ggplotly(PPmap)
+
+
+colnames(All)[6] <- "Mamin"
 colnames(All)[7] <- "Mamax"
+
+
+All<-read.csv("tortoises13-04.csv", sep=";", header=TRUE)
+
 
 ALL <- All %>%
   select(Locality, Country, Latitude, Longitude, Mamin, Mamax, Epoch, Genus, Species, Taxon, CL) %>%
