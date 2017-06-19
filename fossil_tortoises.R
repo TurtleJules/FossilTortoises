@@ -132,17 +132,32 @@ PPCL <- PleiPlioCL %>%
   group_by(tt) %>% #create time bins
   summarise(mm=mean(CL), vv=var(CL), nn=n()) #create means etc. for each time bin 
 
-PPCL[is.na(PPCL)]<-0 #subset NAs with O for 
+PPCL[is.na(PPCL)]<-0 #subset NAs with O for n=1
+
+
+extant <- read.csv("MFN_testudinidae.csv", sep=";", header=TRUE)  # file: MFN_testudinidae.csv
+
+ExTort <- extant %>%
+  mutate(CL = SCL * 10) %>%
+  dplyr::select(CL) %>%
+  summarise(mm=mean(CL), nn=n(), vv=var(CL), tt=0) %>%
+  select(mm, nn, vv, tt)
+
+ExTort[is.na(ExTort)] <- 0 #subset NAs with O for n=1
+
+
+PPCL <- bind_rows(ExTort, PPCL)
+
 
 PPCL
 
-bins <- PleiPlioCL %>%
-  #  select(MAmin, Mamax, CL) %>%
-  filter(CL != "NA") %>%
-  mutate(tt= (MAmin+Mamax)/2) %>% # create mean age
-  group_by(tt)
-
-bins
+# bins <- PleiPlioCL %>%
+#   #  select(MAmin, Mamax, CL) %>%
+#   filter(CL != "NA") %>%
+#   mutate(tt= (MAmin+Mamax)/2) %>% # create mean age
+#   group_by(tt)
+# 
+# bins
 
 
 paleoPPCL <-as.paleoTS(PPCL$mm, PPCL$vv, PPCL$nn, PPCL$tt, MM = NULL, genpars = NULL, label = "Testudinidae body size evolution mode")
