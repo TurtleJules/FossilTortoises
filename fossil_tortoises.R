@@ -251,3 +251,25 @@ ggplotly(mapAll) # check if plotly and tidyverse have been loaded
 # turtles$taxon_name
 # unique (turtles$matched_name)
 
+library(picante)
+tree <- read.tree("tree.txt")
+plot(tree)
+
+species <- read.table("species.txt")    #_tree
+
+tree_sp <- tree$tip.label
+species_sp <- as.character(species$V1)
+
+matched_tips <- na.omit(match(species_sp,tree_sp))
+free_tips <- tree_sp[-matched_tips]
+
+Tree2 <- drop.tip(tree, free_tips)
+Tree2
+plot(Tree2)
+
+library(phytools)
+writeNexus(tree, file="tree")
+
+treetest <- read.nexus("tree")
+plot(treetest)
+
