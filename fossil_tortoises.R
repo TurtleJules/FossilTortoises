@@ -2,11 +2,16 @@
 library(ggplot2) # for plots and graphs (cheat sheet available)
 library(dplyr) # for organizing data (data wrangling cheat sheet available)
 library(tidyr)
+library(paleoTS) # analyze paleontological time-series
+mapWorld <- borders("world", colour="azure3", fill="azure3") # create a layer of borders, run line at the beginning (before loading plotly)
+library(plotly) # interactive plots
+library(tidyverse) # interactive plots
+
+
 #library(stringi) # process character strings
 ##library(paleobioDB) #to load, visualize and process data from PDBD
 #The following object is masked from 'package:dplyr':  select
 #library(speciesgeocodeR) # categorization of species occurrences for biodiversity, biogeography, ecology and evolution
-library(paleoTS) # analyze paleontological time-series
 
 
 
@@ -60,7 +65,7 @@ Map <- tidyCL %>%
   mutate(count= n())
 
 
-mapWorld <- borders("world", colour="azure3", fill="azure3") # create a layer of borders, run line at the beginning (before loading plotly)
+#mapWorld <- borders("world", colour="azure3", fill="azure3") # create a layer of borders, run line at the beginning (before loading plotly)
 
 
 mapCL <- Map %>%
@@ -73,21 +78,20 @@ mapCL
 
 
 ##### interactive plots with plotly, load only when needed (after creating the "world"-map-environment) ####
-library(plotly) # interactive plots
-library(tidyverse) # interactive plots
+
 
 ggplotly(mapCL) #make map interactive
 
 
 #### Scatterplot CL ~ Age ####
 
-plot <- tidyCL %>%
+CLAge <- tidyCL %>%
   select(Country, Latitude, Longitude, MAmin, Mamax, Genus, Species, Taxon, CL) %>%
   mutate(Age= (MAmin+Mamax)/2) %>%
   ggplot(aes(Age, CL, colour=Genus)) + geom_point()
 
-plot
-ggplotly(plot)
+CLAge
+ggplotly(CLAge)
 
 ##### paleoTS ######
 TidyCL <- tidyCL %>%
@@ -184,6 +188,9 @@ ggplotly(PPmap)
 
 
 PPmap <- PleiPlioCL %>%
+  select(Genus, Taxon, Latitude, Longitude, Country, CL, PL, Age) %>%
+  group_by(Latitude) %>%
+  mutate(count= n()) %>%
   ggplot(aes(Longitude, Latitude)) + mapWorld +
   #geom_point(fill="red", colour="red", size=0.5) +
   geom_point(aes(Longitude, Latitude,colour=Age, size=count))
@@ -280,7 +287,6 @@ plot(treetest)
 #catalina's code
 library(ape)
 library(phytools)
-library(strap)
 # library(phangorn) # to make tree ultramteric
 
 setwd("//naturkundemuseum-berlin.de/MuseumDFSRoot/Benutzer/Julia.Joos/Eigene Dateien/MA/Tortoise_Analyses")
@@ -290,22 +296,23 @@ plot(tree)
 tree2<-extract.clade(tree,findMRCA(tree,c("Manouria_impressa", "Indotestudo_forstenii"))) #package ape
 plot(tree2)
 
-tree <- tree2
+tree2
 
 
 #add fossils
-targetNode<-findMRCA(tree2,c("Lamna_ditropis","Isurus_paucus")) #gives common ancestor     #phytools
-tree2<-bind.tip(tree,"Carcharocles_megalodon",where=targetNode,position=0.002,edge.length=0.02) #phytools
-#possition is ma before the node, lenght is how much it lasted
+targetNode<-findMRCA(tree2,c("Astrochelys_radiata","Aldabrachelys_grandidieri")) #gives common ancestor     #phytools
+tree_fossil<-bind.tip(tree,"Aldabrachelys_abrupta",where=targetNode,position=0.00155,edge.length=0.0021) #phytools
+#position is ma before the node, lenght is how much it lasted
+#A. abrupta: position=0.00155,edge.length=0.0021
+plot(tree_fossil)
 
-
-
-
-# source for the following: http://schmitzlab.info/phylo2.html
-#let's mulitply branches by 40 to cover more time! Try different factors!
-tree$edge.length <- 40*tree$edge.length
-#we also must specify the root time
-tree$root.time <- max(nodeHeights(tree))
-#now we can plot the tree against the geologic timescale
-geoscalePhylo(tree, cex.ts=0.6, cex.tip=0.6)
-#export as pdf
+################ Plot tree on timescale ###############
+# library(strap)
+# # source for the following: http://schmitzlab.info/phylo2.html
+# #let's mulitply branches by 40 to cover more time! Try different factors!
+# tree$edge.length <- 40*tree$edge.length
+# #we also must specify the root time
+# tree$root.time <- max(nodeHeights(tree))
+# #now we can plot the tree against the geologic timescale
+# geoscalePhylo(tree, cex.ts=0.6, cex.tip=0.6)
+# #export as pdf
