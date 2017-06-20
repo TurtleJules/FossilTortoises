@@ -6,12 +6,14 @@ library(paleoTS) # analyze paleontological time-series
 mapWorld <- borders("world", colour="azure3", fill="azure3") # create a layer of borders, run line at the beginning (before loading plotly)
 library(plotly) # interactive plots
 library(tidyverse) # interactive plots
-
-
-#library(stringi) # process character strings
-##library(paleobioDB) #to load, visualize and process data from PDBD
-#The following object is masked from 'package:dplyr':  select
-#library(speciesgeocodeR) # categorization of species occurrences for biodiversity, biogeography, ecology and evolution
+library(ape)
+library(phytools)
+# library(phangorn) # to make tree ultramteric
+# library(picante)
+# library(stringi) # process character strings
+# library(paleobioDB) #to load, visualize and process data from PDBD
+# The following object is masked from 'package:dplyr':  select
+# library(speciesgeocodeR) # categorization of species occurrences for biodiversity, biogeography, ecology and evolution
 
 
 
@@ -75,11 +77,6 @@ mapCL <- Map %>%
 
 
 mapCL
-
-
-##### interactive plots with plotly, load only when needed (after creating the "world"-map-environment) ####
-
-
 ggplotly(mapCL) #make map interactive
 
 
@@ -118,10 +115,9 @@ paleoTidyCL <-as.paleoTS(TidyCL$mm, TidyCL$vv, TidyCL$nn, TidyCL$tt, MM = NULL, 
 paleoTidyCL
 plot(paleoTidyCL)
 
-fit3models(paleoTidyCL, silent=FALSE, method="AD", pool=FALSE)   #not working with Test1, because no variances/sample sizes available, I guess##### play around with speciesgeocodeR 07.06.17 #######
+fit3models(paleoTidyCL, silent=FALSE, method="AD", pool=FALSE)   #not working with Test1, because no variances/sample sizes available, I guess
 
-
-### with relevant data ####
+### paleoTS for Pliocene/Pleistocene ####
 unique(tidyCL$Epoch)
 
 PleiPlioCL <- tidyCL %>%
@@ -168,8 +164,9 @@ paleoPPCL <-as.paleoTS(PPCL$mm, PPCL$vv, PPCL$nn, PPCL$tt, MM = NULL, genpars = 
 paleoPPCL
 plot(paleoPPCL)
 
-fit3models(paleoPPCL, silent=FALSE, method="AD", pool=FALSE)   #not working with Test1, because no variances/sample sizes available, I guess##### play around with speciesgeocodeR 07.06.17 #######
-####plot PlioPleiCL-data ###
+fit3models(paleoPPCL, silent=FALSE, method="AD", pool=FALSE)   #not working with Test1, because no variances/sample sizes available, I guess
+
+#### Map PlioPleiCL-data ###
 
 PPmap <- PleiPlioCL %>%
   select(Genus, Taxon, Latitude, Longitude, Country, CL, PL, Age) %>%
@@ -226,78 +223,13 @@ mapAll
 ggplotly(mapAll) # check if plotly and tidyverse have been loaded
 
 
-
-
-#############################################
-### play around with speciesgeocodeR 7.7.17 ######
-# library(speciesgeocodeR)
-# 
-# # tab-separated file: #SpeciesName Lat Long #additionalColumn
-# Map <- tidyCL %>%
-#   select(Genus, Taxon, Latitude, Longitude, Country, CL, PL)
-# 
-# write.table(Map, "//naturkundemuseum-berlin.de/MuseumDFSRoot/Benutzer/Julia.Joos/Eigene Dateien/MA/map.txt",  sep="\t", row.names = FALSE)
-# 
-# setwd("//naturkundemuseum-berlin.de/MuseumDFSRoot/Benutzer/Julia.Joos/Eigene Dateien/MA")
-# #map<-read.csv("map.csv", sep=";", header=TRUE)
-
-#occurrences
-###occ <- read.table(system.file("extdata","map.csv", package = "speciesgeocodeR"), row.names = NULL)
-
-
-############
-
-
-#paleobioDB: works only with version 1.1 v6 (https://paleobiodb.org/data1.1/occs/single_doc.html)
-# PDBD 1.2 v2: https://paleobiodb.org/data1.2/specs_doc.html
-
-
-# turtles <- pbdb_occurrences (limit="all", base_name="Testudinidae",
-#                   interval="Neogene", vocab="pbdb", show=c("coords", "phylo", "ident"))
-# head (turtles)
-# turtles$taxon_name
-# unique (turtles$matched_name)
-
-
-###########PHYLOGENY ############
-##till's code
-library(picante)
-tree <- read.tree("tree.txt")
-plot(tree)
-
-species <- read.table("species.txt")    #_tree
-
-tree_sp <- tree$tip.label
-species_sp <- as.character(species$V1)
-
-matched_tips <- na.omit(match(species_sp,tree_sp))
-free_tips <- tree_sp[-matched_tips]
-
-Tree2 <- drop.tip(tree, free_tips)
-Tree2
-plot(Tree2)
-
-library(phytools)
-writeNexus(tree, file="tree")
-
-treetest <- read.nexus("tree")
-plot(treetest)
-
-
-#catalina's code
-library(ape)
-library(phytools)
-# library(phangorn) # to make tree ultramteric
-
+########### PHYLOGENY ############
 setwd("//naturkundemuseum-berlin.de/MuseumDFSRoot/Benutzer/Julia.Joos/Eigene Dateien/MA/Tortoise_Analyses")
 #read tree
 tree<-read.nexus("tree.nex") #package ape
 plot(tree)
 tree2<-extract.clade(tree,findMRCA(tree,c("Manouria_impressa", "Indotestudo_forstenii"))) #package ape
 plot(tree2)
-
-tree2
-
 
 #add fossils
 targetNode<-findMRCA(tree2,c("Astrochelys_radiata","Aldabrachelys_grandidieri")) #gives common ancestor     #phytools
@@ -316,3 +248,55 @@ plot(tree_fossil)
 # #now we can plot the tree against the geologic timescale
 # geoscalePhylo(tree, cex.ts=0.6, cex.tip=0.6)
 # #export as pdf
+
+##till's code
+# tree <- read.tree("tree.txt")
+# plot(tree)
+# 
+# species <- read.table("species.txt")    #_tree
+# 
+# tree_sp <- tree$tip.label
+# species_sp <- as.character(species$V1)
+# 
+# matched_tips <- na.omit(match(species_sp,tree_sp))
+# free_tips <- tree_sp[-matched_tips]
+# 
+# Tree2 <- drop.tip(tree, free_tips)
+# Tree2
+# plot(Tree2)
+# 
+# library(phytools)
+# writeNexus(tree, file="tree")
+# 
+# treetest <- read.nexus("tree")
+# plot(treetest)
+
+################### SpeciesGeoCodeR ##########################
+### play around with speciesgeocodeR 7.7.17 ######
+# library(speciesgeocodeR)
+# 
+# # tab-separated file: #SpeciesName Lat Long #additionalColumn
+# Map <- tidyCL %>%
+#   select(Genus, Taxon, Latitude, Longitude, Country, CL, PL)
+# 
+# write.table(Map, "//naturkundemuseum-berlin.de/MuseumDFSRoot/Benutzer/Julia.Joos/Eigene Dateien/MA/map.txt",  sep="\t", row.names = FALSE)
+# 
+# setwd("//naturkundemuseum-berlin.de/MuseumDFSRoot/Benutzer/Julia.Joos/Eigene Dateien/MA")
+# #map<-read.csv("map.csv", sep=";", header=TRUE)
+
+#occurrences
+###occ <- read.table(system.file("extdata","map.csv", package = "speciesgeocodeR"), row.names = NULL)
+
+
+############ PaleoDB #################
+#paleobioDB: works only with version 1.1 v6 (https://paleobiodb.org/data1.1/occs/single_doc.html)
+# PDBD 1.2 v2: https://paleobiodb.org/data1.2/specs_doc.html
+
+# turtles <- pbdb_occurrences (limit="all", base_name="Testudinidae",
+#                   interval="Neogene", vocab="pbdb", show=c("coords", "phylo", "ident"))
+# head (turtles)
+# turtles$taxon_name
+# unique (turtles$matched_name)
+
+
+
