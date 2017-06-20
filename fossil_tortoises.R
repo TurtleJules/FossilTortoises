@@ -280,17 +280,32 @@ plot(treetest)
 #catalina's code
 library(ape)
 library(phytools)
+library(strap)
 # library(phangorn) # to make tree ultramteric
 
 setwd("//naturkundemuseum-berlin.de/MuseumDFSRoot/Benutzer/Julia.Joos/Eigene Dateien/MA/Tortoise_Analyses")
 #read tree
 tree<-read.nexus("tree.nex") #package ape
 plot(tree)
-tree2<-extract.clade(tree,findMRCA(tree,c("Manouria_impressa", "Indotestudo_forstenii"))) #ape
+tree2<-extract.clade(tree,findMRCA(tree,c("Manouria_impressa", "Indotestudo_forstenii"))) #package ape
 plot(tree2)
+
+tree <- tree2
 
 
 #add fossils
 targetNode<-findMRCA(tree2,c("Lamna_ditropis","Isurus_paucus")) #gives common ancestor     #phytools
 tree2<-bind.tip(tree,"Carcharocles_megalodon",where=targetNode,position=0.002,edge.length=0.02) #phytools
 #possition is ma before the node, lenght is how much it lasted
+
+
+
+
+# source for the following: http://schmitzlab.info/phylo2.html
+#let's mulitply branches by 40 to cover more time! Try different factors!
+tree$edge.length <- 40*tree$edge.length
+#we also must specify the root time
+tree$root.time <- max(nodeHeights(tree))
+#now we can plot the tree against the geologic timescale
+geoscalePhylo(tree, cex.ts=0.6, cex.tip=0.6)
+#export as pdf
