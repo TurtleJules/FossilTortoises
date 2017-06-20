@@ -50,10 +50,10 @@ hist(tidyCL$Age)
 #library(rgl)
 #plot3d(tidyCL$CL, tidyCL$Latitude, tidyCL$Longitude)
 
-
+##### Statistics #####
 statsCL <- tidyCL %>%
   filter(!is.na(CL)) %>%
-  summarise(min = min(CL), max = max(CL), var(CL), mean= mean(CL), median= median(CL), n=n())#, skew(CL), kurtosi(CL)) n = n(), 
+  summarise(min = min(CL), max = max(CL), mean= mean(CL), median= median(CL), SD = sd(CL), variance = var(CL), n=n())#, skew(CL), kurtosi(CL)) n = n(), 
 
 write.table(statsCL,file="StatsCL.txt", sep="\t", row.names = FALSE)
 
@@ -145,19 +145,19 @@ ExTort <- extant %>%
 
 ExTort[is.na(ExTort)] <- 0 #subset NAs with O for n=1
 
+sumTort <- read.csv("tortoises_summary.csv", sep=";", header=TRUE)  # file: MFN_testudinidae.csv
 
-PPCL <- bind_rows(ExTort, PPCL)
+SumTort <- sumTort %>%
+#  summarise(mm=sum(meanCLmm), nn=sum(n), vv=var(CL), tt=0)
+  mutate(tt=(Mamin+Mamax)/2, vv=sdCLmm^2, nn=n, mm=meanCLmm) %>%
+  dplyr::select(mm, nn, vv, tt)
+  
+
+
+PPCL <- bind_rows(SumTort,ExTort, PPCL) # 
 
 
 PPCL
-
-# bins <- PleiPlioCL %>%
-#   #  select(MAmin, Mamax, CL) %>%
-#   filter(CL != "NA") %>%
-#   mutate(tt= (MAmin+Mamax)/2) %>% # create mean age
-#   group_by(tt)
-# 
-# bins
 
 
 paleoPPCL <-as.paleoTS(PPCL$mm, PPCL$vv, PPCL$nn, PPCL$tt, MM = NULL, genpars = NULL, label = "Testudinidae body size evolution mode")
@@ -166,6 +166,13 @@ plot(paleoPPCL)
 
 fit3models(paleoPPCL, silent=FALSE, method="AD", pool=FALSE)   #not working with Test1, because no variances/sample sizes available, I guess
 
+# bins <- PleiPlioCL %>%
+#   #  select(MAmin, Mamax, CL) %>%
+#   filter(CL != "NA") %>%
+#   mutate(tt= (MAmin+Mamax)/2) %>% # create mean age
+#   group_by(tt)
+# 
+# bins
 #### Map PlioPleiCL-data ###
 
 PPmap <- PleiPlioCL %>%
@@ -233,10 +240,23 @@ plot(tree2)
 
 #add fossils
 targetNode<-findMRCA(tree2,c("Astrochelys_radiata","Aldabrachelys_grandidieri")) #gives common ancestor     #phytools
-tree_fossil<-bind.tip(tree,"Aldabrachelys_abrupta",where=targetNode,position=0.00155,edge.length=0.0021) #phytools
-#position is ma before the node, lenght is how much it lasted
-#A. abrupta: position=0.00155,edge.length=0.0021
+tree_fossil<-bind.tip(tree,"Aldabrachelys_abrupta",where=targetNode,position=0,edge.length=24.85501) #phytools
+#position is ma before the node, lenght is how long it lasted
+#A. abrupta: position=0,edge.length=24.85501
+#24.855759-0.00075 = edge.lentgh -> but can't be right, because A. abrupta lasted till Late Holocene
 plot(tree_fossil)
+
+
+
+
+## source for the following:http://grokbase.com/t/r/r-sig-phylo/116m5s3fr4/r-nodes-and-taxa-depth
+# I think the ages of species and nodes is displayed, user targetNode to determine wich node you are dealing with
+mytree <- tree_fossil
+
+myvector<-data.frame(as.matrix(dist.nodes(mytree))
+                     [,length(mytree$tip)+1],rownames=c(rbind(mytree$tip.label),c((length(mytree$tip)+1):max(length(dist.nodes(mytree)[,1])))))
+
+
 
 ################ Plot tree on timescale ###############
 # library(strap)
