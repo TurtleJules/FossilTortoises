@@ -152,43 +152,48 @@ SumTort <- sumTort %>%
   mutate(tt=(Mamin+Mamax)/2, vv=sdCLmm^2, nn=n, mm=meanCLmm) %>%
   dplyr::select(mm, nn, vv, tt)
   
-meanALL <- sum(sumTort$meanCLmm)/length(sumTort$meanCLmm)
-varALL <- var(sumTort$meanCLmm)
-nALL <- sum(sumTort$n)
+# meanALL <- sum(sumTort$meanCLmm)/length(sumTort$meanCLmm)
+# varALL <- var(sumTort$meanCLmm)
+# nALL <- sum(sumTort$n)
 
 # combining already summarised data into one value per time bin
 # source: https://www.researchgate.net/post/How_do_I_combine_mean_and_standard_deviation_of_two_groups
 
-PPESCL <- bind_rows(SumTort,ExTort, PPCL)
+PPESCL <- bind_rows(SumTort,ExTort, PPCL) %>%
+  group_by(tt) %>%
+  summarise(mm=sum(nn*mm)/sum(nn), 
+            vv=sum((((nn*mm)^2+(mm-(sum(nn*mm)/sum(nn)))^2)*nn))/sum(nn),
+            nn=sum(nn)
+  )
 
 #   group_by(tt) %>%
 #   summarise(mm=sum(mm)/length(mm),  nn=sum(nn[which(tt==tt)]))  %>%
 # #  group_by(mm) %>%
 #   mutate(vv=var(mm)) %>%
 #   select(mm, nn, vv, tt)
-combiCL <- PPESCL %>%
-  filter(tt==0) %>%   #maybe find a way to automatically filter double tt values...
-  mutate(nx = nn*mm) %>%
-  mutate(mmall=sum(nx)/sum(nn)) %>%
-  mutate(SD=sqrt(nx), d=mm-mmall) %>%
-  mutate(nsd=((nx^2+d^2)*nn)) %>%
-  mutate(varall=sum(nsd)/sum(nn)) #%>%
-#  group_by(tt) %>%
-#  summarise(mm=mmall, nn=sum(nn), vv=varall)
-  
-Combi <- PPESCL %>%
-#  filter(tt==0) %>%
-  group_by(tt) %>%
-  summarise(mm=sum(nn*mm)/sum(nn), 
-         vv=sum((((nn*mm)^2+(mm-(sum(nn*mm)/sum(nn)))^2)*nn))/sum(nn),
-         nn=sum(nn)
-         )
+
+
+# combiCL <- PPESCL %>%
+#   filter(tt==0) %>%   #maybe find a way to automatically filter double tt values...
+#   mutate(nx = nn*mm) %>%
+#   mutate(mmall=sum(nx)/sum(nn)) %>%
+#   mutate(SD=sqrt(nx), d=mm-mmall) %>%
+#   mutate(nsd=((nx^2+d^2)*nn)) %>%
+#   mutate(varall=sum(nsd)/sum(nn)) #%>%
+# 
+# 
+#   
+# Combi <- PPESCL %>%
+#   group_by(tt) %>%
+#   summarise(mm=sum(nn*mm)/sum(nn), 
+#          vv=sum((((nn*mm)^2+(mm-(sum(nn*mm)/sum(nn)))^2)*nn))/sum(nn),
+#          nn=sum(nn)
+#          )
 
 #write.table(combiCL,file="combiCL.txt", sep="\t", row.names = FALSE)
 
 
-PPCL <- PPESCL %>%
-  filter(tt != 0)
+PPCL <- PPESCL 
 
 
 paleoPPCL <-as.paleoTS(PPCL$mm, PPCL$vv, PPCL$nn, PPCL$tt, MM = NULL, genpars = NULL, label = "Testudinidae body size evolution mode")
