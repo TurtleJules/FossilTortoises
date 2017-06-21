@@ -159,12 +159,7 @@ SumTort <- sumTort %>%
 # combining already summarised data into one value per time bin
 # source: https://www.researchgate.net/post/How_do_I_combine_mean_and_standard_deviation_of_two_groups
 
-PPESCL <- bind_rows(SumTort,ExTort, PPCL) %>%
-  group_by(tt) %>%
-  summarise(mm=sum(nn*mm)/sum(nn), 
-            vv=sum((((nn*mm)^2+(mm-(sum(nn*mm)/sum(nn)))^2)*nn))/sum(nn),
-            nn=sum(nn)
-  )
+PPESCL <- bind_rows(SumTort,ExTort, PPCL) 
 
 #   group_by(tt) %>%
 #   summarise(mm=sum(mm)/length(mm),  nn=sum(nn[which(tt==tt)]))  %>%
@@ -173,27 +168,33 @@ PPESCL <- bind_rows(SumTort,ExTort, PPCL) %>%
 #   select(mm, nn, vv, tt)
 
 
-# combiCL <- PPESCL %>%
-#   filter(tt==0) %>%   #maybe find a way to automatically filter double tt values...
-#   mutate(nx = nn*mm) %>%
-#   mutate(mmall=sum(nx)/sum(nn)) %>%
-#   mutate(SD=sqrt(nx), d=mm-mmall) %>%
-#   mutate(nsd=((nx^2+d^2)*nn)) %>%
-#   mutate(varall=sum(nsd)/sum(nn)) #%>%
-# 
-# 
-#   
+combiCL <- PPESCL %>%
+  filter(tt==0) %>%   #maybe find a way to automatically filter double tt values...
+  mutate(nx = nn*mm) %>%
+  mutate(mmall=sum(nx)/sum(nn)) %>%
+  mutate(SD=sqrt(nx), d=mm-mmall) %>%
+  mutate(nsd=((nx^2+d^2)*nn)) %>%
+  mutate(varall=sum(nsd)/sum(nn), n=sum(nn)) %>%
+  dplyr::select(mm=mmall, vv=varall, nn=n, tt) %>%
+  unique()
+
+
+
 # Combi <- PPESCL %>%
-#   group_by(tt) %>%
-#   summarise(mm=sum(nn*mm)/sum(nn), 
-#          vv=sum((((nn*mm)^2+(mm-(sum(nn*mm)/sum(nn)))^2)*nn))/sum(nn),
+#   filter(tt==0) %>%
+# #  group_by(tt) %>%
+#   summarise(mm=sum(nn*mm)/sum(nn),
+#          vv=sum(((nn*mm)^2+(mm-(sum(nn*mm)/sum(nn)))^2)*nn)/sum(nn),  #figure out why it does not show the correct variance!!!
 #          nn=sum(nn)
 #          )
 
 #write.table(combiCL,file="combiCL.txt", sep="\t", row.names = FALSE)
 
 
-PPCL <- PPESCL 
+PPCL <- PPESCL %>%
+  filter(tt !=0) %>%
+  bind_rows(combiCL)%>%
+  arrange(tt)
 
 
 paleoPPCL <-as.paleoTS(PPCL$mm, PPCL$vv, PPCL$nn, PPCL$tt, MM = NULL, genpars = NULL, label = "Testudinidae body size evolution mode")
