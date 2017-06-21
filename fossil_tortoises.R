@@ -152,6 +152,9 @@ SumTort <- sumTort %>%
   mutate(tt=(Mamin+Mamax)/2, vv=sdCLmm^2, nn=n, mm=meanCLmm) %>%
   dplyr::select(mm, nn, vv, tt)
   
+meanALL <- sum(sumTort$meanCLmm)/length(sumTort$meanCLmm)
+varALL <- var(sumTort$meanCLmm)
+nALL <- sum(sumTort$n)
 
 
 PPCL <- bind_rows(SumTort,ExTort, PPCL) # 
@@ -240,7 +243,7 @@ plot(tree2)
 
 #add fossils
 targetNode<-findMRCA(tree2,c("Astrochelys_radiata","Aldabrachelys_grandidieri")) #gives common ancestor     #phytools
-tree_fossil<-bind.tip(tree,"Aldabrachelys_abrupta",where=targetNode,position=0,edge.length=24.85501) #phytools
+tree_fossil<-bind.tip(tree2,"Aldabrachelys_abrupta",where=targetNode,position=0,edge.length=24.85501) #phytools
 #position is ma before the node, lenght is how long it lasted
 #A. abrupta: position=0,edge.length=24.85501
 #24.855759-0.00075 = edge.lentgh -> but can't be right, because A. abrupta lasted till Late Holocene
