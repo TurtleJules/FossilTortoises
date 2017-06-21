@@ -156,11 +156,39 @@ meanALL <- sum(sumTort$meanCLmm)/length(sumTort$meanCLmm)
 varALL <- var(sumTort$meanCLmm)
 nALL <- sum(sumTort$n)
 
+# combining already summarised data into one value per time bin
+# source: https://www.researchgate.net/post/How_do_I_combine_mean_and_standard_deviation_of_two_groups
 
-PPCL <- bind_rows(SumTort,ExTort, PPCL) # 
+PPESCL <- bind_rows(SumTort,ExTort, PPCL)
+
+#   group_by(tt) %>%
+#   summarise(mm=sum(mm)/length(mm),  nn=sum(nn[which(tt==tt)]))  %>%
+# #  group_by(mm) %>%
+#   mutate(vv=var(mm)) %>%
+#   select(mm, nn, vv, tt)
+combiCL <- PPESCL %>%
+  filter(tt==0) %>%   #maybe find a way to automatically filter double tt values...
+  mutate(nx = nn*mm) %>%
+  mutate(mmall=sum(nx)/sum(nn)) %>%
+  mutate(SD=sqrt(nx), d=mm-mmall) %>%
+  mutate(nsd=((nx^2+d^2)*nn)) %>%
+  mutate(varall=sum(nsd)/sum(nn)) #%>%
+#  group_by(tt) %>%
+#  summarise(mm=mmall, nn=sum(nn), vv=varall)
+  
+Combi <- PPESCL %>%
+#  filter(tt==0) %>%
+  group_by(tt) %>%
+  summarise(mm=sum(nn*mm)/sum(nn), 
+         vv=sum((((nn*mm)^2+(mm-(sum(nn*mm)/sum(nn)))^2)*nn))/sum(nn),
+         nn=sum(nn)
+         )
+
+#write.table(combiCL,file="combiCL.txt", sep="\t", row.names = FALSE)
 
 
-PPCL
+PPCL <- PPESCL %>%
+  filter(tt != 0)
 
 
 paleoPPCL <-as.paleoTS(PPCL$mm, PPCL$vv, PPCL$nn, PPCL$tt, MM = NULL, genpars = NULL, label = "Testudinidae body size evolution mode")
@@ -168,6 +196,7 @@ paleoPPCL
 plot(paleoPPCL)
 
 fit3models(paleoPPCL, silent=FALSE, method="AD", pool=FALSE)   #not working with Test1, because no variances/sample sizes available, I guess
+
 
 # bins <- PleiPlioCL %>%
 #   #  select(MAmin, Mamax, CL) %>%
@@ -240,15 +269,17 @@ tree<-read.nexus("tree.nex") #package ape
 plot(tree)
 tree2<-extract.clade(tree,findMRCA(tree,c("Manouria_impressa", "Indotestudo_forstenii"))) #package ape
 plot(tree2)
+axisPhylo()   # add time scale
 
 #add fossils
-targetNode<-findMRCA(tree2,c("Astrochelys_radiata","Aldabrachelys_grandidieri")) #gives common ancestor     #phytools
-tree_fossil<-bind.tip(tree2,"Aldabrachelys_abrupta",where=targetNode,position=0,edge.length=24.85501) #phytools
+targetNode<-findMRCA(tree2,c("Astrochelys_radiata","Aldabrachelys_grandidieri")) #gives common ancestor 
+targetNode<-findMRCA(tree2,c("Aldabrachelys_gigantea","Aldabrachelys_grandidieri")) #gives common ancestor     #phytools
+tree_fossil<-bind.tip(tree2,"Aldabrachelys_abrupta",where=targetNode,position=0,edge.length=32) #phytools
 #position is ma before the node, lenght is how long it lasted
 #A. abrupta: position=0,edge.length=24.85501
-#24.855759-0.00075 = edge.lentgh -> but can't be right, because A. abrupta lasted till Late Holocene
+#34.855759-0.00075 = edge.lentgh -> but can't be right, because A. abrupta lasted till Late Holocene
 plot(tree_fossil)
-
+axisPhylo()
 
 
 
