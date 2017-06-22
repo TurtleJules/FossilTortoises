@@ -280,7 +280,7 @@ axisPhylo()   # add time scale
 #add fossils
 targetNode<-findMRCA(tree2,c("Astrochelys_radiata","Aldabrachelys_grandidieri")) #gives common ancestor 
 targetNode<-findMRCA(tree2,c("Aldabrachelys_gigantea","Aldabrachelys_grandidieri")) #gives common ancestor     #phytools
-tree_fossil<-bind.tip(tree2,"Aldabrachelys_abrupta",where=targetNode,position=0,edge.length=32) #phytools
+tree_fossil<-bind.tip(tree2,"Aldabrachelys_abrupta???",where=targetNode,position=0,edge.length=32) #phytools
 #position is ma before the node, lenght is how long it lasted
 #A. abrupta: position=0,edge.length=24.85501
 #34.855759-0.00075 = edge.lentgh -> but can't be right, because A. abrupta lasted till Late Holocene
@@ -288,14 +288,13 @@ plot(tree_fossil)
 axisPhylo()
 
 
-
-## source for the following:http://grokbase.com/t/r/r-sig-phylo/116m5s3fr4/r-nodes-and-taxa-depth
-# I think the ages of species and nodes is displayed, user targetNode to determine wich node you are dealing with
-mytree <- tree_fossil
-
-myvector<-data.frame(as.matrix(dist.nodes(mytree))
-                     [,length(mytree$tip)+1],rownames=c(rbind(mytree$tip.label),c((length(mytree$tip)+1):max(length(dist.nodes(mytree)[,1])))))
-
+# ## source for the following:http://grokbase.com/t/r/r-sig-phylo/116m5s3fr4/r-nodes-and-taxa-depth
+# # I think the ages of species and nodes is displayed, user targetNode to determine wich node you are dealing with
+# mytree <- tree_fossil
+# 
+# myvector<-data.frame(as.matrix(dist.nodes(mytree))
+#                      [,length(mytree$tip)+1],rownames=c(rbind(mytree$tip.label),c((length(mytree$tip)+1):max(length(dist.nodes(mytree)[,1])))))
+# 
 
 
 ################ Plot tree on timescale ###############
