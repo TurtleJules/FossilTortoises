@@ -1,0 +1,99 @@
+#NEXUS
+[R-package PHYTOOLS, Fri Jun 23 15:02:23 2017]
+
+BEGIN TAXA;
+	DIMENSIONS NTAX = 43;
+	TAXLABELS
+		Aldabrachelys_gigantea
+		Aldabrachelys_grandidieri
+		Astrochelys_radiata
+		Astrochelys_yniphora
+		Centrochelys_sulcata
+		Chelonoidis_abingdonii
+		Chelonoidis_becki
+		Chelonoidis_carbonarius
+		Chelonoidis_chilensis
+		Chelonoidis_darwini
+		Chelonoidis_denticulatus
+		Chelonoidis_duncanensis
+		Chelonoidis_niger
+		Chelonoidis_phantastica
+		Chelonoidis_porteri
+		Chelonoidis_vicina
+		Chersina_angulata
+		Geochelone_elegans
+		Geochelone_platynota
+		Gopherus_agassizii
+		Gopherus_berlandieri
+		Gopherus_flavomarginatus
+		Gopherus_polyphemus
+		Homopus_boulengeri
+		Homopus_signatus
+		Indotestudo_elongata
+		Indotestudo_forstenii
+		Indotestudo_travancorica
+		Kinixys_belliana
+		Kinixys_homeana
+		Kinixys_natalensis
+		Malacochersus_tornieri
+		Manouria_emys
+		Manouria_impressa
+		Psammobates_tentorius
+		Pyxis_arachnoides
+		Pyxis_planicauda
+		Stigmochelys_pardalis
+		Testudo_graeca
+		Testudo_hermanni
+		Testudo_horsfieldii
+		Testudo_kleinmanni
+		Testudo_marginata
+	;
+END;
+BEGIN TREES;
+	TRANSLATE
+		1	Aldabrachelys_gigantea,
+		2	Aldabrachelys_grandidieri,
+		3	Astrochelys_radiata,
+		4	Astrochelys_yniphora,
+		5	Centrochelys_sulcata,
+		6	Chelonoidis_abingdonii,
+		7	Chelonoidis_becki,
+		8	Chelonoidis_carbonarius,
+		9	Chelonoidis_chilensis,
+		10	Chelonoidis_darwini,
+		11	Chelonoidis_denticulatus,
+		12	Chelonoidis_duncanensis,
+		13	Chelonoidis_niger,
+		14	Chelonoidis_phantastica,
+		15	Chelonoidis_porteri,
+		16	Chelonoidis_vicina,
+		17	Chersina_angulata,
+		18	Geochelone_elegans,
+		19	Geochelone_platynota,
+		20	Gopherus_agassizii,
+		21	Gopherus_berlandieri,
+		22	Gopherus_flavomarginatus,
+		23	Gopherus_polyphemus,
+		24	Homopus_boulengeri,
+		25	Homopus_signatus,
+		26	Indotestudo_elongata,
+		27	Indotestudo_forstenii,
+		28	Indotestudo_travancorica,
+		29	Kinixys_belliana,
+		30	Kinixys_homeana,
+		31	Kinixys_natalensis,
+		32	Malacochersus_tornieri,
+		33	Manouria_emys,
+		34	Manouria_impressa,
+		35	Psammobates_tentorius,
+		36	Pyxis_arachnoides,
+		37	Pyxis_planicauda,
+		38	Stigmochelys_pardalis,
+		39	Testudo_graeca,
+		40	Testudo_hermanni,
+		41	Testudo_horsfieldii,
+		42	Testudo_kleinmanni,
+		43	Testudo_marginata
+	;
+	TREE * UNTITLED = [&R] (((((27:16.090967,(26:10.085108,28:10.085108):6.005859):18.840885,32:34.931851):5.544124,(((43:15.648904,42:15.648904):9.387789,39:25.036693):9.763357,(40:31.748422,41:31.748422):3.051628):5.675925):12.296597,((((31:21.663624,(30:17.083988,29:17.083988):4.579636):16.881293,(5:31.176466,(18:11.740627,19:11.740627):19.435839):7.368451):3.317743,(((7:5.925783,(14:4.205663,(((12:0.796274,6:0.796274):1.639037,(13:1.275807,15:1.275807):1.159504):0.925644,(16:1.102156,10:1.102156):2.258799):0.844708):1.72012):18.154225,9:24.080007):9.405208,(11:26.12571,8:26.12571):7.359506):8.377444):3.815078,(((38:31.375246,35:31.375246):7.250188,(17:29.235264,(25:15.799217,24:15.799217):13.436047):9.39017):5.165894,((2:32.789189,((36:16.456265,37:16.456265):13.909519,1:30.365784):2.423405):2.934657,(4:30.760212,3:30.760212):4.963634):8.067483):1.886409):7.094835):7.807032,(((22:9.574684,23:9.574684):17.689662,(21:15.935965,20:15.935965):11.328382):26.967429,(33:30.042117,34:30.042117):24.189659):6.347829);
+END;

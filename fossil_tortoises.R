@@ -28,6 +28,8 @@ colnames(tidyCL)[17] <- "CL"
 colnames(tidyCL)[18] <- "PL"
 colnames(tidyCL)[21] <- "estimated"
 
+tidyCL <-  tidyCL %>%
+  mutate(Age= (MAmin+Mamax)/2)
 
 ####### import extant data ####
 extant <- read.csv("MFN_testudinidae.csv", sep=";", header=TRUE)  # file: MFN_testudinidae.csv
@@ -38,10 +40,6 @@ colnames(extant)[11] <- "PLmid"
 
 Extant <- extant %>%
   mutate(CL = SCL * 10, PL=PL*10, PLmid=PLmid*10) 
-
-# write code for: meanAge, meanCL, SampleSize, TimeBins
-tidyCL <-  tidyCL %>%
-  mutate(Age= (MAmin+Mamax)/2)
 
 
 ##### data exploration ####
@@ -55,6 +53,7 @@ table(tidyCL$Country)
 hist(tidyCL$CL)
 hist(tidyCL$PL)
 hist(tidyCL$Age)
+
 
 #pairs(tidyCL)
 
@@ -88,22 +87,30 @@ statsPLextant <- Extant %>%
 
 CLPLtidy <- tidyCL %>%
   filter(!is.na(CL) & !is.na(PL)) %>%
-  dplyr::select(Taxon, CL, PL, size, Age) %>%
+  dplyr::select(Taxon, CL, PL, size, Age, Island, Continent) %>%
   mutate(ratio=CL/PL) %>%
   group_by(Taxon) %>% #to show ratios per Taxon, leave out to get a total ratio
   summarise(meanRatio=round(mean(ratio),2), sdRatio=round(sd(ratio),2), n=n(), min=min(ratio), max=max(ratio))
 
 CLPLextant <- Extant %>%
   filter(!is.na(CL) & !is.na(PL)) %>%
-  dplyr::select(Taxon=Species, CL, PL, PLmid) %>%
-  mutate(ratio=CL/PL, ratioMid=CL/PLmid) %>%
-#  group_by(Taxon) %>% #to show ratios per Taxon, leave out to get a total ratio
+  dplyr::select(Taxon=Species, CL, PL, PLmid, Island, Continent) %>%
+  mutate(ratio=CL/PL, ratioMid=CL/PLmid)
+  #group_by(Taxon) %>% #to show ratios per Taxon, leave out to get a total ratio
+  #  summarise(meanRatio=round(mean(ratio),2), sdRatio=round(sd(ratio),2), n=n(), min=min(ratio), max=max(ratio))
+
+Ratio <- CLPLextant %>%
   summarise(meanRatio=round(mean(ratio),2), sdRatio=round(sd(ratio),2), n=n(), min=min(ratio), max=max(ratio))
 
+RatioSpecies <- CLPLextant %>%
+  group_by(Taxon) %>% #to show ratios per Taxon, leave out to get a total ratio
+  summarise(meanRatio=round(mean(ratio),2), sdRatio=round(sd(ratio),2), n=n(), min=min(ratio), max=max(ratio))
+
+
 testRatio <- tidyCL %>%
-  dplyr::select(Taxon, CL, PL, size, estimated, Age) %>%
-  mutate(extraCL = PL*CLPLextant$meanRatio) %>%
-  dplyr::select(Taxon, CL, extraCL, PL, size, estimated, Age)
+  dplyr::select(Taxon, CL, PL, size, estimated, Age, Island, Continent) %>%
+  mutate(extraCL = PL*Ratio$meanRatio) %>%
+  dplyr::select(Taxon, CL, extraCL, PL, size, estimated, Age, Island, Continent)
 
 #write.table(testRatio,file="RatioCLPL.txt", sep="\t", row.names = FALSE)
 
@@ -209,7 +216,7 @@ SumTort <- sumTort %>%
 # combining already summarised data into one value per time bin
 # source: https://www.researchgate.net/post/How_do_I_combine_mean_and_standard_deviation_of_two_groups
 
-PPESCL <- bind_rows(SumTort,ExTort, PPCL) 
+PPESCL <- bind_rows(SumTort,ExTort, PPCL)
 
 #   group_by(tt) %>%
 #   summarise(mm=sum(mm)/length(mm),  nn=sum(nn[which(tt==tt)]))  %>%
@@ -292,7 +299,6 @@ fit3models(paleoPPPL, silent=FALSE, method="AD", pool=FALSE)   #not working with
 
 ###### paleoTS with extrapolated CLs #####
 
-#TEST$UNIT[is.na(TEST$UNIT)] <- TEST$STATUS[is.na(TEST$UNIT)]
 TR <- testRatio
 
 TR$CL[is.na(TR$CL)] <- TR$extraCL[is.na(TR$CL)]
@@ -350,6 +356,67 @@ paleoPPCL
 plot(paleoPPCL)
 
 fit3models(paleoPPCL, silent=FALSE, method="AD", pool=FALSE)   #not working with Test1, because no variances/sample sizes available, I guess
+
+#############without Island species ###########
+TR <- testRatio
+
+TR$CL[is.na(TR$CL)] <- TR$extraCL[is.na(TR$CL)]
+
+paleoTR <- TR %>%
+  filter(Age < 10.000) %>%
+  filter(Island=="n")
+
+length(paleoTR$CL)
+
+PTR <- paleoTR %>%
+  select(Age, CL) %>%
+  filter(CL != "NA") %>%
+  mutate(tt= Age) %>% # create mean age
+  group_by(tt) %>% #create time bins
+  summarise(mm=mean(CL), vv=var(CL), nn=n()) #create means etc. for each time bin 
+
+PTR[is.na(PTR)]<-0 #subset NAs with O for n=1
+
+
+ExTort <- extant %>%
+  mutate(CL = SCL * 10) %>%
+  dplyr::select(CL) %>%
+  summarise(mm=mean(CL), nn=n(), vv=var(CL), tt=0) %>%
+  select(mm, nn, vv, tt)
+
+ExTort[is.na(ExTort)] <- 0 #subset NAs with O for n=1
+
+#sumTort <- read.csv("tortoises_summary.csv", sep=";", header=TRUE)  # file: MFN_testudinidae.csv
+
+# SumTort <- sumTort %>%
+#   filter(Island=="n") %>%
+#   mutate(tt=(Mamin+Mamax)/2, vv=sdCLmm^2, nn=n, mm=meanCLmm) %>%
+#   dplyr::select(mm, nn, vv, tt)
+
+PTRES <- bind_rows(ExTort, PTR) #SumTort,
+
+# combiCL <- PTRES %>%
+#   filter(tt==0) %>%   #maybe find a way to automatically filter double tt values...
+#   mutate(nx = nn*mm) %>%
+#   mutate(mmall=sum(nx)/sum(nn)) %>%
+#   mutate(SD=sqrt(nx), d=mm-mmall) %>%
+#   mutate(nsd=((nx^2+d^2)*nn)) %>%
+#   mutate(varall=sum(nsd)/sum(nn), n=sum(nn)) %>%
+#   dplyr::select(mm=mmall, vv=varall, nn=n, tt) %>%
+#   unique()
+
+
+PPCL <- PTRES %>%
+  filter(tt !=0) %>%
+  bind_rows(combiCL)%>%
+  arrange(tt)
+
+
+paleoPPCL <-as.paleoTS(PPCL$mm, PPCL$vv, PPCL$nn, PPCL$tt, MM = NULL, genpars = NULL, label = "Testudinidae body size evolution mode, Pliocene, extrapolated CL")
+paleoPPCL
+plot(paleoPPCL)
+
+fit3models(paleoPPCL, silent=FALSE, method="AD", pool=FALSE)  
 
 
 
@@ -419,6 +486,8 @@ tree2<-extract.clade(tree,findMRCA(tree,c("Manouria_impressa", "Indotestudo_fors
 plot(tree2)
 axisPhylo()   # add time scale
 
+writeNexus(tree2, file="tree_testudinidae.nex")
+
 #add fossils
 targetNode<-findMRCA(tree2,c("Astrochelys_radiata","Aldabrachelys_grandidieri")) #gives common ancestor 
 targetNode<-findMRCA(tree2,c("Aldabrachelys_gigantea","Aldabrachelys_grandidieri")) #gives common ancestor     #phytools
@@ -429,6 +498,7 @@ tree_fossil<-bind.tip(tree2,"Aldabrachelys_abrupta†",where=targetNode,position
 plot(tree_fossil)
 axisPhylo()
 
+writeNexus(tree_fossil, file="tree_fossil.nex")
 
 # ## source for the following:http://grokbase.com/t/r/r-sig-phylo/116m5s3fr4/r-nodes-and-taxa-depth
 # # I think the ages of species and nodes is displayed, user targetNode to determine wich node you are dealing with
