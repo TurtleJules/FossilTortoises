@@ -26,6 +26,18 @@ colnames(tidyCL)[6] <- "MAmin"
 colnames(tidyCL)[7] <- "Mamax"
 colnames(tidyCL)[17] <- "CL"
 colnames(tidyCL)[18] <- "PL"
+colnames(tidyCL)[21] <- "estimated"
+
+
+####### import extant data ####
+extant <- read.csv("MFN_testudinidae.csv", sep=";", header=TRUE)  # file: MFN_testudinidae.csv
+
+colnames(extant)[10] <- "PL"
+colnames(extant)[11] <- "PLmid"
+
+
+Extant <- extant %>%
+  mutate(CL = SCL * 10, PL=PL*10, PLmid=PLmid*10) 
 
 # write code for: meanAge, meanCL, SampleSize, TimeBins
 tidyCL <-  tidyCL %>%
@@ -55,7 +67,45 @@ statsCL <- tidyCL %>%
   filter(!is.na(CL)) %>%
   summarise(min = min(CL), max = max(CL), mean= mean(CL), median= median(CL), SD = sd(CL), variance = var(CL), n=n())#, skew(CL), kurtosi(CL)) n = n(), 
 
+statsPL <- tidyCL %>%
+  filter(!is.na(PL)) %>%
+  summarise(min = min(PL), max = max(PL), mean= mean(PL), median= median(PL), SD = sd(PL), variance = var(PL), n=n())#, skew(CL), kurtosi(CL)) n = n(), 
+
+
 write.table(statsCL,file="StatsCL.txt", sep="\t", row.names = FALSE)
+
+
+statsCLextant <- Extant %>%
+  filter(!is.na(CL)) %>%
+  summarise(min = min(CL), max = max(CL), mean= mean(CL), median= median(CL), SD = sd(CL), variance = var(CL), n=n())#, skew(CL), kurtosi(CL)) n = n(), 
+
+statsPLextant <- Extant %>%
+  filter(!is.na(PL)) %>%
+  summarise(min = min(PL), max = max(PL), mean= mean(PL), median= median(PL), SD = sd(PL), variance = var(PL), n=n())#, skew(CL), kurtosi(CL)) n = n(), 
+
+##########Extrapolate CL from Plastronlength########
+
+CLPLtidy <- tidyCL %>%
+  filter(!is.na(CL) & !is.na(PL)) %>%
+  dplyr::select(Taxon, CL, PL, size) %>%
+  mutate(ratio=CL/PL) %>%
+  group_by(Taxon) %>% #to show ratios per Taxon, leave out to get a total ratio
+  summarise(meanRatio=round(mean(ratio),2), sdRatio=round(sd(ratio),2), n=n(), min=min(ratio), max=max(ratio))
+
+CLPLextant <- Extant %>%
+  filter(!is.na(CL) & !is.na(PL)) %>%
+  dplyr::select(Taxon=Species, CL, PL, PLmid) %>%
+  mutate(ratio=CL/PL, ratioMid=CL/PLmid) %>%
+  group_by(Taxon) %>% #to show ratios per Taxon, leave out to get a total ratio
+  summarise(meanRatio=round(mean(ratio),2), sdRatio=round(sd(ratio),2), n=n(), min=min(ratio), max=max(ratio))
+
+testRatio <- tidyCL %>%
+  dplyr::select(Taxon, CL, PL, size, estimated) %>%
+  mutate(extraCL = PL*CLPLextant$meanRatio) %>%
+  dplyr::select(Taxon, CL, extraCL, PL, size, estimated)
+
+write.table(testRatio,file="RatioCLPL.txt", sep="\t", row.names = FALSE)
+
 
 ##### Map localities with CL information and sample size (ggplot) ####
 #setwd("//naturkundemuseum-berlin.de/MuseumDFSRoot/Benutzer/Julia.Joos/Eigene Dateien/MA")
@@ -111,7 +161,7 @@ bins <- tidyCL %>%
 bins
 
 
-paleoTidyCL <-as.paleoTS(TidyCL$mm, TidyCL$vv, TidyCL$nn, TidyCL$tt, MM = NULL, genpars = NULL, label = "Testudinidae body size evolution mode")
+paleoTidyCL <-as.paleoTS(TidyCL$mm, TidyCL$vv, TidyCL$nn, TidyCL$tt, MM = NULL, genpars = NULL, label = "Testudinidae body size evolution mode, Miocene, CL")
 paleoTidyCL
 plot(paleoTidyCL)
 
@@ -135,7 +185,6 @@ PPCL <- PleiPlioCL %>%
 PPCL[is.na(PPCL)]<-0 #subset NAs with O for n=1
 
 
-extant <- read.csv("MFN_testudinidae.csv", sep=";", header=TRUE)  # file: MFN_testudinidae.csv
 
 ExTort <- extant %>%
   mutate(CL = SCL * 10) %>%
@@ -197,7 +246,7 @@ PPCL <- PPESCL %>%
   arrange(tt)
 
 
-paleoPPCL <-as.paleoTS(PPCL$mm, PPCL$vv, PPCL$nn, PPCL$tt, MM = NULL, genpars = NULL, label = "Testudinidae body size evolution mode")
+paleoPPCL <-as.paleoTS(PPCL$mm, PPCL$vv, PPCL$nn, PPCL$tt, MM = NULL, genpars = NULL, label = "Testudinidae body size evolution mode, Pliocene, CL")
 paleoPPCL
 plot(paleoPPCL)
 
@@ -211,6 +260,41 @@ fit3models(paleoPPCL, silent=FALSE, method="AD", pool=FALSE)   #not working with
 #   group_by(tt)
 # 
 # bins
+
+#### with plastron lengths ####
+PPPL <- PleiPlioCL %>%
+  select(MAmin, Mamax, PL) %>%
+  filter(PL != "NA") %>%
+  mutate(tt= (MAmin+Mamax)/2) %>% # create mean age
+  group_by(tt) %>% #create time bins
+  summarise(mm=mean(PL), vv=var(PL), nn=n()) #create means etc. for each time bin 
+
+PPPL[is.na(PPPL)]<-0 #subset NAs with O for n=1
+
+
+ExTortP <- extant %>%
+  mutate(PL = PL * 10) %>%
+  dplyr::select(PL) %>%
+  summarise(mm=mean(PL), nn=n(), vv=var(PL), tt=0) %>%
+  select(mm, nn, vv, tt)
+
+ExTortP[is.na(ExTortP)] <- 0 #subset NAs with O for n=1
+
+
+PPEPL <- bind_rows(ExTortP, PPPL) 
+
+paleoPPPL <-as.paleoTS(PPEPL$mm, PPEPL$vv, PPEPL$nn, PPEPL$tt, MM = NULL, genpars = NULL, label = "Testudinidae body size evolution mode, Pliocene, PL")
+paleoPPPL
+plot(paleoPPPL)
+
+fit3models(paleoPPPL, silent=FALSE, method="AD", pool=FALSE)   #not working with Test1, because no variances/sample sizes available, I guess
+
+###### paleoTS with extrapolated CLs #####
+
+
+
+
+
 #### Map PlioPleiCL-data ###
 
 PPmap <- PleiPlioCL %>%
@@ -280,7 +364,7 @@ axisPhylo()   # add time scale
 #add fossils
 targetNode<-findMRCA(tree2,c("Astrochelys_radiata","Aldabrachelys_grandidieri")) #gives common ancestor 
 targetNode<-findMRCA(tree2,c("Aldabrachelys_gigantea","Aldabrachelys_grandidieri")) #gives common ancestor     #phytools
-tree_fossil<-bind.tip(tree2,"Aldabrachelys_abrupta???",where=targetNode,position=0,edge.length=32) #phytools
+tree_fossil<-bind.tip(tree2,"Aldabrachelys_abrupta†",where=targetNode,position=0,edge.length=32) #phytools
 #position is ma before the node, lenght is how long it lasted
 #A. abrupta: position=0,edge.length=24.85501
 #34.855759-0.00075 = edge.lentgh -> but can't be right, because A. abrupta lasted till Late Holocene
