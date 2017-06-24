@@ -44,10 +44,10 @@ Extant <- extant %>%
 
 ##### data exploration ####
 str(tidyCL)
-dim(tidyCL)
-names(tidyCL)
-attributes(tidyCL)
-head(tidyCL)
+#dim(tidyCL)
+#names(tidyCL)
+#attributes(tidyCL)
+#head(tidyCL)
 summary(tidyCL)
 table(tidyCL$Country)
 hist(tidyCL$CL)
@@ -356,6 +356,26 @@ paleoPPCL
 plot(paleoPPCL)
 
 fit3models(paleoPPCL, silent=FALSE, method="AD", pool=FALSE)   #not working with Test1, because no variances/sample sizes available, I guess
+
+#######Boxplots Island #########
+names(TR)
+names(extant)
+names(sumTort)
+
+TRI <- TR %>%
+  dplyr::select(Taxon, CL, PL, Age, Island, Continent)
+
+IslandEx <- extant %>%
+  dplyr::select(Taxon=Species, SCL, PL,  Island, Continent) #%>% # Age=0,  , n=1
+  transmute(CL=SCL*10, PL=PL*10, Age=0) #, n=1
+  
+IslandSum <- sumTort %>%
+  dplyr::select(Taxon=Species, CL=meanCLmm, Mamin, Mamax, Island, Continent, n)%>%  #PL=0, 
+#  transmute(Age=(Mamin+Mamax)/2, PL=0)
+
+Island <- bind_rows(TRI, IslandEx, IslandSum)
+
+
 
 #############without Island species ###########
 TR <- testRatio
