@@ -1,0 +1,114 @@
+---
+title: "FossilTortoises"
+author: "Julia Joos"
+date: "27 Juni 2017"
+header-includes:
+  - \usepackage[ngerman, english]{babel}
+output: pdf_document
+---
+
+
+
+# Introduction
+
+Body size trends in Neogene fossil tortoises, Testudinidae, z. B. *Titanochelon bacharidisi*.
+
+# Material and Methods
+
+## Data set
+
+Based on different sources:
+
+* FosFarBase 
+* PDBD
+* Fossil Turtle Checklist (during rise of humanity)
+  + ...
+
+## Analyses
+All conducted in R.
+
+
+# Results
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+require("knitr")
+opts_knit$set(root.dir = "//naturkundemuseum-berlin.de/MuseumDFSRoot/Benutzer/Julia.Joos/Eigene Dateien/MA")
+library(dplyr)
+library(ggplot2)
+```
+
+```{r "Import data set", echo=FALSE, results="hide"}
+#setwd("//naturkundemuseum-berlin.de/MuseumDFSRoot/Benutzer/Julia.Joos/Eigene Dateien/MA")
+# Fossil data
+tidyCL<-read.csv("tortoises_tidy.csv", sep=";", header=TRUE, na.strings = "NA")
+
+colnames(tidyCL)[6] <- "MAmin"
+colnames(tidyCL)[7] <- "Mamax"
+colnames(tidyCL)[17] <- "CL"
+colnames(tidyCL)[18] <- "PL"
+colnames(tidyCL)[21] <- "estimated"
+
+tidyCL <-  tidyCL %>%
+  mutate(Age= (MAmin+Mamax)/2)
+
+# Extant data
+
+extant <- read.csv("MFN_testudinidae.csv", sep=";", header=TRUE)  # file: MFN_testudinidae.csv
+
+colnames(extant)[10] <- "PL"
+colnames(extant)[11] <- "PLmid"
+
+
+Extant <- extant %>%
+  mutate(CL = SCL*10, PL=PL*10, PLmid=PLmid*10) 
+
+
+```
+
+
+```{r, echo=FALSE}
+summary(tidyCL)
+table(tidyCL$Country)
+hist(tidyCL$CL)
+hist(tidyCL$PL)
+hist(tidyCL$Age)
+
+statsCL <- tidyCL %>%
+  filter(!is.na(CL)) %>%
+  summarise(min = min(CL), max = max(CL), mean= mean(CL), median= median(CL), SD = sd(CL), variance = var(CL), n=n())#, skew(CL), kurtosi(CL)) n = n(), 
+
+```
+
+
+# Discussion
+
+# Acknowledgements
+
+# References
+
+# Appendices
+
+# Declaration of Authorship
+
+
+
+## R Markdown
+
+This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+
+When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+
+```{r cars}
+summary(cars)
+```
+
+## Including Plots
+
+You can also embed plots, for example:
+
+```{r pressure, echo=FALSE}
+plot(pressure)
+```
+
+Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.

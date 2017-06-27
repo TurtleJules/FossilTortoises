@@ -32,7 +32,7 @@ tidyCL <-  tidyCL %>%
   mutate(Age= (MAmin+Mamax)/2)
 
 ####### import extant data ####
-extant <- read.csv("MFN_testudinidae.csv", sep=";", header=TRUE)  # file: MFN_testudinidae.csv
+extant <- read.csv("MFN_testudinidae.csv", sep=";", header=TRUE, dec=".", na.strings = "NA", stringsAsFactors=FALSE)  # file: MFN_testudinidae.csv
 
 colnames(extant)[10] <- "PL"
 colnames(extant)[11] <- "PLmid"
@@ -176,6 +176,8 @@ plot(paleoTidyCL)
 fit3models(paleoTidyCL, silent=FALSE, method="AD", pool=FALSE)   #not working with Test1, because no variances/sample sizes available, I guess
 
 ### paleoTS for Pliocene/Pleistocene ####
+Bergmann$bin <- cut(Bergmann$lat, c(33, 38, 43, 48, 53, 58, 60))
+
 unique(tidyCL$Epoch)
 
 PleiPlioCL <- tidyCL %>%
@@ -378,7 +380,7 @@ IslandSum <- sumTort %>%
 Island <- bind_rows(TRI, IslandEx, IslandSum)
 
 IslandBox <- Island %>%
-  ggplot(aes(Island, CL)) + geom_boxplot() + geom_jitter(aes(colour=Continent))+
+  ggplot(aes(Island, CL)) + geom_boxplot() + geom_jitter(aes(colour=Age)) +
 #  facet_grid(.~Age) +
   theme_classic() + # for white background 
   #stat_summary(fun.data = give.n, geom = "text") +
@@ -386,16 +388,21 @@ IslandBox <- Island %>%
   theme(legend.background = element_rect(colour = 'black'),
         panel.border = element_rect(colour = "black", fill=NA)
         , strip.text.x = element_text(size = 12)) +
-  scale_colour_brewer(palette="Set1")  #+
-   # scale_colour_manual(values=c("red", "blue", "green", "purple", )
-  #                     , name="Locations"
-  #                     #, breaks=c("f","m", "NA" )
-  #                     , labels=c("Brandenburg"="Brandenburg",
-  #                                "Saxony-Anhalt"="Saxony-Anhalt", "Stuttgart"="Stuttgart", "Thuringia"="Thuringia")
-   # )
-
+  scale_colour_brewer(palette="Set1")
 
 IslandBox
+
+IslandDot <- Island %>%
+  ggplot(aes(Island, CL)) + geom_violin() + geom_jitter(aes(colour=Continent)) +
+  theme_classic() + # for white background 
+  #stat_summary(fun.data = give.n, geom = "text") +
+  # xlab("Sex") + ylab("Carapace length [mm]") + 
+  theme(legend.background = element_rect(colour = 'black'),
+        panel.border = element_rect(colour = "black", fill=NA)
+        , strip.text.x = element_text(size = 12)) +
+  scale_colour_brewer(palette="Set1")
+
+IslandDot
 
 ContinentBox <- Island %>%
   ggplot(aes(Continent, CL)) + geom_boxplot() + geom_jitter(aes(colour=Island))+
@@ -408,6 +415,13 @@ ContinentBox <- Island %>%
   scale_colour_brewer(palette="Set1") 
 
 ContinentBox
+
+ContinentDot <- Island %>%
+  ggplot(aes(Continent, CL)) + geom_violin()
+
+ContinentDot
+
+
 #############without Island species ###########
 TR <- testRatio
 
