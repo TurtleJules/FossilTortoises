@@ -366,16 +366,20 @@ TRI <- TR %>%
   dplyr::select(Taxon, CL, PL, Age, Island, Continent)
 
 IslandEx <- extant %>%
-  dplyr::select(Taxon=Species, SCL, PL,  Island, Continent) #%>% # Age=0,  , n=1
-  transmute(CL=SCL*10, PL=PL*10, Age=0) #, n=1
+  dplyr::select(Taxon=Species, SCL, PL,  Island, Continent) %>% # Age=0,  , n=1
+  mutate(CL=SCL*10, PL=PL*10, Age=0) %>%#, n=1
+  dplyr::select(Taxon, CL, PL,  Island, Continent, Age)
   
 IslandSum <- sumTort %>%
-  dplyr::select(Taxon=Species, CL=meanCLmm, Mamin, Mamax, Island, Continent, n)%>%  #PL=0, 
-#  transmute(Age=(Mamin+Mamax)/2, PL=0)
+  dplyr::select(Taxon=Species, CL=meanCLmm, Mamin, Mamax, Island, Continent, n) %>%  #PL=0, 
+  mutate(Age=(Mamin+Mamax)/2, PL=0) %>%
+  dplyr::select(Taxon, CL, PL, Age, Island, Continent, n)
 
-Island <- bind_rows(TRI, IslandEx, IslandSum)
+Island <- bind_rows(TRI, IslandEx, IslandSum) %>%
+  ggplot(aes(Island, CL)) + geom_boxplot()
 
 
+Island
 
 #############without Island species ###########
 TR <- testRatio
