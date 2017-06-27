@@ -375,12 +375,39 @@ IslandSum <- sumTort %>%
   mutate(Age=(Mamin+Mamax)/2, PL=0) %>%
   dplyr::select(Taxon, CL, PL, Age, Island, Continent, n)
 
-Island <- bind_rows(TRI, IslandEx, IslandSum) %>%
-  ggplot(aes(Island, CL)) + geom_boxplot()
+Island <- bind_rows(TRI, IslandEx, IslandSum)
+
+IslandBox <- Island %>%
+  ggplot(aes(Island, CL)) + geom_boxplot() + geom_jitter(aes(colour=Continent))+
+#  facet_grid(.~Age) +
+  theme_classic() + # for white background 
+  #stat_summary(fun.data = give.n, geom = "text") +
+ # xlab("Sex") + ylab("Carapace length [mm]") + 
+  theme(legend.background = element_rect(colour = 'black'),
+        panel.border = element_rect(colour = "black", fill=NA)
+        , strip.text.x = element_text(size = 12)) +
+  scale_colour_brewer(palette="Set1")  #+
+   # scale_colour_manual(values=c("red", "blue", "green", "purple", )
+  #                     , name="Locations"
+  #                     #, breaks=c("f","m", "NA" )
+  #                     , labels=c("Brandenburg"="Brandenburg",
+  #                                "Saxony-Anhalt"="Saxony-Anhalt", "Stuttgart"="Stuttgart", "Thuringia"="Thuringia")
+   # )
 
 
-Island
+IslandBox
 
+ContinentBox <- Island %>%
+  ggplot(aes(Continent, CL)) + geom_boxplot() + geom_jitter(aes(colour=Island))+
+  theme_classic() + # for white background 
+  #stat_summary(fun.data = give.n, geom = "text") +
+  # xlab("Sex") + ylab("Carapace length [mm]") + 
+  theme(legend.background = element_rect(colour = 'black'),
+        panel.border = element_rect(colour = "black", fill=NA)
+        , strip.text.x = element_text(size = 12)) +
+  scale_colour_brewer(palette="Set1") 
+
+ContinentBox
 #############without Island species ###########
 TR <- testRatio
 
