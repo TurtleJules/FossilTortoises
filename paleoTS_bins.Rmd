@@ -1,0 +1,225 @@
+---
+title: "Fossil Tortoises"
+output:
+  pdf_document: default
+  html_notebook: default
+  html_document: default
+always_allow_html: yes
+---
+
+```{r "setup", include=FALSE}
+require("knitr")
+opts_knit$set(root.dir = "//naturkundemuseum-berlin.de/MuseumDFSRoot/Benutzer/Julia.Joos/Eigene Dateien/MA")
+library(dplyr)
+library(ggplot2)
+```
+
+```{r echo=FALSE}
+#### Data basis - import data set from Excel ####
+setwd("//naturkundemuseum-berlin.de/MuseumDFSRoot/Benutzer/Julia.Joos/Eigene Dateien/MA")
+tidyCL<-read.csv("tortoises_tidy.csv", sep=";", header=TRUE)
+
+#####prepare for analysis (fix column names in .csv-file after converting table from excel####
+colnames(tidyCL)[6] <- "MAmin"
+colnames(tidyCL)[7] <- "Mamax"
+colnames(tidyCL)[17] <- "CL"
+colnames(tidyCL)[18] <- "PL"
+colnames(tidyCL)[21] <- "estimated"
+
+tidyCL <-  tidyCL %>%
+  mutate(Age= (MAmin+Mamax)/2)
+
+####### import extant data ####
+extant <- read.csv("MFN_testudinidae.csv", sep=";", header=TRUE, dec=".", na.strings = "NA", stringsAsFactors=FALSE)  # file: MFN_testudinidae.csv
+
+colnames(extant)[10] <- "PL"
+colnames(extant)[11] <- "PLmid"
+
+
+Extant <- extant %>%
+  mutate(CL = SCL * 10, PL=PL*10, PLmid=PLmid*10) 
+```
+
+
+
+# paleoTS Plot with the following bins:
+```{r echo=FALSE, results='asis'}
+CLPLtidy <- tidyCL %>%
+  filter(!is.na(CL) & !is.na(PL)) %>%
+  dplyr::select(Taxon, CL, PL, size, Age, Island, Continent) %>%
+  mutate(ratio=CL/PL) %>%
+  group_by(Taxon) %>% #to show ratios per Taxon, leave out to get a total ratio
+  summarise(meanRatio=round(mean(ratio),2), sdRatio=round(sd(ratio),2), n=n(), min=min(ratio), max=max(ratio))
+
+CLPLextant <- Extant %>%
+  filter(!is.na(CL) & !is.na(PL)) %>%
+  dplyr::select(Taxon=Species, CL, PL, PLmid, Island, Continent) %>%
+  mutate(ratio=CL/PL, ratioMid=CL/PLmid)
+  #group_by(Taxon) %>% #to show ratios per Taxon, leave out to get a total ratio
+  #  summarise(meanRatio=round(mean(ratio),2), sdRatio=round(sd(ratio),2), n=n(), min=min(ratio), max=max(ratio))
+
+Ratio <- CLPLextant %>%
+  summarise(meanRatio=round(mean(ratio),2), sdRatio=round(sd(ratio),2), n=n(), min=min(ratio), max=max(ratio))
+
+RatioSpecies <- CLPLextant %>%
+  group_by(Taxon) %>% #to show ratios per Taxon, leave out to get a total ratio
+  summarise(meanRatio=round(mean(ratio),2), sdRatio=round(sd(ratio),2), n=n(), min=min(ratio), max=max(ratio))
+
+
+testRatio <- tidyCL %>%
+  dplyr::select(Taxon, CL, PL, size, estimated, Age, Island, Continent) %>%
+  mutate(extraCL = PL*Ratio$meanRatio) %>%
+  dplyr::select(Taxon, CL, extraCL, PL, size, estimated, Age, Island, Continent)
+
+
+testRatio$CL[is.na(testRatio$CL)] <- testRatio$extraCL[is.na(testRatio$CL)]
+
+######
+
+PleiPlio <- testRatio %>% #testRatio or tidyCL 
+  filter(Age < 11.000)
+
+PleiPlio$bin <- cut(PleiPlio$Age, c(0, 0.0117, 0.126, 0.781, 2.588, 3.6, 5.332, 11.608))
+
+EpochBins <- as.vector(c("Holocene", "Upper Pleistocene", "Middle Pleistocene", "Lower Pleistocene", "Upper Pliocene", "Lower Pliocene", "Upper Miocene"))
+
+MeanBins <- as.vector(c((0+0.0117)/2, (0.0117+0.126)/2, (0.126+0.781)/2, (0.781+2.588)/2,
+              (2.588+3.6)/2, (3.6+5.332)/2, (5.332+11.608)/2))
+
+Bins <- PleiPlio %>%
+  select(bin) %>%
+  group_by(bin) %>%
+  summarise(n=n())
+
+bin <- as.vector(unique(Bins$bin))
+
+BINS <- data.frame(bin, EpochBins, MeanBins) #
+
+kable(Bins)
+kable(BINS)
+
+PleiPlioCL <- PleiPlio %>%
+  merge(BINS)
+
+#length(PleiPlioCL$CL)
+
+
+PPCL <- PleiPlioCL %>%
+  select(CL, MeanBins) %>%
+  filter(CL != "NA") %>%
+  mutate(tt= MeanBins) %>% # create mean age
+  group_by(tt) %>% #create time bins
+  summarise(mm=mean(CL), vv=var(CL), nn=n()) #create means etc. for each time bin 
+
+PPCL[is.na(PPCL)]<-0 #subset NAs with O for n=1
+
+
+ExTort <- extant %>%
+  mutate(CL = SCL * 10) %>%
+  dplyr::select(CL) %>%
+  summarise(mm=mean(CL), nn=n(), vv=var(CL), tt=0) %>%
+  select(mm, nn, vv, tt)
+
+ExTort[is.na(ExTort)] <- 0 #subset NAs with O for n=1
+
+sumTort <- read.csv("tortoises_summary.csv", sep=";", header=TRUE)
+
+SumTort <- sumTort %>%
+  mutate(tt=(Mamin+Mamax)/2, vv=sdCLmm^2, nn=n, mm=meanCLmm) %>%
+  dplyr::select(mm, nn, vv, tt)
+ 
+PPESCL <- bind_rows(SumTort,ExTort, PPCL)
+
+combiCL <- PPESCL %>%
+  filter(tt==0) %>%   #maybe find a way to automatically filter double tt values...
+  mutate(nx = nn*mm) %>%
+  mutate(mmall=sum(nx)/sum(nn)) %>%
+  mutate(SD=sqrt(nx), d=mm-mmall) %>%
+  mutate(nsd=((nx^2+d^2)*nn)) %>%
+  mutate(varall=sum(nsd)/sum(nn), n=sum(nn)) %>%
+  dplyr::select(mm=mmall, vv=varall, nn=n, tt) %>%
+  unique()
+
+
+PPCL <- PPESCL %>%
+  filter(tt !=0) %>%
+  bind_rows(combiCL)%>%
+  arrange(tt)
+
+```
+
+paleoTS object:
+```{r}
+
+kable(PPCL)
+```
+
+
+```{r}
+library(paleoTS)
+paleoPPCL <-as.paleoTS(PPCL$mm, PPCL$vv, PPCL$nn, PPCL$tt, MM = NULL, genpars = NULL, label = "Testudinidae body size evolution mode, Holocene-Upper Miocene, CL")
+paleoPPCL
+plot(paleoPPCL)
+
+fit3models(paleoPPCL, silent=FALSE, method="AD", pool=FALSE)
+
+```
+
+```{r}
+PPCL <- PleiPlioCL %>%
+  select(CL, MeanBins) %>%
+  filter(CL != "NA") %>%
+  mutate(tt= MeanBins) %>% # create mean age
+  group_by(tt) %>% #create time bins
+  summarise(mm=mean(CL), vv=var(CL), nn=n()) #create means etc. for each time bin 
+
+PPCL[is.na(PPCL)]<-0 #subset NAs with O for n=1
+
+
+PPECL <- bind_rows(ExTort, PPCL)
+
+PPECL <- PPECL %>%
+  filter(tt !=0) %>%
+  arrange(tt)
+
+paleoPPECL <-as.paleoTS(PPECL$mm, PPECL$vv, PPECL$nn, PPECL$tt, MM = NULL, genpars = NULL, label = "Testudinidae body size evolution mode, Holocene-Upper Miocene, CL")
+paleoPPECL
+plot(paleoPPECL)
+
+fit3models(paleoPPECL, silent=FALSE, method="AD", pool=FALSE)
+
+```
+
+```{r}
+hist(PleiPlioCL$CL)
+hist(PleiPlioCL$Age)
+```
+```{r}
+TR <- PleiPlioCL
+
+TRI <- TR %>%
+  dplyr::select(Taxon, CL, PL, Age, Island, Continent)
+
+IslandEx <- extant %>%
+  dplyr::select(Taxon=Species, SCL, PL,  Island, Continent) %>% # Age=0,  , n=1
+  mutate(CL=SCL*10, PL=PL*10, Age=0) %>%#, n=1
+  dplyr::select(Taxon, CL, PL,  Island, Continent, Age)
+
+Island <- bind_rows(TRI, IslandEx)
+
+IslandBox <- Island %>%
+  ggplot(aes(Island, CL)) + geom_boxplot() + geom_jitter(aes(colour=Continent)) +
+#  facet_grid(.~Age) +
+  theme_classic() + # for white background 
+  #stat_summary(fun.data = give.n, geom = "text") +
+ # xlab("Sex") + ylab("Carapace length [mm]") + 
+  theme(legend.background = element_rect(colour = 'black'),
+        panel.border = element_rect(colour = "black", fill=NA)
+        , strip.text.x = element_text(size = 12)) +
+  scale_colour_brewer(palette="Set1")
+
+IslandBox
+
+
+```
+

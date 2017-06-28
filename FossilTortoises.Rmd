@@ -4,7 +4,9 @@ author: "Julia Joos"
 date: "27 Juni 2017"
 header-includes:
   - \usepackage[ngerman, english]{babel}
-output: pdf_document
+output: 
+  pdf_document
+
 ---
 
 
@@ -38,7 +40,13 @@ library(dplyr)
 library(ggplot2)
 ```
 
-```{r "Import data set", echo=FALSE, results="hide"}
+```{r echo=FALSE} 
+opts_chunk$set(echo=FALSE)
+```
+
+
+
+```{r echo=FALSE, results='hide'}
 #setwd("//naturkundemuseum-berlin.de/MuseumDFSRoot/Benutzer/Julia.Joos/Eigene Dateien/MA")
 # Fossil data
 tidyCL<-read.csv("tortoises_tidy.csv", sep=";", header=TRUE, na.strings = "NA")
@@ -54,7 +62,7 @@ tidyCL <-  tidyCL %>%
 
 # Extant data
 
-extant <- read.csv("MFN_testudinidae.csv", sep=";", header=TRUE)  # file: MFN_testudinidae.csv
+extant <- read.csv("MFN_testudinidae.csv", sep=";", header=TRUE)
 
 colnames(extant)[10] <- "PL"
 colnames(extant)[11] <- "PLmid"

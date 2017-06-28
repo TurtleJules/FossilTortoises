@@ -112,6 +112,9 @@ testRatio <- tidyCL %>%
   mutate(extraCL = PL*Ratio$meanRatio) %>%
   dplyr::select(Taxon, CL, extraCL, PL, size, estimated, Age, Island, Continent)
 
+
+testRatio$CL[is.na(testRatio$CL)] <- testRatio$extraCL[is.na(testRatio$CL)] # fill all CL NAs with extrapolated CLs
+
 #write.table(testRatio,file="RatioCLPL.txt", sep="\t", row.names = FALSE)
 
 
@@ -176,19 +179,45 @@ plot(paleoTidyCL)
 fit3models(paleoTidyCL, silent=FALSE, method="AD", pool=FALSE)   #not working with Test1, because no variances/sample sizes available, I guess
 
 ### paleoTS for Pliocene/Pleistocene ####
-Bergmann$bin <- cut(Bergmann$lat, c(33, 38, 43, 48, 53, 58, 60))
+#Bergmann$bin <- cut(Bergmann$lat, c(33, 38, 43, 48, 53, 58, 60))
+age <- as.numeric(unique(testRatio$Age))
+sort(age)
+
+PleiPlio <- testRatio %>% #testRatio or tidyCL 
+  filter(Age < 11.000)
+
+PleiPlio$bin <- cut(PleiPlio$Age, c(0, 0.0117, 0.126, 0.781, 2.588, 3.6, 5.332, 11.608))
+
+EpochBins <- as.vector(c("Holocene", "Upper Pleistocene", "Middle Pleistocene", "Lower Pleistocene", 
+               "Upper Pliocene", "Lower Pliocene", "Upper Miocene"))
+
+MeanBins <- as.vector(c((0+0.0117)/2, (0.0117+0.126)/2, (0.126+0.781)/2, (0.781+2.588)/2,
+              (2.588+3.6)/2, (3.6+5.332)/2, (5.332+11.608)/2))
+
+Bins <- PleiPlio %>%
+  select(bin) %>%
+  group_by(bin) %>%
+  summarise(n=n())
+
+bin <- as.vector(unique(Bins$bin))
+
+BINS <- data.frame(bin, EpochBins, MeanBins) #
+
+
 
 unique(tidyCL$Epoch)
 
-PleiPlioCL <- tidyCL %>%
-  filter(Age < 10.000)
+PleiPlioCL <- PleiPlio %>%
+  merge(BINS)
 
 length(PleiPlioCL$CL)
 
+
+
 PPCL <- PleiPlioCL %>%
-  select(MAmin, Mamax, CL) %>%
+  select(CL, MeanBins) %>%
   filter(CL != "NA") %>%
-  mutate(tt= (MAmin+Mamax)/2) %>% # create mean age
+  mutate(tt= MeanBins) %>% # create mean age
   group_by(tt) %>% #create time bins
   summarise(mm=mean(CL), vv=var(CL), nn=n()) #create means etc. for each time bin 
 
@@ -260,8 +289,7 @@ paleoPPCL <-as.paleoTS(PPCL$mm, PPCL$vv, PPCL$nn, PPCL$tt, MM = NULL, genpars = 
 paleoPPCL
 plot(paleoPPCL)
 
-fit3models(paleoPPCL, silent=FALSE, method="AD", pool=FALSE)   #not working with Test1, because no variances/sample sizes available, I guess
-
+fit3models(paleoPPCL, silent=FALSE, method="AD", pool=FALSE)   
 
 # bins <- PleiPlioCL %>%
 #   #  select(MAmin, Mamax, CL) %>%
@@ -303,7 +331,7 @@ fit3models(paleoPPPL, silent=FALSE, method="AD", pool=FALSE)   #not working with
 
 TR <- testRatio
 
-TR$CL[is.na(TR$CL)] <- TR$extraCL[is.na(TR$CL)]
+TR$CL[is.na(TR$CL)] <- TR$extraCL[is.na(TR$CL)] # fill all CL NAs with extrapolated CLs
 
 paleoTR <- TR %>%
   filter(Age < 10.000)
