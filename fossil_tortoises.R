@@ -134,7 +134,10 @@ Map <- tidyCL %>%
 mapCL <- Map %>%
   ggplot(aes(Longitude, Latitude)) +# borders("world", ylim = c(-60, 90)) +
   mapWorld +
-  geom_point(aes(Longitude, Latitude,colour=CL, size=count))
+  theme_classic() +
+  geom_point(aes(Longitude, Latitude,colour=CL, size=count)) +
+  scale_colour_gradientn(colors=c("orange", "red", "purple", "blue", "green"))
+  
 
 
 mapCL
@@ -146,7 +149,7 @@ ggplotly(mapCL) #make map interactive
 CLAge <- tidyCL %>%
   select(Country, Latitude, Longitude, MAmin, Mamax, Genus, Species, Taxon, CL) %>%
   mutate(Age= (MAmin+Mamax)/2) %>%
-  ggplot(aes(Age, CL, colour=Genus)) + geom_point()
+  ggplot(aes(Age, CL, colour=Genus)) + geom_point() + theme_classic() 
 
 CLAge
 ggplotly(CLAge)
@@ -515,12 +518,14 @@ fit3models(paleoPPCL, silent=FALSE, method="AD", pool=FALSE)
 
 #### Map PlioPleiCL-data ###
 
-PPmap <- PleiPlioCL %>%
+PPmap <- tidyCL %>%
+  filter(Age < 11.000) %>%
   select(Genus, Taxon, Latitude, Longitude, Country, CL, PL, Age) %>%
   group_by(Latitude) %>%
   mutate(count= n()) %>%
-  ggplot(aes(Longitude, Latitude)) + mapWorld +
-  geom_point(aes(Longitude, Latitude,colour=CL, size=count))
+  ggplot(aes(Longitude, Latitude)) + mapWorld + theme_classic() +
+  geom_point(aes(Longitude, Latitude,colour=CL, size=count)) +
+  scale_colour_gradientn(colors=c("orange", "red", "purple", "blue", "green"))
 
 PPmap
 
@@ -656,11 +661,26 @@ writeNexus(tree_fossil, file="tree_fossil.nex")
 #paleobioDB: works only with version 1.1 v6 (https://paleobiodb.org/data1.1/occs/single_doc.html)
 # PDBD 1.2 v2: https://paleobiodb.org/data1.2/specs_doc.html
 
-# turtles <- pbdb_occurrences (limit="all", base_name="Testudinidae",
-#                   interval="Neogene", vocab="pbdb", show=c("coords", "phylo", "ident"))
-# head (turtles)
-# turtles$taxon_name
-# unique (turtles$matched_name)
+pdbd <- pbdb_occurrences (limit="all", base_name="Testudinidae",
+                  interval="Neogene", vocab="pbdb", show=c("coords", "phylo", "ident"))
+head (pdbd)
+pdbd$taxon_name
+unique (pdbd$matched_name)
 
+
+PDBD <- pdbd %>%
+  dplyr::select(matched_name, taxon_name, early_interval, late_interval, early_age, late_age,
+                lng, lat, reference_no) %>%
+  mutate(mean_age= (early_age+late_age)/2) %>%
+  dplyr::filter(mean_age < 14.000) %>%
+
+  
+
+
+
+
+
+setwd("//naturkundemuseum-berlin.de/MuseumDFSRoot/Benutzer/Julia.Joos/Eigene Dateien/MA")
+PDBDRef<-read.csv("pdbd_references.csv", sep=",", header=TRUE)
 
 

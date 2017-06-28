@@ -1,5 +1,5 @@
 ---
-title: "Fossil Tortoises"
+title: "Body size trends in fossil tortoises"
 output:
   pdf_document: default
   html_notebook: default
@@ -13,6 +13,8 @@ opts_knit$set(root.dir = "//naturkundemuseum-berlin.de/MuseumDFSRoot/Benutzer/Ju
 library(dplyr)
 library(ggplot2)
 ```
+
+
 
 ```{r echo=FALSE}
 #### Data basis - import data set from Excel ####
@@ -42,7 +44,9 @@ Extant <- extant %>%
 
 
 
-# paleoTS Plot with the following bins:
+## paleoTS Plot with the following bins (for fossil taxa):
+
+* after including extant species, another bin is added: Modern, t=0
 ```{r echo=FALSE, results='asis'}
 CLPLtidy <- tidyCL %>%
   filter(!is.na(CL) & !is.na(PL)) %>%
@@ -105,8 +109,8 @@ PleiPlioCL <- PleiPlio %>%
 
 
 PPCL <- PleiPlioCL %>%
-  select(CL, MeanBins) %>%
-  filter(CL != "NA") %>%
+  dplyr::select(CL, MeanBins) %>%
+  dplyr::filter(CL != "NA") %>%
   mutate(tt= MeanBins) %>% # create mean age
   group_by(tt) %>% #create time bins
   summarise(mm=mean(CL), vv=var(CL), nn=n()) #create means etc. for each time bin 
@@ -118,7 +122,7 @@ ExTort <- extant %>%
   mutate(CL = SCL * 10) %>%
   dplyr::select(CL) %>%
   summarise(mm=mean(CL), nn=n(), vv=var(CL), tt=0) %>%
-  select(mm, nn, vv, tt)
+  dplyr::select(mm, nn, vv, tt)
 
 ExTort[is.na(ExTort)] <- 0 #subset NAs with O for n=1
 
@@ -131,7 +135,7 @@ SumTort <- sumTort %>%
 PPESCL <- bind_rows(SumTort,ExTort, PPCL)
 
 combiCL <- PPESCL %>%
-  filter(tt==0) %>%   #maybe find a way to automatically filter double tt values...
+  dplyr::filter(tt==0) %>%   #maybe find a way to automatically filter double tt values...
   mutate(nx = nn*mm) %>%
   mutate(mmall=sum(nx)/sum(nn)) %>%
   mutate(SD=sqrt(nx), d=mm-mmall) %>%
@@ -148,53 +152,104 @@ PPCL <- PPESCL %>%
 
 ```
 
-paleoTS object:
-```{r}
+
+```{r echo=FALSE}
+
+nIsland <- sum(PPCL$nn)
+
+```
+## including Island species  (n=`r nIsland`)
+
+
+paleoTS object (mm= mean CL, nn = sample size, vv = variance (CL), tt = Age):
+```{r echo=FALSE}
 
 kable(PPCL)
 ```
 
 
-```{r}
+```{r echo=FALSE}
 library(paleoTS)
-paleoPPCL <-as.paleoTS(PPCL$mm, PPCL$vv, PPCL$nn, PPCL$tt, MM = NULL, genpars = NULL, label = "Testudinidae body size evolution mode, Holocene-Upper Miocene, CL")
-paleoPPCL
+paleoPPCL <-as.paleoTS(PPCL$mm, PPCL$vv, PPCL$nn, PPCL$tt, MM = NULL, genpars = NULL, label = "Testudinidae body size evolution mode, Holocene-Upper Miocene, CL, including Island species")
+#paleoPPCL
 plot(paleoPPCL)
 
-fit3models(paleoPPCL, silent=FALSE, method="AD", pool=FALSE)
 
 ```
 
-```{r}
+```{r echo=FALSE}
+
+kable(fit3models(paleoPPCL, silent=FALSE, method="AD", pool=FALSE))
+```
+
+
+
+
+```{r echo=FALSE}
 PPCL <- PleiPlioCL %>%
-  select(CL, MeanBins) %>%
-  filter(CL != "NA") %>%
+  dplyr::filter(CL != "NA") %>% 
+  dplyr::filter(Island != "y") %>%
+  dplyr::select(CL, MeanBins) %>%
   mutate(tt= MeanBins) %>% # create mean age
   group_by(tt) %>% #create time bins
   summarise(mm=mean(CL), vv=var(CL), nn=n()) #create means etc. for each time bin 
 
 PPCL[is.na(PPCL)]<-0 #subset NAs with O for n=1
 
+ExTortIs <- extant %>%
+  mutate(CL = SCL * 10) %>%
+  dplyr::filter(Island != "y") %>%
+  dplyr::select(CL) %>%
+  summarise(mm=mean(CL), nn=n(), vv=var(CL), tt=0) %>%
+  dplyr::select(mm, nn, vv, tt)
 
-PPECL <- bind_rows(ExTort, PPCL)
+ExTortIs[is.na(ExTortIs)] <- 0 #subset NAs with O for n=1
+
+
+
+PPECL <- bind_rows(ExTortIs, PPCL)
 
 PPECL <- PPECL %>%
-  filter(tt !=0) %>%
   arrange(tt)
 
-paleoPPECL <-as.paleoTS(PPECL$mm, PPECL$vv, PPECL$nn, PPECL$tt, MM = NULL, genpars = NULL, label = "Testudinidae body size evolution mode, Holocene-Upper Miocene, CL")
-paleoPPECL
-plot(paleoPPECL)
 
-fit3models(paleoPPECL, silent=FALSE, method="AD", pool=FALSE)
 
 ```
 
-```{r}
+## Excluding Island species (n= `r sum(PPECL$nn)`)
+
+```{r echo=FALSE}
+kable(PPECL)
+```
+
+
+```{r echo=FALSE}
+paleoPPECL <-as.paleoTS(PPECL$mm, PPECL$vv, PPECL$nn, PPECL$tt, MM = NULL, genpars = NULL, label = "Testudinidae body size evolution mode, Holocene-Upper Miocene, CL, without Island species")
+#paleoPPECL
+plot(paleoPPECL)
+
+```
+
+```{r echo=FALSE}
+
+kable(fit3models(paleoPPECL, silent=FALSE, method="AD", pool=FALSE))
+
+```
+
+
+
+## Histograms
+
+Frequency of body size data and distribution over time
+
+```{r echo=FALSE}
 hist(PleiPlioCL$CL)
 hist(PleiPlioCL$Age)
 ```
-```{r}
+
+## Boxplots (continental (n) vs. Island (y) species)
+
+```{r echo=FALSE, warning=FALSE}
 TR <- PleiPlioCL
 
 TRI <- TR %>%
@@ -209,17 +264,31 @@ Island <- bind_rows(TRI, IslandEx)
 
 IslandBox <- Island %>%
   ggplot(aes(Island, CL)) + geom_boxplot() + geom_jitter(aes(colour=Continent)) +
-#  facet_grid(.~Age) +
+#  facet_grid(.~Continent) +
   theme_classic() + # for white background 
-  #stat_summary(fun.data = give.n, geom = "text") +
+#  stat_summary(fun.data = give.n, geom = "text") +
  # xlab("Sex") + ylab("Carapace length [mm]") + 
   theme(legend.background = element_rect(colour = 'black'),
-        panel.border = element_rect(colour = "black", fill=NA)
-        , strip.text.x = element_text(size = 12)) +
+        panel.border = element_rect(colour = "black", fill=NA)) +
   scale_colour_brewer(palette="Set1")
 
 IslandBox
 
 
+
+
+```
+```{r echo=FALSE, warning=FALSE}
+IslandBoxAge <- Island %>%
+  ggplot(aes(Island, CL)) + geom_boxplot() + geom_jitter(aes(colour=Age)) +
+  facet_grid(.~Continent) +
+  theme_classic() + # for white background 
+#  stat_summary(fun.data = give.n, geom = "text") +
+ # xlab("Sex") + ylab("Carapace length [mm]") + 
+  theme(legend.background = element_rect(colour = 'black'),
+        panel.border = element_rect(colour = "black", fill=NA)) +
+  scale_colour_gradientn(colors=c("orange", "red", "purple", "blue", "green")) #
+
+IslandBoxAge
 ```
 
