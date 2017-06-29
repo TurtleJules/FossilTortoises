@@ -29,11 +29,12 @@ colnames(tidyCL)[18] <- "PL"
 colnames(tidyCL)[21] <- "estimated"
 
 tidyCL <-  tidyCL %>%
-  mutate(Age= (MAmin+Mamax)/2)
+  mutate(Age= ((as.numeric(as.character(MAmin)))+(as.numeric(as.character(Mamax))))/2)
 
 ####### import extant data ####
 extant <- read.csv("MFN_testudinidae.csv", sep=";", header=TRUE, dec=".", na.strings = "NA", stringsAsFactors=FALSE)  # file: MFN_testudinidae.csv
 
+colnames(extant)[4] <- "SCL"
 colnames(extant)[10] <- "PL"
 colnames(extant)[11] <- "PLmid"
 

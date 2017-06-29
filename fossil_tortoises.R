@@ -11,7 +11,7 @@ library(phytools)
 # library(phangorn) # to make tree ultramteric
 # library(picante)
 # library(stringi) # process character strings
-# library(paleobioDB) #to load, visualize and process data from PDBD
+library(paleobioDB) #to load, visualize and process data from PDBD
 # The following object is masked from 'package:dplyr':  select
 # library(speciesgeocodeR) # categorization of species occurrences for biodiversity, biogeography, ecology and evolution
 
@@ -29,11 +29,12 @@ colnames(tidyCL)[18] <- "PL"
 colnames(tidyCL)[21] <- "estimated"
 
 tidyCL <-  tidyCL %>%
-  mutate(Age= (MAmin+Mamax)/2)
+  mutate(Age= ((as.numeric(as.character(MAmin)))+(as.numeric(as.character(Mamax))))/2)
 
 ####### import extant data ####
 extant <- read.csv("MFN_testudinidae.csv", sep=";", header=TRUE, dec=".", na.strings = "NA", stringsAsFactors=FALSE)  # file: MFN_testudinidae.csv
 
+colnames(extant)[4] <- "SCL"
 colnames(extant)[10] <- "PL"
 colnames(extant)[11] <- "PLmid"
 
@@ -661,6 +662,9 @@ writeNexus(tree_fossil, file="tree_fossil.nex")
 #paleobioDB: works only with version 1.1 v6 (https://paleobiodb.org/data1.1/occs/single_doc.html)
 # PDBD 1.2 v2: https://paleobiodb.org/data1.2/specs_doc.html
 
+
+
+setwd("//naturkundemuseum-berlin.de/MuseumDFSRoot/Benutzer/Julia.Joos/Eigene Dateien/MA")
 pdbd <- pbdb_occurrences (limit="all", base_name="Testudinidae",
                   interval="Neogene", vocab="pbdb", show=c("coords", "phylo", "ident"))
 head (pdbd)
@@ -672,7 +676,7 @@ PDBD <- pdbd %>%
   dplyr::select(matched_name, taxon_name, early_interval, late_interval, early_age, late_age,
                 lng, lat, reference_no) %>%
   mutate(mean_age= (early_age+late_age)/2) %>%
-  dplyr::filter(mean_age < 14.000) %>%
+  dplyr::filter(mean_age < 14.000) #%>%
 
   
 
