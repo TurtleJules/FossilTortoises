@@ -5,6 +5,7 @@ output:
   html_notebook: default
   html_document: default
 always_allow_html: yes
+  bibliography: bibliography.bib
 ---
 
 ```{r "setup", include=FALSE}
@@ -16,6 +17,12 @@ library(dplyr)
 library(ggplot2)
 ```
 
+```{r include=FALSE}
+#require(RefManageR)
+#biblio <- ReadZotero(user = '4138123', .params = list(collection = 'NPV27KD5'))
+#Zotero ID 4138123
+#collection ID NPV27KD5
+```
 
 
 ```{r echo=FALSE}

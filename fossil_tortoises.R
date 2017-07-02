@@ -15,6 +15,8 @@ library(paleobioDB) #to load, visualize and process data from PDBD
 # The following object is masked from 'package:dplyr':  select
 # library(speciesgeocodeR) # categorization of species occurrences for biodiversity, biogeography, ecology and evolution
 
+# library(RefManageR)
+# biblio <- ReadZotero(user = 4138123, .params = list(collection = 'NPV27KD5'))
 
 
 #### Data basis - import data set from Excel ####
