@@ -9,7 +9,9 @@ always_allow_html: yes
 
 ```{r "setup", include=FALSE}
 require("knitr")
-opts_knit$set(root.dir = "//naturkundemuseum-berlin.de/MuseumDFSRoot/Benutzer/Julia.Joos/Eigene Dateien/MA")
+#opts_knit$set(root.dir = "//naturkundemuseum-berlin.de/MuseumDFSRoot/Benutzer/Julia.Joos/Eigene Dateien/MA")
+## on laptop: 
+opts_knit$set(root.dir = "C:/Users/Jule/Documents/Uni/MA")
 library(dplyr)
 library(ggplot2)
 ```
@@ -18,7 +20,8 @@ library(ggplot2)
 
 ```{r echo=FALSE}
 #### Data basis - import data set from Excel ####
-setwd("//naturkundemuseum-berlin.de/MuseumDFSRoot/Benutzer/Julia.Joos/Eigene Dateien/MA")
+#setwd("//naturkundemuseum-berlin.de/MuseumDFSRoot/Benutzer/Julia.Joos/Eigene Dateien/MA")
+setwd("C:/Users/Jule/Documents/Uni/MA")
 tidyCL<-read.csv("tortoises_tidy.csv", sep=";", header=TRUE)
 
 #####prepare for analysis (fix column names in .csv-file after converting table from excel####
