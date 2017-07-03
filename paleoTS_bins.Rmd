@@ -5,14 +5,12 @@ output:
   html_notebook: default
   html_document: default
 always_allow_html: yes
-  bibliography: bibliography.bib
 ---
 
 ```{r "setup", include=FALSE}
 require("knitr")
-#opts_knit$set(root.dir = "//naturkundemuseum-berlin.de/MuseumDFSRoot/Benutzer/Julia.Joos/Eigene Dateien/MA")
-## on laptop: 
-opts_knit$set(root.dir = "C:/Users/Jule/Documents/Uni/MA")
+opts_knit$set(root.dir = "//naturkundemuseum-berlin.de/MuseumDFSRoot/Benutzer/Julia.Joos/Eigene Dateien/MA")
+## on laptop: opts_knit$set(root.dir = "C:/Users/Jule/Documents/Uni/MA")
 library(dplyr)
 library(ggplot2)
 ```
@@ -27,8 +25,8 @@ library(ggplot2)
 
 ```{r echo=FALSE}
 #### Data basis - import data set from Excel ####
-#setwd("//naturkundemuseum-berlin.de/MuseumDFSRoot/Benutzer/Julia.Joos/Eigene Dateien/MA")
-setwd("C:/Users/Jule/Documents/Uni/MA")
+setwd("//naturkundemuseum-berlin.de/MuseumDFSRoot/Benutzer/Julia.Joos/Eigene Dateien/MA")
+#setwd("C:/Users/Jule/Documents/Uni/MA")
 tidyCL<-read.csv("tortoises_tidy.csv", sep=";", header=TRUE)
 
 #####prepare for analysis (fix column names in .csv-file after converting table from excel####
@@ -79,6 +77,7 @@ Ratio <- CLPLextant %>%
 RatioSpecies <- CLPLextant %>%
   group_by(Taxon) %>% #to show ratios per Taxon, leave out to get a total ratio
   summarise(meanRatio=round(mean(ratio),2), sdRatio=round(sd(ratio),2), n=n(), min=min(ratio), max=max(ratio))
+
 
 
 testRatio <- tidyCL %>%

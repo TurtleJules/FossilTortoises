@@ -126,7 +126,7 @@ testRatio$CL[is.na(testRatio$CL)] <- testRatio$extraCL[is.na(testRatio$CL)] # fi
 #tidyCL<-read.csv("tortoises_tidy.csv", sep=";", header=TRUE)
 
 Map <- tidyCL %>%
-  select(Genus, Taxon, Latitude, Longitude, Country, CL, PL) %>%
+  dplyr::select(Genus, Taxon, Latitude, Longitude, Country, CL, PL) %>%
   group_by(Latitude) %>%
   mutate(count= n())
 
