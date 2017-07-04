@@ -15,7 +15,7 @@ library(dplyr)
 library(ggplot2)
 ```
 
-```{r include=FALSE}
+```{r "Zotero references", include=FALSE}
 #require(RefManageR)
 #biblio <- ReadZotero(user = '4138123', .params = list(collection = 'NPV27KD5'))
 #Zotero ID 4138123
@@ -23,7 +23,7 @@ library(ggplot2)
 ```
 
 
-```{r echo=FALSE}
+```{r "import data set", echo=FALSE}
 #### Data basis - import data set from Excel ####
 setwd("//naturkundemuseum-berlin.de/MuseumDFSRoot/Benutzer/Julia.Joos/Eigene Dateien/MA")
 #setwd("C:/Users/Jule/Documents/Uni/MA")
@@ -79,12 +79,18 @@ RatioSpecies <- CLPLextant %>%
   summarise(meanRatio=round(mean(ratio),2), sdRatio=round(sd(ratio),2), n=n(), min=min(ratio), max=max(ratio))
 
 
+fossil <- tidyCL %>%
+  dplyr::select(Taxon, CL, PL, size, estimated, Age, Island, Continent)
+  
+modern <- Extant %>%
+  dplyr::select(Taxon=Species, CL, PL, estimated, Age, Island, Continent)
 
-testRatio <- tidyCL %>%
+All <- bind_rows(modern, fossil)
+
+testRatio <- All %>% #tidyCL
   dplyr::select(Taxon, CL, PL, size, estimated, Age, Island, Continent) %>%
   mutate(extraCL = PL*Ratio$meanRatio) %>%
   dplyr::select(Taxon, CL, extraCL, PL, size, estimated, Age, Island, Continent)
-
 
 testRatio$CL[is.na(testRatio$CL)] <- testRatio$extraCL[is.na(testRatio$CL)]
 
@@ -93,11 +99,11 @@ testRatio$CL[is.na(testRatio$CL)] <- testRatio$extraCL[is.na(testRatio$CL)]
 PleiPlio <- testRatio %>% #testRatio or tidyCL 
   filter(Age < 11.000)
 
-PleiPlio$bin <- cut(PleiPlio$Age, c(0, 0.0117, 0.126, 0.781, 2.588, 3.6, 5.332, 11.608))
+PleiPlio$bin <- cut(PleiPlio$Age, c(0, 0.000001, 0.0117, 0.126, 0.781, 2.588, 3.6, 5.332, 11.608))
 
-EpochBins <- as.vector(c("Holocene", "Upper Pleistocene", "Middle Pleistocene", "Lower Pleistocene", "Upper Pliocene", "Lower Pliocene", "Upper Miocene"))
+EpochBins <- as.vector(c("Modern", "Holocene", "Upper Pleistocene", "Middle Pleistocene", "Lower Pleistocene", "Upper Pliocene", "Lower Pliocene", "Upper Miocene"))
 
-MeanBins <- as.vector(c((0+0.0117)/2, (0.0117+0.126)/2, (0.126+0.781)/2, (0.781+2.588)/2,
+MeanBins <- as.vector(c((0+0.000001)/2, (0+0.0117)/2, (0.0117+0.126)/2, (0.126+0.781)/2, (0.781+2.588)/2,
               (2.588+3.6)/2, (3.6+5.332)/2, (5.332+11.608)/2))
 
 Bins <- PleiPlio %>%
@@ -128,13 +134,13 @@ PPCL <- PleiPlioCL %>%
 PPCL[is.na(PPCL)]<-0 #subset NAs with O for n=1
 
 
-ExTort <- extant %>%
-  mutate(CL = SCL * 10) %>%
-  dplyr::select(CL) %>%
-  summarise(mm=mean(CL), nn=n(), vv=var(CL), tt=0) %>%
-  dplyr::select(mm, nn, vv, tt)
-
-ExTort[is.na(ExTort)] <- 0 #subset NAs with O for n=1
+# ExTort <- extant %>%
+#   mutate(CL = SCL * 10) %>%
+#   dplyr::select(CL) %>%
+#   summarise(mm=mean(CL), nn=n(), vv=var(CL), tt=0) %>%
+#   dplyr::select(mm, nn, vv, tt)
+# 
+# ExTort[is.na(ExTort)] <- 0 #subset NAs with O for n=1
 
 sumTort <- read.csv("tortoises_summary.csv", sep=";", header=TRUE)
 
@@ -142,10 +148,10 @@ SumTort <- sumTort %>%
   mutate(tt=(Mamin+Mamax)/2, vv=sdCLmm^2, nn=n, mm=meanCLmm) %>%
   dplyr::select(mm, nn, vv, tt)
  
-PPESCL <- bind_rows(SumTort,ExTort, PPCL)
+PPESCL <- bind_rows(SumTort,PPCL) #ExTort, 
 
 combiCL <- PPESCL %>%
-  dplyr::filter(tt==0) %>%   #maybe find a way to automatically filter double tt values...
+  dplyr::filter(tt==0.0000005) %>%   #maybe find a way to automatically filter double tt values...
   mutate(nx = nn*mm) %>%
   mutate(mmall=sum(nx)/sum(nn)) %>%
   mutate(SD=sqrt(nx), d=mm-mmall) %>%
@@ -156,7 +162,7 @@ combiCL <- PPESCL %>%
 
 
 PPCL <- PPESCL %>%
-  filter(tt !=0) %>%
+  filter(tt !=0.0000005) %>%
   bind_rows(combiCL)%>%
   arrange(tt)
 
@@ -253,27 +259,47 @@ kable(fit3models(paleoPPECL, silent=FALSE, method="AD", pool=FALSE))
 Frequency of body size data and distribution over time
 
 ```{r echo=FALSE}
-hist(PleiPlioCL$CL)
-hist(PleiPlioCL$Age)
+Fossil <- PleiPlioCL %>%
+  filter(EpochBins != "Modern")
+
+hist(Fossil$CL, breaks=20)
+hist(Fossil$Age, breaks=seq(0,12,by=0.5))
 ```
 
 ## Boxplots (continental (n) vs. Island (y) species)
 
 ```{r echo=FALSE, warning=FALSE}
-TR <- PleiPlioCL
+# TR <- PleiPlioCL
+# 
+# TRI <- TR %>%
+#   dplyr::select(Taxon, CL, PL, Age, Island, Continent)
 
-TRI <- TR %>%
-  dplyr::select(Taxon, CL, PL, Age, Island, Continent)
+# IslandEx <- extant %>%
+#   dplyr::select(Taxon=Species, SCL, PL,  Island, Continent) %>% # Age=0,  , n=1
+#   mutate(CL=SCL*10, PL=PL*10, Age=0) %>%#, n=1
+#   dplyr::select(Taxon, CL, PL,  Island, Continent, Age)
+# 
+# Island <- bind_rows(TRI, IslandEx)
 
-IslandEx <- extant %>%
-  dplyr::select(Taxon=Species, SCL, PL,  Island, Continent) %>% # Age=0,  , n=1
-  mutate(CL=SCL*10, PL=PL*10, Age=0) %>%#, n=1
-  dplyr::select(Taxon, CL, PL,  Island, Continent, Age)
+Epoch <- as.vector(c("Modern", "Pleistocene", "Pleistocene", "Pleistocene", "Holocene",
+                      "Pliocene", "Pliocene", "Miocene"))
+EpochBins <- as.vector(unique(PleiPlioCL$EpochBins))
+Epochs <- data.frame(Epoch,EpochBins )
 
-Island <- bind_rows(TRI, IslandEx)
+Continent <- as.vector(unique(PleiPlioCL$Continent))
+Con <- as.vector(c("Asia", "Africa", "Europe", "America", "America", "America", "Europe"))
+Continents <- data.frame(Continent, Con)
+
+Island <- PleiPlioCL %>%
+  dplyr::select(Taxon, CL, PL, Age, Island, Continent, EpochBins) %>%
+  merge(Epochs) %>%
+  merge(Continents) %>%
+  dplyr::select(CL, Island, Con, Epoch)
+  
+colnames(Island)[3] <- "Continent"
 
 IslandBox <- Island %>%
-  ggplot(aes(Island, CL)) + geom_boxplot() + geom_jitter(aes(colour=Continent)) +
+  ggplot(aes(Island, CL)) + geom_boxplot() + geom_jitter(aes(colour=Continent, shape=Epoch)) +
 #  facet_grid(.~Continent) +
   theme_classic() + # for white background 
 #  stat_summary(fun.data = give.n, geom = "text") +
@@ -283,6 +309,8 @@ IslandBox <- Island %>%
   scale_colour_brewer(palette="Set1")
 
 IslandBox
+
+
 
 
 
