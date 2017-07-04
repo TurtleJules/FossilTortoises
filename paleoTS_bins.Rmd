@@ -294,11 +294,12 @@ Island <- PleiPlioCL %>%
   dplyr::select(Taxon, CL, PL, Age, Island, Continent, EpochBins) %>%
   merge(Epochs) %>%
   merge(Continents) %>%
-  dplyr::select(CL, Island, Con, Epoch)
+  dplyr::select(CL, Island, Con, Epoch, Age)
   
 colnames(Island)[3] <- "Continent"
 
 IslandBox <- Island %>%
+  dplyr::select(CL, Island, Continent, Epoch, Age) %>%
   ggplot(aes(Island, CL)) + geom_boxplot() + geom_jitter(aes(colour=Continent, shape=Epoch)) +
 #  facet_grid(.~Continent) +
   theme_classic() + # for white background 
@@ -310,12 +311,9 @@ IslandBox <- Island %>%
 
 IslandBox
 
-
-
-
-
-
 ```
+
+
 ```{r echo=FALSE, warning=FALSE}
 IslandBoxAge <- Island %>%
   ggplot(aes(Island, CL)) + geom_boxplot() + geom_jitter(aes(colour=Age)) +
@@ -328,5 +326,30 @@ IslandBoxAge <- Island %>%
   scale_colour_gradientn(colors=c("orange", "red", "purple", "blue", "green")) #
 
 IslandBoxAge
+```
+
+
+
+```{r echo=FALSE}
+Map <- tidyCL %>%
+  filter(Age < 11.000) %>%
+  dplyr::select(Genus, Taxon, Latitude, Longitude, Country, CL, PL) %>%
+  group_by(Latitude) %>%
+  mutate(count= n())
+
+
+mapWorld <- borders("world", colour="azure3", fill="azure3") # create a layer of borders, run line at the beginning (before loading plotly)
+
+
+mapCL <- Map %>%
+  ggplot(aes(Longitude, Latitude)) +# borders("world", ylim = c(-60, 90)) +
+  mapWorld +
+  theme_classic() +
+  geom_point(aes(Longitude, Latitude,colour=CL, size=count)) +
+  scale_colour_gradientn(colors=c("orange", "red", "purple", "blue", "green"))
+  
+
+
+mapCL
 ```
 
