@@ -158,7 +158,8 @@ combiCL <- PPESCL %>%
   mutate(nsd=((nx^2+d^2)*nn)) %>%
   mutate(varall=sum(nsd)/sum(nn), n=sum(nn)) %>%
   dplyr::select(mm=mmall, vv=varall, nn=n, tt) %>%
-  unique()
+  unique() %>%
+  dplyr::select(mm, nn, vv, tt)
 
 
 PPCL <- PPESCL %>%
@@ -243,7 +244,8 @@ combiCL <- PPECL %>%
   mutate(nsd=((nx^2+d^2)*nn)) %>%
   mutate(varall=sum(nsd)/sum(nn), n=sum(nn)) %>%
   dplyr::select(mm=mmall, vv=varall, nn=n, tt) %>%
-  unique()
+  unique() %>%
+  dplyr::select(mm, nn, vv, tt)
 
 
 PPECL <- PPECL %>%
