@@ -204,7 +204,7 @@ kable(fit3models(paleoPPCL, silent=FALSE, method="AD", pool=FALSE))
 ```{r echo=FALSE}
 PPCL <- PleiPlioCL %>%
   dplyr::filter(CL != "NA") %>% 
-  dplyr::filter(Island != "y") %>%
+  dplyr::filter(Island != "n") %>%
   dplyr::select(CL, MeanBins) %>%
   mutate(tt= MeanBins) %>% # create mean age
   group_by(tt) %>% #create time bins
@@ -212,22 +212,44 @@ PPCL <- PleiPlioCL %>%
 
 PPCL[is.na(PPCL)]<-0 #subset NAs with O for n=1
 
-ExTortIs <- extant %>%
-  mutate(CL = SCL * 10) %>%
-  dplyr::filter(Island != "y") %>%
-  dplyr::select(CL) %>%
-  summarise(mm=mean(CL), nn=n(), vv=var(CL), tt=0) %>%
+# ExTortIs <- extant %>%
+#   mutate(CL = SCL * 10) %>%
+#   dplyr::filter(Island != "y") %>%
+#   dplyr::select(CL) %>%
+#   summarise(mm=mean(CL), nn=n(), vv=var(CL), tt=0.0000005) %>%
+#   dplyr::select(mm, nn, vv, tt)
+# 
+# ExTortIs[is.na(ExTortIs)] <- 0 #subset NAs with O for n=1
+
+sumTort <- read.csv("tortoises_summary.csv", sep=";", header=TRUE)
+
+SumTort <- sumTort %>%
+  filter(Island == "n") %>%
+  mutate(tt=(Mamin+Mamax)/2, vv=sdCLmm^2, nn=n, mm=meanCLmm) %>%
   dplyr::select(mm, nn, vv, tt)
+ 
+PPECL <- bind_rows(SumTort,PPCL) #ExTort, 
 
-ExTortIs[is.na(ExTortIs)] <- 0 #subset NAs with O for n=1
+#PPECL <- bind_rows(ExTortIs, PPCL)
 
+# PPECL <- PPECL %>%
+#   arrange(tt)
 
+combiCL <- PPECL %>%
+  dplyr::filter(tt==0.0000005) %>%   #maybe find a way to automatically filter double tt values...
+  mutate(nx = nn*mm) %>%
+  mutate(mmall=sum(nx)/sum(nn)) %>%
+  mutate(SD=sqrt(nx), d=mm-mmall) %>%
+  mutate(nsd=((nx^2+d^2)*nn)) %>%
+  mutate(varall=sum(nsd)/sum(nn), n=sum(nn)) %>%
+  dplyr::select(mm=mmall, vv=varall, nn=n, tt) %>%
+  unique()
 
-PPECL <- bind_rows(ExTortIs, PPCL)
 
 PPECL <- PPECL %>%
+  filter(tt !=0.0000005) %>%
+  bind_rows(combiCL)%>%
   arrange(tt)
-
 
 
 ```
