@@ -1,0 +1,161 @@
+---
+title: "Species accumulation curves"
+output: 
+  pdf_document: default
+  html_notebook: default
+  html_document: defaulthtml_notebook
+---
+
+```{r "setup", include=FALSE}
+require("knitr")
+opts_knit$set(root.dir = "//naturkundemuseum-berlin.de/MuseumDFSRoot/Benutzer/Julia.Joos/Eigene Dateien/MA")
+## on laptop: opts_knit$set(root.dir = "C:/Users/Jule/Documents/Uni/MA")
+library(dplyr)
+library(ggplot2)
+```
+
+```{r "import data set", echo=FALSE}
+#### Data basis - import data set from Excel ####
+setwd("//naturkundemuseum-berlin.de/MuseumDFSRoot/Benutzer/Julia.Joos/Eigene Dateien/MA")
+#setwd("C:/Users/Jule/Documents/Uni/MA")
+tidyCL<-read.csv("tortoises_tidy.csv", sep=";", header=TRUE)
+
+#####prepare for analysis (fix column names in .csv-file after converting table from excel####
+colnames(tidyCL)[6] <- "MAmin"
+colnames(tidyCL)[7] <- "Mamax"
+colnames(tidyCL)[17] <- "CL"
+colnames(tidyCL)[18] <- "PL"
+colnames(tidyCL)[21] <- "estimated"
+
+tidyCL <-  tidyCL %>%
+  mutate(Age= ((as.numeric(as.character(MAmin)))+(as.numeric(as.character(Mamax))))/2)
+
+####### import extant data ####
+extant <- read.csv("MFN_testudinidae.csv", sep=";", header=TRUE, dec=".", na.strings = "NA", stringsAsFactors=FALSE)  # file: MFN_testudinidae.csv
+
+colnames(extant)[4] <- "SCL"
+colnames(extant)[10] <- "PL"
+colnames(extant)[11] <- "PLmid"
+
+
+Extant <- extant %>%
+  mutate(CL = SCL * 10, PL=PL*10, PLmid=PLmid*10) 
+```
+
+# Fossil species (n=50)
+
+```{r "Fossil taxa"}
+
+vegan <- tidyCL %>%
+  dplyr::select(Locality, Taxon) %>%
+  group_by(Locality, Taxon) %>%
+  summarise(n=n()) %>%
+  tidyr::spread(Taxon, n, fill=0)
+
+library(vegan)
+
+#head(vegan)
+vegan=vegan[,-1]
+vegansp=specaccum(vegan,method="rarefaction", permutations=1000)
+plot(vegansp,xlab="Ind",ylab="Richness", xvar="individuals", ci.type="line", ci.lty=2, ci.col="grey", col="deepskyblue4", lwd=2)
+
+
+plot(vegansp,xlab="Ind",ylab="Richness", ci.type="polygon", xvar="individuals", col="cyan3", lwd=0.001)
+
+
+veganc=specaccum(vegan,method="collector")
+plot(vegansp,xlab="Sampling Effort", ylab="Catches",col="blue")
+
+```
+
+# Fossil genera (n=16)
+
+```{r "Fossil genera"}
+
+vegan <- tidyCL %>%
+  dplyr::select(Locality, Genus) %>%
+  group_by(Locality, Genus) %>%
+  summarise(n=n()) %>%
+  tidyr::spread(Genus, n, fill=0)
+
+library(vegan)
+
+head(vegan)
+vegan=vegan[,-1]
+vegansp=specaccum(vegan,method="rarefaction", permutations=1000)
+plot(vegansp,xlab="Ind",ylab="Richness", xvar="individuals", ci.type="line", ci.lty=2, ci.col="grey", col="deepskyblue4", lwd=2)
+
+
+plot(vegansp,xlab="Ind",ylab="Richness", ci.type="polygon", xvar="individuals", col="cyan3", lwd=0.001)
+
+
+
+veganc=specaccum(vegan,method="collector")
+plot(vegansp,xlab="Sampling Effort", ylab="Catches",col="blue")
+
+```
+
+# Extant species (n=62)
+
+```{r "Extant taxa"}
+
+vegan <- Extant %>%
+  dplyr::select(Continent, Species) %>%
+  group_by(Continent, Species) %>%
+  summarise(n=n()) %>%
+  tidyr::spread(Species, n, fill=0)
+
+library(vegan)
+
+head(vegan)
+vegan=vegan[,-1]
+vegansp=specaccum(vegan,method="rarefaction", permutations=1000)
+plot(vegansp,xlab="Ind",ylab="Richness", xvar="individuals", ci.type="line", ci.lty=2, ci.col="grey", col="deepskyblue4", lwd=2)
+
+
+plot(vegansp,xlab="Ind",ylab="Richness", ci.type="polygon", xvar="individuals", col="cyan3", lwd=0.001)
+
+
+
+veganc=specaccum(vegan,method="collector")
+plot(vegansp,xlab="Sampling Effort", ylab="Catches",col="blue")
+
+```
+
+# Extant and fossil combined, Continents as sites (n=109)
+
+(because I do not have localities for extant data)
+
+```{r "Extant and fossil taxa"}
+
+fossil <- tidyCL %>%
+  dplyr::select(Continent, Taxon) %>%
+  group_by(Continent, Taxon) %>%
+  rename(Species=Taxon)
+
+ExtantSpecies <- Extant %>%
+  dplyr::select(Continent, Species) %>%
+  group_by(Continent, Species)
+
+vegan <- fossil %>%
+  bind_rows(ExtantSpecies) %>%
+  group_by(Continent, Species) %>%
+  summarise(n=n()) %>%
+  tidyr::spread(Species, n, fill=0)
+
+library(vegan)
+
+head(vegan)
+vegan=vegan[,-1]
+vegansp=specaccum(vegan,method="rarefaction", permutations=1000)
+plot(vegansp,xlab="Ind",ylab="Richness", xvar="individuals", ci.type="line", ci.lty=2, ci.col="grey", col="deepskyblue4", lwd=2)
+
+
+plot(vegansp,xlab="Ind",ylab="Richness", ci.type="polygon", xvar="individuals", col="cyan3", lwd=0.001)
+
+
+
+veganc=specaccum(vegan,method="collector")
+plot(vegansp,xlab="Sampling Effort", ylab="Catches",col="blue")
+
+```

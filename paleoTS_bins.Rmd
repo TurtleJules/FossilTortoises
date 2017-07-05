@@ -386,10 +386,15 @@ vegan <- tidyCL %>%
   summarise(n=n()) %>%
   tidyr::spread(Taxon, n, fill=0)
 
-head(vegan)
+library(vegan)
+
+#head(vegan)
 vegan=vegan[,-1]
 vegansp=specaccum(vegan,method="rarefaction", permutations=1000)
 plot(vegansp,xlab="Ind",ylab="Richness", xvar="individuals", ci.type="line", ci.lty=2, ci.col="grey", col="deepskyblue4", lwd=2)
 
+
 ```
+
+
 
