@@ -352,6 +352,7 @@ IslandBoxAge <- Island %>%
 IslandBoxAge
 ```
 
+# Map
 
 
 ```{r echo=FALSE}
@@ -377,8 +378,9 @@ mapCL <- Map %>%
 mapCL
 ```
 
+# Species Accumulation Curve
 
-```{r "Species Accumulation Curve", echo=FALSE}
+```{r "Species Accumulation Curve", echo=FALSE, message=FALSE}
 
 vegan <- tidyCL %>%
   dplyr::select(Locality, Taxon) %>%
