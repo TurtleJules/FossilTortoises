@@ -9,8 +9,9 @@ always_allow_html: yes
 
 ```{r "setup", include=FALSE}
 require("knitr")
-opts_knit$set(root.dir = "//naturkundemuseum-berlin.de/MuseumDFSRoot/Benutzer/Julia.Joos/Eigene Dateien/MA")
-## on laptop: opts_knit$set(root.dir = "C:/Users/Jule/Documents/Uni/MA")
+#opts_knit$set(root.dir = "//naturkundemuseum-berlin.de/MuseumDFSRoot/Benutzer/Julia.Joos/Eigene Dateien/MA")
+## on laptop: 
+opts_knit$set(root.dir = "C:/Users/Jule/Documents/Uni/MA")
 library(dplyr)
 library(ggplot2)
 ```
@@ -25,8 +26,8 @@ library(ggplot2)
 
 ```{r "import data set", echo=FALSE}
 #### Data basis - import data set from Excel ####
-setwd("//naturkundemuseum-berlin.de/MuseumDFSRoot/Benutzer/Julia.Joos/Eigene Dateien/MA")
-#setwd("C:/Users/Jule/Documents/Uni/MA")
+#setwd("//naturkundemuseum-berlin.de/MuseumDFSRoot/Benutzer/Julia.Joos/Eigene Dateien/MA")
+setwd("C:/Users/Jule/Documents/Uni/MA")
 tidyCL<-read.csv("tortoises_tidy.csv", sep=";", header=TRUE)
 
 #####prepare for analysis (fix column names in .csv-file after converting table from excel####
@@ -380,6 +381,8 @@ mapCL
 
 # Species Accumulation Curve
 
+## Only for fossils (per Locality)
+
 ```{r "Species Accumulation Curve", echo=FALSE, message=FALSE}
 
 vegan <- tidyCL %>%
@@ -398,5 +401,33 @@ plot(vegansp,xlab="Ind",ylab="Richness", xvar="individuals", ci.type="line", ci.
 
 ```
 
+## Fossil and extant species (per Reference)
 
+
+```{r "Species Accumulation Curve Extant", echo=FALSE, message=FALSE}
+
+fossilSp <- tidyCL %>%
+  dplyr::select(Reference, Taxon) %>%
+  rename(Species=Taxon)
+
+extantSp <- extant %>%
+  dplyr::select(Reference, Species)
+  
+
+
+veganSp <- fossilSp %>%
+  bind_rows(extantSp) %>%
+  group_by(Reference, Species) %>%
+  summarise(n=n()) %>%
+  tidyr::spread(Species, n, fill=0)
+
+library(vegan)
+
+#head(vegan)
+veganSp=veganSp[,-1]
+vegansp=specaccum(veganSp,method="rarefaction", permutations=1000)
+plot(vegansp,xlab="Ind",ylab="Richness", xvar="individuals", ci.type="line", ci.lty=2, ci.col="grey", col="deepskyblue4", lwd=2)
+
+
+```
 
