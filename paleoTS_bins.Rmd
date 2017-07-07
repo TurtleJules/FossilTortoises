@@ -286,7 +286,7 @@ hist(Fossil$Age, breaks=seq(0,12,by=0.5))
 
 # CL histogram per bin
 
-```{r}
+```{r echo=FALSE}
 # Modern <- PleiPlioCL %>%
 #   filter(EpochBins == "Modern")
 # 
@@ -455,7 +455,7 @@ plot(vegansp,xlab="Ind",ylab="Richness", xvar="individuals", ci.type="line", ci.
 
 ## Fossil species (per Reference)
 
-```{r "Species Accumulation Curve", echo=FALSE, message=FALSE}
+```{r echo=FALSE, message=FALSE}
 
 vegan <- tidyCL %>%
   dplyr::select(Reference, Taxon) %>%
@@ -467,14 +467,14 @@ library(vegan)
 
 vegan=vegan[,-1]
 vegansp=specaccum(vegan,method="rarefaction", permutations=1000)
-plot(vegansp,xlab="Ind",ylab="Richness", xvar="individuals", ci.type="line", ci.lty=2, ci.col="grey", col="deepskyblue4", lwd=2, main="Fossil species, CL, per Locality" )
+plot(vegansp,xlab="Ind",ylab="Richness", xvar="individuals", ci.type="line", ci.lty=2, ci.col="grey", col="deepskyblue4", lwd=2, main="Fossil species, CL, per Reference" )
 
 
 ```
 
 ## Fossil genera (per Locality)
 
-```{r "Species Accumulation Curve", echo=FALSE, message=FALSE}
+```{r  echo=FALSE, message=FALSE}
 
 vegan <- tidyCL %>%
   dplyr::select(Locality, Genus) %>%
@@ -486,26 +486,26 @@ library(vegan)
 
 vegan=vegan[,-1]
 vegansp=specaccum(vegan,method="rarefaction", permutations=1000)
-plot(vegansp,xlab="Ind",ylab="Richness", xvar="individuals", ci.type="line", ci.lty=2, ci.col="grey", col="deepskyblue4", lwd=2, main="Fossil species, CL, per Locality" )
+plot(vegansp,xlab="Ind",ylab="Richness", xvar="individuals", ci.type="line", ci.lty=2, ci.col="grey", col="deepskyblue4", lwd=2, main="Fossil genera, CL, per Locality" )
 
 
 ```
 
 ## Fossil genera (per Reference)
 
-```{r "Species Accumulation Curve", echo=FALSE, message=FALSE}
+```{r echo=FALSE, message=FALSE}
 
 vegan <- tidyCL %>%
-  dplyr::select(Reference, Taxon) %>%
-  group_by(Reference, Taxon) %>%
+  dplyr::select(Reference, Genus) %>%
+  group_by(Reference, Genus) %>%
   summarise(n=n()) %>%
-  tidyr::spread(Taxon, n, fill=0)
+  tidyr::spread(Genus, n, fill=0)
 
 library(vegan)
 
 vegan=vegan[,-1]
 vegansp=specaccum(vegan,method="rarefaction", permutations=1000)
-plot(vegansp,xlab="Ind",ylab="Richness", xvar="individuals", ci.type="line", ci.lty=2, ci.col="grey", col="deepskyblue4", lwd=2, main="Fossil species, CL, per Reference")
+plot(vegansp,xlab="Ind",ylab="Richness", xvar="individuals", ci.type="line", ci.lty=2, ci.col="grey", col="deepskyblue4", lwd=2, main="Fossil genera, CL, per Reference")
 
 
 ```
@@ -513,7 +513,7 @@ plot(vegansp,xlab="Ind",ylab="Richness", xvar="individuals", ci.type="line", ci.
 ## Fossil and extant species (per Reference)
 
 
-```{r "Species Accumulation Curve Extant", echo=FALSE, message=FALSE}
+```{r echo=FALSE, message=FALSE}
 
 fossilSp <- tidyCL %>%
   dplyr::select(Reference, Taxon) %>%
