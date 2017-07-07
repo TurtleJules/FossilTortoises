@@ -9,9 +9,8 @@ always_allow_html: yes
 
 ```{r "setup", include=FALSE}
 require("knitr")
-#opts_knit$set(root.dir = "//naturkundemuseum-berlin.de/MuseumDFSRoot/Benutzer/Julia.Joos/Eigene Dateien/MA")
-## on laptop: 
-opts_knit$set(root.dir = "C:/Users/Jule/Documents/Uni/MA")
+opts_knit$set(root.dir = "//naturkundemuseum-berlin.de/MuseumDFSRoot/Benutzer/Julia.Joos/Eigene Dateien/MA")
+## on laptop: opts_knit$set(root.dir = "C:/Users/Jule/Documents/Uni/MA")
 library(dplyr)
 library(ggplot2)
 ```
@@ -26,8 +25,8 @@ library(ggplot2)
 
 ```{r "import data set", echo=FALSE}
 #### Data basis - import data set from Excel ####
-#setwd("//naturkundemuseum-berlin.de/MuseumDFSRoot/Benutzer/Julia.Joos/Eigene Dateien/MA")
-setwd("C:/Users/Jule/Documents/Uni/MA")
+setwd("//naturkundemuseum-berlin.de/MuseumDFSRoot/Benutzer/Julia.Joos/Eigene Dateien/MA")
+#setwd("C:/Users/Jule/Documents/Uni/MA")
 tidyCL<-read.csv("tortoises_tidy.csv", sep=";", header=TRUE)
 
 #####prepare for analysis (fix column names in .csv-file after converting table from excel####
@@ -171,12 +170,7 @@ PPCL <- PPESCL %>%
 ```
 
 
-```{r echo=FALSE}
-
-nIsland <- sum(PPCL$nn)
-
-```
-## including Island species  (n=`r nIsland`)
+## including Island species  (n=`r sum(PPCL$nn)`)
 
 
 paleoTS object (mm= mean CL, nn = sample size, vv = variance (CL), tt = Age):
@@ -429,5 +423,105 @@ vegansp=specaccum(veganSp,method="rarefaction", permutations=1000)
 plot(vegansp,xlab="Ind",ylab="Richness", xvar="individuals", ci.type="line", ci.lty=2, ci.col="grey", col="deepskyblue4", lwd=2)
 
 
+```
+
+
+```{r}
+All<-read.csv("tortoises13-04.csv", sep=";", header=TRUE)
+
+
+allSp <- All %>%
+  dplyr::select(Reference, Taxon) %>%
+  rename(Species=Taxon)
+
+extantSp <- extant %>%
+  dplyr::select(Reference, Species)
+
+
+
+veganAll <- allSp %>%
+  # bind_rows(extantSp) %>%
+  group_by(Reference, Species) %>%
+  summarise(n=n()) %>%
+  tidyr::spread(Species, n, fill=0)
+
+veganAllEx <- allSp %>%
+  bind_rows(extantSp) %>%
+  group_by(Reference, Species) %>%
+  summarise(n=n()) %>%
+  tidyr::spread(Species, n, fill=0)
+
+library(vegan)
+
+#head(vegan)
+veganAll=veganAll[,-1]
+vegansp=specaccum(veganAll,method="rarefaction", permutations=1000)
+veganAllEx=veganAllEx[,-1]
+veganspAll=specaccum(veganAllEx,method="rarefaction", permutations=1000)
+
+#par(mfcol=c(2, 1)) # mfrow: side by side
+plot(vegansp,xlab="Ind",ylab="Richness", xvar="individuals", ci.type="line", ci.lty=2, ci.col="grey", col="deepskyblue4", lwd=2)
+plot(veganspAll,xlab="Ind",ylab="Richness", xvar="individuals", ci.type="line", ci.lty=2, ci.col="grey", col="deepskyblue4", lwd=2)
+
+
+```
+
+```{r}
+All<-read.csv("tortoises13-04.csv", sep=";", header=TRUE)
+
+
+allGen <- tidyCL %>%  #All or tidyCL
+  filter(Age < 11.000) %>%
+  dplyr::select(Reference, Genus) #%>%
+#  rename(Species=Taxon)
+
+# extantSp <- extant %>%
+#   dplyr::select(Reference, Species)
+
+
+
+veganGenera <- allGen %>%
+  # bind_rows(extantSp) %>%
+  group_by(Reference, Genus) %>%
+  summarise(n=n()) %>%
+  tidyr::spread(Genus, n, fill=0)
+
+# veganAllEx <- allSp %>%
+#   bind_rows(extantSp) %>%
+#   group_by(Reference, Species) %>%
+#   summarise(n=n()) %>%
+#   tidyr::spread(Species, n, fill=0)
+
+library(vegan)
+
+#head(vegan)
+veganGenera=veganGenera[,-1]
+veganG=specaccum(veganGenera,method="rarefaction", permutations=1000)
+# veganAllEx=veganAllEx[,-1]
+# veganspAll=specaccum(veganAllEx,method="rarefaction", permutations=1000)
+
+#par(mfcol=c(2, 1)) # mfrow: side by side
+plot(veganG,xlab="Ind",ylab="Richness", xvar="individuals", ci.type="line", ci.lty=2, ci.col="grey", col="deepskyblue4", lwd=2)
+# plot(veganspAll,xlab="Ind",ylab="Richness", xvar="individuals", ci.type="line", ci.lty=2, ci.col="grey", col="deepskyblue4", lwd=2)
+
+
+```
+
+```{r}
+extantSp <- extant %>%
+  dplyr::select(Reference, Species)
+
+
+
+veganEx <- extantSp %>%
+  group_by(Reference, Species) %>%
+  summarise(n=n()) %>%
+  tidyr::spread(Species, n, fill=0)
+
+veganEx=veganEx[,-1]
+veganE=specaccum(veganEx,method="collector" )#, permutations=1000)
+plot(veganE)
+ 
+# plot(veganE,xlab="Ind",ylab="Richness", xvar="individuals", ci.type="line", ci.lty=2, ci.col="grey", col="deepskyblue4", lwd=2)
 ```
 
