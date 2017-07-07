@@ -690,3 +690,48 @@ setwd("//naturkundemuseum-berlin.de/MuseumDFSRoot/Benutzer/Julia.Joos/Eigene Dat
 PDBDRef<-read.csv("pdbd_references.csv", sep=",", header=TRUE)
 
 
+
+
+###########################
+
+All<-read.csv("tortoises13-04.csv", sep=";", header=TRUE)
+
+
+allSp <- All %>%
+  dplyr::select(Reference, Taxon) %>%
+  rename(Species=Taxon)
+
+extantSp <- extant %>%
+  dplyr::select(Reference, Species)
+
+
+
+veganAll <- allSp %>%
+  # bind_rows(extantSp) %>%
+  group_by(Reference, Species) %>%
+  summarise(n=n()) %>%
+  tidyr::spread(Species, n, fill=0)
+
+veganAllEx <- allSp %>%
+  bind_rows(extantSp) %>%
+  group_by(Reference, Species) %>%
+  summarise(n=n()) %>%
+  tidyr::spread(Species, n, fill=0)
+
+library(vegan)
+
+#head(vegan)
+veganAll=veganAll[,-1]
+vegansp=specaccum(veganAll,method="rarefaction", permutations=1000)
+veganAllEx=veganAllEx[,-1]
+veganspAll=specaccum(veganAllEx,method="rarefaction", permutations=1000)
+
+par(mfrow=c(2, 2))
+plot(vegansp,xlab="Ind",ylab="Richness", xvar="individuals", ci.type="line", ci.lty=2, ci.col="grey", col="deepskyblue4", lwd=2)
+plot(veganspAll,xlab="Ind",ylab="Richness", xvar="individuals", ci.type="line", ci.lty=2, ci.col="grey", col="deepskyblue4", lwd=2)
+
+
+par(mfcol=c(2, 1)) # mfrow: side by side
+plot(vegansp,xlab="Ind",ylab="Richness", xvar="individuals", ci.type="line", ci.lty=2, ci.col="grey", col="deepskyblue4", lwd=2)
+plot(veganspAll,xlab="Ind",ylab="Richness", xvar="individuals", ci.type="line", ci.lty=2, ci.col="grey", col="deepskyblue4", lwd=2)
+
