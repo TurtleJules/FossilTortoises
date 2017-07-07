@@ -287,41 +287,59 @@ hist(Fossil$Age, breaks=seq(0,12,by=0.5))
 # CL histogram per bin
 
 ```{r}
-Modern <- PleiPlioCL %>%
-  filter(EpochBins == "Modern")
+# Modern <- PleiPlioCL %>%
+#   filter(EpochBins == "Modern")
+# 
+# Holocene <- PleiPlioCL %>%
+#   filter(EpochBins == "Holocene")
+# 
+# UpperPlei <- PleiPlioCL %>%
+#   filter(EpochBins == "Upper Pleistocene")
+# 
+# MiddlePlei <- PleiPlioCL %>%
+#   filter(EpochBins == "Middle Pleistocene ")
+# 
+# LowerPlei <- PleiPlioCL %>%
+#   filter(EpochBins == "Lower Pleistocene")
+# 
+# UpperPlio <- PleiPlioCL %>%
+#   filter(EpochBins == "Upper Pliocene")
+# 
+# LowerPlio <- PleiPlioCL %>%
+#   filter(EpochBins == "Lower Pliocene")
+# 
+# UpperMio <- PleiPlioCL %>%
+#   filter(EpochBins == "Upper Miocene")
+# 
+# 
+# par(mfcol=c(2,4))
+# hist(Modern$CL, breaks=20)
+# hist(Holocene$CL, breaks=20)
+# hist(UpperPlei$CL, breaks=20)
+# #hist(MiddlePlei$CL, breaks=20)
+# hist(LowerPlei$CL, breaks=20)
+# hist(UpperPlio$CL, breaks=20)
+# hist(LowerPlio$CL, breaks=20)
+# hist(UpperMio$CL, breaks=20)
 
-Holocene <- PleiPlioCL %>%
-  filter(EpochBins == "Holocene")
+HistCLModern <- PleiPlioCL %>%
+  filter( !is.na(CL)) %>%
+  filter(EpochBins == "Modern") %>%
+  ggplot(aes(CL)) + geom_histogram(binwidth=10, col="black", fill="gray") + facet_wrap(~EpochBins, scales="free_x")+
+  theme_classic()+ 
+  #theme_gray() +
+  theme(panel.border = element_rect(colour = "black", fill=NA))
 
-UpperPlei <- PleiPlioCL %>%
-  filter(EpochBins == "Upper Pleistocene")
+HistCL <- PleiPlioCL %>%
+  filter( !is.na(CL)) %>%
+  filter(EpochBins != "Modern") %>%
+  ggplot(aes(CL)) + geom_histogram(binwidth=10, col="black", fill="gray") + facet_wrap(~EpochBins, scales="free_x")+
+  theme_classic()+ 
+  #theme_gray() +
+  theme(panel.border = element_rect(colour = "black", fill=NA))
 
-MiddlePlei <- PleiPlioCL %>%
-  filter(EpochBins == "Middle Pleistocene ")
-
-LowerPlei <- PleiPlioCL %>%
-  filter(EpochBins == "Lower Pleistocene")
-
-UpperPlio <- PleiPlioCL %>%
-  filter(EpochBins == "Upper Pliocene")
-
-LowerPlio <- PleiPlioCL %>%
-  filter(EpochBins == "Lower Pliocene")
-
-UpperMio <- PleiPlioCL %>%
-  filter(EpochBins == "Upper Miocene")
-
-
-par(mfcol=c(4,2))
-hist(Modern$CL, breaks=20)
-hist(Holocene$CL, breaks=20)
-hist(UpperPlei$CL, breaks=20)
-#hist(MiddlePlei$CL, breaks=20)
-hist(LowerPlei$CL, breaks=20)
-hist(UpperPlio$CL, breaks=20)
-hist(LowerPlio$CL, breaks=20)
-hist(UpperMio$CL, breaks=20)
-
+HistCLModern
+HistCL  
 
 ```
 
