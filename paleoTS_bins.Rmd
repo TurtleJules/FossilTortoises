@@ -38,7 +38,8 @@ colnames(tidyCL)[18] <- "PL"
 colnames(tidyCL)[21] <- "estimated"
 
 tidyCL <-  tidyCL %>%
-  mutate(Age= ((as.numeric(as.character(MAmin)))+(as.numeric(as.character(Mamax))))/2)
+  mutate(Age= ((as.numeric(as.character(MAmin)))+(as.numeric(as.character(Mamax))))/2) %>%
+  mutate(PL=as.numeric(as.character(PL)))
 
 ####### import extant data ####
 extant <- read.csv("MFN_testudinidae.csv", sep=";", header=TRUE, dec=".", na.strings = "NA", stringsAsFactors=FALSE)  # file: MFN_testudinidae.csv
@@ -198,7 +199,7 @@ kable(fit3models(paleoPPCL, silent=FALSE, method="AD", pool=FALSE))
 
 
 ```{r echo=FALSE}
-PPCL <- PleiPlioCL %>%
+PPCL2 <- PleiPlioCL %>%
   dplyr::filter(CL != "NA") %>% 
   dplyr::filter(Island == "n") %>%
   dplyr::select(CL, MeanBins) %>%
@@ -206,7 +207,7 @@ PPCL <- PleiPlioCL %>%
   group_by(tt) %>% #create time bins
   summarise(mm=mean(CL), vv=var(CL), nn=n()) #create means etc. for each time bin 
 
-PPCL[is.na(PPCL)]<-0 #subset NAs with O for n=1
+PPCL2[is.na(PPCL2)]<-0 #subset NAs with O for n=1
 
 # ExTortIs <- extant %>%
 #   mutate(CL = SCL * 10) %>%
@@ -224,7 +225,7 @@ SumTort <- sumTort %>%
   mutate(tt=(Mamin+Mamax)/2, vv=sdCLmm^2, nn=n, mm=meanCLmm) %>%
   dplyr::select(mm, nn, vv, tt)
  
-PPECL <- bind_rows(SumTort,PPCL) #ExTort, 
+PPECL <- bind_rows(SumTort,PPCL2) #ExTort, 
 
 #PPECL <- bind_rows(ExTortIs, PPCL)
 
@@ -246,6 +247,7 @@ combiCL <- PPECL %>%
 PPECL <- PPECL %>%
   filter(tt !=0.0000005) %>%
   bind_rows(combiCL)%>%
+#  select(tt, mm, vv, nn) %>%
   arrange(tt)
 
 
@@ -259,7 +261,7 @@ kable(PPECL)
 
 
 ```{r echo=FALSE}
-paleoPPECL <-as.paleoTS(PPECL$mm, PPECL$vv, PPECL$nn, PPECL$tt, MM = NULL, genpars = NULL, label = "Testudinidae body size evolution mode, Holocene-Upper Miocene, CL, without Island species")
+paleoPPECL <-as.paleoTS(PPECL$mm, PPECL$vv, PPECL$nn, PPECL$tt, MM = NULL, genpars = NULL, label = "Testudinidae body size evolution mode, Holocene-Upper Miocene, CL, without Island species", reset.time=TRUE)
 #paleoPPECL
 plot(paleoPPECL)
 
@@ -267,7 +269,7 @@ plot(paleoPPECL)
 
 ```{r echo=FALSE}
 
-kable(fit3models(paleoPPECL, silent=FALSE, method="AD", pool=FALSE))
+#kable(fit3models(paleoPPECL, silent=FALSE, method="AD", pool=FALSE))
 
 ```
 
@@ -340,7 +342,7 @@ plot(paleoPPECL)
 
 ```{r echo=FALSE}
 
-kable(fit3models(paleoPPECL, silent=FALSE, method="AD", pool=FALSE))
+#kable(fit3models(paleoPPECL, silent=FALSE, method="AD", pool=FALSE))
 
 ```
 
@@ -483,9 +485,10 @@ IslandBoxAge
 # Map
 
 
-```{r echo=FALSE}
+```{r echo=FALSE, include=FALSE}
 Map <- tidyCL %>%
   filter(Age < 11.000) %>%
+  filter(Latitude != "-") %>%
   dplyr::select(Genus, Taxon, Latitude, Longitude, Country, CL, PL) %>%
   group_by(Latitude) %>%
   mutate(count= n())
@@ -500,10 +503,10 @@ mapCL <- Map %>%
   theme_classic() +
   geom_point(aes(Longitude, Latitude,colour=CL, size=count)) +
   scale_colour_gradientn(colors=c("orange", "red", "purple", "blue", "green"))
-  
 
 
-mapCL
+
+#mapCL
 ```
 
 # Species Accumulation Curve
