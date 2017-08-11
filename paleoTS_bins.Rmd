@@ -269,7 +269,7 @@ plot(paleoPPECL)
 
 ```{r echo=FALSE}
 
-#kable(fit3models(paleoPPECL, silent=FALSE, method="AD", pool=FALSE))
+kable(fit3models(paleoPPECL, silent=FALSE, method="AD", pool=FALSE))
 
 ```
 
@@ -506,7 +506,7 @@ mapCL <- Map %>%
 
 
 
-#mapCL
+mapCL
 ```
 
 # Species Accumulation Curve
