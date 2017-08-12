@@ -49,6 +49,7 @@ colnames(extant)[10] <- "PL"
 colnames(extant)[11] <- "PLmid"
 
 
+
 Extant <- extant %>%
   mutate(CL = SCL * 10, PL=PL*10, PLmid=PLmid*10) 
 ```
@@ -196,6 +197,160 @@ kable(fit3models(paleoPPCL, silent=FALSE, method="AD", pool=FALSE))
 ```
 
 
+
+```{r}
+SpeciesMean <- PleiPlioCL %>%
+  filter(EpochBins != "Modern") %>%
+  group_by(EpochBins, Taxon, Age) %>%
+  summarise(meanCL = mean(CL), n=n()) %>%
+  merge(BINS)
+
+SpeciesModern <- PleiPlioCL %>%
+  filter(EpochBins == "Modern") %>%
+  group_by(Taxon) %>%
+  summarise(meanCL=mean(CL), sdCL=sd(CL), n=n(), Age=mean(Age), EpochBins=unique(EpochBins), MeanBins=unique(MeanBins))
+
+
+SpeciesModern[is.na(SpeciesModern)]<-0 #subset NAs with O for n=1
+
+####
+
+hist(SpeciesMean$meanCL)
+
+HistCLSpecies <- SpeciesMean %>%
+  filter( !is.na(meanCL)) %>%
+  ggplot(aes(meanCL)) + geom_histogram(binwidth=10, col="black", fill="gray") + facet_wrap(~EpochBins, scales="free_x")+
+  theme_classic()+ 
+  #theme_gray() +
+  theme(panel.border = element_rect(colour = "black", fill=NA))
+
+HistCLSpecies
+
+HistEpoch <- SpeciesMean %>%
+  filter( !is.na(meanCL)) %>%
+  ggplot(aes(MeanBins)) + geom_histogram(bins=0.000001)
+
+HistEpoch
+
+SpeciesOverview <- SpeciesMean %>%
+#  filter(EpochBins != "Modern") %>%
+  filter( !is.na(meanCL)) %>%
+  group_by(EpochBins) %>%
+  summarise(meanSpeciesCL = mean(meanCL), nSpecies=n(), MeanBins = mean(MeanBins)) %>%
+  arrange(MeanBins) 
+
+kable(SpeciesOverview)
+
+
+
+#####
+
+
+SpeciesPaleo <- SpeciesMean %>%
+  dplyr::select(meanCL, MeanBins) %>%
+  dplyr::filter(meanCL != "NA") %>%
+  mutate(tt= MeanBins) %>% # create mean age
+  group_by(tt) %>% #create time bins
+  summarise(mm=mean(meanCL), vv=var(meanCL), nn=n()) #create means etc. for each time bin 
+
+#SpeciesPaleo[is.na(SpeciesPaleo)]<-0 #subset NAs with O for n=1
+
+
+# ExTort <- extant %>%
+#   mutate(CL = SCL * 10) %>%
+#   dplyr::select(CL) %>%
+#   summarise(mm=mean(CL), nn=n(), vv=var(CL), tt=0) %>%
+#   dplyr::select(mm, nn, vv, tt)
+# 
+# ExTort[is.na(ExTort)] <- 0 #subset NAs with O for n=1
+
+sumTort <- read.csv("tortoises_summary.csv", sep=";", header=TRUE)
+colnames(sumTort)[1] <- "Taxon"
+colnames(sumTort)[6] <- "meanCL"
+colnames(sumTort)[7] <- "sdCL"
+#sumTort$EpochBins <- "Modern"
+#sumTort$MeanBins <- 0.0000005
+
+
+sumTortoises <- sumTort %>%
+  mutate(MeanBins=(Mamin+Mamax)/2) %>%
+  select(Taxon, MeanBins, n, meanCL, sdCL) %>% #, EpochBins
+#  group_by(Taxon) %>%
+#  merge(Bins)
+  bind_rows(SpeciesModern)
+
+#sumTortoises[is.na(sumTortoises)] <- 5e-07
+
+SumTort <- sumTortoises %>%
+  group_by(Taxon) %>%
+  mutate(tt=MeanBins, vv=sdCL^2, nn=n, mm=meanCL) %>%
+  dplyr::select(mm, nn, vv, tt, Taxon) %>%
+  mutate(nx = nn*mm) %>%
+  mutate(mmall=sum(nx)/sum(nn)) %>%
+  mutate(SD=sqrt(nx), d=mm-mmall) %>%
+  mutate(nsd=((nx^2+d^2)*nn)) %>%
+  mutate(varall=sum(nsd)/sum(nn), n=sum(nn)) %>%
+  dplyr::select(mm=mmall, vv=varall, nn=n, tt, Taxon) %>%
+  unique() %>%
+  dplyr::select(mm, nn, vv, tt, Taxon)
+ 
+modernTort <- SumTort %>%
+  group_by(Taxon) %>%
+  mutate(nx = nn*mm) %>%
+  mutate(mmall=sum(nx)/sum(nn)) %>%
+  mutate(SD=sqrt(nx), d=mm-mmall) %>%
+  mutate(nsd=((nx^2+d^2)*nn)) %>%
+  mutate(varall=sum(nsd)/sum(nn), n=sum(nn)) %>%
+  dplyr::select(mm=mmall, vv=varall, nn=n, tt) %>%
+  unique() %>%
+  dplyr::select(mm, nn, vv, tt)
+
+
+#bis hier alle modernen taxa zusammengefasst (summarised and MFN_testudinidae)
+
+ModernMean <- modernTort %>%
+  ungroup() %>%
+  summarise(mm = mean(mm), nSpecies=n()) 
+
+#####
+
+
+
+# SpeciesMean <- PleiPlioCL %>%
+#   filter(EpochBins != "Modern") %>%
+#   group_by(EpochBins, Taxon, Age) %>%
+#   summarise(meanCL = mean(CL), n=n()) %>%
+#   merge(BINS)
+# 
+# SpeciesOverview <- SpeciesMean %>%
+# #  filter(EpochBins != "Modern") %>%
+#   filter( !is.na(meanCL)) %>%
+#   group_by(EpochBins) %>%
+#   summarise(meanSpeciesCL = mean(meanCL), nSpecies=n(), MeanBins = mean(MeanBins)) %>%
+#   arrange(MeanBins) 
+# #######
+
+
+SpecPaleo <- bind_rows(SumTort,SpeciesPaleo) #ExTort, 
+
+combiCL <- SpecPaleo %>%
+  dplyr::filter(tt==0.0000005) %>%   #maybe find a way to automatically filter double tt values...
+  mutate(nx = nn*mm) %>%
+  mutate(mmall=sum(nx)/sum(nn)) %>%
+  mutate(SD=sqrt(nx), d=mm-mmall) %>%
+  mutate(nsd=((nx^2+d^2)*nn)) %>%
+  mutate(varall=sum(nsd)/sum(nn), n=sum(nn)) %>%
+  dplyr::select(mm=mmall, vv=varall, nn=n, tt) %>%
+  unique() %>%
+  dplyr::select(mm, nn, vv, tt)
+
+
+SpecPaleoTS <- SpecPaleo %>%
+  filter(tt !=0.0000005) %>%
+  bind_rows(combiCL)%>%
+  arrange(tt)
+
+```
 
 
 ```{r echo=FALSE}
