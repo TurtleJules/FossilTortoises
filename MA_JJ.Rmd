@@ -20,8 +20,8 @@ header-includes:
     - \usepackage{setspace}
     - \doublespacing
     
-includes:
-      before_body: titlepage.tex
+# includes:
+#       before_body: titlepage.tex
     
 ---
 
@@ -34,22 +34,192 @@ library(dplyr)
 library(ggplot2)
 ```
 
-## R Markdown
 
-This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
 
-When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
 
-```{r cars}
-summary(cars)
+```{r "import data set", echo=FALSE}
+#### Data basis - import data set from Excel ####
+setwd("C:/Users/Jule/Documents/Uni/MA")
+tidyCL<-read.csv("tortoises_tidy.csv", sep=";", header=TRUE)
+
+#####prepare for analysis (fix column names in .csv-file after converting table from excel####
+colnames(tidyCL)[6] <- "MAmin"
+colnames(tidyCL)[7] <- "Mamax"
+colnames(tidyCL)[17] <- "CL"
+colnames(tidyCL)[18] <- "PL"
+colnames(tidyCL)[21] <- "estimated"
+
+tidyCL <-  tidyCL %>%
+  mutate(Age= ((MAmin)+(as.numeric(Mamax)))/2)
+
+####### import extant data ####
+extant <- read.csv("MFN_testudinidae.csv", sep=";", header=TRUE, dec=".", na.strings = "NA", stringsAsFactors=FALSE)  # file: MFN_testudinidae.csv
+
+colnames(extant)[4] <- "SCL"
+colnames(extant)[10] <- "PL"
+colnames(extant)[11] <- "PLmid"
+
+
+
+Extant <- extant %>%
+  mutate(CL = SCL * 10, PL=PL*10, PLmid=PLmid*10) 
 ```
 
-## Including Plots
 
-You can also embed plots, for example:
+```{r "estimating CL from PL", echo=FALSE, results='asis'}
+CLPLtidy <- tidyCL %>%
+  filter(!is.na(CL) & !is.na(PL)) %>%
+  dplyr::select(Taxon, CL, PL, size, Age, Island, Continent) %>%
+  mutate(ratio=CL/PL) %>%
+  group_by(Taxon) %>% #to show ratios per Taxon, leave out to get a total ratio
+  summarise(meanRatio=round(mean(ratio),2), sdRatio=round(sd(ratio),2), n=n(), min=min(ratio), max=max(ratio))
 
-```{r pressure, echo=FALSE}
-plot(pressure)
+CLPLextant <- Extant %>%
+  filter(!is.na(CL) & !is.na(PL)) %>%
+  dplyr::select(Taxon=Species, CL, PL, PLmid, Island, Continent) %>%
+  mutate(ratio=CL/PL, ratioMid=CL/PLmid)
+  #group_by(Taxon) %>% #to show ratios per Taxon, leave out to get a total ratio
+  #  summarise(meanRatio=round(mean(ratio),2), sdRatio=round(sd(ratio),2), n=n(), min=min(ratio), max=max(ratio))
+
+Ratio <- CLPLextant %>%
+  summarise(meanRatio=round(mean(ratio),2), sdRatio=round(sd(ratio),2), n=n(), min=min(ratio), max=max(ratio))
+
+RatioSpecies <- CLPLextant %>%
+  group_by(Taxon) %>% #to show ratios per Taxon, leave out to get a total ratio
+  summarise(meanRatio=round(mean(ratio),2), sdRatio=round(sd(ratio),2), n=n(), min=min(ratio), max=max(ratio))
+
+
+fossil <- tidyCL %>%
+  mutate(Taxon=as.character(Taxon), Island=as.character(Island), Continent=as.character(Continent), estimated=as.character(estimated)) %>%
+  dplyr::select(Taxon, CL, PL, size, estimated, Age, Island, Continent)
+  
+modern <- Extant %>%
+  dplyr::select(Taxon=Species, CL, PL, estimated, Age, Island, Continent)
+
+All <- bind_rows(modern, fossil)
+
+testRatio <- All %>% #tidyCL
+  dplyr::select(Taxon, CL, PL, size, estimated, Age, Island, Continent) %>%
+  mutate(extraCL = PL*Ratio$meanRatio) %>%
+  dplyr::select(Taxon, CL, extraCL, PL, size, estimated, Age, Island, Continent)
+
+testRatio$CL[is.na(testRatio$CL)] <- testRatio$extraCL[is.na(testRatio$CL)]
 ```
 
-Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
+
+```{r "Bin data", echo=FALSE}
+
+PleiPlio <- testRatio %>% #testRatio or tidyCL 
+  filter(Age < 11.000)
+
+PleiPlio$bin <- cut(PleiPlio$Age, c(0, 0.000001, 0.0117, 0.126, 0.781, 2.588, 3.6, 5.332, 11.608))
+
+EpochBins <- as.vector(c("Modern", "Holocene", "Upper Pleistocene", "Middle Pleistocene", "Lower Pleistocene", "Upper Pliocene", "Lower Pliocene", "Upper Miocene"))
+
+MeanBins <- as.vector(c((0+0.000001)/2, (0+0.0117)/2, (0.0117+0.126)/2, (0.126+0.781)/2, (0.781+2.588)/2,(2.588+3.6)/2, (3.6+5.332)/2, (5.332+11.608)/2))
+
+Bins <- PleiPlio %>%
+  select(bin) %>%
+  group_by(bin) %>%
+  summarise(n=n())
+
+bin <- as.vector(unique(Bins$bin))
+
+#BINS <- data.frame(bin, EpochBins, MeanBins) #
+BINS <- read.table("timebins.txt", sep="\t", header=TRUE)
+
+kable(Bins)
+kable(BINS)
+
+PleiPlioCL <- PleiPlio %>%
+  merge(BINS)
+
+SUM <- PleiPlioCL %>%
+  group_by(MeanBins) %>%
+  summarise(n=n())
+```
+
+
+```{r "Map fossil occurrences", echo=FALSE}
+
+CL <- tidyCL %>%
+  filter(Age < 11.000) %>%
+  filter(Latitude != "-") %>%
+  dplyr::select(Locality, Genus, Taxon, Latitude, Longitude, Country, Age) %>%
+  group_by(Locality) %>%
+  mutate(count= n())
+
+
+FossilOccurrences<-read.csv("tortoises_occurrences.csv", sep=";", header=TRUE)
+
+FossOcc <- FossilOccurrences %>%
+  mutate(Age= (MA.min + Ma.max)/2) %>%
+  select(Locality, Country, Latitude, Longitude, Age, Genus, Taxon) %>%
+#  merge(tidyCL) %>%
+  group_by(Locality) %>%
+  mutate(count= n(), Longitude=as.numeric(as.character(Longitude)))
+
+
+#OccMap <-  merge(Map, FossOcc, by="Locality", incomparables=TRUE) %>%
+#  distinct()
+  
+
+
+
+mapWorld <- borders("world", colour="azure3", fill="azure3") # create a layer of borders, run line at the beginning (before loading plotly)
+
+
+mapOc <- FossOcc %>%
+  ggplot(aes(Longitude, Latitude)) +# borders("world", ylim = c(-60, 90)) +
+  mapWorld +
+  theme_classic() +
+  geom_point(data=FossOcc, (aes(as.numeric(Longitude), Latitude))) +
+  geom_point(data=CL,(aes(Longitude, Latitude, colour="o"))) #+
+#  scale_colour_gradientn(colors=c("orange", "red", "purple", "blue", "green"))
+
+
+
+mapOc
+
+require(plotly)
+ggplotly(mapOc)
+
+
+######HIER WEITER!!!!######
+availableCL <- length(unique(CL$Locality))
+availableOccurrences <- length(unique(FossOcc$Locality))
+
+Comparison <- setdiff(CL, FossOcc)
+comparison <- length(Comparison$Locality)
+
+com <- setdiff(availableCL, Comparison)
+
+```
+
+
+```{r "Map body size data set", echo=FALSE}
+
+MapCL <- tidyCL %>%
+  filter(Age < 11.000) %>%
+  filter(Latitude != "-") %>%
+  dplyr::select(Genus, Taxon, Latitude, Longitude, Country, CL, PL, Epoch) %>%
+  group_by(Latitude) %>%
+  mutate(count= n())
+
+
+mapWorld <- borders("world", colour="azure3", fill="azure3") # create a layer of borders, run line at the beginning (before loading plotly)
+
+
+mapCL <- MapCL %>%
+  ggplot(aes(Longitude, Latitude)) +# borders("world", ylim = c(-60, 90)) +
+  mapWorld +
+  theme_classic() +
+  geom_point(aes(Longitude, Latitude,colour=CL, size=count)) +
+  scale_colour_gradientn(colors=c("orange", "red", "purple", "blue", "green"))
+
+
+
+mapCL
+
+
+```

@@ -119,6 +119,9 @@ bin <- as.vector(unique(Bins$bin))
 
 BINS <- data.frame(bin, EpochBins, MeanBins) #
 
+write.table(BINS,file="timebins.txt", sep="\t", row.names = FALSE) 
+
+
 kable(Bins)
 kable(BINS)
 
