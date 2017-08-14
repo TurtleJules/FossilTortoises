@@ -1,0 +1,44 @@
+\documentclass[toc=bibliographynumbered]{scrartcl} %mit [draft] vor den {} erreicht man, daß statt der Grafiken nur ein Rahmen in Größe der Grafik gezeichnet wird. Zusätzlich wird der Name der einzufügenden Datei in diesen Rahmen geschrieben]{book}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+%\usepackage[english,ngerman]{babel} %Deutsch als Hauptsprache, z.b. für Inhaltsverzeichnis etc.
+\usepackage[ngerman,english]{babel} % Englisch als Hauptsprache!!!
+
+\usepackage{graphicx}
+\usepackage{xspace}
+\usepackage{amstext}
+\usepackage{amssymb}
+
+
+\usepackage[paper=a4paper,margin=2.5cm]{geometry}
+\usepackage{helvet}
+\renewcommand*{\familydefault}{\sfdefault} %gehört zum Font
+
+
+\usepackage{here} %erzwingt Platzierung von Bildern ("H" bei Option)
+
+
+\begin{document}
+
+\begin{titlepage}
+%\begin{figure}[t]
+\begin{center}
+\includegraphics[scale=0.65]{pics/hulogo.pdf}\\[0.5cm]
+
+%\end{figure}
+\textsc{\textbf{\normalsize LEBENSWISSENSCHAFTLICHE FAKULTÄT\\[0.2cm]  INSTITUT FÜR BIOLOGIE\\[1.5cm]
+\LARGE MASTERARBEIT\\[0.5cm]
+\normalsize ZUM ERWERB DES AKADEMISCHEN GRADES\\[0.5cm] MASTER OF SCIENCE\\[2cm]}
+\normalfont %Kapitälchen deaktivieren
+\textit{\large "Körpergrößentrends in fossilen Landschildkröten aus dem Neogen"\\[0.5cm]
+"Body size trends in Neogene testudinid tortoises" }\\[2cm]
+\small vorgelegt von\\[0.5cm] Julia Joos \\[0.2cm] geb. am 18.05.1991 in Freudenstadt \\[1cm] angefertigt in der Arbeitsgruppe Paläozoologie\\[0.2cm]
+am Institut für Biologie/Museum für Naturkunde\\[1cm]
+Berlin, im Septenber 2017}
+\end{center}
+
+
+\end{titlepage}
+
+\end{document}

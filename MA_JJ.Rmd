@@ -1,0 +1,55 @@
+---
+title: "MAthesis"
+author: "Julia Joos"
+date: "14 August 2017"
+output: 
+  pdf_document:
+    toc: true
+    toc_depth: 2
+    number_sections: true
+    fig_caption: true
+    df_print: kable
+   # fontsize: 12pt
+   # geometry: margin=1in
+   # documentclass: scrartcl
+   # mainfont: Helvetica
+    citation_package: natbib
+    keep_tex: true
+
+header-includes:
+    - \usepackage{setspace}
+    - \doublespacing
+    
+includes:
+      before_body: titlepage.tex
+    
+---
+
+```{r "setup", include=FALSE}
+require("knitr")
+#opts_knit$set(root.dir = "//naturkundemuseum-berlin.de/MuseumDFSRoot/Benutzer/Julia.Joos/Eigene Dateien/MA")
+## on laptop: 
+opts_knit$set(root.dir = "C:/Users/Jule/Documents/Uni/MA")
+library(dplyr)
+library(ggplot2)
+```
+
+## R Markdown
+
+This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+
+When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+
+```{r cars}
+summary(cars)
+```
+
+## Including Plots
+
+You can also embed plots, for example:
+
+```{r pressure, echo=FALSE}
+plot(pressure)
+```
+
+Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
