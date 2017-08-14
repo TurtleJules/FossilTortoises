@@ -30,6 +30,8 @@ library(ggplot2)
 setwd("C:/Users/Jule/Documents/Uni/MA")
 tidyCL<-read.csv("tortoises_tidy.csv", sep=";", header=TRUE)
 
+
+
 #####prepare for analysis (fix column names in .csv-file after converting table from excel####
 colnames(tidyCL)[6] <- "MAmin"
 colnames(tidyCL)[7] <- "Mamax"
@@ -265,7 +267,7 @@ SpeciesPaleo <- SpeciesMean %>%
 # ExTort[is.na(ExTort)] <- 0 #subset NAs with O for n=1
 
 sumTort <- read.csv("tortoises_summary.csv", sep=";", header=TRUE)
-colnames(sumTort)[1] <- "Taxon"
+#colnames(sumTort)[1] <- "Taxon"
 colnames(sumTort)[6] <- "meanCL"
 colnames(sumTort)[7] <- "sdCL"
 #sumTort$EpochBins <- "Modern"
@@ -273,6 +275,7 @@ colnames(sumTort)[7] <- "sdCL"
 
 
 sumTortoises <- sumTort %>%
+  mutate(Taxon= as.character(Species)) %>%
   mutate(MeanBins=(Mamin+Mamax)/2) %>%
   select(Taxon, MeanBins, n, meanCL, sdCL) %>% #, EpochBins
 #  group_by(Taxon) %>%
@@ -292,63 +295,52 @@ SumTort <- sumTortoises %>%
   mutate(varall=sum(nsd)/sum(nn), n=sum(nn)) %>%
   dplyr::select(mm=mmall, vv=varall, nn=n, tt, Taxon) %>%
   unique() %>%
-  dplyr::select(mm, nn, vv, tt, Taxon)
- 
-modernTort <- SumTort %>%
-  group_by(Taxon) %>%
-  mutate(nx = nn*mm) %>%
-  mutate(mmall=sum(nx)/sum(nn)) %>%
-  mutate(SD=sqrt(nx), d=mm-mmall) %>%
-  mutate(nsd=((nx^2+d^2)*nn)) %>%
-  mutate(varall=sum(nsd)/sum(nn), n=sum(nn)) %>%
-  dplyr::select(mm=mmall, vv=varall, nn=n, tt) %>%
-  unique() %>%
-  dplyr::select(mm, nn, vv, tt)
+  dplyr::select(CL=mm, n=nn, var=vv, tt, Taxon)
 
+# write.table(SumTort,file="SumTortModern.txt", sep="\t", row.names = FALSE) 
+
+boxplot(SumTort$CL)
+
+
+modernMean <- SumTort %>%
+  ungroup() %>%
+  select(CL, n, tt) %>%
+  filter( !is.na(CL)) %>%
+  group_by(tt) %>%
+  summarise(mm = mean(CL), vv=var(CL), nn=n())
 
 #bis hier alle modernen taxa zusammengefasst (summarised and MFN_testudinidae)
 
-ModernMean <- modernTort %>%
-  ungroup() %>%
-  summarise(mm = mean(mm), nSpecies=n()) 
-
-#####
 
 
-
-# SpeciesMean <- PleiPlioCL %>%
-#   filter(EpochBins != "Modern") %>%
-#   group_by(EpochBins, Taxon, Age) %>%
-#   summarise(meanCL = mean(CL), n=n()) %>%
-#   merge(BINS)
-# 
-# SpeciesOverview <- SpeciesMean %>%
-# #  filter(EpochBins != "Modern") %>%
-#   filter( !is.na(meanCL)) %>%
-#   group_by(EpochBins) %>%
-#   summarise(meanSpeciesCL = mean(meanCL), nSpecies=n(), MeanBins = mean(MeanBins)) %>%
-#   arrange(MeanBins) 
-# #######
-
-
-SpecPaleo <- bind_rows(SumTort,SpeciesPaleo) #ExTort, 
-
-combiCL <- SpecPaleo %>%
-  dplyr::filter(tt==0.0000005) %>%   #maybe find a way to automatically filter double tt values...
-  mutate(nx = nn*mm) %>%
-  mutate(mmall=sum(nx)/sum(nn)) %>%
-  mutate(SD=sqrt(nx), d=mm-mmall) %>%
-  mutate(nsd=((nx^2+d^2)*nn)) %>%
-  mutate(varall=sum(nsd)/sum(nn), n=sum(nn)) %>%
-  dplyr::select(mm=mmall, vv=varall, nn=n, tt) %>%
-  unique() %>%
-  dplyr::select(mm, nn, vv, tt)
-
-
-SpecPaleoTS <- SpecPaleo %>%
-  filter(tt !=0.0000005) %>%
-  bind_rows(combiCL)%>%
+SpecPaleo <- bind_rows(modernMean,SpeciesPaleo) %>%
   arrange(tt)
+
+# combiCL <- SpecPaleo %>%
+#   dplyr::filter(tt==0.0000005) %>%   #maybe find a way to automatically filter double tt values...
+#   mutate(nx = nn*mm) %>%
+#   mutate(mmall=sum(nx)/sum(nn)) %>%
+#   mutate(SD=sqrt(nx), d=mm-mmall) %>%
+#   mutate(nsd=((nx^2+d^2)*nn)) %>%
+#   mutate(varall=sum(nsd)/sum(nn), n=sum(nn)) %>%
+#   dplyr::select(mm=mmall, vv=varall, nn=n, tt) %>%
+#   unique() %>%
+#   dplyr::select(mm, nn, vv, tt)
+# 
+# 
+# SpecPaleoTS <- SpecPaleo %>%
+#   filter(tt !=0.0000005) %>%
+#   bind_rows(combiCL)%>%
+#   arrange(tt)
+
+kable(SpecPaleo)
+
+
+paleoSpec <-as.paleoTS(SpecPaleo$mm, SpecPaleo$vv, SpecPaleo$nn, SpecPaleo$tt, MM = NULL, genpars = NULL, label = "Testudinidae body size evolution mode, Holocene-Upper Miocene, CL, without Island species", reset.time=TRUE)
+#paleoPPECL
+plot(paleoSpec)
+
+kable(fit3models(paleoSpec, silent=FALSE, method="AD", pool=FALSE))
 
 ```
 
