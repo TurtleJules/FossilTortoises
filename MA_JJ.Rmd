@@ -291,6 +291,32 @@ OverviewGenera <- PleiPlioCL %>%
 ```
 
 
+```{r echo=FALSE}
+
+
+HistCLModern <- PleiPlioCL %>%
+  filter( !is.na(CL)) %>%
+  filter(EpochBins == "Modern") %>%
+  ggplot(aes(CL)) + geom_histogram(binwidth=10, col="black", fill="gray") + facet_wrap(~EpochBins, scales="free_x")+
+  theme_classic()+ 
+  #theme_gray() +
+  theme(panel.border = element_rect(colour = "black", fill=NA))
+
+HistCL <- PleiPlioCL %>%
+  filter( !is.na(CL)) %>%
+  filter(EpochBins != "Modern") %>%
+  ggplot(aes(CL)) + geom_histogram(binwidth=10, col="black", fill="gray") + facet_wrap(~EpochBins, scales="free_x")+
+  theme_classic()+ 
+  #theme_gray() +
+  theme(panel.border = element_rect(colour = "black", fill=NA))
+
+HistCLModern
+HistCL  
+
+```
+
+
+
 
 ```{r "Boxplots of each genus per time bin", echo=FALSE}
 
