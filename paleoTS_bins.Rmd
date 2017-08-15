@@ -220,7 +220,7 @@ SpeciesModern[is.na(SpeciesModern)]<-0 #subset NAs with O for n=1
 
 ####
 
-hist(SpeciesMean$meanCL)
+hist(SpeciesMean$meanCL, breaks=20)
 
 HistCLSpecies <- SpeciesMean %>%
   filter( !is.na(meanCL)) %>%
@@ -233,7 +233,7 @@ HistCLSpecies
 
 HistEpoch <- SpeciesMean %>%
   filter( !is.na(meanCL)) %>%
-  ggplot(aes(MeanBins)) + geom_histogram(bins=0.000001)
+  ggplot(aes(MeanBins)) + geom_histogram()  #bins=0.000001
 
 HistEpoch
 

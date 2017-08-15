@@ -143,8 +143,7 @@ SUM <- PleiPlioCL %>%
 ```{r "Map fossil occurrences", echo=FALSE}
 
 CL <- tidyCL %>%
-  filter(Age < 11.000) %>%
-  filter(Latitude != "-") %>%
+#  filter(Age < 11.000) %>%
   dplyr::select(Locality, Genus, Taxon, Latitude, Longitude, Country, Age) %>%
   group_by(Locality) %>%
   mutate(count= n())
@@ -153,12 +152,14 @@ CL <- tidyCL %>%
 FossilOccurrences<-read.csv("tortoises_occurrences.csv", sep=";", header=TRUE)
 
 FossOcc <- FossilOccurrences %>%
-  mutate(Age= (MA.min + Ma.max)/2) %>%
-  select(Locality, Country, Latitude, Longitude, Age, Genus, Taxon) %>%
+  mutate(Age= (as.numeric(as.character(MA.min)) + as.numeric(as.character(Ma.max)))/2) %>%
+  select(Locality, Country, Latitude, Longitude, Age, Genus, Taxon, CL) %>%
 #  merge(tidyCL) %>%
   group_by(Locality) %>%
   mutate(count= n(), Longitude=as.numeric(as.character(Longitude)))
 
+
+#na <- FossOcc[!complete.cases(FossOcc),]
 
 #OccMap <-  merge(Map, FossOcc, by="Locality", incomparables=TRUE) %>%
 #  distinct()
@@ -168,43 +169,63 @@ FossOcc <- FossilOccurrences %>%
 
 mapWorld <- borders("world", colour="azure3", fill="azure3") # create a layer of borders, run line at the beginning (before loading plotly)
 
+cbbPalette <- c("#000000", "#E69F00", "#56B4E9", "#009E73", "#F0E442", "#0072B2", "#D55E00", "#CC79A7")
+
 
 mapOc <- FossOcc %>%
   ggplot(aes(Longitude, Latitude)) +# borders("world", ylim = c(-60, 90)) +
   mapWorld +
   theme_classic() +
-  geom_point(data=FossOcc, (aes(as.numeric(Longitude), Latitude))) +
-  geom_point(data=CL,(aes(Longitude, Latitude, colour="o"))) #+
-#  scale_colour_gradientn(colors=c("orange", "red", "purple", "blue", "green"))
+  geom_point(data=FossOcc, (aes(as.numeric(Longitude), Latitude, colour=FossOcc$CL))) +
+  geom_point(data=CL,(aes(Longitude, Latitude, colour="yes"))) +
+  scale_colour_manual(values=cbbPalette)
 
-
+#unique(FossOcc$CL)
 
 mapOc
 
-require(plotly)
-ggplotly(mapOc)
+# require(plotly)
+# ggplotly(mapOc)
 
 
-######HIER WEITER!!!!######
-availableCL <- length(unique(CL$Locality))
-availableOccurrences <- length(unique(FossOcc$Locality))
-
-Comparison <- setdiff(CL, FossOcc)
-comparison <- length(Comparison$Locality)
-
-com <- setdiff(availableCL, Comparison)
 
 ```
 
 
 ```{r "Map body size data set", echo=FALSE}
 
+
+tidyCL$bin <- cut(tidyCL$Age, c(0, 0.000001, 0.0117, 0.126, 0.781, 2.588, 3.6, 5.332, 11.608,33.9, 56.000))
+
+
+Bins <- tidyCL %>%
+  select(bin) %>%
+  group_by(bin) %>%
+  summarise(n=n())
+
+
+bin <- as.vector(unique(Bins$bin))
+EpochBins <- as.vector(c("Holocene", "Upper Pleistocene", "Middle Pleistocene", "Lower Pleistocene", "Upper Pliocene", "Lower Pliocene", "Upper Miocene", "Oligocene", "Eocene"))
+
+MeanBins <- as.vector(c((0+0.0117)/2, (0.0117+0.126)/2, (0.126+0.781)/2, (0.781+2.588)/2,(2.588+3.6)/2, (3.6+5.332)/2, (5.332+11.608)/2, (11.608+33.9)/2, (33.9+56.0)/2 ))
+
+
+bin <- as.vector(unique(Bins$bin))
+
+BINS <- data.frame(bin, EpochBins, MeanBins) #
+
+
+#BINS <- data.frame(bin, EpochBins, MeanBins) #
+#BINS <- read.table("timebins.txt", sep="\t", header=TRUE)
+
+
 MapCL <- tidyCL %>%
-  filter(Age < 11.000) %>%
-  filter(Latitude != "-") %>%
-  dplyr::select(Genus, Taxon, Latitude, Longitude, Country, CL, PL, Epoch) %>%
+  merge(BINS) %>%
+#  filter(Age < 11.000) %>%
+#  filter(Latitude != "-") %>%
+  dplyr::select(Genus, Taxon, Latitude, Longitude, Country, CL, PL, MeanBins, size) %>%
   group_by(Latitude) %>%
-  mutate(count= n())
+  mutate(count= n()) 
 
 
 mapWorld <- borders("world", colour="azure3", fill="azure3") # create a layer of borders, run line at the beginning (before loading plotly)
@@ -214,7 +235,7 @@ mapCL <- MapCL %>%
   ggplot(aes(Longitude, Latitude)) +# borders("world", ylim = c(-60, 90)) +
   mapWorld +
   theme_classic() +
-  geom_point(aes(Longitude, Latitude,colour=CL, size=count)) +
+  geom_point(aes(Longitude, Latitude,size=count, colour=MeanBins)) +  #colour=size, 
   scale_colour_gradientn(colors=c("orange", "red", "purple", "blue", "green"))
 
 
@@ -223,3 +244,15 @@ mapCL
 
 
 ```
+
+
+
+
+```{r "Get overview over sample sizes", echo=FALSE, include=FALSE}
+Overview <- PleiPlioCL %>%
+  group_by(EpochBins, Taxon) %>%
+  summarise(n=n())
+
+#write.table(Overview,file="OverviewSpeciesSampleSize.txt", sep="\t", row.names = FALSE) 
+```
+
