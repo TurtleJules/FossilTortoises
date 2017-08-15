@@ -1,4 +1,4 @@
-\documentclass[toc=bibliographynumbered]{scrartcl} %mit [draft] vor den {} erreicht man, daß statt der Grafiken nur ein Rahmen in Größe der Grafik gezeichnet wird. Zusätzlich wird der Name der einzufügenden Datei in diesen Rahmen geschrieben]{book}
+\documentclass[toc=bibliographynumbered, liststotoc]{scrartcl} %mit [draft] vor den {} erreicht man, daß statt der Grafiken nur ein Rahmen in Größe der Grafik gezeichnet wird. Zusätzlich wird der Name der einzufügenden Datei in diesen Rahmen geschrieben]{book}
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
 \usepackage{lmodern}
@@ -9,6 +9,9 @@
 \usepackage{xspace}
 \usepackage{amstext}
 \usepackage{amssymb}
+\usepackage{setspace}
+\doublespacing
+
 
 
 \usepackage[paper=a4paper,margin=2.5cm]{geometry}
@@ -42,6 +45,11 @@ Berlin, im Septenber 2017}
 \end{titlepage}
 
 
+\tableofcontents
+\listoffigures                         
+\listoftables                     
 
+\newpage
+\input{MM}
 
 \end{document}

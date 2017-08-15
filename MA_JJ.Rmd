@@ -4,8 +4,8 @@ author: "Julia Joos"
 date: "14 August 2017"
 output: 
   pdf_document:
-    toc: true
-    toc_depth: 2
+   # toc: true
+   # toc_depth: 2
     number_sections: true
     fig_caption: true
     df_print: kable
@@ -55,9 +55,9 @@ tidyCL <-  tidyCL %>%
 ####### import extant data ####
 extant <- read.csv("MFN_testudinidae.csv", sep=";", header=TRUE, dec=".", na.strings = "NA", stringsAsFactors=FALSE)  # file: MFN_testudinidae.csv
 
-colnames(extant)[4] <- "SCL"
-colnames(extant)[10] <- "PL"
-colnames(extant)[11] <- "PLmid"
+colnames(extant)[5] <- "SCL"
+colnames(extant)[11] <- "PL"
+colnames(extant)[12] <- "PLmid"
 
 
 
@@ -69,14 +69,14 @@ Extant <- extant %>%
 ```{r "estimating CL from PL", echo=FALSE, results='asis'}
 CLPLtidy <- tidyCL %>%
   filter(!is.na(CL) & !is.na(PL)) %>%
-  dplyr::select(Taxon, CL, PL, size, Age, Island, Continent) %>%
+  dplyr::select(Taxon, CL, PL, size, Age, Island, Continent, Genus) %>%
   mutate(ratio=CL/PL) %>%
   group_by(Taxon) %>% #to show ratios per Taxon, leave out to get a total ratio
   summarise(meanRatio=round(mean(ratio),2), sdRatio=round(sd(ratio),2), n=n(), min=min(ratio), max=max(ratio))
 
 CLPLextant <- Extant %>%
   filter(!is.na(CL) & !is.na(PL)) %>%
-  dplyr::select(Taxon=Species, CL, PL, PLmid, Island, Continent) %>%
+  dplyr::select(Taxon=Species, CL, PL, PLmid, Island, Continent, Genus) %>%
   mutate(ratio=CL/PL, ratioMid=CL/PLmid)
   #group_by(Taxon) %>% #to show ratios per Taxon, leave out to get a total ratio
   #  summarise(meanRatio=round(mean(ratio),2), sdRatio=round(sd(ratio),2), n=n(), min=min(ratio), max=max(ratio))
@@ -90,18 +90,18 @@ RatioSpecies <- CLPLextant %>%
 
 
 fossil <- tidyCL %>%
-  mutate(Taxon=as.character(Taxon), Island=as.character(Island), Continent=as.character(Continent), estimated=as.character(estimated)) %>%
-  dplyr::select(Taxon, CL, PL, size, estimated, Age, Island, Continent)
+  mutate(Taxon=as.character(Taxon), Island=as.character(Island), Continent=as.character(Continent), estimated=as.character(estimated), Genus=as.character(Genus)) %>%
+  dplyr::select(Taxon, CL, PL, size, estimated, Age, Island, Continent, Genus)
   
 modern <- Extant %>%
-  dplyr::select(Taxon=Species, CL, PL, estimated, Age, Island, Continent)
+  dplyr::select(Taxon=Species, CL, PL, estimated, Age, Island, Continent, Genus)
 
 All <- bind_rows(modern, fossil)
 
 testRatio <- All %>% #tidyCL
-  dplyr::select(Taxon, CL, PL, size, estimated, Age, Island, Continent) %>%
+  dplyr::select(Taxon, CL, PL, size, estimated, Age, Island, Continent, Genus) %>%
   mutate(extraCL = PL*Ratio$meanRatio) %>%
-  dplyr::select(Taxon, CL, extraCL, PL, size, estimated, Age, Island, Continent)
+  dplyr::select(Taxon, CL, extraCL, PL, size, estimated, Age, Island, Continent, Genus)
 
 testRatio$CL[is.na(testRatio$CL)] <- testRatio$extraCL[is.na(testRatio$CL)]
 ```
@@ -121,15 +121,33 @@ MeanBins <- as.vector(c((0+0.000001)/2, (0+0.0117)/2, (0.0117+0.126)/2, (0.126+0
 Bins <- PleiPlio %>%
   select(bin) %>%
   group_by(bin) %>%
-  summarise(n=n())
+  summarise(nIndividuals=n())
+
+BinsSpecies <- PleiPlio %>%
+  select(bin, Taxon) %>%
+  group_by(bin, Taxon) %>%
+  summarise(nSpecies=n()) %>%
+  summarise(nSpecies=n())
+
+
+BinsGenera <- PleiPlio %>%
+  select(bin, Genus) %>%
+  group_by(bin, Genus) %>%
+  summarise(nGenera=n()) %>%
+  summarise(nGenera=n())
 
 bin <- as.vector(unique(Bins$bin))
 
-#BINS <- data.frame(bin, EpochBins, MeanBins) #
-BINS <- read.table("timebins.txt", sep="\t", header=TRUE)
+BINS <- data.frame(bin, EpochBins, MeanBins) %>%
+  merge(Bins) %>%
+  merge(BinsSpecies) %>%
+  merge(BinsGenera)
 
-kable(Bins)
-kable(BINS)
+#BINS <- read.table("timebins.txt", sep="\t", header=TRUE)
+
+#kable(Bins, caption="Time bins with corresponding sample sizes (individuals)")
+
+kable(BINS, caption="Time bins with age range, mean age, epoch name and corresponding sample sizes (on individual, species and genus level)")
 
 PleiPlioCL <- PleiPlio %>%
   merge(BINS)
@@ -140,7 +158,7 @@ SUM <- PleiPlioCL %>%
 ```
 
 
-```{r "Map fossil occurrences", echo=FALSE}
+```{r "Map fossil occurrences", echo=FALSE, fig.cap="Map displaying all fossil occurrences of testudinids, with color indicating whether relevant literature was available (black if not) and if it was, whether body size data was available or not (yes and no, respectively)."}
 
 CL <- tidyCL %>%
 #  filter(Age < 11.000) %>%
@@ -192,7 +210,7 @@ mapOc
 ```
 
 
-```{r "Map body size data set", echo=FALSE}
+```{r "Map body size data set", echo=FALSE, fig.cap="Map displaying all localities for which body size data for testudinids was available in the literature. Size of points denotes sample size, color denotes approximate age."}
 
 
 tidyCL$bin <- cut(tidyCL$Age, c(0, 0.000001, 0.0117, 0.126, 0.781, 2.588, 3.6, 5.332, 11.608,33.9, 56.000))
@@ -249,10 +267,42 @@ mapCL
 
 
 ```{r "Get overview over sample sizes", echo=FALSE, include=FALSE}
-Overview <- PleiPlioCL %>%
+OverviewSpecies <- PleiPlioCL %>%
+  filter(EpochBins != "Modern") %>%
   group_by(EpochBins, Taxon) %>%
   summarise(n=n())
 
-#write.table(Overview,file="OverviewSpeciesSampleSize.txt", sep="\t", row.names = FALSE) 
+OverviewSpeciesFossil <- PleiPlioCL %>%
+  filter(EpochBins != "Modern") %>%
+  group_by(Taxon) %>%
+  summarise(n=n())
+
+#write.table(OverviewSpecies,file="OverviewSpeciesSampleSize.txt", sep="\t", row.names = FALSE) 
+
+
+OverviewGeneraTime <- PleiPlioCL %>%
+  group_by(EpochBins, Genus) %>%
+  summarise(n=n())
+
+OverviewGenera <- PleiPlioCL %>%
+  group_by(Genus) %>%
+  summarise(n=n())
+
+```
+
+
+
+```{r "Boxplots of each genus per time bin", echo=FALSE}
+
+IndGenera <- PleiPlioCL %>%
+  group_by(Genus, MeanBins) %>%
+  filter(!is.na(CL)) %>%
+  ggplot(aes(MeanBins, CL, colour=Genus)) +
+  theme_classic() +
+  geom_boxplot()# +
+ # facet_wrap(~.MeanBins)
+
+IndGenera
+
 ```
 

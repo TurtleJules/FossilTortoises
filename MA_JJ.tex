@@ -24,53 +24,14 @@
 \usepackage[margin=1in]{geometry}
 \usepackage{hyperref}
 \hypersetup{unicode=true,
-            pdftitle={MAthesisJJ},
+            pdftitle={MAthesis},
             pdfauthor={Julia Joos},
             pdfborder={0 0 0},
             breaklinks=true}
 \urlstyle{same}  % don't use monospace font for urls
 \usepackage{natbib}
 \bibliographystyle{plainnat}
-\usepackage{color}
-\usepackage{fancyvrb}
-\newcommand{\VerbBar}{|}
-\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
-\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
-% Add ',fontsize=\small' for more characters per line
-\usepackage{framed}
-\definecolor{shadecolor}{RGB}{248,248,248}
-\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
-\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{{#1}}}}
-\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{{#1}}}
-\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{{#1}}}
-\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{{#1}}}
-\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{{#1}}}
-\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{{#1}}}
-\newcommand{\CharTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{{#1}}}
-\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{{#1}}}
-\newcommand{\StringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{{#1}}}
-\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{{#1}}}
-\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{{#1}}}
-\newcommand{\ImportTok}[1]{{#1}}
-\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{{#1}}}}
-\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{{#1}}}}}
-\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{{#1}}}}}
-\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{{#1}}}}}
-\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{{#1}}}
-\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{{#1}}}
-\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{{#1}}}
-\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{{#1}}}}
-\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{{#1}}}}
-\newcommand{\BuiltInTok}[1]{{#1}}
-\newcommand{\ExtensionTok}[1]{{#1}}
-\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{{#1}}}}
-\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.77,0.63,0.00}{{#1}}}
-\newcommand{\RegionMarkerTok}[1]{{#1}}
-\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{{#1}}}}}
-\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{{#1}}}}}
-\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.94,0.16,0.16}{{#1}}}
-\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.64,0.00,0.00}{\textbf{{#1}}}}
-\newcommand{\NormalTok}[1]{{#1}}
+\usepackage{longtable,booktabs}
 \usepackage{graphicx,grffile}
 \makeatletter
 \def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
@@ -115,7 +76,7 @@
 }
 
 \setlength{\droptitle}{-2em}
-  \title{MAthesisJJ}
+  \title{MAthesis}
   \pretitle{\vspace{\droptitle}\centering\huge}
   \posttitle{\par}
   \author{Julia Joos}
@@ -131,44 +92,50 @@
 \begin{document}
 \maketitle
 
-{
-\setcounter{tocdepth}{2}
-\tableofcontents
-}
-\subsection{R Markdown}\label{r-markdown}
+\begin{longtable}[]{@{}llrrrr@{}}
+\caption{Time bins with age range, mean age, epoch name and
+corresponding sample sizes (on individual, species and genus
+level)}\tabularnewline
+\toprule
+bin & EpochBins & MeanBins & nIndividuals & nSpecies &
+nGenera\tabularnewline
+\midrule
+\endfirsthead
+\toprule
+bin & EpochBins & MeanBins & nIndividuals & nSpecies &
+nGenera\tabularnewline
+\midrule
+\endhead
+(0,1e-06{]} & Modern & 0.0000005 & 240 & 58 & 18\tabularnewline
+(0.0117,0.126{]} & Upper Pleistocene & 0.0688500 & 46 & 15 &
+7\tabularnewline
+(0.126,0.781{]} & Middle Pleistocene & 0.4535000 & 46 & 9 &
+6\tabularnewline
+(0.781,2.59{]} & Lower Pleistocene & 1.6845000 & 68 & 24 &
+11\tabularnewline
+(1e-06,0.0117{]} & Holocene & 0.0058500 & 12 & 6 & 4\tabularnewline
+(2.59,3.6{]} & Upper Pliocene & 3.0940000 & 21 & 14 & 9\tabularnewline
+(3.6,5.33{]} & Lower Pliocene & 4.4660000 & 27 & 16 & 8\tabularnewline
+(5.33,11.6{]} & Upper Miocene & 8.4700000 & 41 & 21 & 9\tabularnewline
+\bottomrule
+\end{longtable}
 
-This is an R Markdown document. Markdown is a simple formatting syntax
-for authoring HTML, PDF, and MS Word documents. For more details on
-using R Markdown see \url{http://rmarkdown.rstudio.com}.
+\begin{figure}[htbp]
+\centering
+\includegraphics{MA_JJ_files/figure-latex/Map fossil occurrences-1.pdf}
+\caption{Map displaying all fossil occurrences of testudinids, with
+color indicating whether relevant literature was available (black if
+not) and if it was, whether body size data was available or not (yes and
+no, respectively).}
+\end{figure}
 
-When you click the \textbf{Knit} button a document will be generated
-that includes both content as well as the output of any embedded R code
-chunks within the document. You can embed an R code chunk like this:
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\KeywordTok{summary}\NormalTok{(cars)}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-##      speed           dist       
-##  Min.   : 4.0   Min.   :  2.00  
-##  1st Qu.:12.0   1st Qu.: 26.00  
-##  Median :15.0   Median : 36.00  
-##  Mean   :15.4   Mean   : 42.98  
-##  3rd Qu.:19.0   3rd Qu.: 56.00  
-##  Max.   :25.0   Max.   :120.00
-\end{verbatim}
-
-\subsection{Including Plots}\label{including-plots}
-
-You can also embed plots, for example:
-
-\includegraphics{MA_JJ_files/figure-latex/pressure-1.pdf}
-
-Note that the \texttt{echo\ =\ FALSE} parameter was added to the code
-chunk to prevent printing of the R code that generated the plot.
+\begin{figure}[htbp]
+\centering
+\includegraphics{MA_JJ_files/figure-latex/Map body size data set-1.pdf}
+\caption{Map displaying all localities for which body size data for
+testudinids was available in the literature. Size of points denotes
+sample size, color denotes approximate age.}
+\end{figure}
 
 
 \end{document}
