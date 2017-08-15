@@ -32,6 +32,7 @@ require("knitr")
 opts_knit$set(root.dir = "C:/Users/Jule/Documents/Uni/MA")
 library(dplyr)
 library(ggplot2)
+library(paleoTS)
 ```
 
 
@@ -116,6 +117,9 @@ PleiPlio$bin <- cut(PleiPlio$Age, c(0, 0.000001, 0.0117, 0.126, 0.781, 2.588, 3.
 
 EpochBins <- as.vector(c("Modern", "Holocene", "Upper Pleistocene", "Middle Pleistocene", "Lower Pleistocene", "Upper Pliocene", "Lower Pliocene", "Upper Miocene"))
 
+
+
+
 MeanBins <- as.vector(c((0+0.000001)/2, (0+0.0117)/2, (0.0117+0.126)/2, (0.126+0.781)/2, (0.781+2.588)/2,(2.588+3.6)/2, (3.6+5.332)/2, (5.332+11.608)/2))
 
 Bins <- PleiPlio %>%
@@ -138,16 +142,24 @@ BinsGenera <- PleiPlio %>%
 
 bin <- as.vector(unique(Bins$bin))
 
+
+
 BINS <- data.frame(bin, EpochBins, MeanBins) %>%
   merge(Bins) %>%
   merge(BinsSpecies) %>%
-  merge(BinsGenera)
+  merge(BinsGenera) %>%
+  arrange(MeanBins)
+
+BINS$EpochBins = factor(BINS$EpochBins, levels=c("Modern", "Holocene", "Upper Pleistocene",
+                                                             "Middle Pleistocene", "Lower Pleistocene",
+                                                             "Upper Pliocene", "Lower Pliocene",
+                                                             "Upper Miocene"))
 
 #BINS <- read.table("timebins.txt", sep="\t", header=TRUE)
 
 #kable(Bins, caption="Time bins with corresponding sample sizes (individuals)")
 
-kable(BINS, caption="Time bins with age range, mean age, epoch name and corresponding sample sizes (on individual, species and genus level)")
+kable(BINS, caption="Time bins with age range, epoch name, mean age and corresponding sample sizes (on individual, species and genus level)")
 
 PleiPlioCL <- PleiPlio %>%
   merge(BINS)
@@ -291,7 +303,12 @@ OverviewGenera <- PleiPlioCL %>%
 ```
 
 
-```{r echo=FALSE}
+
+
+
+
+
+```{r "Histograms of body size data", echo=FALSE, fig.cap="Distribution of body site data per time bin"}
 
 
 HistCLModern <- PleiPlioCL %>%
@@ -316,19 +333,307 @@ HistCL
 ```
 
 
+```{r "Species Accumulation Curve", echo=FALSE, message=FALSE, fig.cap="Species Accumulation Curve of fossil species per Locality and reference"}
+
+vegan <- tidyCL %>%
+  dplyr::select(Locality, Taxon) %>%
+  group_by(Locality, Taxon) %>%
+  summarise(n=n()) %>%
+  tidyr::spread(Taxon, n, fill=0)
+
+library(vegan)
+
+#par(mfrow = c(2, 1))
+
+vegan=vegan[,-1]
+vegansp=specaccum(vegan,method="rarefaction", permutations=1000)
+plot(vegansp,xlab="Ind",ylab="Richness", xvar="individuals", ci.type="line", ci.lty=2, ci.col="grey", col="deepskyblue4", lwd=2, main="Fossil species, CL, per Locality" )
 
 
-```{r "Boxplots of each genus per time bin", echo=FALSE}
 
-IndGenera <- PleiPlioCL %>%
-  group_by(Genus, MeanBins) %>%
-  filter(!is.na(CL)) %>%
-  ggplot(aes(MeanBins, CL, colour=Genus)) +
-  theme_classic() +
-  geom_boxplot()# +
- # facet_wrap(~.MeanBins)
+vegan <- tidyCL %>%
+  dplyr::select(Reference, Taxon) %>%
+  group_by(Reference, Taxon) %>%
+  summarise(n=n()) %>%
+  tidyr::spread(Taxon, n, fill=0)
 
-IndGenera
+library(vegan)
+
+vegan=vegan[,-1]
+vegansp=specaccum(vegan,method="rarefaction", permutations=1000)
+plot(vegansp,xlab="Ind",ylab="Richness", xvar="individuals", ci.type="line", ci.lty=2, ci.col="grey", col="deepskyblue4", lwd=2, main="Fossil species, CL, per Reference" )
+
 
 ```
 
+
+
+```{r "Species Accumulation Curve with Genera", echo=FALSE, message=FALSE, fig.cap="Species Accumulation Curve of fossil genera per Locality and reference"}
+
+vegan <- tidyCL %>%
+  dplyr::select(Locality, Genus) %>%
+  group_by(Locality, Genus) %>%
+  summarise(n=n()) %>%
+  tidyr::spread(Genus, n, fill=0)
+
+
+#par(mfrow = c(2, 1))
+
+
+vegan=vegan[,-1]
+vegansp=specaccum(vegan,method="rarefaction", permutations=1000)
+plot(vegansp,xlab="Ind",ylab="Richness", xvar="individuals", ci.type="line", ci.lty=2, ci.col="grey", col="deepskyblue4", lwd=2, main="Fossil genera, CL, per Locality" )
+
+
+vegan <- tidyCL %>%
+  dplyr::select(Reference, Genus) %>%
+  group_by(Reference, Genus) %>%
+  summarise(n=n()) %>%
+  tidyr::spread(Genus, n, fill=0)
+
+library(vegan)
+
+vegan=vegan[,-1]
+vegansp=specaccum(vegan,method="rarefaction", permutations=1000)
+plot(vegansp,xlab="Ind",ylab="Richness", xvar="individuals", ci.type="line", ci.lty=2, ci.col="grey", col="deepskyblue4", lwd=2, main="Fossil genera, CL, per Reference")
+
+
+```
+
+
+```{r "Boxplots of each genus per time bin", echo=FALSE, fig.cap="Boxplots of each genus per time bin"}
+PleiPlioCL$EpochBins = factor(PleiPlioCL$EpochBins, levels=c("Modern", "Holocene", "Upper Pleistocene",
+                                                             "Middle Pleistocene", "Lower Pleistocene",
+                                                             "Upper Pliocene", "Lower Pliocene",
+                                                             "Upper Miocene"))
+
+IndGenera <- PleiPlioCL %>%
+  group_by(EpochBins, Genus) %>%
+  filter(!is.na(CL)) %>%
+  summarise(GenusMean=mean(CL), GenusSD=sd(CL), n=n()) 
+
+
+BinGenera <- PleiPlioCL %>%
+  group_by(EpochBins, Genus) %>%
+  filter(!is.na(CL)) %>%
+  summarise(GenusMean=mean(CL), GenusSD=sd(CL), n=n()) %>%
+#  summarise(TimeBinMean=mean(GenusMean), TimeBinSD=sd(GenusMean), n=n()) %>%
+  ungroup() %>%#, CL=CL
+  ggplot(aes(EpochBins, GenusMean)) + #, colour=Genus
+  theme_classic() +
+  stat_boxplot(geom ='errorbar', width = 0.2) +
+  geom_boxplot() +
+  geom_pointrange(data=IndGenera, position="jitter", aes(x=EpochBins, y=GenusMean, colour=Genus, ymin = GenusMean-GenusSD, ymax = GenusMean+GenusSD)) +
+  guides(color="none")
+#  geom_text(data=IndGenera,aes(label=Genus, x=EpochBins, y=GenusMean))
+#  geom_errorbar(data=IndGenera, position="jitter",aes(ymin = GenusMean-GenusSD, ymax = GenusMean+GenusSD, width=0.2, colour=Genus))#+
+  #scale_color_brewer(palette="Set1")
+  #scale_colour_gradientn(colours=rainbow(4))
+
+BinGenera
+
+```
+
+
+```{r "Separate genera per time bin", echo=FALSE, fig.cap="Mean body size and standard deviation per genus in each time bin"}
+BinGeneraFacet <- PleiPlioCL %>%
+  group_by(EpochBins, Genus) %>%
+  filter(!is.na(CL)) %>%
+  summarise(GenusMean=mean(CL), GenusSD=sd(CL), n=n()) %>%
+#  summarise(TimeBinMean=mean(GenusMean), TimeBinSD=sd(GenusMean), n=n()) %>%
+  ungroup() %>%#, CL=CL
+  ggplot(aes(EpochBins, GenusMean)) + #, colour=Genus
+  theme_classic() +
+  theme(axis.text.x = element_text(angle = 45, vjust = 1, hjust=1)) +
+#  stat_boxplot(geom ='errorbar', width = 0.2) +
+#  geom_boxplot() +
+  geom_point(data=IndGenera,  aes(x=Genus, y=GenusMean, colour=Genus)) +
+  geom_pointrange(data=IndGenera, aes(x=Genus, y=GenusMean, colour=Genus, ymin = GenusMean-GenusSD, ymax = GenusMean+GenusSD)) +
+#  geom_text(data=IndGenera,aes(label=Genus, x=EpochBins, y=GenusMean)) +
+  facet_wrap(~EpochBins, scales="free_x") +
+  guides(colour="none")#+
+#  stat_boxplot(data=BinGenera, geom ='errorbar', width = 0.2) +
+#  geom_boxplot(data=BinGenera) 
+#  geom_errorbar(data=IndGenera, position="jitter",aes(ymin = GenusMean-GenusSD, ymax = GenusMean+GenusSD, width=0.2, colour=Genus))#+
+  #scale_color_brewer(palette="Set1")
+  #scale_colour_gradientn(colours=rainbow(4))
+
+BinGeneraFacet
+```
+
+
+\newpage
+
+```{r "paleoTS, individuals, inluding island species", echo=FALSE}
+PPCL <- PleiPlioCL %>%
+  dplyr::select(CL, MeanBins) %>%
+  dplyr::filter(CL != "NA") %>%
+  mutate(tt= MeanBins) %>% # create mean age
+  group_by(tt) %>% #create time bins
+  summarise(mm=mean(CL), vv=var(CL), nn=n()) #create means etc. for each time bin 
+
+PPCL[is.na(PPCL)]<-0 #subset NAs with O for n=1
+
+
+sumTort <- read.csv("tortoises_summary.csv", sep=";", header=TRUE)
+
+SumTort <- sumTort %>%
+  mutate(tt=(Mamin+Mamax)/2, vv=sdCLmm^2, nn=n, mm=meanCLmm) %>%
+  dplyr::select(mm, nn, vv, tt)
+ 
+PPESCL <- bind_rows(SumTort,PPCL) #ExTort, 
+
+combiCL <- PPESCL %>%
+  dplyr::filter(tt==0.0000005) %>%   #maybe find a way to automatically filter double tt values...
+  mutate(nx = nn*mm) %>%
+  mutate(mmall=sum(nx)/sum(nn)) %>%
+  mutate(SD=sqrt(nx), d=mm-mmall) %>%
+  mutate(nsd=((nx^2+d^2)*nn)) %>%
+  mutate(varall=sum(nsd)/sum(nn), n=sum(nn)) %>%
+  dplyr::select(mm=mmall, vv=varall, nn=n, tt) %>%
+  unique() %>%
+  dplyr::select(mm, nn, vv, tt)
+
+
+PPCL <- PPESCL %>%
+  filter(tt !=0.0000005) %>%
+  bind_rows(combiCL)%>%
+  arrange(tt)
+
+```
+
+# including Island species  (n=`r sum(PPCL$nn)`)
+
+
+```{r "paleoTS object", echo=FALSE}
+
+kable(PPCL, caption="paleoTS object (mm= mean CL, nn = sample size, vv = variance (CL), tt = Age)")
+```
+
+
+
+```{r "paleoTS plot", echo=FALSE, fig.cap="individuals, including island species"}
+library(paleoTS)
+paleoPPCL <-as.paleoTS(PPCL$mm, PPCL$vv, PPCL$nn, PPCL$tt, MM = NULL, genpars = NULL, label = "Testudinidae body size evolution mode, Holocene-Upper Miocene, CL, including Island species")
+#paleoPPCL
+plot(paleoPPCL)
+
+
+```
+
+
+
+```{r "Model-fitting" , echo=FALSE}
+
+kable(fit3models(paleoPPCL, silent=FALSE, method="AD", pool=FALSE), caption="Model-fitting results for testudinidae, individuals, including island species")
+```
+
+
+
+```{r "paleoTS plot with species mean, including island species", echo=FALSE, fig.cap="paleoTS plot with species mean, including island species"}
+SpeciesMean <- PleiPlioCL %>%
+  filter(EpochBins != "Modern") %>%
+  group_by(EpochBins, Taxon, Age) %>%
+  summarise(meanCL = mean(CL), n=n()) %>%
+  merge(BINS)
+
+SpeciesModern <- PleiPlioCL %>%
+  filter(EpochBins == "Modern") %>%
+  group_by(Taxon) %>%
+  summarise(meanCL=mean(CL), sdCL=sd(CL), n=n(), Age=mean(Age), EpochBins=unique(EpochBins), MeanBins=unique(MeanBins))
+
+
+SpeciesModern[is.na(SpeciesModern)]<-0 #subset NAs with O for n=1
+
+
+
+SpeciesOverview <- SpeciesMean %>%
+#  filter(EpochBins != "Modern") %>%
+  filter( !is.na(meanCL)) %>%
+  group_by(EpochBins) %>%
+  summarise(meanSpeciesCL = mean(meanCL), nSpecies=n(), MeanBins = mean(MeanBins)) %>%
+  arrange(MeanBins) 
+
+kable(SpeciesOverview)
+
+
+
+#####
+
+
+SpeciesPaleo <- SpeciesMean %>%
+  dplyr::select(meanCL, MeanBins) %>%
+  dplyr::filter(meanCL != "NA") %>%
+  mutate(tt= MeanBins) %>% # create mean age
+  group_by(tt) %>% #create time bins
+  summarise(mm=mean(meanCL), vv=var(meanCL), nn=n()) #create means etc. for each time bin 
+
+#SpeciesPaleo[is.na(SpeciesPaleo)]<-0 #subset NAs with O for n=1
+
+
+# ExTort <- extant %>%
+#   mutate(CL = SCL * 10) %>%
+#   dplyr::select(CL) %>%
+#   summarise(mm=mean(CL), nn=n(), vv=var(CL), tt=0) %>%
+#   dplyr::select(mm, nn, vv, tt)
+# 
+# ExTort[is.na(ExTort)] <- 0 #subset NAs with O for n=1
+
+sumTort <- read.csv("tortoises_summary.csv", sep=";", header=TRUE)
+#colnames(sumTort)[1] <- "Taxon"
+colnames(sumTort)[6] <- "meanCL"
+colnames(sumTort)[7] <- "sdCL"
+#sumTort$EpochBins <- "Modern"
+#sumTort$MeanBins <- 0.0000005
+
+
+sumTortoises <- sumTort %>%
+  mutate(Taxon= as.character(Species)) %>%
+  mutate(MeanBins=(Mamin+Mamax)/2) %>%
+  select(Taxon, MeanBins,  meanCL, sdCL) %>% #n,
+  bind_rows(SpeciesModern)
+
+
+SumTort <- sumTortoises %>%
+  group_by(Taxon) %>%
+  mutate(tt=MeanBins, vv=sdCL^2, nn=n, mm=meanCL) %>%
+  dplyr::select(mm, nn, vv, tt, Taxon) %>%
+  mutate(nx = nn*mm) %>%
+  mutate(mmall=sum(nx)/sum(nn)) %>%
+  mutate(SD=sqrt(nx), d=mm-mmall) %>%
+  mutate(nsd=((nx^2+d^2)*nn)) %>%
+  mutate(varall=sum(nsd)/sum(nn), n=sum(nn)) %>%
+  dplyr::select(mm=mmall, vv=varall, nn=n, tt, Taxon) %>%
+  unique() %>%
+  dplyr::select(CL=mm, n=nn, var=vv, tt, Taxon)
+
+# write.table(SumTort,file="SumTortModern.txt", sep="\t", row.names = FALSE) 
+
+boxplot(SumTort$CL)
+
+
+modernMean <- SumTort %>%
+  ungroup() %>%
+  select(CL, n, tt) %>%
+  filter( !is.na(CL)) %>%
+  group_by(tt) %>%
+  summarise(mm = mean(CL), vv=var(CL), nn=n())
+
+#bis hier alle modernen taxa zusammengefasst (summarised and MFN_testudinidae)
+
+
+
+SpecPaleo <- bind_rows(modernMean,SpeciesPaleo) %>%
+  arrange(tt)
+
+
+kable(SpecPaleo)
+
+
+paleoSpec <-as.paleoTS(SpecPaleo$mm, SpecPaleo$vv, SpecPaleo$nn, SpecPaleo$tt, MM = NULL, genpars = NULL, label = "Testudinidae body size evolution mode, Holocene-Upper Miocene, species mean CL", reset.time=TRUE)
+
+plot(paleoSpec)
+
+kable(fit3models(paleoSpec, silent=FALSE, method="AD", pool=FALSE))
+
+```

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6350 64-bit) (preloaded format=pdflatex 2017.7.2)  15 AUG 2017 17:19
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6350 64-bit) (preloaded format=pdflatex 2017.7.2)  16 AUG 2017 00:51
 entering extended mode
 **./MA_JJ.tex
 (MA_JJ.tex
@@ -948,7 +948,7 @@ Package grfext Info: Graphics extension search list:
 G,.JBIG2,.JB2,.eps]
 (grfext)             \AppendGraphicsExtensions on input line 456.
 )
-<MA_JJ_files/figure-latex/Map fossil occurrences-1.pdf, id=3, 469.755pt x 325.2
+<MA_JJ_files/figure-latex/Map fossil occurrences-1.pdf, id=7, 469.755pt x 325.2
 15pt>
 File: MA_JJ_files/figure-latex/Map fossil occurrences-1.pdf Graphic file (type 
 pdf)
@@ -957,7 +957,7 @@ Package pdftex.def Info: MA_JJ_files/figure-latex/Map fossil occurrences-1.pdf
 used on input line 125.
 (pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
 
-<MA_JJ_files/figure-latex/Map body size data set-1.pdf, id=4, 469.755pt x 325.2
+<MA_JJ_files/figure-latex/Map body size data set-1.pdf, id=8, 469.755pt x 325.2
 15pt>
 File: MA_JJ_files/figure-latex/Map body size data set-1.pdf Graphic file (type 
 pdf)
@@ -965,35 +965,164 @@ pdf)
 Package pdftex.def Info: MA_JJ_files/figure-latex/Map body size data set-1.pdf 
 used on input line 134.
 (pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 141.
+
+<MA_JJ_files/figure-latex/Histograms of body size data-1.pdf, id=9, 469.755pt x
+ 325.215pt>
+File: MA_JJ_files/figure-latex/Histograms of body size data-1.pdf Graphic file 
+(type pdf)
+<use MA_JJ_files/figure-latex/Histograms of body size data-1.pdf>
+Package pdftex.def Info: MA_JJ_files/figure-latex/Histograms of body size data-
+1.pdf used on input line 140.
+(pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
+
+<MA_JJ_files/figure-latex/Histograms of body size data-2.pdf, id=10, 469.755pt 
+x 325.215pt>
+File: MA_JJ_files/figure-latex/Histograms of body size data-2.pdf Graphic file 
+(type pdf)
+<use MA_JJ_files/figure-latex/Histograms of body size data-2.pdf>
+Package pdftex.def Info: MA_JJ_files/figure-latex/Histograms of body size data-
+2.pdf used on input line 141.
+(pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 140--142
+[][]
+ []
+
 [1
 
 {C:/ProgramData/MiKTeX/2.9/pdftex/config/pdftex.map}] [2 <./MA_JJ_files/figure-
 latex/Map fossil occurrences-1.pdf>] [3 <./MA_JJ_files/figure-latex/Map body si
-ze data set-1.pdf>]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 141.
+ze data set-1.pdf>] [4 <./MA_JJ_files/figure-latex/Histograms of body size data
+-1.pdf>]
+<MA_JJ_files/figure-latex/Species Accumulation Curve-1.pdf, id=50, 469.755pt x 
+325.215pt>
+File: MA_JJ_files/figure-latex/Species Accumulation Curve-1.pdf Graphic file (t
+ype pdf)
+<use MA_JJ_files/figure-latex/Species Accumulation Curve-1.pdf>
+Package pdftex.def Info: MA_JJ_files/figure-latex/Species Accumulation Curve-1.
+pdf used on input line 143.
+(pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
+
+<MA_JJ_files/figure-latex/Species Accumulation Curve-2.pdf, id=51, 469.755pt x 
+325.215pt>
+File: MA_JJ_files/figure-latex/Species Accumulation Curve-2.pdf Graphic file (t
+ype pdf)
+<use MA_JJ_files/figure-latex/Species Accumulation Curve-2.pdf>
+Package pdftex.def Info: MA_JJ_files/figure-latex/Species Accumulation Curve-2.
+pdf used on input line 144.
+(pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 143--145
+[][]
+ []
+
+[5 <./MA_JJ_files/figure-latex/Histograms of body size data-2.pdf>] [6 <./MA_JJ
+_files/figure-latex/Species Accumulation Curve-1.pdf>]
+<MA_JJ_files/figure-latex/Species Accumulation Curve with Genera-1.pdf, id=71, 
+469.755pt x 325.215pt>
+File: MA_JJ_files/figure-latex/Species Accumulation Curve with Genera-1.pdf Gra
+phic file (type pdf)
+<use MA_JJ_files/figure-latex/Species Accumulation Curve with Genera-1.pdf>
+Package pdftex.def Info: MA_JJ_files/figure-latex/Species Accumulation Curve wi
+th Genera-1.pdf used on input line 146.
+(pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
+
+<MA_JJ_files/figure-latex/Species Accumulation Curve with Genera-2.pdf, id=72, 
+469.755pt x 325.215pt>
+File: MA_JJ_files/figure-latex/Species Accumulation Curve with Genera-2.pdf Gra
+phic file (type pdf)
+<use MA_JJ_files/figure-latex/Species Accumulation Curve with Genera-2.pdf>
+Package pdftex.def Info: MA_JJ_files/figure-latex/Species Accumulation Curve wi
+th Genera-2.pdf used on input line 147.
+(pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 146--148
+[][]
+ []
+
+[7 <./MA_JJ_files/figure-latex/Species Accumulation Curve-2.pdf>] [8 <./MA_JJ_f
+iles/figure-latex/Species Accumulation Curve with Genera-1.pdf>]
+LaTeX Font Info:    Try loading font information for T1+lmtt on input line 149.
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\lm\t1lmtt.fd"
+File: t1lmtt.fd 2009/10/30 v1.6 Font defs for Latin Modern
+)
+<MA_JJ_files/figure-latex/Boxplots of each genus per time bin-1.pdf, id=94, 469
+.755pt x 325.215pt>
+File: MA_JJ_files/figure-latex/Boxplots of each genus per time bin-1.pdf Graphi
+c file (type pdf)
+<use MA_JJ_files/figure-latex/Boxplots of each genus per time bin-1.pdf>
+Package pdftex.def Info: MA_JJ_files/figure-latex/Boxplots of each genus per ti
+me bin-1.pdf used on input line 155.
+(pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
+
+<MA_JJ_files/figure-latex/Separate genera per time bin-1.pdf, id=95, 469.755pt 
+x 325.215pt>
+File: MA_JJ_files/figure-latex/Separate genera per time bin-1.pdf Graphic file 
+(type pdf)
+<use MA_JJ_files/figure-latex/Separate genera per time bin-1.pdf>
+Package pdftex.def Info: MA_JJ_files/figure-latex/Separate genera per time bin-
+1.pdf used on input line 165.
+(pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
+[9 <./MA_JJ_files/figure-latex/Species Accumulation Curve with Genera-2.pdf>] [
+10 <./MA_JJ_files/figure-latex/Boxplots of each genus per time bin-1.pdf>] [11 
+<./MA_JJ_files/figure-latex/Separate genera per time bin-1.pdf>] <MA_JJ_files/f
+igure-latex/paleoTS plot-1.pdf, id=127, 469.755pt x 325.215pt>
+File: MA_JJ_files/figure-latex/paleoTS plot-1.pdf Graphic file (type pdf)
+<use MA_JJ_files/figure-latex/paleoTS plot-1.pdf>
+Package pdftex.def Info: MA_JJ_files/figure-latex/paleoTS plot-1.pdf used on in
+put line 199.
+(pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
+[12] [13 <./MA_JJ_files/figure-latex/paleoTS plot-1.pdf>]
+<MA_JJ_files/figure-latex/paleoTS plot with species mean, including island spec
+ies-1.pdf, id=148, 469.755pt x 325.215pt>
+File: MA_JJ_files/figure-latex/paleoTS plot with species mean, including island
+ species-1.pdf Graphic file (type pdf)
+
+<use MA_JJ_files/figure-latex/paleoTS plot with species mean, including island 
+species-1.pdf>
+Package pdftex.def Info: MA_JJ_files/figure-latex/paleoTS plot with species mea
+n, including island species-1.pdf used on input line 247.
+(pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
+[14 <./MA_JJ_files/figure-latex/paleoTS plot with species mean, including islan
+d species-1.pdf>]
+<MA_JJ_files/figure-latex/paleoTS plot with species mean, including island spec
+ies-2.pdf, id=160, 469.755pt x 325.215pt>
+File: MA_JJ_files/figure-latex/paleoTS plot with species mean, including island
+ species-2.pdf Graphic file (type pdf)
+
+<use MA_JJ_files/figure-latex/paleoTS plot with species mean, including island 
+species-2.pdf>
+Package pdftex.def Info: MA_JJ_files/figure-latex/paleoTS plot with species mea
+n, including island species-2.pdf used on input line 269.
+(pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 295.
+[15] [16 <./MA_JJ_files/figure-latex/paleoTS plot with species mean, including 
+island species-2.pdf>]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 295.
 (MA_JJ.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 141.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 141.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 295.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 295.
 Package rerunfilecheck Info: File `MA_JJ.out' has not changed.
-(rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 141.
+(rerunfilecheck)             Checksum: 3AB57A29FE23649C0B464CFA87868D5E;224.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 295.
  ) 
 Here is how much of TeX's memory you used:
- 12595 strings out of 493323
- 179678 string characters out of 3139070
- 289148 words of memory out of 3000000
- 15986 multiletter control sequences out of 15000+200000
- 18441 words of font info for 27 fonts, out of 3000000 for 9000
+ 12721 strings out of 493323
+ 183794 string characters out of 3139070
+ 291566 words of memory out of 3000000
+ 16080 multiletter control sequences out of 15000+200000
+ 24840 words of font info for 31 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 32i,6n,38p,341b,342s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 32i,6n,38p,341b,437s stack positions out of 5000i,500n,10000p,200000b,50000s
 {C:/Program Files/MiKTeX 2.9/fonts/enc/dvips/lm/lm-ec.enc}<C:/Program Files/M
-iKTeX 2.9/fonts/type1/public/lm/lmr10.pfb><C:/Program Files/MiKTeX 2.9/fonts/ty
-pe1/public/lm/lmr17.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/lm/lmri
-12.pfb>
-Output written on MA_JJ.pdf (3 pages, 1029297 bytes).
+iKTeX 2.9/fonts/type1/public/lm/lmbx12.pfb><C:/Program Files/MiKTeX 2.9/fonts/t
+ype1/public/lm/lmr10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/lm/lmr
+17.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/lm/lmri12.pfb><C:/Progra
+m Files/MiKTeX 2.9/fonts/type1/public/lm/lmtt10.pfb>
+Output written on MA_JJ.pdf (16 pages, 1176185 bytes).
 PDF statistics:
- 50 PDF objects out of 1000 (max. 8388607)
- 7 named destinations out of 1000 (max. 500000)
- 6155 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 204 PDF objects out of 1000 (max. 8388607)
+ 31 named destinations out of 1000 (max. 500000)
+ 6218 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -1,7 +1,7 @@
 \section{Material \& Methods}
 
 \subsection{Data collection}
-I collected data on body size of fossil testudinids from the Upper Miocene until recent times. The body size data set includes 26 genera, comprising over 70 fossil species. The majority of the data was obtained from the primary literature (\ref{TabS1}). To find relevant publications, I relied mostly on the references listed in FosFarBase (CITE), PDBD (cite), and "Fossil Turtle Checklist (CITE).
+I collected data on body size of fossil testudinids from the Upper Miocene until recent times. The body size data set includes 26 genera, comprising over 70 fossil and extant species. The majority of the data was obtained from the primary literature (\ref{TabS1}). To find relevant publications, I relied mostly on the references listed in FosFarBase (CITE), PDBD (cite), and "Fossil Turtle Checklist (CITE).
 Furthermore, the FosFarBase provided fossil occurences of testudinids all over the world, including their exact localities and age (\ref{TabS2}), which were used to get an overview over the availability of body size data. 
 For extant taxa, I measured dry material (n = 67) from the collection of the Museum für Naturkunde zu Berlin (MFN). In addition, body size data from the literature was included (\ref{TabS3}).
 
@@ -16,3 +16,6 @@ All subsequent analyses were performed with R (version ...), including the packa
 
 
 - only used samples > 11.000 mya?!
+
+\subsection{Body size trends over time}
+To investigate trends in body size over time, the R package paleoTS (cite) was used. Data were split into time bins according to the stratigraphic timescale (\ref{Tab1}). 
