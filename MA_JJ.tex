@@ -25,7 +25,6 @@
 \usepackage{hyperref}
 \hypersetup{unicode=true,
             pdftitle={MAthesis},
-            pdfauthor={Julia Joos},
             pdfborder={0 0 0},
             breaklinks=true}
 \urlstyle{same}  % don't use monospace font for urls
@@ -79,12 +78,10 @@
   \title{MAthesis}
   \pretitle{\vspace{\droptitle}\centering\huge}
   \posttitle{\par}
-  \author{Julia Joos}
-  \preauthor{\centering\large\emph}
-  \postauthor{\par}
-  \predate{\centering\large\emph}
-  \postdate{\par}
-  \date{14 August 2017}
+  \author{}
+  \preauthor{}\postauthor{}
+  \date{}
+  \predate{}\postdate{}
 
 \usepackage{setspace}
 \doublespacing
@@ -137,8 +134,11 @@ testudinids was available in the literature. Size of points denotes
 sample size, color denotes approximate age.}
 \end{figure}
 
+\begin{figure}[htbp]
+\centering
 \includegraphics{MA_JJ_files/figure-latex/Histograms of body size data-1.pdf}
-\includegraphics{MA_JJ_files/figure-latex/Histograms of body size data-2.pdf}
+\caption{Distribution of body site data per time bin}
+\end{figure}
 
 \includegraphics{MA_JJ_files/figure-latex/Species Accumulation Curve-1.pdf}
 \includegraphics{MA_JJ_files/figure-latex/Species Accumulation Curve-2.pdf}
@@ -153,7 +153,7 @@ sample size, color denotes approximate age.}
 \begin{figure}[htbp]
 \centering
 \includegraphics{MA_JJ_files/figure-latex/Boxplots of each genus per time bin-1.pdf}
-\caption{Boxplots of each genus per time bin}
+\caption{Boxplots of each genus per time bin, for colors see Fig. 4.}
 \end{figure}
 
 \begin{verbatim}
@@ -227,6 +227,9 @@ Stasis & -47.28232 & 2 & 101.5646 & 0.772\tabularnewline
 \bottomrule
 \end{longtable}
 
+\section{paleoTS plot with species mean, including island
+species}\label{paleots-plot-with-species-mean-including-island-species}
+
 \begin{longtable}[]{@{}lrrr@{}}
 \toprule
 EpochBins & meanSpeciesCL & nSpecies & MeanBins\tabularnewline
@@ -241,12 +244,6 @@ Lower Pliocene & 1009.4738 & 14 & 4.46600\tabularnewline
 Upper Miocene & 680.7708 & 24 & 8.47000\tabularnewline
 \bottomrule
 \end{longtable}
-
-\begin{figure}[htbp]
-\centering
-\includegraphics{MA_JJ_files/figure-latex/paleoTS plot with species mean, including island species-1.pdf}
-\caption{paleoTS plot with species mean, including island species}
-\end{figure}
 
 \begin{longtable}[]{@{}rrrr@{}}
 \toprule
@@ -266,7 +263,7 @@ tt & mm & vv & nn\tabularnewline
 
 \begin{figure}[htbp]
 \centering
-\includegraphics{MA_JJ_files/figure-latex/paleoTS plot with species mean, including island species-2.pdf}
+\includegraphics{MA_JJ_files/figure-latex/paleoTS plot with species mean, including island species-1.pdf}
 \caption{paleoTS plot with species mean, including island species}
 \end{figure}
 
@@ -290,6 +287,293 @@ URW & -47.99319 & 1 & 98.78638 & 0.422\tabularnewline
 Stasis & -45.68754 & 2 & 98.37508 & 0.519\tabularnewline
 \bottomrule
 \end{longtable}
+
+\newpage
+
+\section{paleoTS plot with genus
+mean}\label{paleots-plot-with-genus-mean}
+
+\begin{longtable}[]{@{}rrrrl@{}}
+\caption{Overview over body size means per time bin on genus
+level.}\tabularnewline
+\toprule
+CL & n & var & tt & Genus\tabularnewline
+\midrule
+\endfirsthead
+\toprule
+CL & n & var & tt & Genus\tabularnewline
+\midrule
+\endhead
+853.3667 & 120 & 168501582 & 5e-07 & Aldabrachelys\tabularnewline
+238.6918 & 664 & 372641839 & 5e-07 & Gopherus\tabularnewline
+361.0260 & 204 & 412645499 & 5e-07 & Chelonoidis\tabularnewline
+140.0327 & 849 & 2949618378 & 5e-07 & Testudo\tabularnewline
+366.2143 & 14 & 26286129 & 5e-07 & Astrochelys\tabularnewline
+493.3333 & 3 & 2190400 & 5e-07 & Centrochelys\tabularnewline
+176.2667 & 15 & 6990736 & 5e-07 & Chersina\tabularnewline
+724.0000 & 5 & 13104400 & 5e-07 & Cylindraspis\tabularnewline
+252.1250 & 8 & 4068289 & 5e-07 & Geochelone\tabularnewline
+139.2857 & 7 & 950625 & 5e-07 & Homopus\tabularnewline
+242.9875 & 16 & 15114989 & 5e-07 & Indotestudo\tabularnewline
+209.1429 & 14 & 8573184 & 5e-07 & Kinixys\tabularnewline
+166.5000 & 2 & 110889 & 5e-07 & Malacochersus\tabularnewline
+372.1250 & 8 & 8862529 & 5e-07 & Manouria\tabularnewline
+113.4118 & 17 & 3717184 & 5e-07 & Psammobates\tabularnewline
+124.1875 & 16 & 3948169 & 5e-07 & Pyxis\tabularnewline
+405.3333 & 6 & 5914624 & 5e-07 & Stigmochelys\tabularnewline
+\bottomrule
+\end{longtable}
+
+\begin{longtable}[]{@{}rrrr@{}}
+\toprule
+tt & mm & vv & nn\tabularnewline
+\midrule
+\endhead
+0.0000005 & 316.3547 & 44441.20 & 17\tabularnewline
+0.0058500 & 568.9167 & 182078.62 & 4\tabularnewline
+0.0688500 & 524.0911 & 68449.15 & 7\tabularnewline
+0.4535000 & 510.6329 & 170442.90 & 5\tabularnewline
+1.6845000 & 584.4960 & 216523.00 & 10\tabularnewline
+3.0940000 & 751.0250 & 288801.06 & 8\tabularnewline
+4.4660000 & 791.7563 & 187777.18 & 8\tabularnewline
+8.4700000 & 883.5611 & 256846.90 & 9\tabularnewline
+\bottomrule
+\end{longtable}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics{MA_JJ_files/figure-latex/paleoTS plot with genus mean, including island species-1.pdf}
+\caption{paleoTS plot with genus mean, including island species}
+\end{figure}
+
+\begin{verbatim}
+## 
+## Comparing 3 models [n = 7, method = AD]
+## 
+##             logL K     AICc Akaike.wt
+## GRW    -45.34107 2 97.68214     0.108
+## URW    -45.56823 1 93.93647     0.700
+## Stasis -44.76259 2 96.52518     0.192
+\end{verbatim}
+
+\begin{longtable}[]{@{}lrrrr@{}}
+\toprule
+& logL & K & AICc & Akaike.wt\tabularnewline
+\midrule
+\endhead
+GRW & -45.34107 & 2 & 97.68214 & 0.108\tabularnewline
+URW & -45.56823 & 1 & 93.93647 & 0.700\tabularnewline
+Stasis & -44.76259 & 2 & 96.52518 & 0.192\tabularnewline
+\bottomrule
+\end{longtable}
+
+\section{excluding island species}\label{excluding-island-species}
+
+\begin{longtable}[]{@{}rrrr@{}}
+\caption{paleoTS object (mm= mean CL, nn = sample size, vv = variance
+(CL), tt = Age)}\tabularnewline
+\toprule
+mm & nn & vv & tt\tabularnewline
+\midrule
+\endfirsthead
+\toprule
+mm & nn & vv & tt\tabularnewline
+\midrule
+\endhead
+199.7807 & 1771 & 1.710776e+09 & 0.0000005\tabularnewline
+259.0000 & 2 & 1.620000e+02 & 0.0058500\tabularnewline
+380.0617 & 35 & 7.471306e+04 & 0.0688500\tabularnewline
+274.8795 & 40 & 3.342617e+03 & 0.4535000\tabularnewline
+262.7958 & 48 & 6.826984e+04 & 1.6845000\tabularnewline
+766.3909 & 11 & 4.261398e+05 & 3.0940000\tabularnewline
+1029.0400 & 20 & 5.811355e+05 & 4.4660000\tabularnewline
+550.2821 & 39 & 2.745233e+05 & 8.4700000\tabularnewline
+\bottomrule
+\end{longtable}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics{MA_JJ_files/figure-latex/paleoTS, individuals, exluding island species-1.pdf}
+\caption{individuals, excluding island species}
+\end{figure}
+
+\begin{verbatim}
+## 
+## Comparing 3 models [n = 7, method = AD]
+## 
+##             logL K     AICc Akaike.wt
+## GRW    -50.08983 2 107.1797     0.330
+## URW    -53.48728 1 109.7746     0.090
+## Stasis -49.52770 2 106.0554     0.579
+\end{verbatim}
+
+\begin{longtable}[]{@{}lrrrr@{}}
+\caption{Model-fitting results for testudinidae, individuals, including
+island species}\tabularnewline
+\toprule
+& logL & K & AICc & Akaike.wt\tabularnewline
+\midrule
+\endfirsthead
+\toprule
+& logL & K & AICc & Akaike.wt\tabularnewline
+\midrule
+\endhead
+GRW & -50.08983 & 2 & 107.1797 & 0.330\tabularnewline
+URW & -53.48728 & 1 & 109.7746 & 0.090\tabularnewline
+Stasis & -49.52770 & 2 & 106.0554 & 0.579\tabularnewline
+\newpage & & & &\tabularnewline
+\bottomrule
+\end{longtable}
+
+\section{paleoTS plot with species mean, excluding island
+species}\label{paleots-plot-with-species-mean-excluding-island-species}
+
+\begin{longtable}[]{@{}lrrr@{}}
+\toprule
+EpochBins & meanSpeciesCL & nSpecies & MeanBins\tabularnewline
+\midrule
+\endhead
+Holocene & 259.0000 & 2 & 0.00585\tabularnewline
+Upper Pleistocene & 447.7325 & 12 & 0.06885\tabularnewline
+Middle Pleistocene & 248.3908 & 8 & 0.45350\tabularnewline
+Lower Pleistocene & 368.7943 & 16 & 1.68450\tabularnewline
+Upper Pliocene & 702.4714 & 7 & 3.09400\tabularnewline
+Lower Pliocene & 1050.3028 & 12 & 4.46600\tabularnewline
+Upper Miocene & 629.9348 & 23 & 8.47000\tabularnewline
+\bottomrule
+\end{longtable}
+
+\begin{longtable}[]{@{}rrrr@{}}
+\toprule
+tt & mm & vv & nn\tabularnewline
+\midrule
+\endhead
+0.0000005 & 215.4494 & 9193.970 & 32\tabularnewline
+0.0058500 & 259.0000 & 162.000 & 2\tabularnewline
+0.0688500 & 447.7325 & 71037.951 & 12\tabularnewline
+0.4535000 & 248.3908 & 9244.191 & 8\tabularnewline
+1.6845000 & 368.7943 & 192142.503 & 16\tabularnewline
+3.0940000 & 702.4714 & 393708.572 & 7\tabularnewline
+4.4660000 & 1050.3028 & 504079.900 & 12\tabularnewline
+8.4700000 & 629.9348 & 300864.767 & 23\tabularnewline
+\bottomrule
+\end{longtable}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics{MA_JJ_files/figure-latex/paleoTS plot with species mean, excluding island species-1.pdf}
+\caption{paleoTS plot with species mean, excluding island species}
+\end{figure}
+
+\begin{verbatim}
+## 
+## Comparing 3 models [n = 7, method = AD]
+## 
+##             logL K     AICc Akaike.wt
+## GRW    -48.28945 2 103.5789     0.138
+## URW    -48.69437 1 100.1887     0.750
+## Stasis -48.49817 2 103.9963     0.112
+\end{verbatim}
+
+\begin{longtable}[]{@{}lrrrr@{}}
+\toprule
+& logL & K & AICc & Akaike.wt\tabularnewline
+\midrule
+\endhead
+GRW & -48.28945 & 2 & 103.5789 & 0.138\tabularnewline
+URW & -48.69437 & 1 & 100.1887 & 0.750\tabularnewline
+Stasis & -48.49817 & 2 & 103.9963 & 0.112\tabularnewline
+\bottomrule
+\end{longtable}
+
+\newpage
+
+\section{paleoTS plot with genus
+mean}\label{paleots-plot-with-genus-mean-1}
+
+\begin{longtable}[]{@{}rrrrl@{}}
+\caption{Overview over body size means per time bin on genus level,
+excluding island species.}\tabularnewline
+\toprule
+CL & n & var & tt & Genus\tabularnewline
+\midrule
+\endfirsthead
+\toprule
+CL & n & var & tt & Genus\tabularnewline
+\midrule
+\endhead
+238.4562 & 661 & 373850751 & 5e-07 & Gopherus\tabularnewline
+321.4059 & 188 & 368044537 & 5e-07 & Chelonoidis\tabularnewline
+139.1260 & 835 & 2997045249 & 5e-07 & Testudo\tabularnewline
+493.3333 & 3 & 2190400 & 5e-07 & Centrochelys\tabularnewline
+161.6545 & 11 & 3161995 & 5e-07 & Chersina\tabularnewline
+256.7143 & 7 & 3229209 & 5e-07 & Geochelone\tabularnewline
+139.2857 & 7 & 950625 & 5e-07 & Homopus\tabularnewline
+248.1083 & 12 & 8864315 & 5e-07 & Indotestudo\tabularnewline
+209.1429 & 14 & 8573184 & 5e-07 & Kinixys\tabularnewline
+166.5000 & 2 & 110889 & 5e-07 & Malacochersus\tabularnewline
+372.1250 & 8 & 8862529 & 5e-07 & Manouria\tabularnewline
+113.2500 & 16 & 3283344 & 5e-07 & Psammobates\tabularnewline
+108.0000 & 1 & 11664 & 5e-07 & Pyxis\tabularnewline
+405.3333 & 6 & 5914624 & 5e-07 & Stigmochelys\tabularnewline
+\bottomrule
+\end{longtable}
+
+\begin{longtable}[]{@{}rrrr@{}}
+\toprule
+tt & mm & vv & nn\tabularnewline
+\midrule
+\endhead
+0.0000005 & 240.8882 & 14018.014 & 14\tabularnewline
+0.0058500 & 259.0000 & 162.000 & 2\tabularnewline
+0.0688500 & 426.8276 & 57540.323 & 5\tabularnewline
+0.4535000 & 230.5548 & 3353.731 & 3\tabularnewline
+1.6845000 & 395.5642 & 257838.017 & 6\tabularnewline
+3.0940000 & 887.5900 & 439366.116 & 5\tabularnewline
+4.4660000 & 800.8417 & 262231.740 & 6\tabularnewline
+8.4700000 & 787.1722 & 319006.887 & 9\tabularnewline
+\bottomrule
+\end{longtable}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics{MA_JJ_files/figure-latex/paleoTS plot with genus mean, excluding island species-1.pdf}
+\caption{paleoTS plot with genus mean, excluding island species}
+\end{figure}
+
+\begin{verbatim}
+## 
+## Comparing 3 models [n = 7, method = AD]
+## 
+##             logL K      AICc Akaike.wt
+## GRW    -46.23366 2  99.46732     0.110
+## URW    -46.25371 1  95.30742     0.880
+## Stasis -48.57439 2 104.14878     0.011
+\end{verbatim}
+
+\begin{longtable}[]{@{}lrrrr@{}}
+\toprule
+& logL & K & AICc & Akaike.wt\tabularnewline
+\midrule
+\endhead
+GRW & -46.23366 & 2 & 99.46732 & 0.110\tabularnewline
+URW & -46.25371 & 1 & 95.30742 & 0.880\tabularnewline
+Stasis & -48.57439 & 2 & 104.14878 & 0.011\tabularnewline
+\bottomrule
+\end{longtable}
+
+\newpage
+
+\section{Boxplots (continental (n) vs.~Island (y)
+species)}\label{boxplots-continental-n-vs.island-y-species}
+
+\includegraphics{MA_JJ_files/figure-latex/unnamed-chunk-1-1.pdf}
+
+\includegraphics{MA_JJ_files/figure-latex/Boxplot continental vs. insular, species summarised-1.pdf}
+
+\includegraphics{MA_JJ_files/figure-latex/Boxplots, species summarised-1.pdf}
+
+\includegraphics{MA_JJ_files/figure-latex/unnamed-chunk-2-1.pdf}
 
 
 \end{document}

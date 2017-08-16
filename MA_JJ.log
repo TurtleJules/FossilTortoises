@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6350 64-bit) (preloaded format=pdflatex 2017.7.2)  16 AUG 2017 00:51
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6350 64-bit) (preloaded format=pdflatex 2017.7.2)  16 AUG 2017 11:54
 entering extended mode
 **./MA_JJ.tex
 (MA_JJ.tex
@@ -750,13 +750,13 @@ Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 2
 )
 \Hy@SectionHShift=\skip47
 )
-Package hyperref Info: Option `unicode' set `true' on input line 30.
+Package hyperref Info: Option `unicode' set `true' on input line 29.
 ("C:\Program Files\MiKTeX 2.9\tex\latex\hyperref\puenc.def"
 File: puenc.def 2017/03/14 v6.85a Hyperref: PDF Unicode definition (HO)
 Now handling font encoding PU ...
 ... no UTF-8 mapping file for font encoding PU
 )
-Package hyperref Info: Option `breaklinks' set `true' on input line 30.
+Package hyperref Info: Option `breaklinks' set `true' on input line 29.
 ("C:\Program Files\MiKTeX 2.9\tex\latex\natbib\natbib.sty"
 Package: natbib 2010/09/13 8.31b (PWD, AO)
 \bibhang=\skip48
@@ -833,33 +833,33 @@ Package: setspace 2011/12/19 v6.7a set line spacing
 ) (MA_JJ.aux)
 \openout1 = `MA_JJ.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 92.
-LaTeX Font Info:    ... okay on input line 92.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 92.
-LaTeX Font Info:    ... okay on input line 92.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 92.
-LaTeX Font Info:    ... okay on input line 92.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 92.
-LaTeX Font Info:    ... okay on input line 92.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 92.
-LaTeX Font Info:    ... okay on input line 92.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 92.
-LaTeX Font Info:    ... okay on input line 92.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 92.
-LaTeX Font Info:    Try loading font information for TS1+cmr on input line 92.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 89.
+LaTeX Font Info:    ... okay on input line 89.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 89.
+LaTeX Font Info:    ... okay on input line 89.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 89.
+LaTeX Font Info:    ... okay on input line 89.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 89.
+LaTeX Font Info:    ... okay on input line 89.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 89.
+LaTeX Font Info:    ... okay on input line 89.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 89.
+LaTeX Font Info:    ... okay on input line 89.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 89.
+LaTeX Font Info:    Try loading font information for TS1+cmr on input line 89.
 ("C:\Program Files\MiKTeX 2.9\tex\latex\base\ts1cmr.fd"
 File: ts1cmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
-LaTeX Font Info:    ... okay on input line 92.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 92.
-LaTeX Font Info:    ... okay on input line 92.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 92.
-LaTeX Font Info:    ... okay on input line 92.
-LaTeX Font Info:    Try loading font information for T1+lmr on input line 92.
+LaTeX Font Info:    ... okay on input line 89.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 89.
+LaTeX Font Info:    ... okay on input line 89.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 89.
+LaTeX Font Info:    ... okay on input line 89.
+LaTeX Font Info:    Try loading font information for T1+lmr on input line 89.
 ("C:\Program Files\MiKTeX 2.9\tex\latex\lm\t1lmr.fd"
 File: t1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
-LaTeX Info: Redefining \microtypecontext on input line 92.
+LaTeX Info: Redefining \microtypecontext on input line 89.
 Package microtype Info: Generating PDF output.
 Package microtype Info: Character protrusion enabled (level 2).
 Package microtype Info: Using protrusion set `basicmath'.
@@ -908,7 +908,7 @@ File: mt-cmr.cfg 2013/05/19 v2.2 microtype config. file: Computer Modern Roman
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
 \AtBeginShipoutBox=\box32
-Package hyperref Info: Link coloring OFF on input line 92.
+Package hyperref Info: Link coloring OFF on input line 89.
 ("C:\Program Files\MiKTeX 2.9\tex\latex\hyperref\nameref.sty"
 Package: nameref 2016/05/21 v2.44 Cross-referencing by name of section
 ("C:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\gettitlestring.sty"
@@ -916,9 +916,9 @@ Package: gettitlestring 2016/05/16 v1.5 Cleanup title references (HO)
 )
 \c@section@level=\count125
 )
-LaTeX Info: Redefining \ref on input line 92.
-LaTeX Info: Redefining \pageref on input line 92.
-LaTeX Info: Redefining \nameref on input line 92.
+LaTeX Info: Redefining \ref on input line 89.
+LaTeX Info: Redefining \pageref on input line 89.
+LaTeX Info: Redefining \nameref on input line 89.
 (MA_JJ.out) (MA_JJ.out)
 \@outlinefile=\write3
 \openout3 = `MA_JJ.out'.
@@ -948,53 +948,34 @@ Package grfext Info: Graphics extension search list:
 G,.JBIG2,.JB2,.eps]
 (grfext)             \AppendGraphicsExtensions on input line 456.
 )
-<MA_JJ_files/figure-latex/Map fossil occurrences-1.pdf, id=7, 469.755pt x 325.2
-15pt>
+<MA_JJ_files/figure-latex/Map fossil occurrences-1.pdf, id=31, 469.755pt x 325.
+215pt>
 File: MA_JJ_files/figure-latex/Map fossil occurrences-1.pdf Graphic file (type 
 pdf)
 <use MA_JJ_files/figure-latex/Map fossil occurrences-1.pdf>
 Package pdftex.def Info: MA_JJ_files/figure-latex/Map fossil occurrences-1.pdf 
-used on input line 125.
+used on input line 122.
 (pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
 
-<MA_JJ_files/figure-latex/Map body size data set-1.pdf, id=8, 469.755pt x 325.2
-15pt>
+<MA_JJ_files/figure-latex/Map body size data set-1.pdf, id=32, 469.755pt x 325.
+215pt>
 File: MA_JJ_files/figure-latex/Map body size data set-1.pdf Graphic file (type 
 pdf)
 <use MA_JJ_files/figure-latex/Map body size data set-1.pdf>
 Package pdftex.def Info: MA_JJ_files/figure-latex/Map body size data set-1.pdf 
-used on input line 134.
+used on input line 131.
 (pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
 
-<MA_JJ_files/figure-latex/Histograms of body size data-1.pdf, id=9, 469.755pt x
- 325.215pt>
+<MA_JJ_files/figure-latex/Histograms of body size data-1.pdf, id=33, 469.755pt 
+x 325.215pt>
 File: MA_JJ_files/figure-latex/Histograms of body size data-1.pdf Graphic file 
 (type pdf)
 <use MA_JJ_files/figure-latex/Histograms of body size data-1.pdf>
 Package pdftex.def Info: MA_JJ_files/figure-latex/Histograms of body size data-
-1.pdf used on input line 140.
+1.pdf used on input line 139.
 (pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
 
-<MA_JJ_files/figure-latex/Histograms of body size data-2.pdf, id=10, 469.755pt 
-x 325.215pt>
-File: MA_JJ_files/figure-latex/Histograms of body size data-2.pdf Graphic file 
-(type pdf)
-<use MA_JJ_files/figure-latex/Histograms of body size data-2.pdf>
-Package pdftex.def Info: MA_JJ_files/figure-latex/Histograms of body size data-
-2.pdf used on input line 141.
-(pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
-
-Underfull \hbox (badness 10000) in paragraph at lines 140--142
-[][]
- []
-
-[1
-
-{C:/ProgramData/MiKTeX/2.9/pdftex/config/pdftex.map}] [2 <./MA_JJ_files/figure-
-latex/Map fossil occurrences-1.pdf>] [3 <./MA_JJ_files/figure-latex/Map body si
-ze data set-1.pdf>] [4 <./MA_JJ_files/figure-latex/Histograms of body size data
--1.pdf>]
-<MA_JJ_files/figure-latex/Species Accumulation Curve-1.pdf, id=50, 469.755pt x 
+<MA_JJ_files/figure-latex/Species Accumulation Curve-1.pdf, id=34, 469.755pt x 
 325.215pt>
 File: MA_JJ_files/figure-latex/Species Accumulation Curve-1.pdf Graphic file (t
 ype pdf)
@@ -1003,7 +984,7 @@ Package pdftex.def Info: MA_JJ_files/figure-latex/Species Accumulation Curve-1.
 pdf used on input line 143.
 (pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
 
-<MA_JJ_files/figure-latex/Species Accumulation Curve-2.pdf, id=51, 469.755pt x 
+<MA_JJ_files/figure-latex/Species Accumulation Curve-2.pdf, id=35, 469.755pt x 
 325.215pt>
 File: MA_JJ_files/figure-latex/Species Accumulation Curve-2.pdf Graphic file (t
 ype pdf)
@@ -1016,9 +997,13 @@ Underfull \hbox (badness 10000) in paragraph at lines 143--145
 [][]
  []
 
-[5 <./MA_JJ_files/figure-latex/Histograms of body size data-2.pdf>] [6 <./MA_JJ
-_files/figure-latex/Species Accumulation Curve-1.pdf>]
-<MA_JJ_files/figure-latex/Species Accumulation Curve with Genera-1.pdf, id=71, 
+[1
+
+{C:/ProgramData/MiKTeX/2.9/pdftex/config/pdftex.map}] [2 <./MA_JJ_files/figure-
+latex/Map fossil occurrences-1.pdf>] [3 <./MA_JJ_files/figure-latex/Map body si
+ze data set-1.pdf>] [4 <./MA_JJ_files/figure-latex/Histograms of body size data
+-1.pdf>] [5 <./MA_JJ_files/figure-latex/Species Accumulation Curve-1.pdf>]
+<MA_JJ_files/figure-latex/Species Accumulation Curve with Genera-1.pdf, id=85, 
 469.755pt x 325.215pt>
 File: MA_JJ_files/figure-latex/Species Accumulation Curve with Genera-1.pdf Gra
 phic file (type pdf)
@@ -1027,7 +1012,7 @@ Package pdftex.def Info: MA_JJ_files/figure-latex/Species Accumulation Curve wi
 th Genera-1.pdf used on input line 146.
 (pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
 
-<MA_JJ_files/figure-latex/Species Accumulation Curve with Genera-2.pdf, id=72, 
+<MA_JJ_files/figure-latex/Species Accumulation Curve with Genera-2.pdf, id=86, 
 469.755pt x 325.215pt>
 File: MA_JJ_files/figure-latex/Species Accumulation Curve with Genera-2.pdf Gra
 phic file (type pdf)
@@ -1040,15 +1025,15 @@ Underfull \hbox (badness 10000) in paragraph at lines 146--148
 [][]
  []
 
-[7 <./MA_JJ_files/figure-latex/Species Accumulation Curve-2.pdf>] [8 <./MA_JJ_f
+[6 <./MA_JJ_files/figure-latex/Species Accumulation Curve-2.pdf>] [7 <./MA_JJ_f
 iles/figure-latex/Species Accumulation Curve with Genera-1.pdf>]
 LaTeX Font Info:    Try loading font information for T1+lmtt on input line 149.
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\lm\t1lmtt.fd"
 File: t1lmtt.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
-<MA_JJ_files/figure-latex/Boxplots of each genus per time bin-1.pdf, id=94, 469
-.755pt x 325.215pt>
+<MA_JJ_files/figure-latex/Boxplots of each genus per time bin-1.pdf, id=108, 46
+9.755pt x 325.215pt>
 File: MA_JJ_files/figure-latex/Boxplots of each genus per time bin-1.pdf Graphi
 c file (type pdf)
 <use MA_JJ_files/figure-latex/Boxplots of each genus per time bin-1.pdf>
@@ -1056,73 +1041,144 @@ Package pdftex.def Info: MA_JJ_files/figure-latex/Boxplots of each genus per ti
 me bin-1.pdf used on input line 155.
 (pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
 
-<MA_JJ_files/figure-latex/Separate genera per time bin-1.pdf, id=95, 469.755pt 
-x 325.215pt>
+<MA_JJ_files/figure-latex/Separate genera per time bin-1.pdf, id=109, 469.755pt
+ x 325.215pt>
 File: MA_JJ_files/figure-latex/Separate genera per time bin-1.pdf Graphic file 
 (type pdf)
 <use MA_JJ_files/figure-latex/Separate genera per time bin-1.pdf>
 Package pdftex.def Info: MA_JJ_files/figure-latex/Separate genera per time bin-
 1.pdf used on input line 165.
 (pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
-[9 <./MA_JJ_files/figure-latex/Species Accumulation Curve with Genera-2.pdf>] [
-10 <./MA_JJ_files/figure-latex/Boxplots of each genus per time bin-1.pdf>] [11 
-<./MA_JJ_files/figure-latex/Separate genera per time bin-1.pdf>] <MA_JJ_files/f
-igure-latex/paleoTS plot-1.pdf, id=127, 469.755pt x 325.215pt>
+[8 <./MA_JJ_files/figure-latex/Species Accumulation Curve with Genera-2.pdf>] [
+9 <./MA_JJ_files/figure-latex/Boxplots of each genus per time bin-1.pdf>] [10 <
+./MA_JJ_files/figure-latex/Separate genera per time bin-1.pdf>] <MA_JJ_files/fi
+gure-latex/paleoTS plot-1.pdf, id=141, 469.755pt x 325.215pt>
 File: MA_JJ_files/figure-latex/paleoTS plot-1.pdf Graphic file (type pdf)
 <use MA_JJ_files/figure-latex/paleoTS plot-1.pdf>
 Package pdftex.def Info: MA_JJ_files/figure-latex/paleoTS plot-1.pdf used on in
 put line 199.
 (pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
-[12] [13 <./MA_JJ_files/figure-latex/paleoTS plot-1.pdf>]
+[11] [12 <./MA_JJ_files/figure-latex/paleoTS plot-1.pdf>]
 <MA_JJ_files/figure-latex/paleoTS plot with species mean, including island spec
-ies-1.pdf, id=148, 469.755pt x 325.215pt>
+ies-1.pdf, id=160, 469.755pt x 325.215pt>
 File: MA_JJ_files/figure-latex/paleoTS plot with species mean, including island
  species-1.pdf Graphic file (type pdf)
 
 <use MA_JJ_files/figure-latex/paleoTS plot with species mean, including island 
 species-1.pdf>
 Package pdftex.def Info: MA_JJ_files/figure-latex/paleoTS plot with species mea
-n, including island species-1.pdf used on input line 247.
+n, including island species-1.pdf used on input line 266.
 (pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
-[14 <./MA_JJ_files/figure-latex/paleoTS plot with species mean, including islan
-d species-1.pdf>]
-<MA_JJ_files/figure-latex/paleoTS plot with species mean, including island spec
-ies-2.pdf, id=160, 469.755pt x 325.215pt>
-File: MA_JJ_files/figure-latex/paleoTS plot with species mean, including island
- species-2.pdf Graphic file (type pdf)
+[13] [14] [15 <./MA_JJ_files/figure-latex/paleoTS plot with species mean, inclu
+ding island species-1.pdf>] [16]
+<MA_JJ_files/figure-latex/paleoTS plot with genus mean, including island specie
+s-1.pdf, id=190, 469.755pt x 325.215pt>
+File: MA_JJ_files/figure-latex/paleoTS plot with genus mean, including island s
+pecies-1.pdf Graphic file (type pdf)
 
-<use MA_JJ_files/figure-latex/paleoTS plot with species mean, including island 
-species-2.pdf>
-Package pdftex.def Info: MA_JJ_files/figure-latex/paleoTS plot with species mea
-n, including island species-2.pdf used on input line 269.
+<use MA_JJ_files/figure-latex/paleoTS plot with genus mean, including island sp
+ecies-1.pdf>
+Package pdftex.def Info: MA_JJ_files/figure-latex/paleoTS plot with genus mean,
+ including island species-1.pdf used on input line 345.
 (pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 295.
-[15] [16 <./MA_JJ_files/figure-latex/paleoTS plot with species mean, including 
-island species-2.pdf>]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 295.
+[17 <./MA_JJ_files/figure-latex/paleoTS plot with genus mean, including island 
+species-1.pdf>]
+<MA_JJ_files/figure-latex/paleoTS, individuals, exluding island species-1.pdf, 
+id=203, 469.755pt x 325.215pt>
+File: MA_JJ_files/figure-latex/paleoTS, individuals, exluding island species-1.
+pdf Graphic file (type pdf)
+
+<use MA_JJ_files/figure-latex/paleoTS, individuals, exluding island species-1.p
+df>
+Package pdftex.def Info: MA_JJ_files/figure-latex/paleoTS, individuals, exludin
+g island species-1.pdf used on input line 396.
+(pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
+[18] [19]
+<MA_JJ_files/figure-latex/paleoTS plot with species mean, excluding island spec
+ies-1.pdf, id=215, 469.755pt x 325.215pt>
+File: MA_JJ_files/figure-latex/paleoTS plot with species mean, excluding island
+ species-1.pdf Graphic file (type pdf)
+
+<use MA_JJ_files/figure-latex/paleoTS plot with species mean, excluding island 
+species-1.pdf>
+Package pdftex.def Info: MA_JJ_files/figure-latex/paleoTS plot with species mea
+n, excluding island species-1.pdf used on input line 464.
+(pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
+[20] [21 <./MA_JJ_files/figure-latex/paleoTS, individuals, exluding island spec
+ies-1.pdf>] [22 <./MA_JJ_files/figure-latex/paleoTS plot with species mean, exc
+luding island species-1.pdf>] [23]
+<MA_JJ_files/figure-latex/paleoTS plot with genus mean, excluding island specie
+s-1.pdf, id=249, 469.755pt x 325.215pt>
+File: MA_JJ_files/figure-latex/paleoTS plot with genus mean, excluding island s
+pecies-1.pdf Graphic file (type pdf)
+
+<use MA_JJ_files/figure-latex/paleoTS plot with genus mean, excluding island sp
+ecies-1.pdf>
+Package pdftex.def Info: MA_JJ_files/figure-latex/paleoTS plot with genus mean,
+ excluding island species-1.pdf used on input line 540.
+(pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
+[24] [25 <./MA_JJ_files/figure-latex/paleoTS plot with genus mean, excluding is
+land species-1.pdf>] [26]
+<MA_JJ_files/figure-latex/unnamed-chunk-1-1.pdf, id=273, 469.755pt x 325.215pt>
+File: MA_JJ_files/figure-latex/unnamed-chunk-1-1.pdf Graphic file (type pdf)
+<use MA_JJ_files/figure-latex/unnamed-chunk-1-1.pdf>
+Package pdftex.def Info: MA_JJ_files/figure-latex/unnamed-chunk-1-1.pdf used on
+ input line 570.
+(pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
+
+<MA_JJ_files/figure-latex/Boxplot continental vs. insular, species summarised-1
+.pdf, id=274, 469.755pt x 325.215pt>
+File: MA_JJ_files/figure-latex/Boxplot continental vs. insular, species summari
+sed-1.pdf Graphic file (type pdf)
+
+<use MA_JJ_files/figure-latex/Boxplot continental vs. insular, species summaris
+ed-1.pdf>
+Package pdftex.def Info: MA_JJ_files/figure-latex/Boxplot continental vs. insul
+ar, species summarised-1.pdf used on input line 572.
+(pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
+[27 <./MA_JJ_files/figure-latex/unnamed-chunk-1-1.pdf>]
+<MA_JJ_files/figure-latex/Boxplots, species summarised-1.pdf, id=284, 469.755pt
+ x 325.215pt>
+File: MA_JJ_files/figure-latex/Boxplots, species summarised-1.pdf Graphic file 
+(type pdf)
+<use MA_JJ_files/figure-latex/Boxplots, species summarised-1.pdf>
+Package pdftex.def Info: MA_JJ_files/figure-latex/Boxplots, species summarised-
+1.pdf used on input line 574.
+(pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
+[28 <./MA_JJ_files/figure-latex/Boxplot continental vs. insular, species summar
+ised-1.pdf>]
+<MA_JJ_files/figure-latex/unnamed-chunk-2-1.pdf, id=294, 469.755pt x 325.215pt>
+File: MA_JJ_files/figure-latex/unnamed-chunk-2-1.pdf Graphic file (type pdf)
+<use MA_JJ_files/figure-latex/unnamed-chunk-2-1.pdf>
+Package pdftex.def Info: MA_JJ_files/figure-latex/unnamed-chunk-2-1.pdf used on
+ input line 576.
+(pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 579.
+[29 <./MA_JJ_files/figure-latex/Boxplots, species summarised-1.pdf>] [30 <./MA_
+JJ_files/figure-latex/unnamed-chunk-2-1.pdf>]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 579.
 (MA_JJ.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 295.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 295.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 579.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 579.
 Package rerunfilecheck Info: File `MA_JJ.out' has not changed.
-(rerunfilecheck)             Checksum: 3AB57A29FE23649C0B464CFA87868D5E;224.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 295.
+(rerunfilecheck)             Checksum: 38524E10B900518A952311A6D7E3A04E;1801.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 579.
  ) 
 Here is how much of TeX's memory you used:
- 12721 strings out of 493323
- 183794 string characters out of 3139070
- 291566 words of memory out of 3000000
- 16080 multiletter control sequences out of 15000+200000
- 24840 words of font info for 31 fonts, out of 3000000 for 9000
+ 12794 strings out of 493323
+ 186155 string characters out of 3139070
+ 292643 words of memory out of 3000000
+ 16123 multiletter control sequences out of 15000+200000
+ 17305 words of font info for 27 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 32i,6n,38p,341b,437s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 32i,6n,38p,386b,464s stack positions out of 5000i,500n,10000p,200000b,50000s
 {C:/Program Files/MiKTeX 2.9/fonts/enc/dvips/lm/lm-ec.enc}<C:/Program Files/M
 iKTeX 2.9/fonts/type1/public/lm/lmbx12.pfb><C:/Program Files/MiKTeX 2.9/fonts/t
 ype1/public/lm/lmr10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/lm/lmr
-17.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/lm/lmri12.pfb><C:/Progra
-m Files/MiKTeX 2.9/fonts/type1/public/lm/lmtt10.pfb>
-Output written on MA_JJ.pdf (16 pages, 1176185 bytes).
+17.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/lm/lmtt10.pfb>
+Output written on MA_JJ.pdf (30 pages, 1263494 bytes).
 PDF statistics:
- 204 PDF objects out of 1000 (max. 8388607)
- 31 named destinations out of 1000 (max. 500000)
- 6218 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 345 PDF objects out of 1000 (max. 8388607)
+ 66 named destinations out of 1000 (max. 500000)
+ 2200 words of extra memory for PDF output out of 10000 (max. 10000000)
 
