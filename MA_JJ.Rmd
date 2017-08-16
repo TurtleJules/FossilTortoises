@@ -466,6 +466,12 @@ BinGeneraFacet
 
 \newpage
 
+# paleoTS analysis
+
+## all (continental and insular)
+
+### individuals (all)
+
 ```{r "paleoTS, individuals, inluding island species", echo=FALSE}
 PPCL <- PleiPlioCL %>%
   dplyr::select(CL, MeanBins) %>%
@@ -504,7 +510,6 @@ PPCL <- PPESCL %>%
 
 ```
 
-# including Island species  (n=`r sum(PPCL$nn)`)
 
 
 ```{r "paleoTS object", echo=FALSE, include=FALSE}
@@ -540,7 +545,7 @@ kable(PaleoPCCLFit, caption="Model-fitting results for testudinidae, individuals
 
 \newpage
 
-# paleoTS plot with species mean, including island species
+### species (all)
 
 ```{r "paleoTS plot with species mean, including island species", echo=FALSE, fig.cap="paleoTS plot with species mean, including island species"}
 SpeciesMean <- PleiPlioCL %>%
@@ -649,13 +654,15 @@ PaleoSpecFit <- (fit3models(paleoSpec, silent=FALSE, method="AD", pool=FALSE))
 
 ```{r "Model-fitting, species, table", echo=FALSE}
 
-kable(PaleoSpecFit, caption="Model-fitting results for testudinidae, individuals, including island species")
+kable(PaleoSpecFit, caption="Model-fitting results for testudinidae, species, including island species")
 
 ```
 
 
 \newpage
-# paleoTS plot with genus mean
+
+### genera (all)
+
 ```{r "paleoTS plot with genus mean, including island species", echo=FALSE, fig.cap="paleoTS plot with genus mean, including island species"}
 GenusMean <- PleiPlioCL %>%
   filter(EpochBins != "Modern") %>%
@@ -751,7 +758,7 @@ PaleoGenFit <- (fit3models(paleoGen, silent=FALSE, method="AD", pool=FALSE))
 
 ```{r "Model-fitting, genera, table", echo=FALSE}
 
-kable(PaleoGenFit, caption="Model-fitting results for testudinidae, individuals, including island species")
+kable(PaleoGenFit, caption="Model-fitting results for testudinidae, genera, including island species")
 
 ```
 
@@ -760,7 +767,9 @@ kable(PaleoGenFit, caption="Model-fitting results for testudinidae, individuals,
 
 \newpage
 
-#excluding island species
+## continental (excluding insular species)
+
+### individuals (continental)
 
 ```{r "paleoTS, individuals, exluding island species", echo=FALSE, message=FALSE, fig.cap="individuals, excluding island species"}
 PPCLI <- PleiPlioCL %>%
@@ -823,7 +832,7 @@ PaleoPCCLIsFit <- (fit3models(paleoPPCLIs, silent=FALSE, method="AD", pool=FALSE
 
 ```{r "Model-fitting, individuals, continental, table", echo=FALSE}
 
-kable(PaleoPCCLIsFit, caption="Model-fitting results for testudinidae, individuals, including island species")
+kable(PaleoPCCLIsFit, caption="Model-fitting results for testudinidae, individuals, excluding island species")
 
 ```
 
@@ -832,9 +841,7 @@ kable(PaleoPCCLIsFit, caption="Model-fitting results for testudinidae, individua
 \newpage
 
 
-
-
-# paleoTS plot with species mean, excluding island species
+### species (continental)
 
 ```{r "paleoTS plot with species mean, excluding island species", echo=FALSE, message=FALSE, fig.cap="paleoTS plot with species mean, excluding island species"}
 SpeciesMeanIs <- PleiPlioCL %>%
@@ -924,7 +931,7 @@ SpecPaleoIs <- bind_rows(modernMeanIs,SpeciesPaleoIs) %>%
 #kable(SpecPaleoIs)
 
 
-paleoSpecIs <-as.paleoTS(SpecPaleoIs$mm, SpecPaleoIs$vv, SpecPaleoIs$nn, SpecPaleoIs$tt, MM = NULL, genpars = NULL, label = "Testudinidae body size evolution mode, Holocene-Upper Miocene, species mean CL", reset.time=TRUE)
+paleoSpecIs <-as.paleoTS(SpecPaleoIs$mm, SpecPaleoIs$vv, SpecPaleoIs$nn, SpecPaleoIs$tt, MM = NULL, genpars = NULL, label = "Testudinidae body size evolution mode, Holocene-Upper Miocene, species mean CL, continental", reset.time=TRUE)
 
 plot(paleoSpecIs)
 ```
@@ -940,7 +947,7 @@ PaleoSpecIsFit <- (fit3models(paleoSpecIs, silent=FALSE, method="AD", pool=FALSE
 
 ```{r "Model-fitting, species, continental, table", echo=FALSE}
 
-kable(PaleoSpecIsFit, caption="Model-fitting results for testudinidae, individuals, including island species")
+kable(PaleoSpecIsFit, caption="Model-fitting results for testudinidae, species, excluding island species")
 
 ```
 
@@ -949,7 +956,8 @@ kable(PaleoSpecIsFit, caption="Model-fitting results for testudinidae, individua
 
 \newpage
 
-# paleoTS plot with genus mean
+### genera (continental)
+
 ```{r "paleoTS plot with genus mean, excluding island species", echo=FALSE, message=FALSE, fig.cap="paleoTS plot with genus mean, excluding island species"}
 GenusMeanIs <- PleiPlioCL %>%
   filter(EpochBins != "Modern" & Island == "n") %>%
@@ -1042,7 +1050,7 @@ PaleoGenIsFit <- (fit3models(paleoGenIs, silent=FALSE, method="AD", pool=FALSE))
 
 ```{r "Model-fitting, genera, continental, table", echo=FALSE}
 
-kable(PaleoGenIsFit, caption="Model-fitting results for testudinidae, individuals, including island species")
+kable(PaleoGenIsFit, caption="Model-fitting results for testudinidae, genera, excluding insular species")
 
 ```
 
@@ -1050,6 +1058,295 @@ kable(PaleoGenIsFit, caption="Model-fitting results for testudinidae, individual
 
 \newpage
 
+
+## insular (excluding continental)
+### individuals (insular)
+
+```{r "paleoTS, individuals, exluding continental species", echo=FALSE, message=FALSE, fig.cap="individuals, excluding continental species"}
+PPCLCon <- PleiPlioCL %>%
+  dplyr::select(CL, MeanBins, Island) %>%
+  dplyr::filter(CL != "NA" & Island == "y") %>%
+ # dplyr::filter(PleiPlioCL$Island == "n") %>%
+  mutate(tt= MeanBins) %>% # create mean age
+  group_by(tt) %>% #create time bins
+  summarise(mm=mean(CL), vv=var(CL), nn=n()) #create means etc. for each time bin 
+
+PPCLCon[is.na(PPCLCon)]<-0 #subset NAs with O for n=1
+
+
+sumTort <- read.csv("tortoises_summary.csv", sep=";", header=TRUE)
+
+SumTortCon <- sumTort %>%
+  dplyr::filter(Island == "y") %>%
+  mutate(tt=(Mamin+Mamax)/2, vv=sdCLmm^2, nn=n, mm=meanCLmm) %>%
+  dplyr::select(mm, nn, vv, tt)
+ 
+PPESCLCon <- bind_rows(SumTortCon,PPCLCon) #ExTort, 
+
+combiCLCon <- PPESCLCon %>%
+  dplyr::filter(tt==0.0000005) %>%   #maybe find a way to automatically filter double tt values...
+  mutate(nx = nn*mm) %>%
+  mutate(mmall=sum(nx)/sum(nn)) %>%
+  mutate(SD=sqrt(nx), d=mm-mmall) %>%
+  mutate(nsd=((nx^2+d^2)*nn)) %>%
+  mutate(varall=sum(nsd)/sum(nn), n=sum(nn)) %>%
+  dplyr::select(mm=mmall, vv=varall, nn=n, tt) %>%
+  unique() %>%
+  dplyr::select(mm, nn, vv, tt)
+
+
+PPCLCon <- PPESCLCon %>%
+  filter(tt !=0.0000005) %>%
+  bind_rows(combiCLI)%>%
+  arrange(tt)
+
+
+
+#kable(PPCLCon, caption="paleoTS object (mm= mean CL, nn = sample size, vv = variance (CL), tt = Age)")
+
+
+library(paleoTS)
+paleoPPCLCon <-as.paleoTS(PPCLCon$mm, PPCLCon$vv, PPCLCon$nn, PPCLCon$tt, MM = NULL, genpars = NULL, label = "Testudinidae body size evolution mode, Holocene-Upper Miocene, CL, only insular species")
+#paleoPPCL
+plot(paleoPPCLCon)
+```
+
+
+
+
+```{r "Model-fitting, individuals, insular" , echo=FALSE, message=FALSE, include=FALSE}
+
+PaleoPCCLConFit <- (fit3models(paleoPPCLCon, silent=FALSE, method="AD", pool=FALSE))
+```
+
+
+
+```{r "Model-fitting, individuals, insular, table", echo=FALSE}
+
+kable(PaleoPCCLConFit, caption="Model-fitting results for testudinidae, individuals, only insular species")
+
+```
+
+\newpage
+
+### species (insular)
+
+```{r "paleoTS plot with species mean, excluding continental species", echo=FALSE, message=FALSE, fig.cap="paleoTS plot with species mean, only insular species"}
+
+SpeciesMeanCon <- PleiPlioCL %>%
+  filter(EpochBins != "Modern" & Island == "y") %>%
+  group_by(EpochBins, Taxon, Age) %>%
+  summarise(meanCL = mean(CL), n=n()) %>%
+  merge(BINS)
+
+SpeciesModernCon <- PleiPlioCL %>%
+  filter(EpochBins == "Modern" & Island == "y") %>%
+  group_by(Taxon) %>%
+  summarise(meanCL=mean(CL), sdCL=sd(CL), n=n(), Age=mean(Age), EpochBins=unique(EpochBins), MeanBins=unique(MeanBins))
+
+
+SpeciesModernCon[is.na(SpeciesModernCon)]<-0 #subset NAs with O for n=1
+
+
+
+SpeciesOverviewCon <- SpeciesMeanCon %>%
+#  filter(EpochBins != "Modern") %>%
+  filter( !is.na(meanCL)) %>%
+  group_by(EpochBins) %>%
+  summarise(meanSpeciesCL = mean(meanCL), nSpecies=n(), MeanBins = mean(MeanBins)) %>%
+  arrange(MeanBins) 
+
+#kable(SpeciesOverviewCon)
+
+
+
+
+SpeciesPaleoCon <- SpeciesMeanCon %>%
+  dplyr::select(meanCL, MeanBins) %>%
+  dplyr::filter(meanCL != "NA") %>%
+  mutate(tt= MeanBins) %>% # create mean age
+  group_by(tt) %>% #create time bins
+  summarise(mm=mean(meanCL), vv=var(meanCL), nn=n()) #create means etc. for each time bin 
+
+SpeciesPaleoCon[is.na(SpeciesPaleoCon)]<-0 #subset NAs with O for n=1
+
+
+sumTort <- read.csv("tortoises_summary.csv", sep=";", header=TRUE)
+colnames(sumTort)[6] <- "meanCL"
+colnames(sumTort)[7] <- "sdCL"
+
+
+sumTortoisesCon <- sumTort %>%
+  dplyr::filter(Island == "y") %>%
+  mutate(Taxon= as.character(Species)) %>%
+  mutate(MeanBins=(Mamin+Mamax)/2) %>%
+  select(Taxon, MeanBins,  meanCL, sdCL) %>% #n,
+  bind_rows(SpeciesModernCon)
+
+
+SumTortCon <- sumTortoisesCon %>%
+  group_by(Taxon) %>%
+  mutate(tt=MeanBins, vv=sdCL^2, nn=n, mm=meanCL) %>%
+  dplyr::select(mm, nn, vv, tt, Taxon) %>%
+  mutate(nx = nn*mm) %>%
+  mutate(mmall=sum(nx)/sum(nn)) %>%
+  mutate(SD=sqrt(nx), d=mm-mmall) %>%
+  mutate(nsd=((nx^2+d^2)*nn)) %>%
+  mutate(varall=sum(nsd)/sum(nn), n=sum(nn)) %>%
+  dplyr::select(mm=mmall, vv=varall, nn=n, tt, Taxon) %>%
+  unique() %>%
+  dplyr::select(CL=mm, n=nn, var=vv, tt, Taxon)
+
+# write.table(SumTort,file="SumTortModern.txt", sep="\t", row.names = FALSE) 
+
+#boxplot(SumTort$CL, caption="Body size distribution in time bin 'modern'.")
+
+
+modernMeanCon <- SumTortCon %>%
+  ungroup() %>%
+  select(CL, n, tt) %>%
+  filter( !is.na(CL)) %>%
+  group_by(tt) %>%
+  summarise(mm = mean(CL), vv=var(CL), nn=n())
+
+#bis hier alle modernen taxa zusammengefasst (summarised and MFN_testudinidae)
+
+
+
+SpecPaleoCon <- bind_rows(modernMeanCon,SpeciesPaleoCon) %>%
+  arrange(tt)
+
+
+#kable(SpecPaleoCon)
+
+
+paleoSpecCon <-as.paleoTS(SpecPaleoCon$mm, SpecPaleoCon$vv, SpecPaleoCon$nn, SpecPaleoCon$tt, MM = NULL, genpars = NULL, label = "Testudinidae body size evolution mode, Holocene-Upper Miocene, species mean CL, excluding contintenal species", reset.time=TRUE)
+
+plot(paleoSpecCon)
+```
+
+
+
+```{r "Model-fitting, species, insular" , echo=FALSE, message=FALSE, include=FALSE}
+
+PaleoSpecConFit <- (fit3models(paleoSpecCon, silent=FALSE, method="AD", pool=FALSE))
+```
+
+
+
+```{r "Model-fitting, species, insular, table", echo=FALSE}
+
+kable(PaleoSpecIsFit, caption="Model-fitting results for testudinidae, species, only insular species")
+
+```
+
+
+\newpage
+
+
+### genera (insular)
+
+```{r "paleoTS plot with genus mean, excluding continental species", echo=FALSE, message=FALSE, fig.cap="paleoTS plot with genus mean, only insular species"}
+
+GenusMeanCon <- PleiPlioCL %>%
+  filter(EpochBins != "Modern" & Island == "y") %>%
+  filter(!is.na(CL)) %>%
+  group_by(EpochBins, Genus) %>%
+  summarise(meanCL = mean(CL), n=n()) %>%
+#  ungroup() %>%
+#  group_by(EpochBins) %>%
+  summarise(mm = mean(meanCL), nn=n(), vv=var(meanCL)) %>%
+  merge(BINS) %>%
+  select(mm, nn, vv, tt=MeanBins)
+  
+GenusMeanCon[is.na(GenusMeanCon)]<-0
+
+
+
+GenusModernCon <- PleiPlioCL %>%
+  filter(EpochBins == "Modern" & Island == "y") %>%
+  filter(!is.na(CL)) %>%
+  group_by(Genus) %>%
+  summarise(meanCL=mean(CL), sdCL=sd(CL), n=n(), Age=mean(Age), EpochBins=unique(EpochBins), MeanBins=unique(MeanBins)) #%>%
+#  summarise(mm=mean(meanCL), nn=n(), vv=var(meanCL), tt=mean(MeanBins))
+
+GenusModernCon[is.na(GenusModernCon)]<-0
+
+
+sumTort <- read.csv("tortoises_summary.csv", sep=";", header=TRUE)
+colnames(sumTort)[7] <- "meanCL"
+colnames(sumTort)[8] <- "sdCL"
+
+
+sumTortoisesCon <- sumTort %>%
+  dplyr::filter(Island == "y") %>%
+  mutate(Genus= as.character(Genus)) %>%
+  mutate(MeanBins=(Mamin+Mamax)/2) %>%
+  select(Genus, MeanBins,  meanCL, sdCL, n) %>% #n,
+  bind_rows(GenusModernIs)
+
+
+SumTortCon <- sumTortoisesCon %>%
+  group_by(Genus) %>%
+  mutate(tt=MeanBins, vv=sdCL^2, nn=n, mm=meanCL) %>%
+  dplyr::select(mm, nn, vv, tt, Genus) %>%
+  mutate(nx = nn*mm) %>%
+  mutate(mmall=sum(nx)/sum(nn)) %>%
+  mutate(SD=sqrt(nx), d=mm-mmall) %>%
+  mutate(nsd=((nx^2+d^2)*nn)) %>%
+  mutate(varall=sum(nsd)/sum(nn), n=sum(nn)) %>%
+  dplyr::select(mm=mmall, vv=varall, nn=n, tt, Genus) %>%
+  unique() %>%
+  dplyr::select(CL=mm, n=nn, var=vv, tt, Genus)
+
+#write.table(SumTort,file="SumTortModernGenus.txt", sep="\t", row.names = FALSE)
+
+#kable(SumTort, caption="Overview over body size means per time bin on genus level, excluding island species.")
+
+#boxplot(SumTort$CL, caption="Body size distribution in time bin 'modern'.")
+
+
+modernMeanGenusCon <- SumTortCon %>%
+  ungroup() %>%
+  select(CL, n, tt) %>%
+  filter( !is.na(CL)) %>%
+  group_by(tt) %>%
+  summarise(mm = mean(CL), vv=var(CL), nn=n())
+
+#bis hier alle modernen taxa zusammengefasst (summarised and MFN_testudinidae)
+
+
+GenusPaleoCon <- modernMeanGenusCon %>%
+  bind_rows(GenusMeanCon)%>%
+  arrange(tt)
+
+
+#kable(GenusPaleoIs)
+
+
+paleoGenCon <-as.paleoTS(GenusPaleoCon$mm, GenusPaleoCon$vv, GenusPaleoCon$nn, GenusPaleoCon$tt, MM = NULL, genpars = NULL, label = "Testudinidae body size evolution mode, Holocene-Upper Miocene, genus mean CL, insular genera", reset.time=TRUE)
+
+plot(paleoGenCon)
+```
+
+
+
+```{r "Model-fitting, genera, insular" , echo=FALSE, message=FALSE, include=FALSE}
+
+PaleoGenConFit <- (fit3models(paleoGenCon, silent=FALSE, method="AD", pool=FALSE))
+```
+
+
+
+```{r "Model-fitting, genera, insular, table", echo=FALSE}
+
+kable(PaleoGenConFit, caption="Model-fitting results for testudinidae, genera, only insular species")
+
+```
+
+
+
+\newpage
 
 # Boxplots (continental (n) vs. Island (y) species)
 
