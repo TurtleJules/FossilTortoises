@@ -1058,7 +1058,7 @@ IslandBoxGenus
 
 
 
-```{r "Boxplots continents, insular vs. continent with age indicated"  echo=FALSE, warning=FALSE, fig.cap="Boxplots of body size (individuals) on different continents, insular vs. continent with age indicated"}
+```{r "Boxplots continents, insular vs. continent with age indicated",  echo=FALSE, warning=FALSE, fig.cap="Boxplots of body size (individuals) on different continents, insular vs. continent with age indicated"}
 IslandBoxAge <- Island %>%
   ggplot(aes(Island, CL)) + geom_boxplot() + geom_jitter(aes(colour=Age)) +
   facet_grid(.~Continent) +
