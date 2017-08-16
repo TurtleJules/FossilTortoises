@@ -421,6 +421,7 @@ BinGenera <- PleiPlioCL %>%
   ungroup() %>%#, CL=CL
   ggplot(aes(EpochBins, GenusMean)) + #, colour=Genus
   theme_classic() +
+  theme(axis.text.x = element_text(angle = 45, vjust = 1, hjust=1)) +
   stat_boxplot(geom ='errorbar', width = 0.2) +
   geom_boxplot() +
   geom_pointrange(data=IndGenera, position="jitter", aes(x=EpochBins, y=GenusMean, colour=Genus, ymin = GenusMean-GenusSD, ymax = GenusMean+GenusSD)) +
@@ -719,7 +720,7 @@ kable(fit3models(paleoGen, silent=FALSE, method="AD", pool=FALSE))
 
 #excluding island species
 
-```{r "paleoTS, individuals, exluding island species", echo=FALSE, fig.cap="individuals, excluding island species"}
+```{r "paleoTS, individuals, exluding island species", echo=FALSE, message=FALSE, fig.cap="individuals, excluding island species"}
 PPCLI <- PleiPlioCL %>%
   dplyr::select(CL, MeanBins, Island) %>%
   dplyr::filter(CL != "NA" & Island == "n") %>%
@@ -759,7 +760,7 @@ PPCLIs <- PPESCLI %>%
 
 
 
-kable(PPCLIs, caption="paleoTS object (mm= mean CL, nn = sample size, vv = variance (CL), tt = Age)")
+#kable(PPCLIs, caption="paleoTS object (mm= mean CL, nn = sample size, vv = variance (CL), tt = Age)")
 
 
 library(paleoTS)
@@ -775,7 +776,7 @@ kable(fit3models(paleoPPCLIs, silent=FALSE, method="AD", pool=FALSE), caption="M
 
 # paleoTS plot with species mean, excluding island species
 
-```{r "paleoTS plot with species mean, excluding island species", echo=FALSE, fig.cap="paleoTS plot with species mean, excluding island species"}
+```{r "paleoTS plot with species mean, excluding island species", echo=FALSE, message=FALSE, fig.cap="paleoTS plot with species mean, excluding island species"}
 SpeciesMeanIs <- PleiPlioCL %>%
   filter(EpochBins != "Modern" & Island == "n") %>%
   group_by(EpochBins, Taxon, Age) %>%
@@ -799,7 +800,7 @@ SpeciesOverviewIs <- SpeciesMeanIs %>%
   summarise(meanSpeciesCL = mean(meanCL), nSpecies=n(), MeanBins = mean(MeanBins)) %>%
   arrange(MeanBins) 
 
-kable(SpeciesOverviewIs)
+#kable(SpeciesOverviewIs)
 
 
 
@@ -860,7 +861,7 @@ SpecPaleoIs <- bind_rows(modernMeanIs,SpeciesPaleoIs) %>%
   arrange(tt)
 
 
-kable(SpecPaleoIs)
+#kable(SpecPaleoIs)
 
 
 paleoSpecIs <-as.paleoTS(SpecPaleoIs$mm, SpecPaleoIs$vv, SpecPaleoIs$nn, SpecPaleoIs$tt, MM = NULL, genpars = NULL, label = "Testudinidae body size evolution mode, Holocene-Upper Miocene, species mean CL", reset.time=TRUE)
@@ -874,7 +875,7 @@ kable(fit3models(paleoSpecIs, silent=FALSE, method="AD", pool=FALSE))
 \newpage
 
 # paleoTS plot with genus mean
-```{r "paleoTS plot with genus mean, excluding island species", echo=FALSE, fig.cap="paleoTS plot with genus mean, excluding island species"}
+```{r "paleoTS plot with genus mean, excluding island species", echo=FALSE, message=FALSE, fig.cap="paleoTS plot with genus mean, excluding island species"}
 GenusMeanIs <- PleiPlioCL %>%
   filter(EpochBins != "Modern" & Island == "n") %>%
   filter(!is.na(CL)) %>%
@@ -926,7 +927,8 @@ SumTort <- sumTortoises %>%
   dplyr::select(CL=mm, n=nn, var=vv, tt, Genus)
 
 #write.table(SumTort,file="SumTortModernGenus.txt", sep="\t", row.names = FALSE)
-kable(SumTort, caption="Overview over body size means per time bin on genus level, excluding island species.")
+
+#kable(SumTort, caption="Overview over body size means per time bin on genus level, excluding island species.")
 
 #boxplot(SumTort$CL, caption="Body size distribution in time bin 'modern'.")
 
@@ -946,7 +948,7 @@ GenusPaleoIs <- modernMeanGenusIs %>%
   arrange(tt)
 
 
-kable(GenusPaleoIs)
+#kable(GenusPaleoIs)
 
 
 paleoGenIs <-as.paleoTS(GenusPaleoIs$mm, GenusPaleoIs$vv, GenusPaleoIs$nn, GenusPaleoIs$tt, MM = NULL, genpars = NULL, label = "Testudinidae body size evolution mode, Holocene-Upper Miocene, genus mean CL", reset.time=TRUE)
@@ -962,7 +964,7 @@ kable(fit3models(paleoGenIs, silent=FALSE, method="AD", pool=FALSE))
 
 # Boxplots (continental (n) vs. Island (y) species)
 
-```{r echo=FALSE, warning=FALSE}
+```{r "Boxplot continental vs. insular, individuals", echo=FALSE, warning=FALSE, fig.cap="Boxplot continental vs. insular, individuals"}
 
 Epoch <- as.vector(c("Modern", "Pleistocene", "Pleistocene", "Pleistocene", "Holocene",
                       "Pliocene", "Pliocene", "Miocene"))
@@ -999,7 +1001,35 @@ IslandBox
 
 ```
 
-```{r "Boxplot continental vs. insular, species summarised", echo=FALSE}
+
+
+```{r "Boxplots, genera summarised", echo=FALSE, fig.cap="Boxplots continental vs. insular, genera summarised"}
+Island <- PleiPlioCL %>%
+  dplyr::select(Taxon, CL, PL, Age, Island, Continent, EpochBins) %>%
+  merge(Epochs) %>%
+  merge(Continents) %>%
+  dplyr::select(CL, Island, Con, Epoch, Age, Taxon)
+  
+colnames(Island)[3] <- "Continent"
+
+IslandBoxSpecies <- Island %>%
+  dplyr::select(CL, Island, Continent, Epoch, Age, Taxon) %>%
+  group_by(Taxon, Island, Continent, Epoch) %>%
+  dplyr::filter(!is.na(CL)) %>%
+  summarise(meanCL=mean(CL)) %>%
+  ggplot(aes(Island, meanCL)) + geom_boxplot() + geom_jitter(aes(colour=Continent, shape=Epoch)) +
+#  facet_grid(.~Continent) +
+  theme_classic() + # for white background 
+#  stat_summary(fun.data = give.n, geom = "text") +
+ # xlab("Sex") + ylab("Carapace length [mm]") + 
+  theme(legend.background = element_rect(colour = 'black'),
+        panel.border = element_rect(colour = "black", fill=NA)) +
+  scale_colour_brewer(palette="Set1")
+
+IslandBoxSpecies
+```
+
+```{r "Boxplot continental vs. insular, species summarised", echo=FALSE, fig.cap="Boxplot continental vs. insular, species summarised"}
 Island <- PleiPlioCL %>%
   dplyr::select(Genus, CL, PL, Age, Island, Continent, EpochBins) %>%
   merge(Epochs) %>%
@@ -1026,34 +1056,9 @@ IslandBoxGenus <- Island %>%
 IslandBoxGenus
 ```
 
-```{r "Boxplots, species summarised", echo=FALSE}
-Island <- PleiPlioCL %>%
-  dplyr::select(Taxon, CL, PL, Age, Island, Continent, EpochBins) %>%
-  merge(Epochs) %>%
-  merge(Continents) %>%
-  dplyr::select(CL, Island, Con, Epoch, Age, Taxon)
-  
-colnames(Island)[3] <- "Continent"
-
-IslandBoxSpecies <- Island %>%
-  dplyr::select(CL, Island, Continent, Epoch, Age, Taxon) %>%
-  group_by(Taxon, Island, Continent, Epoch) %>%
-  dplyr::filter(!is.na(CL)) %>%
-  summarise(meanCL=mean(CL)) %>%
-  ggplot(aes(Island, meanCL)) + geom_boxplot() + geom_jitter(aes(colour=Continent, shape=Epoch)) +
-#  facet_grid(.~Continent) +
-  theme_classic() + # for white background 
-#  stat_summary(fun.data = give.n, geom = "text") +
- # xlab("Sex") + ylab("Carapace length [mm]") + 
-  theme(legend.background = element_rect(colour = 'black'),
-        panel.border = element_rect(colour = "black", fill=NA)) +
-  scale_colour_brewer(palette="Set1")
-
-IslandBoxSpecies
-```
 
 
-```{r echo=FALSE, warning=FALSE}
+```{r "Boxplots continents, insular vs. continent with age indicated"  echo=FALSE, warning=FALSE, fig.cap="Boxplots of body size (individuals) on different continents, insular vs. continent with age indicated"}
 IslandBoxAge <- Island %>%
   ggplot(aes(Island, CL)) + geom_boxplot() + geom_jitter(aes(colour=Age)) +
   facet_grid(.~Continent) +
