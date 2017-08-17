@@ -1389,7 +1389,7 @@ IslandBox
 
 
 
-```{r "Boxplots, genera summarised", echo=FALSE, fig.cap="Boxplots continental vs. insular, genera summarised"}
+```{r "Boxplots, genera summarised", echo=FALSE, fig.cap="Boxplots continental vs. insular, species summarised"}
 Island <- PleiPlioCL %>%
   dplyr::select(Taxon, CL, PL, Age, Island, Continent, EpochBins) %>%
   merge(Epochs) %>%
@@ -1415,7 +1415,7 @@ IslandBoxSpecies <- Island %>%
 IslandBoxSpecies
 ```
 
-```{r "Boxplot continental vs. insular, species summarised", echo=FALSE, fig.cap="Boxplot continental vs. insular, species summarised"}
+```{r "Boxplot continental vs. insular, species summarised", echo=FALSE, fig.cap="Boxplot continental vs. insular, genera summarised"}
 Island <- PleiPlioCL %>%
   dplyr::select(Genus, CL, PL, Age, Island, Continent, EpochBins) %>%
   merge(Epochs) %>%
