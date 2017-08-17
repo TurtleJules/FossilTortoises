@@ -183,7 +183,7 @@ FossilOccurrences<-read.csv("tortoises_occurrences.csv", sep=";", header=TRUE)
 
 FossOcc <- FossilOccurrences %>%
   mutate(Age= (as.numeric(as.character(MA.min)) + as.numeric(as.character(Ma.max)))/2) %>%
-  select(Locality, Country, Latitude, Longitude, Age, Genus, Taxon, CL) %>%
+  select(Locality, Country, Latitude, Longitude, Age, Genus, Taxon, Clavailability) %>%
 #  merge(tidyCL) %>%
   group_by(Locality) %>%
   mutate(count= n(), Longitude=as.numeric(as.character(Longitude)))
@@ -206,7 +206,7 @@ mapOc <- FossOcc %>%
   ggplot(aes(Longitude, Latitude)) +# borders("world", ylim = c(-60, 90)) +
   mapWorld +
   theme_classic() +
-  geom_point(data=FossOcc, (aes(as.numeric(Longitude), Latitude, colour=FossOcc$CL))) +
+  geom_point(data=FossOcc, (aes(as.numeric(Longitude), Latitude, colour=FossOcc$Clavailability))) +
   geom_point(data=CL,(aes(Longitude, Latitude, colour="yes"))) +
   scale_colour_manual(values=cbbPalette)
 
