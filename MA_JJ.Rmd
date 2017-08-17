@@ -1249,7 +1249,7 @@ kable(PaleoSpecIsFit, caption="Model-fitting results for testudinidae, species, 
 ```{r "paleoTS plot with genus mean, excluding continental species", echo=FALSE, message=FALSE, fig.cap="paleoTS plot with genus mean, only insular species"}
 
 GenusMeanCon <- PleiPlioCL %>%
-  filter(EpochBins != "Modern" & Island == "y") %>%
+  filter(EpochBins != "Modern" & Island == "y") %>%  # & EpochBins != "Upper Miocene"
   filter(!is.na(CL)) %>%
   group_by(EpochBins, Genus) %>%
   summarise(meanCL = mean(CL), n=n()) %>%
@@ -1321,7 +1321,7 @@ GenusPaleoCon <- modernMeanGenusCon %>%
   arrange(tt)
 
 
-#kable(GenusPaleoIs)
+#kable(GenusPaleoCon)
 
 
 paleoGenCon <-as.paleoTS(GenusPaleoCon$mm, GenusPaleoCon$vv, GenusPaleoCon$nn, GenusPaleoCon$tt, MM = NULL, genpars = NULL, label = "Testudinidae body size evolution mode, Holocene-Upper Miocene, genus mean CL, insular genera", reset.time=TRUE)
