@@ -113,14 +113,23 @@ testRatio$CL[is.na(testRatio$CL)] <- testRatio$extraCL[is.na(testRatio$CL)]
 PleiPlio <- testRatio %>% #testRatio or tidyCL 
   filter(Age < 11.000)
 
-PleiPlio$bin <- cut(PleiPlio$Age, c(0, 0.000001, 0.0117, 0.126, 0.781, 2.588, 3.6, 5.332, 11.608))
+# PleiPlio$bin <- cut(PleiPlio$Age, c(0, 0.000001, 0.0117, 0.126, 0.781, 2.588, 3.6, 5.332, 11.608))
+# 
+# EpochBins <- as.vector(c("Modern", "Modern", "Upper Pleistocene", "Middle Pleistocene", "Lower Pleistocene", "Upper Pliocene", "Lower Pliocene", "Upper Miocene"))
+# 
+# 
+# MeanBins <- as.vector(c((0+0.000001)/2, (0+0.0117)/2, (0.0117+0.126)/2, (0.126+0.781)/2, (0.781+2.588)/2,(2.588+3.6)/2, (3.6+5.332)/2, (5.332+11.608)/2))
 
-EpochBins <- as.vector(c("Modern", "Holocene", "Upper Pleistocene", "Middle Pleistocene", "Lower Pleistocene", "Upper Pliocene", "Lower Pliocene", "Upper Miocene"))
+
+PleiPlio$bin <- cut(PleiPlio$Age, c(0, 0.0117, 0.126, 0.781, 2.588, 3.6, 5.332, 11.608))
+
+EpochBins <- as.vector(c("Modern", "Upper Pleistocene", "Middle Pleistocene", "Lower Pleistocene", "Upper Pliocene", "Lower Pliocene", "Upper Miocene"))
+
+
+MeanBins <- as.vector(c((0+0.0117)/2, (0.0117+0.126)/2, (0.126+0.781)/2, (0.781+2.588)/2,(2.588+3.6)/2, (3.6+5.332)/2, (5.332+11.608)/2))
 
 
 
-
-MeanBins <- as.vector(c((0+0.000001)/2, (0+0.0117)/2, (0.0117+0.126)/2, (0.126+0.781)/2, (0.781+2.588)/2,(2.588+3.6)/2, (3.6+5.332)/2, (5.332+11.608)/2))
 
 Bins <- PleiPlio %>%
   select(bin) %>%
@@ -316,7 +325,7 @@ OverviewGenera <- PleiPlioCL %>%
 
 
 
-```{r "Histograms of body size data", echo=FALSE, fig.cap="Distribution of body site data per time bin"}
+```{r "Histograms of body size data", echo=FALSE, fig.cap="Distribution of body size data"}
 
 
 # HistCLModern <- PleiPlioCL %>%
@@ -327,10 +336,12 @@ OverviewGenera <- PleiPlioCL %>%
 #   #theme_gray() +
 #   theme(panel.border = element_rect(colour = "black", fill=NA))
 
-HistCL <- PleiPlioCL %>%
+HistCL <- testRatio %>%
   filter( !is.na(CL)) %>%
+  mutate(CL=log(CL)) %>%
 #  filter(EpochBins != "Modern") %>%
-  ggplot(aes(CL)) + geom_histogram(binwidth=10, col="black", fill="gray") + facet_wrap(~EpochBins, scales="free_x")+
+  ggplot(aes(CL)) + geom_histogram( col="black", fill="gray") + 
+  #facet_wrap(~EpochBins, scales="free_x")+   #binwidth=10,
   theme_classic()+ 
   #theme_gray() +
   theme(panel.border = element_rect(colour = "black", fill=NA))
@@ -338,10 +349,59 @@ HistCL <- PleiPlioCL %>%
 #HistCLModern
 HistCL  
 
+
 ```
 
 
-```{r "Species Accumulation Curve", echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Species Accumulation Curve of fossil species per Locality and reference"}
+
+
+```{r "Histograms of body size data", echo=FALSE, fig.cap="Distribution of body size data per time bin"}
+
+
+
+HistCLBins <- testRatio %>%
+  filter( !is.na(CL)) %>%
+  mutate(CL=log(CL)) %>%
+#  filter(EpochBins != "Modern") %>%
+  ggplot(aes(CL)) + geom_histogram( col="black", fill="gray") + 
+  facet_wrap(~EpochBins, scales="free_x")+   #binwidth=10,
+  theme_classic()+ 
+  #theme_gray() +
+  theme(panel.border = element_rect(colour = "black", fill=NA))
+
+#HistCLModern
+HistCLBins
+
+
+```
+
+
+
+
+
+
+
+```{r "Histograms of body size data", echo=FALSE, fig.cap="Distribution of body site data of continental (n) and insular(y) species."}
+
+
+
+HistCLIsland <- testRatio %>%
+  filter( !is.na(CL)) %>%
+  mutate(CL=log(CL)) %>%
+#  filter(EpochBins != "Modern") %>%
+  ggplot(aes(CL)) + geom_histogram( col="black", fill="gray") + 
+  facet_wrap(~Island, scales="free_x")+   #binwidth=10,
+  theme_classic()+ 
+  #theme_gray() +
+  theme(panel.border = element_rect(colour = "black", fill=NA))
+
+#HistCLModern
+HistCLIsland
+
+```
+
+
+```{r "Species Accumulation Curve", echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Species Accumulation Curve of fossil species per Locality and reference", include=FALSE}
 
 vegan <- tidyCL %>%
   dplyr::select(Locality, Taxon) %>%
@@ -390,7 +450,8 @@ vegan <- tidyCL %>%
 
 vegan=vegan[,-1]
 vegansp=specaccum(vegan,method="rarefaction", permutations=1000)
-plot(vegansp,xlab="Ind",ylab="Richness", xvar="individuals", ci.type="line", ci.lty=2, ci.col="grey", col="deepskyblue4", lwd=2, main="Fossil genera, CL, per Locality" )
+# plot(vegansp,xlab="Ind",ylab="Richness", xvar="individuals", ci.type="line", ci.lty=2, ci.col="grey", col="deepskyblue4", lwd=2, main="Fossil genera, CL, per Locality" )
+# --> appendix!
 
 
 vegan <- tidyCL %>%
@@ -444,7 +505,156 @@ BinGenera
 ```
 
 
-```{r "Separate genera per time bin", echo=FALSE, warning=FALSE,  fig.cap="Mean body size and standard deviation per genus in each time bin"}
+# Boxplots (continental (n) vs. Island (y) species)
+
+```{r "Boxplot continental vs. insular, individuals", echo=FALSE, warning=FALSE, fig.cap="Boxplot continental vs. insular, individuals", include=FALSE}
+
+Epoch <- as.vector(c("Modern", "Pleistocene", "Pleistocene", "Pleistocene", "Holocene",
+                      "Pliocene", "Pliocene", "Miocene"))
+EpochBins <- as.vector(unique(PleiPlioCL$EpochBins))
+Epochs <- data.frame(Epoch,EpochBins )
+
+Continent <- as.vector(unique(PleiPlioCL$Continent))
+Con <- as.vector(c("Asia", "Africa", "Europe", "America", "America", "America", "Europe", "Europe"))
+Continents <- data.frame(Continent, Con)
+
+Island <- PleiPlioCL %>%
+  dplyr::select(Taxon, CL, PL, Age, Island, Continent, EpochBins) %>%
+  merge(Epochs) %>%
+  merge(Continents) %>%
+  dplyr::select(CL, Island, Con, Epoch, Age)
+  
+colnames(Island)[3] <- "Continent"
+
+IslandBox <- Island %>%
+  dplyr::select(CL, Island, Continent, Epoch, Age) %>%
+  ggplot(aes(Island, CL)) + geom_boxplot() + geom_jitter(aes(colour=Continent, shape=Epoch)) +
+#  facet_grid(.~Continent) +
+  theme_classic() + # for white background 
+#  stat_summary(fun.data = give.n, geom = "text") +
+ # xlab("Sex") + ylab("Carapace length [mm]") + 
+  theme(legend.background = element_rect(colour = 'black'),
+        panel.border = element_rect(colour = "black", fill=NA)) +
+  scale_colour_brewer(palette="Set1")
+
+IslandBox
+
+
+
+
+```
+
+
+
+```{r "Boxplots, species summarised", echo=FALSE, fig.cap="Boxplots continental vs. insular, species summarised", include=FALSE}
+Island <- PleiPlioCL %>%
+  dplyr::select(Taxon, CL, PL, Age, Island, Continent, EpochBins) %>%
+  merge(Epochs) %>%
+  merge(Continents) %>%
+  dplyr::select(CL, Island, Con, Epoch, Age, Taxon)
+  
+colnames(Island)[3] <- "Continent"
+
+IslandBoxSpecies <- Island %>%
+  dplyr::select(CL, Island, Continent, Epoch, Age, Taxon) %>%
+  group_by(Taxon, Island, Continent, Epoch) %>%
+  dplyr::filter(!is.na(CL)) %>%
+  summarise(meanCL=mean(CL)) %>%
+  ggplot(aes(Island, meanCL)) + geom_boxplot() + geom_jitter(aes(colour=Continent, shape=Epoch)) +
+#  facet_grid(.~Continent) +
+  theme_classic() + # for white background 
+#  stat_summary(fun.data = give.n, geom = "text") +
+ # xlab("Sex") + ylab("Carapace length [mm]") + 
+  theme(legend.background = element_rect(colour = 'black'),
+        panel.border = element_rect(colour = "black", fill=NA)) +
+  scale_colour_brewer(palette="Set1")
+
+IslandBoxSpecies
+```
+
+```{r "Boxplot continental vs. insular, genera summarised", echo=FALSE, fig.cap="Boxplot continental vs. insular, genera summarised"}
+Island <- testRatio %>%
+  merge(BINS) %>%
+  dplyr::select(Genus, CL, PL, Age, Island, Continent, EpochBins) %>%
+  merge(Epochs) %>%
+  merge(Continents) %>%
+  dplyr::select(CL, Island, Continent, Epoch, Age, Genus) %>%
+  filter(!is.na(CL)) %>%
+  group_by(Genus, Island, Continent, Age) %>%
+  summarise(GenusMean=mean(CL), GenusSD=sd(CL), n=n()) 
+  
+
+#colnames(Island)[3] <- "Continent"
+Island[is.na(Island)]<-0
+
+
+gray.colors(8, start = 0.5, end = 0.6, gamma = 2.2, alpha = NULL)
+
+
+give.n <- function(x){
+  return(c(y = 0, label = length(x)))
+}
+
+
+
+IslandBoxGenus <- Island %>%
+  dplyr::select(GenusMean, Island, Continent, Age, Genus) %>%
+  group_by(Genus, Island) %>%
+  dplyr::filter(!is.na(GenusMean)) %>%
+  summarise(meanCL=mean(GenusMean)) %>%
+#  summarise(meanCL=mean(meanCL)) %>%
+  ggplot(aes(Island, meanCL)) + geom_boxplot() + 
+  geom_pointrange(data=Island, position="jitter", aes(x=Island, y=GenusMean,  colour= Continent , ymin = GenusMean-GenusSD, ymax = GenusMean+GenusSD)) +   #colour=Genus,
+#  geom_pointrange(aes(colour=Continent, shape=Epoch)) +
+#  facet_grid(.~Continent) +
+  theme_classic() + # for white background 
+#  stat_summary(fun.data = give.n, geom = "text") +
+ # xlab("Sex") + ylab("Carapace length [mm]") +
+  stat_summary(fun.data = give.n, geom = "text") +
+  theme(legend.background = element_rect(colour = 'black'),
+        panel.border = element_rect(colour = "black", fill=NA)) +
+  scale_colour_manual(values=c("#808080", "#848484", "#878787", "#8B8B8B", "#8F8F8F", "#929292",
+                               "#969696", "#999999")) +
+  theme(legend.position="none")
+
+IslandBoxGenus
+```
+
+
+
+```{r "Boxplots continents, insular vs. continent with age indicated",  echo=FALSE, warning=FALSE, fig.cap="Boxplots of body size (individuals) on different continents, insular vs. continent with age indicated"}
+
+Island <- PleiPlioCL %>%
+  dplyr::select(Genus, CL, PL, Age, Island, Continent, EpochBins) %>%
+  merge(Epochs) %>%
+  merge(Continents) %>%
+  dplyr::select(CL, Island, Continent, Epoch, Age, Genus) %>%
+  filter(!is.na(CL)) %>%
+  group_by(Genus, Island, Continent) %>%
+  summarise(GenusMean=mean(CL), GenusSD=sd(CL), n=n()) 
+
+#colnames(Island)[3] <- "Continent"
+Island[is.na(Island)]<-0
+
+
+
+
+IslandBoxAge <- Island %>%
+  ggplot(aes(Island, CL)) + geom_boxplot()
+  geom_jitter(aes(colour=Age)) +
+  facet_grid(.~Continent) +
+  theme_classic() + # for white background 
+#  stat_summary(fun.data = give.n, geom = "text") +
+ # xlab("Sex") + ylab("Carapace length [mm]") + 
+  theme(legend.background = element_rect(colour = 'black'),
+        panel.border = element_rect(colour = "black", fill=NA))# +
+#  scale_colour_gradientn(colors=c("orange", "red", "purple", "blue", "green")) #
+
+IslandBoxAge
+```
+
+
+```{r "Separate genera per time bin", echo=FALSE, warning=FALSE,  fig.cap="Mean body size and standard deviation per genus in each time bin", include=FALSE}
 BinGeneraFacet <- PleiPlioCL %>%
   group_by(EpochBins, Genus) %>%
   filter(!is.na(CL)) %>%
@@ -1356,112 +1566,102 @@ kable(PaleoGenConFit, caption="Model-fitting results for testudinidae, genera, o
 
 \newpage
 
-# Boxplots (continental (n) vs. Island (y) species)
+## play with time bins
 
-```{r "Boxplot continental vs. insular, individuals", echo=FALSE, warning=FALSE, fig.cap="Boxplot continental vs. insular, individuals"}
+```{r "paleoTS with different time bins", echo=FALSE}
 
-Epoch <- as.vector(c("Modern", "Pleistocene", "Pleistocene", "Pleistocene", "Holocene",
-                      "Pliocene", "Pliocene", "Miocene"))
-EpochBins <- as.vector(unique(PleiPlioCL$EpochBins))
-Epochs <- data.frame(Epoch,EpochBins )
-
-Continent <- as.vector(unique(PleiPlioCL$Continent))
-Con <- as.vector(c("Asia", "Africa", "Europe", "America", "America", "America", "Europe", "Europe"))
-Continents <- data.frame(Continent, Con)
-
-Island <- PleiPlioCL %>%
-  dplyr::select(Taxon, CL, PL, Age, Island, Continent, EpochBins) %>%
-  merge(Epochs) %>%
-  merge(Continents) %>%
-  dplyr::select(CL, Island, Con, Epoch, Age)
+GenusMeanAll <- tidyCL %>%
+  merge(BINS) %>%
+  filter(EpochBins != "Modern") %>%  # & EpochBins != "Upper Miocene"
+  filter(!is.na(CL)) %>%
+  group_by(Age, Genus) %>%
+  summarise(meanCL = mean(CL), n=n()) %>%
+#  ungroup() %>%
+#  group_by(EpochBins) %>%
+  summarise(mm = mean(meanCL), nn=n(), vv=var(meanCL)) %>%
+ # merge(BINS) %>%
+  select(mm, nn, vv, tt=Age)
   
-colnames(Island)[3] <- "Continent"
-
-IslandBox <- Island %>%
-  dplyr::select(CL, Island, Continent, Epoch, Age) %>%
-  ggplot(aes(Island, CL)) + geom_boxplot() + geom_jitter(aes(colour=Continent, shape=Epoch)) +
-#  facet_grid(.~Continent) +
-  theme_classic() + # for white background 
-#  stat_summary(fun.data = give.n, geom = "text") +
- # xlab("Sex") + ylab("Carapace length [mm]") + 
-  theme(legend.background = element_rect(colour = 'black'),
-        panel.border = element_rect(colour = "black", fill=NA)) +
-  scale_colour_brewer(palette="Set1")
-
-IslandBox
+GenusMeanAll[is.na(GenusMeanAll)]<-0
 
 
 
+GenusModernAll <- PleiPlioCL %>%
+  merge(BINS) %>%
+  filter(EpochBins == "Modern") %>%
+  filter(!is.na(CL)) %>%
+  group_by(Genus) %>%
+  summarise(meanCL=mean(CL), sdCL=sd(CL), n=n(), Age=mean(Age), EpochBins=unique(EpochBins), MeanBins=unique(MeanBins)) #%>%
+#  summarise(mm=mean(meanCL), nn=n(), vv=var(meanCL), tt=mean(MeanBins))
+
+GenusModernAll[is.na(GenusModernAll)]<-0
+
+
+sumTort <- read.csv("tortoises_summary.csv", sep=";", header=TRUE)
+colnames(sumTort)[7] <- "meanCL"
+colnames(sumTort)[8] <- "sdCL"
+
+
+sumTortoisesAll <- sumTort %>%
+#  dplyr::filter(Island == "y") %>%
+  mutate(Genus= as.character(Genus)) %>%
+  mutate(MeanBins=(Mamin+Mamax)/2) %>%
+  select(Genus, MeanBins,  meanCL, sdCL, n) %>% #n,
+  bind_rows(GenusModernAll)
+
+
+SumTortAll <- sumTortoisesAll %>%
+  group_by(Genus) %>%
+  mutate(tt=MeanBins, vv=sdCL^2, nn=n, mm=meanCL) %>%
+  dplyr::select(mm, nn, vv, tt, Genus) %>%
+  mutate(nx = nn*mm) %>%
+  mutate(mmall=sum(nx)/sum(nn)) %>%
+  mutate(SD=sqrt(nx), d=mm-mmall) %>%
+  mutate(nsd=((nx^2+d^2)*nn)) %>%
+  mutate(varall=sum(nsd)/sum(nn), n=sum(nn)) %>%
+  dplyr::select(mm=mmall, vv=varall, nn=n, tt, Genus) %>%
+  unique() %>%
+  dplyr::select(CL=mm, n=nn, var=vv, tt, Genus)
+
+
+modernMeanGenusAll <- SumTortAll %>%
+  ungroup() %>%
+  select(CL, n, tt) %>%
+  filter( !is.na(CL)) %>%
+  group_by(tt) %>%
+  summarise(mm = mean(CL), vv=var(CL), nn=n())
+
+#bis hier alle modernen taxa zusammengefasst (summarised and MFN_testudinidae)
+
+
+GenusPaleoAll <- modernMeanGenusAll %>%
+  bind_rows(GenusMeanAll)%>%
+  arrange(tt)
+
+
+#kable(GenusPaleoCon)
+
+
+paleoGenAll <-as.paleoTS(GenusPaleoAll$mm, GenusPaleoAll$vv, GenusPaleoAll$nn, GenusPaleoAll$tt, MM = NULL, genpars = NULL, label = "Testudinidae body size evolution mode, Holocene-Upper Miocene, genus mean CL", reset.time=TRUE)
+
+plot(paleoGenAll)
+
+
+```
+
+```{r "Model-fitting, genera, insular" , echo=FALSE, message=FALSE, include=FALSE}
+
+PaleoGenAllFit <- (fit3models(paleoGenAll, silent=FALSE, method="AD", pool=FALSE))
+```
+
+
+
+```{r "Model-fitting, genera, insular, table", echo=FALSE}
+
+kable(PaleoGenAllFit, caption="Model-fitting results for testudinidae, genera, only insular species")
 
 ```
 
 
 
-```{r "Boxplots, genera summarised", echo=FALSE, fig.cap="Boxplots continental vs. insular, species summarised"}
-Island <- PleiPlioCL %>%
-  dplyr::select(Taxon, CL, PL, Age, Island, Continent, EpochBins) %>%
-  merge(Epochs) %>%
-  merge(Continents) %>%
-  dplyr::select(CL, Island, Con, Epoch, Age, Taxon)
-  
-colnames(Island)[3] <- "Continent"
 
-IslandBoxSpecies <- Island %>%
-  dplyr::select(CL, Island, Continent, Epoch, Age, Taxon) %>%
-  group_by(Taxon, Island, Continent, Epoch) %>%
-  dplyr::filter(!is.na(CL)) %>%
-  summarise(meanCL=mean(CL)) %>%
-  ggplot(aes(Island, meanCL)) + geom_boxplot() + geom_jitter(aes(colour=Continent, shape=Epoch)) +
-#  facet_grid(.~Continent) +
-  theme_classic() + # for white background 
-#  stat_summary(fun.data = give.n, geom = "text") +
- # xlab("Sex") + ylab("Carapace length [mm]") + 
-  theme(legend.background = element_rect(colour = 'black'),
-        panel.border = element_rect(colour = "black", fill=NA)) +
-  scale_colour_brewer(palette="Set1")
-
-IslandBoxSpecies
-```
-
-```{r "Boxplot continental vs. insular, species summarised", echo=FALSE, fig.cap="Boxplot continental vs. insular, genera summarised"}
-Island <- PleiPlioCL %>%
-  dplyr::select(Genus, CL, PL, Age, Island, Continent, EpochBins) %>%
-  merge(Epochs) %>%
-  merge(Continents) %>%
-  dplyr::select(CL, Island, Con, Epoch, Age, Genus)
-  
-colnames(Island)[3] <- "Continent"
-
-IslandBoxGenus <- Island %>%
-  dplyr::select(CL, Island, Continent, Epoch, Age, Genus) %>%
-  group_by(Genus, Island, Continent, Epoch) %>%
-  dplyr::filter(!is.na(CL)) %>%
-  summarise(meanCL=mean(CL)) %>%
-#  summarise(meanCL=mean(meanCL)) %>%
-  ggplot(aes(Island, meanCL)) + geom_boxplot() + geom_jitter(aes(colour=Continent, shape=Epoch)) +
-#  facet_grid(.~Continent) +
-  theme_classic() + # for white background 
-#  stat_summary(fun.data = give.n, geom = "text") +
- # xlab("Sex") + ylab("Carapace length [mm]") + 
-  theme(legend.background = element_rect(colour = 'black'),
-        panel.border = element_rect(colour = "black", fill=NA)) +
-  scale_colour_brewer(palette="Set1")
-
-IslandBoxGenus
-```
-
-
-
-```{r "Boxplots continents, insular vs. continent with age indicated",  echo=FALSE, warning=FALSE, fig.cap="Boxplots of body size (individuals) on different continents, insular vs. continent with age indicated"}
-IslandBoxAge <- Island %>%
-  ggplot(aes(Island, CL)) + geom_boxplot() + geom_jitter(aes(colour=Age)) +
-  facet_grid(.~Continent) +
-  theme_classic() + # for white background 
-#  stat_summary(fun.data = give.n, geom = "text") +
- # xlab("Sex") + ylab("Carapace length [mm]") + 
-  theme(legend.background = element_rect(colour = 'black'),
-        panel.border = element_rect(colour = "black", fill=NA)) +
-  scale_colour_gradientn(colors=c("orange", "red", "purple", "blue", "green")) #
-
-IslandBoxAge
-```
