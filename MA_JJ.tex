@@ -103,17 +103,18 @@ bin & EpochBins & MeanBins & nIndividuals & nSpecies &
 nGenera\tabularnewline
 \midrule
 \endhead
-(0,1e-06{]} & Modern & 0.0000005 & 240 & 58 & 17\tabularnewline
-(1e-06,0.0117{]} & Holocene & 0.0058500 & 12 & 6 & 4\tabularnewline
-(0.0117,0.126{]} & Upper Pleistocene & 0.0688500 & 47 & 16 &
-8\tabularnewline
-(0.126,0.781{]} & Middle Pleistocene & 0.4535000 & 48 & 11 &
-6\tabularnewline
-(0.781,2.59{]} & Lower Pleistocene & 1.6845000 & 73 & 27 &
-11\tabularnewline
-(2.59,3.6{]} & Upper Pliocene & 3.0940000 & 23 & 15 & 9\tabularnewline
-(3.6,5.33{]} & Lower Pliocene & 4.4660000 & 29 & 17 & 8\tabularnewline
-(5.33,11.6{]} & Upper Miocene & 8.4700000 & 48 & 23 & 9\tabularnewline
+(0,0.0117{]} & Modern & 0.00585 & 241 & 59 & 17\tabularnewline
+(0.0117,0.126{]} & Upper Pleistocene & 0.06885 & 4 & 4 &
+3\tabularnewline
+(0.126,0.781{]} & Middle Pleistocene & 0.45350 & 2 & 2 &
+2\tabularnewline
+(0.781,2.59{]} & Lower Pleistocene & 1.68450 & 16 & 7 & 5\tabularnewline
+(2.59,3.6{]} & Upper Pliocene & 3.09400 & 8 & 4 & 3\tabularnewline
+(3.6,5.33{]} & Lower Pliocene & 4.46600 & 9 & 7 & 5\tabularnewline
+(5.33,11.6{]} & Upper Miocene & 8.47000 & 30 & 15 & 7\tabularnewline
+(11.6,16{]} & Middle Miocene & 13.78900 & 9 & 5 & 4\tabularnewline
+(16,23{]} & Lower Miocene & 19.50000 & 10 & 6 & 5\tabularnewline
+(23,50{]} & Oligocene and Eocene & 36.51500 & 3 & 3 & 3\tabularnewline
 \bottomrule
 \end{longtable}
 
@@ -134,29 +135,74 @@ testudinids was available in the literature. Size of points denotes
 sample size, color denotes approximate age.}
 \end{figure}
 
+\begin{verbatim}
+## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.
+\end{verbatim}
+
 \begin{figure}[htbp]
 \centering
-\includegraphics{MA_JJ_files/figure-latex/Histograms of body size data-1.pdf}
-\caption{Distribution of body site data per time bin}
+\includegraphics{MA_JJ_files/figure-latex/Histograms of body size data, all-1.pdf}
+\caption{Distribution of body size data, logtransformed, all data.}
 \end{figure}
 
-\includegraphics{MA_JJ_files/figure-latex/Species Accumulation Curve-1.pdf}
-\includegraphics{MA_JJ_files/figure-latex/Species Accumulation Curve-2.pdf}
+\begin{verbatim}
+## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.
+\end{verbatim}
 
+\begin{figure}[htbp]
+\centering
+\includegraphics{MA_JJ_files/figure-latex/Histograms of body size data, per time bin-1.pdf}
+\caption{Distribution of body size data per time bin, logtransformed.}
+\end{figure}
+
+\begin{verbatim}
+## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.
+\end{verbatim}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics{MA_JJ_files/figure-latex/Histograms of body size data, continental vs. insular-1.pdf}
+\caption{Distribution of body site data of continental (n) and
+insular(y) species, logtransformed.}
+\end{figure}
+
+\begin{figure}[htbp]
+\centering
 \includegraphics{MA_JJ_files/figure-latex/Species Accumulation Curve with Genera-1.pdf}
-\includegraphics{MA_JJ_files/figure-latex/Species Accumulation Curve with Genera-2.pdf}
+\caption{Sampling Accumulation Curve of fossil genera per reference}
+\end{figure}
 
 \begin{figure}[htbp]
 \centering
 \includegraphics{MA_JJ_files/figure-latex/Boxplots of each genus per time bin-1.pdf}
-\caption{Boxplots of each genus per time bin, for colors see Fig. 4.}
+\caption{Boxplots of generic mean CL per time bin, including mean and sd
+CL for each genus (as pointrange).}
 \end{figure}
 
 \begin{figure}[htbp]
 \centering
-\includegraphics{MA_JJ_files/figure-latex/Separate genera per time bin-1.pdf}
-\caption{Mean body size and standard deviation per genus in each time
-bin}
+\includegraphics{MA_JJ_files/figure-latex/Boxplots of each genus per time bin, continental vs. insular-1.pdf}
+\caption{Boxplots of each genus per time bin, continental vs.~insular
+species.}
+\end{figure}
+
+\section{Boxplots (continental (n) vs.~Island (y)
+species)}\label{boxplots-continental-n-vs.island-y-species}
+
+\begin{verbatim}
+## Warning: Removed 10 rows containing missing values (geom_pointrange).
+\end{verbatim}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics{MA_JJ_files/figure-latex/Boxplot continental vs. insular-1.pdf}
+\caption{Boxplot continental vs.~insular, genera summarised}
+\end{figure}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics{MA_JJ_files/figure-latex/Boxplot continental vs. insular, split into time bins-1.pdf}
+\caption{Boxplot continental vs.~insular, genera summarised}
 \end{figure}
 
 \newpage
@@ -185,9 +231,9 @@ island species}\tabularnewline
 & logL & K & AICc & Akaike.wt\tabularnewline
 \midrule
 \endhead
-GRW & -49.92185 & 2 & 106.84369 & 0.020\tabularnewline
-URW & -49.49578 & 1 & 101.79155 & 0.245\tabularnewline
-Stasis & -46.29612 & 2 & 99.59224 & 0.736\tabularnewline
+GRW & -68.50956 & 2 & 142.7334 & 0.000\tabularnewline
+URW & -68.83967 & 1 & 140.1793 & 0.001\tabularnewline
+Stasis & -60.69505 & 2 & 127.1044 & 0.998\tabularnewline
 \bottomrule
 \end{longtable}
 
@@ -212,9 +258,9 @@ island species}\tabularnewline
 & logL & K & AICc & Akaike.wt\tabularnewline
 \midrule
 \endhead
-GRW & -46.49904 & 2 & 99.99809 & 0.073\tabularnewline
-URW & -46.87044 & 1 & 96.54088 & 0.410\tabularnewline
-Stasis & -44.53802 & 2 & 96.07605 & 0.517\tabularnewline
+GRW & -61.50928 & 2 & 129.0186 & 0.013\tabularnewline
+URW & -61.93131 & 1 & 126.4340 & 0.048\tabularnewline
+Stasis & -57.24389 & 2 & 120.4878 & 0.939\tabularnewline
 \bottomrule
 \end{longtable}
 
@@ -239,9 +285,9 @@ island species}\tabularnewline
 & logL & K & AICc & Akaike.wt\tabularnewline
 \midrule
 \endhead
-GRW & -45.15174 & 2 & 97.30349 & 0.126\tabularnewline
-URW & -45.52048 & 1 & 93.84097 & 0.711\tabularnewline
-Stasis & -44.89207 & 2 & 96.78414 & 0.163\tabularnewline
+GRW & -68.24930 & 2 & 142.2129 & 0.009\tabularnewline
+URW & -69.52663 & 1 & 141.5533 & 0.012\tabularnewline
+Stasis & -63.50390 & 2 & 132.7221 & 0.980\tabularnewline
 \bottomrule
 \end{longtable}
 
@@ -269,9 +315,9 @@ island species}\tabularnewline
 & logL & K & AICc & Akaike.wt\tabularnewline
 \midrule
 \endhead
-GRW & -51.12520 & 2 & 109.2504 & 0.104\tabularnewline
-URW & -51.93144 & 1 & 106.6629 & 0.380\tabularnewline
-Stasis & -49.52438 & 2 & 106.0488 & 0.516\tabularnewline
+GRW & -64.07555 & 2 & 134.1511 & 0.001\tabularnewline
+URW & -64.32741 & 1 & 131.2263 & 0.006\tabularnewline
+Stasis & -57.43476 & 2 & 120.8695 & 0.993\tabularnewline
 \bottomrule
 \end{longtable}
 
@@ -296,9 +342,9 @@ island species}\tabularnewline
 & logL & K & AICc & Akaike.wt\tabularnewline
 \midrule
 \endhead
-GRW & -47.32539 & 2 & 101.65077 & 0.128\tabularnewline
-URW & -47.62321 & 1 & 98.04641 & 0.777\tabularnewline
-Stasis & -47.62616 & 2 & 102.25233 & 0.095\tabularnewline
+GRW & -53.58018 & 2 & 113.5604 & 0.057\tabularnewline
+URW & -54.50168 & 1 & 111.6700 & 0.148\tabularnewline
+Stasis & -50.95229 & 2 & 108.3046 & 0.795\tabularnewline
 \bottomrule
 \end{longtable}
 
@@ -323,9 +369,9 @@ insular species}\tabularnewline
 & logL & K & AICc & Akaike.wt\tabularnewline
 \midrule
 \endhead
-GRW & -45.71020 & 2 & 98.42040 & 0.134\tabularnewline
-URW & -45.95660 & 1 & 94.71319 & 0.858\tabularnewline
-Stasis & -48.63093 & 2 & 104.26187 & 0.007\tabularnewline
+GRW & -57.41665 & 2 & 120.8333 & 0.183\tabularnewline
+URW & -57.71397 & 1 & 117.9994 & 0.753\tabularnewline
+Stasis & -58.45897 & 2 & 122.9179 & 0.064\tabularnewline
 \bottomrule
 \end{longtable}
 
@@ -353,9 +399,9 @@ insular species}\tabularnewline
 & logL & K & AICc & Akaike.wt\tabularnewline
 \midrule
 \endhead
-GRW & -59.02174 & 2 & 125.0435 & 0.000\tabularnewline
-URW & -51.72252 & 1 & 106.2450 & 0.999\tabularnewline
-Stasis & -56.59665 & 2 & 120.1933 & 0.001\tabularnewline
+GRW & -41.39668 & 2 & 90.79337 & 0.917\tabularnewline
+URW & -46.30387 & 1 & 95.60775 & 0.083\tabularnewline
+Stasis & -58.58695 & 2 & 125.17390 & 0.000\tabularnewline
 \bottomrule
 \end{longtable}
 
@@ -380,9 +426,9 @@ species}\tabularnewline
 & logL & K & AICc & Akaike.wt\tabularnewline
 \midrule
 \endhead
-GRW & -47.32539 & 2 & 101.65077 & 0.128\tabularnewline
-URW & -47.62321 & 1 & 98.04641 & 0.777\tabularnewline
-Stasis & -47.62616 & 2 & 102.25233 & 0.095\tabularnewline
+GRW & -53.58018 & 2 & 113.5604 & 0.057\tabularnewline
+URW & -54.50168 & 1 & 111.6700 & 0.148\tabularnewline
+Stasis & -50.95229 & 2 & 108.3046 & 0.795\tabularnewline
 \bottomrule
 \end{longtable}
 
@@ -407,41 +453,34 @@ species}\tabularnewline
 & logL & K & AICc & Akaike.wt\tabularnewline
 \midrule
 \endhead
-GRW & -51.15193 & 2 & 109.3039 & 0.309\tabularnewline
-URW & -52.57226 & 1 & 107.9445 & 0.610\tabularnewline
-Stasis & -52.49514 & 2 & 111.9903 & 0.081\tabularnewline
+GRW & -51.97340 & 2 & 111.9468 & 0.006\tabularnewline
+URW & -56.27963 & 1 & 115.5593 & 0.001\tabularnewline
+Stasis & -46.82940 & 2 & 101.6588 & 0.993\tabularnewline
 \bottomrule
 \end{longtable}
 
 \newpage
 
-\section{Boxplots (continental (n) vs.~Island (y)
-species)}\label{boxplots-continental-n-vs.island-y-species}
+\subsection{play with time bins}\label{play-with-time-bins}
 
-\begin{figure}[htbp]
-\centering
-\includegraphics{MA_JJ_files/figure-latex/Boxplot continental vs. insular, individuals-1.pdf}
-\caption{Boxplot continental vs.~insular, individuals}
-\end{figure}
+\includegraphics{MA_JJ_files/figure-latex/paleoTS with different time bins-1.pdf}
 
-\begin{figure}[htbp]
-\centering
-\includegraphics{MA_JJ_files/figure-latex/Boxplots, genera summarised-1.pdf}
-\caption{Boxplots continental vs.~insular, species summarised}
-\end{figure}
-
-\begin{figure}[htbp]
-\centering
-\includegraphics{MA_JJ_files/figure-latex/Boxplot continental vs. insular, species summarised-1.pdf}
-\caption{Boxplot continental vs.~insular, genera summarised}
-\end{figure}
-
-\begin{figure}[htbp]
-\centering
-\includegraphics{MA_JJ_files/figure-latex/Boxplots continents, insular vs. continent with age indicated-1.pdf}
-\caption{Boxplots of body size (individuals) on different continents,
-insular vs.~continent with age indicated}
-\end{figure}
+\begin{longtable}[]{@{}lrrrr@{}}
+\caption{Model-fitting results for testudinidae, genera, only insular
+species}\tabularnewline
+\toprule
+& logL & K & AICc & Akaike.wt\tabularnewline
+\midrule
+\endfirsthead
+\toprule
+& logL & K & AICc & Akaike.wt\tabularnewline
+\midrule
+\endhead
+GRW & -396.8342 & 2 & 797.9476 & 0\tabularnewline
+URW & -391.9004 & 1 & 785.8917 & 0\tabularnewline
+Stasis & -351.1835 & 2 & 706.6461 & 1\tabularnewline
+\bottomrule
+\end{longtable}
 
 
 \end{document}
