@@ -620,6 +620,38 @@ IslandBoxGenus <- Island %>%
 IslandBoxGenus
 ```
 
+```{r "Boxplot continental vs. insular", echo=FALSE}
+
+
+give.n <- function(x){
+  return(c(y = 0, label = length(x)))
+}
+
+
+IslandGenus <- testRatio %>%
+  select(CL, Island, Genus) %>%
+  filter(!is.na(CL)) %>%
+  group_by(Genus, Island) %>%
+  summarise(meanCL=mean(CL), sdCL=sd(CL))
+
+
+IslandAll <- testRatio %>%
+  select(CL, Island, Genus) %>%
+  filter(!is.na(CL)) %>%
+  ggplot(aes(Island, CL)) + geom_boxplot() + 
+  geom_pointrange(data=IslandGenus, position="jitter", aes(x=Island, y=meanCL,  colour= Island , ymin = meanCL-sdCL, ymax = meanCL+sdCL)) +   #colour=Genus,
+  theme_classic() + # for white background 
+  stat_summary(fun.data = give.n, geom = "text") +
+  theme(legend.background = element_rect(colour = 'black'),
+        panel.border = element_rect(colour = "black", fill=NA)) +
+  scale_colour_manual(values=c("#808080", "#848484", "#878787", "#8B8B8B", "#8F8F8F", "#929292",
+                               "#969696", "#999999")) +
+  theme(legend.position="none")
+
+IslandAll
+
+```
+
 
 
 ```{r "Boxplots continents, insular vs. continent with age indicated",  echo=FALSE, warning=FALSE, fig.cap="Boxplots of body size (individuals) on different continents, insular vs. continent with age indicated"}
