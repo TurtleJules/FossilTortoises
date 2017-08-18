@@ -488,7 +488,7 @@ EpochBins <- as.vector(unique(PleiPlioCL$EpochBins))
 Epochs <- data.frame(Epoch,EpochBins )
 
 Continent <- as.vector(unique(PleiPlioCL$Continent))
-Con <- as.vector(c("Asia", "Africa", "Europe", "America", "America", "America", "Europe")) #, "Europe"
+Con <- as.vector(c("Asia", "Africa", "Europe", "America", "America", "America", "Europe", "Europe")) #
 Continents <- data.frame(Continent, Con)
 
 
