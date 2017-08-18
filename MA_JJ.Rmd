@@ -191,10 +191,11 @@ FossOcc <- FossilOccurrences %>%
 
 #na <- FossOcc[!complete.cases(FossOcc),]
 
-#OccMap <-  merge(Map, FossOcc, by="Locality", incomparables=TRUE) %>%
+# OccMap <-  merge(Map, FossOcc, by="Locality", incomparables=TRUE) %>%
 #  distinct()
   
-
+# unique(CL$Locality) #wie viele localities
+#length(unique(FossOcc$Locality[which(FossOcc$Clavailability == "yes")]))
 
 
 mapWorld <- borders("world", colour="azure3", fill="azure3") # create a layer of borders, run line at the beginning (before loading plotly)
@@ -216,6 +217,13 @@ mapOc
 
 # require(plotly)
 # ggplotly(mapOc)
+
+
+######
+
+# length(CL$Locality)
+# length(unique(CL$Locality)) #wie viele localities
+# length(unique(FossOcc$Locality[which(FossOcc$Clavailability == "yes")]))
 
 
 
@@ -1097,7 +1105,7 @@ combiCLCon <- PPESCLCon %>%
 
 PPCLCon <- PPESCLCon %>%
   filter(tt !=0.0000005) %>%
-  bind_rows(combiCLI)%>%
+  bind_rows(combiCLCon)%>%
   arrange(tt)
 
 
