@@ -1855,7 +1855,7 @@ GenusPaleoAll <- modernMeanGenusAll %>%
   arrange(tt)
 
 
-#kable(GenusPaleoCon)
+#kable(GenusPaleoAll)
 
 
 paleoGenAll <-as.paleoTS(GenusPaleoAll$mm, GenusPaleoAll$vv, GenusPaleoAll$nn, GenusPaleoAll$tt, MM = NULL, genpars = NULL, label = "Testudinidae body size evolution mode, Holocene-Upper Miocene, genus mean CL", reset.time=TRUE)
@@ -1885,56 +1885,32 @@ Alternative <- PleiPlio
 
 Alternative$bin <- cut(Alternative$Age, c(0:50.000, breaks=0.0005))
 
-#EpochBins <- as.vector(c("Modern", "Upper Pleistocene", "Middle Pleistocene", "Lower Pleistocene", "Upper Pliocene", "Lower Pliocene", "Upper Miocene", "Middle Miocene", "Lower Miocene", "Oligocene and Eocene"))
+
+AltBins <- as.vector(c( (0+0.0005)/2,(0.0005+1)/2,   (1+2)/2,  (2+3)/2, (3+4)/2,  (4+5)/2, (5+6)/2,   
+(6+7)/2,  (7+8)/2,  (8+9)/2,  (9+10)/2,   
+(10+11)/2,  (11+12)/2, (12+13)/2,  (13+14)/2,  (14+15)/2,  (15+16)/2,  (16+17)/2,   (17+18)/2,
+(18+19)/2,  (19+20)/2,  (23+24)/2,   (25+26)/2,  (32+33)/2,   (33+34)/2,    (49+50)/2      ))
+
+AltMeanBins <- Alternative %>%
+  unique(bin) %>%
+  bin_cols(AltBins)
 
 
-############HIER WEITER!!!!##################
-AltMeanBins <- as.vector(c((0:100.000)/2))
-# need a function a+b/2
-# a=(0:100.000)
-# b=(0.5:100.000)
-
-
-
-
-# AltBins <- Alternative %>%
-#   select(bin) %>%
-#   group_by(bin) %>%
-#   summarise(nIndividuals=n())
-# 
-# AltBinsSpecies <- Alternative %>%
-#   select(bin, Taxon) %>%
-#   group_by(bin, Taxon) %>%
-#   summarise(nSpecies=n()) %>%
-#   summarise(nSpecies=n())
-# 
-# 
-# AltBinsGenera <- Alternative %>%
-#   select(bin, Genus) %>%
-#   group_by(bin, Genus) %>%
-#   summarise(nGenera=n()) %>%
-#   summarise(nGenera=n())
-# 
-# Altbin <- as.vector(unique(AltBins$bin))
-# 
-# 
-# 
-# AltBINS <- data.frame(Altbin, AltMeanBins) %>%
-#   merge(AltBins) %>%
-#   merge(AltBinsSpecies) %>%
-#   merge(AltBinsGenera) %>%
-#   arrange(MeanBins)
 
 AlterPaleo <- Alternative %>%
-  merge(AltBins)
+  merge(AltBins) 
 
-#BINS <- read.table("timebins.txt", sep="\t", header=TRUE)
+names(AlterPaleo) <- c("Taxon", "CL", "extraCL", "PL", "size", "estimated", "Age", "Island", "Continent", "Genus", "bin", "tt")
 
-#kable(Bins, caption="Time bins with corresponding sample sizes (individuals)")
+paleoAlternative <- AlterPaleo %>%
+  select(CL, tt, bin) %>%
+  filter( !is.na(CL)) %>%
+  group_by(bin) %>%
+  summarise(mm = mean(CL), vv=var(CL), nn=n())
 
-kable(BINS, caption="Time bins with age range, epoch name, mean age and corresponding sample sizes (on individual, species and genus level)")
 
-PleiPlioCL <- PleiPlio %>%
-  merge(BINS)
+kable(AlterPaleo, caption="Time bins with age range, epoch name, mean age and corresponding sample sizes (on individual, species and genus level)")
+
+
 
 ```
