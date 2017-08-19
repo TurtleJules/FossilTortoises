@@ -49,7 +49,7 @@
 \setlength{\emergencystretch}{3em}  % prevent overfull lines
 \providecommand{\tightlist}{%
   \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
-\setcounter{secnumdepth}{5}
+\setcounter{secnumdepth}{0}
 % Redefines (sub)paragraphs to behave more like sections
 \ifx\paragraph\undefined\else
 \let\oldparagraph\paragraph
@@ -89,6 +89,10 @@
 \begin{document}
 \maketitle
 
+{
+\setcounter{tocdepth}{2}
+\tableofcontents
+}
 \begin{longtable}[]{@{}llrrrr@{}}
 \caption{Time bins with age range, epoch name, mean age and
 corresponding sample sizes (on individual, species and genus
@@ -136,6 +140,8 @@ testudinids was available in the literature. Size of points denotes
 sample size, color denotes approximate age.}
 \end{figure}
 
+\newpage
+
 \begin{verbatim}
 ## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.
 \end{verbatim}
@@ -166,6 +172,50 @@ sample size, color denotes approximate age.}
 \caption{Distribution of body site data of continental (n) and
 insular(y) species, logtransformed.}
 \end{figure}
+
+\newpage
+
+\begin{longtable}[]{@{}rrrrrrrrrrrrl@{}}
+\caption{General statistics of body size data: all, per time bin,
+insular and continental}\tabularnewline
+\toprule
+nCL & min & max & var & mean & logm & med & logmed & skew & logsk & kurt
+& logku & Variable\tabularnewline
+\midrule
+\endfirsthead
+\toprule
+nCL & min & max & var & mean & logm & med & logmed & skew & logsk & kurt
+& logku & Variable\tabularnewline
+\midrule
+\endhead
+573 & 80.00 & 2500 & 146793.95 & 419.2 & 2.5 & 270.0 & 2.4 & 2.30 & 0.70
+& 9.25 & 2.84 & all\tabularnewline
+251 & 80.00 & 1300 & 67716.64 & 328.9 & 2.4 & 242.0 & 2.4 & 1.85 & 0.60
+& 5.91 & 2.73 & Modern\tabularnewline
+46 & 102.44 & 1250 & 69637.75 & 438.4 & 2.6 & 331.1 & 2.5 & 1.30 & 0.29
+& 3.89 & 2.69 & Upper Pleistocene\tabularnewline
+47 & 132.00 & 1500 & 64523.61 & 357.3 & 2.5 & 285.6 & 2.5 & 2.99 & 1.58
+& 12.00 & 5.93 & Middle Pleistocene\tabularnewline
+71 & 107.80 & 2000 & 176257.96 & 417.4 & 2.5 & 224.1 & 2.4 & 2.08 & 1.06
+& 6.77 & 2.99 & Lower Pleistocene\tabularnewline
+20 & 165.00 & 1600 & 269797.71 & 636.6 & 2.7 & 440.5 & 2.6 & 0.96 & 0.29
+& 2.38 & 1.78 & Upper Pliocene\tabularnewline
+24 & 176.00 & 2500 & 516172.48 & 953.5 & 2.8 & 847.5 & 2.9 & 1.08 &
+-0.31 & 3.32 & 2.13 & Lower Pliocene\tabularnewline
+49 & 107.00 & 2100 & 274774.35 & 542.8 & 2.6 & 250.0 & 2.4 & 1.46 & 0.66
+& 4.00 & 2.17 & Upper Miocene\tabularnewline
+34 & 111.00 & 1500 & 169511.65 & 454.8 & 2.5 & 255.0 & 2.4 & 1.32 & 0.83
+& 3.16 & 2.29 & Middle Miocene\tabularnewline
+24 & 160.00 & 1100 & 81679.97 & 425.8 & 2.5 & 317.0 & 2.5 & 1.20 & 0.48
+& 3.25 & 2.06 & Lower Miocene\tabularnewline
+7 & 275.00 & 635 & 15613.99 & 453.2 & 2.6 & 412.5 & 2.6 & 0.29 & -0.17 &
+2.06 & 2.36 & Oligocene and Eocene\tabularnewline
+434 & 81.00 & 2500 & 137816.81 & 375.5 & 2.5 & 250.0 & 2.4 & 2.90 & 1.08
+& 12.62 & 3.97 & continental\tabularnewline
+139 & 80.00 & 2000 & 151260.27 & 555.7 & 2.6 & 466.0 & 2.7 & 1.08 &
+-0.24 & 4.33 & 2.01 & insular\tabularnewline
+\bottomrule
+\end{longtable}
 
 \begin{figure}[htbp]
 \centering

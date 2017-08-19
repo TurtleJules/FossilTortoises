@@ -4,9 +4,10 @@ title: "MAthesis"
 #date: "14 August 2017"
 output: 
   pdf_document:
-   # toc: true
+   # classoption: landscape
+    toc: true
    # toc_depth: 2
-    number_sections: true
+   # number_sections: true
     fig_caption: true
     df_print: kable
    # fontsize: 12pt
@@ -179,6 +180,9 @@ PleiPlioCL <- PleiPlio %>%
 SUM <- PleiPlioCL %>%
   group_by(MeanBins) %>%
   summarise(n=n())
+
+
+  
 ```
 
 
@@ -324,7 +328,7 @@ OverviewGenera <- PleiPlioCL %>%
 
 
 
-
+\newpage
 
 
 
@@ -353,6 +357,43 @@ HistCL <- PleiPlioCL %>%
 HistCL  
 
 
+
+
+library(stats)
+library(moments)
+
+StatsAll <- PleiPlioCL %>%
+  filter(!is.na(CL)) %>%
+#  group_by(Island) %>%
+  summarise(nCL=length(CL), #range=range(CL),
+            min=min(CL), max=max(CL), 
+            var=var(CL), mean=round(mean(CL),1), logm=round(mean(log10(CL)),1),
+            med=round(median(CL),1), logmed=round(median(log10(CL)),1), #CLmode=mode(CL), CLlogmode=mode(log10(CL)),
+            skew=round(skewness(CL),2), logsk=round(skewness(log10(CL)),2),
+            kurt=round(kurtosis(CL),2), logku=round(kurtosis(log10(CL)),2) ) %>%
+  unique()
+
+#kable(StatsAll)
+
+# #general statistics#
+# Slength=length(StatsAll$CL)
+# Smin=min(StatsAll$CL)
+# Smax=max(StatsAll$CL)
+# Svar=var(StatsAll$CL)
+# Smean=mean(StatsAll$CL) 
+# Slogmean=(mean(log10(StatsAll$CL)))
+# Smedian=median(StatsAll$CL) 
+# SMode=mode(StatsAll$CL)
+# SlogMode=mode(log10(PleiPlioCL$CL))
+# Slogmedian=(median(log10(StatsAll$CL)))
+# Sskew=skewness(StatsAll$CL)
+# Slogskew=skewness(log10(StatsAll$CL)) 
+# Skurtosi=kurtosis(StatsAll$CL)
+# Slogkurtosi=kurtosis(log10(StatsAll$CL))
+# SizeStatsAll <- data.frame(Slength, Smin, Smax, Svar, Smean, Slogmean, Smedian, Slogmedian, SMode, SlogMode, Sskew, Slogskew, Skurtosi, Slogkurtosi)
+# kable(SizeStatsAll)
+# #write.csv(SizeStats,file="SizeStats.csv") 
+
 ```
 
 
@@ -375,6 +416,18 @@ HistCLBins <- PleiPlioCL %>%
 
 #HistCLModern
 HistCLBins
+
+
+StatsBins <- PleiPlioCL %>%
+  filter(!is.na(CL)) %>%
+  group_by(EpochBins) %>%
+  summarise(nCL=length(CL), min=min(CL), max=max(CL), var=var(CL), mean=round(mean(CL),1), logm=round(mean(log10(CL)),1),
+            med=round(median(CL),1), logmed=round(median(log10(CL)),1), #CLmode=mode(CL), CLlogmode=mode(log10(CL)),
+            skew=round(skewness(CL),2), logsk=round(skewness(log10(CL)),2),
+            kurt=round(kurtosis(CL),2), logku=round(kurtosis(log10(CL)),2) ) %>%
+  unique()
+
+#kable(StatsBins)
 
 
 ```
@@ -401,6 +454,32 @@ HistCLIsland <- PleiPlioCL %>%
 
 #HistCLModern
 HistCLIsland
+
+
+StatsIsland <- PleiPlioCL %>%
+  filter(!is.na(CL)) %>%
+  group_by(Island) %>%
+  summarise(nCL=length(CL), min=min(CL), max=max(CL), var=var(CL), mean=round(mean(CL),1), logm=round(mean(log10(CL)),1),
+            med=round(median(CL),1), logmed=round(median(log10(CL)),1), #CLmode=mode(CL), CLlogmode=mode(log10(CL)),
+            skew=round(skewness(CL),2), logsk=round(skewness(log10(CL)),2),
+            kurt=round(kurtosis(CL),2), logku=round(kurtosis(log10(CL)),2) ) %>%
+  unique()
+
+#kable(StatsIsland)
+```
+
+
+\newpage
+```{r "Tabel Stats Distribution CL", echo=FALSE}
+Stats <- bind_rows(StatsAll, StatsBins, StatsIsland) %>%
+  select(-EpochBins, -Island)
+#names(Stats) <- c("nCL", "min", "max", "var", "mean", "logm", "med", "logmed", "skew", "logsk", "kurt", "logku", "Variable")
+#Stats[1, 13] <- 0
+#Stats[is.na(Stats)] <-0# c("all", "continental", "insular")
+
+Stats$Variable <- c("all", "Modern", "Upper Pleistocene", "Middle Pleistocene", "Lower Pleistocene", "Upper Pliocene", "Lower Pliocene", "Upper Miocene", "Middle Miocene", "Lower Miocene", "Oligocene and Eocene", "continental", "insular")
+
+kable(Stats, caption="General statistics of body size data: all, per time bin, insular and continental")
 
 ```
 
@@ -1800,5 +1879,62 @@ kable(PaleoGenAllFit, caption="Model-fitting results for testudinidae, genera, o
 ```
 
 
+```{r "Play around with time bins, echo=FALSE"}
+
+Alternative <- PleiPlio
+
+Alternative$bin <- cut(Alternative$Age, c(0:50.000, breaks=0.0005))
+
+#EpochBins <- as.vector(c("Modern", "Upper Pleistocene", "Middle Pleistocene", "Lower Pleistocene", "Upper Pliocene", "Lower Pliocene", "Upper Miocene", "Middle Miocene", "Lower Miocene", "Oligocene and Eocene"))
 
 
+############HIER WEITER!!!!##################
+AltMeanBins <- as.vector(c((0:100.000)/2))
+# need a function a+b/2
+# a=(0:100.000)
+# b=(0.5:100.000)
+
+
+
+
+# AltBins <- Alternative %>%
+#   select(bin) %>%
+#   group_by(bin) %>%
+#   summarise(nIndividuals=n())
+# 
+# AltBinsSpecies <- Alternative %>%
+#   select(bin, Taxon) %>%
+#   group_by(bin, Taxon) %>%
+#   summarise(nSpecies=n()) %>%
+#   summarise(nSpecies=n())
+# 
+# 
+# AltBinsGenera <- Alternative %>%
+#   select(bin, Genus) %>%
+#   group_by(bin, Genus) %>%
+#   summarise(nGenera=n()) %>%
+#   summarise(nGenera=n())
+# 
+# Altbin <- as.vector(unique(AltBins$bin))
+# 
+# 
+# 
+# AltBINS <- data.frame(Altbin, AltMeanBins) %>%
+#   merge(AltBins) %>%
+#   merge(AltBinsSpecies) %>%
+#   merge(AltBinsGenera) %>%
+#   arrange(MeanBins)
+
+AlterPaleo <- Alternative %>%
+  merge(AltBins)
+
+#BINS <- read.table("timebins.txt", sep="\t", header=TRUE)
+
+#kable(Bins, caption="Time bins with corresponding sample sizes (individuals)")
+
+kable(BINS, caption="Time bins with age range, epoch name, mean age and corresponding sample sizes (on individual, species and genus level)")
+
+PleiPlioCL <- PleiPlio %>%
+  merge(BINS)
+
+```
