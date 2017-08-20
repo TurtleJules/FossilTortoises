@@ -475,6 +475,7 @@ StatsAll <- PleiPlioCL %>%
 
 ```
 
+\newpage
 
 ## per time bin
 
@@ -514,7 +515,7 @@ StatsBins <- PleiPlioCL %>%
 
 
 
-
+\newpage
 ## continental vs. insular
 
 ```{r "Histograms of body size data, continental vs. insular", echo=FALSE, fig.cap="Distribution of body site data of continental (n) and insular(y) species, logtransformed."}
@@ -546,9 +547,10 @@ StatsIsland <- PleiPlioCL %>%
 #kable(StatsIsland)
 ```
 
+\newpage
 ## continents
 
-```{r "Histograms of body size data, split by continents", echo=FALSE, fig.cap="Distribution of body site data of continental (n) and insular(y) species, logtransformed."}
+```{r "Histograms of body size data, split by continents", echo=FALSE, fig.cap="Distribution of body site data per continent, logtransformed."}
 
 Continent <- as.vector(unique(PleiPlioCL$Continent))
 Con <- as.vector(c("Asia", "Africa", "Europe", "America", "America", "America", "Europe"))#
@@ -593,10 +595,11 @@ Stats <- bind_rows(StatsAll, StatsBins, StatsIsland, StatsContinents) %>%
 
 Stats$Variable <- c("all", "Modern", "Upper Pleistocene", "Middle Pleistocene", "Lower Pleistocene", "Upper Pliocene", "Lower Pliocene", "Upper Miocene", "Middle Miocene", "Lower Miocene", "Oligocene and Eocene", "continental", "insular", "Africa", "America", "Asia", "Europe")
 
-kable(Stats, caption="General statistics of body size data: all, per time bin, insular and continental")
+kable(Stats, caption="General statistics of body size data: all, per time bin, insular and continental, per continent")
 
 ```
 
+\newpage
 # Boxplots
 ## genera per time bins
 
@@ -658,7 +661,7 @@ BinGenera
 
 ```
 
-
+\newpage
 ## continental vs. insular per time bin
 
 ```{r "Boxplots of each genus per time bin, continental vs. insular", echo=FALSE, warning=FALSE, fig.cap="Boxplots of each genus per time bin, continental vs. insular species."}
@@ -811,7 +814,7 @@ IslandBoxSpecies
 ```
 
 
-
+\newpage
 ## continental vs. insular
 
 ```{r "Boxplot continental vs. insular", echo=FALSE, fig.cap="Boxplot continental vs. insular, genera summarised"}
@@ -846,6 +849,7 @@ IslandAll
 
 ```
 
+\newpage
 ## continental vs. insular per time bin
 
 ```{r "Boxplot continental vs. insular, split into time bins", echo=FALSE, fig.cap="Boxplot continental vs. insular, genera summarised"}
@@ -883,7 +887,7 @@ IslandAll
 
 ```
 
-
+\newpage
 ## continents
 
 ```{r "Boxplot body size split into continents", echo=FALSE, fig.cap="Boxplot: body size on different continents, genera summarised"}
@@ -2278,8 +2282,17 @@ kable(GenusAltFit, caption="Model-fitting results for testudinidae, larger equal
 
 
 ```{r "paleoTS, individuals, Africa", echo=FALSE, message=FALSE, fig.cap="Africa, individuals"}
+Africa <- PleiPlioCL %>%
+  filter(!is.na(CL)) %>%
+  merge(Continents) %>%
+  filter(Con=="Africa") %>%
+  select(CL, EpochBins) %>%
+  group_by(EpochBins) %>%
+  summarise(meanCL=mean(CL), n=n())
+
 PPCLCon <- PleiPlioCL %>%
   dplyr::select(CL, MeanBins, Continent) %>%
+  filter(!is.na(CL)) %>%
   merge(Continents) %>%
   filter(Continent=="Africa") %>%
  # dplyr::filter(PleiPlioCL$Island == "n") %>%
@@ -2351,10 +2364,19 @@ kable(PaleoPCCLConFit, caption="Model-fitting results for testudinidae, individu
 
 
 ```{r "paleoTS, individuals, Europe", echo=FALSE, message=FALSE, fig.cap="Europe, individuals"}
+Europe <- PleiPlioCL %>%
+  filter(!is.na(CL)) %>%
+  merge(Continents) %>%
+  filter(Con=="Europe") %>%
+  select(CL, EpochBins) %>%
+  group_by(EpochBins) %>%
+  summarise(meanCL=mean(CL), n=n())
+
 
 
 PPCLCon <- PleiPlioCL %>%
   dplyr::select(CL, MeanBins, Continent) %>%
+  filter(!is.na(CL)) %>%
   merge(Continents) %>%
   filter(Con=="Europe") %>%
  # dplyr::filter(PleiPlioCL$Island == "n") %>%
@@ -2427,8 +2449,16 @@ kable(PaleoPCCLConFit, caption="Model-fitting results for testudinidae, individu
 
 ```{r "paleoTS, individuals, America", echo=FALSE, message=FALSE, fig.cap="America, individuals"}
 
+America <- PleiPlioCL %>%
+  filter(!is.na(CL)) %>%
+  merge(Continents) %>%
+  filter(Con=="America") %>%
+  select(CL, EpochBins) %>%
+  group_by(EpochBins) %>%
+  summarise(meanCL=mean(CL), n=n())
 
-PPCLCon <- PleiPlioCL %>%
+AmericaCon <- PleiPlioCL %>%
+  filter(!is.na(CL)) %>%
   dplyr::select(CL, MeanBins, Continent) %>%
   merge(Continents) %>%
   filter(Con=="America") %>%
@@ -2437,7 +2467,7 @@ PPCLCon <- PleiPlioCL %>%
   group_by(tt) %>% #create time bins
   summarise(mm=mean(CL), vv=var(CL), nn=n()) #create means etc. for each time bin 
 
-PPCLCon[is.na(PPCLCon)]<-0 #subset NAs with O for n=1
+AmericaCon[is.na(AmericaCon)]<-0 #subset NAs with O for n=1
 
 
 sumTort <- read.csv("tortoises_summary.csv", sep=";", header=TRUE)
@@ -2448,9 +2478,9 @@ SumTortCon <- sumTort %>%
   mutate(tt=(Mamin+Mamax)/2, vv=sdCLmm^2, nn=n, mm=meanCLmm) %>%
   dplyr::select(mm, nn, vv, tt)
  
-PPESCLCon <- bind_rows(SumTortCon,PPCLCon) #ExTort, 
+AmericaCon <- bind_rows(SumTortCon,AmericaCon) #ExTort, 
 
-combiCLCon <- PPESCLCon %>%
+combiCLCon <- AmericaCon %>%
   dplyr::filter(tt==0.0000005) %>%   #maybe find a way to automatically filter double tt values...
   mutate(nx = nn*mm) %>%
   mutate(mmall=sum(nx)/sum(nn)) %>%
@@ -2462,20 +2492,20 @@ combiCLCon <- PPESCLCon %>%
   dplyr::select(mm, nn, vv, tt)
 
 
-PPCLCon <- PPESCLCon %>%
+AmCon <- AmericaCon %>%
   filter(tt !=0.0000005) %>%
   bind_rows(combiCLCon)%>%
   arrange(tt)
 
+AmCon[is.na(AmCon)] <- 0
 
 
-kable(PPCLCon, caption="paleoTS object (mm= mean CL, nn = sample size, vv = variance (CL), tt = Age)")
+kable(AmCon, caption="paleoTS object (mm= mean CL, nn = sample size, vv = variance (CL), tt = Age)")
 
-
-library(paleoTS)
-paleoPPCLCon <-as.paleoTS(PPCLCon$mm, PPCLCon$vv, PPCLCon$nn, PPCLCon$tt, MM = NULL, genpars = NULL, label = "Testudinidae body size evolution mode, Holocene-Upper Miocene, CL, only insular species")
+#library(paleoTS)
+paleoAmCon <-as.paleoTS(AmCon$mm, AmCon$vv, AmCon$nn, AmCon$tt, MM = NULL, genpars = NULL, label = "Testudinidae body size evolution mode, America")
 #paleoPPCL
-plot(paleoPPCLCon)
+plot(paleoAmCon)
 ```
 
 
@@ -2483,14 +2513,14 @@ plot(paleoPPCLCon)
 
 ```{r "Model-fitting, individuals, America" , echo=FALSE, message=FALSE, include=FALSE}
 
-PaleoPCCLConFit <- (fit3models(paleoPPCLCon, silent=FALSE, method="AD", pool=FALSE))
+PaleoAmConFit <- (fit3models(paleoAmCon, silent=FALSE, method="AD", pool=FALSE))
 ```
 
 
 
 ```{r "Model-fitting, individuals, America, table", echo=FALSE}
 
-kable(PaleoPCCLConFit, caption="Model-fitting results for testudinidae, individuals, America")
+kable(PaleoAmConFit, caption="Model-fitting results for testudinidae, individuals, America")
 
 ```
 
