@@ -1059,7 +1059,7 @@ plot(paleoPPCL)
 
 ```{r "Model-fitting, individuals" , echo=FALSE, message=FALSE, include=FALSE}
 
-PaleoPCCLFit <- (fit3models(paleoPPCL, silent=FALSE, method="AD", pool=FALSE))
+PaleoPCCLFit <- (fit4models(paleoPPCL, silent=FALSE, method="AD", pool=FALSE))
 ```
 
 
@@ -1175,7 +1175,7 @@ plot(paleoSpec)
 
 ```{r "Model-fitting, species" , echo=FALSE, message=FALSE, include=FALSE}
 
-PaleoSpecFit <- (fit3models(paleoSpec, silent=FALSE, method="AD", pool=FALSE))
+PaleoSpecFit <- (fit4models(paleoSpec, silent=FALSE, method="AD", pool=FALSE))
 ```
 
 
@@ -1279,7 +1279,7 @@ plot(paleoGen)
 
 ```{r "Model-fitting, genera" , echo=FALSE, message=FALSE, include=FALSE}
 
-PaleoGenFit <- (fit3models(paleoGen, silent=FALSE, method="AD", pool=FALSE))
+PaleoGenFit <- (fit4models(paleoGen, silent=FALSE, method="AD", pool=FALSE))
 ```
 
 
@@ -1353,7 +1353,7 @@ plot(paleoPPCLIs)
 
 ```{r "Model-fitting, individuals, continental" , echo=FALSE, message=FALSE, include=FALSE}
 
-PaleoPCCLIsFit <- (fit3models(paleoPPCLIs, silent=FALSE, method="AD", pool=FALSE))
+PaleoPCCLIsFit <- (fit4models(paleoPPCLIs, silent=FALSE, method="AD", pool=FALSE))
 ```
 
 
@@ -1468,7 +1468,7 @@ plot(paleoSpecIs)
 
 ```{r "Model-fitting, species, continental" , echo=FALSE, message=FALSE, include=FALSE}
 
-PaleoSpecIsFit <- (fit3models(paleoSpecIs, silent=FALSE, method="AD", pool=FALSE))
+PaleoSpecIsFit <- (fit4models(paleoSpecIs, silent=FALSE, method="AD", pool=FALSE))
 ```
 
 
@@ -1572,7 +1572,7 @@ plot(paleoGenIs)
 
 ```{r "Model-fitting, genera, continental" , echo=FALSE, message=FALSE, include=FALSE}
 
-PaleoGenIsFit <- (fit3models(paleoGenIs, silent=FALSE, method="AD", pool=FALSE))
+PaleoGenIsFit <- (fit4models(paleoGenIs, silent=FALSE, method="AD", pool=FALSE))
 ```
 
 
@@ -1765,7 +1765,7 @@ PaleoSpecConFit <- (fit3models(paleoSpecCon, silent=FALSE, method="AD", pool=FAL
 
 ```{r "Model-fitting, species, insular, table", echo=FALSE}
 
-kable(PaleoSpecIsFit, caption="Model-fitting results for testudinidae, species, only insular species")
+kable(PaleoSpecConFit, caption="Model-fitting results for testudinidae, species, only insular species")
 
 ```
 
@@ -2290,7 +2290,7 @@ Africa <- PleiPlioCL %>%
   group_by(EpochBins) %>%
   summarise(meanCL=mean(CL), n=n())
 
-PPCLCon <- PleiPlioCL %>%
+AfCon <- PleiPlioCL %>%
   dplyr::select(CL, MeanBins, Continent) %>%
   filter(!is.na(CL)) %>%
   merge(Continents) %>%
@@ -2300,7 +2300,7 @@ PPCLCon <- PleiPlioCL %>%
   group_by(tt) %>% #create time bins
   summarise(mm=mean(CL), vv=var(CL), nn=n()) #create means etc. for each time bin 
 
-PPCLCon[is.na(PPCLCon)]<-0 #subset NAs with O for n=1
+AfCon[is.na(AfCon)]<-0 #subset NAs with O for n=1
 
 
 sumTort <- read.csv("tortoises_summary.csv", sep=";", header=TRUE)
@@ -2311,9 +2311,9 @@ SumTortCon <- sumTort %>%
   mutate(tt=(Mamin+Mamax)/2, vv=sdCLmm^2, nn=n, mm=meanCLmm) %>%
   dplyr::select(mm, nn, vv, tt)
  
-PPESCLCon <- bind_rows(SumTortCon,PPCLCon) #ExTort, 
+AfriCon <- bind_rows(SumTortCon,AfCon) #ExTort, 
 
-combiCLCon <- PPESCLCon %>%
+combiCLCon <- AfriCon %>%
   dplyr::filter(tt==0.0000005) %>%   #maybe find a way to automatically filter double tt values...
   mutate(nx = nn*mm) %>%
   mutate(mmall=sum(nx)/sum(nn)) %>%
@@ -2325,20 +2325,20 @@ combiCLCon <- PPESCLCon %>%
   dplyr::select(mm, nn, vv, tt)
 
 
-PPCLCon <- PPESCLCon %>%
+AfricaCon <- AfriCon %>%
   filter(tt !=0.0000005) %>%
   bind_rows(combiCLCon)%>%
   arrange(tt)
 
 
 
-kable(PPCLCon, caption="paleoTS object (mm= mean CL, nn = sample size, vv = variance (CL), tt = Age)")
+kable(AfricaCon, caption="paleoTS object (mm= mean CL, nn = sample size, vv = variance (CL), tt = Age)")
 
 
 
-paleoPPCLCon <-as.paleoTS(PPCLCon$mm, PPCLCon$vv, PPCLCon$nn, PPCLCon$tt, MM = NULL, genpars = NULL, label = "Testudinidae body size evolution mode")
+paleoAfricaCon <-as.paleoTS(AfricaCon$mm, AfricaCon$vv, AfricaCon$nn, AfricaCon$tt, MM = NULL, genpars = NULL, label = "Testudinidae body size evolution mode")
 #paleoPPCL
-plot(paleoPPCLCon)
+plot(paleoAfricaCon)
 ```
 
 
@@ -2346,14 +2346,14 @@ plot(paleoPPCLCon)
 
 ```{r "Model-fitting, individuals, Africa" , echo=FALSE, message=FALSE, include=FALSE}
 
-PaleoPCCLConFit <- (fit3models(paleoPPCLCon, silent=FALSE, method="AD", pool=FALSE))
+paleoAfricaConFit <- (fit3models(paleoAfricaCon, silent=FALSE, method="AD", pool=FALSE))
 ```
 
 
 
 ```{r "Model-fitting, individuals, Africa, table", echo=FALSE}
 
-kable(PaleoPCCLConFit, caption="Model-fitting results for testudinidae, individuals, Africa")
+kable(paleoAfricaConFit, caption="Model-fitting results for testudinidae, individuals, Africa")
 
 ```
 
@@ -2374,7 +2374,7 @@ Europe <- PleiPlioCL %>%
 
 
 
-PPCLCon <- PleiPlioCL %>%
+EuCon <- PleiPlioCL %>%
   dplyr::select(CL, MeanBins, Continent) %>%
   filter(!is.na(CL)) %>%
   merge(Continents) %>%
@@ -2384,7 +2384,7 @@ PPCLCon <- PleiPlioCL %>%
   group_by(tt) %>% #create time bins
   summarise(mm=mean(CL), vv=var(CL), nn=n()) #create means etc. for each time bin 
 
-PPCLCon[is.na(PPCLCon)]<-0 #subset NAs with O for n=1
+EuCon[is.na(EuCon)]<-0 #subset NAs with O for n=1
 
 
 sumTort <- read.csv("tortoises_summary.csv", sep=";", header=TRUE)
@@ -2395,9 +2395,9 @@ SumTortCon <- sumTort %>%
   mutate(tt=(Mamin+Mamax)/2, vv=sdCLmm^2, nn=n, mm=meanCLmm) %>%
   dplyr::select(mm, nn, vv, tt)
  
-PPESCLCon <- bind_rows(SumTortCon,PPCLCon) #ExTort, 
+EuroCon <- bind_rows(SumTortCon,EuCon) #ExTort, 
 
-combiCLCon <- PPESCLCon %>%
+combiCLCon <- EuroCon %>%
   dplyr::filter(tt==0.0000005) %>%   #maybe find a way to automatically filter double tt values...
   mutate(nx = nn*mm) %>%
   mutate(mmall=sum(nx)/sum(nn)) %>%
@@ -2409,20 +2409,20 @@ combiCLCon <- PPESCLCon %>%
   dplyr::select(mm, nn, vv, tt)
 
 
-PPCLCon <- PPESCLCon %>%
+EuropeCon <- EuroCon %>%
   filter(tt !=0.0000005) %>%
   bind_rows(combiCLCon)%>%
   arrange(tt)
 
 
 
-kable(PPCLCon, caption="paleoTS object (mm= mean CL, nn = sample size, vv = variance (CL), tt = Age)")
+kable(EuropeCon, caption="paleoTS object (mm= mean CL, nn = sample size, vv = variance (CL), tt = Age)")
 
 
 library(paleoTS)
-paleoPPCLCon <-as.paleoTS(PPCLCon$mm, PPCLCon$vv, PPCLCon$nn, PPCLCon$tt, MM = NULL, genpars = NULL, label = "Testudinidae body size evolution mode")
+paleoEuropeCon <-as.paleoTS(EuropeCon$mm, EuropeCon$vv, EuropeCon$nn, EuropeCon$tt, MM = NULL, genpars = NULL, label = "Testudinidae body size evolution mode")
 #paleoPPCL
-plot(paleoPPCLCon)
+plot(paleoEuropeCon)
 ```
 
 
@@ -2430,14 +2430,14 @@ plot(paleoPPCLCon)
 
 ```{r "Model-fitting, individuals, Europe" , echo=FALSE, message=FALSE, include=FALSE}
 
-PaleoPCCLConFit <- (fit3models(paleoPPCLCon, silent=FALSE, method="AD", pool=FALSE))
+PaleoEuropeConFit <- (fit4models(paleoEuropeCon, silent=FALSE, method="AD", pool=FALSE))
 ```
 
 
 
 ```{r "Model-fitting, individuals, Europe, table", echo=FALSE}
 
-kable(PaleoPCCLConFit, caption="Model-fitting results for testudinidae, individuals, Europe")
+kable(PaleoEuropeConFit, caption="Model-fitting results for testudinidae, individuals, Europe")
 
 ```
 
@@ -2497,7 +2497,7 @@ AmCon <- AmericaCon %>%
   bind_rows(combiCLCon)%>%
   arrange(tt)
 
-AmCon[is.na(AmCon)] <- 0
+#AmCon[is.na(AmCon)] <- 0
 
 
 kable(AmCon, caption="paleoTS object (mm= mean CL, nn = sample size, vv = variance (CL), tt = Age)")
@@ -2513,7 +2513,7 @@ plot(paleoAmCon)
 
 ```{r "Model-fitting, individuals, America" , echo=FALSE, message=FALSE, include=FALSE}
 
-PaleoAmConFit <- (fit3models(paleoAmCon, silent=FALSE, method="AD", pool=FALSE))
+PaleoAmConFit <- (fit4models(paleoAmCon, silent=FALSE, method="AD", pool=FALSE))
 ```
 
 
@@ -2532,7 +2532,7 @@ kable(PaleoAmConFit, caption="Model-fitting results for testudinidae, individual
 ```{r "paleoTS, individuals, Asia", echo=FALSE, message=FALSE, fig.cap="individuals, Asia"}
 
 
-PPCLCon <- PleiPlioCL %>%
+AsCon <- PleiPlioCL %>%
   dplyr::select(CL, MeanBins, Continent) %>%
   merge(Continents) %>%
   filter(Con=="Asia") %>%
@@ -2541,7 +2541,7 @@ PPCLCon <- PleiPlioCL %>%
   group_by(tt) %>% #create time bins
   summarise(mm=mean(CL), vv=var(CL), nn=n()) #create means etc. for each time bin 
 
-PPCLCon[is.na(PPCLCon)]<-0 #subset NAs with O for n=1
+AsCon[is.na(AsCon)]<-0 #subset NAs with O for n=1
 
 
 sumTort <- read.csv("tortoises_summary.csv", sep=";", header=TRUE)
@@ -2552,9 +2552,9 @@ SumTortCon <- sumTort %>%
   mutate(tt=(Mamin+Mamax)/2, vv=sdCLmm^2, nn=n, mm=meanCLmm) %>%
   dplyr::select(mm, nn, vv, tt)
  
-PPESCLCon <- bind_rows(SumTortCon,PPCLCon) #ExTort, 
+AsiCon <- bind_rows(SumTortCon,PPCLCon) #ExTort, 
 
-combiCLCon <- PPESCLCon %>%
+combiCLCon <- AsiCon %>%
   dplyr::filter(tt==0.0000005) %>%   #maybe find a way to automatically filter double tt values...
   mutate(nx = nn*mm) %>%
   mutate(mmall=sum(nx)/sum(nn)) %>%
@@ -2566,20 +2566,20 @@ combiCLCon <- PPESCLCon %>%
   dplyr::select(mm, nn, vv, tt)
 
 
-PPCLCon <- PPESCLCon %>%
+AsiaCon <- AsiCon %>%
   filter(tt !=0.0000005) %>%
   bind_rows(combiCLCon)%>%
   arrange(tt)
 
 
 
-kable(PPCLCon, caption="paleoTS object (mm= mean CL, nn = sample size, vv = variance (CL), tt = Age)")
+kable(AsiaCon, caption="paleoTS object (mm= mean CL, nn = sample size, vv = variance (CL), tt = Age)")
 
 
-library(paleoTS)
-paleoPPCLCon <-as.paleoTS(PPCLCon$mm, PPCLCon$vv, PPCLCon$nn, PPCLCon$tt, MM = NULL, genpars = NULL, label = "Testudinidae body size evolution mode, Holocene-Upper Miocene, CL, only insular species")
+#library(paleoTS)
+paleoAsiaCon <-as.paleoTS(AsiaCon$mm, AsiaCon$vv, AsiaCon$nn, AsiaCon$tt, MM = NULL, genpars = NULL, label = "Testudinidae body size evolution mode, Asia")
 #paleoPPCL
-plot(paleoPPCLCon)
+plot(paleoAsiaCon)
 ```
 
 
@@ -2587,14 +2587,14 @@ plot(paleoPPCLCon)
 
 ```{r "Model-fitting, individuals, Asia" , echo=FALSE, message=FALSE, include=FALSE}
 
-PaleoPCCLConFit <- (fit3models(paleoPPCLCon, silent=FALSE, method="AD", pool=FALSE))
+PaleoAsiaConFit <- (fit3models(paleoAsiaCon, silent=FALSE, method="AD", pool=FALSE))
 ```
 
 
 
 ```{r "Model-fitting, individuals, Asia, table", echo=FALSE}
 
-kable(PaleoPCCLConFit, caption="Model-fitting results for testudinidae, individuals, Asia")
+kable(PaleoAsiaConFit, caption="Model-fitting results for testudinidae, individuals, Asia")
 
 ```
 
@@ -2607,7 +2607,7 @@ kable(PaleoPCCLConFit, caption="Model-fitting results for testudinidae, individu
 ```{r "paleoTS, individuals, Eurasia", echo=FALSE, message=FALSE, fig.cap="individuals, Eurasia"}
 
 
-PPCLCon <- PleiPlioCL %>%
+EACon <- PleiPlioCL %>%
   dplyr::select(CL, MeanBins, Continent) %>%
   merge(Continents) %>%
   filter(!is.na(CL)) %>%
@@ -2617,7 +2617,7 @@ PPCLCon <- PleiPlioCL %>%
   group_by(tt) %>% #create time bins
   summarise(mm=mean(CL), vv=var(CL), nn=n()) #create means etc. for each time bin 
 
-PPCLCon[is.na(PPCLCon)]<-0 #subset NAs with O for n=1
+EACon[is.na(EACon)]<-0 #subset NAs with O for n=1
 
 
 sumTort <- read.csv("tortoises_summary.csv", sep=";", header=TRUE)
@@ -2629,7 +2629,7 @@ SumTortCon <- sumTort %>%
   mutate(tt=(Mamin+Mamax)/2, vv=sdCLmm^2, nn=n, mm=meanCLmm) %>%
   dplyr::select(mm, nn, vv, tt)
  
-PPESCLCon <- bind_rows(SumTortCon,PPCLCon) #ExTort, 
+EurCon <- bind_rows(SumTortCon,EACon) #ExTort, 
 
 combiCLCon <- PPESCLCon %>%
   dplyr::filter(tt==0.0000005) %>%   #maybe find a way to automatically filter double tt values...
@@ -2642,20 +2642,19 @@ combiCLCon <- PPESCLCon %>%
   unique() %>%
   dplyr::select(mm, nn, vv, tt)
 
-
-PPCLCon <- PPESCLCon %>%
+EurasiaCon <- EurCon %>%
   filter(tt !=0.0000005) %>%
   bind_rows(combiCLCon)%>%
   arrange(tt)
 
 
 
-kable(PPCLCon, caption="paleoTS object (mm= mean CL, nn = sample size, vv = variance (CL), tt = Age)")
+kable(EurasiaCon, caption="paleoTS object (mm= mean CL, nn = sample size, vv = variance (CL), tt = Age)")
 
 
-paleoPPCLCon <-as.paleoTS(PPCLCon$mm, PPCLCon$vv, PPCLCon$nn, PPCLCon$tt, MM = NULL, genpars = NULL, label = "Testudinidae body size evolution mode, Holocene-Upper Miocene, CL, only insular species")
+paleoEurasiaCon <-as.paleoTS(EurasiaCon$mm, EurasiaCon$vv, EurasiaCon$nn, EurasiaCon$tt, MM = NULL, genpars = NULL, label = "Testudinidae body size evolution mode, Eurasia")
 #paleoPPCL
-plot(paleoPPCLCon)
+plot(paleoEurasiaCon)
 ```
 
 
@@ -2663,14 +2662,14 @@ plot(paleoPPCLCon)
 
 ```{r "Model-fitting, individuals, Eurasia" , echo=FALSE, message=FALSE, include=FALSE}
 
-PaleoPCCLConFit <- (fit3models(paleoPPCLCon, silent=FALSE, method="AD", pool=FALSE))
+PaleoEurasiaConFit <- (fit4models(paleoEurasiaCon, silent=FALSE, method="AD", pool=FALSE))
 ```
 
 
 
 ```{r "Model-fitting, individuals, Eurasia, table", echo=FALSE}
 
-kable(PaleoPCCLConFit, caption="Model-fitting results for testudinidae, individuals, Asia")
+kable(PaleoEurasiaConFit, caption="Model-fitting results for testudinidae, individuals, Asia")
 
 ```
 
