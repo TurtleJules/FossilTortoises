@@ -93,6 +93,8 @@
 \setcounter{tocdepth}{2}
 \tableofcontents
 }
+\section{Time Bins with sample sizes}\label{time-bins-with-sample-sizes}
+
 \begin{longtable}[]{@{}llrrrr@{}}
 \caption{Time bins with age range, epoch name, mean age and
 corresponding sample sizes (on individual, species and genus
@@ -123,6 +125,11 @@ nGenera\tabularnewline
 \bottomrule
 \end{longtable}
 
+\section{Maps}\label{maps}
+
+\subsection{fossil occurences of
+testudinidae}\label{fossil-occurences-of-testudinidae}
+
 \begin{figure}[htbp]
 \centering
 \includegraphics{MA_JJ_files/figure-latex/Map fossil occurrences-1.pdf}
@@ -132,6 +139,8 @@ not) and if it was, whether body size data was available or not (yes and
 no, respectively).}
 \end{figure}
 
+\subsection{body size of testudinidae}\label{body-size-of-testudinidae}
+
 \begin{figure}[htbp]
 \centering
 \includegraphics{MA_JJ_files/figure-latex/Map body size data set-1.pdf}
@@ -140,7 +149,19 @@ testudinids was available in the literature. Size of points denotes
 sample size, color denotes approximate age.}
 \end{figure}
 
+\section{Sampling Accumulation Curve}\label{sampling-accumulation-curve}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics{MA_JJ_files/figure-latex/Species Accumulation Curve with Genera-1.pdf}
+\caption{Sampling Accumulation Curve of fossil genera per reference}
+\end{figure}
+
 \newpage
+
+\section{Histograms}\label{histograms}
+
+\subsection{all}\label{all}
 
 \begin{verbatim}
 ## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.
@@ -152,6 +173,8 @@ sample size, color denotes approximate age.}
 \caption{Distribution of body size data, logtransformed, all data.}
 \end{figure}
 
+\subsection{per time bin}\label{per-time-bin}
+
 \begin{verbatim}
 ## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.
 \end{verbatim}
@@ -162,6 +185,8 @@ sample size, color denotes approximate age.}
 \caption{Distribution of body size data per time bin, logtransformed.}
 \end{figure}
 
+\subsection{continental vs.~insular}\label{continental-vs.insular}
+
 \begin{verbatim}
 ## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.
 \end{verbatim}
@@ -169,6 +194,19 @@ sample size, color denotes approximate age.}
 \begin{figure}[htbp]
 \centering
 \includegraphics{MA_JJ_files/figure-latex/Histograms of body size data, continental vs. insular-1.pdf}
+\caption{Distribution of body site data of continental (n) and
+insular(y) species, logtransformed.}
+\end{figure}
+
+\subsection{continents}\label{continents}
+
+\begin{verbatim}
+## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.
+\end{verbatim}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics{MA_JJ_files/figure-latex/Histograms of body size data, split by continents-1.pdf}
 \caption{Distribution of body site data of continental (n) and
 insular(y) species, logtransformed.}
 \end{figure}
@@ -214,21 +252,30 @@ nCL & min & max & var & mean & logm & med & logmed & skew & logsk & kurt
 & 12.62 & 3.97 & continental\tabularnewline
 139 & 80.00 & 2000 & 151260.27 & 555.7 & 2.6 & 466.0 & 2.7 & 1.08 &
 -0.24 & 4.33 & 2.01 & insular\tabularnewline
+140 & 80.00 & 1446 & 92601.87 & 337.4 & 2.4 & 193.5 & 2.3 & 1.69 & 0.64
+& 5.04 & 2.35 & Africa\tabularnewline
+230 & 102.44 & 1500 & 73060.64 & 402.7 & 2.5 & 300.0 & 2.5 & 1.85 & 0.77
+& 6.10 & 2.97 & America\tabularnewline
+49 & 140.00 & 2100 & 286030.39 & 505.9 & 2.6 & 275.0 & 2.4 & 1.87 & 1.28
+& 5.03 & 3.29 & Asia\tabularnewline
+154 & 107.00 & 2500 & 251479.46 & 490.8 & 2.5 & 245.0 & 2.4 & 1.95 &
+0.77 & 6.86 & 2.32 & Europe\tabularnewline
 \bottomrule
 \end{longtable}
 
-\begin{figure}[htbp]
-\centering
-\includegraphics{MA_JJ_files/figure-latex/Species Accumulation Curve with Genera-1.pdf}
-\caption{Sampling Accumulation Curve of fossil genera per reference}
-\end{figure}
+\section{Boxplots}\label{boxplots}
+
+\subsection{genera per time bins}\label{genera-per-time-bins}
 
 \begin{figure}[htbp]
 \centering
 \includegraphics{MA_JJ_files/figure-latex/Boxplots of each genus per time bin-1.pdf}
-\caption{Boxplots of generic mean CL per time bin, including mean and sd
-CL for each genus (as pointrange).}
+\caption{Boxplots of mean CL per time bin, including mean and sd CL for
+each genus (as pointrange).}
 \end{figure}
+
+\subsection{continental vs.~insular per time
+bin}\label{continental-vs.insular-per-time-bin}
 
 \begin{figure}[htbp]
 \centering
@@ -237,8 +284,7 @@ CL for each genus (as pointrange).}
 species.}
 \end{figure}
 
-\section{Boxplots (continental (n) vs.~Island (y)
-species)}\label{boxplots-continental-n-vs.island-y-species}
+\subsection{continental vs.~insular}\label{continental-vs.insular-1}
 
 \begin{verbatim}
 ## Warning: Removed 9 rows containing missing values (geom_pointrange).
@@ -250,10 +296,21 @@ species)}\label{boxplots-continental-n-vs.island-y-species}
 \caption{Boxplot continental vs.~insular, genera summarised}
 \end{figure}
 
+\subsection{continental vs.~insular per time
+bin}\label{continental-vs.insular-per-time-bin-1}
+
 \begin{figure}[htbp]
 \centering
 \includegraphics{MA_JJ_files/figure-latex/Boxplot continental vs. insular, split into time bins-1.pdf}
 \caption{Boxplot continental vs.~insular, genera summarised}
+\end{figure}
+
+\subsection{continents}\label{continents-1}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics{MA_JJ_files/figure-latex/Boxplot body size split into continents-1.pdf}
+\caption{Boxplot: body size on different continents, genera summarised}
 \end{figure}
 
 \newpage
@@ -309,9 +366,9 @@ island species}\tabularnewline
 & logL & K & AICc & Akaike.wt\tabularnewline
 \midrule
 \endhead
-GRW & -56.73574 & 2 & 119.4715 & 0.145\tabularnewline
-URW & -56.93847 & 1 & 116.4484 & 0.656\tabularnewline
-Stasis & -56.41523 & 2 & 118.8305 & 0.199\tabularnewline
+GRW & -56.70310 & 2 & 119.4062 & 0.149\tabularnewline
+URW & -56.93847 & 1 & 116.4484 & 0.653\tabularnewline
+Stasis & -56.41523 & 2 & 118.8305 & 0.198\tabularnewline
 \bottomrule
 \end{longtable}
 
@@ -336,9 +393,9 @@ island species}\tabularnewline
 & logL & K & AICc & Akaike.wt\tabularnewline
 \midrule
 \endhead
-GRW & -64.79973 & 2 & 135.3137 & 0.164\tabularnewline
-URW & -64.86224 & 1 & 132.2245 & 0.768\tabularnewline
-Stasis & -65.68705 & 2 & 137.0884 & 0.068\tabularnewline
+GRW & -64.78186 & 2 & 135.2780 & 0.166\tabularnewline
+URW & -64.86224 & 1 & 132.2245 & 0.766\tabularnewline
+Stasis & -65.68705 & 2 & 137.0884 & 0.067\tabularnewline
 \bottomrule
 \end{longtable}
 
@@ -393,9 +450,9 @@ island species}\tabularnewline
 & logL & K & AICc & Akaike.wt\tabularnewline
 \midrule
 \endhead
-GRW & -60.94204 & 2 & 127.8841 & 0.019\tabularnewline
-URW & -62.39001 & 1 & 127.3515 & 0.025\tabularnewline
-Stasis & -57.04727 & 2 & 120.0945 & 0.955\tabularnewline
+GRW & -60.91398 & 2 & 127.8280 & 0.020\tabularnewline
+URW & -62.36871 & 1 & 127.3088 & 0.026\tabularnewline
+Stasis & -57.04727 & 2 & 120.0945 & 0.954\tabularnewline
 \bottomrule
 \end{longtable}
 
@@ -420,8 +477,8 @@ insular species}\tabularnewline
 & logL & K & AICc & Akaike.wt\tabularnewline
 \midrule
 \endhead
-GRW & -65.96537 & 2 & 137.6450 & 0.172\tabularnewline
-URW & -66.03667 & 1 & 134.5733 & 0.799\tabularnewline
+GRW & -65.94462 & 2 & 137.6035 & 0.175\tabularnewline
+URW & -66.03667 & 1 & 134.5733 & 0.796\tabularnewline
 Stasis & -67.73195 & 2 & 141.1782 & 0.029\tabularnewline
 \bottomrule
 \end{longtable}
@@ -477,9 +534,9 @@ species}\tabularnewline
 & logL & K & AICc & Akaike.wt\tabularnewline
 \midrule
 \endhead
-GRW & -60.94204 & 2 & 127.8841 & 0.019\tabularnewline
-URW & -62.39001 & 1 & 127.3515 & 0.025\tabularnewline
-Stasis & -57.04727 & 2 & 120.0945 & 0.955\tabularnewline
+GRW & -60.91398 & 2 & 127.8280 & 0.020\tabularnewline
+URW & -62.36871 & 1 & 127.3088 & 0.026\tabularnewline
+Stasis & -57.04727 & 2 & 120.0945 & 0.954\tabularnewline
 \bottomrule
 \end{longtable}
 
@@ -512,14 +569,18 @@ Stasis & -52.91882 & 2 & 112.8376 & 1\tabularnewline
 
 \newpage
 
-\subsection{play with time bins: no
-bins}\label{play-with-time-bins-no-bins}
+\subsection{play with time bins: no bins (mean age of each sample ==
+tt)}\label{play-with-time-bins-no-bins-mean-age-of-each-sample-tt}
 
-\includegraphics{MA_JJ_files/figure-latex/paleoTS with different time bins, no bins-1.pdf}
+\begin{figure}[htbp]
+\centering
+\includegraphics{MA_JJ_files/figure-latex/paleoTS with different time bins, no bins, genera-1.pdf}
+\caption{Mean age of each sample as time bin, genera}
+\end{figure}
 
 \begin{longtable}[]{@{}lrrrr@{}}
-\caption{Model-fitting results for testudinidae, genera, only insular
-species}\tabularnewline
+\caption{Model-fitting results for testudinidae, no bins,
+genera}\tabularnewline
 \toprule
 & logL & K & AICc & Akaike.wt\tabularnewline
 \midrule
@@ -528,13 +589,17 @@ species}\tabularnewline
 & logL & K & AICc & Akaike.wt\tabularnewline
 \midrule
 \endhead
-GRW & -6491.7067 & 2 & 12987.54 & 0\tabularnewline
-URW & -6564.3336 & 1 & 13130.71 & 0\tabularnewline
-Stasis & -817.7247 & 2 & 1639.58 & 1\tabularnewline
+GRW & -963.1184 & 2 & 1930.347 & 0\tabularnewline
+URW & -963.0117 & 1 & 1928.060 & 0\tabularnewline
+Stasis & -841.6458 & 2 & 1687.402 & 1\tabularnewline
 \bottomrule
 \end{longtable}
 
 \newpage
+
+\subsection{Equal time bins}\label{equal-time-bins}
+
+\subsubsection{individuals (equal bins)}\label{individuals-equal-bins}
 
 \begin{longtable}[]{@{}rrrr@{}}
 \caption{Time bins with age range, epoch name, mean age and
@@ -577,7 +642,11 @@ tt & mm & vv & nn\tabularnewline
 \bottomrule
 \end{longtable}
 
-\includegraphics{MA_JJ_files/figure-latex/Play around with time bins-1.pdf}
+\begin{figure}[htbp]
+\centering
+\includegraphics{MA_JJ_files/figure-latex/Play around with time bins, larger equal bins, individuals-1.pdf}
+\caption{Equal bins, individuals}
+\end{figure}
 
 \begin{longtable}[]{@{}lrrrr@{}}
 \caption{Model-fitting results for testudinidae, equal time bins,
@@ -597,6 +666,8 @@ Stasis & -174.2101 & 2 & 352.9656 & 0.998\tabularnewline
 \end{longtable}
 
 \newpage
+
+\subsubsection{species (equal bins)}\label{species-equal-bins}
 
 \begin{longtable}[]{@{}rrrr@{}}
 \caption{Time bins with age range, epoch name, mean age and
@@ -639,11 +710,15 @@ tt & mm & vv & nn\tabularnewline
 \bottomrule
 \end{longtable}
 
-\includegraphics{MA_JJ_files/figure-latex/Play around with time bins, species level-1.pdf}
+\begin{figure}[htbp]
+\centering
+\includegraphics{MA_JJ_files/figure-latex/Play around with time bins, equal bin, species level-1.pdf}
+\caption{Equal bins, species}
+\end{figure}
 
 \begin{longtable}[]{@{}lrrrr@{}}
 \caption{Model-fitting results for testudinidae, equal time bins,
-individuals}\tabularnewline
+species}\tabularnewline
 \toprule
 & logL & K & AICc & Akaike.wt\tabularnewline
 \midrule
@@ -659,6 +734,8 @@ Stasis & -172.9454 & 2 & 350.4363 & 0.979\tabularnewline
 \end{longtable}
 
 \newpage
+
+\subsubsection{genera (equal bins)}\label{genera-equal-bins}
 
 \begin{longtable}[]{@{}rrrr@{}}
 \caption{Time bins with age range, epoch name, mean age and
@@ -701,11 +778,15 @@ tt & mm & vv & nn\tabularnewline
 \bottomrule
 \end{longtable}
 
+\begin{figure}[htbp]
+\centering
 \includegraphics{MA_JJ_files/figure-latex/Play around with time bins, generic level-1.pdf}
+\caption{Equal bins, genera}
+\end{figure}
 
 \begin{longtable}[]{@{}lrrrr@{}}
 \caption{Model-fitting results for testudinidae, equal time bins,
-individuals}\tabularnewline
+genera}\tabularnewline
 \toprule
 & logL & K & AICc & Akaike.wt\tabularnewline
 \midrule
@@ -720,7 +801,10 @@ Stasis & -174.7233 & 2 & 353.9921 & 0.940\tabularnewline
 \bottomrule
 \end{longtable}
 
-\subsection{larger time bins}\label{larger-time-bins}
+\subsection{larger equal bins}\label{larger-equal-bins}
+
+\subsubsection{genera (larger equal
+bins)}\label{genera-larger-equal-bins}
 
 \begin{longtable}[]{@{}rrrr@{}}
 \caption{Time bins with age range, epoch name, mean age and
@@ -762,11 +846,15 @@ tt & mm & vv & nn\tabularnewline
 \bottomrule
 \end{longtable}
 
+\begin{figure}[htbp]
+\centering
 \includegraphics{MA_JJ_files/figure-latex/Play around with larger time bins, generic level-1.pdf}
+\caption{Larger equal bins, genera}
+\end{figure}
 
 \begin{longtable}[]{@{}lrrrr@{}}
-\caption{Model-fitting results for testudinidae, equal time bins,
-individuals}\tabularnewline
+\caption{Model-fitting results for testudinidae, larger equal time bins,
+genera}\tabularnewline
 \toprule
 & logL & K & AICc & Akaike.wt\tabularnewline
 \midrule
@@ -812,12 +900,12 @@ mm & nn & vv & tt\tabularnewline
 \begin{figure}[htbp]
 \centering
 \includegraphics{MA_JJ_files/figure-latex/paleoTS, individuals, Africa-1.pdf}
-\caption{individuals, excluding continental species}
+\caption{Africa, individuals}
 \end{figure}
 
 \begin{longtable}[]{@{}lrrrr@{}}
-\caption{Model-fitting results for testudinidae, individuals, only
-insular species}\tabularnewline
+\caption{Model-fitting results for testudinidae, individuals,
+Africa}\tabularnewline
 \toprule
 & logL & K & AICc & Akaike.wt\tabularnewline
 \midrule
@@ -831,6 +919,8 @@ URW & -62.56518 & 1 & 127.9304 & 0.99\tabularnewline
 Stasis & -65.08256 & 2 & 137.1651 & 0.01\tabularnewline
 \bottomrule
 \end{longtable}
+
+\newpage
 
 \subsubsection{Europe, individuals}\label{europe-individuals}
 
@@ -861,12 +951,12 @@ mm & nn & vv & tt\tabularnewline
 \begin{figure}[htbp]
 \centering
 \includegraphics{MA_JJ_files/figure-latex/paleoTS, individuals, Europe-1.pdf}
-\caption{individuals, excluding continental species}
+\caption{Europe, individuals}
 \end{figure}
 
 \begin{longtable}[]{@{}lrrrr@{}}
-\caption{Model-fitting results for testudinidae, individuals, only
-insular species}\tabularnewline
+\caption{Model-fitting results for testudinidae, individuals,
+Europe}\tabularnewline
 \toprule
 & logL & K & AICc & Akaike.wt\tabularnewline
 \midrule
@@ -880,6 +970,8 @@ URW & -74.54846 & 1 & 151.6683 & 0.002\tabularnewline
 Stasis & -66.43459 & 2 & 138.8692 & 0.997\tabularnewline
 \bottomrule
 \end{longtable}
+
+\newpage
 
 \subsubsection{America, individuals}\label{america-individuals}
 
@@ -911,12 +1003,12 @@ mm & nn & vv & tt\tabularnewline
 \begin{figure}[htbp]
 \centering
 \includegraphics{MA_JJ_files/figure-latex/paleoTS, individuals, America-1.pdf}
-\caption{individuals, excluding continental species}
+\caption{America, individuals}
 \end{figure}
 
 \begin{longtable}[]{@{}lrrrr@{}}
-\caption{Model-fitting results for testudinidae, individuals, only
-insular species}\tabularnewline
+\caption{Model-fitting results for testudinidae, individuals,
+America}\tabularnewline
 \toprule
 & logL & K & AICc & Akaike.wt\tabularnewline
 \midrule
@@ -930,6 +1022,8 @@ URW & -64.43046 & 1 & 131.3609 & 0.864\tabularnewline
 Stasis & -67.81075 & 2 & 141.3358 & 0.006\tabularnewline
 \bottomrule
 \end{longtable}
+
+\newpage
 
 \subsubsection{Asia, individuals}\label{asia-individuals}
 
@@ -958,12 +1052,12 @@ mm & nn & vv & tt\tabularnewline
 \begin{figure}[htbp]
 \centering
 \includegraphics{MA_JJ_files/figure-latex/paleoTS, individuals, Asia-1.pdf}
-\caption{individuals, excluding continental species}
+\caption{individuals, Asia}
 \end{figure}
 
 \begin{longtable}[]{@{}lrrrr@{}}
-\caption{Model-fitting results for testudinidae, individuals, only
-insular species}\tabularnewline
+\caption{Model-fitting results for testudinidae, individuals,
+Asia}\tabularnewline
 \toprule
 & logL & K & AICc & Akaike.wt\tabularnewline
 \midrule
@@ -975,6 +1069,58 @@ insular species}\tabularnewline
 GRW & -80.46824 & 2 & 167.9365 & 0\tabularnewline
 URW & -58.38546 & 1 & 119.5709 & 1\tabularnewline
 Stasis & -66.94216 & 2 & 140.8843 & 0\tabularnewline
+\bottomrule
+\end{longtable}
+
+\newpage
+
+\subsubsection{Eurasia, individuals}\label{eurasia-individuals}
+
+\begin{longtable}[]{@{}rrrr@{}}
+\caption{paleoTS object (mm= mean CL, nn = sample size, vv = variance
+(CL), tt = Age)}\tabularnewline
+\toprule
+mm & nn & vv & tt\tabularnewline
+\midrule
+\endfirsthead
+\toprule
+mm & nn & vv & tt\tabularnewline
+\midrule
+\endhead
+137.2637 & 810 & 3.088779e+09 & 0.0000005\tabularnewline
+233.2286 & 70 & 9.019250e+03 & 0.0058500\tabularnewline
+530.0000 & 4 & 1.225793e+05 & 0.0688500\tabularnewline
+377.8167 & 12 & 7.533390e+04 & 0.4535000\tabularnewline
+788.8944 & 18 & 3.505783e+05 & 1.6845000\tabularnewline
+891.1111 & 9 & 4.104549e+05 & 3.0940000\tabularnewline
+1148.8750 & 16 & 6.253894e+05 & 4.4660000\tabularnewline
+547.2971 & 34 & 3.263311e+05 & 8.4700000\tabularnewline
+448.7464 & 28 & 1.911266e+05 & 13.7890000\tabularnewline
+482.2167 & 6 & 1.620242e+05 & 19.5000000\tabularnewline
+453.7500 & 6 & 1.873438e+04 & 36.5150000\tabularnewline
+\bottomrule
+\end{longtable}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics{MA_JJ_files/figure-latex/paleoTS, individuals, Eurasia-1.pdf}
+\caption{individuals, Eurasia}
+\end{figure}
+
+\begin{longtable}[]{@{}lrrrr@{}}
+\caption{Model-fitting results for testudinidae, individuals,
+Asia}\tabularnewline
+\toprule
+& logL & K & AICc & Akaike.wt\tabularnewline
+\midrule
+\endfirsthead
+\toprule
+& logL & K & AICc & Akaike.wt\tabularnewline
+\midrule
+\endhead
+GRW & -73.47268 & 2 & 152.6596 & 0.101\tabularnewline
+URW & -73.64757 & 1 & 149.7951 & 0.425\tabularnewline
+Stasis & -71.93258 & 2 & 149.5794 & 0.473\tabularnewline
 \bottomrule
 \end{longtable}
 
