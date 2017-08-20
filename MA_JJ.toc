@@ -12,4 +12,10 @@
 \contentsline {subsubsection}{individuals (insular)}{19}{section*.13}
 \contentsline {subsubsection}{species (insular)}{20}{section*.14}
 \contentsline {subsubsection}{genera (insular)}{21}{section*.15}
-\contentsline {subsection}{play with time bins}{22}{section*.16}
+\contentsline {subsection}{play with time bins: no bins}{22}{section*.16}
+\contentsline {subsection}{larger time bins}{28}{section*.17}
+\contentsline {subsection}{per continent}{31}{section*.18}
+\contentsline {subsubsection}{Africa, individuals}{31}{section*.19}
+\contentsline {subsubsection}{Europe, individuals}{31}{section*.20}
+\contentsline {subsubsection}{America, individuals}{32}{section*.21}
+\contentsline {subsubsection}{Asia, individuals}{33}{section*.22}
