@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6350 64-bit) (preloaded format=pdflatex 2017.7.2)  21 AUG 2017 16:38
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6350 64-bit) (preloaded format=pdflatex 2017.7.2)  21 AUG 2017 18:48
 entering extended mode
 **./MA_JJ.tex
 (MA_JJ.tex
@@ -988,7 +988,7 @@ File: mt-msb.cfg 2005/06/01 v1.0 microtype config. file: AMS symbols (b) (RS)
 \openout4 = `MA_JJ.toc'.
 
 [2]
-<MA_JJ_files/figure-latex/Map fossil occurrences-1.pdf, id=153, 469.755pt x 325
+<MA_JJ_files/figure-latex/Map fossil occurrences-1.pdf, id=163, 469.755pt x 325
 .215pt>
 File: MA_JJ_files/figure-latex/Map fossil occurrences-1.pdf Graphic file (type 
 pdf)
@@ -997,7 +997,7 @@ Package pdftex.def Info: MA_JJ_files/figure-latex/Map fossil occurrences-1.pdf
 used on input line 137.
 (pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
 [3 <./MA_JJ_files/figure-latex/Map fossil occurrences-1.pdf>]
-<MA_JJ_files/figure-latex/Map body size data set-1.pdf, id=164, 469.755pt x 325
+<MA_JJ_files/figure-latex/Map body size data set-1.pdf, id=174, 469.755pt x 325
 .215pt>
 File: MA_JJ_files/figure-latex/Map body size data set-1.pdf Graphic file (type 
 pdf)
@@ -1006,7 +1006,7 @@ Package pdftex.def Info: MA_JJ_files/figure-latex/Map body size data set-1.pdf
 used on input line 150.
 (pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
 [4 <./MA_JJ_files/figure-latex/Map body size data set-1.pdf>]
-<MA_JJ_files/figure-latex/Species Accumulation Curve with Genera-1.pdf, id=176,
+<MA_JJ_files/figure-latex/Species Accumulation Curve with Genera-1.pdf, id=186,
  469.755pt x 325.215pt>
 File: MA_JJ_files/figure-latex/Species Accumulation Curve with Genera-1.pdf Gra
 phic file (type pdf)
@@ -1025,7 +1025,7 @@ LaTeX Font Info:    Try loading font information for TS1+lmtt on input line 174
 ("C:\Program Files\MiKTeX 2.9\tex\latex\lm\ts1lmtt.fd"
 File: ts1lmtt.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
-<MA_JJ_files/figure-latex/Histograms of body size data, all-1.pdf, id=188, 469.
+<MA_JJ_files/figure-latex/Histograms of body size data, all-1.pdf, id=198, 469.
 755pt x 325.215pt>
 File: MA_JJ_files/figure-latex/Histograms of body size data, all-1.pdf Graphic 
 file (type pdf)
@@ -1035,7 +1035,7 @@ Package pdftex.def Info: MA_JJ_files/figure-latex/Histograms of body size data,
 (pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
 [6 <./MA_JJ_files/figure-latex/Histograms of body size data, all-1.pdf>]
 <MA_JJ_files/figure-latex/Histograms of body size data, per time bin-1.pdf, id=
-201, 469.755pt x 325.215pt>
+211, 469.755pt x 325.215pt>
 File: MA_JJ_files/figure-latex/Histograms of body size data, per time bin-1.pdf
  Graphic file (type pdf)
 
@@ -1046,7 +1046,7 @@ Package pdftex.def Info: MA_JJ_files/figure-latex/Histograms of body size data,
 [7 <./MA_JJ_files/figure-latex/Histograms of body size data, per time bin-1.pdf
 >]
 <MA_JJ_files/figure-latex/Histograms of body size data, modern vs. fossil-1.pdf
-, id=213, 469.755pt x 325.215pt>
+, id=223, 469.755pt x 325.215pt>
 File: MA_JJ_files/figure-latex/Histograms of body size data, modern vs. fossil-
 1.pdf Graphic file (type pdf)
 
@@ -1057,462 +1057,503 @@ Package pdftex.def Info: MA_JJ_files/figure-latex/Histograms of body size data,
 (pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
 [8 <./MA_JJ_files/figure-latex/Histograms of body size data, modern vs. fossil-
 1.pdf>]
+<MA_JJ_files/figure-latex/Histograms of body size data, modern vs. fossil, cont
+inental vs. insular-1.pdf, id=234, 469.755pt x 325.215pt>
+File: MA_JJ_files/figure-latex/Histograms of body size data, modern vs. fossil,
+ continental vs. insular-1.pdf Graphic file (type pdf)
+
+<use MA_JJ_files/figure-latex/Histograms of body size data, modern vs. fossil, 
+continental vs. insular-1.pdf>
+Package pdftex.def Info: MA_JJ_files/figure-latex/Histograms of body size data,
+ modern vs. fossil, continental vs. insular-1.pdf used on input line 222.
+(pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
+[9 <./MA_JJ_files/figure-latex/Histograms of body size data, modern vs. fossil,
+ continental vs. insular-1.pdf>]
 <MA_JJ_files/figure-latex/Histograms of body size data, continental vs. insular
--1.pdf, id=224, 469.755pt x 325.215pt>
+-1.pdf, id=245, 469.755pt x 325.215pt>
 File: MA_JJ_files/figure-latex/Histograms of body size data, continental vs. in
 sular-1.pdf Graphic file (type pdf)
 
 <use MA_JJ_files/figure-latex/Histograms of body size data, continental vs. ins
 ular-1.pdf>
 Package pdftex.def Info: MA_JJ_files/figure-latex/Histograms of body size data,
- continental vs. insular-1.pdf used on input line 221.
+ continental vs. insular-1.pdf used on input line 237.
 (pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
-[9 <./MA_JJ_files/figure-latex/Histograms of body size data, continental vs. in
-sular-1.pdf>]
+[10 <./MA_JJ_files/figure-latex/Histograms of body size data, continental vs. i
+nsular-1.pdf>]
 <MA_JJ_files/figure-latex/Histograms of body size data, split by continents-1.p
-df, id=235, 469.755pt x 325.215pt>
+df, id=256, 469.755pt x 325.215pt>
 File: MA_JJ_files/figure-latex/Histograms of body size data, split by continent
 s-1.pdf Graphic file (type pdf)
 
 <use MA_JJ_files/figure-latex/Histograms of body size data, split by continents
 -1.pdf>
 Package pdftex.def Info: MA_JJ_files/figure-latex/Histograms of body size data,
- split by continents-1.pdf used on input line 236.
+ split by continents-1.pdf used on input line 252.
 (pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
-[10 <./MA_JJ_files/figure-latex/Histograms of body size data, split by continen
+[11 <./MA_JJ_files/figure-latex/Histograms of body size data, split by continen
 ts-1.pdf>]
-Overfull \hbox (67.41107pt too wide) in alignment at lines 242--249
+Overfull \hbox (67.41107pt too wide) in alignment at lines 260--269
  [] [] [] [] [] [] [] [] [] [] [] [] [] 
  []
 
 
-Overfull \hbox (67.41107pt too wide) in alignment at lines 249--254
+Overfull \hbox (67.41107pt too wide) in alignment at lines 269--274
  [] [] [] [] [] [] [] [] [] [] [] [] [] 
  []
 
 
-Overfull \hbox (67.41107pt too wide) in alignment at lines 254--294
+Overfull \hbox (67.41107pt too wide) in alignment at lines 274--315
  [] [] [] [] [] [] [] [] [] [] [] [] [] 
  []
 
-[11]
-<MA_JJ_files/figure-latex/Boxplots of each genus per time bin-1.pdf, id=251, 46
+
+Overfull \hbox (67.41107pt too wide) in alignment at lines 315--322
+ [] [] [] [] [] [] [] [] [] [] [] [] [] 
+ []
+
+[12]
+<MA_JJ_files/figure-latex/Boxplots of each genus per time bin-1.pdf, id=272, 46
 9.755pt x 325.215pt>
 File: MA_JJ_files/figure-latex/Boxplots of each genus per time bin-1.pdf Graphi
 c file (type pdf)
 <use MA_JJ_files/figure-latex/Boxplots of each genus per time bin-1.pdf>
 Package pdftex.def Info: MA_JJ_files/figure-latex/Boxplots of each genus per ti
-me bin-1.pdf used on input line 304.
+me bin-1.pdf used on input line 332.
 (pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
-[12 <./MA_JJ_files/figure-latex/Boxplots of each genus per time bin-1.pdf>]
+[13 <./MA_JJ_files/figure-latex/Boxplots of each genus per time bin-1.pdf>]
 <MA_JJ_files/figure-latex/Boxplots of each genus per time bin, continental vs. 
-insular-1.pdf, id=262, 469.755pt x 325.215pt>
+insular-1.pdf, id=284, 469.755pt x 325.215pt>
 File: MA_JJ_files/figure-latex/Boxplots of each genus per time bin, continental
  vs. insular-1.pdf Graphic file (type pdf)
 
 <use MA_JJ_files/figure-latex/Boxplots of each genus per time bin, continental 
 vs. insular-1.pdf>
 Package pdftex.def Info: MA_JJ_files/figure-latex/Boxplots of each genus per ti
-me bin, continental vs. insular-1.pdf used on input line 316.
+me bin, continental vs. insular-1.pdf used on input line 344.
 (pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
-[13 <./MA_JJ_files/figure-latex/Boxplots of each genus per time bin, continenta
+[14 <./MA_JJ_files/figure-latex/Boxplots of each genus per time bin, continenta
 l vs. insular-1.pdf>]
-<MA_JJ_files/figure-latex/Boxplots modern vs. fossil-1.pdf, id=274, 469.755pt x
+<MA_JJ_files/figure-latex/Boxplots modern vs. fossil-1.pdf, id=295, 469.755pt x
  325.215pt>
 File: MA_JJ_files/figure-latex/Boxplots modern vs. fossil-1.pdf Graphic file (t
 ype pdf)
 <use MA_JJ_files/figure-latex/Boxplots modern vs. fossil-1.pdf>
 Package pdftex.def Info: MA_JJ_files/figure-latex/Boxplots modern vs. fossil-1.
-pdf used on input line 327.
+pdf used on input line 355.
 (pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
-[14 <./MA_JJ_files/figure-latex/Boxplots modern vs. fossil-1.pdf>]
+[15 <./MA_JJ_files/figure-latex/Boxplots modern vs. fossil-1.pdf>]
 <MA_JJ_files/figure-latex/Boxplots fossil vs. modern, continental vs. insular-1
-.pdf, id=285, 469.755pt x 325.215pt>
+.pdf, id=306, 469.755pt x 325.215pt>
 File: MA_JJ_files/figure-latex/Boxplots fossil vs. modern, continental vs. insu
 lar-1.pdf Graphic file (type pdf)
 
 <use MA_JJ_files/figure-latex/Boxplots fossil vs. modern, continental vs. insul
 ar-1.pdf>
 Package pdftex.def Info: MA_JJ_files/figure-latex/Boxplots fossil vs. modern, c
-ontinental vs. insular-1.pdf used on input line 338.
+ontinental vs. insular-1.pdf used on input line 366.
 (pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
-[15 <./MA_JJ_files/figure-latex/Boxplots fossil vs. modern, continental vs. ins
+[16 <./MA_JJ_files/figure-latex/Boxplots fossil vs. modern, continental vs. ins
 ular-1.pdf>]
-<MA_JJ_files/figure-latex/Boxplot continental vs. insular-1.pdf, id=296, 469.75
+<MA_JJ_files/figure-latex/Boxplot continental vs. insular-1.pdf, id=317, 469.75
 5pt x 325.215pt>
 File: MA_JJ_files/figure-latex/Boxplot continental vs. insular-1.pdf Graphic fi
 le (type pdf)
 <use MA_JJ_files/figure-latex/Boxplot continental vs. insular-1.pdf>
 Package pdftex.def Info: MA_JJ_files/figure-latex/Boxplot continental vs. insul
-ar-1.pdf used on input line 348.
+ar-1.pdf used on input line 376.
 (pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
-[16 <./MA_JJ_files/figure-latex/Boxplot continental vs. insular-1.pdf>]
+[17 <./MA_JJ_files/figure-latex/Boxplot continental vs. insular-1.pdf>]
 <MA_JJ_files/figure-latex/Boxplot continental vs. insular, split into time bins
--1.pdf, id=307, 469.755pt x 325.215pt>
+-1.pdf, id=328, 469.755pt x 325.215pt>
 File: MA_JJ_files/figure-latex/Boxplot continental vs. insular, split into time
  bins-1.pdf Graphic file (type pdf)
 
 <use MA_JJ_files/figure-latex/Boxplot continental vs. insular, split into time 
 bins-1.pdf>
 Package pdftex.def Info: MA_JJ_files/figure-latex/Boxplot continental vs. insul
-ar, split into time bins-1.pdf used on input line 359.
+ar, split into time bins-1.pdf used on input line 387.
 (pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
-[17 <./MA_JJ_files/figure-latex/Boxplot continental vs. insular, split into tim
+[18 <./MA_JJ_files/figure-latex/Boxplot continental vs. insular, split into tim
 e bins-1.pdf>]
-<MA_JJ_files/figure-latex/Boxplot body size split into continents-1.pdf, id=318
+<MA_JJ_files/figure-latex/Boxplot body size split into continents-1.pdf, id=339
 , 469.755pt x 325.215pt>
 File: MA_JJ_files/figure-latex/Boxplot body size split into continents-1.pdf Gr
 aphic file (type pdf)
 <use MA_JJ_files/figure-latex/Boxplot body size split into continents-1.pdf>
 Package pdftex.def Info: MA_JJ_files/figure-latex/Boxplot body size split into 
-continents-1.pdf used on input line 369.
+continents-1.pdf used on input line 397.
 (pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
 
 <MA_JJ_files/figure-latex/Boxplot body size split into continents, continental 
-vs. insular-1.pdf, id=319, 469.755pt x 325.215pt>
+vs. insular-1.pdf, id=340, 469.755pt x 325.215pt>
 File: MA_JJ_files/figure-latex/Boxplot body size split into continents, contine
 ntal vs. insular-1.pdf Graphic file (type pdf)
 
 <use MA_JJ_files/figure-latex/Boxplot body size split into continents, continen
 tal vs. insular-1.pdf>
 Package pdftex.def Info: MA_JJ_files/figure-latex/Boxplot body size split into 
-continents, continental vs. insular-1.pdf used on input line 375.
+continents, continental vs. insular-1.pdf used on input line 403.
 (pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
-[18 <./MA_JJ_files/figure-latex/Boxplot body size split into continents-1.pdf>]
-[19 <./MA_JJ_files/figure-latex/Boxplot body size split into continents, contin
-ental vs. insular-1.pdf>] <MA_JJ_files/figure-latex/paleoTS plot-1.pdf, id=341,
+[19 <./MA_JJ_files/figure-latex/Boxplot body size split into continents-1.pdf>]
+[20 <./MA_JJ_files/figure-latex/Boxplot body size split into continents, contin
+ental vs. insular-1.pdf>] <MA_JJ_files/figure-latex/paleoTS plot-1.pdf, id=362,
  469.755pt x 325.215pt>
 File: MA_JJ_files/figure-latex/paleoTS plot-1.pdf Graphic file (type pdf)
 <use MA_JJ_files/figure-latex/paleoTS plot-1.pdf>
 Package pdftex.def Info: MA_JJ_files/figure-latex/paleoTS plot-1.pdf used on in
-put line 390.
+put line 418.
 (pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
-[20 <./MA_JJ_files/figure-latex/paleoTS plot-1.pdf>] [21]
+[21 <./MA_JJ_files/figure-latex/paleoTS plot-1.pdf>] [22]
 <MA_JJ_files/figure-latex/paleoTS plot with species mean, including island spec
-ies-1.pdf, id=360, 469.755pt x 325.215pt>
+ies-1.pdf, id=381, 469.755pt x 325.215pt>
 File: MA_JJ_files/figure-latex/paleoTS plot with species mean, including island
  species-1.pdf Graphic file (type pdf)
 
 <use MA_JJ_files/figure-latex/paleoTS plot with species mean, including island 
 species-1.pdf>
 Package pdftex.def Info: MA_JJ_files/figure-latex/paleoTS plot with species mea
-n, including island species-1.pdf used on input line 435.
+n, including island species-1.pdf used on input line 463.
 (pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
-[22 <./MA_JJ_files/figure-latex/paleoTS plot with species mean, including islan
-d species-1.pdf>] [23]
+[23 <./MA_JJ_files/figure-latex/paleoTS plot with species mean, including islan
+d species-1.pdf>] [24]
 <MA_JJ_files/figure-latex/paleoTS plot with genus mean, including island specie
-s-1.pdf, id=379, 469.755pt x 325.215pt>
+s-1.pdf, id=400, 469.755pt x 325.215pt>
 File: MA_JJ_files/figure-latex/paleoTS plot with genus mean, including island s
 pecies-1.pdf Graphic file (type pdf)
 
 <use MA_JJ_files/figure-latex/paleoTS plot with genus mean, including island sp
 ecies-1.pdf>
 Package pdftex.def Info: MA_JJ_files/figure-latex/paleoTS plot with genus mean,
- including island species-1.pdf used on input line 480.
+ including island species-1.pdf used on input line 508.
 (pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
-[24 <./MA_JJ_files/figure-latex/paleoTS plot with genus mean, including island 
-species-1.pdf>] [25]
+[25 <./MA_JJ_files/figure-latex/paleoTS plot with genus mean, including island 
+species-1.pdf>] [26]
 <MA_JJ_files/figure-latex/paleoTS, individuals, exluding island species-1.pdf, 
-id=399, 469.755pt x 325.215pt>
+id=420, 469.755pt x 325.215pt>
 File: MA_JJ_files/figure-latex/paleoTS, individuals, exluding island species-1.
 pdf Graphic file (type pdf)
 
 <use MA_JJ_files/figure-latex/paleoTS, individuals, exluding island species-1.p
 df>
 Package pdftex.def Info: MA_JJ_files/figure-latex/paleoTS, individuals, exludin
-g island species-1.pdf used on input line 528.
+g island species-1.pdf used on input line 556.
 (pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
-[26 <./MA_JJ_files/figure-latex/paleoTS, individuals, exluding island species-1
-.pdf>] [27]
+[27 <./MA_JJ_files/figure-latex/paleoTS, individuals, exluding island species-1
+.pdf>] [28]
 <MA_JJ_files/figure-latex/paleoTS plot with species mean, excluding island spec
-ies-1.pdf, id=418, 469.755pt x 325.215pt>
+ies-1.pdf, id=439, 469.755pt x 325.215pt>
 File: MA_JJ_files/figure-latex/paleoTS plot with species mean, excluding island
  species-1.pdf Graphic file (type pdf)
 
 <use MA_JJ_files/figure-latex/paleoTS plot with species mean, excluding island 
 species-1.pdf>
 Package pdftex.def Info: MA_JJ_files/figure-latex/paleoTS plot with species mea
-n, excluding island species-1.pdf used on input line 573.
+n, excluding island species-1.pdf used on input line 601.
 (pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
-[28 <./MA_JJ_files/figure-latex/paleoTS plot with species mean, excluding islan
-d species-1.pdf>] [29]
+[29 <./MA_JJ_files/figure-latex/paleoTS plot with species mean, excluding islan
+d species-1.pdf>] [30]
 <MA_JJ_files/figure-latex/paleoTS plot with genus mean, excluding island specie
-s-1.pdf, id=437, 469.755pt x 325.215pt>
+s-1.pdf, id=458, 469.755pt x 325.215pt>
 File: MA_JJ_files/figure-latex/paleoTS plot with genus mean, excluding island s
 pecies-1.pdf Graphic file (type pdf)
 
 <use MA_JJ_files/figure-latex/paleoTS plot with genus mean, excluding island sp
 ecies-1.pdf>
 Package pdftex.def Info: MA_JJ_files/figure-latex/paleoTS plot with genus mean,
- excluding island species-1.pdf used on input line 618.
+ excluding island species-1.pdf used on input line 646.
 (pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
-[30 <./MA_JJ_files/figure-latex/paleoTS plot with genus mean, excluding island 
-species-1.pdf>] [31]
+[31 <./MA_JJ_files/figure-latex/paleoTS plot with genus mean, excluding island 
+species-1.pdf>] [32]
 <MA_JJ_files/figure-latex/paleoTS, individuals, exluding continental species-1.
-pdf, id=457, 469.755pt x 325.215pt>
+pdf, id=478, 469.755pt x 325.215pt>
 File: MA_JJ_files/figure-latex/paleoTS, individuals, exluding continental speci
 es-1.pdf Graphic file (type pdf)
 
 <use MA_JJ_files/figure-latex/paleoTS, individuals, exluding continental specie
 s-1.pdf>
 Package pdftex.def Info: MA_JJ_files/figure-latex/paleoTS, individuals, exludin
-g continental species-1.pdf used on input line 666.
+g continental species-1.pdf used on input line 694.
 (pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
-[32 <./MA_JJ_files/figure-latex/paleoTS, individuals, exluding continental spec
+[33 <./MA_JJ_files/figure-latex/paleoTS, individuals, exluding continental spec
 ies-1.pdf>]
 <MA_JJ_files/figure-latex/paleoTS plot with species mean, excluding continental
- species-1.pdf, id=471, 469.755pt x 325.215pt>
+ species-1.pdf, id=492, 469.755pt x 325.215pt>
 File: MA_JJ_files/figure-latex/paleoTS plot with species mean, excluding contin
 ental species-1.pdf Graphic file (type pdf)
 
 <use MA_JJ_files/figure-latex/paleoTS plot with species mean, excluding contine
 ntal species-1.pdf>
 Package pdftex.def Info: MA_JJ_files/figure-latex/paleoTS plot with species mea
-n, excluding continental species-1.pdf used on input line 693.
+n, excluding continental species-1.pdf used on input line 721.
 (pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
-[33 <./MA_JJ_files/figure-latex/paleoTS plot with species mean, excluding conti
+[34 <./MA_JJ_files/figure-latex/paleoTS plot with species mean, excluding conti
 nental species-1.pdf>]
 <MA_JJ_files/figure-latex/paleoTS plot with genus mean, excluding continental s
-pecies-1.pdf, id=485, 469.755pt x 325.215pt>
+pecies-1.pdf, id=506, 469.755pt x 325.215pt>
 File: MA_JJ_files/figure-latex/paleoTS plot with genus mean, excluding continen
 tal species-1.pdf Graphic file (type pdf)
 
 <use MA_JJ_files/figure-latex/paleoTS plot with genus mean, excluding continent
 al species-1.pdf>
 Package pdftex.def Info: MA_JJ_files/figure-latex/paleoTS plot with genus mean,
- excluding continental species-1.pdf used on input line 720.
+ excluding continental species-1.pdf used on input line 748.
 (pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
-[34 <./MA_JJ_files/figure-latex/paleoTS plot with genus mean, excluding contine
+[35 <./MA_JJ_files/figure-latex/paleoTS plot with genus mean, excluding contine
 ntal species-1.pdf>]
 <MA_JJ_files/figure-latex/paleoTS with different time bins, no bins, genera-1.p
-df, id=499, 469.755pt x 325.215pt>
+df, id=520, 469.755pt x 325.215pt>
 File: MA_JJ_files/figure-latex/paleoTS with different time bins, no bins, gener
 a-1.pdf Graphic file (type pdf)
 
 <use MA_JJ_files/figure-latex/paleoTS with different time bins, no bins, genera
 -1.pdf>
 Package pdftex.def Info: MA_JJ_files/figure-latex/paleoTS with different time b
-ins, no bins, genera-1.pdf used on input line 748.
+ins, no bins, genera-1.pdf used on input line 778.
 (pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
-[35 <./MA_JJ_files/figure-latex/paleoTS with different time bins, no bins, gene
+[36 <./MA_JJ_files/figure-latex/paleoTS with different time bins, no bins, gene
 ra-1.pdf>]
+<MA_JJ_files/figure-latex/paleoTS with different time bins, no bins, genera, co
+ntinental-1.pdf, id=534, 469.755pt x 325.215pt>
+File: MA_JJ_files/figure-latex/paleoTS with different time bins, no bins, gener
+a, continental-1.pdf Graphic file (type pdf)
+
+<use MA_JJ_files/figure-latex/paleoTS with different time bins, no bins, genera
+, continental-1.pdf>
+Package pdftex.def Info: MA_JJ_files/figure-latex/paleoTS with different time b
+ins, no bins, genera, continental-1.pdf used on input line 805.
+(pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
+[37 <./MA_JJ_files/figure-latex/paleoTS with different time bins, no bins, gene
+ra, continental-1.pdf>]
+<MA_JJ_files/figure-latex/paleoTS with different time bins, no bins, genera, in
+sular-1.pdf, id=549, 469.755pt x 325.215pt>
+File: MA_JJ_files/figure-latex/paleoTS with different time bins, no bins, gener
+a, insular-1.pdf Graphic file (type pdf)
+
+<use MA_JJ_files/figure-latex/paleoTS with different time bins, no bins, genera
+, insular-1.pdf>
+Package pdftex.def Info: MA_JJ_files/figure-latex/paleoTS with different time b
+ins, no bins, genera, insular-1.pdf used on input line 832.
+(pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
+[38 <./MA_JJ_files/figure-latex/paleoTS with different time bins, no bins, gene
+ra, insular-1.pdf>]
 <MA_JJ_files/figure-latex/Play around with time bins, larger equal bins, indivi
-duals-1.pdf, id=512, 469.755pt x 325.215pt>
+duals-1.pdf, id=563, 469.755pt x 325.215pt>
 File: MA_JJ_files/figure-latex/Play around with time bins, larger equal bins, i
 ndividuals-1.pdf Graphic file (type pdf)
 
 <use MA_JJ_files/figure-latex/Play around with time bins, larger equal bins, in
 dividuals-1.pdf>
 Package pdftex.def Info: MA_JJ_files/figure-latex/Play around with time bins, l
-arger equal bins, individuals-1.pdf used on input line 777.
+arger equal bins, individuals-1.pdf used on input line 861.
 (pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
-[36 <./MA_JJ_files/figure-latex/Play around with time bins, larger equal bins, 
+[39 <./MA_JJ_files/figure-latex/Play around with time bins, larger equal bins, 
 individuals-1.pdf>]
 <MA_JJ_files/figure-latex/Play around with time bins, equal bin, species level-
-1.pdf, id=526, 469.755pt x 325.215pt>
+1.pdf, id=577, 469.755pt x 325.215pt>
 File: MA_JJ_files/figure-latex/Play around with time bins, equal bin, species l
 evel-1.pdf Graphic file (type pdf)
 
 <use MA_JJ_files/figure-latex/Play around with time bins, equal bin, species le
 vel-1.pdf>
 Package pdftex.def Info: MA_JJ_files/figure-latex/Play around with time bins, e
-qual bin, species level-1.pdf used on input line 804.
+qual bin, species level-1.pdf used on input line 888.
 (pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
-[37 <./MA_JJ_files/figure-latex/Play around with time bins, equal bin, species 
+[40 <./MA_JJ_files/figure-latex/Play around with time bins, equal bin, species 
 level-1.pdf>]
 <MA_JJ_files/figure-latex/Play around with time bins, generic level-1.pdf, id=5
-41, 469.755pt x 325.215pt>
+91, 469.755pt x 325.215pt>
 File: MA_JJ_files/figure-latex/Play around with time bins, generic level-1.pdf 
 Graphic file (type pdf)
 
 <use MA_JJ_files/figure-latex/Play around with time bins, generic level-1.pdf>
 Package pdftex.def Info: MA_JJ_files/figure-latex/Play around with time bins, g
-eneric level-1.pdf used on input line 831.
+eneric level-1.pdf used on input line 915.
 (pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
-[38 <./MA_JJ_files/figure-latex/Play around with time bins, generic level-1.pdf
+[41 <./MA_JJ_files/figure-latex/Play around with time bins, generic level-1.pdf
 >]
 <MA_JJ_files/figure-latex/Play around with larger time bins, generic level-1.pd
-f, id=555, 469.755pt x 325.215pt>
+f, id=605, 469.755pt x 325.215pt>
 File: MA_JJ_files/figure-latex/Play around with larger time bins, generic level
 -1.pdf Graphic file (type pdf)
 
 <use MA_JJ_files/figure-latex/Play around with larger time bins, generic level-
 1.pdf>
 Package pdftex.def Info: MA_JJ_files/figure-latex/Play around with larger time 
-bins, generic level-1.pdf used on input line 861.
+bins, generic level-1.pdf used on input line 945.
 (pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
-[39 <./MA_JJ_files/figure-latex/Play around with larger time bins, generic leve
+[42 <./MA_JJ_files/figure-latex/Play around with larger time bins, generic leve
 l-1.pdf>]
-<MA_JJ_files/figure-latex/paleoTS, individuals, Africa-1.pdf, id=569, 469.755pt
+<MA_JJ_files/figure-latex/paleoTS, individuals, Africa-1.pdf, id=619, 469.755pt
  x 325.215pt>
 File: MA_JJ_files/figure-latex/paleoTS, individuals, Africa-1.pdf Graphic file 
 (type pdf)
 <use MA_JJ_files/figure-latex/paleoTS, individuals, Africa-1.pdf>
 Package pdftex.def Info: MA_JJ_files/figure-latex/paleoTS, individuals, Africa-
-1.pdf used on input line 890.
+1.pdf used on input line 974.
 (pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
-[40 <./MA_JJ_files/figure-latex/paleoTS, individuals, Africa-1.pdf>]
-<MA_JJ_files/figure-latex/paleoTS, no bins individuals, Africa-1.pdf, id=583, 4
+[43 <./MA_JJ_files/figure-latex/paleoTS, individuals, Africa-1.pdf>]
+<MA_JJ_files/figure-latex/paleoTS, no bins individuals, Africa-1.pdf, id=634, 4
 69.755pt x 325.215pt>
 File: MA_JJ_files/figure-latex/paleoTS, no bins individuals, Africa-1.pdf Graph
 ic file (type pdf)
 <use MA_JJ_files/figure-latex/paleoTS, no bins individuals, Africa-1.pdf>
 Package pdftex.def Info: MA_JJ_files/figure-latex/paleoTS, no bins individuals,
- Africa-1.pdf used on input line 918.
+ Africa-1.pdf used on input line 1002.
 (pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
-[41 <./MA_JJ_files/figure-latex/paleoTS, no bins individuals, Africa-1.pdf>]
+[44 <./MA_JJ_files/figure-latex/paleoTS, no bins individuals, Africa-1.pdf>]
 <MA_JJ_files/figure-latex/paleoTS with different time bins, no bins, genera, Af
-rica-1.pdf, id=597, 469.755pt x 325.215pt>
+rica-1.pdf, id=648, 469.755pt x 325.215pt>
 File: MA_JJ_files/figure-latex/paleoTS with different time bins, no bins, gener
 a, Africa-1.pdf Graphic file (type pdf)
 
 <use MA_JJ_files/figure-latex/paleoTS with different time bins, no bins, genera
 , Africa-1.pdf>
 Package pdftex.def Info: MA_JJ_files/figure-latex/paleoTS with different time b
-ins, no bins, genera, Africa-1.pdf used on input line 945.
+ins, no bins, genera, Africa-1.pdf used on input line 1029.
 (pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
-[42 <./MA_JJ_files/figure-latex/paleoTS with different time bins, no bins, gene
+[45 <./MA_JJ_files/figure-latex/paleoTS with different time bins, no bins, gene
 ra, Africa-1.pdf>]
-<MA_JJ_files/figure-latex/paleoTS, individuals, Europe-1.pdf, id=611, 469.755pt
+<MA_JJ_files/figure-latex/paleoTS, individuals, Europe-1.pdf, id=662, 469.755pt
  x 325.215pt>
 File: MA_JJ_files/figure-latex/paleoTS, individuals, Europe-1.pdf Graphic file 
 (type pdf)
 <use MA_JJ_files/figure-latex/paleoTS, individuals, Europe-1.pdf>
 Package pdftex.def Info: MA_JJ_files/figure-latex/paleoTS, individuals, Europe-
-1.pdf used on input line 972.
+1.pdf used on input line 1056.
 (pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
-[43 <./MA_JJ_files/figure-latex/paleoTS, individuals, Europe-1.pdf>] [44]
-<MA_JJ_files/figure-latex/paleoTS, no bins individuals, Europe-1.pdf, id=631, 4
+[46 <./MA_JJ_files/figure-latex/paleoTS, individuals, Europe-1.pdf>] [47]
+<MA_JJ_files/figure-latex/paleoTS, no bins individuals, Europe-1.pdf, id=681, 4
 69.755pt x 325.215pt>
 File: MA_JJ_files/figure-latex/paleoTS, no bins individuals, Europe-1.pdf Graph
 ic file (type pdf)
 <use MA_JJ_files/figure-latex/paleoTS, no bins individuals, Europe-1.pdf>
 Package pdftex.def Info: MA_JJ_files/figure-latex/paleoTS, no bins individuals,
- Europe-1.pdf used on input line 1018.
+ Europe-1.pdf used on input line 1102.
 (pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
-[45 <./MA_JJ_files/figure-latex/paleoTS, no bins individuals, Europe-1.pdf>]
+[48 <./MA_JJ_files/figure-latex/paleoTS, no bins individuals, Europe-1.pdf>]
 <MA_JJ_files/figure-latex/paleoTS with different time bins, no bins, genera, Eu
-rope-1.pdf, id=645, 469.755pt x 325.215pt>
+rope-1.pdf, id=695, 469.755pt x 325.215pt>
 File: MA_JJ_files/figure-latex/paleoTS with different time bins, no bins, gener
 a, Europe-1.pdf Graphic file (type pdf)
 
 <use MA_JJ_files/figure-latex/paleoTS with different time bins, no bins, genera
 , Europe-1.pdf>
 Package pdftex.def Info: MA_JJ_files/figure-latex/paleoTS with different time b
-ins, no bins, genera, Europe-1.pdf used on input line 1045.
+ins, no bins, genera, Europe-1.pdf used on input line 1129.
 (pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
-[46 <./MA_JJ_files/figure-latex/paleoTS with different time bins, no bins, gene
+[49 <./MA_JJ_files/figure-latex/paleoTS with different time bins, no bins, gene
 ra, Europe-1.pdf>]
-<MA_JJ_files/figure-latex/paleoTS, individuals, America-1.pdf, id=659, 469.755p
+<MA_JJ_files/figure-latex/paleoTS, individuals, America-1.pdf, id=710, 469.755p
 t x 325.215pt>
 File: MA_JJ_files/figure-latex/paleoTS, individuals, America-1.pdf Graphic file
  (type pdf)
 <use MA_JJ_files/figure-latex/paleoTS, individuals, America-1.pdf>
 Package pdftex.def Info: MA_JJ_files/figure-latex/paleoTS, individuals, America
--1.pdf used on input line 1071.
+-1.pdf used on input line 1155.
 (pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 1071--1073
+Underfull \hbox (badness 10000) in paragraph at lines 1155--1157
 []
  []
 
-[47 <./MA_JJ_files/figure-latex/paleoTS, individuals, America-1.pdf>]
-<MA_JJ_files/figure-latex/paleoTS, no bins individuals, America-1.pdf, id=671, 
+[50 <./MA_JJ_files/figure-latex/paleoTS, individuals, America-1.pdf>]
+<MA_JJ_files/figure-latex/paleoTS, no bins individuals, America-1.pdf, id=722, 
 469.755pt x 325.215pt>
 File: MA_JJ_files/figure-latex/paleoTS, no bins individuals, America-1.pdf Grap
 hic file (type pdf)
 <use MA_JJ_files/figure-latex/paleoTS, no bins individuals, America-1.pdf>
 Package pdftex.def Info: MA_JJ_files/figure-latex/paleoTS, no bins individuals,
- America-1.pdf used on input line 1081.
+ America-1.pdf used on input line 1165.
 (pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
-[48 <./MA_JJ_files/figure-latex/paleoTS, no bins individuals, America-1.pdf>]
+[51 <./MA_JJ_files/figure-latex/paleoTS, no bins individuals, America-1.pdf>]
 <MA_JJ_files/figure-latex/paleoTS with different time bins, no bins, genera, Am
-erica-1.pdf, id=685, 469.755pt x 325.215pt>
+erica-1.pdf, id=736, 469.755pt x 325.215pt>
 File: MA_JJ_files/figure-latex/paleoTS with different time bins, no bins, gener
 a, America-1.pdf Graphic file (type pdf)
 
 <use MA_JJ_files/figure-latex/paleoTS with different time bins, no bins, genera
 , America-1.pdf>
 Package pdftex.def Info: MA_JJ_files/figure-latex/paleoTS with different time b
-ins, no bins, genera, America-1.pdf used on input line 1108.
+ins, no bins, genera, America-1.pdf used on input line 1192.
 (pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
-[49 <./MA_JJ_files/figure-latex/paleoTS with different time bins, no bins, gene
+[52 <./MA_JJ_files/figure-latex/paleoTS with different time bins, no bins, gene
 ra, America-1.pdf>]
-<MA_JJ_files/figure-latex/paleoTS, individuals, Asia-1.pdf, id=700, 469.755pt x
+<MA_JJ_files/figure-latex/paleoTS, individuals, Asia-1.pdf, id=750, 469.755pt x
  325.215pt>
 File: MA_JJ_files/figure-latex/paleoTS, individuals, Asia-1.pdf Graphic file (t
 ype pdf)
 <use MA_JJ_files/figure-latex/paleoTS, individuals, Asia-1.pdf>
 Package pdftex.def Info: MA_JJ_files/figure-latex/paleoTS, individuals, Asia-1.
-pdf used on input line 1135.
+pdf used on input line 1219.
 (pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
-[50 <./MA_JJ_files/figure-latex/paleoTS, individuals, Asia-1.pdf>]
-<MA_JJ_files/figure-latex/paleoTS, no bins individuals, Asia-1.pdf, id=714, 469
+[53 <./MA_JJ_files/figure-latex/paleoTS, individuals, Asia-1.pdf>]
+<MA_JJ_files/figure-latex/paleoTS, no bins individuals, Asia-1.pdf, id=764, 469
 .755pt x 325.215pt>
 File: MA_JJ_files/figure-latex/paleoTS, no bins individuals, Asia-1.pdf Graphic
  file (type pdf)
 <use MA_JJ_files/figure-latex/paleoTS, no bins individuals, Asia-1.pdf>
 Package pdftex.def Info: MA_JJ_files/figure-latex/paleoTS, no bins individuals,
- Asia-1.pdf used on input line 1163.
+ Asia-1.pdf used on input line 1247.
 (pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
-[51 <./MA_JJ_files/figure-latex/paleoTS, no bins individuals, Asia-1.pdf>]
+[54 <./MA_JJ_files/figure-latex/paleoTS, no bins individuals, Asia-1.pdf>]
 <MA_JJ_files/figure-latex/paleoTS with different time bins, no bins, genera, As
-ia-1.pdf, id=728, 469.755pt x 325.215pt>
+ia-1.pdf, id=778, 469.755pt x 325.215pt>
 File: MA_JJ_files/figure-latex/paleoTS with different time bins, no bins, gener
 a, Asia-1.pdf Graphic file (type pdf)
 
 <use MA_JJ_files/figure-latex/paleoTS with different time bins, no bins, genera
 , Asia-1.pdf>
 Package pdftex.def Info: MA_JJ_files/figure-latex/paleoTS with different time b
-ins, no bins, genera, Asia-1.pdf used on input line 1190.
+ins, no bins, genera, Asia-1.pdf used on input line 1274.
 (pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
-[52 <./MA_JJ_files/figure-latex/paleoTS with different time bins, no bins, gene
+[55 <./MA_JJ_files/figure-latex/paleoTS with different time bins, no bins, gene
 ra, Asia-1.pdf>]
-<MA_JJ_files/figure-latex/paleoTS, individuals, Eurasia-1.pdf, id=742, 469.755p
+<MA_JJ_files/figure-latex/paleoTS, individuals, Eurasia-1.pdf, id=793, 469.755p
 t x 325.215pt>
 File: MA_JJ_files/figure-latex/paleoTS, individuals, Eurasia-1.pdf Graphic file
  (type pdf)
 <use MA_JJ_files/figure-latex/paleoTS, individuals, Eurasia-1.pdf>
 Package pdftex.def Info: MA_JJ_files/figure-latex/paleoTS, individuals, Eurasia
--1.pdf used on input line 1217.
+-1.pdf used on input line 1301.
 (pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
-[53 <./MA_JJ_files/figure-latex/paleoTS, individuals, Eurasia-1.pdf>] [54]
-<MA_JJ_files/figure-latex/paleoTS, no bins individuals, Eurasia-1.pdf, id=761, 
+[56 <./MA_JJ_files/figure-latex/paleoTS, individuals, Eurasia-1.pdf>] [57]
+<MA_JJ_files/figure-latex/paleoTS, no bins individuals, Eurasia-1.pdf, id=812, 
 469.755pt x 325.215pt>
 File: MA_JJ_files/figure-latex/paleoTS, no bins individuals, Eurasia-1.pdf Grap
 hic file (type pdf)
 <use MA_JJ_files/figure-latex/paleoTS, no bins individuals, Eurasia-1.pdf>
 Package pdftex.def Info: MA_JJ_files/figure-latex/paleoTS, no bins individuals,
- Eurasia-1.pdf used on input line 1263.
+ Eurasia-1.pdf used on input line 1347.
 (pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
-[55 <./MA_JJ_files/figure-latex/paleoTS, no bins individuals, Eurasia-1.pdf>]
+[58 <./MA_JJ_files/figure-latex/paleoTS, no bins individuals, Eurasia-1.pdf>]
 <MA_JJ_files/figure-latex/paleoTS with different time bins, no bins, genera, Eu
-rasia-1.pdf, id=776, 469.755pt x 325.215pt>
+rasia-1.pdf, id=826, 469.755pt x 325.215pt>
 File: MA_JJ_files/figure-latex/paleoTS with different time bins, no bins, gener
 a, Eurasia-1.pdf Graphic file (type pdf)
 
 <use MA_JJ_files/figure-latex/paleoTS with different time bins, no bins, genera
 , Eurasia-1.pdf>
 Package pdftex.def Info: MA_JJ_files/figure-latex/paleoTS with different time b
-ins, no bins, genera, Eurasia-1.pdf used on input line 1290.
+ins, no bins, genera, Eurasia-1.pdf used on input line 1374.
 (pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1312.
-[56 <./MA_JJ_files/figure-latex/paleoTS with different time bins, no bins, gene
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1396.
+[59 <./MA_JJ_files/figure-latex/paleoTS with different time bins, no bins, gene
 ra, Eurasia-1.pdf>]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 1312.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 1396.
 (MA_JJ.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1312.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1312.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1396.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1396.
 
 Package rerunfilecheck Info: File `MA_JJ.out' has not changed.
-(rerunfilecheck)             Checksum: 9E3D34F8338B0CF7EDD123A63244F784;4713.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 1312.
+(rerunfilecheck)             Checksum: 42EF257A4954EE5B3F0F3135FBEB30C8;5145.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 1396.
  ) 
 Here is how much of TeX's memory you used:
- 13317 strings out of 493323
- 201876 string characters out of 3139070
- 309665 words of memory out of 3000000
- 16445 multiletter control sequences out of 15000+200000
+ 13352 strings out of 493323
+ 203397 string characters out of 3139070
+ 311049 words of memory out of 3000000
+ 16467 multiletter control sequences out of 15000+200000
  39620 words of font info for 56 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
  32i,6n,38p,443b,438s stack positions out of 5000i,500n,10000p,200000b,50000s
@@ -1522,9 +1563,9 @@ MiKTeX 2.9/fonts/enc/dvips/lm/lm-ec.enc}<C:/Program Files/MiKTeX 2.9/fonts/type
 2.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/lm/lmr10.pfb><C:/Program 
 Files/MiKTeX 2.9/fonts/type1/public/lm/lmr17.pfb><C:/Program Files/MiKTeX 2.9/f
 onts/type1/public/lm/lmtt10.pfb>
-Output written on MA_JJ.pdf (56 pages, 1478769 bytes).
+Output written on MA_JJ.pdf (59 pages, 1507019 bytes).
 PDF statistics:
- 854 PDF objects out of 1000 (max. 8388607)
- 195 named destinations out of 1000 (max. 500000)
- 6586 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 906 PDF objects out of 1000 (max. 8388607)
+ 208 named destinations out of 1000 (max. 500000)
+ 6617 words of extra memory for PDF output out of 10000 (max. 10000000)
 

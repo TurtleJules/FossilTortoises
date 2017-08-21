@@ -543,6 +543,52 @@ StatsFossil <- PleiPlioCL %>%
 
 
 \newpage
+
+## modern vs. fossil, continental vs. insular
+
+
+```{r "Histograms of body size data, modern vs. fossil, continental vs. insular", echo=FALSE, fig.cap="Distribution of body size data modern vs. fossil, continental vs. insular logtransformed."}
+
+
+Epoch <- as.vector(c("Modern", "Pleistocene", "Pleistocene", "Pleistocene", 
+                      "Pliocene", "Pliocene", "Miocene", "Miocene", "Miocene", "Oligocene and Eocene"))
+EPOCH <- as.vector(c("Modern", "Fossil", "Fossil", "Fossil"
+                     , "Fossil", "Fossil", "Fossil", "Fossil", "Fossil", "Fossil"))
+EpochBins <- as.vector(unique(PleiPlioCL$EpochBins))
+Epochs <- data.frame(Epoch,EpochBins, EPOCH)
+
+
+HistCLFossilIsland <- PleiPlioCL %>%
+  merge(Epochs) %>%
+  filter( !is.na(CL)) %>%
+  mutate(CL=log(CL)) %>%
+#  filter(EpochBins != "Modern") %>%
+  ggplot(aes(CL)) + geom_histogram(col="black", fill="gray") + 
+  facet_wrap(EPOCH~Island, scales="free_x")+   #binwidth=10,
+  theme_classic()+ 
+  #theme_gray() +
+  theme(panel.border = element_rect(colour = "black", fill=NA))
+
+
+HistCLFossilIsland
+
+
+StatsFossilIsland <- PleiPlioCL %>%
+  merge(Epochs) %>%
+  filter(!is.na(CL)) %>%
+  group_by(EPOCH, Island) %>%
+  summarise(nCL=length(CL), min=min(CL), max=max(CL), var=var(CL), mean=round(mean(CL),1), logm=round(mean(log10(CL)),1),
+            med=round(median(CL),1), logmed=round(median(log10(CL)),1), #CLmode=mode(CL), CLlogmode=mode(log10(CL)),
+            skew=round(skewness(CL),2), logsk=round(skewness(log10(CL)),2),
+            kurt=round(kurtosis(CL),2), logku=round(kurtosis(log10(CL)),2) ) %>%
+  unique()
+
+#kable(StatsFossilIsland)
+
+
+```
+
+\newpage
 ## continental vs. insular
 
 ```{r "Histograms of body size data, continental vs. insular", echo=FALSE, fig.cap="Distribution of body site data of continental (n) and insular(y) species, logtransformed."}
@@ -612,17 +658,58 @@ StatsContinents <- PleiPlioCL %>%
 ```
 
 \newpage
+## Genera
+
+```{r "Histograms of body size data, genera", echo=FALSE, fig.cap="Distribution of body size, genera, logtransformed."}
+
+Continent <- as.vector(unique(PleiPlioCL$Continent))
+Con <- as.vector(c("Asia", "Africa", "Europe", "America", "America", "America", "Europe"))#
+Continents <- data.frame(Continent, Con)
+
+HistCLGenera <- PleiPlioCL %>%
+  filter( !is.na(CL)) %>%
+  mutate(CL=log(CL)) %>%
+  merge(Continents) %>%
+#  filter(EpochBins != "Modern") %>%
+  ggplot(aes(CL)) + geom_histogram( col="black", fill="gray") + 
+  facet_wrap(~Genus, scales="free_x")+   #binwidth=10,
+  theme_classic()+ 
+  #theme_gray() +
+  theme(panel.border = element_rect(colour = "black", fill=NA))
+
+
+HistCLGenera
+
+
+StatsGenera <- PleiPlioCL %>%
+  merge(Continents) %>%
+  filter(!is.na(CL)) %>%
+  group_by(Genus) %>%
+  summarise(nCL=length(CL), min=min(CL), max=max(CL), var=var(CL), mean=round(mean(CL),1), logm=round(mean(log10(CL)),1),
+            med=round(median(CL),1), logmed=round(median(log10(CL)),1), #CLmode=mode(CL), CLlogmode=mode(log10(CL)),
+            skew=round(skewness(CL),2), logsk=round(skewness(log10(CL)),2),
+            kurt=round(kurtosis(CL),2), logku=round(kurtosis(log10(CL)),2) ) %>%
+  unique()
+
+kable(StatsGenera)
+```
+
+
+\newpage
+## General statistics
 
 ```{r "Tabel Stats Distribution CL", echo=FALSE}
-Stats <- bind_rows(StatsAll, StatsBins, StatsFossil, StatsIsland, StatsContinents) %>%
+Stats <- bind_rows(StatsAll, StatsBins, StatsFossil, StatsIsland, 
+                   StatsFossilIsland, StatsContinents) %>%
   select(-EpochBins, -Island, -Con, -EPOCH)
 #names(Stats) <- c("nCL", "min", "max", "var", "mean", "logm", "med", "logmed", "skew", "logsk", "kurt", "logku", "Variable")
 #Stats[1, 13] <- 0
 #Stats[is.na(Stats)] <-0# c("all", "continental", "insular")
 
-Stats$Variable <- c("all", "Modern", "Upper Pleistocene", "Middle Pleistocene", "Lower Pleistocene", "Upper Pliocene", "Lower Pliocene", "Upper Miocene", "Middle Miocene", "Lower Miocene", "Oligocene and Eocene","Fossil", "Modern", "continental", "insular", "Africa", "America", "Asia", "Europe")
+Stats$Variable <- c("all", "Modern", "Upper Pleistocene", "Middle Pleistocene", "Lower Pleistocene", "Upper Pliocene", "Lower Pliocene", "Upper Miocene", "Middle Miocene", "Lower Miocene", "Oligocene and Eocene","Fossil", "Modern", "continental", "insular", "fossil-con", "fossil-ins", "modern-con", 
+                    "modern-ins", "Africa", "America", "Asia", "Europe")
 
-kable(Stats, caption="General statistics of body size data: all, per time bin, insular and continental, per continent")
+kable(Stats, caption="General statistics of body size data: all, per time bin, insular and continental, per continent (all referring to CL: min, max, variance, mean, logmean, median, logmedian, skewness, logskewness, kurosis, logkurtosis")
 
 ```
 
@@ -2122,6 +2209,8 @@ kable(PaleoGenConFit, caption="Model-fitting results for testudinidae, genera, o
 
 ## play with time bins: no bins (mean age of each sample == tt)
 
+### all
+
 ```{r "paleoTS with different time bins, no bins, genera", echo=FALSE, fig.cap="Mean age of each sample as time bin, genera"}
 
 GenusMeanAll <- testRatio %>%
@@ -2218,6 +2307,216 @@ PaleoGenAllFit <- (fit3models(paleoGenAll, silent=FALSE, method="AD", pool=FALSE
 kable(PaleoGenAllFit, caption="Model-fitting results for testudinidae, no bins, genera")
 
 ```
+
+\newpage
+### continental (no bins)
+
+
+
+```{r "paleoTS with different time bins, no bins, genera, continental", echo=FALSE, fig.cap="Mean age of each sample as time bin, genera, continental"}
+
+GenusMeanAll <- testRatio %>%
+#  merge(BINS) %>%
+#  filter(EpochBins != "Modern") %>%  # & EpochBins != "Upper Miocene"
+  filter(Island == "n") %>%
+  filter(!is.na(CL)) %>%
+  group_by(Age, Genus) %>%
+  summarise(meanCL = mean(CL), n=n()) %>%
+#  ungroup() %>%
+#  group_by(EpochBins) %>%
+  summarise(mm = mean(meanCL), nn=n(), vv=var(meanCL)) %>%
+ # merge(BINS) %>%
+  select(mm, nn, vv, tt=Age)
+  
+GenusMeanAll[is.na(GenusMeanAll)]<-0
+
+
+
+# GenusModernAll <- testRatio %>%
+# #  merge(BINS) %>%
+# #  filter(EpochBins == "Modern") %>%
+#   filter(!is.na(CL)) %>%
+#   group_by(Genus) %>%
+#   summarise(meanCL=mean(CL), sdCL=sd(CL), n=n(), Age=mean(Age), EpochBins=unique(EpochBins), MeanBins=unique(MeanBins)) #%>%
+# #  summarise(mm=mean(meanCL), nn=n(), vv=var(meanCL), tt=mean(MeanBins))
+# 
+# GenusModernAll[is.na(GenusModernAll)]<-0
+
+
+sumTort <- read.csv("tortoises_summary.csv", sep=";", header=TRUE)
+colnames(sumTort)[7] <- "meanCL"
+colnames(sumTort)[8] <- "sdCL"
+
+
+sumTortoisesAll <- sumTort %>%
+  dplyr::filter(Island == "n") %>%
+  mutate(Genus= as.character(Genus)) %>%
+  mutate(MeanBins=(Mamin+Mamax)/2) %>%
+  select(Genus, MeanBins,  meanCL, sdCL, n) %>% #n,
+  bind_rows(GenusMeanAll)
+
+
+SumTortAll <- sumTortoisesAll %>%
+  group_by(Genus) %>%
+  mutate(tt=MeanBins, vv=sdCL^2, nn=n, mm=meanCL) %>%
+  dplyr::select(mm, nn, vv, tt, Genus) %>%
+  mutate(nx = nn*mm) %>%
+  mutate(mmall=sum(nx)/sum(nn)) %>%
+  mutate(SD=sqrt(nx), d=mm-mmall) %>%
+  mutate(nsd=((nx^2+d^2)*nn)) %>%
+  mutate(varall=sum(nsd)/sum(nn), n=sum(nn)) %>%
+  dplyr::select(mm=mmall, vv=varall, nn=n, tt, Genus) %>%
+  unique() %>%
+  dplyr::select(CL=mm, n=nn, var=vv, tt, Genus)
+
+
+modernMeanGenusAll <- SumTortAll %>%
+  ungroup() %>%
+  select(CL, n, tt) %>%
+  filter( !is.na(CL)) %>%
+  group_by(tt) %>%
+  summarise(mm = mean(CL), vv=var(CL), nn=n())
+
+#bis hier alle modernen taxa zusammengefasst (summarised and MFN_testudinidae)
+
+
+GenusPaleoAll <- modernMeanGenusAll %>%
+  bind_rows(GenusMeanAll)%>%
+  arrange(tt)
+
+
+#kable(GenusPaleoAll)
+
+
+paleoGenAll <-as.paleoTS(GenusPaleoAll$mm, GenusPaleoAll$vv, GenusPaleoAll$nn, GenusPaleoAll$tt, MM = NULL, genpars = NULL, label = "Testudinidae body size evolution mode", reset.time=TRUE)
+
+plot(paleoGenAll)
+
+
+```
+
+```{r "Model-fitting, genera, all, no bins, continental" , echo=FALSE, message=FALSE, include=FALSE}
+
+PaleoGenAllFit <- (fit3models(paleoGenAll, silent=FALSE, method="AD", pool=FALSE))
+
+#PaleoGenAllFit2 <- (fit4models(paleoGenAll, silent=FALSE, method="AD", pool=FALSE))
+
+```
+
+
+
+```{r "Model-fitting, genera, all, no bins, continental, table", echo=FALSE}
+
+kable(PaleoGenAllFit, caption="Model-fitting results for testudinidae, no bins, genera, continental")
+
+```
+
+
+\newpage
+### insular (no bins)
+
+
+
+```{r "paleoTS with different time bins, no bins, genera, insular", echo=FALSE, fig.cap="Mean age of each sample as time bin, genera, insular"}
+
+GenusMeanAll <- testRatio %>%
+#  merge(BINS) %>%
+#  filter(EpochBins != "Modern") %>%  # & EpochBins != "Upper Miocene"
+  filter(Island == "y") %>%
+  filter(!is.na(CL)) %>%
+  group_by(Age, Genus) %>%
+  summarise(meanCL = mean(CL), n=n()) %>%
+#  ungroup() %>%
+#  group_by(EpochBins) %>%
+  summarise(mm = mean(meanCL), nn=n(), vv=var(meanCL)) %>%
+ # merge(BINS) %>%
+  select(mm, nn, vv, tt=Age)
+  
+GenusMeanAll[is.na(GenusMeanAll)]<-0
+
+
+
+# GenusModernAll <- testRatio %>%
+# #  merge(BINS) %>%
+# #  filter(EpochBins == "Modern") %>%
+#   filter(!is.na(CL)) %>%
+#   group_by(Genus) %>%
+#   summarise(meanCL=mean(CL), sdCL=sd(CL), n=n(), Age=mean(Age), EpochBins=unique(EpochBins), MeanBins=unique(MeanBins)) #%>%
+# #  summarise(mm=mean(meanCL), nn=n(), vv=var(meanCL), tt=mean(MeanBins))
+# 
+# GenusModernAll[is.na(GenusModernAll)]<-0
+
+
+sumTort <- read.csv("tortoises_summary.csv", sep=";", header=TRUE)
+colnames(sumTort)[7] <- "meanCL"
+colnames(sumTort)[8] <- "sdCL"
+
+
+sumTortoisesAll <- sumTort %>%
+  dplyr::filter(Island == "y") %>%
+  mutate(Genus= as.character(Genus)) %>%
+  mutate(MeanBins=(Mamin+Mamax)/2) %>%
+  select(Genus, MeanBins,  meanCL, sdCL, n) %>% #n,
+  bind_rows(GenusMeanAll)
+
+
+SumTortAll <- sumTortoisesAll %>%
+  group_by(Genus) %>%
+  mutate(tt=MeanBins, vv=sdCL^2, nn=n, mm=meanCL) %>%
+  dplyr::select(mm, nn, vv, tt, Genus) %>%
+  mutate(nx = nn*mm) %>%
+  mutate(mmall=sum(nx)/sum(nn)) %>%
+  mutate(SD=sqrt(nx), d=mm-mmall) %>%
+  mutate(nsd=((nx^2+d^2)*nn)) %>%
+  mutate(varall=sum(nsd)/sum(nn), n=sum(nn)) %>%
+  dplyr::select(mm=mmall, vv=varall, nn=n, tt, Genus) %>%
+  unique() %>%
+  dplyr::select(CL=mm, n=nn, var=vv, tt, Genus)
+
+
+modernMeanGenusAll <- SumTortAll %>%
+  ungroup() %>%
+  select(CL, n, tt) %>%
+  filter( !is.na(CL)) %>%
+  group_by(tt) %>%
+  summarise(mm = mean(CL), vv=var(CL), nn=n())
+
+#bis hier alle modernen taxa zusammengefasst (summarised and MFN_testudinidae)
+
+modernMeanGenusAll[is.na(modernMeanGenusAll)] <- 0
+
+GenusPaleoAll <- modernMeanGenusAll %>%
+  bind_rows(GenusMeanAll)%>%
+  arrange(tt)
+
+
+#kable(GenusPaleoAll)
+
+
+paleoGenAll <-as.paleoTS(GenusPaleoAll$mm, GenusPaleoAll$vv, GenusPaleoAll$nn, GenusPaleoAll$tt, MM = NULL, genpars = NULL, label = "Testudinidae body size evolution mode", reset.time=TRUE)
+
+plot(paleoGenAll)
+
+
+```
+
+```{r "Model-fitting, genera, all, no bins, insular" , echo=FALSE, message=FALSE, include=FALSE}
+
+PaleoGenAllFit <- (fit3models(paleoGenAll, silent=FALSE, method="AD", pool=FALSE))
+
+#PaleoGenAllFit2 <- (fit4models(paleoGenAll, silent=FALSE, method="AD", pool=FALSE))
+
+```
+
+
+
+```{r "Model-fitting, genera, all, no bins, insular, table", echo=FALSE}
+
+kable(PaleoGenAllFit, caption="Model-fitting results for testudinidae, no bins, genera, insular")
+
+```
+
+
 
 \newpage
 

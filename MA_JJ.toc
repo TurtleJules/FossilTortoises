@@ -7,49 +7,54 @@
 \contentsline {subsection}{all}{6}{section*.8}
 \contentsline {subsection}{per time bin}{7}{section*.9}
 \contentsline {subsection}{modern vs.\nobreakspace {}fossil}{8}{section*.10}
-\contentsline {subsection}{continental vs.\nobreakspace {}insular}{9}{section*.11}
-\contentsline {subsection}{continents}{10}{section*.12}
-\contentsline {section}{Boxplots}{12}{section*.13}
-\contentsline {subsection}{genera per time bins}{12}{section*.14}
-\contentsline {subsection}{continental vs.\nobreakspace {}insular per time bin}{13}{section*.15}
-\contentsline {subsection}{fossil vs.\nobreakspace {}modern}{14}{section*.16}
-\contentsline {subsection}{fossil vs.\nobreakspace {}modern, continental vs.\nobreakspace {}insular}{15}{section*.17}
-\contentsline {subsection}{continental vs.\nobreakspace {}insular}{16}{section*.18}
-\contentsline {subsection}{continental vs.\nobreakspace {}insular per time bin}{17}{section*.19}
-\contentsline {subsection}{continents}{18}{section*.20}
-\contentsline {section}{paleoTS analysis}{20}{section*.21}
-\contentsline {subsection}{all (continental and insular)}{20}{section*.22}
-\contentsline {subsubsection}{individuals (all)}{20}{section*.23}
-\contentsline {subsubsection}{species (all)}{22}{section*.24}
-\contentsline {subsubsection}{genera (all)}{24}{section*.25}
-\contentsline {subsection}{continental (excluding insular species)}{26}{section*.26}
-\contentsline {subsubsection}{individuals (continental)}{26}{section*.27}
-\contentsline {subsubsection}{species (continental)}{28}{section*.28}
-\contentsline {subsubsection}{genera (continental)}{30}{section*.29}
-\contentsline {subsection}{insular (excluding continental)}{32}{section*.30}
-\contentsline {subsubsection}{individuals (insular)}{32}{section*.31}
-\contentsline {subsubsection}{species (insular)}{33}{section*.32}
-\contentsline {subsubsection}{genera (insular)}{34}{section*.33}
-\contentsline {subsection}{play with time bins: no bins (mean age of each sample == tt)}{35}{section*.34}
-\contentsline {subsection}{Equal time bins}{36}{section*.35}
-\contentsline {subsubsection}{individuals (equal bins)}{36}{section*.36}
-\contentsline {subsubsection}{species (equal bins)}{37}{section*.37}
-\contentsline {subsubsection}{genera (equal bins)}{38}{section*.38}
-\contentsline {subsection}{larger equal bins}{39}{section*.39}
-\contentsline {subsubsection}{genera (larger equal bins)}{39}{section*.40}
-\contentsline {subsection}{per continent}{40}{section*.41}
-\contentsline {subsubsection}{Africa, individuals}{40}{section*.42}
-\contentsline {subsubsection}{Africa, no bins, individuals}{41}{section*.43}
-\contentsline {subsubsection}{Africa, no bins, genera}{42}{section*.44}
-\contentsline {subsubsection}{Europe, individuals}{43}{section*.45}
-\contentsline {subsubsection}{Europe, no bins, individuals}{45}{section*.46}
-\contentsline {subsubsection}{Europe, no bins, genera}{46}{section*.47}
-\contentsline {subsubsection}{America, individuals (2nd try)}{47}{section*.48}
-\contentsline {subsubsection}{America, no bins, individuals}{48}{section*.49}
-\contentsline {subsubsection}{America, no bins, genera}{49}{section*.50}
-\contentsline {subsubsection}{Asia, individuals}{50}{section*.51}
-\contentsline {subsubsection}{Asia, no bins, individuals}{51}{section*.52}
-\contentsline {subsubsection}{Asia, no bins, genera}{52}{section*.53}
-\contentsline {subsubsection}{Eurasia, individuals}{53}{section*.54}
-\contentsline {subsubsection}{Eurasia, no bins, individuals}{55}{section*.55}
-\contentsline {subsubsection}{Eurasia, no bins, genera}{56}{section*.56}
+\contentsline {subsection}{modern vs.\nobreakspace {}fossil, continental vs.\nobreakspace {}insular}{9}{section*.11}
+\contentsline {subsection}{continental vs.\nobreakspace {}insular}{10}{section*.12}
+\contentsline {subsection}{continents}{11}{section*.13}
+\contentsline {subsection}{General statistics}{12}{section*.14}
+\contentsline {section}{Boxplots}{13}{section*.15}
+\contentsline {subsection}{genera per time bins}{13}{section*.16}
+\contentsline {subsection}{continental vs.\nobreakspace {}insular per time bin}{14}{section*.17}
+\contentsline {subsection}{fossil vs.\nobreakspace {}modern}{15}{section*.18}
+\contentsline {subsection}{fossil vs.\nobreakspace {}modern, continental vs.\nobreakspace {}insular}{16}{section*.19}
+\contentsline {subsection}{continental vs.\nobreakspace {}insular}{17}{section*.20}
+\contentsline {subsection}{continental vs.\nobreakspace {}insular per time bin}{18}{section*.21}
+\contentsline {subsection}{continents}{19}{section*.22}
+\contentsline {section}{paleoTS analysis}{21}{section*.23}
+\contentsline {subsection}{all (continental and insular)}{21}{section*.24}
+\contentsline {subsubsection}{individuals (all)}{21}{section*.25}
+\contentsline {subsubsection}{species (all)}{23}{section*.26}
+\contentsline {subsubsection}{genera (all)}{25}{section*.27}
+\contentsline {subsection}{continental (excluding insular species)}{27}{section*.28}
+\contentsline {subsubsection}{individuals (continental)}{27}{section*.29}
+\contentsline {subsubsection}{species (continental)}{29}{section*.30}
+\contentsline {subsubsection}{genera (continental)}{31}{section*.31}
+\contentsline {subsection}{insular (excluding continental)}{33}{section*.32}
+\contentsline {subsubsection}{individuals (insular)}{33}{section*.33}
+\contentsline {subsubsection}{species (insular)}{34}{section*.34}
+\contentsline {subsubsection}{genera (insular)}{35}{section*.35}
+\contentsline {subsection}{play with time bins: no bins (mean age of each sample == tt)}{36}{section*.36}
+\contentsline {subsubsection}{all}{36}{section*.37}
+\contentsline {subsubsection}{continental (no bins)}{37}{section*.38}
+\contentsline {subsubsection}{insular (no bins)}{38}{section*.39}
+\contentsline {subsection}{Equal time bins}{39}{section*.40}
+\contentsline {subsubsection}{individuals (equal bins)}{39}{section*.41}
+\contentsline {subsubsection}{species (equal bins)}{40}{section*.42}
+\contentsline {subsubsection}{genera (equal bins)}{41}{section*.43}
+\contentsline {subsection}{larger equal bins}{42}{section*.44}
+\contentsline {subsubsection}{genera (larger equal bins)}{42}{section*.45}
+\contentsline {subsection}{per continent}{43}{section*.46}
+\contentsline {subsubsection}{Africa, individuals}{43}{section*.47}
+\contentsline {subsubsection}{Africa, no bins, individuals}{44}{section*.48}
+\contentsline {subsubsection}{Africa, no bins, genera}{45}{section*.49}
+\contentsline {subsubsection}{Europe, individuals}{46}{section*.50}
+\contentsline {subsubsection}{Europe, no bins, individuals}{48}{section*.51}
+\contentsline {subsubsection}{Europe, no bins, genera}{49}{section*.52}
+\contentsline {subsubsection}{America, individuals (2nd try)}{50}{section*.53}
+\contentsline {subsubsection}{America, no bins, individuals}{51}{section*.54}
+\contentsline {subsubsection}{America, no bins, genera}{52}{section*.55}
+\contentsline {subsubsection}{Asia, individuals}{53}{section*.56}
+\contentsline {subsubsection}{Asia, no bins, individuals}{54}{section*.57}
+\contentsline {subsubsection}{Asia, no bins, genera}{55}{section*.58}
+\contentsline {subsubsection}{Eurasia, individuals}{56}{section*.59}
+\contentsline {subsubsection}{Eurasia, no bins, individuals}{58}{section*.60}
+\contentsline {subsubsection}{Eurasia, no bins, genera}{59}{section*.61}
