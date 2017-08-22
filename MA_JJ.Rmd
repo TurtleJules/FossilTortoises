@@ -110,6 +110,10 @@ testRatio <- All %>% #tidyCL
 testRatio$CL[is.na(testRatio$CL)] <- testRatio$extraCL[is.na(testRatio$CL)]
 ```
 
+
+
+
+
 # Time Bins with sample sizes
 
 ```{r "Bin data", echo=FALSE}
@@ -176,7 +180,8 @@ BINS$EpochBins = factor(BINS$EpochBins, levels=c("Modern", "Upper Pleistocene",
 kable(BINS, caption="Time bins with age range, epoch name, mean age and corresponding sample sizes (on individual, species and genus level)")
 
 PleiPlioCL <- PleiPlio %>%
-  merge(BINS)
+  merge(BINS) %>%
+  filter(EpochBins != "Oligocene and Eocene")
 
 # SUM <- PleiPlioCL %>%
 #   group_by(MeanBins) %>%
@@ -185,6 +190,114 @@ PleiPlioCL <- PleiPlio %>%
 
   
 ```
+
+```{r "Get overview over data set", echo=FALSE, fig.cap="Scatterplot of CL over time, indicating insular (triangle) and continental (circles) and colour indicating continents."}
+scatter <- testRatio %>%
+  filter(!is.na(CL)) %>%
+  filter(Age < 23.000) %>%
+  select(CL, Age, Island, Continent, estimated) %>%
+  ggplot(aes(Age, CL)) + geom_jitter(aes(shape=Island, colour= Continent)) +
+  theme_classic() +
+  geom_vline(xintercept= c(0, 0.0117, 0.126, 0.781, 2.588, 3.6, 5.332, 11.608, 15.97, 23.03)) +
+  geom_vline(xintercept= c(1.806, 4.466, 7.424, 9.516, 13.789, 18), linetype="dashed")
+
+
+scatter
+
+length(scatter$CL)
+
+
+```
+
+
+# Smaller time bins
+
+```{r "Bin data", echo=FALSE}
+Miocene <- testRatio %>% #testRatio or tidyCL 
+  filter(Age < 23.000)
+
+# PleiPlio$bin <- cut(PleiPlio$Age, c(0, 0.000001, 0.0117, 0.126, 0.781, 2.588, 3.6, 5.332, 11.608))
+# 
+# EpochBins <- as.vector(c("Modern", "Modern", "Upper Pleistocene", "Middle Pleistocene", "Lower Pleistocene", "Upper Pliocene", "Lower Pliocene", "Upper Miocene"))
+# 
+# 
+# MeanBins <- as.vector(c((0+0.000001)/2, (0+0.0117)/2, (0.0117+0.126)/2, (0.126+0.781)/2, (0.781+2.588)/2,(2.588+3.6)/2, (3.6+5.332)/2, (5.332+11.608)/2))
+
+
+# new cuts: 1.806, 4.466, 7.424, 9.516, 13.789, 18
+
+Miocene$bin <- cut(Miocene$Age, c(0, 0.0117, 0.126, 0.781, 1.806, 2.588, 3.6, 4.466,
+                                  5.332,7.424, 9.516, 11.608, 13.789, 15.97, 18, 23.03))
+
+
+
+
+EpochBinsMio <- as.vector(c("Modern", "Upper Pleistocene", "Middle Pleistocene", "Lower Pleistocene", "Gelasian(LowPleio2)", "Upper Pliocene", "Lower Pliocene 1", "Lower Pliocene 2","Upper Miocene 1", 
+                         "Upper Miocene 2","Upper Miocene 3","Middle Miocene 1","Middle Miocene 2",
+                         "Lower Miocene 1", "Lower Miocene 2"))
+
+
+MeanBinsMio <- as.vector(c((0+0.0117)/2, (0.0117+0.126)/2, (0.126+0.781)/2, (0.781+1.806)/2, (1.806+2.588)/2,(2.588+3.6)/2, (3.6+4.446)/2, (4.446+5.332)/2, (5.332+7.424)/2, (7.424+9.516)/2,
+                        (9.516+11.608)/2, (11.608+13.789)/2, (13.789+15.97)/2, (15.97+18)/2, 
+                        (18+23.03)/2))
+
+#1.806, 4.466, 7.424, 9.516, 13.789, 18
+
+
+BinsMio <- Miocene %>%
+  select(bin) %>%
+  group_by(bin) %>%
+  summarise(nIndividuals=n())
+
+BinsSpeciesMio <- Miocene %>%
+  select(bin, Taxon) %>%
+  group_by(bin, Taxon) %>%
+  summarise(nSpecies=n()) %>%
+  summarise(nSpecies=n())
+
+
+BinsGeneraMio <- Miocene %>%
+  select(bin, Genus) %>%
+  group_by(bin, Genus) %>%
+  summarise(nGenera=n()) %>%
+  summarise(nGenera=n())
+
+bin <- as.vector(unique(BinsMio$bin))
+
+
+
+BINSMio <- data.frame(bin, EpochBinsMio, MeanBinsMio) %>%
+  merge(BinsMio) %>%
+  merge(BinsSpeciesMio) %>%
+  merge(BinsGeneraMio) %>%
+  arrange(MeanBinsMio)
+
+BINSMio$EpochBinsMio = factor(BINSMio$EpochBinsMio, levels=c("Modern", "Upper Pleistocene",
+                                                             "Middle Pleistocene", "Lower Pleistocene",
+                                                       "Gelasian(LowPleio2)", 
+                                                             "Upper Pliocene", "Lower Pliocene 1",
+                                                       "Lower Pliocene 2","Upper Miocene 1",
+                                                       "Upper Miocene 2", "Upper Miocene3",
+                                                       "Middle Miocene 1", "Middle Miocene 2", 
+                                                              "Lower Miocene 1", "Lower Miocene 2"))
+
+#BINS <- read.table("timebins.txt", sep="\t", header=TRUE)
+
+#kable(Bins, caption="Time bins with corresponding sample sizes (individuals)")
+
+kable(BINSMio, caption="Smaller time bins with age range, epoch name, mean age and corresponding sample sizes (on individual, species and genus level)")
+
+MioceneCL <- Miocene %>%
+  merge(BINSMio) 
+
+# SUM <- PleiPlioCL %>%
+#   group_by(MeanBins) %>%
+#   summarise(n=n())
+
+
+  
+```
+
 
 \newpage
 
@@ -259,30 +372,10 @@ mapOc
 tidyCL$bin <- cut(tidyCL$Age, c(0, 0.000001, 0.0117, 0.126, 0.781, 2.588, 3.6, 5.332, 11.608, 15.97, 23.03, 50.000))
 
 
-# Bins <- tidyCL %>%
-#   select(bin) %>%
-#   group_by(bin) %>%
-#   summarise(n=n())
-# 
-# 
-# bin <- as.vector(unique(Bins$bin))
-# EpochBins <- as.vector(c("Modern", "Upper Pleistocene", "Middle Pleistocene", "Lower Pleistocene", "Upper Pliocene", "Lower Pliocene", "Upper Miocene", "Middle Miocene", "Lower Miocene", "Oligocene and Eocene"))
-# 
-# MeanBins <- as.vector(c((0+0.0117)/2, (0.0117+0.126)/2, (0.126+0.781)/2, (0.781+2.588)/2,(2.588+3.6)/2, (3.6+5.332)/2, (5.332+11.608)/2, (11.608+15.97)/2, (15.97+23.03)/2, (23.03+56.0)/2 ))
-# 
-# 
-# bin <- as.vector(unique(Bins$bin))
-# 
-# BINS <- data.frame(bin, EpochBins, MeanBins) #
-
-
-#BINS <- data.frame(bin, EpochBins, MeanBins) #
-#BINS <- read.table("timebins.txt", sep="\t", header=TRUE)
-
 
 MapCL <- tidyCL %>%
   merge(BINS) %>%
-#  filter(Age < 11.000) %>%
+#  filter(Age < 23.000) %>%
 #  filter(Latitude != "-") %>%
   dplyr::select(Genus, Taxon, Latitude, Longitude, Country, CL, PL, MeanBins, size) %>%
   group_by(Latitude) %>%
@@ -381,6 +474,8 @@ vegan <- tidyCL %>%
   tidyr::spread(Genus, n, fill=0)
 
 
+
+
 #par(mfrow = c(2, 1))
 
 
@@ -404,6 +499,69 @@ plot(vegansp,xlab="References",ylab="Richness", xvar="individuals", ci.type="lin
 
 
 ```
+
+```{r "Species Accumulation Curve with Genera, Africa", echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Sampling Accumulation Curve of fossil genera per reference, Africa"}
+
+Continent <- as.vector(unique(PleiPlioCL$Continent))
+Con <- as.vector(c("Asia", "Africa", "Europe", "America", "America", "America", "Europe"))#
+Continents <- data.frame(Continent, Con)
+
+overviewVegan <- PleiPlioCL %>%
+  merge(Continents) %>%
+  filter(EpochBins != "Modern") %>%
+  group_by( Con) %>%  #Continent,
+ # filter(Con=="Europe" | Con=="Asia" )%>%
+  filter(!is.na(CL)) %>%
+  summarise(meanCL=mean(CL), sdCL= sd(CL), n=n(), meanAge=mean(Age))
+
+
+# OverviewCon <- Miocene %>%
+#   select(Con) %>%
+#   group_by(Con) %>%
+#   summarise(nIndividuals=n())
+# 
+# BinsSpecies <- PleiPlio %>%
+#   select(bin, Taxon) %>%
+#   group_by(bin, Taxon) %>%
+#   summarise(nSpecies=n()) %>%
+#   summarise(nSpecies=n())
+# 
+# 
+# BinsGenera <- PleiPlio %>%
+#   select(bin, Genus) %>%
+#   group_by(bin, Genus) %>%
+#   summarise(nGenera=n()) %>%
+#   summarise(nGenera=n())
+# 
+# bin <- as.vector(unique(Bins$bin))
+# 
+# 
+# 
+# BINS <- data.frame(bin, EpochBins, MeanBins) %>%
+#   merge(Bins) %>%
+#   merge(BinsSpecies) %>%
+#   merge(BinsGenera) %>%
+#   arrange(MeanBins)
+
+
+
+vegan <- tidyCL %>%
+  merge(Continents) %>%
+  filter(Con=="Europe" | Con=="Asia") %>%
+  dplyr::select(Reference, Genus) %>%
+  group_by(Reference, Genus) %>%
+  summarise(n=n()) %>%
+  tidyr::spread(Genus, n, fill=0)
+
+#library(vegan)
+
+vegan=vegan[,-1]
+vegansp=specaccum(vegan,method="rarefaction", permutations=1000)
+plot(vegansp,xlab="References",ylab="Richness", xvar="individuals", ci.type="line", ci.lty=2, ci.col="grey", col="deepskyblue4", lwd=2, main="Fossil genera, CL, per Reference")
+
+
+```
+
 
 
 \newpage
