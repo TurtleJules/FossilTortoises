@@ -115,105 +115,7 @@ testRatio$CL[is.na(testRatio$CL)] <- testRatio$extraCL[is.na(testRatio$CL)]
 
 
 
-
-\newpage
-# Time Bins with sample sizes
-
-```{r "Bin data", echo=FALSE}
-
-PleiPlio <- testRatio #%>% #testRatio or tidyCL 
-#  filter(Age < 11.000)
-
-# PleiPlio$bin <- cut(PleiPlio$Age, c(0, 0.000001, 0.0117, 0.126, 0.781, 2.588, 3.6, 5.332, 11.608))
-# 
-# EpochBins <- as.vector(c("Modern", "Modern", "Upper Pleistocene", "Middle Pleistocene", "Lower Pleistocene", "Upper Pliocene", "Lower Pliocene", "Upper Miocene"))
-# 
-# 
-# MeanBins <- as.vector(c((0+0.000001)/2, (0+0.0117)/2, (0.0117+0.126)/2, (0.126+0.781)/2, (0.781+2.588)/2,(2.588+3.6)/2, (3.6+5.332)/2, (5.332+11.608)/2))
-
-
-PleiPlio$bin <- cut(PleiPlio$Age, c(0, 0.0117, 0.126, 0.781, 2.588, 3.6, 5.332, 11.608, 15.97, 23.03, 50.000))
-
-EpochBins <- as.vector(c("Modern", "Upper Pleistocene", "Middle Pleistocene", "Lower Pleistocene", "Upper Pliocene", "Lower Pliocene", "Upper Miocene", "Middle Miocene", "Lower Miocene", "Oligocene and Eocene"))
-
-
-MeanBins <- as.vector(c((0+0.0117)/2, (0.0117+0.126)/2, (0.126+0.781)/2, (0.781+2.588)/2,(2.588+3.6)/2, (3.6+5.332)/2, (5.332+11.608)/2, (11.608+15.97)/2, (15.97+23.03)/2, (23.03+50.000)/2))
-
-
-
-
-Bins <- PleiPlio %>%
-  select(bin) %>%
-  group_by(bin) %>%
-  summarise(nIndividuals=n())
-
-BinsSpecies <- PleiPlio %>%
-  select(bin, Taxon) %>%
-  group_by(bin, Taxon) %>%
-  summarise(nSpecies=n()) %>%
-  summarise(nSpecies=n())
-
-
-BinsGenera <- PleiPlio %>%
-  select(bin, Genus) %>%
-  group_by(bin, Genus) %>%
-  summarise(nGenera=n()) %>%
-  summarise(nGenera=n())
-
-bin <- as.vector(unique(Bins$bin))
-
-
-
-BINS <- data.frame(bin, EpochBins, MeanBins) %>%
-  merge(Bins) %>%
-  merge(BinsSpecies) %>%
-  merge(BinsGenera) %>%
-  arrange(MeanBins)
-
-BINS$EpochBins = factor(BINS$EpochBins, levels=c("Modern", "Upper Pleistocene",
-                                                             "Middle Pleistocene", "Lower Pleistocene",
-                                                             "Upper Pliocene", "Lower Pliocene",
-                                                             "Upper Miocene", "Middle Miocene", 
-                                                              "Lower Miocene", "Oligocene and Eocene"))
-
-#BINS <- read.table("timebins.txt", sep="\t", header=TRUE)
-
-#kable(Bins, caption="Time bins with corresponding sample sizes (individuals)")
-
-kable(BINS, caption="Time bins with age range, epoch name, mean age and corresponding sample sizes (on individual, species and genus level)")
-
-PleiPlioCL <- PleiPlio %>%
-  merge(BINS) %>%
-  filter(EpochBins != "Oligocene and Eocene")
-
-# SUM <- PleiPlioCL %>%
-#   group_by(MeanBins) %>%
-#   summarise(n=n())
-
-
-  
-```
-
-```{r "Get overview over data set", echo=FALSE, fig.cap="Scatterplot of CL over time, indicating insular (triangle) and continental (circles) and colour indicating continents. Lines indicte bins, dashed line = new bins."}
-scatter <- testRatio %>%
-  filter(!is.na(CL)) %>%
-  filter(Age < 23.000) %>%
-  select(CL, Age, Island, Continent, estimated) %>%
-  ggplot(aes(Age, CL)) + geom_jitter(aes(shape=Island, colour= Continent)) +
-  theme_classic() +
-  geom_vline(xintercept= c(0, 0.0117, 0.126, 0.781, 2.588, 3.6, 5.332, 11.608, 15.97, 23.03)) +
-  geom_vline(xintercept= c(1.806, 4.466, 7.424, 9.516, 13.789, 18), linetype="dashed")
-
-
-scatter
-
-length(scatter$CL)
-
-
-```
-
-\newpage
-# Smaller time bins
+# Time bins (stratigraphic stages)
 
 ```{r "Bin data, smaller bins", echo=FALSE}
 Miocene <- testRatio %>% #testRatio or tidyCL 
@@ -229,20 +131,20 @@ Miocene <- testRatio %>% #testRatio or tidyCL
 
 # new cuts: 1.806, 4.466, 7.424, 9.516, 13.789, 18
 
-Miocene$bin <- cut(Miocene$Age, c(0, 0.0117, 0.126, 0.781, 1.806, 2.588, 3.6, 4.466,
-                                  5.332,7.424, 9.516, 11.608, 13.789, 15.97, 18, 23.03))
+Miocene$bin <- cut(Miocene$Age, c(0, 0.0117, 0.126, 0.781, 1.806, 2.588, 3.6,
+                                  5.332, 7.246, 11.608, 13.82, 15.97, 20.44))
 
 
 
 
-EpochBins <- as.vector(c("Modern", "Upper Pleistocene", "Middle Pleistocene", "Lower Pleistocene", "Gelasian(LowPleio2)", "Upper Pliocene", "Lower Pliocene 1", "Lower Pliocene 2","Upper Miocene 1", 
-                         "Upper Miocene 2","Upper Miocene 3","Middle Miocene 1","Middle Miocene 2",
-                         "Lower Miocene 1", "Lower Miocene 2"))
+EpochBins <- as.vector(c("Modern", "Upper Pleistocene", "Middle Pleistocene", "Lower Pleistocene", "Gelasian", "Piacencian", "Zanclean", "Messinian","Tortonian", "Serravallian","Langhian",
+                         "Burdigalian" ))
+
+Stages <- as.vector(c("Modern", "Upper Pleistocene", "Middle Pleistocene", "Lower Pleistocene", "Lower Pleistocene", "Upper Pliocene", "Lower Pliocene", "Upper Miocene","Upper Miocene",
+                      "Middle Miocene","Middle Miocene", "Lower Miocene"))
 
 
-MeanBins <- as.vector(c((0+0.0117)/2, (0.0117+0.126)/2, (0.126+0.781)/2, (0.781+1.806)/2, (1.806+2.588)/2,(2.588+3.6)/2, (3.6+4.446)/2, (4.446+5.332)/2, (5.332+7.424)/2, (7.424+9.516)/2,
-                        (9.516+11.608)/2, (11.608+13.789)/2, (13.789+15.97)/2, (15.97+18)/2, 
-                        (18+23.03)/2))
+MeanBins <- as.vector(c((0+0.0117)/2, (0.0117+0.126)/2, (0.126+0.781)/2, (0.781+1.806)/2, (1.806+2.588)/2,(2.588+3.6)/2, (3.6+5.332)/2, (5.332+7.246)/2, (7.246+11.608)/2, (11.608+13.82)/2, (13.82+15.97)/2, (15.97+20.44)/2))
 
 #1.806, 4.466, 7.424, 9.516, 13.789, 18
 
@@ -269,18 +171,15 @@ bin <- as.vector(unique(BinsMio$bin))
 
 
 
-BINSMio <- data.frame(bin, EpochBins, MeanBins) %>%
+BINSMio <- data.frame(bin, EpochBins, Stages, MeanBins) %>%
   merge(BinsMio) %>%
   merge(BinsSpeciesMio) %>%
   merge(BinsGeneraMio) %>%
   arrange(MeanBins)
 
  BINSMio$EpochBins = factor(BINSMio$EpochBins, 
-                           levels=c("Modern", "Upper Pleistocene", "Middle Pleistocene",
-                                    "Lower Pleistocene", "Gelasian(LowPleio2)", "Upper Pliocene",
-                                    "Lower Pliocene 1", "Lower Pliocene 2","Upper Miocene 1",
-                                    "Upper Miocene 2", "Upper Miocene 3","Middle Miocene 1", 
-                                    "Middle Miocene 2","Lower Miocene 1", "Lower Miocene 2"))
+                           levels= c("Modern", "Upper Pleistocene", "Middle Pleistocene", "Lower Pleistocene", "Gelasian", "Piacencian", "Zanclean", "Messinian","Tortonian", "Serravallian","Langhian",
+                         "Burdigalian" ))
 
 #BINS <- read.table("timebins.txt", sep="\t", header=TRUE)
 
@@ -301,6 +200,27 @@ na <- PleiPlioCL$EpochBins[!complete.cases(PleiPlioCL$EpochBins)]
   
 ```
 
+
+
+```{r "Get overview over data set", echo=FALSE, fig.cap="Scatterplot of CL over time, indicating insular (triangle) and continental (circles) and colour indicating continents. Lines indicte bins, dashed line = new bins."}
+scatter <- testRatio %>%
+  filter(!is.na(CL)) %>%
+  filter(Age < 23.000) %>%
+  select(CL, Age, Island, Continent, estimated) %>%
+  ggplot(aes(Age, CL)) + geom_jitter(aes(shape=Island, colour= Continent)) +
+  theme_classic() +
+  geom_vline(xintercept = c(0, 0.0117, 0.126, 0.781, 1.806, 2.588, 3.6,
+                                  5.332, 7.246, 11.608, 13.82, 15.97, 20.44, 23.03))
+  # geom_vline(xintercept= c(0, 0.0117, 0.126, 0.781, 2.588, 3.6, 5.332, 11.608, 15.97, 23.03)) +
+  # geom_vline(xintercept= c(1.806, 4.466, 7.424, 9.516, 13.789, 18), linetype="dashed")
+
+
+scatter
+
+length(scatter$CL)
+
+
+```
 
 \newpage
 
@@ -372,12 +292,18 @@ mapOc
 ```{r "Map body size data set", echo=FALSE, fig.cap="Map displaying all localities for which body size data for testudinids was available in the literature. Size of points denotes sample size, color denotes approximate age."}
 
 
-tidyCL$bin <- cut(tidyCL$Age, c(0, 0.000001, 0.0117, 0.126, 0.781, 2.588, 3.6, 5.332, 11.608, 15.97, 23.03, 50.000))
+tidyCL$bin <- cut(tidyCL$Age, c(0, 0.0117, 0.126, 0.781, 1.806, 2.588, 3.6,
+                                  5.332, 7.246, 11.608, 13.82, 15.97, 20.44)
+)
+                  
+  #                c(0, 0.000001, 0.0117, 0.126, 0.781, 2.588, 3.6, 5.332, 11.608, 15.97, 23.03,50.000))
+
+
 
 
 
 MapCL <- tidyCL %>%
-  merge(BINS) %>%
+  merge(BINSMio) %>%
 #  filter(Age < 23.000) %>%
 #  filter(Latitude != "-") %>%
   dplyr::select(Genus, Taxon, Latitude, Longitude, Country, CL, PL, MeanBins, size) %>%
@@ -393,7 +319,7 @@ mapCL <- MapCL %>%
   mapWorld +
   theme_classic() +
   geom_point(aes(Longitude, Latitude,size=count, colour=MeanBins)) +  #colour=size, 
-  scale_colour_gradientn(colors=c("orange", "red", "purple", "blue", "green"))
+  scale_colour_gradientn(colors=c("orange", "red", "purple", "blue", "green", "yellow"))
 
 
 
@@ -662,11 +588,11 @@ StatsBins <- PleiPlioCL %>%
 #                      , "Fossil", "Fossil", "Fossil", "Fossil", "Fossil", "Fossil"))
 
 Epoch <- as.vector(c("Modern", "Pleistocene", "Pleistocene", "Pleistocene", "Pleistocene", 
-                      "Pliocene", "Pliocene","Pliocene",
-                     "Miocene", "Miocene", "Miocene",  "Miocene", "Miocene", "Miocene", "Miocene"))
+                      "Pliocene", "Pliocene",
+                     "Miocene", "Miocene", "Miocene",  "Miocene", "Miocene"))
 EPOCH <- as.vector(c("Modern", "Fossil", "Fossil", "Fossil"
                      , "Fossil", "Fossil", "Fossil", "Fossil", "Fossil", "Fossil"
-                     , "Fossil", "Fossil", "Fossil", "Fossil", "Fossil"))
+                     , "Fossil", "Fossil"))
 EpochBins <- as.vector(unique(PleiPlioCL$EpochBins))
 Epochs <- data.frame(Epoch,EpochBins, EPOCH)
 
@@ -879,19 +805,19 @@ Stats <- bind_rows(StatsAll, StatsBins, StatsFossil, StatsIsland,
   select(-EpochBins, -Island, -Con, -EPOCH)
 
 
+
 #names(Stats) <- c("nCL", "min", "max", "var", "mean", "logm", "med", "logmed", "skew", "logsk", "kurt", "logku", "Variable")
 #Stats[1, 13] <- 0
 #Stats[is.na(Stats)] <-0# c("all", "continental", "insular")
 
-# Stats$Variable <- c("all", "Modern", "Upper Pleistocene", "Middle Pleistocene", "Lower Pleistocene", "Upper Pliocene", "Lower Pliocene", "Upper Miocene", "Middle Miocene", "Lower Miocene", "Oligocene and Eocene","Fossil", "Modern", "continental", "insular", "fossil-con", "fossil-ins", "modern-con", 
-#                     "modern-ins", "Africa", "America", "Asia", "Europe")
+# Stats$Variable <- c("all", "Modern", "Upper Pleistocene", "Middle Pleistocene", "Lower Pleistocene", "Gelasian", "Piacencian", "Zanclean", "Messinian","Tortonian", "Serravallian","Langhian",
+#                          "Burdigalian" ,"Fossil", "Modern", "continental", "insular", "fossil-con", "fossil-ins", "modern-con", 
+# #                     "modern-ins", "Africa", "America", "Asia", "Europe")
 
 
-Stats$Variable <- c("all", "Modern", "Upper Pleistocene", "Middle Pleistocene", "Lower Pleistocene",
-                  "Gelasian(LowPlei2)",  "Upper Pliocene", "Lower Pliocene 1", "Lower Pliocene 2",
-                  "Upper Miocene 1","Upper Miocene 2","Upper Miocene 3", "Middle Miocene 1",
-                  "Middle Miocene 2","Lower Miocene 1", "Lower Miocene 2", "Modern","Fossil", "continental", "insular", "fossil-con", "fossil-ins", "modern-con",
-                    "modern-ins", "Africa", "America", "Asia", "Europe")
+Stats$Variable <- c("all", "Modern", "Upper Pleistocene", "Middle Pleistocene", "Lower Pleistocene", "Gelasian", "Piacencian", "Zanclean", "Messinian","Tortonian", "Serravallian","Langhian",
+                         "Burdigalian", "Modern","Fossil", "continental", "insular", "fossil-con",
+                    "fossil-ins", "modern-con", "modern-ins", "Africa", "America", "Asia", "Europe")
 
 
 kable(Stats, caption="General statistics of body size data: all, per time bin, insular and continental, per continent (all referring to CL: min, max, variance, mean, logmean, median, logmedian, skewness, logskewness, kurosis, logkurtosis")

@@ -131,37 +131,46 @@
 \setcounter{tocdepth}{2}
 \tableofcontents
 }
-\newpage
+\section{Time bins (stratigraphic
+stages)}\label{time-bins-stratigraphic-stages}
 
-\section{Time Bins with sample sizes}\label{time-bins-with-sample-sizes}
-
-\begin{longtable}[]{@{}llrrrr@{}}
-\caption{Time bins with age range, epoch name, mean age and
+\begin{longtable}[]{@{}lllrrrr@{}}
+\caption{Smaller time bins with age range, epoch name, mean age and
 corresponding sample sizes (on individual, species and genus
 level)}\tabularnewline
 \toprule
-bin & EpochBins & MeanBins & nIndividuals & nSpecies &
+bin & EpochBins & Stages & MeanBins & nIndividuals & nSpecies &
 nGenera\tabularnewline
 \midrule
 \endfirsthead
 \toprule
-bin & EpochBins & MeanBins & nIndividuals & nSpecies &
+bin & EpochBins & Stages & MeanBins & nIndividuals & nSpecies &
 nGenera\tabularnewline
 \midrule
 \endhead
-(0,0.0117{]} & Modern & 0.00585 & 252 & 64 & 18\tabularnewline
-(0.0117,0.126{]} & Upper Pleistocene & 0.06885 & 48 & 16 &
+(0,0.0117{]} & Modern & Modern & 0.00585 & 252 & 64 & 18\tabularnewline
+(0.0117,0.126{]} & Upper Pleistocene & Upper Pleistocene & 0.06885 & 48
+& 16 & 8\tabularnewline
+(0.126,0.781{]} & Middle Pleistocene & Middle Pleistocene & 0.45350 & 49
+& 11 & 6\tabularnewline
+(0.781,1.81{]} & Lower Pleistocene & Lower Pleistocene & 1.29350 & 47 &
+19 & 11\tabularnewline
+(1.81,2.59{]} & Gelasian & Lower Pleistocene & 2.19700 & 26 & 10 &
+7\tabularnewline
+(2.59,3.6{]} & Piacencian & Upper Pliocene & 3.09400 & 23 & 15 &
+9\tabularnewline
+(3.6,5.33{]} & Zanclean & Lower Pliocene & 4.46600 & 29 & 17 &
 8\tabularnewline
-(0.126,0.781{]} & Middle Pleistocene & 0.45350 & 49 & 11 &
+(5.33,7.25{]} & Messinian & Upper Miocene & 6.28900 & 12 & 9 &
 6\tabularnewline
-(0.781,2.59{]} & Lower Pleistocene & 1.68450 & 73 & 27 &
-11\tabularnewline
-(2.59,3.6{]} & Upper Pliocene & 3.09400 & 23 & 15 & 9\tabularnewline
-(3.6,5.33{]} & Lower Pliocene & 4.46600 & 29 & 17 & 8\tabularnewline
-(5.33,11.6{]} & Upper Miocene & 8.47000 & 53 & 24 & 9\tabularnewline
-(11.6,16{]} & Middle Miocene & 13.78900 & 40 & 18 & 11\tabularnewline
-(16,23{]} & Lower Miocene & 19.50000 & 25 & 13 & 9\tabularnewline
-(23,50{]} & Oligocene and Eocene & 36.51500 & 7 & 5 & 5\tabularnewline
+(7.25,11.6{]} & Tortonian & Upper Miocene & 9.42700 & 41 & 17 &
+8\tabularnewline
+(11.6,13.8{]} & Serravallian & Middle Miocene & 12.71400 & 23 & 8 &
+6\tabularnewline
+(13.8,16{]} & Langhian & Middle Miocene & 14.89500 & 17 & 13 &
+9\tabularnewline
+(16,20.4{]} & Burdigalian & Lower Miocene & 18.20500 & 25 & 13 &
+9\tabularnewline
 \bottomrule
 \end{longtable}
 
@@ -176,46 +185,6 @@ bins, dashed line = new bins.}
 \begin{verbatim}
 ## [1] 0
 \end{verbatim}
-
-\newpage
-
-\section{Smaller time bins}\label{smaller-time-bins}
-
-\begin{longtable}[]{@{}llrrrr@{}}
-\caption{Smaller time bins with age range, epoch name, mean age and
-corresponding sample sizes (on individual, species and genus
-level)}\tabularnewline
-\toprule
-bin & EpochBins & MeanBins & nIndividuals & nSpecies &
-nGenera\tabularnewline
-\midrule
-\endfirsthead
-\toprule
-bin & EpochBins & MeanBins & nIndividuals & nSpecies &
-nGenera\tabularnewline
-\midrule
-\endhead
-(0,0.0117{]} & Modern & 0.00585 & 252 & 64 & 18\tabularnewline
-(0.0117,0.126{]} & Upper Pleistocene & 0.06885 & 48 & 16 &
-8\tabularnewline
-(0.126,0.781{]} & Middle Pleistocene & 0.45350 & 49 & 11 &
-6\tabularnewline
-(0.781,1.81{]} & Lower Pleistocene & 1.29350 & 47 & 19 &
-11\tabularnewline
-(1.81,2.59{]} & Gelasian(LowPleio2) & 2.19700 & 26 & 10 &
-7\tabularnewline
-(2.59,3.6{]} & Upper Pliocene & 3.09400 & 23 & 15 & 9\tabularnewline
-(3.6,4.47{]} & Lower Pliocene 1 & 4.02300 & 19 & 11 & 5\tabularnewline
-(4.47,5.33{]} & Lower Pliocene 2 & 4.88900 & 10 & 7 & 4\tabularnewline
-(5.33,7.42{]} & Upper Miocene 1 & 6.37800 & 12 & 9 & 6\tabularnewline
-(7.42,9.52{]} & Upper Miocene 2 & 8.47000 & 31 & 14 & 8\tabularnewline
-(9.52,11.6{]} & Upper Miocene 3 & 10.56200 & 10 & 7 & 5\tabularnewline
-(11.6,13.8{]} & Middle Miocene 1 & 12.69850 & 22 & 8 & 6\tabularnewline
-(13.8,16{]} & Middle Miocene 2 & 14.87950 & 18 & 14 & 10\tabularnewline
-(16,18{]} & Lower Miocene 1 & 16.98500 & 19 & 10 & 8\tabularnewline
-(18,23{]} & Lower Miocene 2 & 20.51500 & 6 & 4 & 4\tabularnewline
-\bottomrule
-\end{longtable}
 
 \newpage
 
@@ -397,27 +366,21 @@ nCL & min & max & var & mean & logm & med & logmed & skew & logsk & kurt
 47 & 107.80 & 2000 & 165103.07 & 460.3 & 2.5 & 259.5 & 2.4 & 1.90 & 0.78
 & 6.44 & 2.55 & Lower Pleistocene\tabularnewline
 24 & 118.90 & 1860 & 195107.42 & 333.4 & 2.4 & 186.2 & 2.3 & 2.60 & 2.07
-& 8.39 & 5.95 & Gelasian(LowPlei2)\tabularnewline
+& 8.39 & 5.95 & Gelasian\tabularnewline
 20 & 165.00 & 1600 & 269797.71 & 636.6 & 2.7 & 440.5 & 2.6 & 0.96 & 0.29
-& 2.38 & 1.78 & Upper Pliocene\tabularnewline
-18 & 185.00 & 2500 & 610493.44 & 1068.4 & 2.9 & 900.0 & 3.0 & 0.80 &
--0.35 & 2.52 & 2.09 & Lower Pliocene 1\tabularnewline
-6 & 176.00 & 880 & 108570.00 & 608.8 & 2.7 & 785.5 & 2.9 & -0.67 & -0.70
-& 1.51 & 1.52 & Lower Pliocene 2\tabularnewline
+& 2.38 & 1.78 & Piacencian\tabularnewline
+24 & 176.00 & 2500 & 516172.48 & 953.5 & 2.8 & 847.5 & 2.9 & 1.08 &
+-0.31 & 3.32 & 2.13 & Zanclean\tabularnewline
 10 & 140.00 & 2100 & 602611.21 & 948.9 & 2.8 & 916.0 & 2.9 & 0.26 &
--0.22 & 1.49 & 1.29 & Upper Miocene 1\tabularnewline
-30 & 112.00 & 1540 & 183698.15 & 472.8 & 2.5 & 250.0 & 2.4 & 1.57 & 0.90
-& 3.99 & 2.72 & Upper Miocene 2\tabularnewline
-10 & 107.00 & 1170 & 161993.40 & 442.6 & 2.5 & 236.5 & 2.4 & 1.14 & 0.51
-& 2.68 & 1.95 & Upper Miocene 3\tabularnewline
-22 & 111.00 & 1353 & 88365.91 & 303.2 & 2.4 & 209.5 & 2.3 & 2.73 & 1.83
-& 9.30 & 5.83 & Middle Miocene 1\tabularnewline
-14 & 270.00 & 1600 & 248524.79 & 835.4 & 2.8 & 1000.0 & 3.0 & 0.05 &
--0.23 & 1.45 & 1.25 & Middle Miocene 2\tabularnewline
-18 & 160.00 & 1100 & 103008.71 & 444.2 & 2.5 & 302.0 & 2.5 & 0.99 & 0.44
-& 2.53 & 1.77 & Lower Miocene 1\tabularnewline
-6 & 230.00 & 620 & 20626.67 & 370.7 & 2.5 & 335.0 & 2.5 & 0.85 & 0.45 &
-2.50 & 2.02 & Lower Miocene 2\tabularnewline
+-0.22 & 1.49 & 1.29 & Messinian\tabularnewline
+40 & 107.00 & 1540 & 174154.16 & 465.2 & 2.5 & 250.0 & 2.4 & 1.49 & 0.76
+& 3.81 & 2.50 & Tortonian\tabularnewline
+23 & 111.00 & 1500 & 146626.87 & 355.2 & 2.4 & 213.0 & 2.3 & 2.22 & 1.60
+& 6.40 & 4.46 & Serravallian\tabularnewline
+13 & 270.00 & 1600 & 229590.10 & 784.2 & 2.8 & 1000.0 & 3.0 & 0.17 &
+-0.11 & 1.52 & 1.21 & Langhian\tabularnewline
+24 & 160.00 & 1100 & 81679.97 & 425.8 & 2.5 & 317.0 & 2.5 & 1.20 & 0.48
+& 3.25 & 2.06 & Burdigalian\tabularnewline
 251 & 80.00 & 1300 & 67716.64 & 328.9 & 2.4 & 242.0 & 2.4 & 1.85 & 0.60
 & 5.91 & 2.73 & Modern\tabularnewline
 320 & 102.44 & 2500 & 207448.16 & 500.0 & 2.6 & 287.8 & 2.5 & 1.92 &
@@ -575,9 +538,9 @@ island species}\tabularnewline
 & logL & K & AICc & Akaike.wt\tabularnewline
 \midrule
 \endhead
-GRW & -102.03165 & 2 & 209.0633 & 0.087\tabularnewline
-URW & -102.45142 & 1 & 207.2105 & 0.220\tabularnewline
-Stasis & -99.96015 & 2 & 204.9203 & 0.692\tabularnewline
+GRW & -80.10095 & 2 & 165.5352 & 0.206\tabularnewline
+URW & -80.67684 & 1 & 163.7537 & 0.502\tabularnewline
+Stasis & -79.75270 & 2 & 164.8387 & 0.292\tabularnewline
 \bottomrule
 \end{longtable}
 
@@ -592,10 +555,10 @@ including island species}\tabularnewline
 & logL & K & AICc & Akaike.wt\tabularnewline
 \midrule
 \endhead
-GRW & -102.03165 & 2 & 209.0633 & 0.084\tabularnewline
-URW & -102.45142 & 1 & 207.2105 & 0.213\tabularnewline
-Stasis & -99.96015 & 2 & 204.9203 & 0.669\tabularnewline
-StrictStasis & -104.31155 & 1 & 210.9308 & 0.033\tabularnewline
+GRW & -80.10095 & 2 & 165.5352 & 0.204\tabularnewline
+URW & -80.67684 & 1 & 163.7537 & 0.496\tabularnewline
+Stasis & -79.75270 & 2 & 164.8387 & 0.288\tabularnewline
+StrictStasis & -84.43223 & 1 & 171.2645 & 0.012\tabularnewline
 \bottomrule
 \end{longtable}
 
@@ -623,9 +586,9 @@ insular species}\tabularnewline
 & logL & K & AICc & Akaike.wt\tabularnewline
 \midrule
 \endhead
-GRW & -103.6594 & 2 & 212.3187 & 0.250\tabularnewline
-URW & -104.2638 & 1 & 210.8353 & 0.526\tabularnewline
-Stasis & -103.7699 & 2 & 212.5398 & 0.224\tabularnewline
+GRW & -81.39555 & 2 & 168.1244 & 0.295\tabularnewline
+URW & -82.05507 & 1 & 166.5101 & 0.662\tabularnewline
+Stasis & -83.32821 & 2 & 171.9897 & 0.043\tabularnewline
 \bottomrule
 \end{longtable}
 
@@ -640,10 +603,10 @@ insular species}\tabularnewline
 & logL & K & AICc & Akaike.wt\tabularnewline
 \midrule
 \endhead
-GRW & -103.6594 & 2 & 212.3187 & 0.250\tabularnewline
-URW & -104.2638 & 1 & 210.8353 & 0.526\tabularnewline
-Stasis & -103.7699 & 2 & 212.5398 & 0.224\tabularnewline
-StrictStasis & -113.9010 & 1 & 230.1096 & 0.000\tabularnewline
+GRW & -81.39555 & 2 & 168.1244 & 0.295\tabularnewline
+URW & -82.05507 & 1 & 166.5101 & 0.662\tabularnewline
+Stasis & -83.32821 & 2 & 171.9897 & 0.043\tabularnewline
+StrictStasis & -92.50213 & 1 & 187.4043 & 0.000\tabularnewline
 \bottomrule
 \end{longtable}
 
@@ -671,9 +634,9 @@ species}\tabularnewline
 & logL & K & AICc & Akaike.wt\tabularnewline
 \midrule
 \endhead
-GRW & -76.50692 & 2 & 159.0138 & 0\tabularnewline
-URW & -83.06382 & 1 & 168.6991 & 0\tabularnewline
-Stasis & -67.38663 & 2 & 140.7733 & 1\tabularnewline
+GRW & -68.48011 & 2 & 143.3602 & 0\tabularnewline
+URW & -75.20567 & 1 & 153.0780 & 0\tabularnewline
+Stasis & -60.38739 & 2 & 127.1748 & 1\tabularnewline
 \bottomrule
 \end{longtable}
 
@@ -837,9 +800,9 @@ genera}\tabularnewline
 & logL & K & AICc & Akaike.wt\tabularnewline
 \midrule
 \endhead
-GRW & -110.4329 & 2 & 225.9567 & 0.004\tabularnewline
-URW & -111.1716 & 1 & 224.6765 & 0.007\tabularnewline
-Stasis & -104.8023 & 2 & 214.6954 & 0.990\tabularnewline
+GRW & -85.36329 & 2 & 176.2266 & 0.001\tabularnewline
+URW & -85.37027 & 1 & 173.1850 & 0.006\tabularnewline
+Stasis & -78.70862 & 2 & 162.9172 & 0.993\tabularnewline
 \bottomrule
 \end{longtable}
 
@@ -865,9 +828,9 @@ genera}\tabularnewline
 & logL & K & AICc & Akaike.wt\tabularnewline
 \midrule
 \endhead
-GRW & -108.1541 & 2 & 221.3083 & 0.198\tabularnewline
-URW & -109.0897 & 1 & 220.4870 & 0.298\tabularnewline
-Stasis & -107.2170 & 2 & 219.4341 & 0.504\tabularnewline
+GRW & -85.88537 & 2 & 177.1041 & 0.141\tabularnewline
+URW & -86.03691 & 1 & 174.4738 & 0.526\tabularnewline
+Stasis & -85.02733 & 2 & 175.3880 & 0.333\tabularnewline
 \bottomrule
 \end{longtable}
 
