@@ -188,7 +188,8 @@ BINSMio <- data.frame(bin, EpochBins, Stages, MeanBins) %>%
 kable(BINSMio, caption="Smaller time bins with age range, epoch name, mean age and corresponding sample sizes (on individual, species and genus level)")
 
 PleiPlioCL <- Miocene %>%
-  merge(BINSMio) 
+  merge(BINSMio) %>%
+  filter(!is.na(CL))
 
 # SUM <- PleiPlioCL %>%
 #   group_by(MeanBins) %>%
@@ -816,8 +817,8 @@ Stats <- bind_rows(StatsAll, StatsBins, StatsFossil, StatsIsland,
 
 
 Stats$Variable <- c("all", "Modern", "Upper Pleistocene", "Middle Pleistocene", "Lower Pleistocene", "Gelasian", "Piacencian", "Zanclean", "Messinian","Tortonian", "Serravallian","Langhian",
-                         "Burdigalian", "Modern","Fossil", "continental", "insular", "fossil-con",
-                    "fossil-ins", "modern-con", "modern-ins", "Africa", "America", "Asia", "Europe")
+                         "Burdigalian", "Modern","Fossil", "continental", "insular","modern-con",
+                    "modern-ins", "fossil-con", "fossil-ins",  "Africa", "America", "Asia", "Europe")
 
 
 kable(Stats, caption="General statistics of body size data: all, per time bin, insular and continental, per continent (all referring to CL: min, max, variance, mean, logmean, median, logmedian, skewness, logskewness, kurosis, logkurtosis")
@@ -954,26 +955,6 @@ BinGenera
 ## fossil vs. modern
 
 ```{r "Boxplots modern vs. fossil", echo=FALSE, warning=FALSE, fig.cap="Boxplots fossil vs. modern."}
-# PleiPlioCL$EpochBins = factor(PleiPlioCL$EpochBins, levels=c("Modern", "Upper Pleistocene",
-#                                                              "Middle Pleistocene", "Lower Pleistocene",
-#                                                              "Upper Pliocene", "Lower Pliocene",
-#                                                              "Upper Miocene", "Middle Miocene",
-#                                                              "Lower Miocene", "Oligocene and Eocene"))
-# 
-# 
-# Epoch <- as.vector(c("Modern", "Pleistocene", "Pleistocene", "Pleistocene", 
-#                       "Pliocene", "Pliocene", "Miocene", "Miocene", "Miocene", "Oligocene and Eocene"))
-# EPOCH <- as.vector(c("Modern", "Fossil", "Fossil", "Fossil"
-#                      , "Fossil", "Fossil", "Fossil", "Fossil", "Fossil", "Fossil"))
-# EpochBins <- as.vector(unique(PleiPlioCL$EpochBins))
-# Epochs <- data.frame(Epoch,EpochBins, EPOCH)
-# 
-# Continent <- as.vector(unique(PleiPlioCL$Continent))
-# Con <- as.vector(c("Asia", "Africa", "Europe", "America", "America", "America", "Europe"))#
-# Continents <- data.frame(Continent, Con)
-
-
-
 
 
 IndGenera <- PleiPlioCL %>%
@@ -1015,17 +996,53 @@ BinGenera <- PleiPlioCL %>%
 
 BinGenera
 
+# library(plotly)
+# ggplotly(BinGenera)
 
+```
+
+
+```{r "randon sampling modern fossil", echo=FALSE}
+
+TimeCL <- PleiPlioCL %>%
+  merge(Epochs) %>%
+  group_by(EPOCH) %>%
+  filter(!is.na(CL)) %>%
+  summarise(meanCL=mean(CL), sdCL = sd(CL), varCL=var(CL), n=n())
+
+ModernR <- PleiPlioCL %>%
+  merge(Epochs) %>%
+  group_by(EPOCH) %>%
+  filter(!is.na(CL)) %>%
+  filter(EPOCH=="Modern")
+
+FossilR <- PleiPlioCL %>%
+  merge(Epochs) %>%
+  filter(!is.na(CL)) %>%
+  filter(EPOCH=="Fossil")
+
+FossilRandom <- sample(FossilR$CL, 251, replace=FALSE)
+Modern <- as.vector(ModernR$CL[which(ModernR$EPOCH=="Modern")])
+
+FossilRan <- mean(replicate(100, {
+ sample(FossilR$CL, 251, replace=FALSE)
+  }))
+
+
+
+#hist(sample(FossilR$CL, 251, replace=FALSE))
 
 
 Modern <- PleiPlioCL$CL[which(PleiPlioCL$EpochBins=="Modern")]
-Fossil <- PleiPlioCL$CL[which(PleiPlioCL$EpochBins!="Modern")]
+Fossil <- sample(PleiPlioCL$CL[which(PleiPlioCL$EpochBins!="Modern")], 251, replace=FALSE)
 
+mean(Modern)
+mean(Fossil)
 
 
 ModernFossil<- wilcox.test(Modern,Fossil, alternative = "l",paired=FALSE)  
 
-#ModernFossil
+ModernFossil
 
 #ModernFossil$p.value
 
@@ -1034,11 +1051,9 @@ ModernFossil<- wilcox.test(Modern,Fossil, alternative = "l",paired=FALSE)
 
 
 ```
-
 Wilcoxon Rank Sum Test (unpaired data): 
 
 modern < fossil (P = $`r ModernFossil$p.value`$)
-
 
 \newpage
 ## fossil vs. modern, continental vs. insular
@@ -1109,13 +1124,20 @@ BinGenera
 
 
 
-ModernIsland <- PleiPlioCL$CL[which(PleiPlioCL$EpochBins=="Modern" & PleiPlioCL$Island=="y")]
 FossilIsland <- PleiPlioCL$CL[which(PleiPlioCL$EpochBins!="Modern" & PleiPlioCL$Island=="y")]
+length(FossilIsland)
+
+ModernIsland <- sample(PleiPlioCL$CL[which(PleiPlioCL$EpochBins=="Modern" & PleiPlioCL$Island=="y")], length(FossilIsland), replace=FALSE)
+length(ModernIsland)
+
+
+mean(FossilIsland)
+mean(ModernIsland)
 
 
 ModernFossilIsland<- wilcox.test(ModernIsland,FossilIsland, alternative = "l",paired=FALSE)  
 
-# ModernFossilIsland
+ ModernFossilIsland
 # 
 # ModernFossilIsland$p.value
 # 
@@ -1124,12 +1146,18 @@ ModernFossilIsland<- wilcox.test(ModernIsland,FossilIsland, alternative = "l",pa
 
 
 ModernCon <- PleiPlioCL$CL[which(PleiPlioCL$EpochBins=="Modern" & PleiPlioCL$Island=="n")]
-FossilCon <- PleiPlioCL$CL[which(PleiPlioCL$EpochBins!="Modern" & PleiPlioCL$Island=="n")]
+length(ModernCon)
+FossilCon <- sample(PleiPlioCL$CL[which(PleiPlioCL$EpochBins!="Modern" & PleiPlioCL$Island=="n")],
+                    length(ModernCon), replace=FALSE)
 
+length(FossilCon)
+
+mean(ModernCon)
+mean(FossilCon)
 
 ModernFossilCon<- wilcox.test(ModernCon,FossilCon, alternative = "l",paired=FALSE)  
 
-# ModernFossilCon
+ ModernFossilCon
 # 
 # ModernFossilCon$p.value
 # 
@@ -1275,14 +1303,19 @@ IslandAll
 
 
 
+
+
 Insular <- PleiPlioCL$CL[which(PleiPlioCL$Island=="y")]
-Continental <- PleiPlioCL$CL[which(PleiPlioCL$Island=="n")]
+length(Insular)
+Continental <- sample(PleiPlioCL$CL[which(PleiPlioCL$Island=="n")], length(Insular), replace=FALSE)
+length(Continental)
 
-
+mean(Insular)
+mean(Continental)
 
 InsularContinental<- wilcox.test(Insular,Continental, alternative = "g",paired=FALSE)  
 
-# InsularContinental
+ InsularContinental
 # 
 # InsularContinental$p.value
 # 
@@ -1373,17 +1406,30 @@ ContinentAll <- PleiPlioCL %>%
 ContinentAll
 
 continent <- PleiPlioCL %>%
-  merge(Continents)
+  merge(Continents) %>%
+  filter(!is.na(CL))
 
 Africa <- continent$CL[which(continent$Con=="Africa")]
-America <- continent$CL[which(continent$Con=="America")]
-Asia <- continent$CL[which(continent$Con=="Asia")]
-Europe <- continent$CL[which(continent$Con=="Europe")]
-Eurasia <- continent$CL[which(continent$Con=="Europe" | continent$Con=="Asia")]
+length(Africa)
+mean(Africa)
+America <- sample(continent$CL[which(continent$Con=="America")], length(Africa), replace=FALSE)
+length(America)
+mean(America)
+# Asia <- continent$CL[which(continent$Con=="Asia")]
+# length(Asia)
+# mean(Asia)
+# Europe <- continent$CL[which(continent$Con=="Europe")]
+# length(Europe)
+# mean(Europe)
+Eurasia <- sample(continent$CL[which(continent$Con=="Europe" | continent$Con=="Asia")], length(Africa), replace=FALSE)
+length(Eurasia)
+mean(Eurasia)
+
+
 
 ContinentsCompared <- kruskal.test(list(Africa, America, Eurasia))  #Asia, Europe
 
-# ContinentsCompared
+ ContinentsCompared
 # 
 # ContinentsCompared$p.value
 # 

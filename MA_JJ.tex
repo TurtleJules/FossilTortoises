@@ -390,13 +390,13 @@ nCL & min & max & var & mean & logm & med & logmed & skew & logsk & kurt
 141 & 80.00 & 2000 & 149135.58 & 555.6 & 2.6 & 486.0 & 2.7 & 1.09 &
 -0.25 & 4.39 & 2.03 & insular\tabularnewline
 156 & 81.00 & 830 & 16385.92 & 241.9 & 2.3 & 220.5 & 2.3 & 1.97 & 0.29 &
-8.59 & 3.02 & fossil-con\tabularnewline
+8.59 & 3.02 & modern-con\tabularnewline
 95 & 80.00 & 1300 & 119898.26 & 471.7 & 2.6 & 351.0 & 2.5 & 0.82 & 0.02
-& 2.44 & 1.75 & fossil-ins\tabularnewline
+& 2.44 & 1.75 & modern-ins\tabularnewline
 274 & 102.44 & 2500 & 204405.38 & 461.6 & 2.5 & 270.0 & 2.4 & 2.15 &
-1.00 & 7.62 & 3.02 & modern-con\tabularnewline
+1.00 & 7.62 & 3.02 & fossil-con\tabularnewline
 46 & 140.00 & 2000 & 167981.36 & 728.9 & 2.8 & 632.0 & 2.8 & 1.41 &
--0.45 & 5.23 & 3.61 & modern-ins\tabularnewline
+-0.45 & 5.23 & 3.61 & fossil-ins\tabularnewline
 140 & 80.00 & 1446 & 92601.87 & 337.4 & 2.4 & 193.5 & 2.3 & 1.69 & 0.64
 & 5.04 & 2.35 & Africa\tabularnewline
 231 & 102.44 & 1500 & 72942.55 & 403.8 & 2.5 & 300.0 & 2.5 & 1.83 & 0.75
@@ -443,23 +443,95 @@ species.}
 \caption{Boxplots fossil vs.~modern.}
 \end{figure}
 
+\begin{verbatim}
+## [1] 328.8782
+\end{verbatim}
+
+\begin{verbatim}
+## [1] 509.0886
+\end{verbatim}
+
+\begin{verbatim}
+## 
+##  Wilcoxon rank sum test with continuity correction
+## 
+## data:  Modern and Fossil
+## W = 22778, p-value = 3.996e-08
+## alternative hypothesis: true location shift is less than 0
+\end{verbatim}
+
 Wilcoxon Rank Sum Test (unpaired data):
 
-modern \textless{} fossil (P = \(1.6327968\times 10^{-8}\))
+modern \textless{} fossil (P = \(3.9958136\times 10^{-8}\))
 
 \newpage
 
 \subsection{fossil vs.~modern, continental
 vs.~insular}\label{fossil-vs.modern-continental-vs.insular}
 
+\begin{figure}[htbp]
+\centering
 \includegraphics{MA_JJ_files/figure-latex/Boxplots fossil vs. modern, continental vs. insular-1.pdf}
+\caption{Boxplots fossil vs.~modern, continental vs.~insular species.}
+\end{figure}
+
+\begin{verbatim}
+## [1] 46
+\end{verbatim}
+
+\begin{verbatim}
+## [1] 46
+\end{verbatim}
+
+\begin{verbatim}
+## [1] 728.8696
+\end{verbatim}
+
+\begin{verbatim}
+## [1] 461.4283
+\end{verbatim}
+
+\begin{verbatim}
+## 
+##  Wilcoxon rank sum test with continuity correction
+## 
+## data:  ModernIsland and FossilIsland
+## W = 632.5, p-value = 0.0004512
+## alternative hypothesis: true location shift is less than 0
+\end{verbatim}
+
+\begin{verbatim}
+## [1] 156
+\end{verbatim}
+
+\begin{verbatim}
+## [1] 156
+\end{verbatim}
+
+\begin{verbatim}
+## [1] 241.8893
+\end{verbatim}
+
+\begin{verbatim}
+## [1] 464.5914
+\end{verbatim}
+
+\begin{verbatim}
+## 
+##  Wilcoxon rank sum test with continuity correction
+## 
+## data:  ModernCon and FossilCon
+## W = 7939.5, p-value = 5.577e-08
+## alternative hypothesis: true location shift is less than 0
+\end{verbatim}
+
 Wilcoxon Rank Sum Test (unpaired data):
 
 modern continental \textless{} fossil continental (P =
-\(1.1915312\times 10^{-9}\))
+\(5.5765854\times 10^{-8}\))
 
 modern insular \textless{} fossil insular (P =
-\(6.2264268\times 10^{-5}\))
+\(4.5116729\times 10^{-4}\))
 
 \newpage
 
@@ -471,9 +543,34 @@ modern insular \textless{} fossil insular (P =
 \caption{Boxplot continental vs.~insular, genera summarised}
 \end{figure}
 
+\begin{verbatim}
+## [1] 141
+\end{verbatim}
+
+\begin{verbatim}
+## [1] 141
+\end{verbatim}
+
+\begin{verbatim}
+## [1] 555.6149
+\end{verbatim}
+
+\begin{verbatim}
+## [1] 351.7519
+\end{verbatim}
+
+\begin{verbatim}
+## 
+##  Wilcoxon rank sum test with continuity correction
+## 
+## data:  Insular and Continental
+## W = 13183, p-value = 1.096e-06
+## alternative hypothesis: true location shift is greater than 0
+\end{verbatim}
+
 Wilcoxon Rank Sum Test (unpaired data):
 
-continental \textless{} insular (P = \(1.6773219\times 10^{-8}\))
+continental \textless{} insular (P = \(1.0964413\times 10^{-6}\))
 
 \newpage
 
@@ -496,9 +593,41 @@ bin}\label{continental-vs.insular-per-time-bin-1}
 \caption{Boxplot: body size on different continents, genera summarised}
 \end{figure}
 
+\begin{verbatim}
+## [1] 140
+\end{verbatim}
+
+\begin{verbatim}
+## [1] 337.37
+\end{verbatim}
+
+\begin{verbatim}
+## [1] 140
+\end{verbatim}
+
+\begin{verbatim}
+## [1] 410.1668
+\end{verbatim}
+
+\begin{verbatim}
+## [1] 140
+\end{verbatim}
+
+\begin{verbatim}
+## [1] 530.1764
+\end{verbatim}
+
+\begin{verbatim}
+## 
+##  Kruskal-Wallis rank sum test
+## 
+## data:  list(Africa, America, Eurasia)
+## Kruskal-Wallis chi-squared = 25.858, df = 2, p-value = 2.426e-06
+\end{verbatim}
+
 Wilcoxon Rank Sum Test (unpaired data):
 
-Continent means differ (P = \(1.1297236\times 10^{-7}\)) (still have to
+Continent means differ (P = \(2.4262449\times 10^{-6}\)) (still have to
 look into the details\ldots{})
 
 \newpage
