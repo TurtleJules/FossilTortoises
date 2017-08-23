@@ -14,13 +14,14 @@ output:
    # geometry: margin=1in
    # documentclass: scrartcl
    # mainfont: Helvetica
-    citation_package: natbib
+  # citation_package: natbib
     keep_tex: true
+  
 
 header-includes:
     - \usepackage{setspace}
     - \doublespacing
-    
+#     
 # includes:
 #       before_body: titlepage.tex
     
@@ -115,7 +116,7 @@ testRatio$CL[is.na(testRatio$CL)] <- testRatio$extraCL[is.na(testRatio$CL)]
 
 
 
-
+\newpage
 # Time Bins with sample sizes
 
 ```{r "Bin data", echo=FALSE}
@@ -355,7 +356,7 @@ mapOc
 # ggplotly(mapOc)
 
 
-######
+
 
 # length(CL$Locality)
 # length(unique(CL$Locality)) #wie viele localities
@@ -585,7 +586,7 @@ StatsAll <- PleiPlioCL %>%
 
 
 ```
-```{r "normal distribution, echo=FALSE", fig.cap="Data is not normally distributed."}
+```{r "normal distribution, echo=FALSE"}
 
 qqnorm(PleiPlioCL$CL); qqline(PleiPlioCL$CL, col=2)
 qqnorm(log10(PleiPlioCL$CL)); qqline(log10(PleiPlioCL$CL), col=2)
@@ -1098,18 +1099,19 @@ Fossil <- PleiPlioCL$CL[which(PleiPlioCL$EpochBins!="Modern")]
 
 ModernFossil<- wilcox.test(Modern,Fossil, alternative = "l",paired=FALSE)  
 
-ModernFossil
+#ModernFossil
 
-ModernFossil$p.value
+#ModernFossil$p.value
 
-ModernFossil$p.value < 0.05
+#ModernFossil$p.value < 0.05
 
 
 
 ```
 
 Wilcoxon Rank Sum Test (unpaired data): 
-modern < fossil (`r ModernFossil$p.value`)
+
+modern < fossil (P = $`r ModernFossil$p.value`$)
 
 
 \newpage
@@ -1187,11 +1189,11 @@ FossilIsland <- PleiPlioCL$CL[which(PleiPlioCL$EpochBins!="Modern" & PleiPlioCL$
 
 ModernFossilIsland<- wilcox.test(ModernIsland,FossilIsland, alternative = "l",paired=FALSE)  
 
-ModernFossilIsland
-
-ModernFossilIsland$p.value
-
-ModernFossilIsland$p.value < 0.05
+# ModernFossilIsland
+# 
+# ModernFossilIsland$p.value
+# 
+# ModernFossilIsland$p.value < 0.05
 
 
 
@@ -1201,17 +1203,20 @@ FossilCon <- PleiPlioCL$CL[which(PleiPlioCL$EpochBins!="Modern" & PleiPlioCL$Isl
 
 ModernFossilCon<- wilcox.test(ModernCon,FossilCon, alternative = "l",paired=FALSE)  
 
-ModernFossilCon
-
-ModernFossilCon$p.value
-
-ModernFossilCon$p.value < 0.05
+# ModernFossilCon
+# 
+# ModernFossilCon$p.value
+# 
+# ModernFossilCon$p.value < 0.05
 
 
 ```
 Wilcoxon Rank Sum Test (unpaired data): 
-modern insular < fossil insular (`r ModernFossilIsland$p.value`)
-modern continental < fossil continental (`r ModernFossilCon$p.value`)
+
+modern continental < fossil continental (P = $`r ModernFossilCon$p.value`$)
+
+modern insular < fossil insular (P = $`r ModernFossilIsland$p.value`$)
+
 
 
 
@@ -1351,18 +1356,19 @@ Continental <- PleiPlioCL$CL[which(PleiPlioCL$Island=="n")]
 
 InsularContinental<- wilcox.test(Insular,Continental, alternative = "g",paired=FALSE)  
 
-InsularContinental
-
-InsularContinental$p.value
-
-InsularContinental$p.value < 0.05
+# InsularContinental
+# 
+# InsularContinental$p.value
+# 
+# InsularContinental$p.value < 0.05
 
 
 
 ```
 
 Wilcoxon Rank Sum Test (unpaired data): 
-continental < insular (`r InsularContinental$p.value`)
+
+continental < insular (P = $`r InsularContinental$p.value`$)
 
 \newpage
 ## continental vs. insular per time bin
@@ -1451,19 +1457,25 @@ Eurasia <- continent$CL[which(continent$Con=="Europe" | continent$Con=="Asia")]
 
 ContinentsCompared <- kruskal.test(list(Africa, America, Eurasia))  #Asia, Europe
 
-ContinentsCompared
-
-ContinentsCompared$p.value
-
-ContinentsCompared$p.value < 0.05
+# ContinentsCompared
+# 
+# ContinentsCompared$p.value
+# 
+# ContinentsCompared$p.value < 0.05
 
 
 ```
 
 
 Wilcoxon Rank Sum Test (unpaired data): 
-Continent means differ (`r ContinentsCompared$p.value`)
 
+Continent means differ (P = $`r ContinentsCompared$p.value`$)
+(still have to look into the details...)
+
+
+
+\newpage
+## continents, continental vs. insular
 
 ```{r "Boxplot body size split into continents, continental vs. insular", echo=FALSE, fig.cap="Boxplot: body size on different continents, genera summarised"}
 
@@ -1503,7 +1515,7 @@ ContinentsAll
 
 ```
 
-## continents, continental vs. insular
+
 
 ```{r "Boxplots continents, insular vs. continent with age indicated",  echo=FALSE, warning=FALSE, fig.cap="Boxplots of body size (individuals) on different continents, insular vs. continent with age indicated", include=FALSE}
 

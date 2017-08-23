@@ -28,8 +28,46 @@
             pdfborder={0 0 0},
             breaklinks=true}
 \urlstyle{same}  % don't use monospace font for urls
-\usepackage{natbib}
-\bibliographystyle{plainnat}
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\usepackage{framed}
+\definecolor{shadecolor}{RGB}{248,248,248}
+\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{{#1}}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{{#1}}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{{#1}}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{{#1}}}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{{#1}}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{{#1}}}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{{#1}}}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{{#1}}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{{#1}}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{{#1}}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{{#1}}}
+\newcommand{\ImportTok}[1]{{#1}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{{#1}}}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{{#1}}}}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{{#1}}}}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{{#1}}}}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{{#1}}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{{#1}}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{{#1}}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{{#1}}}}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{{#1}}}}
+\newcommand{\BuiltInTok}[1]{{#1}}
+\newcommand{\ExtensionTok}[1]{{#1}}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{{#1}}}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.77,0.63,0.00}{{#1}}}
+\newcommand{\RegionMarkerTok}[1]{{#1}}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{{#1}}}}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{{#1}}}}}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.94,0.16,0.16}{{#1}}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.64,0.00,0.00}{\textbf{{#1}}}}
+\newcommand{\NormalTok}[1]{{#1}}
 \usepackage{longtable,booktabs}
 \usepackage{graphicx,grffile}
 \makeatletter
@@ -93,6 +131,8 @@
 \setcounter{tocdepth}{2}
 \tableofcontents
 }
+\newpage
+
 \section{Time Bins with sample sizes}\label{time-bins-with-sample-sizes}
 
 \begin{longtable}[]{@{}llrrrr@{}}
@@ -236,6 +276,22 @@ Eurasia}
 \includegraphics{MA_JJ_files/figure-latex/Histograms of body size data, all-1.pdf}
 \caption{Distribution of body size data, logtransformed, all data.}
 \end{figure}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{qqnorm}\NormalTok{(PleiPlioCL$CL); }\KeywordTok{qqline}\NormalTok{(PleiPlioCL$CL, }\DataTypeTok{col=}\DecValTok{2}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{MA_JJ_files/figure-latex/normal distribution, echo=FALSE-1.pdf}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{qqnorm}\NormalTok{(}\KeywordTok{log10}\NormalTok{(PleiPlioCL$CL)); }\KeywordTok{qqline}\NormalTok{(}\KeywordTok{log10}\NormalTok{(PleiPlioCL$CL), }\DataTypeTok{col=}\DecValTok{2}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{MA_JJ_files/figure-latex/normal distribution, echo=FALSE-2.pdf}
 
 \newpage
 
@@ -424,16 +480,23 @@ species.}
 \caption{Boxplots fossil vs.~modern.}
 \end{figure}
 
+Wilcoxon Rank Sum Test (unpaired data):
+
+modern \textless{} fossil (P = \(1.6327968\times 10^{-8}\))
+
 \newpage
 
 \subsection{fossil vs.~modern, continental
 vs.~insular}\label{fossil-vs.modern-continental-vs.insular}
 
-\begin{figure}[htbp]
-\centering
 \includegraphics{MA_JJ_files/figure-latex/Boxplots fossil vs. modern, continental vs. insular-1.pdf}
-\caption{Boxplots fossil vs.~modern, continental vs.~insular species.}
-\end{figure}
+Wilcoxon Rank Sum Test (unpaired data):
+
+modern continental \textless{} fossil continental (P =
+\(1.1915312\times 10^{-9}\))
+
+modern insular \textless{} fossil insular (P =
+\(6.2264268\times 10^{-5}\))
 
 \newpage
 
@@ -444,6 +507,10 @@ vs.~insular}\label{fossil-vs.modern-continental-vs.insular}
 \includegraphics{MA_JJ_files/figure-latex/Boxplot continental vs. insular-1.pdf}
 \caption{Boxplot continental vs.~insular, genera summarised}
 \end{figure}
+
+Wilcoxon Rank Sum Test (unpaired data):
+
+continental \textless{} insular (P = \(1.6773219\times 10^{-8}\))
 
 \newpage
 
@@ -466,14 +533,21 @@ bin}\label{continental-vs.insular-per-time-bin-1}
 \caption{Boxplot: body size on different continents, genera summarised}
 \end{figure}
 
+Wilcoxon Rank Sum Test (unpaired data):
+
+Continent means differ (P = \(1.1297236\times 10^{-7}\)) (still have to
+look into the details\ldots{})
+
+\newpage
+
+\subsection{continents, continental
+vs.~insular}\label{continents-continental-vs.insular}
+
 \begin{figure}[htbp]
 \centering
 \includegraphics{MA_JJ_files/figure-latex/Boxplot body size split into continents, continental vs. insular-1.pdf}
 \caption{Boxplot: body size on different continents, genera summarised}
 \end{figure}
-
-\subsection{continents, continental
-vs.~insular}\label{continents-continental-vs.insular}
 
 \newpage
 
