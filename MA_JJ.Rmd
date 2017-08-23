@@ -520,36 +520,6 @@ overviewVegan <- PleiPlioCL %>%
   summarise(meanCL=mean(CL), sdCL= sd(CL), n=n(), meanAge=mean(Age))
 
 
-# OverviewCon <- Miocene %>%
-#   select(Con) %>%
-#   group_by(Con) %>%
-#   summarise(nIndividuals=n())
-# 
-# BinsSpecies <- PleiPlio %>%
-#   select(bin, Taxon) %>%
-#   group_by(bin, Taxon) %>%
-#   summarise(nSpecies=n()) %>%
-#   summarise(nSpecies=n())
-# 
-# 
-# BinsGenera <- PleiPlio %>%
-#   select(bin, Genus) %>%
-#   group_by(bin, Genus) %>%
-#   summarise(nGenera=n()) %>%
-#   summarise(nGenera=n())
-# 
-# bin <- as.vector(unique(Bins$bin))
-# 
-# 
-# 
-# BINS <- data.frame(bin, EpochBins, MeanBins) %>%
-#   merge(Bins) %>%
-#   merge(BinsSpecies) %>%
-#   merge(BinsGenera) %>%
-#   arrange(MeanBins)
-
-
-
 vegan <- tidyCL %>%
   merge(Continents) %>%
   filter(Con=="Europe" | Con=="Asia") %>%
@@ -581,7 +551,11 @@ HistCL <- PleiPlioCL %>%
   filter( !is.na(CL)) %>%
   mutate(CL=log(CL)) %>%
 #  filter(EpochBins != "Modern") %>%
-  ggplot(aes(CL)) + geom_histogram( col="black", fill="gray") + 
+  ggplot(aes(CL)) + 
+  #geom_histogram( col="black", fill="gray") + 
+  geom_histogram( aes(y=..density..),col="black", fill="gray")+
+  #geom_density() +
+  geom_density(alpha=.2, fill="darkslategray1") +
   #facet_wrap(~EpochBins, scales="free_x")+   #binwidth=10,
   theme_classic()+ 
   #theme_gray() +
@@ -607,7 +581,19 @@ StatsAll <- PleiPlioCL %>%
   unique()
 
 
+
+
+
 ```
+```{r "normal distribution, echo=FALSE", fig.cap="Data is not normally distributed."}
+
+qqnorm(PleiPlioCL$CL); qqline(PleiPlioCL$CL, col=2)
+qqnorm(log10(PleiPlioCL$CL)); qqline(log10(PleiPlioCL$CL), col=2)
+
+
+```
+
+
 
 \newpage
 
@@ -631,7 +617,10 @@ HistCLBins <- PleiPlioCL %>%
   mutate(CL=log(CL)) %>%
   arrange(MeanBins) %>%
 #  filter(EpochBins != "Modern") %>%
-  ggplot(aes(CL)) + geom_histogram( col="black", fill="gray") + 
+  ggplot(aes(CL)) + 
+  geom_histogram( aes(y=..density..),col="black", fill="gray")+
+  #geom_density() +
+  geom_density(alpha=.2, fill="darkslategray1") +
   facet_wrap(~EpochBins, scales="free_x")+   #binwidth=10,
   theme_classic()+ 
   #theme_gray() +
@@ -688,7 +677,10 @@ HistCLFossil <- PleiPlioCL %>%
   filter( !is.na(CL)) %>%
   mutate(CL=log(CL)) %>%
 #  filter(EpochBins != "Modern") %>%
-  ggplot(aes(CL)) + geom_histogram( col="black", fill="gray") + 
+  ggplot(aes(CL)) + 
+  geom_histogram( aes(y=..density..),col="black", fill="gray")+
+  #geom_density() +
+  geom_density(alpha=.2, fill="darkslategray1") +
   facet_wrap(~EPOCH, scales="free_x")+   #binwidth=10,
   theme_classic()+ 
   #theme_gray() +
@@ -735,7 +727,10 @@ HistCLFossilIsland <- PleiPlioCL %>%
   filter( !is.na(CL)) %>%
   mutate(CL=log(CL)) %>%
 #  filter(EpochBins != "Modern") %>%
-  ggplot(aes(CL)) + geom_histogram(col="black", fill="gray") + 
+  ggplot(aes(CL)) + 
+  geom_histogram( aes(y=..density..),col="black", fill="gray")+
+  #geom_density() +
+  geom_density(alpha=.2, fill="darkslategray1") + 
   facet_wrap(EPOCH~Island, scales="free_x")+   #binwidth=10,
   theme_classic()+ 
   #theme_gray() +
@@ -770,7 +765,10 @@ HistCLIsland <- PleiPlioCL %>%
   filter( !is.na(CL)) %>%
   mutate(CL=log(CL)) %>%
 #  filter(EpochBins != "Modern") %>%
-  ggplot(aes(CL)) + geom_histogram( col="black", fill="gray") + 
+  ggplot(aes(CL)) + 
+  geom_histogram( aes(y=..density..),col="black", fill="gray")+
+  #geom_density() +
+  geom_density(alpha=.2, fill="darkslategray1") + 
   facet_wrap(~Island, scales="free_x")+   #binwidth=10,
   theme_classic()+ 
   #theme_gray() +
@@ -806,7 +804,10 @@ HistCLContinents <- PleiPlioCL %>%
   mutate(CL=log(CL)) %>%
   merge(Continents) %>%
 #  filter(EpochBins != "Modern") %>%
-  ggplot(aes(CL)) + geom_histogram( col="black", fill="gray") + 
+  ggplot(aes(CL)) + 
+  geom_histogram( aes(y=..density..),col="black", fill="gray")+
+  #geom_density() +
+  geom_density(alpha=.2, fill="darkslategray1") +
   facet_wrap(~Con, scales="free_x")+   #binwidth=10,
   theme_classic()+ 
   #theme_gray() +
@@ -841,7 +842,10 @@ HistCLGenera <- PleiPlioCL %>%
   mutate(CL=log(CL)) %>%
   merge(Continents) %>%
 #  filter(EpochBins != "Modern") %>%
-  ggplot(aes(CL)) + geom_histogram( col="black", fill="gray") + 
+  ggplot(aes(CL)) + 
+  geom_histogram( aes(y=..density..),col="black", fill="gray")+
+  #geom_density() +
+  geom_density(alpha=.2, fill="darkslategray1") + 
   facet_wrap(~Genus, scales="free_x")+   #binwidth=10,
   theme_classic()+ 
   #theme_gray() +
@@ -1084,7 +1088,29 @@ BinGenera <- PleiPlioCL %>%
 
 BinGenera
 
+
+
+
+Modern <- PleiPlioCL$CL[which(PleiPlioCL$EpochBins=="Modern")]
+Fossil <- PleiPlioCL$CL[which(PleiPlioCL$EpochBins!="Modern")]
+
+
+
+ModernFossil<- wilcox.test(Modern,Fossil, alternative = "l",paired=FALSE)  
+
+ModernFossil
+
+ModernFossil$p.value
+
+ModernFossil$p.value < 0.05
+
+
+
 ```
+
+Wilcoxon Rank Sum Test (unpaired data): 
+modern < fossil (`r ModernFossil$p.value`)
+
 
 \newpage
 ## fossil vs. modern, continental vs. insular
@@ -1152,7 +1178,40 @@ BinGenera <- PleiPlioCL %>%
 
 BinGenera
 
+
+
+
+ModernIsland <- PleiPlioCL$CL[which(PleiPlioCL$EpochBins=="Modern" & PleiPlioCL$Island=="y")]
+FossilIsland <- PleiPlioCL$CL[which(PleiPlioCL$EpochBins!="Modern" & PleiPlioCL$Island=="y")]
+
+
+ModernFossilIsland<- wilcox.test(ModernIsland,FossilIsland, alternative = "l",paired=FALSE)  
+
+ModernFossilIsland
+
+ModernFossilIsland$p.value
+
+ModernFossilIsland$p.value < 0.05
+
+
+
+ModernCon <- PleiPlioCL$CL[which(PleiPlioCL$EpochBins=="Modern" & PleiPlioCL$Island=="n")]
+FossilCon <- PleiPlioCL$CL[which(PleiPlioCL$EpochBins!="Modern" & PleiPlioCL$Island=="n")]
+
+
+ModernFossilCon<- wilcox.test(ModernCon,FossilCon, alternative = "l",paired=FALSE)  
+
+ModernFossilCon
+
+ModernFossilCon$p.value
+
+ModernFossilCon$p.value < 0.05
+
+
 ```
+Wilcoxon Rank Sum Test (unpaired data): 
+modern insular < fossil insular (`r ModernFossilIsland$p.value`)
+modern continental < fossil continental (`r ModernFossilCon$p.value`)
 
 
 
@@ -1281,7 +1340,29 @@ IslandAll <- testRatio %>%
 
 IslandAll
 
+
+
+
+
+Insular <- PleiPlioCL$CL[which(PleiPlioCL$Island=="y")]
+Continental <- PleiPlioCL$CL[which(PleiPlioCL$Island=="n")]
+
+
+
+InsularContinental<- wilcox.test(Insular,Continental, alternative = "g",paired=FALSE)  
+
+InsularContinental
+
+InsularContinental$p.value
+
+InsularContinental$p.value < 0.05
+
+
+
 ```
+
+Wilcoxon Rank Sum Test (unpaired data): 
+continental < insular (`r InsularContinental$p.value`)
 
 \newpage
 ## continental vs. insular per time bin
@@ -1343,7 +1424,7 @@ ContinentGenus <- testRatio %>%
 ContinentGenus[is.na(ContinentGenus)] <- 0
 
 
-ContinentAll <- testRatio %>%
+ContinentAll <- PleiPlioCL %>%
   merge(Continents) %>%
   select(CL, Con, Genus) %>%
   filter(!is.na(CL)) %>%
@@ -1359,7 +1440,30 @@ ContinentAll <- testRatio %>%
 
 ContinentAll
 
+continent <- PleiPlioCL %>%
+  merge(Continents)
+
+Africa <- continent$CL[which(continent$Con=="Africa")]
+America <- continent$CL[which(continent$Con=="America")]
+Asia <- continent$CL[which(continent$Con=="Asia")]
+Europe <- continent$CL[which(continent$Con=="Europe")]
+Eurasia <- continent$CL[which(continent$Con=="Europe" | continent$Con=="Asia")]
+
+ContinentsCompared <- kruskal.test(list(Africa, America, Eurasia))  #Asia, Europe
+
+ContinentsCompared
+
+ContinentsCompared$p.value
+
+ContinentsCompared$p.value < 0.05
+
+
 ```
+
+
+Wilcoxon Rank Sum Test (unpaired data): 
+Continent means differ (`r ContinentsCompared$p.value`)
+
 
 ```{r "Boxplot body size split into continents, continental vs. insular", echo=FALSE, fig.cap="Boxplot: body size on different continents, genera summarised"}
 
@@ -2098,7 +2202,7 @@ plot(paleoGenAll)
 
 PaleoGenAllFit <- (fit3models(paleoGenAll, silent=FALSE, method="AD", pool=FALSE))
 
-#PaleoGenAllFit2 <- (fit4models(paleoGenAll, silent=FALSE, method="AD", pool=FALSE))
+#PaleoGenAllFit2 <- (fit9models(paleoGenAll, silent=FALSE, method="AD", pool=FALSE))
 
 ```
 
