@@ -132,19 +132,19 @@ Miocene <- testRatio %>% #testRatio or tidyCL
 # new cuts: 1.806, 4.466, 7.424, 9.516, 13.789, 18
 
 Miocene$bin <- cut(Miocene$Age, c(0, 0.0117, 0.126, 0.781, 1.806, 2.588, 3.6,
-                                  5.332, 7.246, 11.608, 13.82, 15.97, 20.44))
+                                  5.332, 7.246, 11.608, 13.82, 15.97, 20.44, 23.03))
 
 
 
 
 EpochBins <- as.vector(c("Modern", "Upper Pleistocene", "Middle Pleistocene", "Lower Pleistocene", "Gelasian", "Piacencian", "Zanclean", "Messinian","Tortonian", "Serravallian","Langhian",
-                         "Burdigalian" ))
+                         "Burdigalian", "Aquitanian"))
 
 Stages <- as.vector(c("Modern", "Upper Pleistocene", "Middle Pleistocene", "Lower Pleistocene", "Lower Pleistocene", "Upper Pliocene", "Lower Pliocene", "Upper Miocene","Upper Miocene",
-                      "Middle Miocene","Middle Miocene", "Lower Miocene"))
+                      "Middle Miocene","Middle Miocene", "Lower Miocene", "Lower Miocene"))
 
 
-MeanBins <- as.vector(c((0+0.0117)/2, (0.0117+0.126)/2, (0.126+0.781)/2, (0.781+1.806)/2, (1.806+2.588)/2,(2.588+3.6)/2, (3.6+5.332)/2, (5.332+7.246)/2, (7.246+11.608)/2, (11.608+13.82)/2, (13.82+15.97)/2, (15.97+20.44)/2))
+MeanBins <- as.vector(c((0+0.0117)/2, (0.0117+0.126)/2, (0.126+0.781)/2, (0.781+1.806)/2, (1.806+2.588)/2,(2.588+3.6)/2, (3.6+5.332)/2, (5.332+7.246)/2, (7.246+11.608)/2, (11.608+13.82)/2, (13.82+15.97)/2, (15.97+20.44)/2, (20.44+23.03)/2))
 
 #1.806, 4.466, 7.424, 9.516, 13.789, 18
 
@@ -179,7 +179,7 @@ BINSMio <- data.frame(bin, EpochBins, Stages, MeanBins) %>%
 
  BINSMio$EpochBins = factor(BINSMio$EpochBins, 
                            levels= c("Modern", "Upper Pleistocene", "Middle Pleistocene", "Lower Pleistocene", "Gelasian", "Piacencian", "Zanclean", "Messinian","Tortonian", "Serravallian","Langhian",
-                         "Burdigalian" ))
+                         "Burdigalian", "Aquitanian" ))
 
 #BINS <- read.table("timebins.txt", sep="\t", header=TRUE)
 
@@ -294,7 +294,7 @@ mapOc
 
 
 tidyCL$bin <- cut(tidyCL$Age, c(0, 0.0117, 0.126, 0.781, 1.806, 2.588, 3.6,
-                                  5.332, 7.246, 11.608, 13.82, 15.97, 20.44)
+                                  5.332, 7.246, 11.608, 13.82, 15.97, 20.44, 23.03)
 )
                   
   #                c(0, 0.000001, 0.0117, 0.126, 0.781, 2.588, 3.6, 5.332, 11.608, 15.97, 23.03,50.000))
@@ -590,10 +590,10 @@ StatsBins <- PleiPlioCL %>%
 
 Epoch <- as.vector(c("Modern", "Pleistocene", "Pleistocene", "Pleistocene", "Pleistocene", 
                       "Pliocene", "Pliocene",
-                     "Miocene", "Miocene", "Miocene",  "Miocene", "Miocene"))
+                     "Miocene", "Miocene", "Miocene",  "Miocene", "Miocene", "Miocene"))
 EPOCH <- as.vector(c("Modern", "Fossil", "Fossil", "Fossil"
                      , "Fossil", "Fossil", "Fossil", "Fossil", "Fossil", "Fossil"
-                     , "Fossil", "Fossil"))
+                     , "Fossil", "Fossil", "Fossil"))
 EpochBins <- as.vector(unique(PleiPlioCL$EpochBins))
 Epochs <- data.frame(Epoch,EpochBins, EPOCH)
 
@@ -817,8 +817,9 @@ Stats <- bind_rows(StatsAll, StatsBins, StatsFossil, StatsIsland,
 
 
 Stats$Variable <- c("all", "Modern", "Upper Pleistocene", "Middle Pleistocene", "Lower Pleistocene", "Gelasian", "Piacencian", "Zanclean", "Messinian","Tortonian", "Serravallian","Langhian",
-                         "Burdigalian", "Modern","Fossil", "continental", "insular","modern-con",
-                    "modern-ins", "fossil-con", "fossil-ins",  "Africa", "America", "Asia", "Europe")
+                         "Burdigalian","Aquitanian", "Modern","Fossil", "continental",
+                    "insular","modern-con", "modern-ins", "fossil-con", "fossil-ins",
+                    "Africa", "America", "Asia", "Europe")
 
 
 kable(Stats, caption="General statistics of body size data: all, per time bin, insular and continental, per continent (all referring to CL: min, max, variance, mean, logmean, median, logmedian, skewness, logskewness, kurosis, logkurtosis")
@@ -1021,14 +1022,19 @@ FossilR <- PleiPlioCL %>%
   filter(!is.na(CL)) %>%
   filter(EPOCH=="Fossil")
 
-FossilRandom <- sample(FossilR$CL, 251, replace=FALSE)
-Modern <- as.vector(ModernR$CL[which(ModernR$EPOCH=="Modern")])
 
-FossilRan <- mean(replicate(100, {
- sample(FossilR$CL, 251, replace=FALSE)
+Modern <- as.vector(ModernR$CL[which(ModernR$EPOCH=="Modern")])
+FossilRandom <- sample(FossilR$CL, length(Modern), replace=FALSE)
+
+
+# median(sample(FossilR$CL, length(Modern), replace=FALSE))
+
+FossilRan <- (replicate(1000, {
+ sample(FossilR$CL, length(Modern), replace=FALSE)
   }))
 
-
+hist(FossilRan)
+abline(v=median(FossilR$CL))#locates actual statistics (skewness) with all data
 
 #hist(sample(FossilR$CL, 251, replace=FALSE))
 
