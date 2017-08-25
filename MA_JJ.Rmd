@@ -265,7 +265,7 @@ mapOc <- FossOcc %>%
   ggplot(aes(Longitude, Latitude)) +# borders("world", ylim = c(-60, 90)) +
   mapWorld +
   theme_classic() +
-  geom_point(data=FossOcc, alpha=1/2,(aes(as.numeric(Longitude), Latitude, colour=FossOcc$Clavailability))) +
+  geom_point(data=FossOcc, alpha=1/4,(aes(as.numeric(Longitude), Latitude, colour=FossOcc$Clavailability))) +
   geom_point(data=CL, alpha=1/2,(aes(Longitude, Latitude, colour="yes"))) +
   scale_colour_manual(values=cbbPalette)
 
@@ -1574,7 +1574,7 @@ GenusMean <- PleiPlioCL %>%
   filter(!is.na(CL)) %>%
   group_by(EpochBins, Genus) %>%
   summarise(meanCL = mean(CL), n=n()) %>%
-  filter(EpochBins != "Aquitanian") %>%
+#  filter(EpochBins != "Aquitanian") %>%
 #  ungroup() %>%
 #  group_by(EpochBins) %>%
   summarise(mm = mean(meanCL), nn=n(), vv=var(meanCL)) %>%
@@ -1688,7 +1688,7 @@ GenusMeanIs <- PleiPlioCL %>%
   filter(EpochBins != "Modern" & Island == "n") %>%
   filter(!is.na(CL)) %>%
   group_by(EpochBins, Genus) %>%
-  filter(EpochBins != "Aquitanian") %>%
+#  filter(EpochBins != "Aquitanian") %>%
   summarise(meanCL = mean(CL), n=n()) %>%
 #  ungroup() %>%
 #  group_by(EpochBins) %>%
@@ -1804,7 +1804,7 @@ GenusMeanCon <- PleiPlioCL %>%
   filter(EpochBins != "Modern" & Island == "y") %>%  # & EpochBins != "Upper Miocene"
   filter(!is.na(CL)) %>%
   group_by(EpochBins, Genus) %>%
-  filter(EpochBins != "Aquitanian") %>%
+ # filter(EpochBins != "Aquitanian") %>%
   summarise(meanCL = mean(CL), n=n()) %>%
 #  ungroup() %>%
 #  group_by(EpochBins) %>%
@@ -1915,7 +1915,7 @@ GenusMeanAll <- PleiPlioCL%>%
 #  filter(EpochBins != "Modern") %>%  # & EpochBins != "Upper Miocene"
   merge(Continents) %>%
   filter(Con == "Europe") %>%
-  filter(EpochBins != "Aquitanian") %>%
+ # filter(EpochBins != "Aquitanian") %>%
   filter(!is.na(CL)) %>%
   group_by(MeanBins, Genus) %>%
   summarise(meanCL = mean(CL), n=n()) %>%
