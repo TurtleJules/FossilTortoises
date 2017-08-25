@@ -265,8 +265,8 @@ mapOc <- FossOcc %>%
   ggplot(aes(Longitude, Latitude)) +# borders("world", ylim = c(-60, 90)) +
   mapWorld +
   theme_classic() +
-  geom_point(data=FossOcc, (aes(as.numeric(Longitude), Latitude, colour=FossOcc$Clavailability))) +
-  geom_point(data=CL,(aes(Longitude, Latitude, colour="yes"))) +
+  geom_point(data=FossOcc, alpha=1/2,(aes(as.numeric(Longitude), Latitude, colour=FossOcc$Clavailability))) +
+  geom_point(data=CL, alpha=1/2,(aes(Longitude, Latitude, colour="yes"))) +
   scale_colour_manual(values=cbbPalette)
 
 #unique(FossOcc$CL)
@@ -1660,7 +1660,7 @@ plot(paleoGen)
 
 PaleoGenFit <- (fit3models(paleoGen, silent=FALSE, method="AD", pool=FALSE))
 
-PaleoGenFit2 <- (fit4models(paleoGen, silent=FALSE, method="AD", pool=FALSE))
+#PaleoGenFit2 <- (fit4models(paleoGen, silent=FALSE, method="AD", pool=FALSE))
 ```
 
 
@@ -1669,7 +1669,7 @@ PaleoGenFit2 <- (fit4models(paleoGen, silent=FALSE, method="AD", pool=FALSE))
 
 kable(PaleoGenFit, caption="Model-fitting results for testudinidae, genera, including island species")
 
-kable(PaleoGenFit2, caption="Model-fitting results for testudinidae (4 models), genera, including island species")
+#kable(PaleoGenFit2, caption="Model-fitting results for testudinidae (4 models), genera, including island species")
 
 
 ```
@@ -1688,6 +1688,7 @@ GenusMeanIs <- PleiPlioCL %>%
   filter(EpochBins != "Modern" & Island == "n") %>%
   filter(!is.na(CL)) %>%
   group_by(EpochBins, Genus) %>%
+  filter(EpochBins != "Aquitanian") %>%
   summarise(meanCL = mean(CL), n=n()) %>%
 #  ungroup() %>%
 #  group_by(EpochBins) %>%
@@ -1803,6 +1804,7 @@ GenusMeanCon <- PleiPlioCL %>%
   filter(EpochBins != "Modern" & Island == "y") %>%  # & EpochBins != "Upper Miocene"
   filter(!is.na(CL)) %>%
   group_by(EpochBins, Genus) %>%
+  filter(EpochBins != "Aquitanian") %>%
   summarise(meanCL = mean(CL), n=n()) %>%
 #  ungroup() %>%
 #  group_by(EpochBins) %>%
@@ -1913,6 +1915,7 @@ GenusMeanAll <- PleiPlioCL%>%
 #  filter(EpochBins != "Modern") %>%  # & EpochBins != "Upper Miocene"
   merge(Continents) %>%
   filter(Con == "Europe") %>%
+  filter(EpochBins != "Aquitanian") %>%
   filter(!is.na(CL)) %>%
   group_by(MeanBins, Genus) %>%
   summarise(meanCL = mean(CL), n=n()) %>%
@@ -1968,6 +1971,7 @@ GenusMeanAll <- PleiPlioCL %>%
 #  filter(EpochBins != "Modern") %>%  # & EpochBins != "Upper Miocene"
   merge(Continents) %>%
   filter(Con == "Asia" | Con == "Europe") %>%
+  filter(EpochBins != "Aquitanian") %>%
   filter(!is.na(CL)) %>%
   group_by(MeanBins, Genus) %>%
   summarise(meanCL = mean(CL), n=n()) %>%
