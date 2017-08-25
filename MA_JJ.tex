@@ -454,7 +454,7 @@ species.}
 \end{verbatim}
 
 \begin{verbatim}
-## [1] 515.3368
+## [1] 543.8405
 \end{verbatim}
 
 \begin{verbatim}
@@ -462,13 +462,13 @@ species.}
 ##  Wilcoxon rank sum test with continuity correction
 ## 
 ## data:  Modern and Fossil
-## W = 22913, p-value = 3.215e-08
+## W = 22554, p-value = 9.204e-09
 ## alternative hypothesis: true location shift is less than 0
 \end{verbatim}
 
 Wilcoxon Rank Sum Test (unpaired data):
 
-modern \textless{} fossil (P = \(3.2152219\times 10^{-8}\))
+modern \textless{} fossil (P = \(9.2038428\times 10^{-9}\))
 
 \newpage
 
@@ -494,7 +494,7 @@ vs.~insular}\label{fossil-vs.modern-continental-vs.insular}
 \end{verbatim}
 
 \begin{verbatim}
-## [1] 454.7431
+## [1] 503.4725
 \end{verbatim}
 
 \begin{verbatim}
@@ -502,7 +502,7 @@ vs.~insular}\label{fossil-vs.modern-continental-vs.insular}
 ##  Wilcoxon rank sum test with continuity correction
 ## 
 ## data:  ModernIsland and FossilIsland
-## W = 680.5, p-value = 1.688e-05
+## W = 793, p-value = 0.0003449
 ## alternative hypothesis: true location shift is less than 0
 \end{verbatim}
 
@@ -519,7 +519,7 @@ vs.~insular}\label{fossil-vs.modern-continental-vs.insular}
 \end{verbatim}
 
 \begin{verbatim}
-## [1] 496.1902
+## [1] 437.3373
 \end{verbatim}
 
 \begin{verbatim}
@@ -527,17 +527,17 @@ vs.~insular}\label{fossil-vs.modern-continental-vs.insular}
 ##  Wilcoxon rank sum test with continuity correction
 ## 
 ## data:  ModernCon and FossilCon
-## W = 8012.5, p-value = 4.158e-08
+## W = 8925, p-value = 1.191e-05
 ## alternative hypothesis: true location shift is less than 0
 \end{verbatim}
 
 Wilcoxon Rank Sum Test (unpaired data):
 
 modern continental \textless{} fossil continental (P =
-\(4.1581766\times 10^{-8}\))
+\(1.1909816\times 10^{-5}\))
 
 modern insular \textless{} fossil insular (P =
-\(1.6880995\times 10^{-5}\))
+\(3.4488268\times 10^{-4}\))
 
 \newpage
 
@@ -562,7 +562,7 @@ modern insular \textless{} fossil insular (P =
 \end{verbatim}
 
 \begin{verbatim}
-## [1] 433.4976
+## [1] 358.3856
 \end{verbatim}
 
 \begin{verbatim}
@@ -570,13 +570,13 @@ modern insular \textless{} fossil insular (P =
 ##  Wilcoxon rank sum test with continuity correction
 ## 
 ## data:  Insular and Continental
-## W = 13742, p-value = 2.8e-05
+## W = 14740, p-value = 3.363e-08
 ## alternative hypothesis: true location shift is greater than 0
 \end{verbatim}
 
 Wilcoxon Rank Sum Test (unpaired data):
 
-continental \textless{} insular (P = \(2.7998877\times 10^{-5}\))
+continental \textless{} insular (P = \(3.3629549\times 10^{-8}\))
 
 \newpage
 
@@ -612,7 +612,7 @@ bin}\label{continental-vs.insular-per-time-bin-1}
 \end{verbatim}
 
 \begin{verbatim}
-## [1] 418.95
+## [1] 408.8097
 \end{verbatim}
 
 \begin{verbatim}
@@ -620,7 +620,7 @@ bin}\label{continental-vs.insular-per-time-bin-1}
 \end{verbatim}
 
 \begin{verbatim}
-## [1] 484.5064
+## [1] 464.0206
 \end{verbatim}
 
 \begin{verbatim}
@@ -628,12 +628,12 @@ bin}\label{continental-vs.insular-per-time-bin-1}
 ##  Kruskal-Wallis rank sum test
 ## 
 ## data:  list(Africa, America, Eurasia)
-## Kruskal-Wallis chi-squared = 26.007, df = 2, p-value = 2.252e-06
+## Kruskal-Wallis chi-squared = 27.794, df = 2, p-value = 9.219e-07
 \end{verbatim}
 
 Wilcoxon Rank Sum Test (unpaired data):
 
-Continent means differ (P = \(2.2522705\times 10^{-6}\)) (still have to
+Continent means differ (P = \(9.2191886\times 10^{-7}\)) (still have to
 look into the details\ldots{})
 
 \newpage
@@ -673,9 +673,9 @@ island species}\tabularnewline
 & logL & K & AICc & Akaike.wt\tabularnewline
 \midrule
 \endhead
-GRW & -81.22561 & 2 & 167.7845 & 0.180\tabularnewline
-URW & -81.90823 & 1 & 166.2165 & 0.393\tabularnewline
-Stasis & -80.35875 & 2 & 166.0508 & 0.427\tabularnewline
+GRW & -86.72197 & 2 & 178.6439 & 0.507\tabularnewline
+URW & -88.41476 & 1 & 179.1932 & 0.385\tabularnewline
+Stasis & -88.27564 & 2 & 181.7513 & 0.107\tabularnewline
 \bottomrule
 \end{longtable}
 
@@ -703,9 +703,9 @@ insular species}\tabularnewline
 & logL & K & AICc & Akaike.wt\tabularnewline
 \midrule
 \endhead
-GRW & -82.90060 & 2 & 171.1345 & 0.364\tabularnewline
-URW & -84.03143 & 1 & 170.4629 & 0.509\tabularnewline
-Stasis & -83.94566 & 2 & 173.2246 & 0.128\tabularnewline
+GRW & -88.37116 & 2 & 181.9423 & 0.661\tabularnewline
+URW & -90.63104 & 1 & 183.6257 & 0.285\tabularnewline
+Stasis & -90.86596 & 2 & 186.9319 & 0.055\tabularnewline
 \bottomrule
 \end{longtable}
 
@@ -763,9 +763,9 @@ genera}\tabularnewline
 & logL & K & AICc & Akaike.wt\tabularnewline
 \midrule
 \endhead
-GRW & -84.02266 & 2 & 173.5453 & 0.007\tabularnewline
-URW & -85.87015 & 1 & 174.1847 & 0.005\tabularnewline
-Stasis & -79.01926 & 2 & 163.5385 & 0.989\tabularnewline
+GRW & -93.41355 & 2 & 192.1604 & 0.003\tabularnewline
+URW & -93.53232 & 1 & 189.4646 & 0.012\tabularnewline
+Stasis & -87.65688 & 2 & 180.6471 & 0.985\tabularnewline
 \bottomrule
 \end{longtable}
 
