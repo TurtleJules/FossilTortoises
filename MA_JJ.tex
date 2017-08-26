@@ -218,7 +218,11 @@ sample size, color denotes approximate age.}
 
 \newpage
 
-\section{Sampling Accumulation Curve}\label{sampling-accumulation-curve}
+\section{Sampling Accumulation
+Curves}\label{sampling-accumulation-curves}
+
+\includegraphics{MA_JJ_files/figure-latex/Species Accumulation Curve-1.pdf}
+\includegraphics{MA_JJ_files/figure-latex/Species Accumulation Curve-2.pdf}
 
 \includegraphics{MA_JJ_files/figure-latex/Species Accumulation Curve with Genera-1.pdf}
 \newpage
@@ -230,6 +234,60 @@ sample size, color denotes approximate age.}
 \includegraphics{MA_JJ_files/figure-latex/Species Accumulation Curve with Genera, Eurasia-1.pdf}
 \caption{Sampling Accumulation Curve of fossil genera per reference,
 Eurasia}
+\end{figure}
+
+\subsection{Europe}\label{europe}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics{MA_JJ_files/figure-latex/Species Accumulation Curve with Genera, Europe-1.pdf}
+\caption{Sampling Accumulation Curve of fossil genera per reference,
+Europe}
+\end{figure}
+
+\subsection{Africa}\label{africa}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics{MA_JJ_files/figure-latex/Species Accumulation Curve with Genera, Africa-1.pdf}
+\caption{Sampling Accumulation Curve of fossil genera per reference,
+Africa}
+\end{figure}
+
+\subsection{America}\label{america}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics{MA_JJ_files/figure-latex/Species Accumulation Curve with Genera, America-1.pdf}
+\caption{Sampling Accumulation Curve of fossil genera per reference,
+America}
+\end{figure}
+
+\subsection{N-America}\label{n-america}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics{MA_JJ_files/figure-latex/Species Accumulation Curve with Genera, N-America-1.pdf}
+\caption{Sampling Accumulation Curve of fossil genera per reference,
+N-America}
+\end{figure}
+
+\subsection{S-America}\label{s-america}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics{MA_JJ_files/figure-latex/Species Accumulation Curve with Genera, S-America-1.pdf}
+\caption{Sampling Accumulation Curve of fossil genera per reference,
+S-America}
+\end{figure}
+
+\subsection{Asia}\label{asia}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics{MA_JJ_files/figure-latex/Species Accumulation Curve with Genera, Asia-1.pdf}
+\caption{Sampling Accumulation Curve of fossil genera per reference,
+Asia}
 \end{figure}
 
 \newpage
@@ -454,7 +512,7 @@ species.}
 \end{verbatim}
 
 \begin{verbatim}
-## [1] 556.0892
+## [1] 518.0199
 \end{verbatim}
 
 \begin{verbatim}
@@ -462,13 +520,13 @@ species.}
 ##  Wilcoxon rank sum test with continuity correction
 ## 
 ## data:  Modern and Fossil
-## W = 22447, p-value = 6.297e-09
+## W = 22149, p-value = 2.13e-09
 ## alternative hypothesis: true location shift is less than 0
 \end{verbatim}
 
 Wilcoxon Rank Sum Test (unpaired data):
 
-modern \textless{} fossil (P = \(6.2971778\times 10^{-9}\))
+modern \textless{} fossil (P = \(2.1297333\times 10^{-9}\))
 
 \newpage
 
@@ -489,20 +547,14 @@ vs.~insular}\label{fossil-vs.modern-continental-vs.insular}
 ## [1] 51
 \end{verbatim}
 
-\begin{verbatim}
-## [1] 779.9882
-\end{verbatim}
-
-\begin{verbatim}
-## [1] 528.5255
-\end{verbatim}
+\includegraphics{MA_JJ_files/figure-latex/randon sampling modern fossil, island continental-1.pdf}
 
 \begin{verbatim}
 ## 
 ##  Wilcoxon rank sum test with continuity correction
 ## 
 ## data:  ModernIsland and FossilIsland
-## W = 843, p-value = 0.00111
+## W = 602, p-value = 1.492e-06
 ## alternative hypothesis: true location shift is less than 0
 \end{verbatim}
 
@@ -514,29 +566,24 @@ vs.~insular}\label{fossil-vs.modern-continental-vs.insular}
 ## [1] 157
 \end{verbatim}
 
-\begin{verbatim}
-## [1] 244.0429
-\end{verbatim}
-
-\begin{verbatim}
-## [1] 474.2573
-\end{verbatim}
+\includegraphics{MA_JJ_files/figure-latex/randon sampling modern fossil, island continental-2.pdf}
 
 \begin{verbatim}
 ## 
 ##  Wilcoxon rank sum test with continuity correction
 ## 
 ## data:  ModernCon and FossilCon
-## W = 8142.5, p-value = 1.005e-07
+## W = 8786.5, p-value = 5.466e-06
 ## alternative hypothesis: true location shift is less than 0
 \end{verbatim}
 
 Wilcoxon Rank Sum Test (unpaired data):
 
 modern continental \textless{} fossil continental (P =
-\(1.0046017\times 10^{-7}\))
+\(5.4658936\times 10^{-6}\))
 
-modern insular \textless{} fossil insular (P = \(0.0011105\))
+modern insular \textless{} fossil insular (P =
+\(1.4921837\times 10^{-6}\))
 
 \newpage
 
@@ -556,26 +603,20 @@ modern insular \textless{} fossil insular (P = \(0.0011105\))
 ## [1] 147
 \end{verbatim}
 
-\begin{verbatim}
-## [1] 578.5245
-\end{verbatim}
-
-\begin{verbatim}
-## [1] 432.5099
-\end{verbatim}
+\includegraphics{MA_JJ_files/figure-latex/randon sampling island continental-1.pdf}
 
 \begin{verbatim}
 ## 
 ##  Wilcoxon rank sum test with continuity correction
 ## 
 ## data:  Insular and Continental
-## W = 13644, p-value = 4.891e-05
+## W = 14258, p-value = 1.084e-06
 ## alternative hypothesis: true location shift is greater than 0
 \end{verbatim}
 
 Wilcoxon Rank Sum Test (unpaired data):
 
-continental \textless{} insular (P = \(4.8905042\times 10^{-5}\))
+continental \textless{} insular (P = \(1.0843723\times 10^{-6}\))
 
 \newpage
 
@@ -611,7 +652,15 @@ bin}\label{continental-vs.insular-per-time-bin-1}
 \end{verbatim}
 
 \begin{verbatim}
-## [1] 421.8808
+## [1] 412.4147
+\end{verbatim}
+
+\begin{verbatim}
+## [1] 59
+\end{verbatim}
+
+\begin{verbatim}
+## [1] 173
 \end{verbatim}
 
 \begin{verbatim}
@@ -619,20 +668,24 @@ bin}\label{continental-vs.insular-per-time-bin-1}
 \end{verbatim}
 
 \begin{verbatim}
-## [1] 493.8634
+## [1] 525.6324
 \end{verbatim}
+
+\includegraphics{MA_JJ_files/figure-latex/randon sampling continents-1.pdf}
+\includegraphics{MA_JJ_files/figure-latex/randon sampling continents-2.pdf}
+\includegraphics{MA_JJ_files/figure-latex/randon sampling continents-3.pdf}
 
 \begin{verbatim}
 ## 
 ##  Kruskal-Wallis rank sum test
 ## 
-## data:  list(Africa, America, Eurasia)
-## Kruskal-Wallis chi-squared = 29.643, df = 2, p-value = 3.658e-07
+## data:  list(Africa, America, Eurasia, Europe)
+## Kruskal-Wallis chi-squared = 30.225, df = 3, p-value = 1.238e-06
 \end{verbatim}
 
 Wilcoxon Rank Sum Test (unpaired data):
 
-Continent means differ (P = \(3.6577135\times 10^{-7}\)) (still have to
+Continent means differ (P = \(1.2376229\times 10^{-6}\)) (still have to
 look into the details\ldots{})
 
 \newpage

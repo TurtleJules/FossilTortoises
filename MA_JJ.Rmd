@@ -336,23 +336,23 @@ mapCL
 OverviewSpecies <- PleiPlioCL %>%
   filter(EpochBins != "Modern") %>%
   group_by(EpochBins, Taxon) %>%
-  summarise(n=n())
+  summarise(n=n(), meanCL = mean(CL))
 
 OverviewSpeciesFossil <- PleiPlioCL %>%
   filter(EpochBins != "Modern") %>%
   group_by(Taxon) %>%
-  summarise(n=n())
+  summarise(n=n(), meanCL = mean(CL))
 
 #write.table(OverviewSpecies,file="OverviewSpeciesSampleSize.txt", sep="\t", row.names = FALSE) 
 
 
 OverviewGeneraTime <- PleiPlioCL %>%
   group_by(EpochBins, Genus) %>%
-  summarise(n=n())
+  summarise(n=n(), meanCL = mean(CL))
 
 OverviewGenera <- PleiPlioCL %>%
   group_by(Genus) %>%
-  summarise(n=n())
+  summarise(n=n(), meanCL = mean(CL))
 
 ```
 
@@ -360,7 +360,7 @@ OverviewGenera <- PleiPlioCL %>%
 
 # Sampling Accumulation Curves
 
-```{r "Species Accumulation Curve", echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Species Accumulation Curve of fossil species per Locality and reference", include=FALSE}
+```{r "Species Accumulation Curve", echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Species Accumulation Curve of fossil species per Locality and reference"}
 
 vegan <- tidyCL %>%
   dplyr::select(Locality, Taxon) %>%
@@ -670,15 +670,6 @@ qqnorm(log10(PleiPlioCL$CL)); qqline(log10(PleiPlioCL$CL), col=2)
 ```{r "Histograms of body size data, per time bin", echo=FALSE, fig.cap="Distribution of body size data per time bin, logtransformed."}
 
 
-# PleiPlioCL$EpochBins = factor(PleiPlioCL$EpochBins, 
-#                            levels=c("Modern", "Upper Pleistocene", "Middle Pleistocene",
-#                                     "Lower Pleistocene", "Gelasian(LowPleio2)", "Upper Pliocene",
-#                                     "Lower Pliocene 1", "Lower Pliocene 2","Upper Miocene 1",
-#                                     "Upper Miocene 2", "Upper Miocene 3","Middle Miocene 1", 
-#                                     "Middle Miocene 2","Lower Miocene 1", "Lower Miocene 2"))
-
-
-
 HistCLBins <- PleiPlioCL %>%
  # merge(BINS) %>%
   filter( !is.na(CL)) %>%
@@ -722,11 +713,6 @@ StatsBins <- PleiPlioCL %>%
 
 ```{r "Histograms of body size data, modern vs. fossil", echo=FALSE, fig.cap="Distribution of body size data modern vs. fossil, logtransformed."}
 
-
-# Epoch <- as.vector(c("Modern", "Pleistocene", "Pleistocene", "Pleistocene", 
-#                       "Pliocene", "Pliocene", "Miocene", "Miocene", "Miocene", "Oligocene and Eocene"))
-# EPOCH <- as.vector(c("Modern", "Fossil", "Fossil", "Fossil"
-#                      , "Fossil", "Fossil", "Fossil", "Fossil", "Fossil", "Fossil"))
 
 Epoch <- as.vector(c("Modern", "Pleistocene", "Pleistocene", "Pleistocene", "Pleistocene", 
                       "Pliocene", "Pliocene",
@@ -780,14 +766,6 @@ StatsFossil <- PleiPlioCL %>%
 
 
 ```{r "Histograms of body size data, modern vs. fossil, continental vs. insular", echo=FALSE, fig.cap="Distribution of body size data modern vs. fossil, continental vs. insular logtransformed."}
-
-
-# Epoch <- as.vector(c("Modern", "Pleistocene", "Pleistocene", "Pleistocene", 
-#                       "Pliocene", "Pliocene", "Miocene", "Miocene", "Miocene", "Oligocene and Eocene"))
-# EPOCH <- as.vector(c("Modern", "Fossil", "Fossil", "Fossil"
-#                      , "Fossil", "Fossil", "Fossil", "Fossil", "Fossil", "Fossil"))
-# EpochBins <- as.vector(unique(PleiPlioCL$EpochBins))
-# Epochs <- data.frame(Epoch,EpochBins, EPOCH)
 
 
 HistCLFossilIsland <- PleiPlioCL %>%
@@ -947,15 +925,6 @@ Stats <- bind_rows(StatsAll, StatsBins, StatsFossil, StatsIsland,
 
 
 
-#names(Stats) <- c("nCL", "min", "max", "var", "mean", "logm", "med", "logmed", "skew", "logsk", "kurt", "logku", "Variable")
-#Stats[1, 13] <- 0
-#Stats[is.na(Stats)] <-0# c("all", "continental", "insular")
-
-# Stats$Variable <- c("all", "Modern", "Upper Pleistocene", "Middle Pleistocene", "Lower Pleistocene", "Gelasian", "Piacencian", "Zanclean", "Messinian","Tortonian", "Serravallian","Langhian",
-#                          "Burdigalian" ,"Fossil", "Modern", "continental", "insular", "fossil-con", "fossil-ins", "modern-con", 
-# #                     "modern-ins", "Africa", "America", "Asia", "Europe")
-
-
 Stats$Variable <- c("all", "Modern", "Upper Pleistocene", "Middle Pleistocene", "Lower Pleistocene", "Gelasian", "Piacencian", "Zanclean", "Messinian","Tortonian", "Serravallian","Langhian",
                          "Burdigalian","Aquitanian", "Modern","Fossil", "continental",
                     "insular","modern-con", "modern-ins", "fossil-con", "fossil-ins",
@@ -971,24 +940,6 @@ kable(Stats, caption="General statistics of body size data: all, per time bin, i
 ## genera per time bins
 
 ```{r "Boxplots of each genus per time bin", echo=FALSE, warning=FALSE, fig.cap="Boxplots of mean CL per time bin, including mean and sd CL for each genus (as pointrange)."}
-# PleiPlioCL$EpochBins = factor(PleiPlioCL$EpochBins, levels=c("Modern", "Upper Pleistocene",
-#                                                              "Middle Pleistocene", "Lower Pleistocene",
-#                                                              "Upper Pliocene", "Lower Pliocene",
-#                                                              "Upper Miocene", "Middle Miocene",
-#                                                              "Lower Miocene", "Oligocene and Eocene"))
-# 
-# 
-# Epoch <- as.vector(c("Modern", "Pleistocene", "Pleistocene", "Pleistocene", 
-#                       "Pliocene", "Pliocene", "Miocene", "Miocene", "Miocene", "Oligocene and Eocene"))
-# EpochBins <- as.vector(unique(PleiPlioCL$EpochBins))
-# Epochs <- data.frame(Epoch,EpochBins )
-
-# Continent <- as.vector(unique(PleiPlioCL$Continent))
-# Con <- as.vector(c("Asia", "Africa", "Europe", "America", "America", "America", "Europe")) #
-# Continents <- data.frame(Continent, Con)
-
-
-
 
 
 IndGenera <- PleiPlioCL %>%
@@ -1033,24 +984,6 @@ BinGenera
 ## continental vs. insular per time bin
 
 ```{r "Boxplots of each genus per time bin, continental vs. insular", echo=FALSE, warning=FALSE, fig.cap="Boxplots of each genus per time bin, continental vs. insular species."}
-# PleiPlioCL$EpochBins = factor(PleiPlioCL$EpochBins, levels=c("Modern", "Upper Pleistocene",
-#                                                              "Middle Pleistocene", "Lower Pleistocene",
-#                                                              "Upper Pliocene", "Lower Pliocene",
-#                                                              "Upper Miocene", "Middle Miocene",
-#                                                              "Lower Miocene", "Oligocene and Eocene"))
-# 
-# 
-# Epoch <- as.vector(c("Modern", "Pleistocene", "Pleistocene", "Pleistocene", 
-#                       "Pliocene", "Pliocene", "Miocene", "Miocene", "Miocene", "Oligocene and Eocene"))
-# EpochBins <- as.vector(unique(PleiPlioCL$EpochBins))
-# Epochs <- data.frame(Epoch,EpochBins )
-# 
-# Continent <- as.vector(unique(PleiPlioCL$Continent))
-# Con <- as.vector(c("Asia", "Africa", "Europe", "America", "America", "America", "Europe"))#
-# Continents <- data.frame(Continent, Con)
-
-
-
 
 
 IndGenera <- PleiPlioCL %>%
@@ -1173,8 +1106,8 @@ FossilRan <- (replicate(1000, {
  sample(FossilR$CL, length(Modern), replace=FALSE)
   }))
 
-hist(FossilRan)
-abline(v=median(FossilR$CL))#locates actual statistics (skewness) with all data
+hist(FossilRan, main="Fossil, random sampling")
+abline(v=median(FossilR$CL))#locates actual statistics with all data
 
 #hist(sample(FossilR$CL, 251, replace=FALSE))
 
@@ -1206,25 +1139,6 @@ modern < fossil (P = $`r ModernFossil$p.value`$)
 
 
 ```{r "Boxplots fossil vs. modern, continental vs. insular", echo=FALSE, warning=FALSE, fig.cap="Boxplots fossil vs. modern, continental vs. insular species."}
-# PleiPlioCL$EpochBins = factor(PleiPlioCL$EpochBins, levels=c("Modern", "Upper Pleistocene",
-#                                                              "Middle Pleistocene", "Lower Pleistocene",
-#                                                              "Upper Pliocene", "Lower Pliocene",
-#                                                              "Upper Miocene", "Middle Miocene",
-#                                                              "Lower Miocene", "Oligocene and Eocene"))
-# 
-# 
-# Epoch <- as.vector(c("Modern", "Pleistocene", "Pleistocene", "Pleistocene", 
-#                       "Pliocene", "Pliocene", "Miocene", "Miocene", "Miocene", "Oligocene and Eocene"))
-# EPOCH <- as.vector(c("Modern", "Fossil", "Fossil", "Fossil"
-#                      , "Fossil", "Fossil", "Fossil", "Fossil", "Fossil", "Fossil"))
-# EpochBins <- as.vector(unique(PleiPlioCL$EpochBins))
-# Epochs <- data.frame(Epoch,EpochBins, EPOCH)
-# 
-# Continent <- as.vector(unique(PleiPlioCL$Continent))
-# Con <- as.vector(c("Asia", "Africa", "Europe", "America", "America", "America", "Europe"))#
-# Continents <- data.frame(Continent, Con)
-
-
 
 
 
@@ -1270,6 +1184,12 @@ BinGenera
 
 
 
+```
+
+
+```{r "randon sampling modern fossil, island continental", echo=FALSE}
+
+
 FossilIsland <- PleiPlioCL$CL[which(PleiPlioCL$EpochBins!="Modern" & PleiPlioCL$Island=="y")]
 length(FossilIsland)
 
@@ -1277,8 +1197,17 @@ ModernIsland <- sample(PleiPlioCL$CL[which(PleiPlioCL$EpochBins=="Modern" & Plei
 length(ModernIsland)
 
 
-mean(FossilIsland)
-mean(ModernIsland)
+ModernIslandRan <- (replicate(1000, {
+ sample(PleiPlioCL$CL[which(PleiPlioCL$EpochBins=="Modern" & PleiPlioCL$Island=="y")], length(FossilIsland), replace=FALSE)
+  }))
+
+hist(ModernIslandRan, main="Modern, insular, random sampling")
+abline(v=median(PleiPlioCL$CL[which(PleiPlioCL$EpochBins=="Modern" & PleiPlioCL$Island=="y")]))#locates actual statistics with all data
+
+
+
+# mean(FossilIsland)
+# mean(ModernIsland)
 
 
 ModernFossilIsland<- wilcox.test(ModernIsland,FossilIsland, alternative = "l",paired=FALSE)  
@@ -1298,8 +1227,18 @@ FossilCon <- sample(PleiPlioCL$CL[which(PleiPlioCL$EpochBins!="Modern" & PleiPli
 
 length(FossilCon)
 
-mean(ModernCon)
-mean(FossilCon)
+
+FossilConRan <- (replicate(1000, {
+ sample(PleiPlioCL$CL[which(PleiPlioCL$EpochBins!="Modern" & PleiPlioCL$Island=="n")],
+        length(ModernCon), replace=FALSE)
+  }))
+
+hist(FossilConRan, main="Fossil, continental, random sampling")
+abline(v=median(PleiPlioCL$CL[which(PleiPlioCL$EpochBins!="Modern" & PleiPlioCL$Island=="n")]))#locates actual statistics with all data
+
+
+# mean(ModernCon)
+# mean(FossilCon)
 
 ModernFossilCon<- wilcox.test(ModernCon,FossilCon, alternative = "l",paired=FALSE)  
 
@@ -1316,97 +1255,6 @@ Wilcoxon Rank Sum Test (unpaired data):
 modern continental < fossil continental (P = $`r ModernFossilCon$p.value`$)
 
 modern insular < fossil insular (P = $`r ModernFossilIsland$p.value`$)
-
-
-
-
-```{r "Boxplot continental vs. insular, individuals", echo=FALSE, warning=FALSE, fig.cap="Boxplot continental vs. insular, individuals", include=FALSE}
-
-# Epoch <- as.vector(c("Modern", "Pleistocene", "Pleistocene", "Pleistocene",
-#                       "Pliocene", "Pliocene", "Miocene", "Miocene", "Miocene", "Oligocene and Eocene"))
-# EpochBins <- as.vector(unique(PleiPlioCL$EpochBins))
-# Epochs <- data.frame(Epoch,EpochBins )
-# 
-# 
-# Epochs$EpochBins = factor(Epochs$EpochBins, levels=c("Modern", "Pleistocene",
-#                                                              "Pliocene",
-#                                                              "Miocene", "Oligocene and Eocene"))
-# 
-# 
-# Continent <- as.vector(unique(PleiPlioCL$Continent))
-# Con <- as.vector(c("Asia", "Africa", "Europe", "America", "America", "America", "Europe"))#
-# Continents <- data.frame(Continent, Con)
-
-Island <- PleiPlioCL %>%
-  dplyr::select(Taxon, CL, PL, Age, Island, Continent, EpochBins) %>%
-  merge(Epochs) %>%
-  merge(Continents) %>%
-  dplyr::select(CL, Island, Con, Epoch, Age)
-  
-
-Island$Epoch = factor(Island$Epoch, levels=c("Modern", "Pleistocene",
-                                                             "Pliocene",
-                                                             "Miocene", "Oligocene and Eocene"))
-
-colnames(Island)[3] <- "Continent"
-
-give.n <- function(x){
-  return(c(y = 0, label = length(x)))
-}
-
-
-IslandBox <- Island %>%
-  dplyr::select(CL, Island, Continent, Epoch, Age) %>%
-  ggplot(aes(Island, CL)) + geom_boxplot() + geom_jitter(aes(colour=Continent, shape=Epoch)) +
-#  facet_grid(.~Continent) +
-  theme_classic() + # for white background 
-#  stat_summary(fun.data = give.n, geom = "text") +
- # xlab("Sex") + ylab("Carapace length [mm]") + 
-  theme(legend.background = element_rect(colour = 'black'),
-        panel.border = element_rect(colour = "black", fill=NA)) +
-  stat_summary(fun.data = give.n, geom = "text") +
-  scale_colour_brewer(palette="Set1")
-
-IslandBox
-
-
-
-
-```
-
-
-
-```{r "Boxplots, species summarised", echo=FALSE, fig.cap="Boxplots continental vs. insular, species summarised", include=FALSE}
-Island <- PleiPlioCL %>%
-  dplyr::select(Taxon, CL, PL, Age, Island, Continent, EpochBins) %>%
-  merge(Epochs) %>%
-  merge(Continents) %>%
-  dplyr::select(CL, Island, Con, Epoch, Age, Taxon)
-  
-colnames(Island)[3] <- "Continent"
-
-give.n <- function(x){
-  return(c(y = 0, label = length(x)))
-}
-
-
-IslandBoxSpecies <- Island %>%
-  dplyr::select(CL, Island, Continent, Epoch, Age, Taxon) %>%
-  group_by(Taxon, Island, Continent, Epoch) %>%
-  dplyr::filter(!is.na(CL)) %>%
-  summarise(meanCL=mean(CL)) %>%
-  ggplot(aes(Island, meanCL)) + geom_boxplot() + geom_jitter(aes(colour=Continent, shape=Epoch)) +
-#  facet_grid(.~Continent) +
-  theme_classic() + # for white background 
-#  stat_summary(fun.data = give.n, geom = "text") +
- # xlab("Sex") + ylab("Carapace length [mm]") + 
-  theme(legend.background = element_rect(colour = 'black'),
-        panel.border = element_rect(colour = "black", fill=NA)) +
-  stat_summary(fun.data = give.n, geom = "text") +
-  scale_colour_brewer(palette="Set1")
-
-IslandBoxSpecies
-```
 
 
 \newpage
@@ -1449,6 +1297,12 @@ IslandAll
 
 
 
+```
+
+
+```{r "randon sampling island continental", echo=FALSE}
+
+
 
 
 Insular <- PleiPlioCL$CL[which(PleiPlioCL$Island=="y")]
@@ -1456,8 +1310,17 @@ length(Insular)
 Continental <- sample(PleiPlioCL$CL[which(PleiPlioCL$Island=="n")], length(Insular), replace=FALSE)
 length(Continental)
 
-mean(Insular)
-mean(Continental)
+
+ContinentalRan <- (replicate(1000, {
+ sample(PleiPlioCL$CL[which(PleiPlioCL$Island=="n")], length(Insular), replace=FALSE)
+  }))
+
+hist(ContinentalRan, main="Continental, random sampling")
+abline(v=median(PleiPlioCL$CL[which(PleiPlioCL$Island=="n")]))#locates actual statistics (skewness) with all data
+
+
+# mean(Insular)
+# mean(Continental)
 
 InsularContinental<- wilcox.test(Insular,Continental, alternative = "g",paired=FALSE)  
 
@@ -1551,6 +1414,17 @@ ContinentAll <- PleiPlioCL %>%
 
 ContinentAll
 
+
+
+
+```
+
+
+```{r "randon sampling continents", echo=FALSE}
+
+
+
+
 continent <- PleiPlioCL %>%
   merge(Continents) %>%
   filter(!is.na(CL))
@@ -1561,19 +1435,44 @@ mean(Africa)
 America <- sample(continent$CL[which(continent$Con=="America")], length(Africa), replace=FALSE)
 length(America)
 mean(America)
-# Asia <- continent$CL[which(continent$Con=="Asia")]
-# length(Asia)
+Asia <- continent$CL[which(continent$Con=="Asia")]
+length(Asia)
 # mean(Asia)
-# Europe <- continent$CL[which(continent$Con=="Europe")]
-# length(Europe)
+Europe <- continent$CL[which(continent$Con=="Europe")]
+length(Europe)
 # mean(Europe)
 Eurasia <- sample(continent$CL[which(continent$Con=="Europe" | continent$Con=="Asia")], length(Africa), replace=FALSE)
 length(Eurasia)
 mean(Eurasia)
 
 
+AmericaRan <- (replicate(1000, {
+ sample(continent$CL[which(continent$Con=="America")], length(Africa), replace=FALSE)
+  }))
 
-ContinentsCompared <- kruskal.test(list(Africa, America, Eurasia))  #Asia, Europe
+hist(AmericaRan, main="America, random sampling")
+abline(v=median(continent$CL[which(continent$Con=="America")]))#locates actual statistics (skewness) with all data
+
+
+
+EuropeRan <- (replicate(1000, {
+ sample(continent$CL[which(continent$Con=="Europe")], length(Africa), replace=FALSE)
+  }))
+
+hist(EuropeRan, main="Europe, random sampling")
+abline(v=median(continent$CL[which(continent$Con=="Europe")]))#locates actual statistics (skewness) with all data
+
+
+
+EurasiaRan <- (replicate(1000, {
+ sample(continent$CL[which(continent$Con=="Europe" | continent$Con=="Asia")], length(Africa), replace=FALSE)
+  }))
+
+hist(EurasiaRan, main="Eurasia, random sampling")
+abline(v=median(continent$CL[which(continent$Con=="Europe" | continent$Con=="Asia")]))#locates actual statistics (skewness) with all data
+
+
+ContinentsCompared <- kruskal.test(list(Africa, America, Eurasia, Europe))  #Asia, Europe
 
  ContinentsCompared
 # 
@@ -1631,71 +1530,6 @@ ContinentsAll <- testRatio %>%
 
 ContinentsAll
 
-```
-
-
-
-```{r "Boxplots continents, insular vs. continent with age indicated",  echo=FALSE, warning=FALSE, fig.cap="Boxplots of body size (individuals) on different continents, insular vs. continent with age indicated", include=FALSE}
-
-Island <- PleiPlioCL %>%
-  dplyr::select(Genus, CL, PL, Age, Island, Continent, EpochBins) %>%
-  merge(Epochs) %>%
-  merge(Continents) %>%
-  dplyr::select(CL, Island, Continent, Epoch, Age, Genus) %>%
-  filter(!is.na(CL)) #%>%
-  
-  
-  
-IslandJitter <- Island %>%
-  group_by(Genus, Island, Continent) %>%
-  summarise(GenusMean=mean(CL), GenusSD=sd(CL), n=n(), Age=mean(Age)) 
-
-#colnames(Island)[3] <- "Continent"
-Island[is.na(Island)]<-0
-
-
-
-
-IslandBoxAge <- Island %>%
-  ggplot(aes(Island, CL)) + geom_boxplot() +
-#  geom_jitter(data=IslandJitter,aes(colour=Age)) +
-  facet_grid(.~Continent) +
-  theme_classic() + # for white background 
-#  stat_summary(fun.data = give.n, geom = "text") +
- # xlab("Sex") + ylab("Carapace length [mm]") + 
-  theme(legend.background = element_rect(colour = 'black'),
-        panel.border = element_rect(colour = "black", fill=NA))# +
-#  scale_colour_gradientn(colors=c("orange", "red", "purple", "blue", "green")) #
-
-IslandBoxAge
-```
-
-
-```{r "Separate genera per time bin", echo=FALSE, warning=FALSE,  fig.cap="Mean body size and standard deviation per genus in each time bin", include=FALSE}
-BinGeneraFacet <- PleiPlioCL %>%
-  group_by(EpochBins, Genus) %>%
-  filter(!is.na(CL)) %>%
-  summarise(GenusMean=mean(CL), GenusSD=sd(CL), n=n()) %>%
-#  summarise(TimeBinMean=mean(GenusMean), TimeBinSD=sd(GenusMean), n=n()) %>%
-  ungroup() %>%#, CL=CL
-  ggplot(aes(EpochBins, GenusMean)) + #, colour=Genus
-  theme_classic() +
-  theme(axis.text.x = element_text(angle = 45, vjust = 1, hjust=1)) +
-#  stat_boxplot(geom ='errorbar', width = 0.2) +
-#  geom_boxplot() +
-  geom_point(data=IndGenera,  aes(x=Genus, y=GenusMean, colour=Genus)) +
-  geom_pointrange(data=IndGenera, aes(x=Genus, y=GenusMean, colour=Genus, ymin = GenusMean-GenusSD, ymax = GenusMean+GenusSD)) +
-#  geom_boxplot(data=IndGenera,  aes(x=Genus, y=GenusMean, colour=Genus))+
-#  geom_text(data=IndGenera,aes(label=Genus, x=EpochBins, y=GenusMean)) +
-  facet_wrap(~EpochBins, scales="free_x") +
-  guides(colour="none")#+
-#  stat_boxplot(data=BinGenera, geom ='errorbar', width = 0.2) +
-#  geom_boxplot(data=BinGenera) 
-#  geom_errorbar(data=IndGenera, position="jitter",aes(ymin = GenusMean-GenusSD, ymax = GenusMean+GenusSD, width=0.2, colour=Genus))#+
-  #scale_color_brewer(palette="Set1")
-  #scale_colour_gradientn(colours=rainbow(4))
-
-BinGeneraFacet
 ```
 
 
