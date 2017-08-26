@@ -358,7 +358,7 @@ OverviewGenera <- PleiPlioCL %>%
 
 \newpage
 
-# Sampling Accumulation Curve
+# Sampling Accumulation Curves
 
 ```{r "Species Accumulation Curve", echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Species Accumulation Curve of fossil species per Locality and reference", include=FALSE}
 
@@ -464,6 +464,146 @@ plot(vegansp,xlab="References",ylab="Richness", xvar="individuals", ci.type="lin
 
 
 ```
+
+
+
+## Europe
+
+```{r "Species Accumulation Curve with Genera, Europe", echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Sampling Accumulation Curve of fossil genera per reference, Europe"}
+
+
+vegan <- tidyCL %>%
+  merge(Continents) %>%
+  filter(Con=="Europe") %>%
+  dplyr::select(Reference, Genus) %>%
+  group_by(Reference, Genus) %>%
+  summarise(n=n()) %>%
+  tidyr::spread(Genus, n, fill=0)
+
+#library(vegan)
+
+vegan=vegan[,-1]
+vegansp=specaccum(vegan,method="rarefaction", permutations=1000)
+plot(vegansp,xlab="References",ylab="Richness", xvar="individuals", ci.type="line", ci.lty=2, ci.col="grey", col="deepskyblue4", lwd=2, main="Fossil genera, CL, per Reference")
+
+
+```
+
+
+## Africa
+
+```{r "Species Accumulation Curve with Genera, Africa", echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Sampling Accumulation Curve of fossil genera per reference, Africa"}
+
+
+vegan <- tidyCL %>%
+  merge(Continents) %>%
+  filter(Con=="Africa") %>%
+  dplyr::select(Reference, Genus) %>%
+  group_by(Reference, Genus) %>%
+  summarise(n=n()) %>%
+  tidyr::spread(Genus, n, fill=0)
+
+#library(vegan)
+
+vegan=vegan[,-1]
+vegansp=specaccum(vegan,method="rarefaction", permutations=1000)
+plot(vegansp,xlab="References",ylab="Richness", xvar="individuals", ci.type="line", ci.lty=2, ci.col="grey", col="deepskyblue4", lwd=2, main="Fossil genera, CL, per Reference")
+
+
+```
+
+## America
+
+```{r "Species Accumulation Curve with Genera, America", echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Sampling Accumulation Curve of fossil genera per reference, America"}
+
+
+vegan <- tidyCL %>%
+  merge(Continents) %>%
+  filter(Con=="America") %>%
+  dplyr::select(Reference, Genus) %>%
+  group_by(Reference, Genus) %>%
+  summarise(n=n()) %>%
+  tidyr::spread(Genus, n, fill=0)
+
+#library(vegan)
+
+vegan=vegan[,-1]
+vegansp=specaccum(vegan,method="rarefaction", permutations=1000)
+plot(vegansp,xlab="References",ylab="Richness", xvar="individuals", ci.type="line", ci.lty=2, ci.col="grey", col="deepskyblue4", lwd=2, main="Fossil genera, CL, per Reference")
+
+
+```
+
+
+## N-America
+
+```{r "Species Accumulation Curve with Genera, N-America", echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Sampling Accumulation Curve of fossil genera per reference, N-America"}
+
+
+vegan <- tidyCL %>%
+  merge(Continents) %>%
+  filter(Continent=="N-America") %>%
+  dplyr::select(Reference, Genus) %>%
+  group_by(Reference, Genus) %>%
+  summarise(n=n()) %>%
+  tidyr::spread(Genus, n, fill=0)
+
+#library(vegan)
+
+vegan=vegan[,-1]
+vegansp=specaccum(vegan,method="rarefaction", permutations=1000)
+plot(vegansp,xlab="References",ylab="Richness", xvar="individuals", ci.type="line", ci.lty=2, ci.col="grey", col="deepskyblue4", lwd=2, main="Fossil genera, CL, per Reference")
+
+
+```
+
+## S-America
+
+```{r "Species Accumulation Curve with Genera, S-America", echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Sampling Accumulation Curve of fossil genera per reference, S-America"}
+
+
+vegan <- tidyCL %>%
+  merge(Continents) %>%
+  filter(Continent=="S-America") %>%
+  dplyr::select(Reference, Genus) %>%
+  group_by(Reference, Genus) %>%
+  summarise(n=n()) %>%
+  tidyr::spread(Genus, n, fill=0)
+
+#library(vegan)
+
+vegan=vegan[,-1]
+vegansp=specaccum(vegan,method="rarefaction", permutations=1000)
+plot(vegansp,xlab="References",ylab="Richness", xvar="individuals", ci.type="line", ci.lty=2, ci.col="grey", col="deepskyblue4", lwd=2, main="Fossil genera, CL, per Reference")
+
+
+```
+
+
+## Asia
+
+```{r "Species Accumulation Curve with Genera, Asia", echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Sampling Accumulation Curve of fossil genera per reference, Asia"}
+
+
+vegan <- tidyCL %>%
+  merge(Continents) %>%
+  filter(Con=="Asia") %>%
+  dplyr::select(Reference, Genus) %>%
+  group_by(Reference, Genus) %>%
+  summarise(n=n()) %>%
+  tidyr::spread(Genus, n, fill=0)
+
+#library(vegan)
+
+vegan=vegan[,-1]
+vegansp=specaccum(vegan,method="rarefaction", permutations=1000)
+plot(vegansp,xlab="References",ylab="Richness", xvar="individuals", ci.type="line", ci.lty=2, ci.col="grey", col="deepskyblue4", lwd=2, main="Fossil genera, CL, per Reference")
+
+
+```
+
+
+
 
 
 
