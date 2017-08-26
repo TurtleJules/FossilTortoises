@@ -55,8 +55,8 @@ colnames(tidyCL)[18] <- "PL"
 colnames(tidyCL)[21] <- "estimated"
 
 tidyCL <-  tidyCL %>%
-  mutate(Age= ((MAmin)+(as.numeric(Mamax)))/2)  #%>%
-  # filter(estimated=="m") #%>%
+  mutate(Age= ((MAmin)+(as.numeric(Mamax)))/2)  %>%
+   filter(estimated=="m" | estimated=="mo"| estimated=="mf") #%>%
   # filter(!is.na(CL))
 
 ####### import extant data ####
