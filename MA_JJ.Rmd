@@ -258,8 +258,9 @@ FossOcc <- FossilOccurrences %>%
 
 mapWorld <- borders("world", colour="azure3", fill="azure3") # create a layer of borders, run line at the beginning (before loading plotly)
 
-cbbPalette <- c("#000000", "#E69F00", "#56B4E9", "#009E73", "#F0E442", "#0072B2", "#D55E00", "#CC79A7")
+cbbPalette <- c("#000000", "#000000", "#E69F00", "#56B4E9", "#009E73", "#F0E442", "#0072B2", "#D55E00", "#CC79A7")
 
+OwnPalette <- c("#000000", "#000000", "#56B4E9")
 
 mapOc <- FossOcc %>%
   ggplot(aes(Longitude, Latitude)) +# borders("world", ylim = c(-60, 90)) +
@@ -267,7 +268,7 @@ mapOc <- FossOcc %>%
   theme_classic() +
   geom_point(data=FossOcc, alpha=1/4,(aes(as.numeric(Longitude), Latitude, colour=FossOcc$Clavailability))) +
   geom_point(data=CL, alpha=1/2,(aes(Longitude, Latitude, colour="yes"))) +
-  scale_colour_manual(values=cbbPalette)
+  scale_colour_manual(values=OwnPalette) #cbbPalette
 
 #unique(FossOcc$CL)
 
@@ -1934,6 +1935,118 @@ kable(PaleoGenAllFit, caption="Model-fitting results for testudinidae, no bins, 
 ```
 
 
+\newpage
+ 
+#### Europe, smaller original bins (see Table 2), genera, continental
+
+```{r "paleoTS with different time bins, no bins, genera, Europe, continental", echo=FALSE, fig.cap="Smaller original bins, genera, Europe, continental"}
+
+GenusMeanAll <- PleiPlioCL%>%
+#  merge(BINS) %>%
+#  filter(EpochBins != "Modern") %>%  # & EpochBins != "Upper Miocene"
+  merge(Continents) %>%
+  filter(Con == "Europe" & Island == "n") %>%
+ # filter(EpochBins != "Aquitanian") %>%
+  filter(!is.na(CL)) %>%
+  group_by(MeanBins, Genus) %>%
+  summarise(meanCL = mean(CL), n=n()) %>%
+#  ungroup() %>%
+#  group_by(EpochBins) %>%
+  summarise(mm = mean(meanCL), nn=n(), vv=var(meanCL)) %>%
+ # merge(BINS) %>%
+  select(mm, nn, vv, tt=MeanBins)
+  
+GenusMeanAll[is.na(GenusMeanAll)]<-0
+
+
+
+GenusPaleoAll <- GenusMeanAll
+
+GenusPaleoAll[is.na(GenusPaleoAll)] <- 0
+
+#kable(GenusPaleoAll)
+
+
+paleoGenAll <-as.paleoTS(GenusPaleoAll$mm, GenusPaleoAll$vv, GenusPaleoAll$nn, GenusPaleoAll$tt, MM = NULL, genpars = NULL, label = "Testudinidae body size evolution mode", reset.time=TRUE)
+
+plot(paleoGenAll)
+
+
+```
+
+```{r "Model-fitting, genera, all, no bins, Europe, continental" , echo=FALSE, message=FALSE, include=FALSE}
+
+PaleoGenAllFit <- (fit3models(paleoGenAll, silent=FALSE, method="AD", pool=FALSE))
+
+#PaleoGenAllFit2 <- (fit4models(paleoGenAll, silent=FALSE, method="AD", pool=FALSE))
+
+```
+
+
+
+```{r "Model-fitting, genera, all, no bins, Europe, continental, table", echo=FALSE}
+
+kable(PaleoGenAllFit, caption="Model-fitting results for testudinidae, no bins, genera")
+
+```
+
+
+\newpage
+ 
+#### Europe, smaller original bins (see Table 2), genera, insular
+
+```{r "paleoTS with different time bins, no bins, genera, Europe, insular", echo=FALSE, fig.cap="Smaller original bins, genera, Europe, insular"}
+
+GenusMeanAll <- PleiPlioCL%>%
+#  merge(BINS) %>%
+#  filter(EpochBins != "Modern") %>%  # & EpochBins != "Upper Miocene"
+  merge(Continents) %>%
+  filter(Con == "Europe" & Island == "y") %>%
+ # filter(EpochBins != "Aquitanian") %>%
+  filter(!is.na(CL)) %>%
+  group_by(MeanBins, Genus) %>%
+  summarise(meanCL = mean(CL), n=n()) %>%
+#  ungroup() %>%
+#  group_by(EpochBins) %>%
+  summarise(mm = mean(meanCL), nn=n(), vv=var(meanCL)) %>%
+ # merge(BINS) %>%
+  select(mm, nn, vv, tt=MeanBins)
+  
+GenusMeanAll[is.na(GenusMeanAll)]<-0
+
+
+
+GenusPaleoAll <- GenusMeanAll
+
+GenusPaleoAll[is.na(GenusPaleoAll)] <- 0
+
+#kable(GenusPaleoAll)
+
+
+paleoGenAll <-as.paleoTS(GenusPaleoAll$mm, GenusPaleoAll$vv, GenusPaleoAll$nn, GenusPaleoAll$tt, MM = NULL, genpars = NULL, label = "Testudinidae body size evolution mode", reset.time=TRUE)
+
+plot(paleoGenAll)
+
+
+```
+
+```{r "Model-fitting, genera, all, no bins, Europe, insular" , echo=FALSE, message=FALSE, include=FALSE}
+
+PaleoGenAllFit <- (fit3models(paleoGenAll, silent=FALSE, method="AD", pool=FALSE))
+
+#PaleoGenAllFit2 <- (fit4models(paleoGenAll, silent=FALSE, method="AD", pool=FALSE))
+
+```
+
+
+
+```{r "Model-fitting, genera, all, no bins, Europe, insular, table", echo=FALSE}
+
+kable(PaleoGenAllFit, caption="Model-fitting results for testudinidae, no bins, genera")
+
+```
+
+
 
 \newpage 
 ### Eurasia, smaller original bins (See Table 2), genera
@@ -2025,6 +2138,198 @@ PaleoGenAllFit <- (fit3models(paleoGenAll, silent=FALSE, method="AD", pool=FALSE
 
 
 ```{r "Model-fitting, genera, all, no bins, Eurasia, table", echo=FALSE}
+
+kable(PaleoGenAllFit, caption="Model-fitting results for testudinidae, no bins, genera")
+
+```
+
+
+
+
+\newpage 
+### Eurasia, smaller original bins (See Table 2), genera, continental
+
+```{r "paleoTS with different time bins, no bins, genera, Eurasia, continental", echo=FALSE, fig.cap="Smaller original bins, genera, Eurasia, continental"}
+
+GenusMeanAll <- PleiPlioCL %>%
+#  merge(BINS) %>%
+#  filter(EpochBins != "Modern") %>%  # & EpochBins != "Upper Miocene"
+  merge(Continents) %>%
+  filter(Con == "Asia" | Con == "Europe" & Island == "n") %>%
+#  filter(EpochBins != "Aquitanian") %>%
+  filter(!is.na(CL)) %>%
+  group_by(MeanBins, Genus) %>%
+  summarise(meanCL = mean(CL), n=n()) %>%
+#  ungroup() %>%
+#  group_by(EpochBins) %>%
+  summarise(mm = mean(meanCL), nn=n(), vv=var(meanCL)) %>%
+ # merge(BINS) %>%
+  select(mm, nn, vv, tt=MeanBins)
+  
+GenusMeanAll[is.na(GenusMeanAll)]<-0
+
+
+
+sumTort <- read.csv("tortoises_summary.csv", sep=";", header=TRUE)
+colnames(sumTort)[7] <- "meanCL"
+colnames(sumTort)[8] <- "sdCL"
+
+
+sumTortoisesAll <- sumTort %>%
+#  dplyr::filter(Island == "y") %>%
+  merge(Continents) %>%
+  filter(Con== "Asia" | Con == "Europe") %>%
+  mutate(Genus= as.character(Genus)) %>%
+  mutate(MeanBins=(Mamin+Mamax)/2) %>%
+  select(Genus, MeanBins,  meanCL, sdCL, n) #%>% #n,
+ # bind_rows(GenusMeanAll)
+
+
+SumTortAll <- sumTortoisesAll %>%
+  group_by(Genus) %>%
+  mutate(tt=MeanBins, vv=sdCL^2, nn=n, mm=meanCL) %>%
+  dplyr::select(mm, nn, vv, tt, Genus) %>%
+  mutate(nx = nn*mm) %>%
+  mutate(mmall=sum(nx)/sum(nn)) %>%
+  mutate(SD=sqrt(nx), d=mm-mmall) %>%
+  mutate(nsd=((nx^2+d^2)*nn)) %>%
+  mutate(varall=sum(nsd)/sum(nn), n=sum(nn)) %>%
+  dplyr::select(mm=mmall, vv=varall, nn=n, tt, Genus) %>%
+  unique() %>%
+  dplyr::select(CL=mm, n=nn, var=vv, tt, Genus)
+
+
+modernMeanGenusAll <- SumTortAll %>%
+  ungroup() %>%
+  select(CL, n, tt) %>%
+  filter( !is.na(CL)) %>%
+  group_by(tt) %>%
+  summarise(mm = mean(CL), vv=var(CL), nn=n())
+
+#bis hier alle modernen taxa zusammengefasst (summarised and MFN_testudinidae)
+
+
+GenusPaleoAll <- modernMeanGenusAll %>%
+  bind_rows(GenusMeanAll)%>%
+  arrange(tt)
+
+GenusPaleoAll[is.na(GenusPaleoAll)] <- 0
+
+#kable(GenusPaleoAll)
+
+
+paleoGenAll <-as.paleoTS(GenusPaleoAll$mm, GenusPaleoAll$vv, GenusPaleoAll$nn, GenusPaleoAll$tt, MM = NULL, genpars = NULL, label = "Testudinidae body size evolution mode", reset.time=TRUE)
+
+plot(paleoGenAll)
+
+
+```
+
+```{r "Model-fitting, genera, all, no bins, continental, Eurasia" , echo=FALSE, message=FALSE, include=FALSE}
+
+PaleoGenAllFit <- (fit3models(paleoGenAll, silent=FALSE, method="AD", pool=FALSE))
+
+#PaleoGenAllFit2 <- (fit9models(paleoGenAll, silent=FALSE, method="AD", pool=FALSE))
+
+```
+
+```{r "Model-fitting, genera, all, no bins, Eurasia, continental,  table", echo=FALSE}
+
+kable(PaleoGenAllFit, caption="Model-fitting results for testudinidae, no bins, genera")
+
+```
+
+
+
+\newpage 
+### Eurasia, smaller original bins (See Table 2), genera, insular
+
+```{r "paleoTS with different time bins, no bins, genera, Eurasia, insular", echo=FALSE, fig.cap="Smaller original bins, genera, Eurasia, insular"}
+
+GenusMeanAll <- PleiPlioCL %>%
+#  merge(BINS) %>%
+#  filter(EpochBins != "Modern") %>%  # & EpochBins != "Upper Miocene"
+  merge(Continents) %>%
+  filter(Con == "Asia" | Con == "Europe" & Island == "y") %>%
+#  filter(EpochBins != "Aquitanian") %>%
+  filter(!is.na(CL)) %>%
+  group_by(MeanBins, Genus) %>%
+  summarise(meanCL = mean(CL), n=n()) %>%
+#  ungroup() %>%
+#  group_by(EpochBins) %>%
+  summarise(mm = mean(meanCL), nn=n(), vv=var(meanCL)) %>%
+ # merge(BINS) %>%
+  select(mm, nn, vv, tt=MeanBins)
+  
+GenusMeanAll[is.na(GenusMeanAll)]<-0
+
+
+
+sumTort <- read.csv("tortoises_summary.csv", sep=";", header=TRUE)
+colnames(sumTort)[7] <- "meanCL"
+colnames(sumTort)[8] <- "sdCL"
+
+
+sumTortoisesAll <- sumTort %>%
+#  dplyr::filter(Island == "y") %>%
+  merge(Continents) %>%
+  filter(Con== "Asia" | Con == "Europe") %>%
+  mutate(Genus= as.character(Genus)) %>%
+  mutate(MeanBins=(Mamin+Mamax)/2) %>%
+  select(Genus, MeanBins,  meanCL, sdCL, n) #%>% #n,
+ # bind_rows(GenusMeanAll)
+
+
+SumTortAll <- sumTortoisesAll %>%
+  group_by(Genus) %>%
+  mutate(tt=MeanBins, vv=sdCL^2, nn=n, mm=meanCL) %>%
+  dplyr::select(mm, nn, vv, tt, Genus) %>%
+  mutate(nx = nn*mm) %>%
+  mutate(mmall=sum(nx)/sum(nn)) %>%
+  mutate(SD=sqrt(nx), d=mm-mmall) %>%
+  mutate(nsd=((nx^2+d^2)*nn)) %>%
+  mutate(varall=sum(nsd)/sum(nn), n=sum(nn)) %>%
+  dplyr::select(mm=mmall, vv=varall, nn=n, tt, Genus) %>%
+  unique() %>%
+  dplyr::select(CL=mm, n=nn, var=vv, tt, Genus)
+
+
+modernMeanGenusAll <- SumTortAll %>%
+  ungroup() %>%
+  select(CL, n, tt) %>%
+  filter( !is.na(CL)) %>%
+  group_by(tt) %>%
+  summarise(mm = mean(CL), vv=var(CL), nn=n())
+
+#bis hier alle modernen taxa zusammengefasst (summarised and MFN_testudinidae)
+
+
+GenusPaleoAll <- modernMeanGenusAll %>%
+  bind_rows(GenusMeanAll)%>%
+  arrange(tt)
+
+GenusPaleoAll[is.na(GenusPaleoAll)] <- 0
+
+#kable(GenusPaleoAll)
+
+
+paleoGenAll <-as.paleoTS(GenusPaleoAll$mm, GenusPaleoAll$vv, GenusPaleoAll$nn, GenusPaleoAll$tt, MM = NULL, genpars = NULL, label = "Testudinidae body size evolution mode", reset.time=TRUE)
+
+plot(paleoGenAll)
+
+
+```
+
+```{r "Model-fitting, genera, all, no bins, Eurasia, insular" , echo=FALSE, message=FALSE, include=FALSE}
+
+PaleoGenAllFit <- (fit3models(paleoGenAll, silent=FALSE, method="AD", pool=FALSE))
+
+#PaleoGenAllFit2 <- (fit9models(paleoGenAll, silent=FALSE, method="AD", pool=FALSE))
+
+```
+
+
+```{r "Model-fitting, genera, all, no bins, Eurasia, insular, table", echo=FALSE}
 
 kable(PaleoGenAllFit, caption="Model-fitting results for testudinidae, no bins, genera")
 
