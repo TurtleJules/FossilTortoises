@@ -501,7 +501,7 @@ species.}
 \end{verbatim}
 
 \begin{verbatim}
-## [1] 519.6627
+## [1] 478.4724
 \end{verbatim}
 
 \begin{verbatim}
@@ -509,13 +509,13 @@ species.}
 ##  Wilcoxon rank sum test with continuity correction
 ## 
 ## data:  Modern and Fossil
-## W = 23414, p-value = 1.696e-07
+## W = 24708, p-value = 8.224e-06
 ## alternative hypothesis: true location shift is less than 0
 \end{verbatim}
 
 Wilcoxon Rank Sum Test (unpaired data):
 
-modern \textless{} fossil (P = \(1.6960021\times 10^{-7}\))
+modern \textless{} fossil (P = \(8.2236647\times 10^{-6}\))
 
 \newpage
 
@@ -543,7 +543,7 @@ vs.~insular}\label{fossil-vs.modern-continental-vs.insular}
 ##  Wilcoxon rank sum test with continuity correction
 ## 
 ## data:  ModernIsland and FossilIsland
-## W = 598.5, p-value = 1.33e-06
+## W = 640.5, p-value = 5.067e-06
 ## alternative hypothesis: true location shift is less than 0
 \end{verbatim}
 
@@ -562,17 +562,17 @@ vs.~insular}\label{fossil-vs.modern-continental-vs.insular}
 ##  Wilcoxon rank sum test with continuity correction
 ## 
 ## data:  ModernCon and FossilCon
-## W = 8219.5, p-value = 1.673e-07
+## W = 8050, p-value = 5.377e-08
 ## alternative hypothesis: true location shift is less than 0
 \end{verbatim}
 
 Wilcoxon Rank Sum Test (unpaired data):
 
 modern continental \textless{} fossil continental (P =
-\(1.673088\times 10^{-7}\))
+\(5.3770913\times 10^{-8}\))
 
 modern insular \textless{} fossil insular (P =
-\(1.3295711\times 10^{-6}\))
+\(5.0665217\times 10^{-6}\))
 
 \newpage
 
@@ -599,13 +599,13 @@ modern insular \textless{} fossil insular (P =
 ##  Wilcoxon rank sum test with continuity correction
 ## 
 ## data:  Insular and Continental
-## W = 14160, p-value = 2.073e-06
+## W = 14470, p-value = 2.47e-07
 ## alternative hypothesis: true location shift is greater than 0
 \end{verbatim}
 
 Wilcoxon Rank Sum Test (unpaired data):
 
-continental \textless{} insular (P = \(2.0725274\times 10^{-6}\))
+continental \textless{} insular (P = \(2.4702259\times 10^{-7}\))
 
 \newpage
 
@@ -641,7 +641,7 @@ bin}\label{continental-vs.insular-per-time-bin-1}
 \end{verbatim}
 
 \begin{verbatim}
-## [1] 428.6906
+## [1] 423.6606
 \end{verbatim}
 
 \begin{verbatim}
@@ -657,7 +657,7 @@ bin}\label{continental-vs.insular-per-time-bin-1}
 \end{verbatim}
 
 \begin{verbatim}
-## [1] 549.5648
+## [1] 480.0239
 \end{verbatim}
 
 \includegraphics{MA_JJ_files/figure-latex/randon sampling continents-1.pdf}
@@ -669,12 +669,12 @@ bin}\label{continental-vs.insular-per-time-bin-1}
 ##  Kruskal-Wallis rank sum test
 ## 
 ## data:  list(Africa, America, Eurasia, Europe)
-## Kruskal-Wallis chi-squared = 32.852, df = 3, p-value = 3.46e-07
+## Kruskal-Wallis chi-squared = 32.761, df = 3, p-value = 3.618e-07
 \end{verbatim}
 
 Kruskal-Wallis-Test:
 
-Continent means differ (P = \(3.4600633\times 10^{-7}\)) (still have to
+Continent means differ (P = \(3.6175292\times 10^{-7}\)) (still have to
 look into the details\ldots{})
 
 \newpage
@@ -714,9 +714,9 @@ island species}\tabularnewline
 & logL & K & AICc & Akaike.wt\tabularnewline
 \midrule
 \endhead
-GRW & -81.47206 & 2 & 168.2774 & 0.142\tabularnewline
-URW & -82.08262 & 1 & 166.5652 & 0.335\tabularnewline
-Stasis & -80.17281 & 2 & 165.6790 & 0.522\tabularnewline
+GRW & -86.99386 & 2 & 179.1877 & 0.461\tabularnewline
+URW & -88.57811 & 1 & 179.5199 & 0.390\tabularnewline
+Stasis & -88.12362 & 2 & 181.4472 & 0.149\tabularnewline
 \bottomrule
 \end{longtable}
 
@@ -744,9 +744,9 @@ insular species}\tabularnewline
 & logL & K & AICc & Akaike.wt\tabularnewline
 \midrule
 \endhead
-GRW & -82.41382 & 2 & 170.1610 & 0.269\tabularnewline
-URW & -83.12759 & 1 & 168.6552 & 0.572\tabularnewline
-Stasis & -82.94226 & 2 & 171.2179 & 0.159\tabularnewline
+GRW & -87.90745 & 2 & 181.0149 & 0.537\tabularnewline
+URW & -89.62953 & 1 & 181.6227 & 0.397\tabularnewline
+Stasis & -90.00652 & 2 & 185.2130 & 0.066\tabularnewline
 \bottomrule
 \end{longtable}
 
@@ -804,9 +804,9 @@ genera}\tabularnewline
 & logL & K & AICc & Akaike.wt\tabularnewline
 \midrule
 \endhead
-GRW & -84.02266 & 2 & 173.5453 & 0.007\tabularnewline
-URW & -85.87015 & 1 & 174.1847 & 0.005\tabularnewline
-Stasis & -79.01926 & 2 & 163.5385 & 0.989\tabularnewline
+GRW & -93.41355 & 2 & 192.1604 & 0.003\tabularnewline
+URW & -93.53232 & 1 & 189.4646 & 0.012\tabularnewline
+Stasis & -87.65688 & 2 & 180.6471 & 0.985\tabularnewline
 \bottomrule
 \end{longtable}
 
@@ -832,9 +832,9 @@ genera}\tabularnewline
 & logL & K & AICc & Akaike.wt\tabularnewline
 \midrule
 \endhead
-GRW & -87.77759 & 2 & 181.0552 & 0.010\tabularnewline
-URW & -91.78535 & 1 & 186.0151 & 0.001\tabularnewline
-Stasis & -83.21182 & 2 & 171.9236 & 0.989\tabularnewline
+GRW & -95.85309 & 2 & 197.0395 & 0.005\tabularnewline
+URW & -101.78239 & 1 & 205.9648 & 0.000\tabularnewline
+Stasis & -90.54653 & 2 & 186.4264 & 0.995\tabularnewline
 \bottomrule
 \end{longtable}
 
@@ -888,9 +888,9 @@ genera}\tabularnewline
 & logL & K & AICc & Akaike.wt\tabularnewline
 \midrule
 \endhead
-GRW & -85.31994 & 2 & 175.9732 & 0.141\tabularnewline
-URW & -85.39600 & 1 & 173.1920 & 0.567\tabularnewline
-Stasis & -84.59249 & 2 & 174.5183 & 0.292\tabularnewline
+GRW & -91.65642 & 2 & 188.5128 & 0.286\tabularnewline
+URW & -92.43040 & 1 & 187.2244 & 0.545\tabularnewline
+Stasis & -92.18096 & 2 & 189.5619 & 0.169\tabularnewline
 \bottomrule
 \end{longtable}
 

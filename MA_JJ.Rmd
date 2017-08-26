@@ -1539,7 +1539,7 @@ GenusMean <- PleiPlioCL %>%
   filter(!is.na(CL)) %>%
   group_by(EpochBins, Genus) %>%
   summarise(meanCL = mean(CL), n=n()) %>%
-  filter(EpochBins != "Aquitanian") %>%
+#  filter(EpochBins != "Aquitanian") %>%
 #  ungroup() %>%
 #  group_by(EpochBins) %>%
   summarise(mm = mean(meanCL), nn=n(), vv=var(meanCL)) %>%
@@ -1653,7 +1653,7 @@ GenusMeanIs <- PleiPlioCL %>%
   filter(EpochBins != "Modern" & Island == "n") %>%
   filter(!is.na(CL)) %>%
   group_by(EpochBins, Genus) %>%
-  filter(EpochBins != "Aquitanian") %>%
+ # filter(EpochBins != "Aquitanian") %>%
   summarise(meanCL = mean(CL), n=n()) %>%
 #  ungroup() %>%
 #  group_by(EpochBins) %>%
@@ -1769,7 +1769,7 @@ GenusMeanCon <- PleiPlioCL %>%
   filter(EpochBins != "Modern" & Island == "y") %>%  # & EpochBins != "Upper Miocene"
   filter(!is.na(CL)) %>%
   group_by(EpochBins, Genus) %>%
-  filter(EpochBins != "Aquitanian") %>%
+ # filter(EpochBins != "Aquitanian") %>%
   summarise(meanCL = mean(CL), n=n()) %>%
 #  ungroup() %>%
 #  group_by(EpochBins) %>%
@@ -1880,7 +1880,7 @@ GenusMeanAll <- PleiPlioCL%>%
 #  filter(EpochBins != "Modern") %>%  # & EpochBins != "Upper Miocene"
   merge(Continents) %>%
   filter(Con == "Europe") %>%
-  filter(EpochBins != "Aquitanian") %>%
+#  filter(EpochBins != "Aquitanian") %>%
   filter(!is.na(CL)) %>%
   group_by(MeanBins, Genus) %>%
   summarise(meanCL = mean(CL), n=n()) %>%
@@ -1936,7 +1936,7 @@ GenusMeanAll <- PleiPlioCL%>%
 #  filter(EpochBins != "Modern") %>%  # & EpochBins != "Upper Miocene"
   merge(Continents) %>%
   filter(Con == "Europe" & Island == "n") %>%
-  filter(EpochBins != "Aquitanian") %>%
+#  filter(EpochBins != "Aquitanian") %>%
   filter(!is.na(CL)) %>%
   group_by(MeanBins, Genus) %>%
   summarise(meanCL = mean(CL), n=n()) %>%
@@ -1992,7 +1992,7 @@ GenusMeanAll <- PleiPlioCL%>%
 #  filter(EpochBins != "Modern") %>%  # & EpochBins != "Upper Miocene"
   merge(Continents) %>%
   filter(Con == "Europe" & Island == "y") %>%
-  filter(EpochBins != "Aquitanian") %>%
+#  filter(EpochBins != "Aquitanian") %>%
   filter(!is.na(CL)) %>%
   group_by(MeanBins, Genus) %>%
   summarise(meanCL = mean(CL), n=n()) %>%
@@ -2048,7 +2048,7 @@ GenusMeanAll <- PleiPlioCL %>%
 #  filter(EpochBins != "Modern") %>%  # & EpochBins != "Upper Miocene"
   merge(Continents) %>%
   filter(Con == "Asia" | Con == "Europe") %>%
-  filter(EpochBins != "Aquitanian") %>%
+#  filter(EpochBins != "Aquitanian") %>%
   filter(!is.na(CL)) %>%
   group_by(MeanBins, Genus) %>%
   summarise(meanCL = mean(CL), n=n()) %>%
@@ -2146,7 +2146,7 @@ GenusMeanAll <- PleiPlioCL %>%
 #  filter(EpochBins != "Modern") %>%  # & EpochBins != "Upper Miocene"
   merge(Continents) %>%
   filter(Con == "Asia" | Con == "Europe" & Island == "n") %>%
-#  filter(EpochBins != "Aquitanian") %>%
+ # filter(EpochBins != "Aquitanian") %>%
   filter(!is.na(CL)) %>%
   group_by(MeanBins, Genus) %>%
   summarise(meanCL = mean(CL), n=n()) %>%
@@ -2241,7 +2241,7 @@ GenusMeanAll <- PleiPlioCL %>%
 #  filter(EpochBins != "Modern") %>%  # & EpochBins != "Upper Miocene"
   merge(Continents) %>%
   filter(Con == "Asia" | Con == "Europe" & Island == "y") %>%
-  filter(EpochBins != "Aquitanian") %>%
+ # filter(EpochBins != "Aquitanian") %>%
   filter(!is.na(CL)) %>%
   group_by(MeanBins, Genus) %>%
   summarise(meanCL = mean(CL), n=n()) %>%
