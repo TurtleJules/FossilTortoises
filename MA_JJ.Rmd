@@ -1971,7 +1971,7 @@ GenusMeanAll <- PleiPlioCL %>%
 #  filter(EpochBins != "Modern") %>%  # & EpochBins != "Upper Miocene"
   merge(Continents) %>%
   filter(Con == "Asia" | Con == "Europe") %>%
-  filter(EpochBins != "Aquitanian") %>%
+#  filter(EpochBins != "Aquitanian") %>%
   filter(!is.na(CL)) %>%
   group_by(MeanBins, Genus) %>%
   summarise(meanCL = mean(CL), n=n()) %>%
