@@ -430,9 +430,7 @@ plot(vegansp,xlab="References",ylab="Richness", xvar="individuals", ci.type="lin
 
 
 ```
-\newpage
 
-## Eurasia
 
 ```{r "Species Accumulation Curve with Genera, Eurasia", echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Sampling Accumulation Curve of fossil genera per reference, Eurasia"}
 
@@ -468,8 +466,6 @@ plot(vegansp,xlab="References",ylab="Richness", xvar="individuals", ci.type="lin
 
 
 
-## Europe
-
 ```{r "Species Accumulation Curve with Genera, Europe", echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Sampling Accumulation Curve of fossil genera per reference, Europe"}
 
 
@@ -491,7 +487,6 @@ plot(vegansp,xlab="References",ylab="Richness", xvar="individuals", ci.type="lin
 ```
 
 
-## Africa
 
 ```{r "Species Accumulation Curve with Genera, Africa", echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Sampling Accumulation Curve of fossil genera per reference, Africa"}
 
@@ -513,7 +508,6 @@ plot(vegansp,xlab="References",ylab="Richness", xvar="individuals", ci.type="lin
 
 ```
 
-## America
 
 ```{r "Species Accumulation Curve with Genera, America", echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Sampling Accumulation Curve of fossil genera per reference, America"}
 
@@ -536,7 +530,6 @@ plot(vegansp,xlab="References",ylab="Richness", xvar="individuals", ci.type="lin
 ```
 
 
-## N-America
 
 ```{r "Species Accumulation Curve with Genera, N-America", echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Sampling Accumulation Curve of fossil genera per reference, N-America"}
 
@@ -558,7 +551,6 @@ plot(vegansp,xlab="References",ylab="Richness", xvar="individuals", ci.type="lin
 
 ```
 
-## S-America
 
 ```{r "Species Accumulation Curve with Genera, S-America", echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Sampling Accumulation Curve of fossil genera per reference, S-America"}
 
@@ -580,8 +572,6 @@ plot(vegansp,xlab="References",ylab="Richness", xvar="individuals", ci.type="lin
 
 ```
 
-
-## Asia
 
 ```{r "Species Accumulation Curve with Genera, Asia", echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Sampling Accumulation Curve of fossil genera per reference, Asia"}
 
@@ -1485,7 +1475,7 @@ ContinentsCompared <- kruskal.test(list(Africa, America, Eurasia, Europe))  #Asi
 ```
 
 
-Wilcoxon Rank Sum Test (unpaired data): 
+Kruskal-Wallis-Test: 
 
 Continent means differ (P = $`r ContinentsCompared$p.value`$)
 (still have to look into the details...)
@@ -1549,7 +1539,7 @@ GenusMean <- PleiPlioCL %>%
   filter(!is.na(CL)) %>%
   group_by(EpochBins, Genus) %>%
   summarise(meanCL = mean(CL), n=n()) %>%
-#  filter(EpochBins != "Aquitanian") %>%
+  filter(EpochBins != "Aquitanian") %>%
 #  ungroup() %>%
 #  group_by(EpochBins) %>%
   summarise(mm = mean(meanCL), nn=n(), vv=var(meanCL)) %>%
@@ -1663,7 +1653,7 @@ GenusMeanIs <- PleiPlioCL %>%
   filter(EpochBins != "Modern" & Island == "n") %>%
   filter(!is.na(CL)) %>%
   group_by(EpochBins, Genus) %>%
-#  filter(EpochBins != "Aquitanian") %>%
+  filter(EpochBins != "Aquitanian") %>%
   summarise(meanCL = mean(CL), n=n()) %>%
 #  ungroup() %>%
 #  group_by(EpochBins) %>%
@@ -1779,7 +1769,7 @@ GenusMeanCon <- PleiPlioCL %>%
   filter(EpochBins != "Modern" & Island == "y") %>%  # & EpochBins != "Upper Miocene"
   filter(!is.na(CL)) %>%
   group_by(EpochBins, Genus) %>%
- # filter(EpochBins != "Aquitanian") %>%
+  filter(EpochBins != "Aquitanian") %>%
   summarise(meanCL = mean(CL), n=n()) %>%
 #  ungroup() %>%
 #  group_by(EpochBins) %>%
@@ -1890,7 +1880,7 @@ GenusMeanAll <- PleiPlioCL%>%
 #  filter(EpochBins != "Modern") %>%  # & EpochBins != "Upper Miocene"
   merge(Continents) %>%
   filter(Con == "Europe") %>%
- # filter(EpochBins != "Aquitanian") %>%
+  filter(EpochBins != "Aquitanian") %>%
   filter(!is.na(CL)) %>%
   group_by(MeanBins, Genus) %>%
   summarise(meanCL = mean(CL), n=n()) %>%
@@ -1946,7 +1936,7 @@ GenusMeanAll <- PleiPlioCL%>%
 #  filter(EpochBins != "Modern") %>%  # & EpochBins != "Upper Miocene"
   merge(Continents) %>%
   filter(Con == "Europe" & Island == "n") %>%
- # filter(EpochBins != "Aquitanian") %>%
+  filter(EpochBins != "Aquitanian") %>%
   filter(!is.na(CL)) %>%
   group_by(MeanBins, Genus) %>%
   summarise(meanCL = mean(CL), n=n()) %>%
@@ -2002,7 +1992,7 @@ GenusMeanAll <- PleiPlioCL%>%
 #  filter(EpochBins != "Modern") %>%  # & EpochBins != "Upper Miocene"
   merge(Continents) %>%
   filter(Con == "Europe" & Island == "y") %>%
- # filter(EpochBins != "Aquitanian") %>%
+  filter(EpochBins != "Aquitanian") %>%
   filter(!is.na(CL)) %>%
   group_by(MeanBins, Genus) %>%
   summarise(meanCL = mean(CL), n=n()) %>%
@@ -2058,7 +2048,7 @@ GenusMeanAll <- PleiPlioCL %>%
 #  filter(EpochBins != "Modern") %>%  # & EpochBins != "Upper Miocene"
   merge(Continents) %>%
   filter(Con == "Asia" | Con == "Europe") %>%
-#  filter(EpochBins != "Aquitanian") %>%
+  filter(EpochBins != "Aquitanian") %>%
   filter(!is.na(CL)) %>%
   group_by(MeanBins, Genus) %>%
   summarise(meanCL = mean(CL), n=n()) %>%
@@ -2251,7 +2241,7 @@ GenusMeanAll <- PleiPlioCL %>%
 #  filter(EpochBins != "Modern") %>%  # & EpochBins != "Upper Miocene"
   merge(Continents) %>%
   filter(Con == "Asia" | Con == "Europe" & Island == "y") %>%
-#  filter(EpochBins != "Aquitanian") %>%
+  filter(EpochBins != "Aquitanian") %>%
   filter(!is.na(CL)) %>%
   group_by(MeanBins, Genus) %>%
   summarise(meanCL = mean(CL), n=n()) %>%
