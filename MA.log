@@ -1,7 +1,7 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6350 64-bit) (preloaded format=pdflatex 2017.7.2)  27 AUG 2017 00:47
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6350 64-bit) (preloaded format=pdflatex 2017.7.2)  27 AUG 2017 00:49
 entering extended mode
-**./titlepage.tex
-(titlepage.tex
+**./MA.tex
+(MA.tex
 LaTeX2e <2017-04-15>
 Babel <3.10> and hyphenation patterns for 75 language(s) loaded.
 ("C:\Program Files\MiKTeX 2.9\tex\latex\koma-script\scrartcl.cls"
@@ -626,8 +626,8 @@ Package: ifxetex 2010/09/12 v0.6 Provides ifxetex conditional
 ("C:\Program Files\MiKTeX 2.9\tex\latex\psnfss\helvet.sty"
 Package: helvet 2005/04/12 PSNFSS-v9.2a (WaS) 
 )
-("C:\Program Files\MiKTeX 2.9\tex\latex\ltxmisc\here.sty") (titlepage.aux)
-\openout1 = `titlepage.aux'.
+("C:\Program Files\MiKTeX 2.9\tex\latex\ltxmisc\here.sty") (MA.aux)
+\openout1 = `MA.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 26.
 LaTeX Font Info:    ... okay on input line 26.
@@ -755,10 +755,10 @@ LaTeX Font Info:    Font shape `T1/phv/bx/n' in size <10.95> not available
 (Font)              Font shape `T1/phv/b/n' tried instead on input line 49.
 LaTeX Font Info:    Font shape `T1/phv/bx/n' in size <14.4> not available
 (Font)              Font shape `T1/phv/b/n' tried instead on input line 49.
-
-(titlepage.toc
+ (MA.toc
 LaTeX Font Info:    Try loading font information for OT1+lmr on input line 6.
- ("C:\Program Files\MiKTeX 2.9\tex\latex\lm\ot1lmr.fd"
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\lm\ot1lmr.fd"
 File: ot1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
 LaTeX Font Info:    Try loading font information for OML+lmm on input line 6.
@@ -793,18 +793,18 @@ LaTeX Font Info:    Try loading font information for U+msb on input line 6.
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 ))
 \tf@toc=\write3
-\openout3 = `titlepage.toc'.
+\openout3 = `MA.toc'.
 
- (titlepage.lof)
+ (MA.lof)
 \tf@lof=\write4
-\openout4 = `titlepage.lof'.
+\openout4 = `MA.lof'.
 
-
-(titlepage.lot)
+ (MA.lot)
 \tf@lot=\write5
-\openout5 = `titlepage.lot'.
+\openout5 = `MA.lot'.
 
- [2] (Intro.tex) [3] (MM.tex
+
+[2] (Intro.tex) [3] (MM.tex
 LaTeX Font Info:    Font shape `T1/phv/bx/n' in size <12> not available
 (Font)              Font shape `T1/phv/b/n' tried instead on input line 3.
 
@@ -850,24 +850,24 @@ Overfull \hbox (65.18556pt too wide) in alignment at lines 18--45
  [] [] [] [] [] [] [] 
  []
 
-) [7] (titlepage.aux)
+) [7] (MA.aux)
 
 LaTeX Warning: There were undefined references.
 
  ) 
 Here is how much of TeX's memory you used:
  5765 strings out of 493323
- 90241 string characters out of 3139070
+ 90129 string characters out of 3139070
  249903 words of memory out of 3000000
  9142 multiletter control sequences out of 15000+200000
  51009 words of font info for 51 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 48i,9n,76p,8849b,304s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 48i,9n,76p,8842b,304s stack positions out of 5000i,500n,10000p,200000b,50000s
 {C:/Program Files/MiKTeX 2.9/fonts/enc/dvips/base/8r.enc}<C:/Program Files/Mi
 KTeX 2.9/fonts/type1/urw/helvetic/uhvb8a.pfb><C:/Program Files/MiKTeX 2.9/fonts
 /type1/urw/helvetic/uhvr8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/hel
 vetic/uhvro8a.pfb>
-Output written on titlepage.pdf (7 pages, 108731 bytes).
+Output written on MA.pdf (7 pages, 108731 bytes).
 PDF statistics:
  49 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
