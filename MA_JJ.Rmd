@@ -132,19 +132,19 @@ Miocene <- testRatio %>% #testRatio or tidyCL
 # new cuts: 1.806, 4.466, 7.424, 9.516, 13.789, 18
 
 Miocene$bin <- cut(Miocene$Age, c(0, 0.0117, 0.126, 0.781, 1.806, 2.588, 3.6,
-                                  5.332, 7.246, 11.608, 13.82, 15.97, 20.44, 23.03))
+                                  5.332, 7.246, 11.608, 13.82, 15.97, 23.03))
 
 
 
 
 EpochBins <- as.vector(c("Modern", "Upper Pleistocene", "Middle Pleistocene", "Lower Pleistocene", "Gelasian", "Piacencian", "Zanclean", "Messinian","Tortonian", "Serravallian","Langhian",
-                         "Burdigalian", "Aquitanian"))
+                         "Burdigalian/Aquitanian"))
 
 Stages <- as.vector(c("Modern", "Upper Pleistocene", "Middle Pleistocene", "Lower Pleistocene", "Lower Pleistocene", "Upper Pliocene", "Lower Pliocene", "Upper Miocene","Upper Miocene",
-                      "Middle Miocene","Middle Miocene", "Lower Miocene", "Lower Miocene"))
+                      "Middle Miocene","Middle Miocene", "Lower Miocene"))
 
 
-MeanBins <- as.vector(c((0+0.0117)/2, (0.0117+0.126)/2, (0.126+0.781)/2, (0.781+1.806)/2, (1.806+2.588)/2,(2.588+3.6)/2, (3.6+5.332)/2, (5.332+7.246)/2, (7.246+11.608)/2, (11.608+13.82)/2, (13.82+15.97)/2, (15.97+20.44)/2, (20.44+23.03)/2))
+MeanBins <- as.vector(c((0+0.0117)/2, (0.0117+0.126)/2, (0.126+0.781)/2, (0.781+1.806)/2, (1.806+2.588)/2,(2.588+3.6)/2, (3.6+5.332)/2, (5.332+7.246)/2, (7.246+11.608)/2, (11.608+13.82)/2, (13.82+15.97)/2, (15.97+23.03)/2))
 
 #1.806, 4.466, 7.424, 9.516, 13.789, 18
 
@@ -179,7 +179,7 @@ BINSMio <- data.frame(bin, EpochBins, Stages, MeanBins) %>%
 
  BINSMio$EpochBins = factor(BINSMio$EpochBins, 
                            levels= c("Modern", "Upper Pleistocene", "Middle Pleistocene", "Lower Pleistocene", "Gelasian", "Piacencian", "Zanclean", "Messinian","Tortonian", "Serravallian","Langhian",
-                         "Burdigalian", "Aquitanian" ))
+                         "Burdigalian/Aquitanian" ))
 
 #BINS <- read.table("timebins.txt", sep="\t", header=TRUE)
 
@@ -211,9 +211,9 @@ scatter <- testRatio %>%
   ggplot(aes(Age, CL)) + geom_jitter(aes(shape=Island, colour= Continent)) +
   theme_classic() +
   geom_vline(xintercept = c(0, 0.0117, 0.126, 0.781, 1.806, 2.588, 3.6,
-                                  5.332, 7.246, 11.608, 13.82, 15.97, 20.44, 23.03))
+                                  5.332, 7.246, 11.608, 13.82, 15.97, 23.03))+
   # geom_vline(xintercept= c(0, 0.0117, 0.126, 0.781, 2.588, 3.6, 5.332, 11.608, 15.97, 23.03)) +
-  # geom_vline(xintercept= c(1.806, 4.466, 7.424, 9.516, 13.789, 18), linetype="dashed")
+   geom_vline(xintercept= 20.44, linetype="dashed")
 
 
 scatter
@@ -707,10 +707,10 @@ StatsBins <- PleiPlioCL %>%
 
 Epoch <- as.vector(c("Modern", "Pleistocene", "Pleistocene", "Pleistocene", "Pleistocene", 
                       "Pliocene", "Pliocene",
-                     "Miocene", "Miocene", "Miocene",  "Miocene", "Miocene", "Miocene"))
+                     "Miocene", "Miocene", "Miocene",  "Miocene", "Miocene"))
 EPOCH <- as.vector(c("Modern", "Fossil", "Fossil", "Fossil"
                      , "Fossil", "Fossil", "Fossil", "Fossil", "Fossil", "Fossil"
-                     , "Fossil", "Fossil", "Fossil"))
+                     , "Fossil", "Fossil"))
 EpochBins <- as.vector(unique(PleiPlioCL$EpochBins))
 Epochs <- data.frame(Epoch,EpochBins, EPOCH)
 
@@ -917,7 +917,7 @@ Stats <- bind_rows(StatsAll, StatsBins, StatsFossil, StatsIsland,
 
 
 Stats$Variable <- c("all", "Modern", "Upper Pleistocene", "Middle Pleistocene", "Lower Pleistocene", "Gelasian", "Piacencian", "Zanclean", "Messinian","Tortonian", "Serravallian","Langhian",
-                         "Burdigalian","Aquitanian", "Modern","Fossil", "continental",
+                         "Burdigalian/Aquitanian", "Modern","Fossil", "continental",
                     "insular","modern-con", "modern-ins", "fossil-con", "fossil-ins",
                     "Africa", "America", "Asia", "Europe")
 
