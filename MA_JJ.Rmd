@@ -242,7 +242,7 @@ scatter
 # Maps
 ## fossil occurences of testudinidae
 
-```{r "Map fossil occurrences", echo=FALSE, fig.cap="Map displaying all fossil occurrences of testudinids, with color indicating whether relevant literature was available (black if not) and if it was, whether body size data was available or not (yes and no, respectively)."}
+```{r "MapFossilOccurrences", echo=FALSE, fig.cap="Map displaying all fossil occurrences of testudinids, with color indicating whether relevant literature was available (black if not) and if it was, whether body size data was available or not (yes and no, respectively)."}
 
 CL <- tidyCL %>%
 #  filter(Age < 11.000) %>%
@@ -282,6 +282,7 @@ mapOc <- FossOcc %>%
   theme_classic() +
   geom_point(data=FossOcc, alpha=1/4,(aes(as.numeric(Longitude), Latitude, colour=FossOcc$Clavailability))) +
   geom_point(data=CL, alpha=1/2,(aes(Longitude, Latitude, colour="yes"))) +
+  theme(legend.position="none") +
   scale_colour_manual(values=OwnPalette) #cbbPalette
 
 #unique(FossOcc$CL)
@@ -305,7 +306,7 @@ mapOc
 \newpage
 ## body size of testudinidae
 
-```{r "Map body size data set", echo=FALSE, fig.cap="Map displaying all localities for which body size data for testudinids was available in the literature. Size of points denotes sample size, color denotes approximate age."}
+```{r "MapCL", echo=FALSE, fig.cap="Map displaying all localities for which body size data for testudinids was available in the literature. Size of points denotes sample size, color denotes approximate age."}
 
 
 tidyCL$bin <- cut(tidyCL$Age, c(0, 0.0117, 0.126, 0.781, 1.806, 2.588, 3.6,
@@ -353,7 +354,7 @@ OverviewSpecies <- PleiPlioCL %>%
   group_by(EpochBins, Taxon) %>%
   summarise(n=n(), meanCL = mean(CL))
 
-kable(OverviewSpecies)
+kable(OverviewSpecies, caption="Overview over fossil species per time bin, with sample size and mean CL.")
 
 OverviewSpeciesFossil <- PleiPlioCL %>%
   filter(EpochBins != "Modern") %>%
@@ -361,20 +362,20 @@ OverviewSpeciesFossil <- PleiPlioCL %>%
   summarise(n=n(), meanCL = mean(CL))
 
 #write.table(OverviewSpecies,file="OverviewSpeciesSampleSize.txt", sep="\t", row.names = FALSE) 
-kable(OverviewSpeciesFossil)
+kable(OverviewSpeciesFossil, caption="General overview over fossil species, with sample size and mean CL")
 
 OverviewGeneraTime <- PleiPlioCL %>%
   group_by(EpochBins, Genus) %>%
   summarise(n=n(), meanCL = mean(CL))
 
-kable(OverviewGeneraTime)
+kable(OverviewGeneraTime, caption="Overview over genera (modern and fossil) per time bin, with sample sizes and mean CL.")
 
 
 OverviewGenera <- PleiPlioCL %>%
   group_by(Genus) %>%
   summarise(n=n(), meanCL = mean(CL))
 
-kable(OverviewGenera)
+kable(OverviewGenera, caption="General overview over genera, with sample sizes and mean CL.")
 
 ```
 
@@ -382,7 +383,11 @@ kable(OverviewGenera)
 
 # Sampling Accumulation Curves
 
-```{r "Species Accumulation Curve", echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Species Accumulation Curve of fossil species per Locality and reference"}
+```{r "SACSpecies", echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Species Accumulation Curve of fossil species per Locality and reference"}
+
+#Species Accumulation Curve
+
+
 
 vegan <- tidyCL %>%
   dplyr::select(Locality, Taxon) %>%
@@ -417,7 +422,7 @@ plot(vegansp,xlab="References",ylab="Richness", xvar="individuals", ci.type="lin
 
 
 
-```{r "Species Accumulation Curve with Genera", echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Sampling Accumulation Curve of fossil genera per reference"}
+```{r "SACGenera", echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Sampling Accumulation Curve of fossil genera per reference"}
 
 vegan <- tidyCL %>%
   dplyr::select(Locality, Genus) %>%
@@ -453,8 +458,9 @@ plot(vegansp,xlab="References",ylab="Richness", xvar="individuals", ci.type="lin
 ```
 
 
-```{r "Species Accumulation Curve with Genera, Eurasia", echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Sampling Accumulation Curve of fossil genera per reference, Eurasia"}
+```{r "SACGEurasia", echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Sampling Accumulation Curve of fossil genera per reference, Eurasia"}
 
+#Species Accumulation Curve with Genera, Eurasia
 
 overviewVegan <- PleiPlioCL %>%
   merge(Continents) %>%
@@ -484,8 +490,9 @@ plot(vegansp,xlab="References",ylab="Richness", xvar="individuals", ci.type="lin
 
 
 
-```{r "Species Accumulation Curve with Genera, Europe", echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Sampling Accumulation Curve of fossil genera per reference, Europe"}
+```{r "SACGEurope", echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Sampling Accumulation Curve of fossil genera per reference, Europe"}
 
+#Species Accumulation Curve with Genera, Europe
 
 vegan <- tidyCL %>%
   merge(Continents) %>%
@@ -506,8 +513,10 @@ plot(vegansp,xlab="References",ylab="Richness", xvar="individuals", ci.type="lin
 
 
 
-```{r "Species Accumulation Curve with Genera, Africa", echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Sampling Accumulation Curve of fossil genera per reference, Africa"}
+```{r "SACGAfrica", echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Sampling Accumulation Curve of fossil genera per reference, Africa"}
 
+
+#Species Accumulation Curve with Genera, Africa
 
 vegan <- tidyCL %>%
   merge(Continents) %>%
@@ -527,8 +536,9 @@ plot(vegansp,xlab="References",ylab="Richness", xvar="individuals", ci.type="lin
 ```
 
 
-```{r "Species Accumulation Curve with Genera, America", echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Sampling Accumulation Curve of fossil genera per reference, America"}
+```{r "SACGAmerica", echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Sampling Accumulation Curve of fossil genera per reference, America"}
 
+#Species Accumulation Curve with Genera, America
 
 vegan <- tidyCL %>%
   merge(Continents) %>%
@@ -549,7 +559,9 @@ plot(vegansp,xlab="References",ylab="Richness", xvar="individuals", ci.type="lin
 
 
 
-```{r "Species Accumulation Curve with Genera, N-America", echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Sampling Accumulation Curve of fossil genera per reference, N-America"}
+```{r "SACGNAmerica", echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Sampling Accumulation Curve of fossil genera per reference, N-America"}
+
+#Species Accumulation Curve with Genera, N-America
 
 
 vegan <- tidyCL %>%
@@ -570,8 +582,9 @@ plot(vegansp,xlab="References",ylab="Richness", xvar="individuals", ci.type="lin
 ```
 
 
-```{r "Species Accumulation Curve with Genera, S-America", echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Sampling Accumulation Curve of fossil genera per reference, S-America"}
+```{r "SACGSAmerica", echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Sampling Accumulation Curve of fossil genera per reference, S-America"}
 
+#Species Accumulation Curve with Genera, S-America
 
 vegan <- tidyCL %>%
   merge(Continents) %>%
@@ -591,8 +604,9 @@ plot(vegansp,xlab="References",ylab="Richness", xvar="individuals", ci.type="lin
 ```
 
 
-```{r "Species Accumulation Curve with Genera, Asia", echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Sampling Accumulation Curve of fossil genera per reference, Asia"}
+```{r "SACGAsia", echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Sampling Accumulation Curve of fossil genera per reference, Asia"}
 
+#Species Accumulation Curve with Genera, Asia
 
 vegan <- tidyCL %>%
   merge(Continents) %>%
@@ -621,8 +635,10 @@ plot(vegansp,xlab="References",ylab="Richness", xvar="individuals", ci.type="lin
 # Histograms
 ## all
 
-```{r "Histograms of body size data, all", echo=FALSE, fig.cap="Distribution of body size data, logtransformed, all data."}
+```{r "HistAll", echo=FALSE, fig.cap="Distribution of body size data, logtransformed, all data."}
 
+
+#Histograms of body size data, all
 
 HistCL <- PleiPlioCL %>%
   filter( !is.na(CL)) %>%
@@ -662,7 +678,7 @@ StatsAll <- PleiPlioCL %>%
 
 
 ```
-```{r "normal distribution, echo=FALSE"}
+```{r "normalDistribution", echo=FALSE}
 
 qqnorm(PleiPlioCL$CL); qqline(PleiPlioCL$CL, col=2)
 qqnorm(log10(PleiPlioCL$CL)); qqline(log10(PleiPlioCL$CL), col=2)
@@ -676,7 +692,9 @@ qqnorm(log10(PleiPlioCL$CL)); qqline(log10(PleiPlioCL$CL), col=2)
 
 ## per time bin
 
-```{r "Histograms of body size data, per time bin", echo=FALSE, fig.cap="Distribution of body size data per time bin, logtransformed."}
+```{r "HistBins", echo=FALSE, fig.cap="Distribution of body size data per time bin, logtransformed."}
+
+#Histograms of body size data, per time bin
 
 
 HistCLBins <- PleiPlioCL %>%
@@ -720,7 +738,9 @@ StatsBins <- PleiPlioCL %>%
 
 ## modern vs. fossil
 
-```{r "Histograms of body size data, modern vs. fossil", echo=FALSE, fig.cap="Distribution of body size data modern vs. fossil, logtransformed."}
+```{r "HistFosMo", echo=FALSE, fig.cap="Distribution of body size data modern vs. fossil, logtransformed."}
+
+#Histograms of body size data, modern vs. fossil
 
 
 Epoch <- as.vector(c("Modern", "Pleistocene", "Pleistocene", "Pleistocene", "Pleistocene", 
@@ -774,8 +794,9 @@ StatsFossil <- PleiPlioCL %>%
 ## modern vs. fossil, continental vs. insular
 
 
-```{r "Histograms of body size data, modern vs. fossil, continental vs. insular", echo=FALSE, fig.cap="Distribution of body size data modern vs. fossil, continental vs. insular logtransformed."}
+```{r "HistFMCI", echo=FALSE, fig.cap="Distribution of body size data modern vs. fossil, continental vs. insular logtransformed."}
 
+#Histograms of body size data, modern vs. fossil, continental vs. insular
 
 HistCLFossilIsland <- PleiPlioCL %>%
   merge(Epochs) %>%
@@ -813,8 +834,9 @@ StatsFossilIsland <- PleiPlioCL %>%
 \newpage
 ## continental vs. insular
 
-```{r "Histograms of body size data, continental vs. insular", echo=FALSE, fig.cap="Distribution of body site data of continental (n) and insular(y) species, logtransformed."}
+```{r "HistCI", echo=FALSE, fig.cap="Distribution of body site data of continental (n) and insular(y) species, logtransformed."}
 
+#Histograms of body size data, continental vs. insular
 
 HistCLIsland <- PleiPlioCL %>%
   filter( !is.na(CL)) %>%
@@ -848,7 +870,9 @@ StatsIsland <- PleiPlioCL %>%
 \newpage
 ## continents
 
-```{r "Histograms of body size data, split by continents", echo=FALSE, fig.cap="Distribution of body site data per continent, logtransformed."}
+```{r "HistCon", echo=FALSE, fig.cap="Distribution of body site data per continent, logtransformed."}
+
+#Histograms of body size data, split by continents
 
 Continent <- as.vector(unique(PleiPlioCL$Continent))
 Con <- as.vector(c("Asia", "Africa", "Europe", "America", "America", "America", "Europe"))#
@@ -886,7 +910,9 @@ StatsContinents <- PleiPlioCL %>%
 ```
 
 
-```{r "Histograms of body size data, genera", echo=FALSE, fig.cap="Distribution of body size, genera, logtransformed.", include=FALSE}
+```{r "HistGen", echo=FALSE, fig.cap="Distribution of body size, genera, logtransformed.", include=FALSE}
+
+#Histograms of body size data, genera
 
 Continent <- as.vector(unique(PleiPlioCL$Continent))
 Con <- as.vector(c("Asia", "Africa", "Europe", "America", "America", "America", "Europe"))#
@@ -948,8 +974,9 @@ kable(Stats, caption="General statistics of body size data: all, per time bin, i
 # Boxplots
 ## genera per time bins
 
-```{r "Boxplots of each genus per time bin", echo=FALSE, warning=FALSE, fig.cap="Boxplots of mean CL per time bin, including mean and sd CL for each genus (as pointrange)."}
+```{r "BPGBins", echo=FALSE, warning=FALSE, fig.cap="Boxplots of mean CL per time bin, including mean and sd CL for each genus (as pointrange)."}
 
+#Boxplots of each genus per time bin
 
 IndGenera <- PleiPlioCL %>%
   group_by(EpochBins, Genus) %>%
@@ -992,8 +1019,9 @@ BinGenera
 \newpage
 ## continental vs. insular per time bin
 
-```{r "Boxplots of each genus per time bin, continental vs. insular", echo=FALSE, warning=FALSE, fig.cap="Boxplots of each genus per time bin, continental vs. insular species."}
+```{r "BPGBinsCI", echo=FALSE, warning=FALSE, fig.cap="Boxplots of each genus per time bin, continental vs. insular species."}
 
+#Boxplots of each genus per time bin, continental vs. insular
 
 IndGenera <- PleiPlioCL %>%
   group_by(EpochBins, Genus, Island) %>%
@@ -1037,8 +1065,9 @@ BinGenera
 \newpage
 ## fossil vs. modern
 
-```{r "Boxplots modern vs. fossil", echo=FALSE, warning=FALSE, fig.cap="Boxplots fossil vs. modern."}
+```{r "BPMF", echo=FALSE, warning=FALSE, fig.cap="Boxplots fossil vs. modern."}
 
+#Boxplots modern vs. fossil
 
 IndGenera <- PleiPlioCL %>%
   merge(Epochs) %>%
@@ -1085,7 +1114,9 @@ BinGenera
 ```
 
 
-```{r "randon sampling modern fossil", echo=FALSE}
+```{r "RSFM", echo=FALSE}
+
+# randon sampling modern fossil
 
 TimeCL <- PleiPlioCL %>%
   merge(Epochs) %>%
@@ -1147,9 +1178,9 @@ modern < fossil (P = $`r ModernFossil$p.value`$)
 ## fossil vs. modern, continental vs. insular
 
 
-```{r "Boxplots fossil vs. modern, continental vs. insular", echo=FALSE, warning=FALSE, fig.cap="Boxplots fossil vs. modern, continental vs. insular species."}
+```{r "BPFMCI", echo=FALSE, warning=FALSE, fig.cap="Boxplots fossil vs. modern, continental vs. insular species."}
 
-
+#Boxplots fossil vs. modern, continental vs. insular
 
 IndGenera <- PleiPlioCL %>%
   merge(Epochs) %>%
@@ -1196,8 +1227,9 @@ BinGenera
 ```
 
 
-```{r "randon sampling modern fossil, island continental", echo=FALSE}
+```{r "RSMFCI", echo=FALSE}
 
+#randon sampling modern fossil, island continental
 
 FossilIsland <- PleiPlioCL$CL[which(PleiPlioCL$EpochBins!="Modern" & PleiPlioCL$Island=="y")]
 length(FossilIsland)
@@ -1269,8 +1301,9 @@ modern insular < fossil insular (P = $`r ModernFossilIsland$p.value`$)
 \newpage
 ## continental vs. insular
 
-```{r "Boxplot continental vs. insular", echo=FALSE, fig.cap="Boxplot continental vs. insular, genera summarised"}
+```{r "BPCI", echo=FALSE, fig.cap="Boxplot continental vs. insular, genera summarised"}
 
+#Boxplot continental vs. insular
 
 give.n <- function(x){
   return(c(y = 0, label = length(x)))
@@ -1309,9 +1342,9 @@ IslandAll
 ```
 
 
-```{r "randon sampling island continental", echo=FALSE}
+```{r "RSCI", echo=FALSE}
 
-
+#randon sampling island continental
 
 
 Insular <- PleiPlioCL$CL[which(PleiPlioCL$Island=="y")]
@@ -1350,8 +1383,9 @@ continental < insular (P = $`r InsularContinental$p.value`$)
 \newpage
 ## continental vs. insular per time bin
 
-```{r "Boxplot continental vs. insular, split into time bins", echo=FALSE, fig.cap="Boxplot continental vs. insular, genera summarised"}
+```{r "BPCIBins", echo=FALSE, fig.cap="Boxplot continental vs. insular, genera summarised"}
 
+#Boxplot continental vs. insular, split into time bins
 
 give.n <- function(x){
   return(c(y = 0, label = length(x)))
@@ -1388,8 +1422,9 @@ IslandAll
 \newpage
 ## continents
 
-```{r "Boxplot body size split into continents", echo=FALSE, fig.cap="Boxplot: body size on different continents, genera summarised"}
+```{r "BPCon", echo=FALSE, fig.cap="Boxplot: body size on different continents, genera summarised"}
 
+#Boxplot body size split into continents
 
 give.n <- function(x){
   return(c(y = 0, label = length(x)))
@@ -1429,9 +1464,9 @@ ContinentAll
 ```
 
 
-```{r "randon sampling continents", echo=FALSE}
+```{r "RSCon", echo=FALSE}
 
-
+#randon sampling continents
 
 
 continent <- PleiPlioCL %>%
@@ -1503,8 +1538,9 @@ Continent means differ (P = $`r ContinentsCompared$p.value`$)
 \newpage
 ## continents, continental vs. insular
 
-```{r "Boxplot body size split into continents, continental vs. insular", echo=FALSE, fig.cap="Boxplot: body size on different continents, genera summarised"}
+```{r "BPConCI", echo=FALSE, fig.cap="Boxplot: body size on different continents, genera summarised"}
 
+#Boxplot body size split into continents, continental vs. insular
 
 give.n <- function(x){
   return(c(y = 0, label = length(x)))
@@ -1550,7 +1586,9 @@ ContinentsAll
 
 ### genera (all)
 
-```{r "paleoTS plot with genus mean, including island species", echo=FALSE, fig.cap="paleoTS plot with genus mean, including island species"}
+```{r "paleoTSAll", echo=FALSE, fig.cap="paleoTS plot with genus mean, all"}
+
+#paleoTS plot with genus mean, including island species
 
 GenusMean <- PleiPlioCL %>%
   filter(EpochBins != "Modern") %>%
@@ -1628,7 +1666,7 @@ GenusPaleo <- modernMeanGenus %>%
   arrange(tt)
 
 
-#kable(GenusPaleo)
+kable(GenusPaleo,caption="paleoTS object, all data")
 
 
 paleoGen <-as.paleoTS(GenusPaleo$mm, GenusPaleo$vv, GenusPaleo$nn, GenusPaleo$tt, MM = NULL, genpars = NULL, label = "Testudinidae body size evolution mode, Holocene-Upper Miocene, genus mean CL", reset.time=TRUE)
@@ -1650,7 +1688,7 @@ PaleoGenFit <- (fit3models(paleoGen, silent=FALSE, method="AD", pool=FALSE))
 
 ```{r "Model-fitting, genera, table", echo=FALSE}
 
-kable(PaleoGenFit, caption="Model-fitting results for testudinidae, genera, including island species")
+kable(PaleoGenFit, caption="Model-fitting results for testudinidae, genera, all")
 
 #kable(PaleoGenFit2, caption="Model-fitting results for testudinidae (4 models), genera, including island species")
 
@@ -1666,7 +1704,11 @@ kable(PaleoGenFit, caption="Model-fitting results for testudinidae, genera, incl
 
 ### genera (continental)
 
-```{r "paleoTS plot with genus mean, excluding island species", echo=FALSE, message=FALSE, fig.cap="paleoTS plot with genus mean, excluding island species"}
+```{r "paleoTSC", echo=FALSE, message=FALSE, fig.cap="paleoTS plot with genus mean, continental"}
+
+#paleoTS plot with genus mean, excluding island species
+
+
 GenusMeanIs <- PleiPlioCL %>%
   filter(EpochBins != "Modern" & Island == "n") %>%
   filter(!is.na(CL)) %>%
@@ -1741,7 +1783,7 @@ GenusPaleoIs <- modernMeanGenusIs %>%
 
 GenusPaleoIs[is.na(GenusPaleoIs)] <- 0
 
-#kable(GenusPaleoIs)
+kable(GenusPaleoIs, caption="paleoTS object, continental")
 
 
 paleoGenIs <-as.paleoTS(GenusPaleoIs$mm, GenusPaleoIs$vv, GenusPaleoIs$nn, GenusPaleoIs$tt, MM = NULL, genpars = NULL, label = "Testudinidae body size evolution mode, Holocene-Upper Miocene, genus mean CL", reset.time=TRUE)
@@ -1764,7 +1806,7 @@ PaleoGenIsFit <- (fit3models(paleoGenIs, silent=FALSE, method="AD", pool=FALSE))
 
 ```{r "Model-fitting, genera, continental, table", echo=FALSE}
 
-kable(PaleoGenIsFit, caption="Model-fitting results for testudinidae, genera, excluding insular species")
+kable(PaleoGenIsFit, caption="Model-fitting results for testudinidae, genera, continental")
 
 
 #kable(PaleoGenIsFit2, caption="Model-fitting results for testudinidae, genera, excluding insular species")
@@ -1781,7 +1823,9 @@ kable(PaleoGenIsFit, caption="Model-fitting results for testudinidae, genera, ex
 
 ### genera (insular)
 
-```{r "paleoTS plot with genus mean, excluding continental species", echo=FALSE, message=FALSE, fig.cap="paleoTS plot with genus mean, only insular species"}
+```{r "paleoTSI", echo=FALSE, message=FALSE, fig.cap="paleoTS plot with genus mean, insular"}
+
+#paleoTS plot with genus mean, excluding continental species
 
 GenusMeanCon <- PleiPlioCL %>%
   filter(EpochBins != "Modern" & Island == "y") %>%  # & EpochBins != "Upper Miocene"
@@ -1859,7 +1903,7 @@ GenusPaleoCon <- modernMeanGenusCon %>%
 
 GenusPaleoCon[is.na(GenusPaleoCon)]<-0
 
-#kable(GenusPaleoCon)
+kable(GenusPaleoCon, caption="paleoTS object, insular")
 
 
 paleoGenCon <-as.paleoTS(GenusPaleoCon$mm, GenusPaleoCon$vv, GenusPaleoCon$nn, GenusPaleoCon$tt, MM = NULL, genpars = NULL, label = "Testudinidae body size evolution mode, Holocene-Upper Miocene, genus mean CL, insular genera", reset.time=TRUE)
@@ -1878,7 +1922,7 @@ PaleoGenConFit <- (fit3models(paleoGenCon, silent=FALSE, method="AD", pool=FALSE
 
 ```{r "Model-fitting, genera, insular, table", echo=FALSE}
 
-kable(PaleoGenConFit, caption="Model-fitting results for testudinidae, genera, only insular species")
+kable(PaleoGenConFit, caption="Model-fitting results for testudinidae, genera, insular")
 
 ```
 
@@ -1889,9 +1933,11 @@ kable(PaleoGenConFit, caption="Model-fitting results for testudinidae, genera, o
 \newpage
 ## per continent
  
-### Europe, smaller original bins (see Table 2), genera
+### Europe, genera
 
-```{r "paleoTS with different time bins, no bins, genera, Europe", echo=FALSE, fig.cap="Smaller original bins, genera, Europe"}
+```{r "paleoTSEurope", echo=FALSE, fig.cap="Genera, Europe"}
+
+#paleoTS with different time bins, no bins, genera, Europe
 
 GenusMeanAll <- PleiPlioCL%>%
 #  merge(BINS) %>%
@@ -1916,7 +1962,7 @@ GenusPaleoAll <- GenusMeanAll
 
 GenusPaleoAll[is.na(GenusPaleoAll)] <- 0
 
-#kable(GenusPaleoAll)
+kable(GenusPaleoAll, caption="paleoTS object, Europe")
 
 
 paleoGenAll <-as.paleoTS(GenusPaleoAll$mm, GenusPaleoAll$vv, GenusPaleoAll$nn, GenusPaleoAll$tt, MM = NULL, genpars = NULL, label = "Testudinidae body size evolution mode", reset.time=TRUE)
@@ -1938,7 +1984,7 @@ PaleoGenAllFit <- (fit3models(paleoGenAll, silent=FALSE, method="AD", pool=FALSE
 
 ```{r "Model-fitting, genera, all, no bins, Europe, table", echo=FALSE}
 
-kable(PaleoGenAllFit, caption="Model-fitting results for testudinidae, no bins, genera")
+kable(PaleoGenAllFit, caption="Model-fitting results for testudinidae, genera, Europe")
 
 ```
 
@@ -1947,7 +1993,9 @@ kable(PaleoGenAllFit, caption="Model-fitting results for testudinidae, no bins, 
  
 #### Europe, smaller original bins (see Table 2), genera, continental
 
-```{r "paleoTS with different time bins, no bins, genera, Europe, continental", echo=FALSE, fig.cap="Smaller original bins, genera, Europe, continental"}
+```{r "pTSEuC", echo=FALSE, fig.cap="paleoTS, genera, Europe, continental"}
+
+#paleoTS with different time bins, no bins, genera, Europe, continental
 
 GenusMeanAll <- PleiPlioCL%>%
 #  merge(BINS) %>%
@@ -1972,7 +2020,7 @@ GenusPaleoAll <- GenusMeanAll
 
 GenusPaleoAll[is.na(GenusPaleoAll)] <- 0
 
-#kable(GenusPaleoAll)
+kable(GenusPaleoAll, caption="paleoTs object, Europe, continental")
 
 
 paleoGenAll <-as.paleoTS(GenusPaleoAll$mm, GenusPaleoAll$vv, GenusPaleoAll$nn, GenusPaleoAll$tt, MM = NULL, genpars = NULL, label = "Testudinidae body size evolution mode", reset.time=TRUE)
@@ -1994,7 +2042,7 @@ PaleoGenAllFit <- (fit3models(paleoGenAll, silent=FALSE, method="AD", pool=FALSE
 
 ```{r "Model-fitting, genera, all, no bins, Europe, continental, table", echo=FALSE}
 
-kable(PaleoGenAllFit, caption="Model-fitting results for testudinidae, no bins, genera")
+kable(PaleoGenAllFit, caption="Model-fitting results for testudinidae, genera, Europe, continental")
 
 ```
 
@@ -2003,7 +2051,10 @@ kable(PaleoGenAllFit, caption="Model-fitting results for testudinidae, no bins, 
  
 #### Europe, smaller original bins (see Table 2), genera, insular
 
-```{r "paleoTS with different time bins, no bins, genera, Europe, insular", echo=FALSE, fig.cap="Smaller original bins, genera, Europe, insular"}
+```{r "pTSEuI", echo=FALSE, fig.cap="paleoTS, genera, Europe, insular"}
+
+#paleoTS with different time bins, no bins, genera, Europe, insular
+
 
 GenusMeanAll <- PleiPlioCL%>%
 #  merge(BINS) %>%
@@ -2028,7 +2079,7 @@ GenusPaleoAll <- GenusMeanAll
 
 GenusPaleoAll[is.na(GenusPaleoAll)] <- 0
 
-#kable(GenusPaleoAll)
+kable(GenusPaleoAll, caption="paleoTs object, Europe, insular")
 
 
 paleoGenAll <-as.paleoTS(GenusPaleoAll$mm, GenusPaleoAll$vv, GenusPaleoAll$nn, GenusPaleoAll$tt, MM = NULL, genpars = NULL, label = "Testudinidae body size evolution mode", reset.time=TRUE)
@@ -2050,7 +2101,7 @@ PaleoGenAllFit <- (fit3models(paleoGenAll, silent=FALSE, method="AD", pool=FALSE
 
 ```{r "Model-fitting, genera, all, no bins, Europe, insular, table", echo=FALSE}
 
-kable(PaleoGenAllFit, caption="Model-fitting results for testudinidae, no bins, genera")
+kable(PaleoGenAllFit, caption="Model-fitting results for testudinidae, genera, Europe, insular")
 
 ```
 
@@ -2059,7 +2110,9 @@ kable(PaleoGenAllFit, caption="Model-fitting results for testudinidae, no bins, 
 \newpage 
 ### Eurasia, smaller original bins (See Table 2), genera
 
-```{r "paleoTS with different time bins, no bins, genera, Eurasia", echo=FALSE, fig.cap="Smaller original bins, genera, Eurasia"}
+```{r "paleoTSEurasia", echo=FALSE, fig.cap="paleoTS, genera, Eurasia"}
+
+#paleoTS with different time bins, no bins, genera, Eurasia
 
 GenusMeanAll <- PleiPlioCL %>%
 #  merge(BINS) %>%
@@ -2125,7 +2178,7 @@ GenusPaleoAll <- modernMeanGenusAll %>%
 
 GenusPaleoAll[is.na(GenusPaleoAll)] <- 0
 
-#kable(GenusPaleoAll)
+kable(GenusPaleoAll, caption="paleoTS object, Eurasia")
 
 
 paleoGenAll <-as.paleoTS(GenusPaleoAll$mm, GenusPaleoAll$vv, GenusPaleoAll$nn, GenusPaleoAll$tt, MM = NULL, genpars = NULL, label = "Testudinidae body size evolution mode", reset.time=TRUE)
@@ -2147,7 +2200,7 @@ PaleoGenAllFit <- (fit3models(paleoGenAll, silent=FALSE, method="AD", pool=FALSE
 
 ```{r "Model-fitting, genera, all, no bins, Eurasia, table", echo=FALSE}
 
-kable(PaleoGenAllFit, caption="Model-fitting results for testudinidae, no bins, genera")
+kable(PaleoGenAllFit, caption="Model-fitting results for testudinidae, genera, Eurasia")
 
 ```
 
@@ -2157,7 +2210,10 @@ kable(PaleoGenAllFit, caption="Model-fitting results for testudinidae, no bins, 
 \newpage 
 ### Eurasia, smaller original bins (See Table 2), genera, continental
 
-```{r "paleoTS with different time bins, no bins, genera, Eurasia, continental", echo=FALSE, fig.cap="Smaller original bins, genera, Eurasia, continental"}
+```{r "pTSEsC", echo=FALSE, fig.cap="paleoTS, genera, Eurasia, continental"}
+
+# paleoTS, genera, Eurasia, continental
+
 
 GenusMeanAll <- PleiPlioCL %>%
 #  merge(BINS) %>%
@@ -2223,7 +2279,7 @@ GenusPaleoAll <- modernMeanGenusAll %>%
 
 GenusPaleoAll[is.na(GenusPaleoAll)] <- 0
 
-#kable(GenusPaleoAll)
+kable(GenusPaleoAll, caption="paleoTS object, Eurasia, continental")
 
 
 paleoGenAll <-as.paleoTS(GenusPaleoAll$mm, GenusPaleoAll$vv, GenusPaleoAll$nn, GenusPaleoAll$tt, MM = NULL, genpars = NULL, label = "Testudinidae body size evolution mode", reset.time=TRUE)
@@ -2243,7 +2299,7 @@ PaleoGenAllFit <- (fit3models(paleoGenAll, silent=FALSE, method="AD", pool=FALSE
 
 ```{r "Model-fitting, genera, all, no bins, Eurasia, continental,  table", echo=FALSE}
 
-kable(PaleoGenAllFit, caption="Model-fitting results for testudinidae, no bins, genera")
+kable(PaleoGenAllFit, caption="Model-fitting results for testudinidae, genera, Eurasia, continental")
 
 ```
 
@@ -2252,7 +2308,10 @@ kable(PaleoGenAllFit, caption="Model-fitting results for testudinidae, no bins, 
 \newpage 
 ### Eurasia, smaller original bins (See Table 2), genera, insular
 
-```{r "paleoTS with different time bins, no bins, genera, Eurasia, insular", echo=FALSE, fig.cap="Smaller original bins, genera, Eurasia, insular"}
+```{r "pTSEsI", echo=FALSE, fig.cap="paleoTS, genera, Eurasia, insular"}
+
+#paleoTS with different time bins, no bins, genera, Eurasia, insular
+
 
 GenusMeanAll <- PleiPlioCL %>%
 #  merge(BINS) %>%
@@ -2318,7 +2377,7 @@ GenusPaleoAll <- modernMeanGenusAll %>%
 
 GenusPaleoAll[is.na(GenusPaleoAll)] <- 0
 
-#kable(GenusPaleoAll)
+kable(GenusPaleoAll, caption="paleoTS object, Eurasia, insular")
 
 
 paleoGenAll <-as.paleoTS(GenusPaleoAll$mm, GenusPaleoAll$vv, GenusPaleoAll$nn, GenusPaleoAll$tt, MM = NULL, genpars = NULL, label = "Testudinidae body size evolution mode", reset.time=TRUE)
@@ -2339,9 +2398,12 @@ PaleoGenAllFit <- (fit3models(paleoGenAll, silent=FALSE, method="AD", pool=FALSE
 
 ```{r "Model-fitting, genera, all, no bins, Eurasia, insular, table", echo=FALSE}
 
-kable(PaleoGenAllFit, caption="Model-fitting results for testudinidae, no bins, genera")
+kable(PaleoGenAllFit, caption="Model-fitting results for testudinidae, genera, Eurasia, insular")
 
 ```
+
+
+
 
 ```{r "citations", echo=FALSE, include=FALSE}
 citation(package = "paleoTS", lib.loc = NULL)

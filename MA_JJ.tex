@@ -28,46 +28,6 @@
             pdfborder={0 0 0},
             breaklinks=true}
 \urlstyle{same}  % don't use monospace font for urls
-\usepackage{color}
-\usepackage{fancyvrb}
-\newcommand{\VerbBar}{|}
-\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
-\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
-% Add ',fontsize=\small' for more characters per line
-\usepackage{framed}
-\definecolor{shadecolor}{RGB}{248,248,248}
-\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
-\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{{#1}}}}
-\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{{#1}}}
-\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{{#1}}}
-\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{{#1}}}
-\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{{#1}}}
-\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{{#1}}}
-\newcommand{\CharTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{{#1}}}
-\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{{#1}}}
-\newcommand{\StringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{{#1}}}
-\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{{#1}}}
-\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{{#1}}}
-\newcommand{\ImportTok}[1]{{#1}}
-\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{{#1}}}}
-\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{{#1}}}}}
-\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{{#1}}}}}
-\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{{#1}}}}}
-\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{{#1}}}
-\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{{#1}}}
-\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{{#1}}}
-\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{{#1}}}}
-\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{{#1}}}}
-\newcommand{\BuiltInTok}[1]{{#1}}
-\newcommand{\ExtensionTok}[1]{{#1}}
-\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{{#1}}}}
-\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.77,0.63,0.00}{{#1}}}
-\newcommand{\RegionMarkerTok}[1]{{#1}}
-\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{{#1}}}}}
-\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{{#1}}}}}
-\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.94,0.16,0.16}{{#1}}}
-\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.64,0.00,0.00}{\textbf{{#1}}}}
-\newcommand{\NormalTok}[1]{{#1}}
 \usepackage{longtable,booktabs}
 \usepackage{graphicx,grffile}
 \makeatletter
@@ -193,7 +153,7 @@ testudinidae}\label{fossil-occurences-of-testudinidae}
 
 \begin{figure}[htbp]
 \centering
-\includegraphics{MA_JJ_files/figure-latex/Map fossil occurrences-1.pdf}
+\includegraphics{MA_JJ_files/figure-latex/MapFossilOccurrences-1.pdf}
 \caption{Map displaying all fossil occurrences of testudinids, with
 color indicating whether relevant literature was available (black if
 not) and if it was, whether body size data was available or not (yes and
@@ -206,13 +166,19 @@ no, respectively).}
 
 \begin{figure}[htbp]
 \centering
-\includegraphics{MA_JJ_files/figure-latex/Map body size data set-1.pdf}
+\includegraphics{MA_JJ_files/figure-latex/MapCL-1.pdf}
 \caption{Map displaying all localities for which body size data for
 testudinids was available in the literature. Size of points denotes
 sample size, color denotes approximate age.}
 \end{figure}
 
 \begin{longtable}[]{@{}llrr@{}}
+\caption{Overview over fossil species per time bin, with sample size and
+mean CL.}\tabularnewline
+\toprule
+EpochBins & Taxon & n & meanCL\tabularnewline
+\midrule
+\endfirsthead
 \toprule
 EpochBins & Taxon & n & meanCL\tabularnewline
 \midrule
@@ -404,6 +370,12 @@ Burdigalian/Aquitanian & Titanochelon cf.~perpiniana & 1 &
 \end{longtable}
 
 \begin{longtable}[]{@{}lrr@{}}
+\caption{General overview over fossil species, with sample size and mean
+CL}\tabularnewline
+\toprule
+Taxon & n & meanCL\tabularnewline
+\midrule
+\endfirsthead
 \toprule
 Taxon & n & meanCL\tabularnewline
 \midrule
@@ -520,6 +492,12 @@ Titanochelon sp. & 2 & 970.0000\tabularnewline
 \end{longtable}
 
 \begin{longtable}[]{@{}llrr@{}}
+\caption{Overview over genera (modern and fossil) per time bin, with
+sample sizes and mean CL.}\tabularnewline
+\toprule
+EpochBins & Genus & n & meanCL\tabularnewline
+\midrule
+\endfirsthead
 \toprule
 EpochBins & Genus & n & meanCL\tabularnewline
 \midrule
@@ -633,6 +611,12 @@ Burdigalian/Aquitanian & Titanochelon & 1 & 1001.0000\tabularnewline
 \end{longtable}
 
 \begin{longtable}[]{@{}lrr@{}}
+\caption{General overview over genera, with sample sizes and mean
+CL.}\tabularnewline
+\toprule
+Genus & n & meanCL\tabularnewline
+\midrule
+\endfirsthead
 \toprule
 Genus & n & meanCL\tabularnewline
 \midrule
@@ -675,60 +659,60 @@ Titanochelon & 20 & 1315.2000\tabularnewline
 \section{Sampling Accumulation
 Curves}\label{sampling-accumulation-curves}
 
-\includegraphics{MA_JJ_files/figure-latex/Species Accumulation Curve-1.pdf}
-\includegraphics{MA_JJ_files/figure-latex/Species Accumulation Curve-2.pdf}
+\includegraphics{MA_JJ_files/figure-latex/SACSpecies-1.pdf}
+\includegraphics{MA_JJ_files/figure-latex/SACSpecies-2.pdf}
 
 \begin{figure}[htbp]
 \centering
-\includegraphics{MA_JJ_files/figure-latex/Species Accumulation Curve with Genera-1.pdf}
+\includegraphics{MA_JJ_files/figure-latex/SACGenera-1.pdf}
 \caption{Sampling Accumulation Curve of fossil genera per reference}
 \end{figure}
 
 \begin{figure}[htbp]
 \centering
-\includegraphics{MA_JJ_files/figure-latex/Species Accumulation Curve with Genera, Eurasia-1.pdf}
+\includegraphics{MA_JJ_files/figure-latex/SACGEurasia-1.pdf}
 \caption{Sampling Accumulation Curve of fossil genera per reference,
 Eurasia}
 \end{figure}
 
 \begin{figure}[htbp]
 \centering
-\includegraphics{MA_JJ_files/figure-latex/Species Accumulation Curve with Genera, Europe-1.pdf}
+\includegraphics{MA_JJ_files/figure-latex/SACGEurope-1.pdf}
 \caption{Sampling Accumulation Curve of fossil genera per reference,
 Europe}
 \end{figure}
 
 \begin{figure}[htbp]
 \centering
-\includegraphics{MA_JJ_files/figure-latex/Species Accumulation Curve with Genera, Africa-1.pdf}
+\includegraphics{MA_JJ_files/figure-latex/SACGAfrica-1.pdf}
 \caption{Sampling Accumulation Curve of fossil genera per reference,
 Africa}
 \end{figure}
 
 \begin{figure}[htbp]
 \centering
-\includegraphics{MA_JJ_files/figure-latex/Species Accumulation Curve with Genera, America-1.pdf}
+\includegraphics{MA_JJ_files/figure-latex/SACGAmerica-1.pdf}
 \caption{Sampling Accumulation Curve of fossil genera per reference,
 America}
 \end{figure}
 
 \begin{figure}[htbp]
 \centering
-\includegraphics{MA_JJ_files/figure-latex/Species Accumulation Curve with Genera, N-America-1.pdf}
+\includegraphics{MA_JJ_files/figure-latex/SACGNAmerica-1.pdf}
 \caption{Sampling Accumulation Curve of fossil genera per reference,
 N-America}
 \end{figure}
 
 \begin{figure}[htbp]
 \centering
-\includegraphics{MA_JJ_files/figure-latex/Species Accumulation Curve with Genera, S-America-1.pdf}
+\includegraphics{MA_JJ_files/figure-latex/SACGSAmerica-1.pdf}
 \caption{Sampling Accumulation Curve of fossil genera per reference,
 S-America}
 \end{figure}
 
 \begin{figure}[htbp]
 \centering
-\includegraphics{MA_JJ_files/figure-latex/Species Accumulation Curve with Genera, Asia-1.pdf}
+\includegraphics{MA_JJ_files/figure-latex/SACGAsia-1.pdf}
 \caption{Sampling Accumulation Curve of fossil genera per reference,
 Asia}
 \end{figure}
@@ -743,27 +727,9 @@ Asia}
 ## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.
 \end{verbatim}
 
-\begin{figure}[htbp]
-\centering
-\includegraphics{MA_JJ_files/figure-latex/Histograms of body size data, all-1.pdf}
-\caption{Distribution of body size data, logtransformed, all data.}
-\end{figure}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\KeywordTok{qqnorm}\NormalTok{(PleiPlioCL$CL); }\KeywordTok{qqline}\NormalTok{(PleiPlioCL$CL, }\DataTypeTok{col=}\DecValTok{2}\NormalTok{)}
-\end{Highlighting}
-\end{Shaded}
-
-\includegraphics{MA_JJ_files/figure-latex/normal distribution, echo=FALSE-1.pdf}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\KeywordTok{qqnorm}\NormalTok{(}\KeywordTok{log10}\NormalTok{(PleiPlioCL$CL)); }\KeywordTok{qqline}\NormalTok{(}\KeywordTok{log10}\NormalTok{(PleiPlioCL$CL), }\DataTypeTok{col=}\DecValTok{2}\NormalTok{)}
-\end{Highlighting}
-\end{Shaded}
-
-\includegraphics{MA_JJ_files/figure-latex/normal distribution, echo=FALSE-2.pdf}
+\includegraphics{MA_JJ_files/figure-latex/HistAll-1.pdf}
+\includegraphics{MA_JJ_files/figure-latex/normalDistribution-1.pdf}
+\includegraphics{MA_JJ_files/figure-latex/normalDistribution-2.pdf}
 
 \newpage
 
@@ -775,7 +741,7 @@ Asia}
 
 \begin{figure}[htbp]
 \centering
-\includegraphics{MA_JJ_files/figure-latex/Histograms of body size data, per time bin-1.pdf}
+\includegraphics{MA_JJ_files/figure-latex/HistBins-1.pdf}
 \caption{Distribution of body size data per time bin, logtransformed.}
 \end{figure}
 
@@ -789,7 +755,7 @@ Asia}
 
 \begin{figure}[htbp]
 \centering
-\includegraphics{MA_JJ_files/figure-latex/Histograms of body size data, modern vs. fossil-1.pdf}
+\includegraphics{MA_JJ_files/figure-latex/HistFosMo-1.pdf}
 \caption{Distribution of body size data modern vs.~fossil,
 logtransformed.}
 \end{figure}
@@ -805,7 +771,7 @@ vs.~insular}\label{modern-vs.fossil-continental-vs.insular}
 
 \begin{figure}[htbp]
 \centering
-\includegraphics{MA_JJ_files/figure-latex/Histograms of body size data, modern vs. fossil, continental vs. insular-1.pdf}
+\includegraphics{MA_JJ_files/figure-latex/HistFMCI-1.pdf}
 \caption{Distribution of body size data modern vs.~fossil, continental
 vs.~insular logtransformed.}
 \end{figure}
@@ -820,7 +786,7 @@ vs.~insular logtransformed.}
 
 \begin{figure}[htbp]
 \centering
-\includegraphics{MA_JJ_files/figure-latex/Histograms of body size data, continental vs. insular-1.pdf}
+\includegraphics{MA_JJ_files/figure-latex/HistCI-1.pdf}
 \caption{Distribution of body site data of continental (n) and
 insular(y) species, logtransformed.}
 \end{figure}
@@ -835,7 +801,7 @@ insular(y) species, logtransformed.}
 
 \begin{figure}[htbp]
 \centering
-\includegraphics{MA_JJ_files/figure-latex/Histograms of body size data, split by continents-1.pdf}
+\includegraphics{MA_JJ_files/figure-latex/HistCon-1.pdf}
 \caption{Distribution of body site data per continent, logtransformed.}
 \end{figure}
 
@@ -919,7 +885,7 @@ nCL & min & max & var & mean & logm & med & logmed & skew & logsk & kurt
 
 \begin{figure}[htbp]
 \centering
-\includegraphics{MA_JJ_files/figure-latex/Boxplots of each genus per time bin-1.pdf}
+\includegraphics{MA_JJ_files/figure-latex/BPGBins-1.pdf}
 \caption{Boxplots of mean CL per time bin, including mean and sd CL for
 each genus (as pointrange).}
 \end{figure}
@@ -931,7 +897,7 @@ bin}\label{continental-vs.insular-per-time-bin}
 
 \begin{figure}[htbp]
 \centering
-\includegraphics{MA_JJ_files/figure-latex/Boxplots of each genus per time bin, continental vs. insular-1.pdf}
+\includegraphics{MA_JJ_files/figure-latex/BPGBinsCI-1.pdf}
 \caption{Boxplots of each genus per time bin, continental vs.~insular
 species.}
 \end{figure}
@@ -942,18 +908,18 @@ species.}
 
 \begin{figure}[htbp]
 \centering
-\includegraphics{MA_JJ_files/figure-latex/Boxplots modern vs. fossil-1.pdf}
+\includegraphics{MA_JJ_files/figure-latex/BPMF-1.pdf}
 \caption{Boxplots fossil vs.~modern.}
 \end{figure}
 
-\includegraphics{MA_JJ_files/figure-latex/randon sampling modern fossil-1.pdf}
+\includegraphics{MA_JJ_files/figure-latex/RSFM-1.pdf}
 
 \begin{verbatim}
 ## [1] 330.3495
 \end{verbatim}
 
 \begin{verbatim}
-## [1] 522.8435
+## [1] 516.1724
 \end{verbatim}
 
 \begin{verbatim}
@@ -961,13 +927,13 @@ species.}
 ##  Wilcoxon rank sum test with continuity correction
 ## 
 ## data:  Modern and Fossil
-## W = 23846, p-value = 6.624e-07
+## W = 23372, p-value = 1.485e-07
 ## alternative hypothesis: true location shift is less than 0
 \end{verbatim}
 
 Wilcoxon Rank Sum Test (unpaired data):
 
-modern \textless{} fossil (P = \(6.6241216\times 10^{-7}\))
+modern \textless{} fossil (P = \(1.4850249\times 10^{-7}\))
 
 \newpage
 
@@ -976,7 +942,7 @@ vs.~insular}\label{fossil-vs.modern-continental-vs.insular}
 
 \begin{figure}[htbp]
 \centering
-\includegraphics{MA_JJ_files/figure-latex/Boxplots fossil vs. modern, continental vs. insular-1.pdf}
+\includegraphics{MA_JJ_files/figure-latex/BPFMCI-1.pdf}
 \caption{Boxplots fossil vs.~modern, continental vs.~insular species.}
 \end{figure}
 
@@ -988,14 +954,14 @@ vs.~insular}\label{fossil-vs.modern-continental-vs.insular}
 ## [1] 51
 \end{verbatim}
 
-\includegraphics{MA_JJ_files/figure-latex/randon sampling modern fossil, island continental-1.pdf}
+\includegraphics{MA_JJ_files/figure-latex/RSMFCI-1.pdf}
 
 \begin{verbatim}
 ## 
 ##  Wilcoxon rank sum test with continuity correction
 ## 
 ## data:  ModernIsland and FossilIsland
-## W = 767, p-value = 0.0001801
+## W = 730.5, p-value = 6.894e-05
 ## alternative hypothesis: true location shift is less than 0
 \end{verbatim}
 
@@ -1007,24 +973,24 @@ vs.~insular}\label{fossil-vs.modern-continental-vs.insular}
 ## [1] 157
 \end{verbatim}
 
-\includegraphics{MA_JJ_files/figure-latex/randon sampling modern fossil, island continental-2.pdf}
+\includegraphics{MA_JJ_files/figure-latex/RSMFCI-2.pdf}
 
 \begin{verbatim}
 ## 
 ##  Wilcoxon rank sum test with continuity correction
 ## 
 ## data:  ModernCon and FossilCon
-## W = 7883.5, p-value = 1.69e-08
+## W = 8407, p-value = 5.589e-07
 ## alternative hypothesis: true location shift is less than 0
 \end{verbatim}
 
 Wilcoxon Rank Sum Test (unpaired data):
 
 modern continental \textless{} fossil continental (P =
-\(1.6898718\times 10^{-8}\))
+\(5.5894383\times 10^{-7}\))
 
 modern insular \textless{} fossil insular (P =
-\(1.8010082\times 10^{-4}\))
+\(6.8940531\times 10^{-5}\))
 
 \newpage
 
@@ -1032,7 +998,7 @@ modern insular \textless{} fossil insular (P =
 
 \begin{figure}[htbp]
 \centering
-\includegraphics{MA_JJ_files/figure-latex/Boxplot continental vs. insular-1.pdf}
+\includegraphics{MA_JJ_files/figure-latex/BPCI-1.pdf}
 \caption{Boxplot continental vs.~insular, genera summarised}
 \end{figure}
 
@@ -1044,20 +1010,20 @@ modern insular \textless{} fossil insular (P =
 ## [1] 147
 \end{verbatim}
 
-\includegraphics{MA_JJ_files/figure-latex/randon sampling island continental-1.pdf}
+\includegraphics{MA_JJ_files/figure-latex/RSCI-1.pdf}
 
 \begin{verbatim}
 ## 
 ##  Wilcoxon rank sum test with continuity correction
 ## 
 ## data:  Insular and Continental
-## W = 13723, p-value = 3.118e-05
+## W = 13942, p-value = 8.407e-06
 ## alternative hypothesis: true location shift is greater than 0
 \end{verbatim}
 
 Wilcoxon Rank Sum Test (unpaired data):
 
-continental \textless{} insular (P = \(3.1181418\times 10^{-5}\))
+continental \textless{} insular (P = \(8.4067298\times 10^{-6}\))
 
 \newpage
 
@@ -1066,7 +1032,7 @@ bin}\label{continental-vs.insular-per-time-bin-1}
 
 \begin{figure}[htbp]
 \centering
-\includegraphics{MA_JJ_files/figure-latex/Boxplot continental vs. insular, split into time bins-1.pdf}
+\includegraphics{MA_JJ_files/figure-latex/BPCIBins-1.pdf}
 \caption{Boxplot continental vs.~insular, genera summarised}
 \end{figure}
 
@@ -1076,7 +1042,7 @@ bin}\label{continental-vs.insular-per-time-bin-1}
 
 \begin{figure}[htbp]
 \centering
-\includegraphics{MA_JJ_files/figure-latex/Boxplot body size split into continents-1.pdf}
+\includegraphics{MA_JJ_files/figure-latex/BPCon-1.pdf}
 \caption{Boxplot: body size on different continents, genera summarised}
 \end{figure}
 
@@ -1093,7 +1059,7 @@ bin}\label{continental-vs.insular-per-time-bin-1}
 \end{verbatim}
 
 \begin{verbatim}
-## [1] 416.1407
+## [1] 399.0842
 \end{verbatim}
 
 \begin{verbatim}
@@ -1109,24 +1075,24 @@ bin}\label{continental-vs.insular-per-time-bin-1}
 \end{verbatim}
 
 \begin{verbatim}
-## [1] 517.4296
+## [1] 545.462
 \end{verbatim}
 
-\includegraphics{MA_JJ_files/figure-latex/randon sampling continents-1.pdf}
-\includegraphics{MA_JJ_files/figure-latex/randon sampling continents-2.pdf}
-\includegraphics{MA_JJ_files/figure-latex/randon sampling continents-3.pdf}
+\includegraphics{MA_JJ_files/figure-latex/RSCon-1.pdf}
+\includegraphics{MA_JJ_files/figure-latex/RSCon-2.pdf}
+\includegraphics{MA_JJ_files/figure-latex/RSCon-3.pdf}
 
 \begin{verbatim}
 ## 
 ##  Kruskal-Wallis rank sum test
 ## 
 ## data:  list(Africa, America, Eurasia, Europe)
-## Kruskal-Wallis chi-squared = 32.839, df = 3, p-value = 3.483e-07
+## Kruskal-Wallis chi-squared = 27.699, df = 3, p-value = 4.201e-06
 \end{verbatim}
 
 Kruskal-Wallis-Test:
 
-Continent means differ (P = \(3.4831602\times 10^{-7}\)) (still have to
+Continent means differ (P = \(4.2009248\times 10^{-6}\)) (still have to
 look into the details\ldots{})
 
 \newpage
@@ -1136,7 +1102,7 @@ vs.~insular}\label{continents-continental-vs.insular}
 
 \begin{figure}[htbp]
 \centering
-\includegraphics{MA_JJ_files/figure-latex/Boxplot body size split into continents, continental vs. insular-1.pdf}
+\includegraphics{MA_JJ_files/figure-latex/BPConCI-1.pdf}
 \caption{Boxplot: body size on different continents, genera summarised}
 \end{figure}
 
@@ -1149,15 +1115,41 @@ insular)}\label{all-continental-and-insular}
 
 \subsubsection{genera (all)}\label{genera-all}
 
+\begin{longtable}[]{@{}rrrr@{}}
+\caption{paleoTS object, all data}\tabularnewline
+\toprule
+tt & mm & vv & nn\tabularnewline
+\midrule
+\endfirsthead
+\toprule
+tt & mm & vv & nn\tabularnewline
+\midrule
+\endhead
+0.0000005 & 401.9641 & 102306.64 & 4\tabularnewline
+0.0058500 & 314.1859 & 42607.58 & 18\tabularnewline
+0.0688500 & 506.3265 & 64620.11 & 8\tabularnewline
+0.4535000 & 516.4053 & 155241.85 & 7\tabularnewline
+1.2935000 & 593.8669 & 147507.20 & 12\tabularnewline
+2.1970000 & 971.8850 & 580540.76 & 8\tabularnewline
+3.0940000 & 658.0826 & 271043.73 & 9\tabularnewline
+4.4660000 & 785.0792 & 187937.61 & 8\tabularnewline
+6.2890000 & 1141.9375 & 584378.85 & 4\tabularnewline
+9.4270000 & 703.9570 & 195766.19 & 9\tabularnewline
+12.7140000 & 628.3020 & 285258.36 & 6\tabularnewline
+14.8950000 & 687.9619 & 169914.58 & 7\tabularnewline
+19.5000000 & 441.5420 & 78467.65 & 9\tabularnewline
+\bottomrule
+\end{longtable}
+
 \begin{figure}[htbp]
 \centering
-\includegraphics{MA_JJ_files/figure-latex/paleoTS plot with genus mean, including island species-1.pdf}
-\caption{paleoTS plot with genus mean, including island species}
+\includegraphics{MA_JJ_files/figure-latex/paleoTSAll-1.pdf}
+\caption{paleoTS plot with genus mean, all}
 \end{figure}
 
 \begin{longtable}[]{@{}lrrrr@{}}
-\caption{Model-fitting results for testudinidae, genera, including
-island species}\tabularnewline
+\caption{Model-fitting results for testudinidae, genera,
+all}\tabularnewline
 \toprule
 & logL & K & AICc & Akaike.wt\tabularnewline
 \midrule
@@ -1179,15 +1171,41 @@ species)}\label{continental-excluding-insular-species}
 
 \subsubsection{genera (continental)}\label{genera-continental}
 
+\begin{longtable}[]{@{}rrrr@{}}
+\caption{paleoTS object, continental}\tabularnewline
+\toprule
+tt & mm & vv & nn\tabularnewline
+\midrule
+\endfirsthead
+\toprule
+tt & mm & vv & nn\tabularnewline
+\midrule
+\endhead
+0.0000005 & 233.1680 & 8331.753 & 3\tabularnewline
+0.0058500 & 241.7917 & 13004.928 & 15\tabularnewline
+0.0688500 & 397.4606 & 50619.392 & 6\tabularnewline
+0.4535000 & 416.9341 & 200982.124 & 5\tabularnewline
+1.2935000 & 346.8484 & 66240.066 & 7\tabularnewline
+2.1970000 & 1103.1067 & 595507.933 & 7\tabularnewline
+3.0940000 & 725.4156 & 414253.291 & 6\tabularnewline
+4.4660000 & 771.3833 & 259173.082 & 6\tabularnewline
+6.2890000 & 1054.4375 & 531455.932 & 4\tabularnewline
+9.4270000 & 703.9570 & 195766.185 & 9\tabularnewline
+12.7140000 & 628.3020 & 285258.362 & 6\tabularnewline
+14.8950000 & 687.9619 & 169914.577 & 7\tabularnewline
+19.5000000 & 441.5420 & 78467.646 & 9\tabularnewline
+\bottomrule
+\end{longtable}
+
 \begin{figure}[htbp]
 \centering
-\includegraphics{MA_JJ_files/figure-latex/paleoTS plot with genus mean, excluding island species-1.pdf}
-\caption{paleoTS plot with genus mean, excluding island species}
+\includegraphics{MA_JJ_files/figure-latex/paleoTSC-1.pdf}
+\caption{paleoTS plot with genus mean, continental}
 \end{figure}
 
 \begin{longtable}[]{@{}lrrrr@{}}
-\caption{Model-fitting results for testudinidae, genera, excluding
-insular species}\tabularnewline
+\caption{Model-fitting results for testudinidae, genera,
+continental}\tabularnewline
 \toprule
 & logL & K & AICc & Akaike.wt\tabularnewline
 \midrule
@@ -1209,15 +1227,37 @@ continental)}\label{insular-excluding-continental}
 
 \subsubsection{genera (insular)}\label{genera-insular}
 
+\begin{longtable}[]{@{}rrrr@{}}
+\caption{paleoTS object, insular}\tabularnewline
+\toprule
+tt & mm & vv & nn\tabularnewline
+\midrule
+\endfirsthead
+\toprule
+tt & mm & vv & nn\tabularnewline
+\midrule
+\endhead
+0.0000005 & 860.9268 & 0.00 & 1\tabularnewline
+0.0058500 & 379.5354 & 68570.44 & 12\tabularnewline
+0.0688500 & 727.5938 & 14997.58 & 4\tabularnewline
+0.4535000 & 748.8333 & 142649.08 & 3\tabularnewline
+1.2935000 & 829.6744 & 112964.44 & 6\tabularnewline
+2.1970000 & 1178.3333 & 821158.33 & 3\tabularnewline
+3.0940000 & 449.4375 & 27058.77 & 4\tabularnewline
+4.4660000 & 826.1667 & 15196.06 & 2\tabularnewline
+6.2890000 & 1850.0000 & 0.00 & 1\tabularnewline
+\bottomrule
+\end{longtable}
+
 \begin{figure}[htbp]
 \centering
-\includegraphics{MA_JJ_files/figure-latex/paleoTS plot with genus mean, excluding continental species-1.pdf}
-\caption{paleoTS plot with genus mean, only insular species}
+\includegraphics{MA_JJ_files/figure-latex/paleoTSI-1.pdf}
+\caption{paleoTS plot with genus mean, insular}
 \end{figure}
 
 \begin{longtable}[]{@{}lrrrr@{}}
-\caption{Model-fitting results for testudinidae, genera, only insular
-species}\tabularnewline
+\caption{Model-fitting results for testudinidae, genera,
+insular}\tabularnewline
 \toprule
 & logL & K & AICc & Akaike.wt\tabularnewline
 \midrule
@@ -1236,18 +1276,42 @@ Stasis & -60.41581 & 2 & 127.2316 & 1\tabularnewline
 
 \subsection{per continent}\label{per-continent}
 
-\subsubsection{Europe, smaller original bins (see Table 2),
-genera}\label{europe-smaller-original-bins-see-table-2-genera}
+\subsubsection{Europe, genera}\label{europe-genera}
+
+\begin{longtable}[]{@{}rrrr@{}}
+\caption{paleoTS object, Europe}\tabularnewline
+\toprule
+mm & nn & vv & tt\tabularnewline
+\midrule
+\endfirsthead
+\toprule
+mm & nn & vv & tt\tabularnewline
+\midrule
+\endhead
+148.8559 & 2 & 3338.406 & 0.00585\tabularnewline
+616.6667 & 3 & 138802.333 & 0.06885\tabularnewline
+377.8167 & 3 & 89203.953 & 0.45350\tabularnewline
+697.3717 & 5 & 218431.974 & 1.29350\tabularnewline
+895.0000 & 2 & 1110050.000 & 2.19700\tabularnewline
+453.3333 & 3 & 39433.333 & 3.09400\tabularnewline
+1215.8667 & 5 & 159317.256 & 4.46600\tabularnewline
+838.3750 & 2 & 875495.281 & 6.28900\tabularnewline
+800.0508 & 6 & 263434.389 & 9.42700\tabularnewline
+653.9625 & 5 & 351634.528 & 12.71400\tabularnewline
+772.0000 & 5 & 223154.375 & 14.89500\tabularnewline
+533.8533 & 5 & 183706.682 & 19.50000\tabularnewline
+\bottomrule
+\end{longtable}
 
 \begin{figure}[htbp]
 \centering
-\includegraphics{MA_JJ_files/figure-latex/paleoTS with different time bins, no bins, genera, Europe-1.pdf}
-\caption{Smaller original bins, genera, Europe}
+\includegraphics{MA_JJ_files/figure-latex/paleoTSEurope-1.pdf}
+\caption{Genera, Europe}
 \end{figure}
 
 \begin{longtable}[]{@{}lrrrr@{}}
-\caption{Model-fitting results for testudinidae, no bins,
-genera}\tabularnewline
+\caption{Model-fitting results for testudinidae, genera,
+Europe}\tabularnewline
 \toprule
 & logL & K & AICc & Akaike.wt\tabularnewline
 \midrule
@@ -1267,15 +1331,40 @@ Stasis & -79.01365 & 2 & 163.5273 & 0.990\tabularnewline
 \paragraph{Europe, smaller original bins (see Table 2), genera,
 continental}\label{europe-smaller-original-bins-see-table-2-genera-continental}
 
+\begin{longtable}[]{@{}rrrr@{}}
+\caption{paleoTs object, Europe, continental}\tabularnewline
+\toprule
+mm & nn & vv & tt\tabularnewline
+\midrule
+\endfirsthead
+\toprule
+mm & nn & vv & tt\tabularnewline
+\midrule
+\endhead
+149.5381 & 2 & 3450.8267 & 0.00585\tabularnewline
+187.0000 & 1 & 0.0000 & 0.06885\tabularnewline
+205.4750 & 2 & 198.0050 & 0.45350\tabularnewline
+204.9292 & 2 & 23.1767 & 1.29350\tabularnewline
+1420.0000 & 1 & 0.0000 & 2.19700\tabularnewline
+232.5000 & 1 & 0.0000 & 3.09400\tabularnewline
+1475.6667 & 3 & 57926.3333 & 4.46600\tabularnewline
+663.3750 & 2 & 473607.7812 & 6.28900\tabularnewline
+800.0508 & 6 & 263434.3893 & 9.42700\tabularnewline
+653.9625 & 5 & 351634.5281 & 12.71400\tabularnewline
+772.0000 & 5 & 223154.3750 & 14.89500\tabularnewline
+533.8533 & 5 & 183706.6821 & 19.50000\tabularnewline
+\bottomrule
+\end{longtable}
+
 \begin{figure}[htbp]
 \centering
-\includegraphics{MA_JJ_files/figure-latex/paleoTS with different time bins, no bins, genera, Europe, continental-1.pdf}
-\caption{Smaller original bins, genera, Europe, continental}
+\includegraphics{MA_JJ_files/figure-latex/pTSEuC-1.pdf}
+\caption{paleoTS, genera, Europe, continental}
 \end{figure}
 
 \begin{longtable}[]{@{}lrrrr@{}}
-\caption{Model-fitting results for testudinidae, no bins,
-genera}\tabularnewline
+\caption{Model-fitting results for testudinidae, genera, Europe,
+continental}\tabularnewline
 \toprule
 & logL & K & AICc & Akaike.wt\tabularnewline
 \midrule
@@ -1295,15 +1384,36 @@ Stasis & -83.21073 & 2 & 171.9215 & 0.991\tabularnewline
 \paragraph{Europe, smaller original bins (see Table 2), genera,
 insular}\label{europe-smaller-original-bins-see-table-2-genera-insular}
 
+\begin{longtable}[]{@{}rrrr@{}}
+\caption{paleoTs object, Europe, insular}\tabularnewline
+\toprule
+mm & nn & vv & tt\tabularnewline
+\midrule
+\endfirsthead
+\toprule
+mm & nn & vv & tt\tabularnewline
+\midrule
+\endhead
+187.5077 & 1 & 0.00 & 0.00585\tabularnewline
+831.5000 & 2 & 684.50 & 0.06885\tabularnewline
+722.5000 & 1 & 0.00 & 0.45350\tabularnewline
+835.0833 & 4 & 168423.36 & 1.29350\tabularnewline
+1005.0000 & 2 & 1462050.00 & 2.19700\tabularnewline
+451.6667 & 3 & 40558.33 & 3.09400\tabularnewline
+826.1667 & 2 & 15196.06 & 4.46600\tabularnewline
+1850.0000 & 1 & 0.00 & 6.28900\tabularnewline
+\bottomrule
+\end{longtable}
+
 \begin{figure}[htbp]
 \centering
-\includegraphics{MA_JJ_files/figure-latex/paleoTS with different time bins, no bins, genera, Europe, insular-1.pdf}
-\caption{Smaller original bins, genera, Europe, insular}
+\includegraphics{MA_JJ_files/figure-latex/pTSEuI-1.pdf}
+\caption{paleoTS, genera, Europe, insular}
 \end{figure}
 
 \begin{longtable}[]{@{}lrrrr@{}}
-\caption{Model-fitting results for testudinidae, no bins,
-genera}\tabularnewline
+\caption{Model-fitting results for testudinidae, genera, Europe,
+insular}\tabularnewline
 \toprule
 & logL & K & AICc & Akaike.wt\tabularnewline
 \midrule
@@ -1323,15 +1433,41 @@ Stasis & -52.89638 & 2 & 112.7928 & 0.926\tabularnewline
 \subsubsection{Eurasia, smaller original bins (See Table 2),
 genera}\label{eurasia-smaller-original-bins-see-table-2-genera}
 
+\begin{longtable}[]{@{}rrrr@{}}
+\caption{paleoTS object, Eurasia}\tabularnewline
+\toprule
+tt & mm & vv & nn\tabularnewline
+\midrule
+\endfirsthead
+\toprule
+tt & mm & vv & nn\tabularnewline
+\midrule
+\endhead
+0.0000005 & 137.2637 & 0.000 & 1\tabularnewline
+0.0058500 & 236.8217 & 9760.467 & 5\tabularnewline
+0.0688500 & 530.0000 & 122579.333 & 4\tabularnewline
+0.4535000 & 377.8167 & 89203.953 & 3\tabularnewline
+1.2935000 & 777.5579 & 162641.142 & 7\tabularnewline
+2.1970000 & 909.6667 & 562217.222 & 5\tabularnewline
+3.0940000 & 892.0000 & 381770.000 & 5\tabularnewline
+4.4660000 & 1048.0556 & 296417.219 & 6\tabularnewline
+6.2890000 & 1208.9167 & 849651.021 & 3\tabularnewline
+9.4270000 & 800.0508 & 263434.389 & 6\tabularnewline
+12.7140000 & 653.9625 & 351634.528 & 5\tabularnewline
+14.8950000 & 772.0000 & 223154.375 & 5\tabularnewline
+19.5000000 & 513.8533 & 162399.349 & 5\tabularnewline
+\bottomrule
+\end{longtable}
+
 \begin{figure}[htbp]
 \centering
-\includegraphics{MA_JJ_files/figure-latex/paleoTS with different time bins, no bins, genera, Eurasia-1.pdf}
-\caption{Smaller original bins, genera, Eurasia}
+\includegraphics{MA_JJ_files/figure-latex/paleoTSEurasia-1.pdf}
+\caption{paleoTS, genera, Eurasia}
 \end{figure}
 
 \begin{longtable}[]{@{}lrrrr@{}}
-\caption{Model-fitting results for testudinidae, no bins,
-genera}\tabularnewline
+\caption{Model-fitting results for testudinidae, genera,
+Eurasia}\tabularnewline
 \toprule
 & logL & K & AICc & Akaike.wt\tabularnewline
 \midrule
@@ -1351,15 +1487,41 @@ Stasis & -84.58890 & 2 & 174.5111 & 0.289\tabularnewline
 \subsubsection{Eurasia, smaller original bins (See Table 2), genera,
 continental}\label{eurasia-smaller-original-bins-see-table-2-genera-continental}
 
+\begin{longtable}[]{@{}rrrr@{}}
+\caption{paleoTS object, Eurasia, continental}\tabularnewline
+\toprule
+tt & mm & vv & nn\tabularnewline
+\midrule
+\endfirsthead
+\toprule
+tt & mm & vv & nn\tabularnewline
+\midrule
+\endhead
+0.0000005 & 137.2637 & 0.000 & 1\tabularnewline
+0.0058500 & 238.0120 & 9654.865 & 5\tabularnewline
+0.0688500 & 228.5000 & 3444.500 & 2\tabularnewline
+0.4535000 & 205.4750 & 198.005 & 2\tabularnewline
+1.2935000 & 595.5388 & 191487.404 & 4\tabularnewline
+2.1970000 & 1044.5833 & 442006.250 & 4\tabularnewline
+3.0940000 & 1110.8333 & 581102.083 & 3\tabularnewline
+4.4660000 & 1159.0000 & 439728.667 & 4\tabularnewline
+6.2890000 & 1092.2500 & 788605.188 & 3\tabularnewline
+9.4270000 & 800.0508 & 263434.389 & 6\tabularnewline
+12.7140000 & 653.9625 & 351634.528 & 5\tabularnewline
+14.8950000 & 772.0000 & 223154.375 & 5\tabularnewline
+19.5000000 & 513.8533 & 162399.349 & 5\tabularnewline
+\bottomrule
+\end{longtable}
+
 \begin{figure}[htbp]
 \centering
-\includegraphics{MA_JJ_files/figure-latex/paleoTS with different time bins, no bins, genera, Eurasia, continental-1.pdf}
-\caption{Smaller original bins, genera, Eurasia, continental}
+\includegraphics{MA_JJ_files/figure-latex/pTSEsC-1.pdf}
+\caption{paleoTS, genera, Eurasia, continental}
 \end{figure}
 
 \begin{longtable}[]{@{}lrrrr@{}}
-\caption{Model-fitting results for testudinidae, no bins,
-genera}\tabularnewline
+\caption{Model-fitting results for testudinidae, genera, Eurasia,
+continental}\tabularnewline
 \toprule
 & logL & K & AICc & Akaike.wt\tabularnewline
 \midrule
@@ -1379,15 +1541,38 @@ Stasis & -87.19538 & 2 & 179.7241 & 0.002\tabularnewline
 \subsubsection{Eurasia, smaller original bins (See Table 2), genera,
 insular}\label{eurasia-smaller-original-bins-see-table-2-genera-insular}
 
+\begin{longtable}[]{@{}rrrr@{}}
+\caption{paleoTS object, Eurasia, insular}\tabularnewline
+\toprule
+tt & mm & vv & nn\tabularnewline
+\midrule
+\endfirsthead
+\toprule
+tt & mm & vv & nn\tabularnewline
+\midrule
+\endhead
+0.0000005 & 137.2637 & 0.000 & 1\tabularnewline
+0.0058500 & 271.4596 & 5668.485 & 4\tabularnewline
+0.0688500 & 644.3333 & 105436.333 & 3\tabularnewline
+0.4535000 & 722.5000 & 0.000 & 1\tabularnewline
+1.2935000 & 882.0356 & 105684.077 & 6\tabularnewline
+2.1970000 & 953.6667 & 652233.889 & 5\tabularnewline
+3.0940000 & 891.0000 & 383430.000 & 5\tabularnewline
+4.4660000 & 620.4444 & 134562.926 & 3\tabularnewline
+6.2890000 & 1900.0000 & 5000.000 & 2\tabularnewline
+19.5000000 & 800.0000 & 0.000 & 1\tabularnewline
+\bottomrule
+\end{longtable}
+
 \begin{figure}[htbp]
 \centering
-\includegraphics{MA_JJ_files/figure-latex/paleoTS with different time bins, no bins, genera, Eurasia, insular-1.pdf}
-\caption{Smaller original bins, genera, Eurasia, insular}
+\includegraphics{MA_JJ_files/figure-latex/pTSEsI-1.pdf}
+\caption{paleoTS, genera, Eurasia, insular}
 \end{figure}
 
 \begin{longtable}[]{@{}lrrrr@{}}
-\caption{Model-fitting results for testudinidae, no bins,
-genera}\tabularnewline
+\caption{Model-fitting results for testudinidae, genera, Eurasia,
+insular}\tabularnewline
 \toprule
 & logL & K & AICc & Akaike.wt\tabularnewline
 \midrule
