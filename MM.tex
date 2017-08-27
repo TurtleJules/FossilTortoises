@@ -11,7 +11,10 @@ Body size is reported as straight carapace length (SCL). Where SCL was not avail
 %TO DO: check Franz \& Quitmyer, 2005 again!! (CL regression)
 
 \subsection{Analyses}
-All subsequent analyses were performed with R (version 3.4.1), including the packages dplyr (cite) to prepare the data for the analysis (???) and ggplot2 (cite) to create figures. Sampling Accumulation Curves were created with the R package vegan (Cite) to see if sample size sufficed. This was repeated on genus level, since genera of fossil testudinids are relatively well resolved by now whereas determination on the species level is still somewhat obscure in many cases, as some species were based on scarce material. Since the data set relies on literature, occurrences increase with each added reference and reach a maximum, when no new species/genera are added.
+All subsequent analyses were performed with R (version 3.4.1), including the packages dplyr (cite) to prepare the data for the analysis (???) and ggplot2 (cite) to create figures. Sampling Accumulation Curves were created with the R package vegan (Cite) to see if sample size sufficed.
+\todo{explain what species accumulation curves are and give reference}
+ Since the data set relies on literature, references were used as a sampling unit (x-axis).%and reach a maximum, when no new species/genera are added. 
+Since genera were much better sampled than species (Fig. )This was repeated on genus level, since genera of fossil testudinids are relatively well resolved by now whereas determination on the species level is still somewhat obscure in many cases, as some species were based on scarce material. 
 
 % read Species Accumulation Curve papers + Catalinas paper!
 % REWRITE
@@ -22,12 +25,12 @@ Histograms and boxplots of the entire data set and several subgroups (fossil vs.
 %- only used samples > 23.000 mya?!
 
 \subsubsection{Body size trends over time}
-To investigate trends in body size over time, the R package paleoTS (cite) was used. Data were split into time bins according to the stratigraphic timescale/stages (Table \ref{tab:bins}, Fig. \ref{fig:bins}). Data older than 23 mya was excluded from the final analysis. To decrease influenec of sampling bias and because Sampling Accumulation Curves showed that the genus level was well sampled in contrast to species level, the mean SCL per genus was calculated before the timescale analysis. The paleoTS plots were created, wich display the mean trait over time and can be fitted to different evolutionary models: stasis, which ...., generalized random walk (GRW), which .... or unbiased random walk (URW), which..... . The Akaike Weight Criterion (AICc) indicates which model is best supported --> see Catalina's Paper and Hunt's papers
+To investigate trends in body size over time, the R package paleoTS (cite) was used. Data were split into time bins according to stratigraphic stages (Table \ref{tab:bins}, Fig. \ref{fig:bins}), although the two stages of the Lower Miocene are considered one time bin, to increase sample size. To decrease influence of sampling bias and because Sampling Accumulation Curves showed that the genus level was well sampled in contrast to species level, the mean SCL per genus was calculated before the timescale analysis. The paleoTS plots were created, wich display the mean trait over time and can be fitted to different evolutionary models: stasis, which ...., generalized random walk (GRW), which .... or unbiased random walk (URW), which..... . The Akaike Weight Criterion (AICc) indicates which model is best supported --> see Catalina's Paper and Hunt's papers
 
 
 \begin{figure}[htbp]
 	\centering
-	\includegraphics{MA_JJ_files/figure-latex/overview.pdf}
+	\includegraphics{MA_JJ_files/figure-latex/overviewData-1.pdf}
 	\caption{Scatterplot of carapace length over time, indicating insular (triangle) and
 		continental (circles) and colour indicating continents. Lines indicate time
 		bins which correspons to stratigraphic stages.}

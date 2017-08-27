@@ -203,22 +203,36 @@ na <- PleiPlioCL$EpochBins[!complete.cases(PleiPlioCL$EpochBins)]
 
 
 
-```{r "Get overview over data set", echo=FALSE, fig.cap="Scatterplot of CL over time, indicating insular (triangle) and continental (circles) and colour indicating continents. Lines indicte bins, dashed line = new bins."}
+```{r "overviewData", echo=FALSE, fig.cap="Scatterplot of carapace length over time, indicating insular (triangle) and continental (circles) and colour indicating continents. Lines indicate stratigraphic stages which were used as time bins, the dashed line is the border between the two stages of the Lower Miocene, which were consideres as one time bin. "}
+
+#Get overview over data set
+
+Continent <- as.vector(unique(PleiPlioCL$Continent))
+Con <- as.vector(c("Asia", "Africa", "Europe", "America", "America", "America", "Europe"))#
+Continents <- data.frame(Continent, Con)
+
+
+
 scatter <- testRatio %>%
   filter(!is.na(CL)) %>%
   filter(Age < 23.000) %>%
-  select(CL, Age, Island, Continent, estimated) %>%
-  ggplot(aes(Age, CL)) + geom_jitter(aes(shape=Island, colour= Continent)) +
+  merge(Continents) %>%
+  select(CL, Age, Island, Con, estimated) %>%
+  ggplot(aes(Age, CL)) + geom_jitter(aes(shape=Island, colour= Con)) +
   theme_classic() +
   geom_vline(xintercept = c(0, 0.0117, 0.126, 0.781, 1.806, 2.588, 3.6,
                                   5.332, 7.246, 11.608, 13.82, 15.97, 23.03))+
   # geom_vline(xintercept= c(0, 0.0117, 0.126, 0.781, 2.588, 3.6, 5.332, 11.608, 15.97, 23.03)) +
-   geom_vline(xintercept= 20.44, linetype="dashed")
+   geom_vline(xintercept= 20.44, linetype="dashed")  +
+  scale_color_manual(values=c("#000000", "#E69F00", "#56B4E9", "#009E73", "#F0E442", "#0072B2", "#D55E00", "#CC79A7") , name="Continents")+
+  scale_shape_manual(values= c(16, 17), name="Insularity", breaks=c("continental", "insular")) +
+  xlab("Age [mya]") + ylab("Carapace length [mm]")
+  # 
 
 
 scatter
 
-length(scatter$CL)
+#length(scatter$CL)
 
 
 ```
@@ -333,11 +347,13 @@ mapCL
 
 
 
-```{r "Get overview over sample sizes", echo=FALSE, include=FALSE}
+```{r "Get overview over sample sizes", echo=FALSE}
 OverviewSpecies <- PleiPlioCL %>%
   filter(EpochBins != "Modern") %>%
   group_by(EpochBins, Taxon) %>%
   summarise(n=n(), meanCL = mean(CL))
+
+kable(OverviewSpecies)
 
 OverviewSpeciesFossil <- PleiPlioCL %>%
   filter(EpochBins != "Modern") %>%
@@ -345,15 +361,20 @@ OverviewSpeciesFossil <- PleiPlioCL %>%
   summarise(n=n(), meanCL = mean(CL))
 
 #write.table(OverviewSpecies,file="OverviewSpeciesSampleSize.txt", sep="\t", row.names = FALSE) 
-
+kable(OverviewSpeciesFossil)
 
 OverviewGeneraTime <- PleiPlioCL %>%
   group_by(EpochBins, Genus) %>%
   summarise(n=n(), meanCL = mean(CL))
 
+kable(OverviewGeneraTime)
+
+
 OverviewGenera <- PleiPlioCL %>%
   group_by(Genus) %>%
   summarise(n=n(), meanCL = mean(CL))
+
+kable(OverviewGenera)
 
 ```
 
@@ -434,9 +455,6 @@ plot(vegansp,xlab="References",ylab="Richness", xvar="individuals", ci.type="lin
 
 ```{r "Species Accumulation Curve with Genera, Eurasia", echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Sampling Accumulation Curve of fossil genera per reference, Eurasia"}
 
-Continent <- as.vector(unique(PleiPlioCL$Continent))
-Con <- as.vector(c("Asia", "Africa", "Europe", "America", "America", "America", "Europe"))#
-Continents <- data.frame(Continent, Con)
 
 overviewVegan <- PleiPlioCL %>%
   merge(Continents) %>%
@@ -2322,6 +2340,11 @@ PaleoGenAllFit <- (fit3models(paleoGenAll, silent=FALSE, method="AD", pool=FALSE
 ```{r "Model-fitting, genera, all, no bins, Eurasia, insular, table", echo=FALSE}
 
 kable(PaleoGenAllFit, caption="Model-fitting results for testudinidae, no bins, genera")
+
+```
+
+```{r "citations", echo=FALSE, include=FALSE}
+citation(package = "paleoTS", lib.loc = NULL)
 
 ```
 

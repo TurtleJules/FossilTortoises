@@ -1,11 +1,11 @@
 \select@language {english}
-\contentsline {section}{\nonumberline List of Figures}{2}
-\contentsline {section}{\nonumberline List of Tables}{2}
-\contentsline {section}{\numberline {1}Introduction}{3}
-\contentsline {section}{\numberline {2}Material \& Methods}{4}
-\contentsline {subsection}{\numberline {2.1}Data collection}{4}
-\contentsline {subsection}{\numberline {2.2}Body size estimation}{4}
-\contentsline {subsection}{\numberline {2.3}Analyses}{4}
-\contentsline {subsubsection}{\numberline {2.3.1}Distribution and statistics}{5}
-\contentsline {subsubsection}{\numberline {2.3.2}Body size trends over time}{5}
-\contentsline {section}{\numberline {3}Time bins (stratigraphic stages)}{7}
+\contentsline {section}{\nonumberline List of Figures}{3}
+\contentsline {section}{\nonumberline List of Tables}{4}
+\contentsline {section}{\numberline {1}Introduction}{5}
+\contentsline {section}{\numberline {2}Material \& Methods}{6}
+\contentsline {subsection}{\numberline {2.1}Data collection}{6}
+\contentsline {subsection}{\numberline {2.2}Body size estimation}{6}
+\contentsline {subsection}{\numberline {2.3}Analyses}{6}
+\contentsline {subsubsection}{\numberline {2.3.1}Distribution and statistics}{7}
+\contentsline {subsubsection}{\numberline {2.3.2}Body size trends over time}{7}
+\contentsline {section}{\numberline {3}Results}{9}
