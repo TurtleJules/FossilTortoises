@@ -84,9 +84,9 @@ CLPLtidy <- tidyCL %>%
 CLPLextant <- Extant %>%
   filter(!is.na(CL) & !is.na(PL)) %>%
   dplyr::select(Taxon=Species, CL, PL, PLmid, Island, Continent, Genus) %>%
-  mutate(ratio=CL/PL, ratioMid=CL/PLmid)
-  #group_by(Taxon) %>% #to show ratios per Taxon, leave out to get a total ratio
-  #  summarise(meanRatio=round(mean(ratio),2), sdRatio=round(sd(ratio),2), n=n(), min=min(ratio), max=max(ratio))
+  mutate(ratio=CL/PL, ratioMid=CL/PLmid) #%>%
+  # group_by(Taxon) %>% #to show ratios per Taxon, leave out to get a total ratio
+  #   summarise(meanRatio=round(mean(ratio),2), sdRatio=round(sd(ratio),2), n=n(), min=min(ratio), max=max(ratio))
 
 Ratio <- CLPLextant %>%
   summarise(meanRatio=round(mean(ratio),2), sdRatio=round(sd(ratio),2), n=n(), min=min(ratio), max=max(ratio))
@@ -2468,7 +2468,8 @@ length(unique(FossilOccurrences$Locality))
 length(unique(FossilOccurrences$Locality[which(FossilOccurrences$Clavailability=="yes")]))
 
 FossilOcMiocene <- FossilOccurrences %>%
-  filter((MA.min+Ma.max)/2 < 23.000)
+  mutate(Age=(MA.min+Ma.max)/2) %>%
+  filter(Age < 23.000)
 
 length(unique(FossilOcMiocene$Locality))
 
@@ -2484,16 +2485,18 @@ number of all fossil localities with body size data (body size data set) `r leng
 
 number of fossil localities that match the relevant age `r length(unique(tidyCL$Locality[which(tidyCL$Age < 23.000)]))`
 
-number of occurrences according to FosFarBase `r length(unique(FossilOccurrences$Locality))`
+number of localities according to FosFarBase `r length(unique(FossilOccurrences$Locality))`
 
-number of FosFarBase occurrences for which body size was available `r length(unique(FossilOccurrences$Locality[which(FossilOccurrences$Clavailability=="yes")]))`
+number of FosFarBase localities for which body size was available `r length(unique(FossilOccurrences$Locality[which(FossilOccurrences$Clavailability=="yes")]))`
 
-number of FosFarBase occurrences of relevant age `r length(unique(FossilOcMiocene$Locality))`
+number of FosFarBase localities of relevant age `r length(unique(FossilOcMiocene$Locality))`
 
-number of FosFarBase occurrences of relevant age for which body size data was available `r length(unique(FossilOcMiocene$Locality[which(FossilOcMiocene$Clavailability=="yes")]))`
+number of FosFarBase localities of relevant age for which body size data was available `r length(unique(FossilOcMiocene$Locality[which(FossilOcMiocene$Clavailability=="yes")]))`
 
 Body size data set:
 number of data records `r length(tidyCL$CL)`
+
+number of data records of relevant age `r length(tidyCL$CL[which(tidyCL$Age < 23.000)])`
 
 
 number of Countries where data records occurred`r length(unique(tidyCL$Country))`
@@ -2526,3 +2529,11 @@ number of data available body sizes `r length(FossilOccurrences$Clavailability[w
 number of available body sizes of relevant age `r length(FossilOcMiocene$Clavailability[which(FossilOcMiocene$Clavailability=="yes")])`
 
 
+
+Extant:
+
+number of extant data records `r  length(Extant$CL)`
+
+number of specimens from MFN collection `r  length(Extant$CL[which(Extant$Reference=="freshly measured (MFN collection)")])`
+
+number of specimens fro literature `r  length(Extant$CL[which(Extant$Reference!="freshly measured (MFN collection)")])`
