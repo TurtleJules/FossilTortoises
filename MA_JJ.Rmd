@@ -389,7 +389,7 @@ kable(OverviewGenera, caption="General overview over genera, with sample sizes a
 
 
 
-vegan <- tidyCL %>%
+veganSL <- tidyCL %>%
   dplyr::select(Locality, Taxon) %>%
   group_by(Locality, Taxon) %>%
   summarise(n=n()) %>%
@@ -399,13 +399,13 @@ library(vegan)
 
 #par(mfrow = c(2, 1))
 
-vegan=vegan[,-1]
-vegansp=specaccum(vegan,method="rarefaction", permutations=1000)
-plot(vegansp,xlab="Localities",ylab="Richness", xvar="individuals", ci.type="line", ci.lty=2, ci.col="grey", col="deepskyblue4", lwd=2, main="Fossil species, CL, per Locality" )
+veganSL=veganSL[,-1]
+veganspSL=specaccum(veganSL,method="rarefaction", permutations=1000)
+plot(veganspSL,xlab="Localities",ylab="Richness", xvar="individuals", ci.type="line", ci.lty=2, ci.col="grey", col="deepskyblue4", lwd=2 )
 
 
 
-vegan <- tidyCL %>%
+veganSR <- tidyCL %>%
   dplyr::select(Reference, Taxon) %>%
   group_by(Reference, Taxon) %>%
   summarise(n=n()) %>%
@@ -413,9 +413,9 @@ vegan <- tidyCL %>%
 
 library(vegan)
 
-vegan=vegan[,-1]
-vegansp=specaccum(vegan,method="rarefaction", permutations=1000)
-plot(vegansp,xlab="References",ylab="Richness", xvar="individuals", ci.type="line", ci.lty=2, ci.col="grey", col="deepskyblue4", lwd=2, main="Fossil species, CL, per Reference" )
+veganSR=veganSR[,-1]
+veganspSR=specaccum(veganSR,method="rarefaction", permutations=1000)
+plot(veganspSR,xlab="References",ylab="Richness", xvar="individuals", ci.type="line", ci.lty=2, ci.col="grey", col="deepskyblue4", lwd=2)
 
 
 ```
@@ -424,7 +424,7 @@ plot(vegansp,xlab="References",ylab="Richness", xvar="individuals", ci.type="lin
 
 ```{r "SACGenera", echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Sampling Accumulation Curve of fossil genera per reference"}
 
-vegan <- tidyCL %>%
+veganGL <- tidyCL %>%
   dplyr::select(Locality, Genus) %>%
   group_by(Locality, Genus) %>%
   summarise(n=n()) %>%
@@ -436,13 +436,13 @@ vegan <- tidyCL %>%
 #par(mfrow = c(2, 1))
 
 
-vegan=vegan[,-1]
-vegansp=specaccum(vegan,method="rarefaction", permutations=1000)
-# plot(vegansp,xlab="Localities",ylab="Richness", xvar="individuals", ci.type="line", ci.lty=2, ci.col="grey", col="deepskyblue4", lwd=2, main="Fossil genera, CL, per Locality" )
+veganGL=veganGL[,-1]
+veganspGL=specaccum(veganGL,method="rarefaction", permutations=1000)
+# plot(veganspGL,xlab="Localities",ylab="Richness", xvar="individuals", ci.type="line", ci.lty=2, ci.col="grey", col="deepskyblue4", lwd=2, main="Fossil genera, CL, per Locality" )
 # --> appendix!
 
 
-vegan <- tidyCL %>%
+veganGR <- tidyCL %>%
   dplyr::select(Reference, Genus) %>%
   group_by(Reference, Genus) %>%
   summarise(n=n()) %>%
@@ -450,9 +450,9 @@ vegan <- tidyCL %>%
 
 library(vegan)
 
-vegan=vegan[,-1]
-vegansp=specaccum(vegan,method="rarefaction", permutations=1000)
-plot(vegansp,xlab="References",ylab="Richness", xvar="individuals", ci.type="line", ci.lty=2, ci.col="grey", col="deepskyblue4", lwd=2, main="Fossil genera, CL, per Reference")
+veganGR=veganGR[,-1]
+veganspGR=specaccum(veganGR,method="rarefaction", permutations=1000)
+plot(veganspGR,xlab="References",ylab="Richness", xvar="individuals", ci.type="line", ci.lty=2, ci.col="grey", col="deepskyblue4", lwd=2)
 
 
 ```
@@ -471,7 +471,7 @@ overviewVegan <- PleiPlioCL %>%
   summarise(meanCL=mean(CL), sdCL= sd(CL), n=n(), meanAge=mean(Age))
 
 
-vegan <- tidyCL %>%
+veganEA <- tidyCL %>%
   merge(Continents) %>%
   filter(Con=="Europe" | Con=="Asia") %>%
   dplyr::select(Reference, Genus) %>%
@@ -481,9 +481,9 @@ vegan <- tidyCL %>%
 
 #library(vegan)
 
-vegan=vegan[,-1]
-vegansp=specaccum(vegan,method="rarefaction", permutations=1000)
-plot(vegansp,xlab="References",ylab="Richness", xvar="individuals", ci.type="line", ci.lty=2, ci.col="grey", col="deepskyblue4", lwd=2, main="Fossil genera, CL, per Reference")
+veganEA=veganEA[,-1]
+veganspEA=specaccum(veganEA,method="rarefaction", permutations=1000)
+plot(veganspEA,xlab="References",ylab="Richness", xvar="individuals", ci.type="line", ci.lty=2, ci.col="grey", col="deepskyblue4", lwd=2)
 
 
 ```
@@ -494,7 +494,7 @@ plot(vegansp,xlab="References",ylab="Richness", xvar="individuals", ci.type="lin
 
 #Species Accumulation Curve with Genera, Europe
 
-vegan <- tidyCL %>%
+veganEu <- tidyCL %>%
   merge(Continents) %>%
   filter(Con=="Europe") %>%
   dplyr::select(Reference, Genus) %>%
@@ -504,9 +504,9 @@ vegan <- tidyCL %>%
 
 #library(vegan)
 
-vegan=vegan[,-1]
-vegansp=specaccum(vegan,method="rarefaction", permutations=1000)
-plot(vegansp,xlab="References",ylab="Richness", xvar="individuals", ci.type="line", ci.lty=2, ci.col="grey", col="deepskyblue4", lwd=2, main="Fossil genera, CL, per Reference")
+veganEu=veganEu[,-1]
+veganspEu=specaccum(veganEu,method="rarefaction", permutations=1000)
+plot(veganspEu,xlab="References",ylab="Richness", xvar="individuals", ci.type="line", ci.lty=2, ci.col="grey", col="deepskyblue4", lwd=2)
 
 
 ```
@@ -518,7 +518,7 @@ plot(vegansp,xlab="References",ylab="Richness", xvar="individuals", ci.type="lin
 
 #Species Accumulation Curve with Genera, Africa
 
-vegan <- tidyCL %>%
+veganAf <- tidyCL %>%
   merge(Continents) %>%
   filter(Con=="Africa") %>%
   dplyr::select(Reference, Genus) %>%
@@ -528,9 +528,9 @@ vegan <- tidyCL %>%
 
 #library(vegan)
 
-vegan=vegan[,-1]
-vegansp=specaccum(vegan,method="rarefaction", permutations=1000)
-plot(vegansp,xlab="References",ylab="Richness", xvar="individuals", ci.type="line", ci.lty=2, ci.col="grey", col="deepskyblue4", lwd=2, main="Fossil genera, CL, per Reference")
+veganAf=veganAf[,-1]
+veganspAf=specaccum(veganAf,method="rarefaction", permutations=1000)
+plot(veganspAf,xlab="References",ylab="Richness", xvar="individuals", ci.type="line", ci.lty=2, ci.col="grey", col="deepskyblue4", lwd=2)
 
 
 ```
@@ -540,7 +540,7 @@ plot(vegansp,xlab="References",ylab="Richness", xvar="individuals", ci.type="lin
 
 #Species Accumulation Curve with Genera, America
 
-vegan <- tidyCL %>%
+veganAm <- tidyCL %>%
   merge(Continents) %>%
   filter(Con=="America") %>%
   dplyr::select(Reference, Genus) %>%
@@ -550,9 +550,9 @@ vegan <- tidyCL %>%
 
 #library(vegan)
 
-vegan=vegan[,-1]
-vegansp=specaccum(vegan,method="rarefaction", permutations=1000)
-plot(vegansp,xlab="References",ylab="Richness", xvar="individuals", ci.type="line", ci.lty=2, ci.col="grey", col="deepskyblue4", lwd=2, main="Fossil genera, CL, per Reference")
+veganAm=veganAm[,-1]
+veganspAm=specaccum(veganAm,method="rarefaction", permutations=1000)
+plot(veganspAm,xlab="References",ylab="Richness", xvar="individuals", ci.type="line", ci.lty=2, ci.col="grey", col="deepskyblue4", lwd=2)
 
 
 ```
@@ -564,7 +564,7 @@ plot(vegansp,xlab="References",ylab="Richness", xvar="individuals", ci.type="lin
 #Species Accumulation Curve with Genera, N-America
 
 
-vegan <- tidyCL %>%
+veganNA <- tidyCL %>%
   merge(Continents) %>%
   filter(Continent=="N-America") %>%
   dplyr::select(Reference, Genus) %>%
@@ -574,9 +574,9 @@ vegan <- tidyCL %>%
 
 #library(vegan)
 
-vegan=vegan[,-1]
-vegansp=specaccum(vegan,method="rarefaction", permutations=1000)
-plot(vegansp,xlab="References",ylab="Richness", xvar="individuals", ci.type="line", ci.lty=2, ci.col="grey", col="deepskyblue4", lwd=2, main="Fossil genera, CL, per Reference")
+veganNA=veganNA[,-1]
+veganspNA=specaccum(veganNA,method="rarefaction", permutations=1000)
+plot(veganspNA,xlab="References",ylab="Richness", xvar="individuals", ci.type="line", ci.lty=2, ci.col="grey", col="deepskyblue4", lwd=2)
 
 
 ```
@@ -586,7 +586,7 @@ plot(vegansp,xlab="References",ylab="Richness", xvar="individuals", ci.type="lin
 
 #Species Accumulation Curve with Genera, S-America
 
-vegan <- tidyCL %>%
+veganSA <- tidyCL %>%
   merge(Continents) %>%
   filter(Continent=="S-America") %>%
   dplyr::select(Reference, Genus) %>%
@@ -596,9 +596,9 @@ vegan <- tidyCL %>%
 
 #library(vegan)
 
-vegan=vegan[,-1]
-vegansp=specaccum(vegan,method="rarefaction", permutations=1000)
-plot(vegansp,xlab="References",ylab="Richness", xvar="individuals", ci.type="line", ci.lty=2, ci.col="grey", col="deepskyblue4", lwd=2, main="Fossil genera, CL, per Reference")
+veganSA=veganSA[,-1]
+veganspSA=specaccum(veganSA,method="rarefaction", permutations=1000)
+plot(veganspSA,xlab="References",ylab="Richness", xvar="individuals", ci.type="line", ci.lty=2, ci.col="grey", col="deepskyblue4", lwd=2)
 
 
 ```
@@ -608,7 +608,7 @@ plot(vegansp,xlab="References",ylab="Richness", xvar="individuals", ci.type="lin
 
 #Species Accumulation Curve with Genera, Asia
 
-vegan <- tidyCL %>%
+veganAs <- tidyCL %>%
   merge(Continents) %>%
   filter(Con=="Asia") %>%
   dplyr::select(Reference, Genus) %>%
@@ -618,9 +618,9 @@ vegan <- tidyCL %>%
 
 #library(vegan)
 
-vegan=vegan[,-1]
-vegansp=specaccum(vegan,method="rarefaction", permutations=1000)
-plot(vegansp,xlab="References",ylab="Richness", xvar="individuals", ci.type="line", ci.lty=2, ci.col="grey", col="deepskyblue4", lwd=2, main="Fossil genera, CL, per Reference")
+veganAs=veganAs[,-1]
+veganspAs=specaccum(veganAs,method="rarefaction", permutations=1000)
+plot(veganspAs,xlab="References",ylab="Richness", xvar="individuals", ci.type="line", ci.lty=2, ci.col="grey", col="deepskyblue4", lwd=2)
 
 
 ```
@@ -2399,6 +2399,34 @@ PaleoGenAllFit <- (fit3models(paleoGenAll, silent=FALSE, method="AD", pool=FALSE
 ```{r "Model-fitting, genera, all, no bins, Eurasia, insular, table", echo=FALSE}
 
 kable(PaleoGenAllFit, caption="Model-fitting results for testudinidae, genera, Eurasia, insular")
+
+```
+
+
+
+```{r "Data set: fossil", echo=FALSE}
+
+TabFossil <- PleiPlioCL %>%
+  merge(Continents) %>%
+  select(Genus, Taxon, CL, estimated, EpochBins, Age, Island, Con)
+
+kable(TabFossil, caption="Data set, fossil.")
+
+
+colnames(Extant)[1] <- "CollNr"
+colnames(Extant)[5] <- "CCL"
+colnames(Extant)[6] <- "SCW"
+colnames(Extant)[7] <- "CCW"
+colnames(Extant)[8] <- "CH"
+colnames(Extant)[13] <- "PW"
+
+TabExtant <- Extant %>%
+  merge(Continents) %>%
+  select(Genus, Taxon=Species, CollNr, SCL=CL, CCL, SCW, CCW, CH, PL, PW, estimated, Island, Con, Reference)
+  
+kable(TabExtant, caption="Data set, extant")
+
+
 
 ```
 

@@ -1,6 +1,6 @@
-\section*{Tables}
+\section{Tables}
 \begin{longtable}[]{@{}llrr@{}}
-	\caption{Overview over fossil species per time bin, with sample size and
+	\caption[Species per time bins]{Overview over fossil species per time bin, with sample size and
 		mean CL.}
 	\label{tab:SpecBins}\tabularnewline
 	\toprule
@@ -198,7 +198,7 @@
 \end{longtable}
 
 \begin{longtable}[]{@{}lrr@{}}
-	\caption{General overview over fossil species, with sample size and mean
+	\caption[Species overview]{General overview over fossil species, with sample size and mean
 		CL}
 	\label{tab:Species}\tabularnewline
 	\toprule
@@ -321,7 +321,7 @@
 \end{longtable}
 
 \begin{longtable}[]{@{}llrr@{}}
-	\caption{Overview over genera (modern and fossil) per time bin, with
+	\caption[Genera per time bins]{Overview over genera (modern and fossil) per time bin, with
 		sample sizes and mean CL.}
 	\label{tab:GenBins}\tabularnewline
 	\toprule
@@ -441,7 +441,7 @@
 \end{longtable}
 
 \begin{longtable}[]{@{}lrr@{}}
-	\caption{General overview over genera, with sample sizes and mean
+	\caption[Genera overview]{General overview over genera, with sample sizes and mean
 		CL.}
 	\label{tab:Genera}\tabularnewline
 	\toprule
@@ -484,3 +484,81 @@
 	Titanochelon & 20 & 1315.2000\tabularnewline
 	\bottomrule
 \end{longtable}
+
+
+%__________________________________________________________________
+%\subsection{General statistics}
+
+\begin{landscape}
+\begin{longtable}[]{@{}rrrrrrrrrrrrl@{}}
+	\caption[General statistics]{General statistics of body size data: all, per time bin,
+		insular and continental, per continent (all referring to CL: min, max,
+		variance, mean, logmean, median, logmedian, skewness, logskewness,
+		kurosis, logkurtosis}\tabularnewline
+	\toprule
+	nCL & min & max & var & mean & logm & med & logmed & skew & logsk & kurt
+	& logku & Variable\tabularnewline
+	\midrule
+	\endfirsthead
+	\toprule
+	nCL & min & max & var & mean & logm & med & logmed & skew & logsk & kurt
+	& logku & Variable\tabularnewline
+	\midrule
+	\endhead
+	616 & 80.00 & 2500 & 164537.80 & 437.2 & 2.5 & 270.5 & 2.4 & 2.14 & 0.69
+	& 8.00 & 2.73 & all\tabularnewline
+	253 & 80.00 & 1300 & 67485.50 & 330.3 & 2.4 & 242.0 & 2.4 & 1.83 & 0.58
+	& 5.87 & 2.69 & Modern\tabularnewline
+	49 & 102.44 & 1250 & 69690.66 & 445.9 & 2.6 & 334.7 & 2.5 & 1.20 & 0.24
+	& 3.61 & 2.56 & Upper Pleistocene\tabularnewline
+	53 & 132.00 & 1800 & 97910.83 & 387.1 & 2.5 & 292.9 & 2.5 & 3.03 & 1.52
+	& 12.24 & 5.55 & Middle Pleistocene\tabularnewline
+	57 & 107.80 & 2000 & 161948.82 & 463.5 & 2.5 & 263.0 & 2.4 & 1.74 & 0.73
+	& 5.76 & 2.40 & Lower Pleistocene\tabularnewline
+	31 & 118.90 & 2050 & 411224.51 & 555.2 & 2.5 & 194.9 & 2.3 & 1.31 & 0.93
+	& 3.12 & 2.11 & Gelasian\tabularnewline
+	21 & 90.00 & 1600 & 270535.82 & 610.6 & 2.6 & 428.0 & 2.6 & 1.00 & 0.14
+	& 2.50 & 1.99 & Piacencian\tabularnewline
+	26 & 176.00 & 2500 & 476162.71 & 955.2 & 2.9 & 857.5 & 2.9 & 1.11 &
+	-0.40 & 3.56 & 2.30 & Zanclean\tabularnewline
+	10 & 140.00 & 2100 & 602611.21 & 948.9 & 2.8 & 916.0 & 2.9 & 0.26 &
+	-0.22 & 1.49 & 1.29 & Messinian\tabularnewline
+	45 & 107.00 & 1540 & 175470.12 & 462.7 & 2.5 & 250.0 & 2.4 & 1.49 & 0.81
+	& 3.74 & 2.54 & Tortonian\tabularnewline
+	27 & 111.00 & 1500 & 126060.40 & 337.7 & 2.4 & 220.0 & 2.3 & 2.49 & 1.77
+	& 7.77 & 5.30 & Serravallian\tabularnewline
+	14 & 270.00 & 1600 & 230451.33 & 747.9 & 2.8 & 700.0 & 2.8 & 0.30 & 0.03
+	& 1.55 & 1.18 & Langhian\tabularnewline
+	30 & 113.00 & 1100 & 76288.76 & 406.8 & 2.5 & 302.4 & 2.5 & 1.27 & 0.45
+	& 3.45 & 2.26 & Burdigalian/Aquitanian\tabularnewline
+	253 & 80.00 & 1300 & 67485.50 & 330.3 & 2.4 & 242.0 & 2.4 & 1.83 & 0.58
+	& 5.87 & 2.69 & Modern\tabularnewline
+	363 & 90.00 & 2500 & 219004.66 & 511.7 & 2.6 & 285.6 & 2.5 & 1.83 & 0.68
+	& 6.11 & 2.42 & Fossil\tabularnewline
+	469 & 81.00 & 2500 & 157808.79 & 392.9 & 2.5 & 250.0 & 2.4 & 2.65 & 1.07
+	& 10.57 & 3.74 & continental\tabularnewline
+	147 & 80.00 & 2000 & 160834.35 & 578.5 & 2.6 & 500.0 & 2.7 & 1.02 &
+	-0.27 & 3.95 & 2.05 & insular\tabularnewline
+	157 & 81.00 & 830 & 17009.02 & 244.0 & 2.3 & 221.0 & 2.3 & 1.92 & 0.29 &
+	8.09 & 2.98 & modern-con\tabularnewline
+	96 & 80.00 & 1300 & 118641.09 & 471.5 & 2.6 & 353.0 & 2.5 & 0.82 & 0.01
+	& 2.47 & 1.77 & modern-ins\tabularnewline
+	312 & 90.00 & 2500 & 212116.79 & 467.9 & 2.5 & 270.0 & 2.4 & 2.11 & 0.96
+	& 7.25 & 2.96 & fossil-con\tabularnewline
+	51 & 150.00 & 2000 & 180825.40 & 780.0 & 2.8 & 750.0 & 2.9 & 1.11 &
+	-0.40 & 4.02 & 3.18 & fossil-ins\tabularnewline
+	142 & 80.00 & 2050 & 112417.26 & 347.7 & 2.4 & 193.5 & 2.3 & 2.10 & 0.68
+	& 7.97 & 2.48 & Africa\tabularnewline
+	242 & 102.44 & 1800 & 82209.71 & 415.0 & 2.5 & 302.2 & 2.5 & 1.92 & 0.75
+	& 6.79 & 2.91 & America\tabularnewline
+	59 & 150.00 & 2100 & 323123.20 & 585.5 & 2.6 & 280.0 & 2.4 & 1.43 & 0.85
+	& 3.61 & 2.24 & Asia\tabularnewline
+	173 & 107.00 & 2500 & 254222.84 & 491.2 & 2.5 & 245.0 & 2.4 & 1.86 &
+	0.81 & 6.30 & 2.34 & Europe\tabularnewline
+	\bottomrule
+\end{longtable}
+\end{landscape}
+
+%\include{FossilTab}
+
+%\include{ExtantTab}
