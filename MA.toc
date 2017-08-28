@@ -1,27 +1,28 @@
 \select@language {english}
-\contentsline {section}{\nonumberline List of Figures}{3}
-\contentsline {section}{\nonumberline List of Tables}{4}
-\contentsline {section}{\numberline {1}Introduction}{5}
-\contentsline {section}{\numberline {2}Material \& Methods}{6}
-\contentsline {subsection}{\numberline {2.1}Data collection}{6}
-\contentsline {subsection}{\numberline {2.2}Body size estimation}{6}
-\contentsline {subsection}{\numberline {2.3}Analyses}{6}
-\contentsline {subsubsection}{\numberline {2.3.1}Distribution and statistics}{7}
-\contentsline {subsubsection}{\numberline {2.3.2}Body size trends over time}{7}
-\contentsline {section}{\numberline {3}Results}{9}
-\contentsline {section}{\numberline {4}paleoTS analysis}{16}
-\contentsline {subsection}{\numberline {4.1}all (continental and insular)}{16}
-\contentsline {subsection}{\numberline {4.2}continental (excluding insular species)}{17}
-\contentsline {subsection}{\numberline {4.3}insular (excluding continental)}{18}
-\contentsline {subsection}{\numberline {4.4}per continent}{20}
-\contentsline {subsubsection}{\numberline {4.4.1}Europe, genera}{20}
-\contentsline {paragraph}{\nonumberline Europe, genera, continental}{22}
-\contentsline {paragraph}{\nonumberline Europe, genera, insular}{22}
-\contentsline {subsubsection}{\numberline {4.4.2}Eurasia, genera}{23}
-\contentsline {subsubsection}{\numberline {4.4.3}Eurasia, genera, continental}{24}
-\contentsline {subsubsection}{\numberline {4.4.4}Eurasia, genera, insular}{26}
-\contentsline {section}{Appendix \numberline {A}Sampling Accumulation Curves}{28}
-\contentsline {section}{Appendix \numberline {B}Histograms}{29}
-\contentsline {section}{Appendix \numberline {C}Boxplots}{30}
-\contentsline {section}{Appendix \numberline {D}Random Sampling}{32}
-\contentsline {section}{Appendix \numberline {E}Tables}{35}
+\contentsline {section}{\nonumberline List of Figures}{3}{section*.2}
+\contentsline {section}{\nonumberline List of Tables}{4}{section*.3}
+\contentsline {section}{\numberline {1}Introduction}{5}{section.1}
+\contentsline {section}{\numberline {2}Material \& Methods}{6}{section.2}
+\contentsline {subsection}{\numberline {2.1}Data collection}{6}{subsection.2.1}
+\contentsline {subsection}{\numberline {2.2}Body size estimation}{7}{subsection.2.2}
+\contentsline {subsection}{\numberline {2.3}Analyses}{7}{subsection.2.3}
+\contentsline {subsubsection}{\numberline {2.3.1}Distribution and statistics}{8}{subsubsection.2.3.1}
+\contentsline {subsubsection}{\numberline {2.3.2}Body size trends over time}{8}{subsubsection.2.3.2}
+\contentsline {section}{\numberline {3}Results}{10}{section.3}
+\contentsline {section}{\numberline {4}paleoTS analysis}{15}{section.4}
+\contentsline {subsection}{\numberline {4.1}all (continental and insular)}{15}{subsection.4.1}
+\contentsline {subsection}{\numberline {4.2}continental (excluding insular species)}{16}{subsection.4.2}
+\contentsline {subsection}{\numberline {4.3}insular (excluding continental)}{18}{subsection.4.3}
+\contentsline {subsection}{\numberline {4.4}per continent}{20}{subsection.4.4}
+\contentsline {subsubsection}{\numberline {4.4.1}Europe, genera}{20}{subsubsection.4.4.1}
+\contentsline {paragraph}{\nonumberline Europe, genera, continental}{22}{table.11}
+\contentsline {paragraph}{\nonumberline Europe, genera, insular}{22}{table.13}
+\contentsline {subsubsection}{\numberline {4.4.2}Eurasia, genera}{23}{subsubsection.4.4.2}
+\contentsline {subsubsection}{\numberline {4.4.3}Eurasia, genera, continental}{24}{subsubsection.4.4.3}
+\contentsline {subsubsection}{\numberline {4.4.4}Eurasia, genera, insular}{26}{subsubsection.4.4.4}
+\contentsline {section}{\numberline {5}References}{28}{section.5}
+\contentsline {section}{Appendix \numberline {A}Sampling Accumulation Curves}{29}{Appendix.1.A}
+\contentsline {section}{Appendix \numberline {B}Histograms}{30}{Appendix.1.B}
+\contentsline {section}{Appendix \numberline {C}Boxplots}{31}{Appendix.1.C}
+\contentsline {section}{Appendix \numberline {D}Random Sampling}{33}{Appendix.1.D}
+\contentsline {section}{Appendix \numberline {E}Tables}{33}{Appendix.1.E}

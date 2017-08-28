@@ -1,3 +1,67 @@
 \begin{thebibliography}{}
 
+\bibitem[B{\"{o}}hme and Ilg, 2003]{Bohme2003b}
+B{\"{o}}hme, M. and Ilg, A. (2003).
+\newblock {FosFARbase}.
+\newblock {\em Available at www. wahre- staerke. com/. Accessed October},
+  10:2011.
+
+\bibitem[Brattstrom, 1961]{Brattstrom1961}
+Brattstrom, B.~H. (1961).
+\newblock {Some New Fossil Tortoises from Western North America with remarks on
+  the Zoogeography and Paleoecology of Tortoises}.
+\newblock {\em Journal of Paleontology}, 35(3):543--560.
+
+\bibitem[Franz et~al., 2001]{Franz2001a}
+Franz, R., Carlson, L.~A., Owen, R. D. R.~D., and Steadman, D. (2001).
+\newblock {Fossil tortoises from the Turks and Caicos Islands, BWI}.
+\newblock In {\em Proceedings of the 8th Symposium on the Natural History of
+  the Bahamas. Gerace Research Center, San Salvador, Bahamas}, pages 27--31.
+
+\bibitem[Hunt, 2015]{Hunt2015a}
+Hunt, G. (2015).
+\newblock {\em {paleoTS: Analyze Paleontological Time-Series}}.
+
+\bibitem[Hutterer et~al., 1998]{Hutterer1998}
+Hutterer, R., Garc{\'{i}}a-Talavera, F., L{\'{o}}pez-Mart{\'{i}}nez, N.,
+  Michaux, J., Hutterer, F., Garc{\'{i}}a-Talavera, F.,
+  L{\'{o}}pez-Mart{\'{i}}nez, N., and Michaux, J. (1998).
+\newblock {New chelonian eggs fom the tertiary of Lanzarote and Fuerteventura
+  and a review of fossil tortoises of the Canary Islands (Reptilia,
+  Testudinidae)}.
+
+\bibitem[Komsta and Novomestky, 2015]{Komsta2015}
+Komsta, L. and Novomestky, F. (2015).
+\newblock {\em {moments: Moments, cumulants, skewness, kurtosis and related
+  tests}}.
+
+\bibitem[Oksanen et~al., 2017]{Oksanen2017}
+Oksanen, J., Blanchet, F.~G., Friendly, M., Kindt, R., Legendre, P., McGlinn,
+  D., Minchin, P.~R., O'Hara, R.~B., Simpson, G.~L., Solymos, P., Stevens, M.
+  H.~H., Szoecs, E., and Wagner, H. (2017).
+\newblock {\em {vegan: Community Ecology Package}}.
+
+\bibitem[{R Core Team}, 2017]{RCoreTeam2017}
+{R Core Team} (2017).
+\newblock {\em {R: A Language and Environment for Statistical Computing}}.
+\newblock R Foundation for Statistical Computing, Vienna, Austria.
+
+\bibitem[Rhodin et~al., 2015]{rhodin2015turtles}
+Rhodin, A. G.~J., Thomson, S., Georgalis, G.~L., Karl, H.-V.~V., Danilov,
+  I.~G., Takahashi, A., de~la Fuente, M.~S., Bourque, J.~R., Delfino, M., Bour,
+  R., Iverson, J., Shaffer, B., van Dijk, P.~P., and Others (2015).
+\newblock {Turtles and tortoises of the world during the rise and global spread
+  of humanity: first checklist and review of extinct Pleistocene and Holocene
+  chelonians}.
+\newblock {\em Chelonian Research Monographs}, 5(April):1--66.
+
+\bibitem[Wickham, 2009]{Wickham2009}
+Wickham, H. (2009).
+\newblock {\em ggplot2: elegant graphics for data analysis}.
+\newblock Springer New York.
+
+\bibitem[Wickham et~al., 2017]{Wickham2017}
+Wickham, H., Francois, R., Henry, L., and M{\"{u}}ller, K. (2017).
+\newblock {\em {dplyr: A Grammar of Data Manipulation}}.
+
 \end{thebibliography}

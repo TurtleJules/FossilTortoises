@@ -1,5 +1,8 @@
 \section{Results}
 
+
+
+
 \begin{landscape}\label{data}
 \begin{longtable}[]{@{}lllcccc@{}}
 	\caption[Sample sizes per time bins]{Time ranges, mean age per bin, corresponding stratigraphic stages and epochs, and respective sample sizes (on individual, species and genus level).)}
@@ -35,15 +38,6 @@
 \end{landscape}
 
 
-\FloatBarrier
-
-%__________________________________________________________________
-\begin{figure}[htbp]
-	\centering
-	\includegraphics[width=\textwidth]{MA_JJ_files/figure-latex/MapFossilOccurrences-1.pdf}
-	\caption[Map: fossil occurences]{Map displaying all fossil occurrences of testudinids, with
-		color indicating whether body size data was available (blue) or not (black).}
-\end{figure}
 
 
 
@@ -54,6 +48,7 @@
 	\centering
 	\includegraphics[width=\textwidth]{MA_JJ_files/figure-latex/MapCL-1.pdf}
 	\caption[Map: body size localities]{Map displaying all localities for which body size data for testudinids was available in the literature. Size of points denotes sample size, color denotes approximate age.}
+	\label{fig:mapBS}
 \end{figure}
 
 
@@ -65,6 +60,7 @@
 	\centering
 	\includegraphics[width=0.8\textwidth]{MA_JJ_files/figure-latex/SACGenera-1.pdf}
 	\caption[Sampling Accumulation Curve on generic level]{Sampling Accumulation Curve of fossil genera per reference.}
+	\label{fig:SACGen}
 \end{figure}
 
 
@@ -84,7 +80,7 @@
 \FloatBarrier
 
 %__________________________________________________________________________
-\begin{figure}[htbp]
+\begin{figure}[H]
 	\centering
 	\includegraphics{MA_JJ_files/figure-latex/BPGBins-1.pdf}
 	\caption{Boxplots of mean CL per time bin, including mean and sd CL for
@@ -179,7 +175,7 @@ continental \textless{} insular (P = \(1.5123\times 10^{-6}\))
 	species)}\label{continental-excluding-insular-species}
 
 
-\begin{longtable}[]{@{}rrrr@{}}
+\begin{longtable}[H]{@{}rrrr@{}}
 	\caption{paleoTS object, continental}
 	\label{tab:pTSC}\tabularnewline
 	\toprule
@@ -206,7 +202,9 @@ continental \textless{} insular (P = \(1.5123\times 10^{-6}\))
 	\bottomrule
 \end{longtable}
 
-\begin{figure}[htbp]
+\newpage
+
+\begin{figure}[H]
 	\centering
 	\includegraphics{MA_JJ_files/figure-latex/paleoTSC-1.pdf}
 	\caption{paleoTS plot with genus mean, continental}
@@ -595,7 +593,9 @@ continental \textless{} insular (P = \(1.5123\times 10^{-6}\))
 	\bottomrule
 \end{longtable}
 
-\begin{figure}[htbp]
+\newpage
+
+\begin{figure}[thb]
 	\centering
 	\includegraphics{MA_JJ_files/figure-latex/pTSEsI-1.pdf}
 	\caption{paleoTS, genera, Eurasia, insular}

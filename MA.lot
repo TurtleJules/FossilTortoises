@@ -1,25 +1,25 @@
 \select@language {english}
-\contentsline {table}{\numberline {1}{\ignorespaces Sample sizes per time bins}}{10}
-\contentsline {table}{\numberline {2}{\ignorespaces paleoTS object, all data\relax }}{16}
-\contentsline {table}{\numberline {3}{\ignorespaces Model-fitting results for testudinidae, genera, all\relax }}{16}
-\contentsline {table}{\numberline {4}{\ignorespaces paleoTS object, continental\relax }}{17}
-\contentsline {table}{\numberline {5}{\ignorespaces Model-fitting results for testudinidae, genera, continental\relax }}{18}
-\contentsline {table}{\numberline {6}{\ignorespaces paleoTS object, insular\relax }}{19}
-\contentsline {table}{\numberline {7}{\ignorespaces Model-fitting results for testudinidae, genera, insular\relax }}{20}
-\contentsline {table}{\numberline {8}{\ignorespaces paleoTS object, Europe\relax }}{20}
-\contentsline {table}{\numberline {9}{\ignorespaces Model-fitting results for testudinidae, genera, Europe\relax }}{20}
-\contentsline {table}{\numberline {10}{\ignorespaces paleoTs object, Europe, continental\relax }}{21}
-\contentsline {table}{\numberline {11}{\ignorespaces Model-fitting results for testudinidae, genera, Europe, continental\relax }}{22}
-\contentsline {table}{\numberline {12}{\ignorespaces paleoTs object, Europe, insular\relax }}{22}
-\contentsline {table}{\numberline {13}{\ignorespaces Model-fitting results for testudinidae, genera, Europe, insular\relax }}{22}
-\contentsline {table}{\numberline {14}{\ignorespaces paleoTS object, Eurasia\relax }}{23}
-\contentsline {table}{\numberline {15}{\ignorespaces Model-fitting results for testudinidae, genera, Eurasia\relax }}{24}
-\contentsline {table}{\numberline {16}{\ignorespaces paleoTS object, Eurasia, continental\relax }}{25}
-\contentsline {table}{\numberline {17}{\ignorespaces Model-fitting results for testudinidae, genera, Eurasia, continental\relax }}{25}
-\contentsline {table}{\numberline {18}{\ignorespaces paleoTS object, Eurasia, insular\relax }}{26}
-\contentsline {table}{\numberline {19}{\ignorespaces Model-fitting results for testudinidae, genera, Eurasia, insular\relax }}{27}
-\contentsline {table}{\numberline {20}{\ignorespaces Species per time bins}}{35}
-\contentsline {table}{\numberline {21}{\ignorespaces Species overview}}{41}
-\contentsline {table}{\numberline {22}{\ignorespaces Genera per time bins}}{44}
-\contentsline {table}{\numberline {23}{\ignorespaces Genera overview}}{48}
-\contentsline {table}{\numberline {24}{\ignorespaces General statistics}}{50}
+\contentsline {table}{\numberline {1}{\ignorespaces Sample sizes per time bins}}{11}{table.1}
+\contentsline {table}{\numberline {2}{\ignorespaces paleoTS object, all data\relax }}{15}{table.2}
+\contentsline {table}{\numberline {3}{\ignorespaces Model-fitting results for testudinidae, genera, all\relax }}{15}{table.3}
+\contentsline {table}{\numberline {4}{\ignorespaces paleoTS object, continental\relax }}{16}{table.4}
+\contentsline {table}{\numberline {5}{\ignorespaces Model-fitting results for testudinidae, genera, continental\relax }}{18}{table.5}
+\contentsline {table}{\numberline {6}{\ignorespaces paleoTS object, insular\relax }}{18}{table.6}
+\contentsline {table}{\numberline {7}{\ignorespaces Model-fitting results for testudinidae, genera, insular\relax }}{19}{table.7}
+\contentsline {table}{\numberline {8}{\ignorespaces paleoTS object, Europe\relax }}{20}{table.8}
+\contentsline {table}{\numberline {9}{\ignorespaces Model-fitting results for testudinidae, genera, Europe\relax }}{20}{table.9}
+\contentsline {table}{\numberline {10}{\ignorespaces paleoTs object, Europe, continental\relax }}{21}{table.10}
+\contentsline {table}{\numberline {11}{\ignorespaces Model-fitting results for testudinidae, genera, Europe, continental\relax }}{22}{table.11}
+\contentsline {table}{\numberline {12}{\ignorespaces paleoTs object, Europe, insular\relax }}{22}{table.12}
+\contentsline {table}{\numberline {13}{\ignorespaces Model-fitting results for testudinidae, genera, Europe, insular\relax }}{22}{table.13}
+\contentsline {table}{\numberline {14}{\ignorespaces paleoTS object, Eurasia\relax }}{23}{table.14}
+\contentsline {table}{\numberline {15}{\ignorespaces Model-fitting results for testudinidae, genera, Eurasia\relax }}{24}{table.15}
+\contentsline {table}{\numberline {16}{\ignorespaces paleoTS object, Eurasia, continental\relax }}{25}{table.16}
+\contentsline {table}{\numberline {17}{\ignorespaces Model-fitting results for testudinidae, genera, Eurasia, continental\relax }}{25}{table.17}
+\contentsline {table}{\numberline {18}{\ignorespaces paleoTS object, Eurasia, insular\relax }}{26}{table.18}
+\contentsline {table}{\numberline {19}{\ignorespaces Model-fitting results for testudinidae, genera, Eurasia, insular\relax }}{27}{table.19}
+\contentsline {table}{\numberline {20}{\ignorespaces Genera per time bins}}{34}{table.20}
+\contentsline {table}{\numberline {21}{\ignorespaces Genera overview}}{37}{table.21}
+\contentsline {table}{\numberline {22}{\ignorespaces General statistics}}{39}{table.22}
+\contentsline {table}{\numberline {23}{\ignorespaces Data set, fossil.\relax }}{41}{table.23}
+\contentsline {table}{\numberline {24}{\ignorespaces Data set, extant\relax }}{74}{table.24}

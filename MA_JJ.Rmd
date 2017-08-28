@@ -250,6 +250,7 @@ CL <- tidyCL %>%
   group_by(Locality) %>%
   mutate(count= n())
 
+length(unique(CL$Locality))
 
 FossilOccurrences<-read.csv("tortoises_occurrences.csv", sep=";", header=TRUE)
 
@@ -2436,5 +2437,92 @@ kable(TabExtant, caption="Data set, extant")
 ```{r "citations", echo=FALSE, include=FALSE}
 citation(package = "paleoTS", lib.loc = NULL)
 
+citation(package = "dplyr", lib.loc = NULL)
+
+citation(package = "ggplot2", lib.loc = NULL)
+
+citation(package = "vegan", lib.loc = NULL)
+
+citation(package = "stats", lib.loc = NULL)
+
+citation(package = "moments", lib.loc = NULL)
+
+# library(dplyr)
+# library(ggplot2)
+# library(paleoTS)
+# library(stats)
+# library(moments)
+# vegan
+
 ```
+
+
+```{r "number of localities etc."}
+
+length(unique(tidyCL$Locality))
+
+length(unique(tidyCL$Locality[which(tidyCL$Age < 23.000)]))
+
+length(unique(FossilOccurrences$Locality))
+
+length(unique(FossilOccurrences$Locality[which(FossilOccurrences$Clavailability=="yes")]))
+
+FossilOcMiocene <- FossilOccurrences %>%
+  filter((MA.min+Ma.max)/2 < 23.000)
+
+length(unique(FossilOcMiocene$Locality))
+
+length(unique(FossilOcMiocene$Locality[which(FossilOccurrences$Clavailability=="yes")]))
+
+```
+
+
+
+
+number of all fossil localities with body size data (body size data set) `r length(unique(tidyCL$Locality))`
+
+
+number of fossil localities that match the relevant age `r length(unique(tidyCL$Locality[which(tidyCL$Age < 23.000)]))`
+
+number of occurrences according to FosFarBase `r length(unique(FossilOccurrences$Locality))`
+
+number of FosFarBase occurrences for which body size was available `r length(unique(FossilOccurrences$Locality[which(FossilOccurrences$Clavailability=="yes")]))`
+
+number of FosFarBase occurrences of relevant age `r length(unique(FossilOcMiocene$Locality))`
+
+number of FosFarBase occurrences of relevant age for which body size data was available `r length(unique(FossilOcMiocene$Locality[which(FossilOcMiocene$Clavailability=="yes")]))`
+
+Body size data set:
+number of data records `r length(tidyCL$CL)`
+
+
+number of Countries where data records occurred`r length(unique(tidyCL$Country))`
+
+
+number of measured SCLs `r length(tidyCL$CL[which(tidyCL$estimated=="m" & !is.na(tidyCL$CL))])`
+
+number of measured SCLs `r length(tidyCL$CL[which(tidyCL$estimated=="m" & is.na(tidyCL$CL))])`
+
+number of estimated SCLs `r length(tidyCL$CL[which(tidyCL$estimated!="m")])`
+
+number of SCLs measured from figure `r length(tidyCL$CL[which(tidyCL$estimated=="mf" & !is.na(tidyCL$CL))])`
+
+number of SCLs estimated from PL `r length(tidyCL$CL[which(is.na(tidyCL$CL) & !is.na(tidyCL$PL))])`
+
+number of SCLs that were estimared by original authors `r length(tidyCL$CL[which(tidyCL$estimated=="mo" & !is.na(tidyCL$CL))])`
+
+
+Occurrences:
+number of data records `r length(FossilOccurrences$Clavailability)`
+
+
+number of data records of relevant age `r length(FossilOcMiocene$Clavailability)`
+
+
+number of data available body sizes `r length(FossilOccurrences$Clavailability[which(FossilOccurrences$Clavailability=="yes")])`
+
+
+
+number of available body sizes of relevant age `r length(FossilOcMiocene$Clavailability[which(FossilOcMiocene$Clavailability=="yes")])`
+
 

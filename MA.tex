@@ -1,4 +1,4 @@
-\documentclass[toc=bibliographynumbered, liststotoc]{scrartcl} %mit [draft] vor den {} erreicht man, daß statt der Grafiken nur ein Rahmen in Größe der Grafik gezeichnet wird. Zusätzlich wird der Name der einzufügenden Datei in diesen Rahmen geschrieben]{book}
+\documentclass[toc=bibliographynumbered, listof=totoc]{scrartcl} %mit [draft] vor den {} erreicht man, daß statt der Grafiken nur ein Rahmen in Größe der Grafik gezeichnet wird. Zusätzlich wird der Name der einzufügenden Datei in diesen Rahmen geschrieben]{book}
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
 \usepackage{lmodern}
@@ -31,6 +31,7 @@
 \usepackage{rotating} %erlaubt das Drehen von Grafiken um 90° ohne angle=90
 \usepackage{sidecap} %für Tabellen und Grafiken, die weiter sind als Textweite
 
+\usepackage{hyperref} %für interne und externe verweise
 
 % zum besseren Steuern des Anhangs /appendices statt /appendix benutzen
 
@@ -78,7 +79,7 @@ Berlin, im Septenber 2017}
 \newpage
 \input{Discussion}
 \newpage
-%\bibliography{file}
+\bibliography{MA_fossilTortoises}
 \FloatBarrier
 \begin{appendices}
 \input{SAC}
