@@ -963,7 +963,7 @@ species.}
 \end{verbatim}
 
 \begin{verbatim}
-## [1] 486.6345
+## [1] 509.3396
 \end{verbatim}
 
 \begin{verbatim}
@@ -971,13 +971,13 @@ species.}
 ##  Wilcoxon rank sum test with continuity correction
 ## 
 ## data:  Modern and Fossil
-## W = 23743, p-value = 4.824e-07
+## W = 23639, p-value = 3.483e-07
 ## alternative hypothesis: true location shift is less than 0
 \end{verbatim}
 
 Wilcoxon Rank Sum Test (unpaired data):
 
-modern \textless{} fossil (P = \(4.8236434\times 10^{-7}\))
+modern \textless{} fossil (P = \(3.4832989\times 10^{-7}\))
 
 \newpage
 
@@ -1005,7 +1005,7 @@ vs.~insular}\label{fossil-vs.modern-continental-vs.insular}
 ##  Wilcoxon rank sum test with continuity correction
 ## 
 ## data:  ModernIsland and FossilIsland
-## W = 656.5, p-value = 8.268e-06
+## W = 804, p-value = 0.0004502
 ## alternative hypothesis: true location shift is less than 0
 \end{verbatim}
 
@@ -1024,17 +1024,17 @@ vs.~insular}\label{fossil-vs.modern-continental-vs.insular}
 ##  Wilcoxon rank sum test with continuity correction
 ## 
 ## data:  ModernCon and FossilCon
-## W = 8352.5, p-value = 3.958e-07
+## W = 7749.5, p-value = 6.46e-09
 ## alternative hypothesis: true location shift is less than 0
 \end{verbatim}
 
 Wilcoxon Rank Sum Test (unpaired data):
 
 modern continental \textless{} fossil continental (P =
-\(3.9578046\times 10^{-7}\))
+\(6.4604312\times 10^{-9}\))
 
 modern insular \textless{} fossil insular (P =
-\(8.2677805\times 10^{-6}\))
+\(4.5018473\times 10^{-4}\))
 
 \newpage
 
@@ -1061,13 +1061,13 @@ modern insular \textless{} fossil insular (P =
 ##  Wilcoxon rank sum test with continuity correction
 ## 
 ## data:  Insular and Continental
-## W = 14424, p-value = 3.426e-07
+## W = 14669, p-value = 5.738e-08
 ## alternative hypothesis: true location shift is greater than 0
 \end{verbatim}
 
 Wilcoxon Rank Sum Test (unpaired data):
 
-continental \textless{} insular (P = \(3.4257949\times 10^{-7}\))
+continental \textless{} insular (P = \(5.7379429\times 10^{-8}\))
 
 \newpage
 
@@ -1103,7 +1103,7 @@ bin}\label{continental-vs.insular-per-time-bin-1}
 \end{verbatim}
 
 \begin{verbatim}
-## [1] 428.2396
+## [1] 394.6556
 \end{verbatim}
 
 \begin{verbatim}
@@ -1119,7 +1119,7 @@ bin}\label{continental-vs.insular-per-time-bin-1}
 \end{verbatim}
 
 \begin{verbatim}
-## [1] 514.8937
+## [1] 543.0845
 \end{verbatim}
 
 \includegraphics{MA_JJ_files/figure-latex/RSCon-1.pdf}
@@ -1131,12 +1131,12 @@ bin}\label{continental-vs.insular-per-time-bin-1}
 ##  Kruskal-Wallis rank sum test
 ## 
 ## data:  list(Africa, America, Eurasia, Europe)
-## Kruskal-Wallis chi-squared = 34.01, df = 3, p-value = 1.972e-07
+## Kruskal-Wallis chi-squared = 30.456, df = 3, p-value = 1.106e-06
 \end{verbatim}
 
 Kruskal-Wallis-Test:
 
-Continent means differ (P = \(1.9716277\times 10^{-7}\)) (still have to
+Continent means differ (P = \(1.106407\times 10^{-6}\)) (still have to
 look into the details\ldots{})
 
 \newpage
@@ -3923,7 +3923,8 @@ Turtles disagree. Global Ecology and Biogeography, 23(6),
 \begin{Shaded}
 \begin{Highlighting}[]
 \NormalTok{FossilOcMiocene <-}\StringTok{ }\NormalTok{FossilOccurrences %>%}
-\StringTok{  }\KeywordTok{filter}\NormalTok{((MA.min+Ma.max)/}\DecValTok{2} \NormalTok{<}\StringTok{ }\FloatTok{23.000}\NormalTok{)}
+\StringTok{  }\KeywordTok{mutate}\NormalTok{(}\DataTypeTok{Age=}\NormalTok{(MA.min+Ma.max)/}\DecValTok{2}\NormalTok{) %>%}
+\StringTok{  }\KeywordTok{filter}\NormalTok{(Age <}\StringTok{ }\FloatTok{23.000}\NormalTok{)}
 
 \KeywordTok{length}\NormalTok{(}\KeywordTok{unique}\NormalTok{(FossilOcMiocene$Locality))}
 \end{Highlighting}
@@ -3948,16 +3949,18 @@ number of all fossil localities with body size data (body size data set)
 
 number of fossil localities that match the relevant age 186
 
-number of occurrences according to FosFarBase 647
+number of localities according to FosFarBase 647
 
-number of FosFarBase occurrences for which body size was available 112
+number of FosFarBase localities for which body size was available 112
 
-number of FosFarBase occurrences of relevant age 534
+number of FosFarBase localities of relevant age 534
 
-number of FosFarBase occurrences of relevant age for which body size
-data was available 106
+number of FosFarBase localities of relevant age for which body size data
+was available 106
 
 Body size data set: number of data records 384
+
+number of data records of relevant age 376
 
 number of Countries where data records occurred54
 
@@ -3980,6 +3983,14 @@ number of data records of relevant age 641
 number of data available body sizes 132
 
 number of available body sizes of relevant age 126
+
+Extant:
+
+number of extant data records 240
+
+number of specimens from MFN collection 67
+
+number of specimens fro literature 173
 
 
 \end{document}

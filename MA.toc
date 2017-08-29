@@ -1,28 +1,28 @@
 \select@language {english}
-\contentsline {section}{\nonumberline List of Figures}{3}{section*.2}
-\contentsline {section}{\nonumberline List of Tables}{4}{section*.3}
-\contentsline {section}{\numberline {1}Introduction}{5}{section.1}
-\contentsline {section}{\numberline {2}Material \& Methods}{6}{section.2}
-\contentsline {subsection}{\numberline {2.1}Data collection}{6}{subsection.2.1}
-\contentsline {subsection}{\numberline {2.2}Body size estimation}{7}{subsection.2.2}
-\contentsline {subsection}{\numberline {2.3}Analyses}{7}{subsection.2.3}
-\contentsline {subsubsection}{\numberline {2.3.1}Data strucure and statistics}{8}{subsubsection.2.3.1}
-\contentsline {subsubsection}{\numberline {2.3.2}Body size trends over time}{8}{subsubsection.2.3.2}
-\contentsline {section}{\numberline {3}Results}{10}{section.3}
-\contentsline {section}{\numberline {4}paleoTS analysis}{14}{section.4}
-\contentsline {subsection}{\numberline {4.1}all (continental and insular)}{14}{subsection.4.1}
-\contentsline {subsection}{\numberline {4.2}continental (excluding insular species)}{15}{subsection.4.2}
-\contentsline {subsection}{\numberline {4.3}insular (excluding continental)}{17}{subsection.4.3}
-\contentsline {subsection}{\numberline {4.4}per continent}{19}{subsection.4.4}
-\contentsline {subsubsection}{\numberline {4.4.1}Europe, genera}{19}{subsubsection.4.4.1}
-\contentsline {paragraph}{\nonumberline Europe, genera, continental}{21}{table.11}
-\contentsline {paragraph}{\nonumberline Europe, genera, insular}{21}{table.13}
-\contentsline {subsubsection}{\numberline {4.4.2}Eurasia, genera}{22}{subsubsection.4.4.2}
-\contentsline {subsubsection}{\numberline {4.4.3}Eurasia, genera, continental}{23}{subsubsection.4.4.3}
-\contentsline {subsubsection}{\numberline {4.4.4}Eurasia, genera, insular}{25}{subsubsection.4.4.4}
-\contentsline {section}{\numberline {5}References}{27}{section.5}
-\contentsline {section}{Appendix \numberline {A}Sampling Accumulation Curves}{28}{Appendix.1.A}
-\contentsline {section}{Appendix \numberline {B}Histograms}{29}{Appendix.1.B}
-\contentsline {section}{Appendix \numberline {C}Boxplots}{30}{Appendix.1.C}
-\contentsline {section}{Appendix \numberline {D}Random Sampling}{32}{Appendix.1.D}
-\contentsline {section}{Appendix \numberline {E}Tables}{32}{Appendix.1.E}
+\contentsline {section}{\nonumberline List of Figures}{4}{section*.2}
+\contentsline {section}{\nonumberline List of Tables}{5}{section*.3}
+\contentsline {section}{\numberline {1}Introduction}{6}{section.1}
+\contentsline {section}{\numberline {2}Material \& Methods}{7}{section.2}
+\contentsline {subsection}{\numberline {2.1}Data collection}{7}{subsection.2.1}
+\contentsline {subsection}{\numberline {2.2}Body size estimation}{8}{subsection.2.2}
+\contentsline {subsection}{\numberline {2.3}Analyses}{8}{subsection.2.3}
+\contentsline {subsubsection}{\numberline {2.3.1}Data strucure and statistics}{9}{subsubsection.2.3.1}
+\contentsline {subsubsection}{\numberline {2.3.2}Body size trends over time}{9}{subsubsection.2.3.2}
+\contentsline {section}{\numberline {3}Results}{11}{section.3}
+\contentsline {section}{\numberline {4}paleoTS analysis}{16}{section.4}
+\contentsline {subsection}{\numberline {4.1}all (continental and insular)}{16}{subsection.4.1}
+\contentsline {subsection}{\numberline {4.2}continental (excluding insular species)}{17}{subsection.4.2}
+\contentsline {subsection}{\numberline {4.3}insular (excluding continental)}{19}{subsection.4.3}
+\contentsline {subsection}{\numberline {4.4}per continent}{21}{subsection.4.4}
+\contentsline {subsubsection}{\numberline {4.4.1}Europe, genera}{21}{subsubsection.4.4.1}
+\contentsline {subsubsection}{\numberline {4.4.2}Europe, genera, continental}{22}{subsubsection.4.4.2}
+\contentsline {subsubsection}{\numberline {4.4.3}Europe, genera, insular}{24}{subsubsection.4.4.3}
+\contentsline {subsubsection}{\numberline {4.4.4}Eurasia, genera}{25}{subsubsection.4.4.4}
+\contentsline {subsubsection}{\numberline {4.4.5}Eurasia, genera, continental}{27}{subsubsection.4.4.5}
+\contentsline {subsubsection}{\numberline {4.4.6}Eurasia, genera, insular}{28}{subsubsection.4.4.6}
+\contentsline {section}{\numberline {5}References}{31}{section.5}
+\contentsline {section}{Appendix \numberline {A}Sampling accumulation curves}{32}{Appendix.1.A}
+\contentsline {section}{Appendix \numberline {B}Histograms}{33}{Appendix.1.B}
+\contentsline {section}{Appendix \numberline {C}Boxplots}{34}{Appendix.1.C}
+\contentsline {section}{Appendix \numberline {D}Random Sampling}{36}{Appendix.1.D}
+\contentsline {section}{Appendix \numberline {E}Tables}{36}{Appendix.1.E}

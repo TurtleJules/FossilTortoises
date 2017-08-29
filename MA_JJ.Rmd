@@ -224,7 +224,7 @@ scatter <- testRatio %>%
                                   5.332, 7.246, 11.608, 13.82, 15.97, 23.03))+
   # geom_vline(xintercept= c(0, 0.0117, 0.126, 0.781, 2.588, 3.6, 5.332, 11.608, 15.97, 23.03)) +
    geom_vline(xintercept= 20.44, linetype="dashed")  +
-  scale_color_manual(values=c("#000000", "#E69F00", "#56B4E9", "#009E73", "#F0E442", "#0072B2", "#D55E00", "#CC79A7") , name="Continents")+
+  scale_color_manual(values=c("#000000", "#E69F00",  "#FF00FF", "#009E73", "#56B4E9","#F0E442", "#0072B2", "#D55E00", "#CC79A7") , name="Continents")+
   scale_shape_manual(values= c(16, 17), name="Insularity", breaks=c("continental", "insular")) +
   xlab("Age [mya]") + ylab("Carapace length [mm]")
   # 
@@ -338,6 +338,8 @@ mapCL <- MapCL %>%
   theme_classic() +
   geom_point(aes(Longitude, Latitude,size=count, colour=MeanBins)) +  #colour=size, 
   scale_colour_gradientn(colors=c("orange", "red", "purple", "blue", "green", "yellow"))
+
+#values=c("#000000", "#E69F00",  "#FF00FF", "#009E73", "#56B4E9","#F0E442", "#0072B2", "#D55E00", "#CC79A7")
 
 
 
