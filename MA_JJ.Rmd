@@ -2539,3 +2539,91 @@ number of extant data records `r  length(Extant$CL)`
 number of specimens from MFN collection `r  length(Extant$CL[which(Extant$Reference=="freshly measured (MFN collection)")])`
 
 number of specimens fro literature `r  length(Extant$CL[which(Extant$Reference!="freshly measured (MFN collection)")])`
+
+
+```{r "Facts and numbers sampling accumulation curves", echo=FALSE}
+# species, all
+
+length((tidyCL$CL))
+
+length(unique(tidyCL$Taxon))
+
+
+
+
+# genera, all
+
+length((tidyCL$CL))
+
+length(unique(tidyCL$Genus))
+
+
+# continents
+
+tidyCL <- tidyCL %>%
+  merge(Continents)
+
+x <- "Europe" # Africa, America, Asia or Euroe
+
+length((tidyCL$CL[which(tidyCL$Con == x)]))
+
+length(unique(tidyCL$Genus[which(tidyCL$Con == x)]))
+
+unique(tidyCL$Genus[which(tidyCL$Con == x)])
+
+#####
+
+y <- "S-America" # N-America or S-America
+
+length((tidyCL$CL[which(tidyCL$Continent == y)]))
+
+length(unique(tidyCL$Genus[which(tidyCL$Continent == y)]))
+
+unique(tidyCL$Genus[which(tidyCL$Continent == y)])
+
+####
+
+length((tidyCL$CL[which(tidyCL$Continent == "Europe" | tidyCL$Continent == "Asia")]))
+
+length(unique(tidyCL$Genus[which(tidyCL$Continent == "Europe" | tidyCL$Continent == "Asia")]))
+
+unique(tidyCL$Genus[which(tidyCL$Continent == "Europe" | tidyCL$Continent == "Asia")])
+
+
+
+ConOverview <- tidyCL %>%
+  filter(Continent == "Europe") %>%
+  group_by(Continent, Genus) %>%
+  summarise(n=n())
+
+ContinentOverview <- tidyCL %>%
+  dplyr::select(Con, Genus) %>%
+  group_by(Con, Genus) %>%
+  summarise(n=n()) %>%
+  tidyr::spread(Con, n, fill="-")
+
+NSAmerica <- tidyCL %>%
+  dplyr::select(Continent, Genus) %>%
+  group_by(Continent, Genus) %>%
+  summarise(n=n()) %>%
+  tidyr::spread(Continent, n, fill="-")
+
+
+EurasiaOver <- tidyCL %>%
+ # dplyr::select(Continent, Genus) %>%
+  filter(Continent == "Europe" | Continent == "Asia") %>%
+  group_by(Genus) %>%
+  summarise(n=n())
+
+
+SamplingOverview <- left_join(ContinentOverview, NSAmerica, Eurasia, by="Genus") %>%
+  dplyr::select(Genus, Africa.x, America, "N-America", "S-America", Asia.x, Europe.x) %>%
+  merge(EurasiaOver, all=TRUE)
+
+SamplingOverview[is.na(SamplingOverview)] <- "-"
+
+kable(SamplingOverview)
+
+```
+
+

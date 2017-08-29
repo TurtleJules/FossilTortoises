@@ -22,11 +22,11 @@ Body size is reported as straight carapace length (SCL) in mm. Where SCL was not
 %TO DO: check Franz \& Quitmyer, 2005 again!! (CL regression)
 
 \subsection{Analyses}
-All subsequent analyses were performed with R 3.4.1 \citep{RCoreTeam2017}, including the packages dplyr \citep{Wickham2017} to prepare the data for the analysis and ggplot2 \citep{Wickham2009} to create figures. The R package vegan \citep{Oksanen2017} was used to create randomized sampling accumulation curves (most commonly referred to as species accumulation curves), which show the increase in individuals, species or genera per sampling unit and are therefore used to determine if sampling is sufficient or not in terms of covering diversity and richness. 
+All subsequent analyses were performed with R 3.4.1 \citep{RCoreTeam2017}, including the packages dplyr \citep{Wickham2017} to prepare the data for the analysis and ggplot2 \citep{Wickham2009} to create figures. The R package vegan \citep{Oksanen2017} was used to create randomized sampling accumulation curves (most commonly referred to as species accumulation curves), which show the increase in individuals, species or genera per sampling unit and are therefore used to determine if sampling is sufficient or not in terms of covering diversity and richness \citep{Thompson2002}. The accumulation curves also give information about speies richness, relative abundance and diversity \citep{Thompson2002}.
 \todo{explain what species accumulation curves are and give reference}
 Since the data set relies on literature, references were used as a sampling unit (x-axis).%and reach a maximum, when no new species/genera are added. 
 sampling accumulation curves were created on species as well as genus level, since genera of fossil testudinids are relatively well resolved by now whereas determination on the species level is still somewhat obscure in some cases, because fossil species are frequently based on single individuals that are often fragmentary as well \citep{Brattstrom1961}. Since genera were better sampled than species (Fig. \ref{fig:SACGen}, \ref{fig:SACall} (a) - (b)), all subsequent analysis were performed on the generic level.
-Additional Sampling Accumulation Curves for the continents were created (Fig. \ref{fig:SACAll} (c) -  (i)), to check if subsequent analyses could be applied to these subgroups. 
+Additional sampling accumulation curves for the continents were created (Fig. \ref{fig:SACall} (c) -  (i)), to check if subsequent analyses could be applied to these subgroups. 
 % read Species Accumulation Curve papers + Catalinas paper!
 % REWRITE
 
@@ -34,6 +34,12 @@ Additional Sampling Accumulation Curves for the continents were created (Fig. \r
 Histograms and boxplots of the entire data set and several subgroups (fossil vs. modern, insular vs. continental) were created to explore the structure of the data set. General parameters like mean, median, variance, and with the package moments \citep{Komsta2015} skewness and kurtosis were calculated (Table \ref{tab:stats}). The Wilcoxon Rank Sum Test (unpaired data) was used to test for differences between two subgroups. To be able to compare different subgroups, a subsample (1000 repeats) of the respective larger subgroup was taken to compare equal sample sizes. 
 
 %- only used samples > 23.000 mya?!
+
+\subsubsection{Body size trends over time}
+To investigate trends in body size over time, the R package paleoTS \citep{Hunt2015a} was used. Data were split into time bins according to stratigraphic stages (Table \ref{tab:bins}, Fig. \ref{fig:bins}), although the two stages of the Lower Miocene were considered as one time bin, because the last bin otherwise would have contained only 2 data records. To prevent sampling bias and because Sampling Accumulation Curves showed that the genus level was well sampled in contrast to species level, the mean SCL per genus was calculated before the timescale analysis. The paleoTS plots were created, wich display the mean trait over time and can be fitted to different evolutionary models: stasis, which ...., generalized random walk (GRW), which .... or unbiased random walk (URW), which..... . The Akaike Weight Criterion (AICc) indicates which model is best supported --> see Catalina's Paper and Hunt's papers
+
+
+
 
 %__________________________________________________________________
 \begin{figure}[htbp]
@@ -48,11 +54,43 @@ Histograms and boxplots of the entire data set and several subgroups (fossil vs.
 \end{figure}
 
 
+\begin{landscape}\label{data}
+	\begin{longtable}[]{@{}lllcccc@{}}
+		\caption[Sample sizes per time bins]{Time ranges, mean age per bin, corresponding stratigraphic stages and epochs, and respective sample sizes (on individual, species and genus level).)}
+		\label{tab:bins}\tabularnewline
+		\toprule
+		Age Range [mya] & Mean Age [mya] & Stages & Epochs & n (Individuals) & n (Species) & n (Genera)\tabularnewline
+		\midrule
+		\endhead
+		0 - 0.0117 & 0.00585 & Modern & Modern & 254 & 66 & 18\tabularnewline
+		0.0117 - 0.126 & 0.06885 & Upper Pleistocene & Upper Pleistocene & 50
+		& 18 & 8\tabularnewline
+		0.126 - 0.781 & 0.45350 & Middle Pleistocene & Middle Pleistocene & 53
+		& 13 & 7\tabularnewline
+		0.781 - 1.81 & 1.29350 & Lower Pleistocene & Lower Pleistocene & 57 &
+		27 & 12\tabularnewline
+		1.81 - 2.59 & 2.19700 & Gelasian & Lower Pleistocene & 33 & 15 &
+		9\tabularnewline
+		2.59 - 3.6 & 3.09400 & Piacencian & Upper Pliocene & 24 & 15 &
+		10\tabularnewline
+		3.6 - 5.33 & 4.46600 & Zanclean & Lower Pliocene & 31 & 17 &
+		8\tabularnewline
+		5.33 - 7.25 & 6.28900 & Messinian & Upper Miocene & 12 & 9 &
+		6\tabularnewline
+		7.25 - 11.6 & 9.42700 & Tortonian & Upper Miocene & 46 & 20 &
+		9\tabularnewline
+		11.6 - 13.8 & 12.71400 & Serravallian & Middle Miocene & 27 & 8 &
+		6\tabularnewline
+		13.8 - 16 & 14.89500 & Langhian & Middle Miocene & 18 & 14 &
+		9\tabularnewline
+		16 - 23 & 19.50000 & Burdigalian/Aquitanian & Lower Miocene & 31 & 15 & 9\tabularnewline
+		\bottomrule
+	\end{longtable}
+\end{landscape}
 
 
 
-\subsubsection{Body size trends over time}
-To investigate trends in body size over time, the R package paleoTS \citep{Hunt2015a} was used. Data were split into time bins according to stratigraphic stages (Table \ref{tab:bins}, Fig. \ref{fig:bins}), although the two stages of the Lower Miocene were considered as one time bin, because the last bin otherwise would have contained only 2 data records. To prevent sampling bias and because Sampling Accumulation Curves showed that the genus level was well sampled in contrast to species level, the mean SCL per genus was calculated before the timescale analysis. The paleoTS plots were created, wich display the mean trait over time and can be fitted to different evolutionary models: stasis, which ...., generalized random walk (GRW), which .... or unbiased random walk (URW), which..... . The Akaike Weight Criterion (AICc) indicates which model is best supported --> see Catalina's Paper and Hunt's papers
+
 
 
 \FloatBarrier
