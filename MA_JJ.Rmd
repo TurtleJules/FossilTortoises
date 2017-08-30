@@ -451,7 +451,7 @@ veganGR <- tidyCL %>%
   summarise(n=n()) %>%
   tidyr::spread(Genus, n, fill=0)
 
-library(vegan)
+#library(vegan)
 
 veganGR=veganGR[,-1]
 veganspGR=specaccum(veganGR,method="rarefaction", permutations=1000)
@@ -628,6 +628,22 @@ plot(veganspAs,xlab="References",ylab="Richness", xvar="individuals", ci.type="l
 
 ```
 
+```{r "SAC fossil occurences", echo=FALSE}
+
+SACFossOc <- FossilOccurrences %>%
+  dplyr::select(Locality, Genus) %>%  #, Taxon
+  group_by(Locality, Genus) %>%  #, Taxon
+  summarise(n=n()) %>%
+  tidyr::spread(Genus, n, fill=0)  #Taxon
+
+#library(vegan)
+
+#par(mfrow = c(2, 1))
+
+SACFossOc=SACFossOc[,-1]
+SACFossOcSL=specaccum(SACFossOc,method="rarefaction", permutations=1000)
+plot(SACFossOcSL,xlab="Localities",ylab="Richness", xvar="individuals", ci.type="line", ci.lty=2, ci.col="grey", col="deepskyblue4", lwd=2 )
+```
 
 
 
@@ -2622,7 +2638,7 @@ SamplingOverview <- left_join(ContinentOverview, NSAmerica, Eurasia, by="Genus")
 
 SamplingOverview[is.na(SamplingOverview)] <- "-"
 
-kable(SamplingOverview)
+kable(SamplingOverview, caption="Relative abundances of individuals per genera across the continents. Basis for sampling accumulation curves.")
 
 ```
 

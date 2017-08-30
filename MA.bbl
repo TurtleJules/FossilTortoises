@@ -18,6 +18,18 @@ Franz, R., Carlson, L.~A., Owen, R. D. R.~D., and Steadman, D. (2001).
 \newblock In {\em Proceedings of the 8th Symposium on the Natural History of
   the Bahamas. Gerace Research Center, San Salvador, Bahamas}, pages 27--31.
 
+\bibitem[Gotelli and Colwell, 2011]{Gotelli2011}
+Gotelli, N. and Colwell, R. (2011).
+\newblock {Chapter 4: Estimating species richness}.
+\newblock {\em Biological Diversity. Frontiers in Measurement and Assessment},
+  (2):39--54.
+
+\bibitem[Gotelli and Colwell, 2001]{Gotelli2001}
+Gotelli, N.~J. and Colwell, R.~K. (2001).
+\newblock {Quantifyinf Biodiversity: Procedures and Pitfalls in the Measurement
+  and Comparison of Species Richness}.
+\newblock {\em Ecology Letters}, 4(4):379--391.
+
 \bibitem[Hunt, 2015]{Hunt2015a}
 Hunt, G. (2015).
 \newblock {\em {paleoTS: Analyze Paleontological Time-Series}}.

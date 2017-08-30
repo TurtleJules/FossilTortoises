@@ -25,14 +25,36 @@ Body size is reported as straight carapace length (SCL) in mm. Where SCL was not
 
 
 \subsection{Analyses}
-All subsequent analyses were performed with R 3.4.1 \citep{RCoreTeam2017}, including the packages dplyr \citep{Wickham2017} to prepare the data for the analysis and ggplot2 \citep{Wickham2009} to create figures. The R package vegan \citep{Oksanen2017} was used to create randomized sampling accumulation curves (most commonly referred to as species accumulation curves), which show the increase in individuals, species or genera per sampling unit and are therefore used to determine if sampling is sufficient or not in terms of covering diversity and richness \citep{Thompson2002}. The accumulation curves also give information about speies richness, relative abundance and diversity \citep{Thompson2002}.
+All subsequent analyses were performed with R 3.4.1 \citep{RCoreTeam2017}, including the packages dplyr \citep{Wickham2017} to prepare the data for the analysis and ggplot2 \citep{Wickham2009} to create figures. The R package vegan \citep{Oksanen2017} was used to create individual-based (?) accumulation curves, which show the increase in individuals, species or genera per sampling unit and are therefore used to determine if sampling is sufficient or not in terms of covering diversity and richness \citep{Thompson2002}. Most commonly these accumulation curves are conducted on individual or species level, but they can also be applied on higher taxa like families and genera \citep{Gotelli2011, Gotelli2001}. The accumulation curves also give information about species richness, relative abundance and diversity \citep{Thompson2002}.
 \todo{explain what species accumulation curves are and give reference}
 Since the data set relies on literature, references were used as a sampling unit (x-axis).%and reach a maximum, when no new species/genera are added. 
 sampling accumulation curves were created on species as well as genus level, since genera of fossil testudinids are relatively well resolved by now whereas determination on the species level is still somewhat obscure in some cases, because fossil species are frequently based on single individuals that are often fragmentary as well \citep{Brattstrom1961} + Lapparent de Broin, 2001. Since genera were better sampled than species (Fig. \ref{fig:SACGen}, \ref{fig:SACall} (a) - (b)), all subsequent analysis were performed on the generic level.
 Additional sampling accumulation curves for the continents were created (Fig. \ref{fig:SACall} (c) -  (i)), to check if subsequent analyses could be applied to these subgroups. 
 % read Species Accumulation Curve papers + Catalinas paper!
 % REWRITE
+SACs: tell us if sampling is sufficient (covers all species) and can be used to estimate species richness
+randomization smooths out 
 
+% Gotelli and Colwell, 2011:
+% First, the number of individuals that must be sampled to reach an asymptote can often be prohibitively large (Chao et al. 2009). The problem is most severe in the tropics, where species diversity is high and most species are rare.
+%%In other words, biodiversity samples, even very extensive ones, often fall short of revealing the complete species richness for an assemblage, representing some unspecified milestone along a slowly rising species accumulation curve with an unknown destination. A second reason that the species accumulation curve cannot be used to directly determine species richness is that, in field sampling, ecologists almost never collect random individuals in sequence. Instead, individual plants or mobile animals are often recorded from transects or points counts, or individual organisms are collected in pitfall and bait traps, sweep samples, nets, plankton tows, water, soil, and leaf litter samples, and other taxon-specific sampling units that capture multiple individuals (Southwood & Henderson 2000).  --> why sample-based SACs are created!!
+
+%Once this asymptote is reached, the species accumulation curve is flat and additional sampling will not yield any additional species. Why should the species accumulation curve have an asymptote? On large geographical scales, it does not: larger areas accumulate species at a constant or even an increasing rate because expanded sampling incorporates diverse habitat types that support distinctive species assemblages (see Chapter 20). As a consequence, the species accumulation curve continues to increase, and will not reach a final asymptote until it approaches the total area of the biosphere.
+
+%Biodiversity sampling is a labour-intensive activity, and sampling is often not sufficient to detect all or even most of the species present in an assemblage.
+%Species richness counts are highly sensitive to the number of individuals sampled, and to the number, size, and spatial arrangement of samples.
+%Sensitivity to sampling effort cannot be accounted for by scaling species richness as a ratio of species counts to individuals, samples, or any other measure of effort.
+%Sample-based and individual-based rarefaction methods allow for the meaningful comparison of diversity samples based on equivalent numbers of individuals and samples.
+
+%% Gotelli and Colwell, 2001:
+%In Fig. 1, note that the two sample-based curves lie below the two individual-based curves. The reason for this nearly universal pattern is that sample-based protocols aggregate individuals, within each sample, that are nearby in space or consecutive in time. Any spatial or temporal autocorrelation (patchiness or heterogeneity) in taxon occurrence will cause taxa to occur nonrandomly among samples. Consequently, when a group of samples is pooled, fewer species will be represented by those individuals than by an equal number of individuals censused randomly and independently in the same habitat.
+%Raw species richness counts or higher taxon counts can be validly compared only when taxon accumulation curves have reached a clear asymptote. For invertebrate and microbial assemblages everywhere and for many taxa in tropical habitats, such asymptotes may never be reached (e.g. Stork 1991; Wolda et al. 1998; Fisher 1999; Anderson & Ashe 2000; Novotny & Basset 2000). Fortunately, if one or more accumulation curves fail to reach an asymptote, the curves themselves may often be compared, after appropriate scaling.
+
+%%documentation vegan package:  All these methods are based on sampling sites without replacement. In contrast, the method = "rarefaction" finds the expected species richness and its standard deviation by sampling individuals instead of sites. It achieves this by applying function rarefy with number of individuals corresponding to average number of individuals per site.
+%specpool normally uses basic Chao equation, but when there are no doubletons (a2=0) it switches to bias-corrected version. In that case the Chao equation simplifies to S_0 + (N-1)/N * a1*(a1-1)/2.
+
+
+%%%
 %cite Lapparent de Broin 2000b: Geochelone is no longer to be used --> introduce Testudo/Geochelone issue (or in introduction?)
 
 \subsubsection{Data strucure and statistics}
