@@ -3,5 +3,17 @@ The style file: apalike.bst
 A level-1 auxiliary file: FossilTab.aux
 A level-1 auxiliary file: ExtantTab.aux
 Database file #1: MA_fossilTortoises.bib
+Repeated entry---line 3779 of file MA_fossilTortoises.bib
+ : @article{rhodin2015turtles
+ :                           ,
+I'm skipping whatever remains of this entry
+Repeated entry---line 3847 of file MA_fossilTortoises.bib
+ : @article{Bohme2003b
+ :                    ,
+I'm skipping whatever remains of this entry
+Repeated entry---line 4079 of file MA_fossilTortoises.bib
+ : @inproceedings{Franz2001a
+ :                          ,
+I'm skipping whatever remains of this entry
 Warning--there's a number but no volume in Gotelli2011
-(There was 1 warning)
+(There were 3 error messages)

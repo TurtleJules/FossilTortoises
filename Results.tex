@@ -3,10 +3,13 @@
 %read Willis et al., 2010 and Willis and Fortey, 2003 on use of paleontological data.
 
 % read Thompson and Withers, 2003: Species Accumulation Curve
-
-The sample-based accumulation curve on the generic level shows a relatively low intial slope and a long upward slope to the asymptote (does not reach asymptote in Fig. \ref{fig:SACGen}). In contrast, the species accumulation curves, both per reference and per locality show only a slight initial increase and, for the same number of references/sampling units, do not reach an asymptote (\ref{fig:SACall} (a), (b)), as could be expected, since there are less genera than species cite Gotelli and Colwell, 2001. At a large geographic scale, it can be expected, that an asymptote is not reached cite Thompson et al., 2003. Fig. \ref{fig:SACGen} corresponds to the shape one would expect, when there are many genera that are rare and only a few abundant ones. For the different continents, only Europe and Eurasia show some sort of "typical" SAC shape.
+\subsection{Sampling accumulation curves}
+The sample-based accumulation curve (SAC) on the generic level shows a relatively low intial slope and a long upward slope to the asymptote (does not reach asymptote in Fig. \ref{fig:SACGen}). In contrast, the species accumulation curves, both per reference and per locality show only a slight initial increase and, for the same number of references/sampling units, do not reach an asymptote (Fig. \ref{fig:SACall} (a), (b)).
+% DISCUSSION: as could be expected, since there are less genera than species \citep{Gotelli2001}. At a large geographic scale, it can be expected, that an asymptote is not reached \citep{Thompson2002}. Fig. \ref{fig:SACGen} corresponds to the shape one would expect, when there are many genera that are rare and only a few abundant ones. For the different continents, only Europe and Eurasia show some sort of "typical" SAC shape.
 %%%____
-Although the SAC does not completely plateau, considering the large area covered and the high number of rare genera in the dataset, it can be considered well enough sampled for our purposes. Since there are less genera than species in a taxon/clade (?), it is also to be expected, that genera reach an asymptote earlier than species.
+
+% DISCUSSION ? 
+Although the SAC does not completely plateau, considering the large area covered and the high number of rare genera in the dataset, it can be considered well enough sampled for our purposes. Since there are less genera than species, it is also to be expected, that genera reach an asymptote earlier than species.
 %%%____
 Accumulation curves for individual continents show that Europe reflects the trend of the overall dataet, with a long upward slope after the inflection point, whereas the other continents definitely require further sampling.
 
@@ -26,12 +29,20 @@ Accumulation curves for individual continents show that Europe reflects the tren
 \FloatBarrier
 
 
-read: Smith and Lyons, 2010 (?) and Smith et al., 2016
---> body size patterns (see also table 22, general statistics)
+%read: Smith and Lyons, 2010 (?) and Smith et al., 2016
+%--> body size patterns (see also table 22, general statistics)
 
-data is bimodal (not normally distributed --> fig. ), still visible in pretty much all subgroups that you could split them into.
-as most animal groups/clades (?) right-skewed = smaller body size more frequent, BUT island species are left-skewed with more larger body sizes! (logtransformed data, skewness: negative for Zanclean, Messinian ??, insular, fossil-insular, but not modern-insular!!)
+%data is bimodal (not normally distributed --> fig. ), still visible in pretty much all subgroups that you could split them into.
+%as most animal groups/clades (?) right-skewed = smaller body size more frequent, BUT island species are left-skewed with more larger body sizes! (logtransformed data, skewness: negative for Zanclean, Messinian ??, insular, fossil-insular, but not modern-insular!!)
+\subsection{Descriptive statistics}
 
+The histograms indicate that testudinid body size is not normally distributed (Fig. \ref{fig:histAll}), which is supported by QQ-Plots for raw as well as logtransformed data (Fig. \ref{fig:NormDis}).
+The body size distribution is moderately right-skewed (Table \ref{tab:stats}), with a higher number of smaller body sizes. This pattern is also apparent when splitting the data set into fossil and modern time bins (Fig. \ref{fig:HistRest} (a)). Considering insularity, body size distribution is right-skewed for continental taxa, but left-skewed for insular species, meaning larger bodys size occurs with a higher frequency than smaller body size on islands. Insular taxa are also left-skewed, when only considering fossil taxa, but modern insular taxa have a skewness close to 0, indicating a symmetric distribution.
+Kurtosis suggests light tails with no/few outliers (kurtosis < 3) for insular and modern insular species, whereas continental species have a heavy tail (kurtosis > 3).
+The histograms also show a bimodal distribution, with is also apparent on most sublevels, except for modern insular species.
+Body size distributions are similar, right-skewed and bimodal, for the four continents and reflect the overall trend (Fig. \ref{fig:HistRest} (d)).
+
+\todo{remove time bins from table descritpive stats?!}
 
 
 
@@ -45,7 +56,12 @@ as most animal groups/clades (?) right-skewed = smaller body size more frequent,
 	\label{fig:histAll}
 \end{figure}
 
+\todo{Need more stats for Fig \ref{fig:boxBins}} --> Kruskal-Wallis: means are different.
 
+%__________________________
+Mean body size differs significantly across time bins (Kruskal Wallis Test, $\chi^2$ = 61.028, P = \(2.314\times 10^{-9\\}\)). 
+
+% = 61.028, df = 10, p-value = 2.314e-09
 
 \FloatBarrier
 

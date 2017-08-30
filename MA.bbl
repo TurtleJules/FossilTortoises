@@ -1,5 +1,10 @@
 \begin{thebibliography}{}
 
+\bibitem[Bai and Ng, 2005]{Bai2005}
+Bai, J. and Ng, S. (2005).
+\newblock {Tests for Skewness, Kurtosis, and Normality for Time Series Data}.
+\newblock {\em Journal of Business {\&} Economic Statistics}, 23(1):49--60.
+
 \bibitem[B{\"{o}}hme and Ilg, 2003]{Bohme2003b}
 B{\"{o}}hme, M. and Ilg, A. (2003).
 \newblock {FosFARbase}.
@@ -12,8 +17,13 @@ Brattstrom, B.~H. (1961).
   the Zoogeography and Paleoecology of Tortoises}.
 \newblock {\em Journal of Paleontology}, 35(3):543--560.
 
+\bibitem[{de Lapparent de Broin}, 2001]{DeLapparentdeBroin2001}
+{de Lapparent de Broin}, F. (2001).
+\newblock {The European turtle fauna from the Triassic to the Present}.
+\newblock {\em Dumerilia}, 4(3):155--217.
+
 \bibitem[Franz et~al., 2001]{Franz2001a}
-Franz, R., Carlson, L.~A., Owen, R. D. R.~D., and Steadman, D. (2001).
+Franz, R., Carlson, L.~A., Owen, R.~D., and Steadman, D. (2001).
 \newblock {Fossil tortoises from the Turks and Caicos Islands, BWI}.
 \newblock In {\em Proceedings of the 8th Symposium on the Natural History of
   the Bahamas. Gerace Research Center, San Salvador, Bahamas}, pages 27--31.
@@ -47,6 +57,10 @@ Komsta, L. and Novomestky, F. (2015).
 \newblock {\em {moments: Moments, cumulants, skewness, kurtosis and related
   tests}}.
 
+\bibitem[McNeese, 2016]{McNeese2016}
+McNeese, B. (2016).
+\newblock {Are Skewness and Kurtosis Useful Statistics?}
+
 \bibitem[Oksanen et~al., 2017]{Oksanen2017}
 Oksanen, J., Blanchet, F.~G., Friendly, M., Kindt, R., Legendre, P., McGlinn,
   D., Minchin, P.~R., O'Hara, R.~B., Simpson, G.~L., Solymos, P., Stevens, M.
@@ -59,13 +73,13 @@ Oksanen, J., Blanchet, F.~G., Friendly, M., Kindt, R., Legendre, P., McGlinn,
 \newblock R Foundation for Statistical Computing, Vienna, Austria.
 
 \bibitem[Rhodin et~al., 2015]{rhodin2015turtles}
-Rhodin, A. G.~J., Thomson, S., Georgalis, G.~L., Karl, H.-V.~V., Danilov,
-  I.~G., Takahashi, A., de~la Fuente, M.~S., Bourque, J.~R., Delfino, M., Bour,
-  R., Iverson, J., Shaffer, B., van Dijk, P.~P., and Others (2015).
+Rhodin, A. G.~J., Thomson, S., Georgalis, G.~L., Karl, H.~V., Danilov, I.~G.,
+  Takahashi, A., {De La Fuente}, M.~S., Bourque, J.~R., Delfino, M., Bour, R.,
+  and Others (2015).
 \newblock {Turtles and tortoises of the world during the rise and global spread
   of humanity: first checklist and review of extinct Pleistocene and Holocene
   chelonians}.
-\newblock {\em Chelonian Research Monographs}, 5(April):1--66.
+\newblock {\em Chelonian Research Monographs}, 5:1--66.
 
 \bibitem[Thompson and Withers, 2003]{Thompson2002}
 Thompson, G.~G. and Withers, P.~C. (2003).
