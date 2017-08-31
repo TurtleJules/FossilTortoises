@@ -1643,6 +1643,12 @@ ContinentsCompared <- kruskal.test(list(Africa, America, Eurasia, Europe))  #Asi
 # ContinentsCompared$p.value
 # 
 # ContinentsCompared$p.value < 0.05
+ 
+
+ 
+ 
+ 
+ 
 
 
 ```
