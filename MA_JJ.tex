@@ -761,6 +761,8 @@ S-America}
 Asia}
 \end{figure}
 
+\includegraphics{MA_JJ_files/figure-latex/SAC fossil occurences-1.pdf}
+
 \newpage
 
 \section{Histograms}\label{histograms}
@@ -851,7 +853,7 @@ insular(y) species, logtransformed.}
 
 \newpage
 
-\subsection{General statistics}\label{general-statistics}
+\subsection{Descriptive statistics}\label{descriptive-statistics}
 
 \begin{longtable}[]{@{}rrrrrrrrrrrrl@{}}
 \caption{General statistics of body size data: all, per time bin,
@@ -934,6 +936,210 @@ nCL & min & max & var & mean & logm & med & logmed & skew & logsk & kurt
 each genus (as pointrange).}
 \end{figure}
 
+\begin{verbatim}
+## 
+##  Kruskal-Wallis rank sum test
+## 
+## data:  list(M, UPle, MPle, LPle, G, Pia, Z, Mess, Tort, S, L, BA)
+## Kruskal-Wallis chi-squared = 71.441, df = 11, p-value = 6.496e-11
+\end{verbatim}
+
+\begin{verbatim}
+## 
+##  Wilcoxon rank sum test with continuity correction
+## 
+## data:  M and UPle
+## W = 3853.5, p-value = 1.392e-05
+## alternative hypothesis: true location shift is less than 0
+\end{verbatim}
+
+\begin{verbatim}
+## [1] TRUE
+\end{verbatim}
+
+\begin{verbatim}
+## 
+##  Wilcoxon rank sum test with continuity correction
+## 
+## data:  UPle and MPle
+## W = 1560, p-value = 0.08043
+## alternative hypothesis: true location shift is not equal to 0
+\end{verbatim}
+
+\begin{verbatim}
+## [1] FALSE
+\end{verbatim}
+
+\begin{verbatim}
+## 
+##  Wilcoxon rank sum test with continuity correction
+## 
+## data:  MPle and LPle
+## W = 1643.5, p-value = 0.428
+## alternative hypothesis: true location shift is not equal to 0
+\end{verbatim}
+
+\begin{verbatim}
+## [1] FALSE
+\end{verbatim}
+
+\begin{verbatim}
+## 
+##  Wilcoxon rank sum test with continuity correction
+## 
+## data:  LPle and G
+## W = 1124, p-value = 0.01802
+## alternative hypothesis: true location shift is greater than 0
+\end{verbatim}
+
+\begin{verbatim}
+## [1] TRUE
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in wilcox.test.default(G, Pia, paired = FALSE): cannot compute
+## exact p-value with ties
+\end{verbatim}
+
+\begin{verbatim}
+## 
+##  Wilcoxon rank sum test with continuity correction
+## 
+## data:  G and Pia
+## W = 246, p-value = 0.1406
+## alternative hypothesis: true location shift is not equal to 0
+\end{verbatim}
+
+\begin{verbatim}
+## [1] FALSE
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in wilcox.test.default(Pia, Z, paired = FALSE): cannot compute
+## exact p-value with ties
+\end{verbatim}
+
+\begin{verbatim}
+## 
+##  Wilcoxon rank sum test with continuity correction
+## 
+## data:  Pia and Z
+## W = 185.5, p-value = 0.06256
+## alternative hypothesis: true location shift is not equal to 0
+\end{verbatim}
+
+\begin{verbatim}
+## [1] FALSE
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in wilcox.test.default(Z, Mess, paired = FALSE): cannot compute
+## exact p-value with ties
+\end{verbatim}
+
+\begin{verbatim}
+## 
+##  Wilcoxon rank sum test with continuity correction
+## 
+## data:  Z and Mess
+## W = 134.5, p-value = 0.8876
+## alternative hypothesis: true location shift is not equal to 0
+\end{verbatim}
+
+\begin{verbatim}
+## [1] FALSE
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in wilcox.test.default(Mess, Tort, paired = FALSE): cannot compute
+## exact p-value with ties
+\end{verbatim}
+
+\begin{verbatim}
+## 
+##  Wilcoxon rank sum test with continuity correction
+## 
+## data:  Mess and Tort
+## W = 274.5, p-value = 0.2844
+## alternative hypothesis: true location shift is not equal to 0
+\end{verbatim}
+
+\begin{verbatim}
+## [1] FALSE
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in wilcox.test.default(Tort, S, paired = FALSE, alternative = "g"):
+## cannot compute exact p-value with ties
+\end{verbatim}
+
+\begin{verbatim}
+## 
+##  Wilcoxon rank sum test with continuity correction
+## 
+## data:  Tort and S
+## W = 810, p-value = 0.009363
+## alternative hypothesis: true location shift is greater than 0
+\end{verbatim}
+
+\begin{verbatim}
+## [1] TRUE
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in wilcox.test.default(S, L, paired = FALSE, alternative = "l"):
+## cannot compute exact p-value with ties
+\end{verbatim}
+
+\begin{verbatim}
+## 
+##  Wilcoxon rank sum test with continuity correction
+## 
+## data:  S and L
+## W = 45, p-value = 3.952e-05
+## alternative hypothesis: true location shift is less than 0
+\end{verbatim}
+
+\begin{verbatim}
+## [1] TRUE
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in wilcox.test.default(L, BA, paired = FALSE, alternative = "g"):
+## cannot compute exact p-value with ties
+\end{verbatim}
+
+\begin{verbatim}
+## 
+##  Wilcoxon rank sum test with continuity correction
+## 
+## data:  L and BA
+## W = 311, p-value = 0.005639
+## alternative hypothesis: true location shift is greater than 0
+\end{verbatim}
+
+\begin{verbatim}
+## [1] TRUE
+\end{verbatim}
+
+\begin{longtable}[]{@{}lrr@{}}
+\toprule
+lineage & pvalue & Bonferroni\tabularnewline
+\midrule
+\endhead
+M and UPle & 0.0000139 & 0.0001392\tabularnewline
+S and L & 0.0000395 & 0.0003952\tabularnewline
+L and BA & 0.0056389 & 0.0563892\tabularnewline
+Tort and S & 0.0093632 & 0.0936318\tabularnewline
+LPle and G & 0.0180154 & 0.1801537\tabularnewline
+Pia and Z & 0.0625644 & 0.6256444\tabularnewline
+UPle and MPle & 0.0804319 & 0.8043186\tabularnewline
+G and Pia & 0.1405871 & 1.0000000\tabularnewline
+Mess and Tort & 0.2844360 & 1.0000000\tabularnewline
+Z and Mess & 0.8876030 & 1.0000000\tabularnewline
+\bottomrule
+\end{longtable}
+
 \newpage
 
 \subsection{continental vs.~insular per time
@@ -963,7 +1169,7 @@ species.}
 \end{verbatim}
 
 \begin{verbatim}
-## [1] 522.0392
+## [1] 488.1775
 \end{verbatim}
 
 \begin{verbatim}
@@ -971,13 +1177,13 @@ species.}
 ##  Wilcoxon rank sum test with continuity correction
 ## 
 ## data:  Modern and Fossil
-## W = 23328, p-value = 1.285e-07
+## W = 23698, p-value = 4.198e-07
 ## alternative hypothesis: true location shift is less than 0
 \end{verbatim}
 
 Wilcoxon Rank Sum Test (unpaired data):
 
-modern \textless{} fossil (P = \(1.2848668\times 10^{-7}\))
+modern \textless{} fossil (P = \(4.1982806\times 10^{-7}\))
 
 \newpage
 
@@ -1005,7 +1211,7 @@ vs.~insular}\label{fossil-vs.modern-continental-vs.insular}
 ##  Wilcoxon rank sum test with continuity correction
 ## 
 ## data:  ModernIsland and FossilIsland
-## W = 687.5, p-value = 2.069e-05
+## W = 781, p-value = 0.0002565
 ## alternative hypothesis: true location shift is less than 0
 \end{verbatim}
 
@@ -1024,17 +1230,17 @@ vs.~insular}\label{fossil-vs.modern-continental-vs.insular}
 ##  Wilcoxon rank sum test with continuity correction
 ## 
 ## data:  ModernCon and FossilCon
-## W = 7906, p-value = 1.981e-08
+## W = 7748, p-value = 6.391e-09
 ## alternative hypothesis: true location shift is less than 0
 \end{verbatim}
 
 Wilcoxon Rank Sum Test (unpaired data):
 
 modern continental \textless{} fossil continental (P =
-\(1.9811656\times 10^{-8}\))
+\(6.3911502\times 10^{-9}\))
 
 modern insular \textless{} fossil insular (P =
-\(2.0690471\times 10^{-5}\))
+\(2.5647783\times 10^{-4}\))
 
 \newpage
 
@@ -1061,13 +1267,13 @@ modern insular \textless{} fossil insular (P =
 ##  Wilcoxon rank sum test with continuity correction
 ## 
 ## data:  Insular and Continental
-## W = 14554, p-value = 1.341e-07
+## W = 14440, p-value = 3.059e-07
 ## alternative hypothesis: true location shift is greater than 0
 \end{verbatim}
 
 Wilcoxon Rank Sum Test (unpaired data):
 
-continental \textless{} insular (P = \(1.340902\times 10^{-7}\))
+continental \textless{} insular (P = \(3.0592709\times 10^{-7}\))
 
 \newpage
 
@@ -1103,7 +1309,7 @@ bin}\label{continental-vs.insular-per-time-bin-1}
 \end{verbatim}
 
 \begin{verbatim}
-## [1] 434.6161
+## [1] 416.2832
 \end{verbatim}
 
 \begin{verbatim}
@@ -1119,7 +1325,7 @@ bin}\label{continental-vs.insular-per-time-bin-1}
 \end{verbatim}
 
 \begin{verbatim}
-## [1] 438.431
+## [1] 531.838
 \end{verbatim}
 
 \includegraphics{MA_JJ_files/figure-latex/RSCon-1.pdf}
@@ -1131,12 +1337,12 @@ bin}\label{continental-vs.insular-per-time-bin-1}
 ##  Kruskal-Wallis rank sum test
 ## 
 ## data:  list(Africa, America, Eurasia, Europe)
-## Kruskal-Wallis chi-squared = 32.685, df = 3, p-value = 3.753e-07
+## Kruskal-Wallis chi-squared = 32.203, df = 3, p-value = 4.741e-07
 \end{verbatim}
 
 Kruskal-Wallis-Test:
 
-Continent means differ (P = \(3.7527197\times 10^{-7}\)) (still have to
+Continent means differ (P = \(4.7414664\times 10^{-7}\)) (still have to
 look into the details\ldots{})
 
 \newpage

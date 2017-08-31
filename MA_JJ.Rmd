@@ -966,11 +966,21 @@ StatsGenera <- PleiPlioCL %>%
   unique()
 
 kable(StatsGenera)
+
+
+
+
+#what do skewness and kurtosis measure?
+hist(rnorm(1000))
+skewness(rnorm(1000))
+kurtosis(rnorm(1000))
+
+
 ```
 
 
 \newpage
-## General statistics
+## Descriptive statistics
 
 ```{r "Tabel Stats Distribution CL", echo=FALSE}
 Stats <- bind_rows(StatsAll, StatsBins, StatsFossil, StatsIsland, 
@@ -1035,6 +1045,94 @@ BinGenera
 
 ```
 
+
+```{r "Kruskal Wallis Test", echo=FALSE}
+
+M <- PleiPlioCL$CL[which(PleiPlioCL$EpochBins=="Modern")]
+UPle <- PleiPlioCL$CL[which(PleiPlioCL$EpochBins=="Upper Pleistocene")]
+MPle <- PleiPlioCL$CL[which(PleiPlioCL$EpochBins=="Middle Pleistocene")]
+LPle <- PleiPlioCL$CL[which(PleiPlioCL$EpochBins=="Lower Pleistocene")]
+G <- PleiPlioCL$CL[which(PleiPlioCL$EpochBins=="Gelasian")]
+Pia <- PleiPlioCL$CL[which(PleiPlioCL$EpochBins=="Piacencian")]
+Z <- PleiPlioCL$CL[which(PleiPlioCL$EpochBins=="Zanclean")]
+Mess <- PleiPlioCL$CL[which(PleiPlioCL$EpochBins=="Messinian")]
+Tort <- PleiPlioCL$CL[which(PleiPlioCL$EpochBins=="Tortonian")]
+S <- PleiPlioCL$CL[which(PleiPlioCL$EpochBins=="Serravallian")]
+L<- PleiPlioCL$CL[which(PleiPlioCL$EpochBins=="Langhian")]
+BA <- PleiPlioCL$CL[which(PleiPlioCL$EpochBins=="Burdigalian/Aquitanian")]
+
+
+
+kruskal.test(list(M, UPle, MPle, LPle, G, Pia, Z, Mess, Tort, S, L, BA)) #kruskal-wallis-test (im prinzip anova fr nicht paramterische daten)
+
+Mwil <- wilcox.test(M,UPle, paired=FALSE, alternative="l")    #, alternative="g"
+Mwil
+Mwil$p.value < 0.05
+
+Uwil <- wilcox.test(UPle,MPle, paired=FALSE)    #, alternative="g"
+Uwil
+Uwil$p.value < 0.05
+
+MPwil <- wilcox.test(MPle, LPle, paired=FALSE)    #, alternative="g"
+MPwil
+MPwil$p.value < 0.05
+
+LPwil <- wilcox.test(LPle, G, paired=FALSE, alternative="g")    #, alternative="g"
+LPwil
+LPwil$p.value < 0.05
+
+Gwil <- wilcox.test(G, Pia, paired=FALSE)    #, alternative="g"
+Gwil
+Gwil$p.value < 0.05
+
+Piwil <- wilcox.test(Pia, Z, paired=FALSE)    #, alternative="g"
+Piwil
+Piwil$p.value < 0.05
+
+Zwil <- wilcox.test(Z, Mess, paired=FALSE)    #, alternative="g"
+Zwil
+Zwil$p.value < 0.05
+
+Mewil <- wilcox.test(Mess, Tort, paired=FALSE)    #, alternative="g"
+Mewil
+Mewil$p.value < 0.05
+
+
+Towil <- wilcox.test(Tort, S, paired=FALSE, alternative="g")    #, alternative="g"
+Towil
+Towil$p.value < 0.05
+
+Lwil <- wilcox.test(S, L, paired=FALSE, alternative="l")    #, alternative="g"
+Lwil
+Lwil$p.value < 0.05
+
+
+BAwil <- wilcox.test(L, BA, paired=FALSE, alternative="g")    #, alternative="g"
+BAwil
+BAwil$p.value < 0.05
+
+
+
+# M, UPle, MPle, LPle, G, Pia, Z, Mess, Tort, S, BA
+
+
+lin <- cbind(Mwil$data, Uwil$data,  MPwil$data,LPwil$data, Gwil$data, Piwil$data, Zwil$data, Mewil$data, Towil$data, Lwil$data, BAwil$data)
+pval <- cbind(Mwil$p.value, Uwil$p.value, MPwil$p.value,LPwil$p.value, Gwil$p.value, Piwil$p.value, Zwil$p.value, Mewil$p.value, Towil$p.value, Lwil$p.value, BAwil$p.value)
+d <- data_frame(lineage=as.vector(lin), pvalue=as.vector(pval))
+
+Data = d[order(d$pvalue),]
+
+Data$Bonferroni =
+  p.adjust(Data$pvalue,
+           method = "bonferroni")
+
+kable(Data)
+
+
+```
+
+
+
 \newpage
 ## continental vs. insular per time bin
 
@@ -1080,6 +1178,9 @@ BinGenera <- PleiPlioCL %>%
 BinGenera
 
 ```
+
+
+
 
 \newpage
 ## fossil vs. modern
