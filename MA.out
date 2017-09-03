@@ -1,24 +1,29 @@
 \BOOKMARK [1][-]{Doc-Start}{List of Figures}{}% 1
 \BOOKMARK [1][-]{Doc-Start}{List of Tables}{}% 2
-\BOOKMARK [1][-]{section.1}{Material \046 Methods}{}% 3
-\BOOKMARK [2][-]{subsection.1.1}{Data collection}{section.1}% 4
-\BOOKMARK [2][-]{subsection.1.2}{Body size estimation}{section.1}% 5
-\BOOKMARK [2][-]{subsection.1.3}{Analyses}{section.1}% 6
-\BOOKMARK [3][-]{subsubsection.1.3.1}{Descriptive statistics}{subsection.1.3}% 7
-\BOOKMARK [3][-]{subsubsection.1.3.2}{Body size trends over time}{subsection.1.3}% 8
-\BOOKMARK [1][-]{section.2}{Results}{}% 9
-\BOOKMARK [2][-]{subsection.2.1}{Sample-based accumulation curves}{section.2}% 10
-\BOOKMARK [2][-]{subsection.2.2}{Descriptive statistics}{section.2}% 11
-\BOOKMARK [2][-]{subsection.2.3}{paleoTS analysis}{section.2}% 12
-\BOOKMARK [3][-]{subsubsection.2.3.1}{complete dataset}{subsection.2.3}% 13
-\BOOKMARK [3][-]{subsubsection.2.3.2}{continental dataset \(excluding insular species\)}{subsection.2.3}% 14
-\BOOKMARK [3][-]{subsubsection.2.3.3}{insular dataset \(excluding continental\)}{subsection.2.3}% 15
-\BOOKMARK [3][-]{subsubsection.2.3.4}{per continent}{subsection.2.3}% 16
-\BOOKMARK [1][-]{section.3}{References}{}% 17
-\BOOKMARK [1][-]{Appendix.1.A}{Appendix Geographical and stratigraphic distribution of body size data}{}% 18
-\BOOKMARK [1][-]{Appendix.1.B}{Appendix Sampling accumulation curves}{}% 19
-\BOOKMARK [1][-]{Appendix.1.C}{Appendix Histograms}{}% 20
-\BOOKMARK [1][-]{Appendix.1.D}{Appendix Boxplots}{}% 21
-\BOOKMARK [1][-]{Appendix.1.E}{Appendix Random Sampling}{}% 22
-\BOOKMARK [1][-]{Appendix.1.F}{Appendix paleoTS}{}% 23
-\BOOKMARK [1][-]{Appendix.1.G}{Appendix Tables}{}% 24
+\BOOKMARK [1][-]{section.1}{Introduction}{}% 3
+\BOOKMARK [1][-]{section.2}{Material \046 Methods}{}% 4
+\BOOKMARK [2][-]{subsection.2.1}{Data collection}{section.2}% 5
+\BOOKMARK [2][-]{subsection.2.2}{Body size estimation}{section.2}% 6
+\BOOKMARK [2][-]{subsection.2.3}{Analyses}{section.2}% 7
+\BOOKMARK [3][-]{subsubsection.2.3.1}{Descriptive statistics}{subsection.2.3}% 8
+\BOOKMARK [3][-]{subsubsection.2.3.2}{Body size trends over time}{subsection.2.3}% 9
+\BOOKMARK [1][-]{section.3}{Results}{}% 10
+\BOOKMARK [2][-]{subsection.3.1}{Sample-based accumulation curves}{section.3}% 11
+\BOOKMARK [2][-]{subsection.3.2}{Descriptive statistics}{section.3}% 12
+\BOOKMARK [2][-]{subsection.3.3}{paleoTS analysis}{section.3}% 13
+\BOOKMARK [3][-]{subsubsection.3.3.1}{complete dataset}{subsection.3.3}% 14
+\BOOKMARK [3][-]{subsubsection.3.3.2}{continental dataset \(excluding insular species\)}{subsection.3.3}% 15
+\BOOKMARK [3][-]{subsubsection.3.3.3}{insular dataset \(excluding continental\)}{subsection.3.3}% 16
+\BOOKMARK [3][-]{subsubsection.3.3.4}{per continent}{subsection.3.3}% 17
+\BOOKMARK [1][-]{section.4}{Discussion}{}% 18
+\BOOKMARK [2][-]{subsection.4.1}{Completeness of data set}{section.4}% 19
+\BOOKMARK [2][-]{subsection.4.2}{Population structure?}{section.4}% 20
+\BOOKMARK [2][-]{subsection.4.3}{Time-scale analysis}{section.4}% 21
+\BOOKMARK [1][-]{section.5}{References}{}% 22
+\BOOKMARK [1][-]{Appendix.1.A}{Appendix Geographical and stratigraphic distribution of body size data}{}% 23
+\BOOKMARK [1][-]{Appendix.1.B}{Appendix Sampling accumulation curves}{}% 24
+\BOOKMARK [1][-]{Appendix.1.C}{Appendix Histograms}{}% 25
+\BOOKMARK [1][-]{Appendix.1.D}{Appendix Boxplots}{}% 26
+\BOOKMARK [1][-]{Appendix.1.E}{Appendix Random Sampling}{}% 27
+\BOOKMARK [1][-]{Appendix.1.F}{Appendix paleoTS}{}% 28
+\BOOKMARK [1][-]{Appendix.1.G}{Appendix Tables}{}% 29
