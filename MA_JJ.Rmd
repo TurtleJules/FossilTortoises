@@ -82,11 +82,20 @@ CLPLtidy <- tidyCL %>%
   dplyr::summarise(meanRatio=round(mean(ratio),2), sdRatio=round(sd(ratio),2), n=n(), min=min(ratio), max=max(ratio))
 
 CLPLextant <- Extant %>%
-  filter(!is.na(CL) & !is.na(PL)) %>%
+  dplyr::filter(!is.na(CL) & !is.na(PL)) %>%
   dplyr::select(Taxon=Species, CL, PL, PLmid, Island, Continent, Genus) %>%
   mutate(ratio=CL/PL, ratioMid=CL/PLmid) #%>%
-  # group_by(Taxon) %>% #to show ratios per Taxon, leave out to get a total ratio
-  #   summarise(meanRatio=round(mean(ratio),2), sdRatio=round(sd(ratio),2), n=n(), min=min(ratio), max=max(ratio))
+   # group_by(Taxon) %>% #to show ratios per Taxon, leave out to get a total ratio
+   #  summarise(meanRatio=round(mean(ratio),2), sdRatio=round(sd(ratio),2), n=n(), min=min(ratio), max=max(ratio))
+
+library(stats)
+
+#kruskal.test(list(M, UPle, MPle, LPle, G, Pia, Z, Mess, Tort, S, L, BA)) #kruskal-wallis-test (im prinzip anova fr nicht paramterische daten)
+
+
+#kruskal.test(CLPLextant$meanRatio, CLPLextant$Taxon)
+#KruskalMC <- data.frame(kruskalmc(CLPLextant$ratio, CLPLextant$Taxon))
+
 
 Ratio <- CLPLextant %>%
   dplyr::summarise(meanRatio=round(mean(ratio),2), sdRatio=round(sd(ratio),2), n=n(), min=min(ratio), max=max(ratio))
@@ -286,7 +295,9 @@ mapOc <- FossOcc %>%
   geom_point(data=FossOcc, alpha=1/4,(aes(as.numeric(Longitude), Latitude, colour=FossOcc$Clavailability))) +
   geom_point(data=CL, alpha=1/2,(aes(Longitude, Latitude, colour="yes"))) +
   theme(legend.position="none") +
-  scale_colour_manual(values=OwnPalette) #cbbPalette
+  scale_colour_manual(values=OwnPalette) +#cbbPalette +
+scale_x_continuous(breaks=c(-180, -100, 0, 100, 180)) +
+  scale_y_continuous(breaks=c(-90, -50, 0, 50, 90))
 
 #unique(FossOcc$CL)
 
@@ -1701,6 +1712,18 @@ ContinentAll <- PleiPlioCL %>%
 
 ContinentAll
 
+
+######
+
+
+
+PleiPlioCL <- PleiPlioCL %>%
+  merge(Continents) 
+
+names(PleiPlioCL)
+
+kruskalmc(PleiPlioCL$CL,PleiPlioCL$Con)
+#MCKW <- data.frame(kruskalmc(PleiPlioCL$CL,PleiPlioCL$EpochBins))
 
 
 

@@ -41,6 +41,15 @@
 
 \newcommand{\bigcell}[2]{\begin{tabular}{@{}#1@{}}#2\end{tabular}}
 
+\usepackage{titlesec}
+
+\setcounter{secnumdepth}{4}
+
+\titleformat{\paragraph}
+{\normalfont\normalsize\bfseries}{\theparagraph}{1em}{}
+\titlespacing*{\paragraph}
+{0pt}{3.25ex plus 1ex minus .2ex}{1.5ex plus .2ex}
+
 
 \begin{document}
 
@@ -70,14 +79,14 @@ Berlin, im September 2017}
 \listoffigures  
 \newpage                       
 \listoftables                     
-\newpage
-\input{Intro}
+% \newpage
+% \input{Intro}
 \newpage
 \input{MM}
 \newpage
 \input{Results}
-\newpage
-\input{Discussion}
+% \newpage
+% \input{Discussion}
 \newpage
 \bibliography{MA_fossilTortoises}
 \FloatBarrier
@@ -92,6 +101,7 @@ Berlin, im September 2017}
 \input{SAC}
 \newpage
 \input{Hist}
+\newpage
 \input{Box}
 \input{RS}
 \input{paleoTS}

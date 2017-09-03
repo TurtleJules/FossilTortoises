@@ -3,16 +3,16 @@
 %read Willis et al., 2010 and Willis and Fortey, 2003 on use of paleontological data.
 
 % read Thompson and Withers, 2003: Species Accumulation Curve
-\subsection{Sampling accumulation curves}
-The sample-based accumulation curve (SAC) on the generic level shows a relatively low intial slope and a long upward slope to the asymptote (does not reach full saturation in Fig. \ref{fig:SACGen}).
+\subsection{Sample-based accumulation curves}
+The sample-based accumulation curve (SAC) on the generic level shows a relatively low intial slope and a long upward slope to the asymptote, which does not reach full saturation (Fig. \ref{fig:SACGen}).
 Although the SAC does not completely plateau, considering the large area covered and the high number of rare genera in the dataset, it can be considered well enough sampled for our purposes.
 In contrast, the species accumulation curves, both per reference and per locality, show only a slight initial increase and, for the same number of references/sampling units, are far from reaching an asymptote (Fig. \ref{fig:SACall} (a), (b)).
 % DISCUSSION: as could be expected, since there are less genera than species \citep{Gotelli2001}. At a large geographic scale, it can be expected, that an asymptote is not reached \citep{Thompson2002}. Fig. \ref{fig:SACGen} corresponds to the shape one would expect, when there are many genera that are rare and only a few abundant ones. For the different continents, only Europe and Eurasia show some sort of "typical" SAC shape.
 %%%____
 % DISCUSSION ? 
- Since there are less genera than species, it is to be expected, that genera reach an asymptote earlier than species.
+Since there are less genera than species, it is to be expected that genera reach an asymptote earlier than species.
 %%%____
-Accumulation curves for individual continents show that Europe reflects the trend of the overall dataet, with a long upward slope after the inflection point, whereas the other continents definitely require further sampling.
+Accumulation curves for individual continents show that Europe reflects the trend of the overall dataset, with a long upward slope after the inflection point, whereas the other continents require further sampling (Fig. \ref{fig:SACall} (c) - (i)).
 
 %--> genera sufficiently sampled, species not
 %--> for genera, when splitting up continents only Europe and Eurasia are sampled well enough --> ask Johannes again, I feel like Asia is screwing up the results, would stick with Europe.
@@ -22,7 +22,7 @@ Accumulation curves for individual continents show that Europe reflects the tren
 \begin{figure}[htbp]
 	\centering
 	\includegraphics[width=0.8\textwidth]{MA_JJ_files/figure-latex/SACGenera-1.pdf}
-	\caption[Sampling Accumulation Curve on generic level]{Sampling accumulation curve of fossil genera per reference. Dashed lines represent the confidence inteval.}
+	\caption[Sample-based accumulation curve on generic level]{Sample-based accumulation curve of fossil genera per reference. Dashed lines represent the confidence inteval.}
 	\label{fig:SACGen}
 \end{figure}
 
@@ -37,34 +37,63 @@ Accumulation curves for individual continents show that Europe reflects the tren
 %as most animal groups/clades (?) right-skewed = smaller body size more frequent, BUT island species are left-skewed with more larger body sizes! (logtransformed data, skewness: negative for Zanclean, Messinian ??, insular, fossil-insular, but not modern-insular!!)
 \subsection{Descriptive statistics}
 
-The histograms indicate that testudinid body size is not normally distributed (Fig. \ref{fig:histAll}), which is supported by QQ-Plots for raw as well as logtransformed data (Fig. \ref{fig:NormDis}).
-The body size distribution is moderately right-skewed (Table \ref{tab:stats}), with a higher frequency of smaller body sizes. This pattern is also apparent when splitting the data set into fossil and modern taxa (Fig. \ref{fig:HistRest} (a)). Considering insularity, body size distribution is right-skewed for continental taxa, but left-skewed for insular species, meaning larger body size occurs with a higher frequency than smaller body size on islands. Insular taxa are also left-skewed, when only considering fossil taxa, but modern insular taxa have a skewness close to 0, indicating a symmetric distribution.
-Kurtosis suggests light tails with no/few outliers (kurtosis < 3) for insular and modern insular species, whereas continental species have a heavy tail (kurtosis > 3).
-The histograms also show a bimodal distribution, with is also apparent on most sublevels, except for modern insular species.
-Body size distributions are similar, right-skewed and bimodal, for the four continents and reflect the overall trend (Fig. \ref{fig:HistRest} (d)).
-
-\todo{remove time bins from table descritpive stats?!}
-
-
-
-
+The histograms indicate that testudinid body size is not normally distributed (Fig. \ref{fig:histAll}), which is supported by QQ-Plots for raw as well as log-transformed data (Fig. \ref{fig:NormDis}).
+The body size distribution is moderately right-skewed (Table \ref{tab:stats}), with a higher frequency of smaller body sizes. 
 %________________________________________________________________________
 
 \begin{figure}[htbp]
 	\centering
 	\includegraphics[width=0.8\textwidth]{MA_JJ_files/figure-latex/HistAll-1.pdf}
-	\caption[CL distribution]{Body size distribution. Bimodally distributed.}
+	\caption[CL distribution]{Body size distribution of complete data set. Bimodally distributed and right-skewed.}
 	\label{fig:histAll}
 \end{figure}
+This pattern is also apparent when splitting the data set into fossil and modern taxa (Fig. \ref{fig:HistFMCI} (a)). Considering insularity, body size distribution is right-skewed for continental taxa, but left-skewed for insular species, meaning larger body size occurs with a higher frequency than smaller body size on islands. Insular taxa are also left-skewed when only considering fossil taxa, but modern insular taxa have a skewness close to 0, indicating a symmetric distribution (Table \ref{tab:stats}).
+Kurtosis suggests light tails with no/few outliers (kurtosis < 3) for insular and modern insular species, whereas continental species have a heavy tail (kurtosis > 3; Table \ref{tab:stats}).
+
+\begin{center}
+	\begin{figure}[htbp]
+		\subfloat[Fossil vs. modern]{\includegraphics[scale=0.45]{MA_JJ_files/figure-latex/HistFosMo-1.pdf}}
+		\subfloat[Continental vs. insular]{\includegraphics[scale=0.45]{MA_JJ_files/figure-latex/HistCI-1.pdf}}	
+		\caption[Fossil vs. modern, continental vs. insular.]{Histograms for fossil vs. modern and continental vs. insular data.}
+		\label{fig:HistFMCI}
+	\end{figure}
+\end{center}
+
+The histograms show a bimodal distribution, with is also apparent on most sublevels, except for modern insular species (Fig. \ref{fig:HistRest} (a)).
+Body size distributions are similar, right-skewed and bimodal, for the four continents and reflect the overall trend (Fig. \ref{fig:HistRest} (b)).
 
 
-%__________________________
-Mean body size differs significantly across time bins (Kruskal Wallis Test, $\chi^2$ = 71.441, P < 0.01; Fig. \ref{fig:boxBins}). Modern median body size is smaller than body size in the Upper Pleistocene (Wilcoxon Rank Sum Test, W = 3853.5, P < 0.01 ). There is no difference in body size within the Pleistocene (Wilcoxon Rank Sum Test, P > 0.05) and Pleistocene body size does not differ from body size in the Upper Miocene (Wilcoxon Rank Sum Test, P > 0.05). In the Middle Miocene, Serravallian body size is smaller than Langhian body size (Wilcoxon Rank Sum Test, W = 45, P < 0.01), but Langhian body size is not different from Lower Miocene body size (Wilcoxon Rank Sum Test, W = 311, P = 0.06).
-\todo{check variances?!}
-\todo{random sampling necessary?}
-% = 71.441, df = 11, p-value = 6.496e-11
+
 
 \FloatBarrier
+
+%__________________________
+
+
+
+Mean body size differs significantly across time bins (Kruskal Wallis Test, $\chi^2$ = 71.441, P < 0.01; Fig. \ref{fig:boxBins}). 
+The multiple comparison test showed that modern median body size is smaller than body size in the Upper Pleistocene. %(Wilcoxon Rank Sum Test, W = 3853.5, P < 0.01 )
+There is no difference in body size within the Pleistocene %(Wilcoxon Rank Sum Test, P > 0.05)
+and Pleistocene body size does not differ from body size in the Upper Miocene%(Wilcoxon Rank Sum Test, P > 0.05)
+. Serravallian body size is smaller than Langhian body size in the Middle Miocene%(Wilcoxon Rank Sum Test, W = 45, P < 0.01)
+, but Langhian body size is not different from Lower Miocene body size%(Wilcoxon Rank Sum Test, W = 311, P = 0.06)
+.
+
+
+%__________________________________________________________________________
+\begin{figure}[hbtp]
+	\centering
+	\includegraphics{MA_JJ_files/figure-latex/BPGBins-1.pdf}
+	\caption{Boxplots of mean CL per time bin, including mean and sd CL for
+		each genus (as pointrange).}
+	\label{fig:boxBins}
+\end{figure}
+
+%\todo{random sampling necessary?}
+% = 71.441, df = 11, p-value = 6.496e-11
+
+
+
 
 
 
@@ -74,20 +103,12 @@ Mean body size differs significantly across time bins (Kruskal Wallis Test, $\ch
 
 
 
-%__________________________________________________________________________
-\begin{figure}[H]
-	\centering
-	\includegraphics{MA_JJ_files/figure-latex/BPGBins-1.pdf}
-	\caption{Boxplots of mean CL per time bin, including mean and sd CL for
-		each genus (as pointrange).}
-	\label{fig:boxBins}
-\end{figure}
 
 
 
 %__________________________________________________________________________
 \begin{center}
-	\begin{figure}[H]
+	\begin{figure}[htbp]
 		\subfloat[Fossil vs. modern]{\includegraphics[scale=0.45]{MA_JJ_files/figure-latex/BPMF-1.pdf}}
 		\subfloat[Continental vs. insular]{\includegraphics[scale=0.45]{MA_JJ_files/figure-latex/BPCI-1.pdf}}
 		\caption{Boxplots of CL split into fossil vs. modern (a) and cotinental vs. insular (b)}
@@ -96,23 +117,33 @@ Mean body size differs significantly across time bins (Kruskal Wallis Test, $\ch
 \end{center}
 
 
-Comparison of modern and fossil testudinids showed that modern tortoises were smaller than fossil ones (Wilcoxon Rank Sum Test, W = 22318, P < 0.01; Fig. \ref{fig:boxFMCI}).\todo{mention random sampling?} Furthermore, continental testudinids are smaller than insular taxa (Wilcoxon Rank Sum Test, W = 13854, P < 0.01; Fig. \ref{fig:boxFMCI}).
-These can even be considered in combination: modern continental taxa are smaller than fossil continental taxa (Wilcoxon Rank Sum Test, W = 8046, P < 0.01; Fig. \ref{BoxFoMCI}) and modern insular taxa are smaller than fossil insular taxa (Wilcoxon Rank Sum Test, W = 631.5, P < 0.01; Fig. \ref{BoxFoMCI}))
-Finally, body size differs between continents (Kruskal Wallis Test, $\chi^2$ = 34.343, P < 0.01; Fig. \ref{fig:boxBins}) \todo{post hoc test!}
+
+Comparison of modern and fossil testudinids showed that modern tortoises are smaller than fossil ones (Wilcoxon Rank Sum Test, W = 22318, P < 0.01; Fig. \ref{fig:boxFMCI}). Furthermore, continental testudinids are smaller than insular taxa (Wilcoxon Rank Sum Test, W = 13854, P < 0.01; Fig. \ref{fig:boxFMCI}).
+These results can even be considered in combination: modern continental taxa are smaller than fossil continental taxa (Wilcoxon Rank Sum Test, W = 8046, P < 0.01; Fig. \ref{BoxFoMCI}) and modern insular taxa are smaller than fossil insular taxa (Wilcoxon Rank Sum Test, W = 631.5, P < 0.01; Fig. \ref{BoxFoMCI}))
+
+Finally, body size differs among continents (Kruskal Wallis Test, $\chi^2$ = 34.343, P < 0.01; Fig. \ref{fig:boxCon}). The multiple comparison test showed that African testudinids differ significantly from the other three continents in body size. American testudinid body size is comparable to that of Asia, but differs from those of Africa and Europe. Furthermore, Asian and European testidinids are similar in body size. 
+
+
+\begin{figure}[htbp]
+	\centering
+	\includegraphics[width=0.75\textwidth]{MA_JJ_files/figure-latex/BPCon-1.pdf}
+	\caption{Boxplot: body size on different continents, genera summarised}
+	\label{fig:boxCon}
+\end{figure}
+
 
 
 \FloatBarrier
 %__________________________________________________________________________
 
-\section{paleoTS analysis}\label{paleots-analysis}
+\subsection{paleoTS analysis}\label{paleots-analysis}
 
 
 
 
-\subsection{all (continental and
-	insular)}\label{all-continental-and-insular}
+\subsubsection{complete dataset}\label{all-continental-and-insular}
 
-Fitting of the three evolutionary models favoured stasis for the whole data set, although model support was not the best with only 51 \% followed closely by 33 \% support for unbiased random walk (Fig. \ref{fig:pTSall}, Table \ref{tab:pTSall}). When only considering continental genera, the best-fitting model was unbiased random walk, but again not ideally supported with 55 \% (Fig. \ref{fig:pTSC}, Table \ref{tab:pTSCEM}). In contrast, insular genera are best described by stasis, which was very well supported (100 \%; Fig. \ref{fig:pTSI}, Table \ref{tab:pTSIEM})). 
+Fitting of the three evolutionary models favoured stasis for the whole data set, although model support was only 51 \% followed by 33 \% support for the unbiased random walk (Fig. \ref{fig:pTSall}, Table \ref{tab:pTSall}). When solely considering continental genera, the best-fitting model was the unbiased random walk, but again not ideally supported with 55 \% (Fig. \ref{fig:pTSC}, Table \ref{tab:pTSCEM}). In contrast, insular genera are best described by stasis, which was very well supported (100 \%; Fig. \ref{fig:pTSI}, Table \ref{tab:pTSIEM})). 
 
 
 \begin{figure}[H]
@@ -143,7 +174,7 @@ Fitting of the three evolutionary models favoured stasis for the whole data set,
 \FloatBarrier
 %__________________________________________________________________________
 
-\subsection{continental (excluding insular
+\subsubsection{continental dataset (excluding insular
 	species)}\label{continental-excluding-insular-species}
 
 
@@ -176,7 +207,7 @@ Fitting of the three evolutionary models favoured stasis for the whole data set,
 \FloatBarrier
 %__________________________________________________________________________
 
-\subsection{insular (excluding
+\subsubsection{insular dataset (excluding
 	continental)}\label{insular-excluding-continental}
 
 
@@ -210,11 +241,11 @@ Fitting of the three evolutionary models favoured stasis for the whole data set,
 \FloatBarrier
 %__________________________________________________________________________
 
-\subsection{per continent}\label{per-continent}
+\subsubsection{per continent}\label{per-continent}
 
-\subsubsection{Europe, genera}\label{europe-genera}
+\paragraph{Europe, genera}\label{europe-genera}
 
-When repeating the analysis for European taxa only, all three groups -- all, continental and insular -- are best described by stasis with model support between 92 - 99 \% (Fig. \ref{fig:pTSEu}, \ref{fig:pTSEuC}, \ref{fig:pTSEuI}; Tables \ref{tab:pTSEuEM}, \ref{tab:pTSEuCEM}, \ref{tab:pTSEuIEM}).
+When repeating the analysis for European taxa only, all three groups -- complete, continental and insular data -- are best described by stasis with a model support between 92 - 99 \% (Fig. \ref{fig:pTSEu}, \ref{fig:pTSEuC}, \ref{fig:pTSEuI}; Tables \ref{tab:pTSEuEM}, \ref{tab:pTSEuCEM}, \ref{tab:pTSEuIEM}).
 
 \begin{figure}[H]
 	\centering
@@ -246,10 +277,10 @@ When repeating the analysis for European taxa only, all three groups -- all, con
 
 
 
-\subsubsection{Eurasia,	genera}\label{eurasia-genera}
+\paragraph{Eurasia,	genera}\label{eurasia-genera}
 
 
-For Eurasia, the entire data as well as continental genera are best described by an unbiased random walk, although model support weak again. Continental species still have a better support (78 \%; Fig. \ref{fig:pTSEsC}, Table \ref{tab:pTSEsCEM}) than all Eurasian data with only 56 \% (Fig. \ref{fig:pTSEs}, Table \ref{tab:pTSEsEm}). Insular Eurasian species, however, conform to stasis again, although with lower support values (68 \%; Fig. \ref{fig:pTSEsI}, Table \ref{tab:pTSEsIEM}).
+For Eurasia, the entire data as well as continental genera are best described by the unbiased random walk, although the model support is weak again. Continental species still have a better support (78 \%; Fig. \ref{fig:pTSEsC}, Table \ref{tab:pTSEsCEM}) than all Eurasian data with only 56 \% (Fig. \ref{fig:pTSEs}, Table \ref{tab:pTSEsEM}). Insular Eurasian species, however, conform to stasis again, although with lower support values (68 \%; Fig. \ref{fig:pTSEsI}, Table \ref{tab:pTSEsIEM}).
 
 
 
