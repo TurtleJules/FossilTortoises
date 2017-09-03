@@ -79,7 +79,7 @@ CLPLtidy <- tidyCL %>%
   dplyr::select(Taxon, CL, PL, size, Age, Island, Continent, Genus) %>%
   mutate(ratio=CL/PL) %>%
   group_by(Taxon) %>% #to show ratios per Taxon, leave out to get a total ratio
-  summarise(meanRatio=round(mean(ratio),2), sdRatio=round(sd(ratio),2), n=n(), min=min(ratio), max=max(ratio))
+  dplyr::summarise(meanRatio=round(mean(ratio),2), sdRatio=round(sd(ratio),2), n=n(), min=min(ratio), max=max(ratio))
 
 CLPLextant <- Extant %>%
   filter(!is.na(CL) & !is.na(PL)) %>%
@@ -89,11 +89,11 @@ CLPLextant <- Extant %>%
   #   summarise(meanRatio=round(mean(ratio),2), sdRatio=round(sd(ratio),2), n=n(), min=min(ratio), max=max(ratio))
 
 Ratio <- CLPLextant %>%
-  summarise(meanRatio=round(mean(ratio),2), sdRatio=round(sd(ratio),2), n=n(), min=min(ratio), max=max(ratio))
+  dplyr::summarise(meanRatio=round(mean(ratio),2), sdRatio=round(sd(ratio),2), n=n(), min=min(ratio), max=max(ratio))
 
 RatioSpecies <- CLPLextant %>%
   group_by(Taxon) %>% #to show ratios per Taxon, leave out to get a total ratio
-  summarise(meanRatio=round(mean(ratio),2), sdRatio=round(sd(ratio),2), n=n(), min=min(ratio), max=max(ratio))
+  dplyr::summarise(meanRatio=round(mean(ratio),2), sdRatio=round(sd(ratio),2), n=n(), min=min(ratio), max=max(ratio))
 
 
 fossil <- tidyCL %>%
@@ -152,20 +152,20 @@ MeanBins <- as.vector(c((0+0.0117)/2, (0.0117+0.126)/2, (0.126+0.781)/2, (0.781+
 BinsMio <- Miocene %>%
   select(bin) %>%
   group_by(bin) %>%
-  summarise(nIndividuals=n())
+  dplyr::summarise(nIndividuals=n())
 
 BinsSpeciesMio <- Miocene %>%
   select(bin, Taxon) %>%
   group_by(bin, Taxon) %>%
-  summarise(nSpecies=n()) %>%
-  summarise(nSpecies=n())
+  dplyr::summarise(nSpecies=n()) %>%
+  dplyr::summarise(nSpecies=n())
 
 
 BinsGeneraMio <- Miocene %>%
   select(bin, Genus) %>%
   group_by(bin, Genus) %>%
-  summarise(nGenera=n()) %>%
-  summarise(nGenera=n())
+  dplyr::summarise(nGenera=n()) %>%
+  dplyr::summarise(nGenera=n())
 
 bin <- as.vector(unique(BinsMio$bin))
 
@@ -217,16 +217,18 @@ scatter <- testRatio %>%
   filter(!is.na(CL)) %>%
   filter(Age < 23.000) %>%
   merge(Continents) %>%
-  select(CL, Age, Island, Con, estimated) %>%
-  ggplot(aes(Age, CL)) + geom_jitter(aes(shape=Island, colour= Con)) +
+  mutate(Insularity=ifelse(Island=="y","insular", "continental")) %>%
+  select(CL, Age, Insularity, Con, estimated) %>%
+  ggplot(aes(Age, CL)) + geom_jitter(aes(shape=Insularity, colour= Con)) +
   theme_classic() +
   geom_vline(xintercept = c(0, 0.0117, 0.126, 0.781, 1.806, 2.588, 3.6,
                                   5.332, 7.246, 11.608, 13.82, 15.97, 23.03))+
   # geom_vline(xintercept= c(0, 0.0117, 0.126, 0.781, 2.588, 3.6, 5.332, 11.608, 15.97, 23.03)) +
    geom_vline(xintercept= 20.44, linetype="dashed")  +
   scale_color_manual(values=c("#000000", "#E69F00",  "#FF00FF", "#009E73", "#56B4E9","#F0E442", "#0072B2", "#D55E00", "#CC79A7") , name="Continents")+
-  scale_shape_manual(values= c(16, 17), name="Insularity", breaks=c("continental", "insular")) +
-  xlab("Age [mya]") + ylab("Carapace length [mm]")
+ # scale_shape_manual(values= c(16, 17), name="Insularity", breaks=c("continental", "insular")) +
+  xlab("Age [mya]") + ylab("Carapace length [mm]") 
+ # labs(shape="Insularity", colour="Continents")
   # 
 
 
@@ -355,28 +357,28 @@ mapCL
 OverviewSpecies <- PleiPlioCL %>%
   filter(EpochBins != "Modern") %>%
   group_by(EpochBins, Taxon) %>%
-  summarise(n=n(), meanCL = mean(CL))
+  dplyr::summarise(n=n(), meanCL = mean(CL))
 
 kable(OverviewSpecies, caption="Overview over fossil species per time bin, with sample size and mean CL.")
 
 OverviewSpeciesFossil <- PleiPlioCL %>%
   filter(EpochBins != "Modern") %>%
   group_by(Taxon) %>%
-  summarise(n=n(), meanCL = mean(CL))
+  dplyr::summarise(n=n(), meanCL = mean(CL))
 
 #write.table(OverviewSpecies,file="OverviewSpeciesSampleSize.txt", sep="\t", row.names = FALSE) 
 kable(OverviewSpeciesFossil, caption="General overview over fossil species, with sample size and mean CL")
 
 OverviewGeneraTime <- PleiPlioCL %>%
   group_by(EpochBins, Genus) %>%
-  summarise(n=n(), meanCL = mean(CL))
+  dplyr::summarise(n=n(), meanCL = mean(CL))
 
 kable(OverviewGeneraTime, caption="Overview over genera (modern and fossil) per time bin, with sample sizes and mean CL.")
 
 
 OverviewGenera <- PleiPlioCL %>%
   group_by(Genus) %>%
-  summarise(n=n(), meanCL = mean(CL))
+  dplyr::summarise(n=n(), meanCL = mean(CL))
 
 kable(OverviewGenera, caption="General overview over genera, with sample sizes and mean CL.")
 
@@ -395,7 +397,7 @@ kable(OverviewGenera, caption="General overview over genera, with sample sizes a
 veganSL <- tidyCL %>%
   dplyr::select(Locality, Taxon) %>%
   group_by(Locality, Taxon) %>%
-  summarise(n=n()) %>%
+  dplyr::summarise(n=n()) %>%
   tidyr::spread(Taxon, n, fill=0)
 
 library(vegan)
@@ -411,7 +413,7 @@ plot(veganspSL,xlab="Localities",ylab="Richness", xvar="individuals", ci.type="l
 veganSR <- tidyCL %>%
   dplyr::select(Reference, Taxon) %>%
   group_by(Reference, Taxon) %>%
-  summarise(n=n()) %>%
+  dplyr::summarise(n=n()) %>%
   tidyr::spread(Taxon, n, fill=0)
 
 library(vegan)
@@ -430,7 +432,7 @@ plot(veganspSR,xlab="References",ylab="Richness", xvar="individuals", ci.type="l
 veganGL <- tidyCL %>%
   dplyr::select(Locality, Genus) %>%
   group_by(Locality, Genus) %>%
-  summarise(n=n()) %>%
+  dplyr::summarise(n=n()) %>%
   tidyr::spread(Genus, n, fill=0)
 
 
@@ -448,7 +450,7 @@ veganspGL=specaccum(veganGL,method="rarefaction", permutations=1000)
 veganGR <- tidyCL %>%
   dplyr::select(Reference, Genus) %>%
   group_by(Reference, Genus) %>%
-  summarise(n=n()) %>%
+  dplyr::summarise(n=n()) %>%
   tidyr::spread(Genus, n, fill=0)
 
 #library(vegan)
@@ -471,7 +473,7 @@ overviewVegan <- PleiPlioCL %>%
   group_by( Con) %>%  #Continent,
  # filter(Con=="Europe" | Con=="Asia" )%>%
   filter(!is.na(CL)) %>%
-  summarise(meanCL=mean(CL), sdCL= sd(CL), n=n(), meanAge=mean(Age))
+  dplyr::summarise(meanCL=mean(CL), sdCL= sd(CL), n=n(), meanAge=mean(Age))
 
 
 veganEA <- tidyCL %>%
@@ -479,7 +481,7 @@ veganEA <- tidyCL %>%
   filter(Con=="Europe" | Con=="Asia") %>%
   dplyr::select(Reference, Genus) %>%
   group_by(Reference, Genus) %>%
-  summarise(n=n()) %>%
+  dplyr::summarise(n=n()) %>%
   tidyr::spread(Genus, n, fill=0)
 
 #library(vegan)
@@ -502,7 +504,7 @@ veganEu <- tidyCL %>%
   filter(Con=="Europe") %>%
   dplyr::select(Reference, Genus) %>%
   group_by(Reference, Genus) %>%
-  summarise(n=n()) %>%
+  dplyr::summarise(n=n()) %>%
   tidyr::spread(Genus, n, fill=0)
 
 #library(vegan)
@@ -526,7 +528,7 @@ veganAf <- tidyCL %>%
   filter(Con=="Africa") %>%
   dplyr::select(Reference, Genus) %>%
   group_by(Reference, Genus) %>%
-  summarise(n=n()) %>%
+  dplyr::summarise(n=n()) %>%
   tidyr::spread(Genus, n, fill=0)
 
 #library(vegan)
@@ -548,7 +550,7 @@ veganAm <- tidyCL %>%
   filter(Con=="America") %>%
   dplyr::select(Reference, Genus) %>%
   group_by(Reference, Genus) %>%
-  summarise(n=n()) %>%
+  dplyr::summarise(n=n()) %>%
   tidyr::spread(Genus, n, fill=0)
 
 #library(vegan)
@@ -572,7 +574,7 @@ veganNA <- tidyCL %>%
   filter(Continent=="N-America") %>%
   dplyr::select(Reference, Genus) %>%
   group_by(Reference, Genus) %>%
-  summarise(n=n()) %>%
+  dplyr::summarise(n=n()) %>%
   tidyr::spread(Genus, n, fill=0)
 
 #library(vegan)
@@ -594,7 +596,7 @@ veganSA <- tidyCL %>%
   filter(Continent=="S-America") %>%
   dplyr::select(Reference, Genus) %>%
   group_by(Reference, Genus) %>%
-  summarise(n=n()) %>%
+  dplyr::summarise(n=n()) %>%
   tidyr::spread(Genus, n, fill=0)
 
 #library(vegan)
@@ -616,7 +618,7 @@ veganAs <- tidyCL %>%
   filter(Con=="Asia") %>%
   dplyr::select(Reference, Genus) %>%
   group_by(Reference, Genus) %>%
-  summarise(n=n()) %>%
+  dplyr::summarise(n=n()) %>%
   tidyr::spread(Genus, n, fill=0)
 
 #library(vegan)
@@ -633,7 +635,7 @@ plot(veganspAs,xlab="References",ylab="Richness", xvar="individuals", ci.type="l
 SACFossOc <- FossilOccurrences %>%
   dplyr::select(Locality, Genus) %>%  #, Taxon
   group_by(Locality, Genus) %>%  #, Taxon
-  summarise(n=n()) %>%
+  dplyr::summarise(n=n()) %>%
   tidyr::spread(Genus, n, fill=0)  #Taxon
 
 #library(vegan)
@@ -684,7 +686,7 @@ HistCL
 StatsAll <- PleiPlioCL %>%
   filter(!is.na(CL)) %>%
 #  group_by(Island) %>%
-  summarise(nCL=length(CL), #range=range(CL),
+  dplyr::summarise(nCL=length(CL), #range=range(CL),
             min=min(CL), max=max(CL), 
             var=var(CL), mean=round(mean(CL),1), logm=round(mean(log10(CL)),1),
             med=round(median(CL),1), logmed=round(median(log10(CL)),1), #CLmode=mode(CL), CLlogmode=mode(log10(CL)),
@@ -738,7 +740,7 @@ HistCLBins
 StatsBins <- PleiPlioCL %>%
   filter(!is.na(CL)) %>%
   group_by(EpochBins) %>%
-  summarise(nCL=length(CL), min=min(CL), max=max(CL), var=var(CL), mean=round(mean(CL),1), logm=round(mean(log10(CL)),1),
+  dplyr::summarise(nCL=length(CL), min=min(CL), max=max(CL), var=var(CL), mean=round(mean(CL),1), logm=round(mean(log10(CL)),1),
             med=round(median(CL),1), logmed=round(median(log10(CL)),1), #CLmode=mode(CL), CLlogmode=mode(log10(CL)),
             skew=round(skewness(CL),2), logsk=round(skewness(log10(CL)),2),
             kurt=round(kurtosis(CL),2), logku=round(kurtosis(log10(CL)),2) ) %>%
@@ -796,7 +798,7 @@ StatsFossil <- PleiPlioCL %>%
   merge(Epochs) %>%
   filter(!is.na(CL)) %>%
   group_by(EPOCH) %>%
-  summarise(nCL=length(CL), min=min(CL), max=max(CL), var=var(CL), mean=round(mean(CL),1), logm=round(mean(log10(CL)),1),
+  dplyr::summarise(nCL=length(CL), min=min(CL), max=max(CL), var=var(CL), mean=round(mean(CL),1), logm=round(mean(log10(CL)),1),
             med=round(median(CL),1), logmed=round(median(log10(CL)),1), #CLmode=mode(CL), CLlogmode=mode(log10(CL)),
             skew=round(skewness(CL),2), logsk=round(skewness(log10(CL)),2),
             kurt=round(kurtosis(CL),2), logku=round(kurtosis(log10(CL)),2) ) %>%
@@ -839,7 +841,7 @@ StatsFossilIsland <- PleiPlioCL %>%
   merge(Epochs) %>%
   filter(!is.na(CL)) %>%
   group_by(EPOCH, Island) %>%
-  summarise(nCL=length(CL), min=min(CL), max=max(CL), var=var(CL), mean=round(mean(CL),1), logm=round(mean(log10(CL)),1),
+  dplyr::summarise(nCL=length(CL), min=min(CL), max=max(CL), var=var(CL), mean=round(mean(CL),1), logm=round(mean(log10(CL)),1),
             med=round(median(CL),1), logmed=round(median(log10(CL)),1), #CLmode=mode(CL), CLlogmode=mode(log10(CL)),
             skew=round(skewness(CL),2), logsk=round(skewness(log10(CL)),2),
             kurt=round(kurtosis(CL),2), logku=round(kurtosis(log10(CL)),2) ) %>%
@@ -877,7 +879,7 @@ HistCLIsland
 StatsIsland <- PleiPlioCL %>%
   filter(!is.na(CL)) %>%
   group_by(Island) %>%
-  summarise(nCL=length(CL), min=min(CL), max=max(CL), var=var(CL), mean=round(mean(CL),1), logm=round(mean(log10(CL)),1),
+  dplyr::summarise(nCL=length(CL), min=min(CL), max=max(CL), var=var(CL), mean=round(mean(CL),1), logm=round(mean(log10(CL)),1),
             med=round(median(CL),1), logmed=round(median(log10(CL)),1), #CLmode=mode(CL), CLlogmode=mode(log10(CL)),
             skew=round(skewness(CL),2), logsk=round(skewness(log10(CL)),2),
             kurt=round(kurtosis(CL),2), logku=round(kurtosis(log10(CL)),2) ) %>%
@@ -919,7 +921,7 @@ StatsContinents <- PleiPlioCL %>%
   merge(Continents) %>%
   filter(!is.na(CL)) %>%
   group_by(Con) %>%
-  summarise(nCL=length(CL), min=min(CL), max=max(CL), var=var(CL), mean=round(mean(CL),1), logm=round(mean(log10(CL)),1),
+  dplyr::summarise(nCL=length(CL), min=min(CL), max=max(CL), var=var(CL), mean=round(mean(CL),1), logm=round(mean(log10(CL)),1),
             med=round(median(CL),1), logmed=round(median(log10(CL)),1), #CLmode=mode(CL), CLlogmode=mode(log10(CL)),
             skew=round(skewness(CL),2), logsk=round(skewness(log10(CL)),2),
             kurt=round(kurtosis(CL),2), logku=round(kurtosis(log10(CL)),2) ) %>%
@@ -959,7 +961,7 @@ StatsGenera <- PleiPlioCL %>%
   merge(Continents) %>%
   filter(!is.na(CL)) %>%
   group_by(Genus) %>%
-  summarise(nCL=length(CL), min=min(CL), max=max(CL), var=var(CL), mean=round(mean(CL),1), logm=round(mean(log10(CL)),1),
+  dplyr::summarise(nCL=length(CL), min=min(CL), max=max(CL), var=var(CL), mean=round(mean(CL),1), logm=round(mean(log10(CL)),1),
             med=round(median(CL),1), logmed=round(median(log10(CL)),1), #CLmode=mode(CL), CLlogmode=mode(log10(CL)),
             skew=round(skewness(CL),2), logsk=round(skewness(log10(CL)),2),
             kurt=round(kurtosis(CL),2), logku=round(kurtosis(log10(CL)),2) ) %>%
@@ -1007,24 +1009,124 @@ kable(Stats, caption="General statistics of body size data: all, per time bin, i
 
 #Boxplots of each genus per time bin
 
+# PleiPlioCL <- PleiPlioCL %>%
+#   filter(!is.na(CL))
+# 
+# Model4 <- aov(CL~EpochBins, data=PleiPlioCL)
+# tHSD <- TukeyHSD(Model4, ordered = FALSE, conf.level = 0.95)
+# plot(tHSD , las=1 , col="brown" )
+# 
+# 
+# generate_label_df <- function(TUKEY, variable){
+#   
+#   # Extract labels and factor levels from Tukey post-hoc 
+#   Tukey.levels <- TUKEY[[variable]][,4]
+#   Tukey.labels <- data.frame(multcompLetters(Tukey.levels)['Letters'])
+#   
+#   #I need to put the labels in the same order as in the boxplot :
+#   Tukey.labels$treatment=rownames(Tukey.labels)
+#   Tukey.labels=Tukey.labels[order(Tukey.labels$treatment) , ]
+#   return(Tukey.labels)
+# }
+# 
+# model=lm(PleiPlioCL$CL~PleiPlioCL$EpochBins)
+# ANOVA=aov(model)
+# 
+# # Tukey test to study each pair of treatment :
+# TUKEY <- TukeyHSD(x=ANOVA, 'PleiPlioCL$EpochBins', conf.level=0.95)
+# 
+# labels<-generate_label_df(TUKEY , "PleiPlioCL$EpochBins")#generate labels using function
+# 
+# names(labels)<-c('Letters','EpochBins')#rename columns for merging
+# 
+# #yvalue<-aggregate(.~CL, data=PleiPlioCL, mean)# obtain letter position for y axis using means
+# 
+# yvalue <- PleiPlioCL %>%
+#   filter(!is.na(CL)) %>%
+#   group_by(EpochBins) %>%
+#   select(EpochBins, CL) %>%
+#   dplyr::summarise(CL=median(CL), mean=mean(CL))
+# 
+# 
+# 
+# 
+# final<-merge(labels,yvalue) #merge dataframes
+# 
+# ggplot(PleiPlioCL, aes(x = EpochBins, y = CL)) +
+#   geom_blank() +
+#   theme_bw() +
+# #  theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank()) +
+#  # labs(x = 'Age', y = 'CL [mm]') +
+# #  ggtitle(expression(atop(bold("CL"), atop(italic("(Dry Mass)"), "")))) +
+# #  theme(plot.title = element_text(hjust = 0.5, face='bold')) +
+# #  annotate(geom = "rect", xmin = 1.5, xmax = 4.5, ymin = -Inf, ymax = Inf, alpha = 0.6, fill = "grey90") +
+#   geom_boxplot(fill = 'green2', stat = "boxplot") +
+#   geom_text(data = final, aes(x = EpochBins, y = CL, label = Letters),vjust=-1) +  #,hjust=-.5
+# #  geom_vline(aes(xintercept=4.5), linetype="dashed") +
+#   theme(plot.title = element_text(vjust=-0.6)) +
+#   geom_text(data = final, aes(x = EpochBins, y = mean, label = "*")) 
+# 
+
+########
+
 IndGenera <- PleiPlioCL %>%
   group_by(EpochBins, Genus) %>%
   filter(!is.na(CL)) %>%
-  summarise(GenusMean=mean(CL), GenusSD=sd(CL), n=n()) 
+  dplyr::summarise(GenusMean=mean(CL), GenusSD=sd(CL), n=n()) 
 
 IndGenera[is.na(IndGenera)] <-0
 
-
+# givesample sizes
 give.n <- function(x){
   return(c(y = 0, label = length(x)))
 }
+
+
+# #add tukey letter: differences between groups
+# Model4 <- aov(CL~EpochBins, data=PleiPlioCL)
+# tHSD <- TukeyHSD(Model4, ordered = FALSE, conf.level = 0.95)
+# plot(tHSD , las=1 , col="brown" )
+# 
+# 
+# generate_label_df <- function(TUKEY, variable){
+#   
+#   # Extract labels and factor levels from Tukey post-hoc 
+#   Tukey.levels <- TUKEY[[variable]][,4]
+#   Tukey.labels <- data.frame(multcompLetters(Tukey.levels)['Letters'])
+#   
+#   #I need to put the labels in the same order as in the boxplot :
+#   Tukey.labels$treatment=rownames(Tukey.labels)
+#   Tukey.labels=Tukey.labels[order(Tukey.labels$treatment) , ]
+#   return(Tukey.labels)
+# }
+# 
+# model=lm(PleiPlioCL$CL~PleiPlioCL$EpochBins)
+# ANOVA=aov(model)
+# 
+# # Tukey test to study each pair of treatment :
+# TUKEY <- TukeyHSD(x=ANOVA, 'PleiPlioCL$EpochBins', conf.level=0.95)
+# 
+# labels<-generate_label_df(TUKEY , "PleiPlioCL$EpochBins")#generate labels using function
+# 
+# names(labels)<-c('Letters','EpochBins')#rename columns for merging
+# 
+# yvalue <- PleiPlioCL %>%
+#   filter(!is.na(CL)) %>%
+#   group_by(EpochBins) %>%
+#   select(EpochBins, CL) %>%
+#   dplyr::summarise(CL=median(CL), mean=mean(CL))
+# 
+# 
+# 
+# 
+# final<-merge(labels,yvalue) #merge dataframes
 
 
 
 BinGenera <- PleiPlioCL %>%
   group_by(EpochBins, Genus) %>%
   filter(!is.na(CL)) %>%
-  summarise(GenusMean=mean(CL), GenusSD=sd(CL), n=n()) %>%
+  dplyr::summarise(GenusMean=mean(CL), GenusSD=sd(CL), n=n()) %>%
 #  summarise(TimeBinMean=mean(GenusMean), TimeBinSD=sd(GenusMean), n=n()) %>%
   ungroup() %>%#, CL=CL
   ggplot(aes(EpochBins, GenusMean)) + #, colour=Genus
@@ -1036,12 +1138,33 @@ BinGenera <- PleiPlioCL %>%
   stat_summary(fun.data = give.n, geom = "text") +
   theme(legend.background = element_rect(colour = 'black'),
         panel.border = element_rect(colour = "black", fill=NA)) +
-  scale_colour_manual(values=c("#808080", "#848484", "#878787", "#8B8B8B", "#8F8F8F", "#929292",
-                               "#969696", "#999999", "#969696", "#999999",
-                               "#969696", "#999999", "#969696", "#999999", "#999999")) +
+  scale_colour_manual(values=c("#999999", "#969696", "#999999", "#999999", "#999999", "#969696",
+                               "#999999", "#999999", "#999999", "#969696", "#999999",
+                               "#999999", "#969696", "#999999", "#999999", "#999999",
+                               "#999999", "#999999")) +
   theme(legend.position="none")
 
 BinGenera
+
+####generic level
+# Multiple comparison after Kruskal-Wallis Test
+
+names(IndGenera)
+library(pgirmess)
+kruskalmc(IndGenera$GenusMean,IndGenera$EpochBins)
+MCK <- data.frame(kruskalmc(IndGenera$GenusMean,IndGenera$EpochBins))
+
+
+resp<-c(0.44,0.44,0.54,0.32,0.21,0.28,0.7,0.77,0.48,0.64,0.71,0.75,0.8,0.76,0.34,0.80,0.73,0.8)
+categ<-as.factor(rep(c("A","B","C"),times=1,each=6))
+kruskalmc(resp, categ)
+
+
+#### 
+names(PleiPlioCL)
+
+kruskalmc(PleiPlioCL$CL,PleiPlioCL$EpochBins)
+MCKW <- data.frame(kruskalmc(PleiPlioCL$CL,PleiPlioCL$EpochBins))
 
 ```
 
@@ -1143,7 +1266,7 @@ kable(Data)
 IndGenera <- PleiPlioCL %>%
   group_by(EpochBins, Genus, Island) %>%
   filter(!is.na(CL)) %>%
-  summarise(GenusMean=mean(CL), GenusSD=sd(CL), n=n()) 
+  dplyr::summarise(GenusMean=mean(CL), GenusSD=sd(CL), n=n()) 
 
 IndGenera[is.na(IndGenera)] <- 0
 
@@ -1157,7 +1280,7 @@ give.n <- function(x){
 BinGenera <- PleiPlioCL %>%
   group_by(EpochBins, Genus, Island) %>%
   filter(!is.na(CL)) %>%
-  summarise(GenusMean=mean(CL), GenusSD=sd(CL), n=n()) %>%
+  dplyr::summarise(GenusMean=mean(CL), GenusSD=sd(CL), n=n()) %>%
 #  summarise(TimeBinMean=mean(GenusMean), TimeBinSD=sd(GenusMean), n=n()) %>%
   ungroup() %>%#, CL=CL
   ggplot(aes(EpochBins, GenusMean)) + #, colour=Genus
@@ -1193,7 +1316,7 @@ IndGenera <- PleiPlioCL %>%
   merge(Epochs) %>%
   group_by(EPOCH, Genus, Island) %>%
   filter(!is.na(CL)) %>%
-  summarise(GenusMean=mean(CL), GenusSD=sd(CL), n=n()) 
+  dplyr::summarise(GenusMean=mean(CL), GenusSD=sd(CL), n=n()) 
 
 IndGenera[is.na(IndGenera)] <- 0
 
@@ -1208,7 +1331,7 @@ BinGenera <- PleiPlioCL %>%
   merge(Epochs) %>%
   group_by(EPOCH, Genus, Island) %>%
   filter(!is.na(CL)) %>%
-  summarise(GenusMean=mean(CL), GenusSD=sd(CL), n=n()) %>%
+  dplyr::summarise(GenusMean=mean(CL), GenusSD=sd(CL), n=n()) %>%
 #  summarise(TimeBinMean=mean(GenusMean), TimeBinSD=sd(GenusMean), n=n()) %>%
   ungroup() %>%#, CL=CL
   ggplot(aes(EPOCH, GenusMean)) + #, colour=Genus
@@ -1242,7 +1365,7 @@ TimeCL <- PleiPlioCL %>%
   merge(Epochs) %>%
   group_by(EPOCH) %>%
   filter(!is.na(CL)) %>%
-  summarise(meanCL=mean(CL), sdCL = sd(CL), varCL=var(CL), n=n())
+  dplyr::summarise(meanCL=mean(CL), sdCL = sd(CL), varCL=var(CL), n=n())
 
 ModernR <- PleiPlioCL %>%
   merge(Epochs) %>%
@@ -1306,7 +1429,7 @@ IndGenera <- PleiPlioCL %>%
   merge(Epochs) %>%
   group_by(EPOCH, Genus, Island) %>%
   filter(!is.na(CL)) %>%
-  summarise(GenusMean=mean(CL), GenusSD=sd(CL), n=n()) 
+  dplyr::summarise(GenusMean=mean(CL), GenusSD=sd(CL), n=n()) 
 
 IndGenera[is.na(IndGenera)] <- 0
 
@@ -1321,7 +1444,7 @@ BinGenera <- PleiPlioCL %>%
   merge(Epochs) %>%
   group_by(EPOCH, Genus, Island) %>%
   filter(!is.na(CL)) %>%
-  summarise(GenusMean=mean(CL), GenusSD=sd(CL), n=n()) %>%
+  dplyr::summarise(GenusMean=mean(CL), GenusSD=sd(CL), n=n()) %>%
 #  summarise(TimeBinMean=mean(GenusMean), TimeBinSD=sd(GenusMean), n=n()) %>%
   ungroup() %>%#, CL=CL
   ggplot(aes(EPOCH, GenusMean)) + #, colour=Genus
@@ -1435,7 +1558,7 @@ IslandGenus <- testRatio %>%
   select(CL, Island, Genus) %>%
   filter(!is.na(CL)) %>%
   group_by(Genus, Island) %>%
-  summarise(meanCL=mean(CL), sdCL=sd(CL))
+  dplyr::summarise(meanCL=mean(CL), sdCL=sd(CL))
 
 IslandGenus[is.na(IslandGenus)] <- 0
 
@@ -1516,7 +1639,7 @@ IslandGenus <- PleiPlioCL %>%
   select(CL, Island, Genus, EpochBins) %>%
   filter(!is.na(CL)) %>%
   group_by(Genus, Island, EpochBins) %>%
-  summarise(meanCL=mean(CL), sdCL=sd(CL))
+  dplyr::summarise(meanCL=mean(CL), sdCL=sd(CL))
 
 IslandGenus[is.na(IslandGenus)] <- 0
 
@@ -1556,7 +1679,7 @@ ContinentGenus <- testRatio %>%
   select(CL, Con, Genus) %>%
   filter(!is.na(CL)) %>%
   group_by(Genus, Con) %>%
-  summarise(meanCL=mean(CL), sdCL=sd(CL))
+  dplyr::summarise(meanCL=mean(CL), sdCL=sd(CL))
 
 
 ContinentGenus[is.na(ContinentGenus)] <- 0
@@ -1678,7 +1801,7 @@ ContinentsGenus <- testRatio %>%
   select(CL, Con, Genus, Island) %>%
   filter(!is.na(CL)) %>%
   group_by(Genus, Con, Island) %>%
-  summarise(meanCL=mean(CL), sdCL=sd(CL))
+  dplyr::summarise(meanCL=mean(CL), sdCL=sd(CL))
 
 
 ContinentsGenus[is.na(ContinentsGenus)] <- 0
@@ -1720,11 +1843,11 @@ GenusMean <- PleiPlioCL %>%
   filter(EpochBins != "Modern") %>%
   filter(!is.na(CL)) %>%
   group_by(EpochBins, Genus) %>%
-  summarise(meanCL = mean(CL), n=n()) %>%
+  dplyr::summarise(meanCL = mean(CL), n=n()) %>%
 #  filter(EpochBins != "Aquitanian") %>%
 #  ungroup() %>%
 #  group_by(EpochBins) %>%
-  summarise(mm = mean(meanCL), nn=n(), vv=var(meanCL)) %>%
+  dplyr::summarise(mm = mean(meanCL), nn=n(), vv=var(meanCL)) %>%
   merge(BINSMio) %>%
   select(mm, nn, vv, tt=MeanBins)
   
@@ -1737,8 +1860,8 @@ GenusModern <- PleiPlioCL %>%
   filter(EpochBins == "Modern") %>%
   filter(!is.na(CL)) %>%
   group_by(Genus) %>%
-  summarise(meanCL=mean(CL), sdCL=sd(CL), n=n(), Age=mean(Age), EpochBins=unique(EpochBins), MeanBins=unique(MeanBins)) #%>%
-#  summarise(mm=mean(meanCL), nn=n(), vv=var(meanCL), tt=mean(MeanBins))
+  dplyr::summarise(meanCL=mean(CL), sdCL=sd(CL), n=n(), Age=mean(Age), EpochBins=unique(EpochBins), MeanBins=unique(MeanBins)) #%>%
+#  dplyr::summarise(mm=mean(meanCL), nn=n(), vv=var(meanCL), tt=mean(MeanBins))
 
 
 
@@ -1782,7 +1905,7 @@ modernMeanGenus <- SumTort %>%
   select(CL, n, tt) %>%
   filter( !is.na(CL)) %>%
   group_by(tt) %>%
-  summarise(mm = mean(CL), vv=var(CL), nn=n())
+  dplyr::summarise(mm = mean(CL), vv=var(CL), nn=n())
 
 #bis hier alle modernen taxa zusammengefasst (summarised and MFN_testudinidae)
 
@@ -1840,10 +1963,10 @@ GenusMeanIs <- PleiPlioCL %>%
   filter(!is.na(CL)) %>%
   group_by(EpochBins, Genus) %>%
  # filter(EpochBins != "Aquitanian") %>%
-  summarise(meanCL = mean(CL), n=n()) %>%
+  dplyr::summarise(meanCL = mean(CL), n=n()) %>%
 #  ungroup() %>%
 #  group_by(EpochBins) %>%
-  summarise(mm = mean(meanCL), nn=n(), vv=var(meanCL)) %>%
+  dplyr::summarise(mm = mean(meanCL), nn=n(), vv=var(meanCL)) %>%
   merge(BINSMio) %>%
   select(mm, nn, vv, tt=MeanBins)
   
@@ -1855,7 +1978,7 @@ GenusModernIs <- PleiPlioCL %>%
   filter(EpochBins == "Modern" & Island == "n") %>%
   filter(!is.na(CL)) %>%
   group_by(Genus) %>%
-  summarise(meanCL=mean(CL), sdCL=sd(CL), n=n(), Age=mean(Age), EpochBins=unique(EpochBins), MeanBins=unique(MeanBins)) #%>%
+  dplyr::summarise(meanCL=mean(CL), sdCL=sd(CL), n=n(), Age=mean(Age), EpochBins=unique(EpochBins), MeanBins=unique(MeanBins)) #%>%
 #  summarise(mm=mean(meanCL), nn=n(), vv=var(meanCL), tt=mean(MeanBins))
 
 
@@ -1898,7 +2021,7 @@ modernMeanGenusIs <- SumTort %>%
   select(CL, n, tt) %>%
   filter( !is.na(CL)) %>%
   group_by(tt) %>%
-  summarise(mm = mean(CL), vv=var(CL), nn=n())
+  dplyr::summarise(mm = mean(CL), vv=var(CL), nn=n())
 
 #bis hier alle modernen taxa zusammengefasst (summarised and MFN_testudinidae)
 
@@ -1958,10 +2081,10 @@ GenusMeanCon <- PleiPlioCL %>%
   filter(!is.na(CL)) %>%
   group_by(EpochBins, Genus) %>%
  # filter(EpochBins != "Aquitanian") %>%
-  summarise(meanCL = mean(CL), n=n()) %>%
+  dplyr::summarise(meanCL = mean(CL), n=n()) %>%
 #  ungroup() %>%
 #  group_by(EpochBins) %>%
-  summarise(mm = mean(meanCL), nn=n(), vv=var(meanCL)) %>%
+  dplyr::summarise(mm = mean(meanCL), nn=n(), vv=var(meanCL)) %>%
   merge(BINSMio) %>%
   select(mm, nn, vv, tt=MeanBins)
   
@@ -1973,8 +2096,8 @@ GenusModernCon <- PleiPlioCL %>%
   filter(EpochBins == "Modern" & Island == "y") %>%
   filter(!is.na(CL)) %>%
   group_by(Genus) %>%
-  summarise(meanCL=mean(CL), sdCL=sd(CL), n=n(), Age=mean(Age), EpochBins=unique(EpochBins), MeanBins=unique(MeanBins)) #%>%
-#  summarise(mm=mean(meanCL), nn=n(), vv=var(meanCL), tt=mean(MeanBins))
+  dplyr::summarise(meanCL=mean(CL), sdCL=sd(CL), n=n(), Age=mean(Age), EpochBins=unique(EpochBins), MeanBins=unique(MeanBins)) #%>%
+#  dplyr::summarise(mm=mean(meanCL), nn=n(), vv=var(meanCL), tt=mean(MeanBins))
 
 GenusModernCon[is.na(GenusModernCon)]<-0
 
@@ -2017,7 +2140,7 @@ modernMeanGenusCon <- SumTortCon %>%
   select(CL, n, tt) %>%
   filter( !is.na(CL)) %>%
   group_by(tt) %>%
-  summarise(mm = mean(CL), vv=var(CL), nn=n())
+  dplyr::summarise(mm = mean(CL), vv=var(CL), nn=n())
 
 #bis hier alle modernen taxa zusammengefasst (summarised and MFN_testudinidae)
 
@@ -2073,10 +2196,10 @@ GenusMeanAll <- PleiPlioCL%>%
 #  filter(EpochBins != "Aquitanian") %>%
   filter(!is.na(CL)) %>%
   group_by(MeanBins, Genus) %>%
-  summarise(meanCL = mean(CL), n=n()) %>%
+  dplyr::summarise(meanCL = mean(CL), n=n()) %>%
 #  ungroup() %>%
 #  group_by(EpochBins) %>%
-  summarise(mm = mean(meanCL), nn=n(), vv=var(meanCL)) %>%
+  dplyr::summarise(mm = mean(meanCL), nn=n(), vv=var(meanCL)) %>%
  # merge(BINS) %>%
   select(mm, nn, vv, tt=MeanBins)
   
@@ -2131,10 +2254,10 @@ GenusMeanAll <- PleiPlioCL%>%
 #  filter(EpochBins != "Aquitanian") %>%
   filter(!is.na(CL)) %>%
   group_by(MeanBins, Genus) %>%
-  summarise(meanCL = mean(CL), n=n()) %>%
+  dplyr::summarise(meanCL = mean(CL), n=n()) %>%
 #  ungroup() %>%
 #  group_by(EpochBins) %>%
-  summarise(mm = mean(meanCL), nn=n(), vv=var(meanCL)) %>%
+  dplyr::summarise(mm = mean(meanCL), nn=n(), vv=var(meanCL)) %>%
  # merge(BINS) %>%
   select(mm, nn, vv, tt=MeanBins)
   
@@ -2190,10 +2313,10 @@ GenusMeanAll <- PleiPlioCL%>%
 #  filter(EpochBins != "Aquitanian") %>%
   filter(!is.na(CL)) %>%
   group_by(MeanBins, Genus) %>%
-  summarise(meanCL = mean(CL), n=n()) %>%
+  dplyr::summarise(meanCL = mean(CL), n=n()) %>%
 #  ungroup() %>%
 #  group_by(EpochBins) %>%
-  summarise(mm = mean(meanCL), nn=n(), vv=var(meanCL)) %>%
+  dplyr::summarise(mm = mean(meanCL), nn=n(), vv=var(meanCL)) %>%
  # merge(BINS) %>%
   select(mm, nn, vv, tt=MeanBins)
   
@@ -2248,10 +2371,10 @@ GenusMeanAll <- PleiPlioCL %>%
 #  filter(EpochBins != "Aquitanian") %>%
   filter(!is.na(CL)) %>%
   group_by(MeanBins, Genus) %>%
-  summarise(meanCL = mean(CL), n=n()) %>%
+  dplyr::summarise(meanCL = mean(CL), n=n()) %>%
 #  ungroup() %>%
 #  group_by(EpochBins) %>%
-  summarise(mm = mean(meanCL), nn=n(), vv=var(meanCL)) %>%
+  dplyr::summarise(mm = mean(meanCL), nn=n(), vv=var(meanCL)) %>%
  # merge(BINS) %>%
   select(mm, nn, vv, tt=MeanBins)
   
@@ -2293,7 +2416,7 @@ modernMeanGenusAll <- SumTortAll %>%
   select(CL, n, tt) %>%
   filter( !is.na(CL)) %>%
   group_by(tt) %>%
-  summarise(mm = mean(CL), vv=var(CL), nn=n())
+  dplyr::summarise(mm = mean(CL), vv=var(CL), nn=n())
 
 #bis hier alle modernen taxa zusammengefasst (summarised and MFN_testudinidae)
 
@@ -2349,10 +2472,10 @@ GenusMeanAll <- PleiPlioCL %>%
  # filter(EpochBins != "Aquitanian") %>%
   filter(!is.na(CL)) %>%
   group_by(MeanBins, Genus) %>%
-  summarise(meanCL = mean(CL), n=n()) %>%
+  dplyr::summarise(meanCL = mean(CL), n=n()) %>%
 #  ungroup() %>%
 #  group_by(EpochBins) %>%
-  summarise(mm = mean(meanCL), nn=n(), vv=var(meanCL)) %>%
+  dplyr::summarise(mm = mean(meanCL), nn=n(), vv=var(meanCL)) %>%
  # merge(BINS) %>%
   select(mm, nn, vv, tt=MeanBins)
   
@@ -2394,7 +2517,7 @@ modernMeanGenusAll <- SumTortAll %>%
   select(CL, n, tt) %>%
   filter( !is.na(CL)) %>%
   group_by(tt) %>%
-  summarise(mm = mean(CL), vv=var(CL), nn=n())
+  dplyr::summarise(mm = mean(CL), vv=var(CL), nn=n())
 
 #bis hier alle modernen taxa zusammengefasst (summarised and MFN_testudinidae)
 
@@ -2447,10 +2570,10 @@ GenusMeanAll <- PleiPlioCL %>%
  # filter(EpochBins != "Aquitanian") %>%
   filter(!is.na(CL)) %>%
   group_by(MeanBins, Genus) %>%
-  summarise(meanCL = mean(CL), n=n()) %>%
+  dplyr::summarise(meanCL = mean(CL), n=n()) %>%
 #  ungroup() %>%
 #  group_by(EpochBins) %>%
-  summarise(mm = mean(meanCL), nn=n(), vv=var(meanCL)) %>%
+  dplyr::summarise(mm = mean(meanCL), nn=n(), vv=var(meanCL)) %>%
  # merge(BINS) %>%
   select(mm, nn, vv, tt=MeanBins)
   
@@ -2492,7 +2615,7 @@ modernMeanGenusAll <- SumTortAll %>%
   select(CL, n, tt) %>%
   filter( !is.na(CL)) %>%
   group_by(tt) %>%
-  summarise(mm = mean(CL), vv=var(CL), nn=n())
+  dplyr::summarise(mm = mean(CL), vv=var(CL), nn=n())
 
 #bis hier alle modernen taxa zusammengefasst (summarised and MFN_testudinidae)
 
@@ -2717,18 +2840,18 @@ unique(tidyCL$Genus[which(tidyCL$Continent == "Europe" | tidyCL$Continent == "As
 ConOverview <- tidyCL %>%
   filter(Continent == "Europe") %>%
   group_by(Continent, Genus) %>%
-  summarise(n=n())
+  dplyr::summarise(n=n())
 
 ContinentOverview <- tidyCL %>%
   dplyr::select(Con, Genus) %>%
   group_by(Con, Genus) %>%
-  summarise(n=n()) %>%
+  dplyr::summarise(n=n()) %>%
   tidyr::spread(Con, n, fill="-")
 
 NSAmerica <- tidyCL %>%
   dplyr::select(Continent, Genus) %>%
   group_by(Continent, Genus) %>%
-  summarise(n=n()) %>%
+  dplyr::summarise(n=n()) %>%
   tidyr::spread(Continent, n, fill="-")
 
 
@@ -2736,7 +2859,7 @@ EurasiaOver <- tidyCL %>%
  # dplyr::select(Continent, Genus) %>%
   filter(Continent == "Europe" | Continent == "Asia") %>%
   group_by(Genus) %>%
-  summarise(n=n())
+  dplyr::summarise(n=n())
 
 
 SamplingOverview <- left_join(ContinentOverview, NSAmerica, Eurasia, by="Genus") %>%
