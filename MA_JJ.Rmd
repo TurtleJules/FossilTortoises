@@ -273,6 +273,11 @@ FossOcc <- FossilOccurrences %>%
   mutate(count= n(), Longitude=as.numeric(as.character(Longitude)))
 
 
+Occurrences <- FossilOccurrences %>%
+  mutate(Age= (as.numeric(as.character(MA.min)) + as.numeric(as.character(Ma.max)))/2) %>%
+  select(Locality, Country, Latitude, Longitude, Age, Genus, Taxon, Author, comment, Clavailability)
+
+kable(Occurrences)
 #na <- FossOcc[!complete.cases(FossOcc),]
 
 # OccMap <-  merge(Map, FossOcc, by="Locality", incomparables=TRUE) %>%

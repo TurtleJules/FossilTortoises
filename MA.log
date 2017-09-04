@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6350 64-bit) (preloaded format=pdflatex 2017.7.2)  4 SEP 2017 01:38
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6350 64-bit) (preloaded format=pdflatex 2017.7.2)  4 SEP 2017 17:44
 entering extended mode
 **./MA.tex
 (MA.tex
@@ -1308,7 +1308,7 @@ LaTeX Info: Redefining \nameref on input line 54.
 \@outlinefile=\write4
 \openout4 = `MA.out'.
 
- <pics/hulogo.pdf, id=101, 661.47125pt x 132.495pt>
+ <pics/hulogo.pdf, id=121, 661.47125pt x 132.495pt>
 File: pics/hulogo.pdf Graphic file (type pdf)
 
 <use pics/hulogo.pdf>
@@ -1330,49 +1330,49 @@ LaTeX Font Info:    Font shape `T1/phv/bx/n' in size <10.95> not available
 LaTeX Font Info:    Font shape `T1/phv/bx/n' in size <14.4> not available
 (Font)              Font shape `T1/phv/b/n' tried instead on input line 77.
  (MA.toc
-LaTeX Font Info:    Try loading font information for OT1+lmr on input line 5.
+LaTeX Font Info:    Try loading font information for OT1+lmr on input line 6.
  ("C:\Program Files\MiKTeX 2.9\tex\latex\lm\ot1lmr.fd"
 File: ot1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
-LaTeX Font Info:    Try loading font information for OML+lmm on input line 5.
+LaTeX Font Info:    Try loading font information for OML+lmm on input line 6.
  ("C:\Program Files\MiKTeX 2.9\tex\latex\lm\omllmm.fd"
 File: omllmm.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
-LaTeX Font Info:    Try loading font information for OMS+lmsy on input line 5.
+LaTeX Font Info:    Try loading font information for OMS+lmsy on input line 6.
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\lm\omslmsy.fd"
 File: omslmsy.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
-LaTeX Font Info:    Try loading font information for OMX+lmex on input line 5.
+LaTeX Font Info:    Try loading font information for OMX+lmex on input line 6.
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\lm\omxlmex.fd"
 File: omxlmex.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <10.95> on input line 5.
+(Font)              <10.95> on input line 6.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <8> on input line 5.
+(Font)              <8> on input line 6.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <6> on input line 5.
-LaTeX Font Info:    Try loading font information for U+msa on input line 5.
+(Font)              <6> on input line 6.
+LaTeX Font Info:    Try loading font information for U+msa on input line 6.
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\amsfonts\umsa.fd"
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 5.
+LaTeX Font Info:    Try loading font information for U+msb on input line 6.
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\amsfonts\umsb.fd"
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
-))
+) [2])
 \tf@toc=\write5
 \openout5 = `MA.toc'.
 
- [2] (MA.lof)
+ [3] (MA.lof)
 \tf@lof=\write6
 \openout6 = `MA.lof'.
 
 
-[3] (MA.lot
+[4] (MA.lot
 Overfull \hbox (8.4883pt too wide) in paragraph at lines 25--25
  \T1/phv/m/n/10.95 ------------------------------------------------------------
 ------------------------------------------------ 
@@ -1382,46 +1382,46 @@ Overfull \hbox (8.4883pt too wide) in paragraph at lines 25--25
 \tf@lot=\write7
 \openout7 = `MA.lot'.
 
- [4] (Intro.tex) [5] (MM.tex
+ [5] (Intro.tex [6]) [7] (MM.tex
 LaTeX Font Info:    Font shape `T1/phv/bx/n' in size <12> not available
 (Font)              Font shape `T1/phv/b/n' tried instead on input line 3.
 
 
-LaTeX Warning: Reference `TabS2' on page 6 undefined on input line 5.
+LaTeX Warning: Reference `TabS2' on page 8 undefined on input line 5.
 
 Package hyperref Info: bookmark level for unknown todo defaults to 0 on input l
 ine 5.
 
-<MA_JJ_files/figure-latex/MapFossilOccurrences-1.pdf, id=251, 469.755pt x 325.2
+<MA_JJ_files/figure-latex/MapFossilOccurrences-1.pdf, id=285, 469.755pt x 325.2
 15pt>
 File: MA_JJ_files/figure-latex/MapFossilOccurrences-1.pdf Graphic file (type pd
 f)
  <use MA_JJ_files/figure-latex/MapFossilOccurrences-1.pdf>
 Package pdftex.def Info: MA_JJ_files/figure-latex/MapFossilOccurrences-1.pdf us
-ed on input line 11.
+ed on input line 12.
 (pdftex.def)             Requested size: 364.19667pt x 252.1333pt.
- [6 <./MA_JJ_files/figure-latex/MapFossilOccurrences-1.pdf>] [7] [8]
-<MA_JJ_files/figure-latex/overviewData-1.pdf, id=342, 469.755pt x 325.215pt>
+ [8 <./MA_JJ_files/figure-latex/MapFossilOccurrences-1.pdf>] [9] [10]
+<MA_JJ_files/figure-latex/overviewData-1.pdf, id=375, 469.755pt x 325.215pt>
 File: MA_JJ_files/figure-latex/overviewData-1.pdf Graphic file (type pdf)
 
 <use MA_JJ_files/figure-latex/overviewData-1.pdf>
 Package pdftex.def Info: MA_JJ_files/figure-latex/overviewData-1.pdf used on in
-put line 84.
+put line 85.
 (pdftex.def)             Requested size: 455.24411pt x 315.17035pt.
- [9] [10 <./MA_JJ_files/figure-latex/overviewData-1.pdf>] [11
+ [11] [12 <./MA_JJ_files/figure-latex/overviewData-1.pdf>] [13
 
 ]) (Results.tex
-<MA_JJ_files/figure-latex/SACGenera-1.pdf, id=365, 469.755pt x 325.215pt>
+<MA_JJ_files/figure-latex/SACGenera-1.pdf, id=399, 469.755pt x 325.215pt>
 File: MA_JJ_files/figure-latex/SACGenera-1.pdf Graphic file (type pdf)
 
 <use MA_JJ_files/figure-latex/SACGenera-1.pdf>
 Package pdftex.def Info: MA_JJ_files/figure-latex/SACGenera-1.pdf used on input
  line 24.
 (pdftex.def)             Requested size: 364.19667pt x 252.1333pt.
- [12
+ [14
 
  <./MA_JJ_files/figure-latex/SACGenera-1.pdf>]
-<MA_JJ_files/figure-latex/HistAll-1.pdf, id=380, 469.755pt x 325.215pt>
+<MA_JJ_files/figure-latex/HistAll-1.pdf, id=412, 469.755pt x 325.215pt>
 File: MA_JJ_files/figure-latex/HistAll-1.pdf Graphic file (type pdf)
 
 <use MA_JJ_files/figure-latex/HistAll-1.pdf>
@@ -1429,7 +1429,7 @@ Package pdftex.def Info: MA_JJ_files/figure-latex/HistAll-1.pdf used on input l
 ine 46.
 (pdftex.def)             Requested size: 364.19667pt x 252.1333pt.
 
-<MA_JJ_files/figure-latex/HistFosMo-1.pdf, id=384, 469.755pt x 325.215pt>
+<MA_JJ_files/figure-latex/HistFosMo-1.pdf, id=416, 469.755pt x 325.215pt>
 File: MA_JJ_files/figure-latex/HistFosMo-1.pdf Graphic file (type pdf)
 
 <use MA_JJ_files/figure-latex/HistFosMo-1.pdf>
@@ -1437,15 +1437,15 @@ Package pdftex.def Info: MA_JJ_files/figure-latex/HistFosMo-1.pdf used on input
  line 55.
 (pdftex.def)             Requested size: 211.3878pt x 146.3454pt.
 
-<MA_JJ_files/figure-latex/HistCI-1.pdf, id=385, 469.755pt x 325.215pt>
+<MA_JJ_files/figure-latex/HistCI-1.pdf, id=417, 469.755pt x 325.215pt>
 File: MA_JJ_files/figure-latex/HistCI-1.pdf Graphic file (type pdf)
 
 <use MA_JJ_files/figure-latex/HistCI-1.pdf>
 Package pdftex.def Info: MA_JJ_files/figure-latex/HistCI-1.pdf used on input li
 ne 56.
 (pdftex.def)             Requested size: 211.3878pt x 146.3454pt.
- [13 <./MA_JJ_files/figure-latex/HistAll-1.pdf>]
-<MA_JJ_files/figure-latex/BPGBins-1.pdf, id=402, 469.755pt x 325.215pt>
+ [15 <./MA_JJ_files/figure-latex/HistAll-1.pdf>]
+<MA_JJ_files/figure-latex/BPGBins-1.pdf, id=433, 469.755pt x 325.215pt>
 File: MA_JJ_files/figure-latex/BPGBins-1.pdf Graphic file (type pdf)
 
 <use MA_JJ_files/figure-latex/BPGBins-1.pdf>
@@ -1457,7 +1457,7 @@ Overfull \hbox (14.50975pt too wide) in paragraph at lines 86--88
  [][] 
  []
 
-<MA_JJ_files/figure-latex/BPMF-1.pdf, id=403, 469.755pt x 325.215pt>
+<MA_JJ_files/figure-latex/BPMF-1.pdf, id=434, 469.755pt x 325.215pt>
 File: MA_JJ_files/figure-latex/BPMF-1.pdf Graphic file (type pdf)
 
 <use MA_JJ_files/figure-latex/BPMF-1.pdf>
@@ -1465,7 +1465,7 @@ Package pdftex.def Info: MA_JJ_files/figure-latex/BPMF-1.pdf used on input line
  112.
 (pdftex.def)             Requested size: 211.3878pt x 146.3454pt.
 
-<MA_JJ_files/figure-latex/BPCI-1.pdf, id=404, 469.755pt x 325.215pt>
+<MA_JJ_files/figure-latex/BPCI-1.pdf, id=435, 469.755pt x 325.215pt>
 File: MA_JJ_files/figure-latex/BPCI-1.pdf Graphic file (type pdf)
 
 <use MA_JJ_files/figure-latex/BPCI-1.pdf>
@@ -1473,17 +1473,17 @@ Package pdftex.def Info: MA_JJ_files/figure-latex/BPCI-1.pdf used on input line
  113.
 (pdftex.def)             Requested size: 211.3878pt x 146.3454pt.
 
-<MA_JJ_files/figure-latex/BPCon-1.pdf, id=410, 469.755pt x 325.215pt>
+<MA_JJ_files/figure-latex/BPCon-1.pdf, id=441, 469.755pt x 325.215pt>
 File: MA_JJ_files/figure-latex/BPCon-1.pdf Graphic file (type pdf)
 
 <use MA_JJ_files/figure-latex/BPCon-1.pdf>
 Package pdftex.def Info: MA_JJ_files/figure-latex/BPCon-1.pdf used on input lin
 e 129.
 (pdftex.def)             Requested size: 341.43307pt x 236.37776pt.
- [14 <./MA_JJ_files/figure-latex/HistFosMo-1.pdf> <./MA_JJ_files/figure-latex/H
-istCI-1.pdf>] [15 <./MA_JJ_files/figure-latex/BPGBins-1.pdf> <./MA_JJ_files/fig
+ [16 <./MA_JJ_files/figure-latex/HistFosMo-1.pdf> <./MA_JJ_files/figure-latex/H
+istCI-1.pdf>] [17 <./MA_JJ_files/figure-latex/BPGBins-1.pdf> <./MA_JJ_files/fig
 ure-latex/BPMF-1.pdf> <./MA_JJ_files/figure-latex/BPCI-1.pdf>]
-<MA_JJ_files/figure-latex/paleoTSAll-1.pdf, id=462, 469.755pt x 325.215pt>
+<MA_JJ_files/figure-latex/paleoTSAll-1.pdf, id=493, 469.755pt x 325.215pt>
 File: MA_JJ_files/figure-latex/paleoTSAll-1.pdf Graphic file (type pdf)
 
 <use MA_JJ_files/figure-latex/paleoTSAll-1.pdf>
@@ -1495,8 +1495,8 @@ Overfull \hbox (14.50975pt too wide) in paragraph at lines 151--152
  [][] 
  []
 
-[16 <./MA_JJ_files/figure-latex/BPCon-1.pdf>]
-<MA_JJ_files/figure-latex/paleoTSC-1.pdf, id=474, 469.755pt x 325.215pt>
+[18 <./MA_JJ_files/figure-latex/BPCon-1.pdf>]
+<MA_JJ_files/figure-latex/paleoTSC-1.pdf, id=503, 469.755pt x 325.215pt>
 File: MA_JJ_files/figure-latex/paleoTSC-1.pdf Graphic file (type pdf)
 
 <use MA_JJ_files/figure-latex/paleoTSC-1.pdf>
@@ -1508,8 +1508,8 @@ Overfull \hbox (14.50975pt too wide) in paragraph at lines 183--184
  [] 
  []
 
-[17 <./MA_JJ_files/figure-latex/paleoTSAll-1.pdf>]
-<MA_JJ_files/figure-latex/paleoTSI-1.pdf, id=486, 469.755pt x 325.215pt>
+[19 <./MA_JJ_files/figure-latex/paleoTSAll-1.pdf>]
+<MA_JJ_files/figure-latex/paleoTSI-1.pdf, id=515, 469.755pt x 325.215pt>
 File: MA_JJ_files/figure-latex/paleoTSI-1.pdf Graphic file (type pdf)
 
 <use MA_JJ_files/figure-latex/paleoTSI-1.pdf>
@@ -1521,8 +1521,8 @@ Overfull \hbox (14.50975pt too wide) in paragraph at lines 218--219
  [] 
  []
 
-[18 <./MA_JJ_files/figure-latex/paleoTSC-1.pdf>]
-<MA_JJ_files/figure-latex/paleoTSEurope-1.pdf, id=504, 469.755pt x 325.215pt>
+[20 <./MA_JJ_files/figure-latex/paleoTSC-1.pdf>]
+<MA_JJ_files/figure-latex/paleoTSEurope-1.pdf, id=532, 469.755pt x 325.215pt>
 File: MA_JJ_files/figure-latex/paleoTSEurope-1.pdf Graphic file (type pdf)
 
 <use MA_JJ_files/figure-latex/paleoTSEurope-1.pdf>
@@ -1534,8 +1534,8 @@ Overfull \hbox (14.50975pt too wide) in paragraph at lines 252--253
  [][] 
  []
 
-[19 <./MA_JJ_files/figure-latex/paleoTSI-1.pdf>]
-<MA_JJ_files/figure-latex/paleoTSEurasia-1.pdf, id=524, 469.755pt x 325.215pt>
+[21 <./MA_JJ_files/figure-latex/paleoTSI-1.pdf>]
+<MA_JJ_files/figure-latex/paleoTSEurasia-1.pdf, id=550, 469.755pt x 325.215pt>
 File: MA_JJ_files/figure-latex/paleoTSEurasia-1.pdf Graphic file (type pdf)
 
 <use MA_JJ_files/figure-latex/paleoTSEurasia-1.pdf>
@@ -1547,15 +1547,15 @@ Overfull \hbox (14.50975pt too wide) in paragraph at lines 289--290
  [][] 
  []
 
-[20 <./MA_JJ_files/figure-latex/paleoTSEurope-1.pdf>]) [21 <./MA_JJ_files/figur
-e-latex/paleoTSEurasia-1.pdf>] (Discussion.tex)
-Overfull \hbox (46.74345pt too wide) in paragraph at lines 35--90
+[22 <./MA_JJ_files/figure-latex/paleoTSEurope-1.pdf>]) [23 <./MA_JJ_files/figur
+e-latex/paleoTSEurasia-1.pdf>] (Discussion.tex
+Overfull \hbox (46.74345pt too wide) in paragraph at lines 35--38
 []\T1/phv/m/n/10.95 - I guess: cli-mate af-fects body size re-duc-tion, but ex-
 tinc-tions were human-driven --> Aldabra/Galapagos
  []
 
-[22] (MA.bbl [23]) [24] (Map.tex
-<MA_JJ_files/figure-latex/MapCL-1.pdf, id=565, 469.755pt x 325.215pt>
+) [24] (MA.bbl [25]) [26] (Map.tex
+<MA_JJ_files/figure-latex/MapCL-1.pdf, id=587, 469.755pt x 325.215pt>
 File: MA_JJ_files/figure-latex/MapCL-1.pdf Graphic file (type pdf)
 
 <use MA_JJ_files/figure-latex/MapCL-1.pdf>
@@ -1563,7 +1563,7 @@ Package pdftex.def Info: MA_JJ_files/figure-latex/MapCL-1.pdf used on input lin
 e 14.
 (pdftex.def)             Requested size: 455.24411pt x 315.17035pt.
 ) (SAC.tex
-<MA_JJ_files/figure-latex/SACSpecies-1.pdf, id=566, 469.755pt x 325.215pt>
+<MA_JJ_files/figure-latex/SACSpecies-1.pdf, id=588, 469.755pt x 325.215pt>
 File: MA_JJ_files/figure-latex/SACSpecies-1.pdf Graphic file (type pdf)
 
 <use MA_JJ_files/figure-latex/SACSpecies-1.pdf>
@@ -1571,7 +1571,7 @@ Package pdftex.def Info: MA_JJ_files/figure-latex/SACSpecies-1.pdf used on inpu
 t line 6.
 (pdftex.def)             Requested size: 140.92758pt x 97.56525pt.
 
-<MA_JJ_files/figure-latex/SACSpecies-2.pdf, id=567, 469.755pt x 325.215pt>
+<MA_JJ_files/figure-latex/SACSpecies-2.pdf, id=589, 469.755pt x 325.215pt>
 File: MA_JJ_files/figure-latex/SACSpecies-2.pdf Graphic file (type pdf)
 
 <use MA_JJ_files/figure-latex/SACSpecies-2.pdf>
@@ -1579,7 +1579,7 @@ Package pdftex.def Info: MA_JJ_files/figure-latex/SACSpecies-2.pdf used on inpu
 t line 7.
 (pdftex.def)             Requested size: 140.92758pt x 97.56525pt.
 
-<MA_JJ_files/figure-latex/SACGAfrica-1.pdf, id=568, 469.755pt x 325.215pt>
+<MA_JJ_files/figure-latex/SACGAfrica-1.pdf, id=590, 469.755pt x 325.215pt>
 File: MA_JJ_files/figure-latex/SACGAfrica-1.pdf Graphic file (type pdf)
 
 <use MA_JJ_files/figure-latex/SACGAfrica-1.pdf>
@@ -1587,7 +1587,7 @@ Package pdftex.def Info: MA_JJ_files/figure-latex/SACGAfrica-1.pdf used on inpu
 t line 7.
 (pdftex.def)             Requested size: 140.92758pt x 97.56525pt.
 
-<MA_JJ_files/figure-latex/SACGAmerica-1.pdf, id=569, 469.755pt x 325.215pt>
+<MA_JJ_files/figure-latex/SACGAmerica-1.pdf, id=591, 469.755pt x 325.215pt>
 File: MA_JJ_files/figure-latex/SACGAmerica-1.pdf Graphic file (type pdf)
 
 <use MA_JJ_files/figure-latex/SACGAmerica-1.pdf>
@@ -1595,7 +1595,7 @@ Package pdftex.def Info: MA_JJ_files/figure-latex/SACGAmerica-1.pdf used on inp
 ut line 9.
 (pdftex.def)             Requested size: 140.92758pt x 97.56525pt.
 
-<MA_JJ_files/figure-latex/SACGNAmerica-1.pdf, id=570, 469.755pt x 325.215pt>
+<MA_JJ_files/figure-latex/SACGNAmerica-1.pdf, id=592, 469.755pt x 325.215pt>
 File: MA_JJ_files/figure-latex/SACGNAmerica-1.pdf Graphic file (type pdf)
 
 <use MA_JJ_files/figure-latex/SACGNAmerica-1.pdf>
@@ -1603,7 +1603,7 @@ Package pdftex.def Info: MA_JJ_files/figure-latex/SACGNAmerica-1.pdf used on in
 put line 10.
 (pdftex.def)             Requested size: 140.92758pt x 97.56525pt.
 
-<MA_JJ_files/figure-latex/SACGSAmerica-1.pdf, id=571, 469.755pt x 325.215pt>
+<MA_JJ_files/figure-latex/SACGSAmerica-1.pdf, id=593, 469.755pt x 325.215pt>
 File: MA_JJ_files/figure-latex/SACGSAmerica-1.pdf Graphic file (type pdf)
 
 <use MA_JJ_files/figure-latex/SACGSAmerica-1.pdf>
@@ -1611,7 +1611,7 @@ Package pdftex.def Info: MA_JJ_files/figure-latex/SACGSAmerica-1.pdf used on in
 put line 11.
 (pdftex.def)             Requested size: 140.92758pt x 97.56525pt.
 
-<MA_JJ_files/figure-latex/SACGAsia-1.pdf, id=572, 469.755pt x 325.215pt>
+<MA_JJ_files/figure-latex/SACGAsia-1.pdf, id=594, 469.755pt x 325.215pt>
 File: MA_JJ_files/figure-latex/SACGAsia-1.pdf Graphic file (type pdf)
 
 <use MA_JJ_files/figure-latex/SACGAsia-1.pdf>
@@ -1619,7 +1619,7 @@ Package pdftex.def Info: MA_JJ_files/figure-latex/SACGAsia-1.pdf used on input
 line 13.
 (pdftex.def)             Requested size: 140.92758pt x 97.56525pt.
 
-<MA_JJ_files/figure-latex/SACGEurope-1.pdf, id=573, 469.755pt x 325.215pt>
+<MA_JJ_files/figure-latex/SACGEurope-1.pdf, id=595, 469.755pt x 325.215pt>
 File: MA_JJ_files/figure-latex/SACGEurope-1.pdf Graphic file (type pdf)
 
 <use MA_JJ_files/figure-latex/SACGEurope-1.pdf>
@@ -1627,21 +1627,21 @@ Package pdftex.def Info: MA_JJ_files/figure-latex/SACGEurope-1.pdf used on inpu
 t line 14.
 (pdftex.def)             Requested size: 140.92758pt x 97.56525pt.
 
-<MA_JJ_files/figure-latex/SACGEurasia-1.pdf, id=574, 469.755pt x 325.215pt>
+<MA_JJ_files/figure-latex/SACGEurasia-1.pdf, id=596, 469.755pt x 325.215pt>
 File: MA_JJ_files/figure-latex/SACGEurasia-1.pdf Graphic file (type pdf)
 
 <use MA_JJ_files/figure-latex/SACGEurasia-1.pdf>
 Package pdftex.def Info: MA_JJ_files/figure-latex/SACGEurasia-1.pdf used on inp
 ut line 15.
 (pdftex.def)             Requested size: 140.92758pt x 97.56525pt.
- [25 <./MA_JJ_files/figure-latex/MapCL-1.pdf>]) [26 <./MA_JJ_files/figure-latex
+ [27 <./MA_JJ_files/figure-latex/MapCL-1.pdf>]) [28 <./MA_JJ_files/figure-latex
 /SACSpecies-1.pdf> <./MA_JJ_files/figure-latex/SACSpecies-2.pdf> <./MA_JJ_files
 /figure-latex/SACGAfrica-1.pdf> <./MA_JJ_files/figure-latex/SACGAmerica-1.pdf> 
 <./MA_JJ_files/figure-latex/SACGNAmerica-1.pdf> <./MA_JJ_files/figure-latex/SAC
 GSAmerica-1.pdf> <./MA_JJ_files/figure-latex/SACGAsia-1.pdf> <./MA_JJ_files/fig
 ure-latex/SACGEurope-1.pdf> <./MA_JJ_files/figure-latex/SACGEurasia-1.pdf>] (Hi
 st.tex
-<MA_JJ_files/figure-latex/normalDistribution-1.pdf, id=644, 469.755pt x 325.215
+<MA_JJ_files/figure-latex/normalDistribution-1.pdf, id=665, 469.755pt x 325.215
 pt>
 File: MA_JJ_files/figure-latex/normalDistribution-1.pdf Graphic file (type pdf)
 
@@ -1650,7 +1650,7 @@ Package pdftex.def Info: MA_JJ_files/figure-latex/normalDistribution-1.pdf used
  on input line 6.
 (pdftex.def)             Requested size: 211.3878pt x 146.3454pt.
 
-<MA_JJ_files/figure-latex/normalDistribution-2.pdf, id=645, 469.755pt x 325.215
+<MA_JJ_files/figure-latex/normalDistribution-2.pdf, id=666, 469.755pt x 325.215
 pt>
 File: MA_JJ_files/figure-latex/normalDistribution-2.pdf Graphic file (type pdf)
 
@@ -1659,7 +1659,7 @@ Package pdftex.def Info: MA_JJ_files/figure-latex/normalDistribution-2.pdf used
  on input line 7.
 (pdftex.def)             Requested size: 211.3878pt x 146.3454pt.
 
-<MA_JJ_files/figure-latex/HistFMCI-1.pdf, id=646, 469.755pt x 325.215pt>
+<MA_JJ_files/figure-latex/HistFMCI-1.pdf, id=667, 469.755pt x 325.215pt>
 File: MA_JJ_files/figure-latex/HistFMCI-1.pdf Graphic file (type pdf)
 
 <use MA_JJ_files/figure-latex/HistFMCI-1.pdf>
@@ -1667,17 +1667,17 @@ Package pdftex.def Info: MA_JJ_files/figure-latex/HistFMCI-1.pdf used on input
 line 16.
 (pdftex.def)             Requested size: 211.3878pt x 146.3454pt.
 
-<MA_JJ_files/figure-latex/HistCon-1.pdf, id=647, 469.755pt x 325.215pt>
+<MA_JJ_files/figure-latex/HistCon-1.pdf, id=668, 469.755pt x 325.215pt>
 File: MA_JJ_files/figure-latex/HistCon-1.pdf Graphic file (type pdf)
 
 <use MA_JJ_files/figure-latex/HistCon-1.pdf>
 Package pdftex.def Info: MA_JJ_files/figure-latex/HistCon-1.pdf used on input l
 ine 17.
 (pdftex.def)             Requested size: 211.3878pt x 146.3454pt.
-) [27 <./MA_JJ_files/figure-latex/normalDistribution-1.pdf> <./MA_JJ_files/figu
+) [29 <./MA_JJ_files/figure-latex/normalDistribution-1.pdf> <./MA_JJ_files/figu
 re-latex/normalDistribution-2.pdf> <./MA_JJ_files/figure-latex/HistFMCI-1.pdf> 
 <./MA_JJ_files/figure-latex/HistCon-1.pdf>] (Box.tex
-<MA_JJ_files/figure-latex/BPFMCI-1.pdf, id=684, 469.755pt x 325.215pt>
+<MA_JJ_files/figure-latex/BPFMCI-1.pdf, id=705, 469.755pt x 325.215pt>
 File: MA_JJ_files/figure-latex/BPFMCI-1.pdf Graphic file (type pdf)
 
 <use MA_JJ_files/figure-latex/BPFMCI-1.pdf>
@@ -1689,7 +1689,7 @@ Overfull \hbox (14.50975pt too wide) in paragraph at lines 6--7
  [][] 
  []
 
-) (RS.tex <MA_JJ_files/figure-latex/RSFM-1.pdf, id=685, 469.755pt x 325.215pt>
+) (RS.tex <MA_JJ_files/figure-latex/RSFM-1.pdf, id=706, 469.755pt x 325.215pt>
 File: MA_JJ_files/figure-latex/RSFM-1.pdf Graphic file (type pdf)
 
 <use MA_JJ_files/figure-latex/RSFM-1.pdf>
@@ -1697,7 +1697,7 @@ Package pdftex.def Info: MA_JJ_files/figure-latex/RSFM-1.pdf used on input line
  6.
 (pdftex.def)             Requested size: 211.3878pt x 146.3454pt.
 
-<MA_JJ_files/figure-latex/RSMFCI-1.pdf, id=686, 469.755pt x 325.215pt>
+<MA_JJ_files/figure-latex/RSMFCI-1.pdf, id=707, 469.755pt x 325.215pt>
 File: MA_JJ_files/figure-latex/RSMFCI-1.pdf Graphic file (type pdf)
 
 <use MA_JJ_files/figure-latex/RSMFCI-1.pdf>
@@ -1705,7 +1705,7 @@ Package pdftex.def Info: MA_JJ_files/figure-latex/RSMFCI-1.pdf used on input li
 ne 7.
 (pdftex.def)             Requested size: 211.3878pt x 146.3454pt.
 
-<MA_JJ_files/figure-latex/RSMFCI-2.pdf, id=687, 469.755pt x 325.215pt>
+<MA_JJ_files/figure-latex/RSMFCI-2.pdf, id=708, 469.755pt x 325.215pt>
 File: MA_JJ_files/figure-latex/RSMFCI-2.pdf Graphic file (type pdf)
 
 <use MA_JJ_files/figure-latex/RSMFCI-2.pdf>
@@ -1713,15 +1713,15 @@ Package pdftex.def Info: MA_JJ_files/figure-latex/RSMFCI-2.pdf used on input li
 ne 9.
 (pdftex.def)             Requested size: 211.3878pt x 146.3454pt.
 
-<MA_JJ_files/figure-latex/RSCI-1.pdf, id=688, 469.755pt x 325.215pt>
+<MA_JJ_files/figure-latex/RSCI-1.pdf, id=709, 469.755pt x 325.215pt>
 File: MA_JJ_files/figure-latex/RSCI-1.pdf Graphic file (type pdf)
 
 <use MA_JJ_files/figure-latex/RSCI-1.pdf>
 Package pdftex.def Info: MA_JJ_files/figure-latex/RSCI-1.pdf used on input line
  10.
 (pdftex.def)             Requested size: 211.3878pt x 146.3454pt.
- [28 <./MA_JJ_files/figure-latex/BPFMCI-1.pdf>]
-<MA_JJ_files/figure-latex/RSCon-1.pdf, id=701, 469.755pt x 325.215pt>
+ [30 <./MA_JJ_files/figure-latex/BPFMCI-1.pdf>]
+<MA_JJ_files/figure-latex/RSCon-1.pdf, id=722, 469.755pt x 325.215pt>
 File: MA_JJ_files/figure-latex/RSCon-1.pdf Graphic file (type pdf)
 
 <use MA_JJ_files/figure-latex/RSCon-1.pdf>
@@ -1729,7 +1729,7 @@ Package pdftex.def Info: MA_JJ_files/figure-latex/RSCon-1.pdf used on input lin
 e 20.
 (pdftex.def)             Requested size: 140.92758pt x 97.56525pt.
 
-<MA_JJ_files/figure-latex/RSCon-2.pdf, id=702, 469.755pt x 325.215pt>
+<MA_JJ_files/figure-latex/RSCon-2.pdf, id=723, 469.755pt x 325.215pt>
 File: MA_JJ_files/figure-latex/RSCon-2.pdf Graphic file (type pdf)
 
 <use MA_JJ_files/figure-latex/RSCon-2.pdf>
@@ -1737,14 +1737,14 @@ Package pdftex.def Info: MA_JJ_files/figure-latex/RSCon-2.pdf used on input lin
 e 21.
 (pdftex.def)             Requested size: 140.92758pt x 97.56525pt.
 
-<MA_JJ_files/figure-latex/RSCon-3.pdf, id=703, 469.755pt x 325.215pt>
+<MA_JJ_files/figure-latex/RSCon-3.pdf, id=724, 469.755pt x 325.215pt>
 File: MA_JJ_files/figure-latex/RSCon-3.pdf Graphic file (type pdf)
 
 <use MA_JJ_files/figure-latex/RSCon-3.pdf>
 Package pdftex.def Info: MA_JJ_files/figure-latex/RSCon-3.pdf used on input lin
 e 22.
 (pdftex.def)             Requested size: 140.92758pt x 97.56525pt.
-) (paleoTS.tex [29 <./MA_JJ_files/figure-latex/RSFM-1.pdf> <./MA_JJ_files/figur
+) (paleoTS.tex [31 <./MA_JJ_files/figure-latex/RSFM-1.pdf> <./MA_JJ_files/figur
 e-latex/RSMFCI-1.pdf> <./MA_JJ_files/figure-latex/RSMFCI-2.pdf> <./MA_JJ_files/
 figure-latex/RSCI-1.pdf> <./MA_JJ_files/figure-latex/RSCon-1.pdf> <./MA_JJ_file
 s/figure-latex/RSCon-2.pdf> <./MA_JJ_files/figure-latex/RSCon-3.pdf>]pdfTeX war
@@ -1758,7 +1758,7 @@ l.31 \end{longtable}
 <to be read again> 
                    \relax 
 l.66 \end{longtable}
-                     [30]pdfTeX warning (ext4): destination with the same ident
+                     [32]pdfTeX warning (ext4): destination with the same ident
 ifier (name{table.3}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
@@ -1768,13 +1768,13 @@ l.96 \end{longtable}
 <to be read again> 
                    \relax 
 l.128 \end{longtable}
-                      [31]pdfTeX warning (ext4): destination with the same iden
+                      [33]pdfTeX warning (ext4): destination with the same iden
 tifier (name{table.5}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
 l.163 \end{longtable}
                      
-<MA_JJ_files/figure-latex/pTSEuC-1.pdf, id=766, 469.755pt x 325.215pt>
+<MA_JJ_files/figure-latex/pTSEuC-1.pdf, id=787, 469.755pt x 325.215pt>
 File: MA_JJ_files/figure-latex/pTSEuC-1.pdf Graphic file (type pdf)
 
 <use MA_JJ_files/figure-latex/pTSEuC-1.pdf>
@@ -1786,13 +1786,13 @@ Overfull \hbox (14.50975pt too wide) in paragraph at lines 167--168
  [] 
  []
 
-[32]pdfTeX warning (ext4): destination with the same identifier (name{table.6})
+[34]pdfTeX warning (ext4): destination with the same identifier (name{table.6})
  has been already used, duplicate ignored
 <to be read again> 
                    \relax 
 l.188 \end{longtable}
-                      [33 <./MA_JJ_files/figure-latex/pTSEuC-1.pdf>]
-<MA_JJ_files/figure-latex/pTSEuI-1.pdf, id=781, 469.755pt x 325.215pt>
+                      [35 <./MA_JJ_files/figure-latex/pTSEuC-1.pdf>]
+<MA_JJ_files/figure-latex/pTSEuI-1.pdf, id=802, 469.755pt x 325.215pt>
 File: MA_JJ_files/figure-latex/pTSEuI-1.pdf Graphic file (type pdf)
 
 <use MA_JJ_files/figure-latex/pTSEuI-1.pdf>
@@ -1804,8 +1804,8 @@ Overfull \hbox (14.50975pt too wide) in paragraph at lines 223--224
  [] 
  []
 
-[34 <./MA_JJ_files/figure-latex/pTSEuI-1.pdf>] [35]
-<MA_JJ_files/figure-latex/pTSEsC-1.pdf, id=796, 469.755pt x 325.215pt>
+[36 <./MA_JJ_files/figure-latex/pTSEuI-1.pdf>] [37]
+<MA_JJ_files/figure-latex/pTSEsC-1.pdf, id=818, 469.755pt x 325.215pt>
 File: MA_JJ_files/figure-latex/pTSEsC-1.pdf Graphic file (type pdf)
 
 <use MA_JJ_files/figure-latex/pTSEsC-1.pdf>
@@ -1817,8 +1817,8 @@ Overfull \hbox (14.50975pt too wide) in paragraph at lines 314--315
  [] 
  []
 
-[36 <./MA_JJ_files/figure-latex/pTSEsC-1.pdf>] [37]
-<MA_JJ_files/figure-latex/pTSEsI-1.pdf, id=812, 469.755pt x 325.215pt>
+[38 <./MA_JJ_files/figure-latex/pTSEsC-1.pdf>] [39]
+<MA_JJ_files/figure-latex/pTSEsI-1.pdf, id=833, 469.755pt x 325.215pt>
 File: MA_JJ_files/figure-latex/pTSEsI-1.pdf Graphic file (type pdf)
 
 <use MA_JJ_files/figure-latex/pTSEsI-1.pdf>
@@ -1830,21 +1830,21 @@ Overfull \hbox (14.50975pt too wide) in paragraph at lines 372--373
  [][] 
  []
 
-) (Tables.tex (Stats.tex [38 <./MA_JJ_files/figure-latex/pTSEsI-1.pdf>]
-[39
+) (Tables.tex (Stats.tex [40 <./MA_JJ_files/figure-latex/pTSEsI-1.pdf>]
+[41
 
-] [40]) (GeneraBins.tex [41
+] [42]) (GeneraBins.tex [43
 
-] [42] [43]) (GeneraOverview.tex [44]) [45]
+] [44] [45]) (GeneraOverview.tex [46]) [47]
 \openout2 = `FossilTab.aux'.
 
 
-(FossilTab.tex [46
+(FossilTab.tex [48
 
 
-] [47] [48] [49] [50] [51] [52] [53] [54] [55] [56] [57]
-[58] [59] [60] [61] [62] [63] [64] [65] [66] [67] [68] [69] [70] [71] [72]
-[73] [74] [75] [76] [77] [78] [79] [80])
+] [49] [50] [51] [52] [53] [54] [55] [56] [57] [58] [59]
+[60] [61] [62] [63] [64] [65] [66] [67] [68] [69] [70] [71] [72] [73] [74]
+[75] [76] [77] [78] [79] [80] [81] [82])
 \openout2 = `ExtantTab.aux'.
 
  (ExtantTab.tex
@@ -1874,7 +1874,7 @@ Overfull \hbox (1065.90012pt too wide) in alignment at lines 149--222
  [] [] [] [] [] [] [] [] [] [] [] [] [] [] 
  []
 
-[81
+[83
 
 
 
@@ -1884,7 +1884,7 @@ Overfull \hbox (1065.90012pt too wide) in alignment at lines 222--308
  [] [] [] [] [] [] [] [] [] [] [] [] [] [] 
  []
 
-[82]
+[84]
 Overfull \hbox (1065.90012pt too wide) in alignment at lines 308--393
  [] [] [] [] [] [] [] [] [] [] [] [] [] [] 
  []
@@ -1894,17 +1894,17 @@ Overfull \hbox (1065.90012pt too wide) in alignment at lines 393--478
  [] [] [] [] [] [] [] [] [] [] [] [] [] [] 
  []
 
-[83]
+[85]
 Overfull \hbox (1065.90012pt too wide) in alignment at lines 478--557
  [] [] [] [] [] [] [] [] [] [] [] [] [] [] 
  []
 
-[84]
+[86]
 Overfull \hbox (1065.90012pt too wide) in alignment at lines 557--638
  [] [] [] [] [] [] [] [] [] [] [] [] [] [] 
  []
 
-[85]
+[87]
 Overfull \hbox (1065.90012pt too wide) in alignment at lines 638--716
  [] [] [] [] [] [] [] [] [] [] [] [] [] [] 
  []
@@ -1914,23 +1914,226 @@ Overfull \hbox (1065.90012pt too wide) in alignment at lines 716--809
  [] [] [] [] [] [] [] [] [] [] [] [] [] [] 
  []
 
-[86]
+[88]
 Overfull \hbox (1065.90012pt too wide) in alignment at lines 809--906
  [] [] [] [] [] [] [] [] [] [] [] [] [] [] 
  []
 
-[87]
+[89]
 Overfull \hbox (1065.90012pt too wide) in alignment at lines 906--1006
  [] [] [] [] [] [] [] [] [] [] [] [] [] [] 
  []
 
-[88]
+[90]
 Overfull \hbox (1065.90012pt too wide) in alignment at lines 1006--1007
  [] [] [] [] [] [] [] [] [] [] [] [] [] [] 
  []
 
-[89])) (Acknowledgements.tex) (DOA.tex) [90
+[91]) (FossilOc.tex
+Overfull \hbox (1199.83119pt too wide) in alignment at lines 4--9
+ [] [] [] [] [] [] [] [] [] [] 
+ []
 
+
+Overfull \hbox (1199.83119pt too wide) in alignment at lines 9--68
+ [] [] [] [] [] [] [] [] [] [] 
+ []
+
+
+Overfull \hbox (1199.83119pt too wide) in alignment at lines 68--143
+ [] [] [] [] [] [] [] [] [] [] 
+ []
+
+
+Overfull \hbox (1199.83119pt too wide) in alignment at lines 143--200
+ [] [] [] [] [] [] [] [] [] [] 
+ []
+
+[92
+
+
+
+]
+Overfull \hbox (1199.83119pt too wide) in alignment at lines 200--259
+ [] [] [] [] [] [] [] [] [] [] 
+ []
+
+
+Overfull \hbox (1199.83119pt too wide) in alignment at lines 259--320
+ [] [] [] [] [] [] [] [] [] [] 
+ []
+
+[93]
+Overfull \hbox (1199.83119pt too wide) in alignment at lines 320--382
+ [] [] [] [] [] [] [] [] [] [] 
+ []
+
+
+Overfull \hbox (1199.83119pt too wide) in alignment at lines 382--446
+ [] [] [] [] [] [] [] [] [] [] 
+ []
+
+[94]
+Overfull \hbox (1199.83119pt too wide) in alignment at lines 446--504
+ [] [] [] [] [] [] [] [] [] [] 
+ []
+
+
+Overfull \hbox (1199.83119pt too wide) in alignment at lines 504--578
+ [] [] [] [] [] [] [] [] [] [] 
+ []
+
+[95]
+Overfull \hbox (1199.83119pt too wide) in alignment at lines 578--656
+ [] [] [] [] [] [] [] [] [] [] 
+ []
+
+
+Overfull \hbox (1199.83119pt too wide) in alignment at lines 656--715
+ [] [] [] [] [] [] [] [] [] [] 
+ []
+
+[96]
+Overfull \hbox (1199.83119pt too wide) in alignment at lines 715--783
+ [] [] [] [] [] [] [] [] [] [] 
+ []
+
+
+Overfull \hbox (1199.83119pt too wide) in alignment at lines 783--852
+ [] [] [] [] [] [] [] [] [] [] 
+ []
+
+[97]
+Overfull \hbox (1199.83119pt too wide) in alignment at lines 852--928
+ [] [] [] [] [] [] [] [] [] [] 
+ []
+
+
+Overfull \hbox (1199.83119pt too wide) in alignment at lines 928--993
+ [] [] [] [] [] [] [] [] [] [] 
+ []
+
+[98]
+Overfull \hbox (1199.83119pt too wide) in alignment at lines 993--1058
+ [] [] [] [] [] [] [] [] [] [] 
+ []
+
+
+Overfull \hbox (1199.83119pt too wide) in alignment at lines 1058--1116
+ [] [] [] [] [] [] [] [] [] [] 
+ []
+
+[99]
+Overfull \hbox (1199.83119pt too wide) in alignment at lines 1116--1189
+ [] [] [] [] [] [] [] [] [] [] 
+ []
+
+
+Overfull \hbox (1199.83119pt too wide) in alignment at lines 1189--1244
+ [] [] [] [] [] [] [] [] [] [] 
+ []
+
+[100]
+Overfull \hbox (1199.83119pt too wide) in alignment at lines 1244--1293
+ [] [] [] [] [] [] [] [] [] [] 
+ []
+
+
+Overfull \hbox (1199.83119pt too wide) in alignment at lines 1293--1345
+ [] [] [] [] [] [] [] [] [] [] 
+ []
+
+[101]
+Overfull \hbox (1199.83119pt too wide) in alignment at lines 1345--1394
+ [] [] [] [] [] [] [] [] [] [] 
+ []
+
+[102]
+Overfull \hbox (1199.83119pt too wide) in alignment at lines 1394--1447
+ [] [] [] [] [] [] [] [] [] [] 
+ []
+
+
+Overfull \hbox (1199.83119pt too wide) in alignment at lines 1447--1498
+ [] [] [] [] [] [] [] [] [] [] 
+ []
+
+[103]
+Overfull \hbox (1199.83119pt too wide) in alignment at lines 1498--1548
+ [] [] [] [] [] [] [] [] [] [] 
+ []
+
+
+Overfull \hbox (1199.83119pt too wide) in alignment at lines 1548--1597
+ [] [] [] [] [] [] [] [] [] [] 
+ []
+
+[104]
+Overfull \hbox (1199.83119pt too wide) in alignment at lines 1597--1646
+ [] [] [] [] [] [] [] [] [] [] 
+ []
+
+
+Overfull \hbox (1199.83119pt too wide) in alignment at lines 1646--1699
+ [] [] [] [] [] [] [] [] [] [] 
+ []
+
+[105]
+Overfull \hbox (1199.83119pt too wide) in alignment at lines 1699--1760
+ [] [] [] [] [] [] [] [] [] [] 
+ []
+
+
+Overfull \hbox (1199.83119pt too wide) in alignment at lines 1760--1817
+ [] [] [] [] [] [] [] [] [] [] 
+ []
+
+[106]
+Overfull \hbox (1199.83119pt too wide) in alignment at lines 1817--1879
+ [] [] [] [] [] [] [] [] [] [] 
+ []
+
+
+Overfull \hbox (1199.83119pt too wide) in alignment at lines 1879--1950
+ [] [] [] [] [] [] [] [] [] [] 
+ []
+
+[107]
+Overfull \hbox (1199.83119pt too wide) in alignment at lines 1950--2002
+ [] [] [] [] [] [] [] [] [] [] 
+ []
+
+
+Overfull \hbox (1199.83119pt too wide) in alignment at lines 2002--2065
+ [] [] [] [] [] [] [] [] [] [] 
+ []
+
+[108]
+Overfull \hbox (1199.83119pt too wide) in alignment at lines 2065--2120
+ [] [] [] [] [] [] [] [] [] [] 
+ []
+
+
+Overfull \hbox (1199.83119pt too wide) in alignment at lines 2120--2181
+ [] [] [] [] [] [] [] [] [] [] 
+ []
+
+[109]
+Overfull \hbox (1199.83119pt too wide) in alignment at lines 2181--2233
+ [] [] [] [] [] [] [] [] [] [] 
+ []
+
+
+Overfull \hbox (1199.83119pt too wide) in alignment at lines 2233--2291
+ [] [] [] [] [] [] [] [] [] [] 
+ []
+
+[110]
+Overfull \hbox (1199.83119pt too wide) in alignment at lines 2291--2322
+ [] [] [] [] [] [] [] [] [] [] 
+ []
+
+[111] [112])) (Acknowledgements.tex) (DOA.tex) [113
 
 ]
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 117.
@@ -1939,15 +2142,9 @@ Package atveryend Info: Empty hook `AfterLastShipout' on input line 117.
 (ExtantTab.aux))
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 117.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 117.
+Package rerunfilecheck Info: File `MA.out' has not changed.
+(rerunfilecheck)             Checksum: 0DA01639DEE409F3E2BEB49AD69A86BC;1986.
 
-
-Package rerunfilecheck Warning: File `MA.out' has changed.
-(rerunfilecheck)                Rerun to get outlines right
-(rerunfilecheck)                or use package `bookmark'.
-
-Package rerunfilecheck Info: Checksums for `MA.out':
-(rerunfilecheck)             Before: 23152C2E28168712D84F41ACEB562CE9;1673
-(rerunfilecheck)             After:  0DA01639DEE409F3E2BEB49AD69A86BC;1986.
 
 LaTeX Warning: There were undefined references.
 
@@ -1957,47 +2154,26 @@ LaTeX Warning: There were multiply-defined labels.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 117.
  ) 
 Here is how much of TeX's memory you used:
- 22777 strings out of 493323
- 419185 string characters out of 3139070
- 625198 words of memory out of 3000000
- 25537 multiletter control sequences out of 15000+200000
- 61022 words of font info for 58 fonts, out of 3000000 for 9000
+ 22809 strings out of 493323
+ 419437 string characters out of 3139070
+ 625371 words of memory out of 3000000
+ 25548 multiletter control sequences out of 15000+200000
+ 63912 words of font info for 60 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
  73i,10n,108p,8842b,708s stack positions out of 5000i,500n,10000p,200000b,50000s
-pdfTeX warning (dest): name{subsubsection.2.3.4} has been referenced but does
- not exist, replaced by a fixed one
-
-pdfTeX warning (dest): name{subsubsection.2.3.3} has been referenced but does n
-ot exist, replaced by a fixed one
-
-pdfTeX warning (dest): name{subsubsection.1.3.2} has been referenced but does n
-ot exist, replaced by a fixed one
-
-pdfTeX warning (dest): name{subsubsection.1.3.1} has been referenced but does n
-ot exist, replaced by a fixed one
-
-pdfTeX warning (dest): name{subsection.1.3} has been referenced but does not ex
-ist, replaced by a fixed one
-
-pdfTeX warning (dest): name{subsection.1.2} has been referenced but does not ex
-ist, replaced by a fixed one
-
-pdfTeX warning (dest): name{subsection.1.1} has been referenced but does not ex
-ist, replaced by a fixed one
-
-{C:/Program Files/MiKTeX 2.9/fonts/enc/dvips/lm/lm-mathsy.enc}{C:/Program Files
-/MiKTeX 2.9/fonts/enc/dvips/lm/lm-rm.enc}{C:/Program Files/MiKTeX 2.9/fonts/enc
-/dvips/lm/lm-mathit.enc}{C:/Program Files/MiKTeX 2.9/fonts/enc/dvips/base/8r.en
-c}<C:/Program Files/MiKTeX 2.9/fonts/type1/public/lm/lmmi10.pfb><C:/Program Fil
-es/MiKTeX 2.9/fonts/type1/public/lm/lmr10.pfb><C:/Program Files/MiKTeX 2.9/font
-s/type1/public/lm/lmr8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/lm/l
-msy10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/lm/lmsy8.pfb><C:/Prog
-ram Files/MiKTeX 2.9/fonts/type1/urw/helvetic/uhvb8a.pfb><C:/Program Files/MiKT
-eX 2.9/fonts/type1/urw/helvetic/uhvr8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/t
-ype1/urw/helvetic/uhvro8a.pfb>
-Output written on MA.pdf (90 pages, 1660537 bytes).
+{C:/Program Files/MiKTeX 2.9/fonts/enc/dvips/lm/lm-mathsy.enc}{C:/Program Fil
+es/MiKTeX 2.9/fonts/enc/dvips/lm/lm-rm.enc}{C:/Program Files/MiKTeX 2.9/fonts/e
+nc/dvips/lm/lm-mathit.enc}{C:/Program Files/MiKTeX 2.9/fonts/enc/dvips/base/8r.
+enc}<C:/Program Files/MiKTeX 2.9/fonts/type1/public/lm/lmmi10.pfb><C:/Program F
+iles/MiKTeX 2.9/fonts/type1/public/lm/lmr10.pfb><C:/Program Files/MiKTeX 2.9/fo
+nts/type1/public/lm/lmr8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/lm
+/lmsy10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/lm/lmsy8.pfb><C:/Pr
+ogram Files/MiKTeX 2.9/fonts/type1/urw/helvetic/uhvb8a.pfb><C:/Program Files/Mi
+KTeX 2.9/fonts/type1/urw/helvetic/uhvr8a.pfb><C:/Program Files/MiKTeX 2.9/fonts
+/type1/urw/helvetic/uhvro8a.pfb>
+Output written on MA.pdf (113 pages, 1744895 bytes).
 PDF statistics:
- 1117 PDF objects out of 1200 (max. 8388607)
- 213 named destinations out of 1000 (max. 500000)
- 415 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 1234 PDF objects out of 1440 (max. 8388607)
+ 230 named destinations out of 1000 (max. 500000)
+ 455 words of extra memory for PDF output out of 10000 (max. 10000000)
 

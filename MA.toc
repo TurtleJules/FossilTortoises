@@ -1,32 +1,32 @@
 \select@language {english}
-\contentsline {section}{\nonumberline List of Figures}{3}{Doc-Start}
-\contentsline {section}{\nonumberline List of Tables}{4}{Doc-Start}
-\contentsline {section}{\numberline {1}Introduction}{5}{section.1}
-\contentsline {section}{\numberline {2}Material \& Methods}{6}{section.2}
-\contentsline {subsection}{\numberline {2.1}Data collection}{6}{subsection.2.1}
-\contentsline {subsection}{\numberline {2.2}Body size estimation}{7}{subsection.2.2}
-\contentsline {subsection}{\numberline {2.3}Analyses}{7}{subsection.2.3}
-\contentsline {subsubsection}{\numberline {2.3.1}Descriptive statistics}{8}{subsubsection.2.3.1}
-\contentsline {subsubsection}{\numberline {2.3.2}Body size trends over time}{9}{subsubsection.2.3.2}
-\contentsline {section}{\numberline {3}Results}{12}{section.3}
-\contentsline {subsection}{\numberline {3.1}Sample-based accumulation curves}{12}{subsection.3.1}
-\contentsline {subsection}{\numberline {3.2}Descriptive statistics}{13}{subsection.3.2}
-\contentsline {subsection}{\numberline {3.3}paleoTS analysis}{16}{subsection.3.3}
-\contentsline {subsubsection}{\numberline {3.3.1}complete dataset}{16}{subsubsection.3.3.1}
-\contentsline {subsubsection}{\numberline {3.3.2}continental dataset (excluding insular species)}{18}{subsubsection.3.3.2}
-\contentsline {subsubsection}{\numberline {3.3.3}insular dataset (excluding continental)}{19}{subsubsection.3.3.3}
-\contentsline {subsubsection}{\numberline {3.3.4}per continent}{19}{subsubsection.3.3.4}
-\contentsline {paragraph}{\numberline {3.3.4.1}Europe, genera}{19}{paragraph.3.3.4.1}
-\contentsline {paragraph}{\numberline {3.3.4.2}Eurasia, genera}{20}{paragraph.3.3.4.2}
-\contentsline {section}{\numberline {4}Discussion}{22}{section.4}
-\contentsline {subsection}{\numberline {4.1}Completeness of data set}{22}{subsection.4.1}
-\contentsline {subsection}{\numberline {4.2}Population structure?}{22}{subsection.4.2}
-\contentsline {subsection}{\numberline {4.3}Time-scale analysis}{22}{subsection.4.3}
-\contentsline {section}{\numberline {5}References}{23}{section.5}
-\contentsline {section}{Appendix \numberline {A}Geographical and stratigraphic distribution of body size data}{25}{Appendix.1.A}
-\contentsline {section}{Appendix \numberline {B}Sampling accumulation curves}{26}{Appendix.1.B}
-\contentsline {section}{Appendix \numberline {C}Histograms}{27}{Appendix.1.C}
-\contentsline {section}{Appendix \numberline {D}Boxplots}{28}{Appendix.1.D}
-\contentsline {section}{Appendix \numberline {E}Random Sampling}{29}{Appendix.1.E}
-\contentsline {section}{Appendix \numberline {F}paleoTS}{30}{Appendix.1.F}
-\contentsline {section}{Appendix \numberline {G}Tables}{38}{Appendix.1.G}
+\contentsline {section}{\nonumberline List of Figures}{4}{Doc-Start}
+\contentsline {section}{\nonumberline List of Tables}{5}{Doc-Start}
+\contentsline {section}{\numberline {1}Introduction}{6}{section.1}
+\contentsline {section}{\numberline {2}Material \& Methods}{8}{section.2}
+\contentsline {subsection}{\numberline {2.1}Data collection}{8}{subsection.2.1}
+\contentsline {subsection}{\numberline {2.2}Body size estimation}{9}{subsection.2.2}
+\contentsline {subsection}{\numberline {2.3}Analyses}{9}{subsection.2.3}
+\contentsline {subsubsection}{\numberline {2.3.1}Descriptive statistics}{10}{subsubsection.2.3.1}
+\contentsline {subsubsection}{\numberline {2.3.2}Body size trends over time}{11}{subsubsection.2.3.2}
+\contentsline {section}{\numberline {3}Results}{14}{section.3}
+\contentsline {subsection}{\numberline {3.1}Sample-based accumulation curves}{14}{subsection.3.1}
+\contentsline {subsection}{\numberline {3.2}Descriptive statistics}{15}{subsection.3.2}
+\contentsline {subsection}{\numberline {3.3}paleoTS analysis}{18}{subsection.3.3}
+\contentsline {subsubsection}{\numberline {3.3.1}complete dataset}{18}{subsubsection.3.3.1}
+\contentsline {subsubsection}{\numberline {3.3.2}continental dataset (excluding insular species)}{20}{subsubsection.3.3.2}
+\contentsline {subsubsection}{\numberline {3.3.3}insular dataset (excluding continental)}{21}{subsubsection.3.3.3}
+\contentsline {subsubsection}{\numberline {3.3.4}per continent}{21}{subsubsection.3.3.4}
+\contentsline {paragraph}{\numberline {3.3.4.1}Europe, genera}{21}{paragraph.3.3.4.1}
+\contentsline {paragraph}{\numberline {3.3.4.2}Eurasia, genera}{22}{paragraph.3.3.4.2}
+\contentsline {section}{\numberline {4}Discussion}{24}{section.4}
+\contentsline {subsection}{\numberline {4.1}Completeness of data set}{24}{subsection.4.1}
+\contentsline {subsection}{\numberline {4.2}Population structure?}{24}{subsection.4.2}
+\contentsline {subsection}{\numberline {4.3}Time-scale analysis}{24}{subsection.4.3}
+\contentsline {section}{\numberline {5}References}{25}{section.5}
+\contentsline {section}{Appendix \numberline {A}Geographical and stratigraphic distribution of body size data}{27}{Appendix.1.A}
+\contentsline {section}{Appendix \numberline {B}Sampling accumulation curves}{28}{Appendix.1.B}
+\contentsline {section}{Appendix \numberline {C}Histograms}{29}{Appendix.1.C}
+\contentsline {section}{Appendix \numberline {D}Boxplots}{30}{Appendix.1.D}
+\contentsline {section}{Appendix \numberline {E}Random Sampling}{31}{Appendix.1.E}
+\contentsline {section}{Appendix \numberline {F}paleoTS}{32}{Appendix.1.F}
+\contentsline {section}{Appendix \numberline {G}Tables}{40}{Appendix.1.G}
