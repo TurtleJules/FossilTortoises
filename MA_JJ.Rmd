@@ -1171,9 +1171,9 @@ kruskalmc(IndGenera$GenusMean,IndGenera$EpochBins)
 MCK <- data.frame(kruskalmc(IndGenera$GenusMean,IndGenera$EpochBins))
 
 
-resp<-c(0.44,0.44,0.54,0.32,0.21,0.28,0.7,0.77,0.48,0.64,0.71,0.75,0.8,0.76,0.34,0.80,0.73,0.8)
-categ<-as.factor(rep(c("A","B","C"),times=1,each=6))
-kruskalmc(resp, categ)
+# resp<-c(0.44,0.44,0.54,0.32,0.21,0.28,0.7,0.77,0.48,0.64,0.71,0.75,0.8,0.76,0.34,0.80,0.73,0.8)
+# categ<-as.factor(rep(c("A","B","C"),times=1,each=6))
+# kruskalmc(resp, categ)
 
 
 #### 
@@ -1270,6 +1270,96 @@ kable(Data)
 
 ```
 
+```{r "Boxplot Modern, Pleistocene etc.", echo=FALSE}
+
+EpochBins <- as.vector(unique(PleiPlioCL$EpochBins))
+Time <- as.vector(c("Modern", "Pleistocene", "Pleistocene", "Pliocene", "Miocene", "Miocene", "Pleistocene", "Pliocene", "Pleistocene", "Miocene", "Miocene", "Miocene"))
+TimeSlices <- data.frame(EpochBins, Time)
+
+TimeSlices$Time = factor(TimeSlices$Time,levels=c("Modern", "Pleistocene",#"Pleistocene","Pleistocene",
+                                                  #"Pleistocene",
+                                                  "Pliocene",
+                                                  #"Pliocene", "Miocene",
+                                                  #"Miocene", "Miocene", "Miocene", 
+                                                  "Miocene"))
+
+# givesample sizes
+give.n <- function(x){
+  return(c(y = 0, label = length(x)))
+}
+
+TimeSlice <- PleiPlioCL %>%
+  merge(TimeSlices) %>%
+  group_by(Time) %>%
+ # filter(!is.na(CL)) %>%
+#  dplyr::summarise(GenusMean=mean(CL), GenusSD=sd(CL), n=n()) %>%
+#  ungroup() %>%#, CL=CL
+  ggplot() + #, colour=Genus, Time, GenusMean
+  theme_classic() +
+#  theme(axis.text.x = element_text(angle = 45, vjust = 1, hjust=1)) +
+ # stat_boxplot(geom ='errorbar', width = 0.2) +
+  geom_boxplot(aes(Time, CL)) #+
+#  geom_pointrange(data=IndGenera, position="jitter", aes(x=Time, y=GenusMean, colour=Time, ymin = GenusMean-GenusSD, ymax = GenusMean+GenusSD)) #+
+#  stat_summary(fun.data = give.n, geom = "text") +
+#  theme(legend.background = element_rect(colour = 'black'),
+ #       panel.border = element_rect(colour = "black", fill=NA)) +
+  # scale_colour_manual(values=c("#999999", "#969696", "#999999", "#999999", "#999999", "#969696",
+  #                              "#999999", "#999999", "#999999", "#969696", "#999999",
+  #                              "#999999", "#969696", "#999999", "#999999", "#999999",
+  #                              "#999999", "#999999")) +
+#  theme(legend.position="none")
+  
+TimeSlice
+
+
+TimeSlice <- PleiPlioCL %>%
+  merge(TimeSlices) %>%
+  group_by(Time) 
+
+
+Modern <- TimeSlice$CL[which(TimeSlice$Time=="Modern")]
+Plei <- TimeSlice$CL[which(TimeSlice$Time=="Pleistocene")]
+Plio <- TimeSlice$CL[which(TimeSlice$Time=="Pliocene")]
+Mio <- TimeSlice$CL[which(TimeSlice$Time=="Miocene")]
+
+
+
+kruskal.test(list(Modern, Plei, Plio, Mio)) #kruskal-wallis-test (im prinzip anova fr nicht paramterische daten)
+
+
+
+names(TimeSlice)
+
+kruskalmc(TimeSlice$CL,TimeSlice$Time)
+#MCKW <- data.frame(kruskalmc(PleiPlioCL$CL,PleiPlioCL$EpochBins))
+
+
+# BinGenera <- PleiPlioCL %>%
+#   group_by(EpochBins, Genus) %>%
+#   filter(!is.na(CL)) %>%
+#   dplyr::summarise(GenusMean=mean(CL), GenusSD=sd(CL), n=n()) %>%
+# #  summarise(TimeBinMean=mean(GenusMean), TimeBinSD=sd(GenusMean), n=n()) %>%
+#   ungroup() %>%#, CL=CL
+#   ggplot(aes(EpochBins, GenusMean)) + #, colour=Genus
+#   theme_classic() +
+#   theme(axis.text.x = element_text(angle = 45, vjust = 1, hjust=1)) +
+#   stat_boxplot(geom ='errorbar', width = 0.2) +
+#   geom_boxplot() +
+#   geom_pointrange(data=IndGenera, position="jitter", aes(x=EpochBins, y=GenusMean, colour=EpochBins, ymin = GenusMean-GenusSD, ymax = GenusMean+GenusSD)) +
+#   stat_summary(fun.data = give.n, geom = "text") +
+#   theme(legend.background = element_rect(colour = 'black'),
+#         panel.border = element_rect(colour = "black", fill=NA)) +
+#   scale_colour_manual(values=c("#999999", "#969696", "#999999", "#999999", "#999999", "#969696",
+#                                "#999999", "#999999", "#999999", "#969696", "#999999",
+#                                "#999999", "#969696", "#999999", "#999999", "#999999",
+#                                "#999999", "#999999")) +
+#   theme(legend.position="none")
+# 
+# BinGenera
+  
+  
+
+```
 
 
 \newpage
@@ -1727,7 +1817,7 @@ PleiPlioCL <- PleiPlioCL %>%
 
 names(PleiPlioCL)
 
-kruskalmc(PleiPlioCL$CL,PleiPlioCL$Con)
+kable(kruskalmc(PleiPlioCL$CL,PleiPlioCL$Con))
 #MCKW <- data.frame(kruskalmc(PleiPlioCL$CL,PleiPlioCL$EpochBins))
 
 
@@ -1988,6 +2078,8 @@ kable(PaleoGenFit, caption="Model-fitting results for testudinidae, genera, all"
 
 GenusMeanIs <- PleiPlioCL %>%
   filter(EpochBins != "Modern" & Island == "n") %>%
+  # merge(Continents) %>%
+  # filter(Con != "Europe" | Con != "Asia") %>%
   filter(!is.na(CL)) %>%
   group_by(EpochBins, Genus) %>%
  # filter(EpochBins != "Aquitanian") %>%
@@ -2000,10 +2092,12 @@ GenusMeanIs <- PleiPlioCL %>%
   
 #na <- PleiPlioCL[!complete.cases(PleiPlioCL),]
 
-
+GenusMeanIs[is.na(GenusMeanIs)] <- 1
 
 GenusModernIs <- PleiPlioCL %>%
-  filter(EpochBins == "Modern" & Island == "n") %>%
+  filter(EpochBins == "Modern" & Island == "n") %>%  
+  # merge(Continents) %>%
+  # filter(Con != "Europe"| Con != "Asia") %>%
   filter(!is.na(CL)) %>%
   group_by(Genus) %>%
   dplyr::summarise(meanCL=mean(CL), sdCL=sd(CL), n=n(), Age=mean(Age), EpochBins=unique(EpochBins), MeanBins=unique(MeanBins)) #%>%
@@ -2058,7 +2152,7 @@ GenusPaleoIs <- modernMeanGenusIs %>%
   bind_rows(GenusMeanIs)%>%
   arrange(tt)
 
-GenusPaleoIs[is.na(GenusPaleoIs)] <- 0
+#GenusPaleoIs[is.na(GenusPaleoIs)] <- 0
 
 kable(GenusPaleoIs, caption="paleoTS object, continental")
 
@@ -2066,6 +2160,7 @@ kable(GenusPaleoIs, caption="paleoTS object, continental")
 paleoGenIs <-as.paleoTS(GenusPaleoIs$mm, GenusPaleoIs$vv, GenusPaleoIs$nn, GenusPaleoIs$tt, MM = NULL, genpars = NULL, label = "Testudinidae body size evolution mode, Holocene-Upper Miocene, genus mean CL", reset.time=TRUE)
 
 plot(paleoGenIs)
+
 ```
 
 
@@ -2812,7 +2907,10 @@ number of extant data records `r  length(Extant$CL)`
 
 number of specimens from MFN collection `r  length(Extant$CL[which(Extant$Reference=="freshly measured (MFN collection)")])`
 
-number of specimens fro literature `r  length(Extant$CL[which(Extant$Reference!="freshly measured (MFN collection)")])`
+number of specimens from literature `r  length(Extant$CL[which(Extant$Reference!="freshly measured (MFN collection)")])`
+
+
+
 
 
 ```{r "Facts and numbers sampling accumulation curves", echo=FALSE}
