@@ -1317,6 +1317,18 @@ TimeSlice <- PleiPlioCL %>%
   group_by(Time) 
 
 
+T <- ggplot(TimeSlice, aes(x=CL, fill=Time)) + geom_histogram(alpha=0.2, position="identity", binwidth = 10) +
+  scale_fill_brewer(palette="Dark2")
+  #scale_fill_manual(values=c("red", "blue", "green", "yellow"))
+T
+
+TimeSlic <- TimeSlice %>%
+  filter(Time == "Modern")
+  
+InsCon <- ggplot(TimeSlic, aes(x=CL, fill=Island)) + geom_histogram(alpha=0.2, position="identity", #binwidth = 20
+                                                                     ) +
+  scale_fill_brewer(palette="Dark2")
+
 Modern <- TimeSlice$CL[which(TimeSlice$Time=="Modern")]
 Plei <- TimeSlice$CL[which(TimeSlice$Time=="Pleistocene")]
 Plio <- TimeSlice$CL[which(TimeSlice$Time=="Pliocene")]
