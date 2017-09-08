@@ -2052,6 +2052,28 @@ paleoGen <-as.paleoTS(GenusPaleo$mm, GenusPaleo$vv, GenusPaleo$nn, GenusPaleo$tt
 
 plot(paleoGen)
 
+
+# GenusMean <- PleiPlioCL %>%
+#   #filter(EpochBins != "Modern") %>%
+#   filter(!is.na(CL)) %>%
+#   filter(Genus=="Testudo") %>%
+#   group_by(EpochBins) %>%
+# #  dplyr::summarise(meanCL = mean(CL), n=n()) %>%
+# #  filter(EpochBins != "Aquitanian") %>%
+# #  ungroup() %>%
+# #  group_by(EpochBins) %>%
+#   dplyr::summarise(mm = mean(CL), nn=n(), vv=var(CL)) %>%
+#   merge(BINSMio) %>%
+#   select(mm, nn, vv, tt=MeanBins) %>%
+#   arrange(tt)
+# 
+# GenusMean[is.na(GenusMean)] <- 0
+# 
+# 
+# paleoGen <-as.paleoTS(GenusMean$mm, GenusMean$vv, GenusMean$nn, GenusMean$tt, MM = NULL, genpars = NULL, label = "Testudinidae body size evolution mode, Holocene-Upper Miocene, genus mean CL", reset.time=TRUE)
+# 
+# plot(paleoGen)
+
 ```
 
 

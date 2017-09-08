@@ -3,17 +3,12 @@ The style file: apalike.bst
 A level-1 auxiliary file: FossilTab.aux
 A level-1 auxiliary file: ExtantTab.aux
 Database file #1: MA_fossilTortoises.bib
-Repeated entry---line 3583 of file MA_fossilTortoises.bib
- : @article{Bohme2003b
- :                    ,
-I'm skipping whatever remains of this entry
-Repeated entry---line 4805 of file MA_fossilTortoises.bib
- : @article{rhodin2015turtles
- :                           ,
-I'm skipping whatever remains of this entry
-Repeated entry---line 5738 of file MA_fossilTortoises.bib
- : @inproceedings{Franz2001a
- :                          ,
-I'm skipping whatever remains of this entry
+Warning--I didn't find a database entry for "Smith2009"
+Warning--I didn't find a database entry for "Patterson1973"
+Warning--I didn't find a database entry for "Stiner1999"
+Warning--I didn't find a database entry for "Stiner2000"
+Warning--I didn't find a database entry for "Hibbard1960"
+Warning--I didn't find a database entry for "Sturbaum1982"
+Warning--I didn't find a database entry for "Schleich1981"
 Warning--there's a number but no volume in Gotelli2011
-(There were 3 error messages)
+(There were 8 warnings)

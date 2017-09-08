@@ -4,34 +4,34 @@
 \contentsline {section}{\numberline {1}Introduction}{6}{section.1}
 \contentsline {subsection}{\numberline {1.1}Body size evolution}{6}{subsection.1.1}
 \contentsline {subsection}{\numberline {1.2}Maximal body size - Megafauna}{6}{subsection.1.2}
-\contentsline {subsection}{\numberline {1.3}Giant Tortoises - Testudinidae}{6}{subsection.1.3}
-\contentsline {subsection}{\numberline {1.4}Body size trends in Testudinidae}{7}{subsection.1.4}
-\contentsline {section}{\numberline {2}Material \& Methods}{10}{section.2}
-\contentsline {subsection}{\numberline {2.1}Data collection}{10}{subsection.2.1}
-\contentsline {subsection}{\numberline {2.2}Body size estimation}{11}{subsection.2.2}
-\contentsline {subsection}{\numberline {2.3}Analyses}{11}{subsection.2.3}
-\contentsline {subsubsection}{\numberline {2.3.1}Descriptive statistics}{12}{subsubsection.2.3.1}
-\contentsline {subsubsection}{\numberline {2.3.2}Body size trends over time}{13}{subsubsection.2.3.2}
-\contentsline {section}{\numberline {3}Results}{16}{section.3}
-\contentsline {subsection}{\numberline {3.1}Sample-based accumulation curves}{16}{subsection.3.1}
-\contentsline {subsection}{\numberline {3.2}Descriptive statistics}{17}{subsection.3.2}
-\contentsline {subsection}{\numberline {3.3}paleoTS analysis}{20}{subsection.3.3}
-\contentsline {subsubsection}{\numberline {3.3.1}complete dataset}{20}{subsubsection.3.3.1}
-\contentsline {subsubsection}{\numberline {3.3.2}continental dataset (excluding insular species)}{22}{subsubsection.3.3.2}
-\contentsline {subsubsection}{\numberline {3.3.3}insular dataset (excluding continental)}{23}{subsubsection.3.3.3}
-\contentsline {subsubsection}{\numberline {3.3.4}per continent}{23}{subsubsection.3.3.4}
-\contentsline {paragraph}{\numberline {3.3.4.1}Europe, genera}{23}{paragraph.3.3.4.1}
-\contentsline {paragraph}{\numberline {3.3.4.2}Eurasia, genera}{24}{paragraph.3.3.4.2}
-\contentsline {section}{\numberline {4}Discussion}{26}{section.4}
-\contentsline {subsection}{\numberline {4.1}Completeness of data set}{26}{subsection.4.1}
-\contentsline {subsection}{\numberline {4.2}Population structure?}{26}{subsection.4.2}
-\contentsline {subsection}{\numberline {4.3}Time-scale analysis}{26}{subsection.4.3}
-\contentsline {subsection}{\numberline {4.4}Conclusion}{26}{subsection.4.4}
-\contentsline {section}{\numberline {5}References}{28}{section.5}
-\contentsline {section}{Appendix \numberline {A}Geographical and stratigraphic distribution of body size data}{30}{Appendix.1.A}
-\contentsline {section}{Appendix \numberline {B}Sampling accumulation curves}{31}{Appendix.1.B}
-\contentsline {section}{Appendix \numberline {C}Histograms}{32}{Appendix.1.C}
-\contentsline {section}{Appendix \numberline {D}Boxplots}{33}{Appendix.1.D}
-\contentsline {section}{Appendix \numberline {E}Random Sampling}{34}{Appendix.1.E}
-\contentsline {section}{Appendix \numberline {F}paleoTS}{35}{Appendix.1.F}
-\contentsline {section}{Appendix \numberline {G}Tables}{43}{Appendix.1.G}
+\contentsline {subsection}{\numberline {1.3}Giant Tortoises - Testudinidae}{7}{subsection.1.3}
+\contentsline {subsection}{\numberline {1.4}Body size trends in Testudinidae}{9}{subsection.1.4}
+\contentsline {section}{\numberline {2}Material \& Methods}{12}{section.2}
+\contentsline {subsection}{\numberline {2.1}Data collection}{12}{subsection.2.1}
+\contentsline {subsection}{\numberline {2.2}Body size estimation}{13}{subsection.2.2}
+\contentsline {subsection}{\numberline {2.3}Analyses}{13}{subsection.2.3}
+\contentsline {subsubsection}{\numberline {2.3.1}Descriptive statistics}{14}{subsubsection.2.3.1}
+\contentsline {subsubsection}{\numberline {2.3.2}Body size trends over time}{15}{subsubsection.2.3.2}
+\contentsline {section}{\numberline {3}Results}{18}{section.3}
+\contentsline {subsection}{\numberline {3.1}Sample-based accumulation curves}{18}{subsection.3.1}
+\contentsline {subsection}{\numberline {3.2}Descriptive statistics}{19}{subsection.3.2}
+\contentsline {subsection}{\numberline {3.3}paleoTS analysis}{22}{subsection.3.3}
+\contentsline {subsubsection}{\numberline {3.3.1}complete dataset}{22}{subsubsection.3.3.1}
+\contentsline {subsubsection}{\numberline {3.3.2}continental dataset (excluding insular species)}{24}{subsubsection.3.3.2}
+\contentsline {subsubsection}{\numberline {3.3.3}insular dataset (excluding continental)}{25}{subsubsection.3.3.3}
+\contentsline {subsubsection}{\numberline {3.3.4}per continent}{25}{subsubsection.3.3.4}
+\contentsline {paragraph}{\numberline {3.3.4.1}Europe, genera}{25}{paragraph.3.3.4.1}
+\contentsline {paragraph}{\numberline {3.3.4.2}Eurasia, genera}{26}{paragraph.3.3.4.2}
+\contentsline {section}{\numberline {4}Discussion}{28}{section.4}
+\contentsline {subsection}{\numberline {4.1}Completeness of data set}{28}{subsection.4.1}
+\contentsline {subsection}{\numberline {4.2}Population structure?}{28}{subsection.4.2}
+\contentsline {subsection}{\numberline {4.3}Time-scale analysis}{28}{subsection.4.3}
+\contentsline {subsection}{\numberline {4.4}Conclusion}{29}{subsection.4.4}
+\contentsline {section}{\numberline {5}References}{30}{section.5}
+\contentsline {section}{Appendix \numberline {A}Geographical and stratigraphic distribution of body size data}{33}{Appendix.1.A}
+\contentsline {section}{Appendix \numberline {B}Sampling accumulation curves}{34}{Appendix.1.B}
+\contentsline {section}{Appendix \numberline {C}Histograms}{35}{Appendix.1.C}
+\contentsline {section}{Appendix \numberline {D}Boxplots}{36}{Appendix.1.D}
+\contentsline {section}{Appendix \numberline {E}Random Sampling}{37}{Appendix.1.E}
+\contentsline {section}{Appendix \numberline {F}paleoTS}{38}{Appendix.1.F}
+\contentsline {section}{Appendix \numberline {G}Tables}{46}{Appendix.1.G}
