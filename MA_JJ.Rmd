@@ -1088,6 +1088,7 @@ kable(Stats, caption="General statistics of body size data: all, per time bin, i
 IndGenera <- PleiPlioCL %>%
   group_by(EpochBins, Genus) %>%
   filter(!is.na(CL)) %>%
+#  filter(Island == "y") %>%
   dplyr::summarise(GenusMean=mean(CL), GenusSD=sd(CL), n=n()) 
 
 IndGenera[is.na(IndGenera)] <-0
@@ -1142,6 +1143,7 @@ give.n <- function(x){
 BinGenera <- PleiPlioCL %>%
   group_by(EpochBins, Genus) %>%
   filter(!is.na(CL)) %>%
+#  filter(Island == "y") %>%
   dplyr::summarise(GenusMean=mean(CL), GenusSD=sd(CL), n=n()) %>%
 #  summarise(TimeBinMean=mean(GenusMean), TimeBinSD=sd(GenusMean), n=n()) %>%
   ungroup() %>%#, CL=CL
