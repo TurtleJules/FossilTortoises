@@ -28,10 +28,10 @@
 \contentsline {subsection}{\numberline {4.3}Time-scale analysis}{26}{subsection.4.3}
 \contentsline {subsection}{\numberline {4.4}Conclusion}{27}{subsection.4.4}
 \contentsline {section}{\numberline {5}References}{28}{section.5}
-\contentsline {section}{Appendix \numberline {A}Geographical and stratigraphic distribution of body size data}{31}{Appendix.1.A}
-\contentsline {section}{Appendix \numberline {B}Sampling accumulation curves}{32}{Appendix.1.B}
-\contentsline {section}{Appendix \numberline {C}Histograms}{33}{Appendix.1.C}
-\contentsline {section}{Appendix \numberline {D}Boxplots}{34}{Appendix.1.D}
-\contentsline {section}{Appendix \numberline {E}Random Sampling}{35}{Appendix.1.E}
-\contentsline {section}{Appendix \numberline {F}paleoTS}{36}{Appendix.1.F}
-\contentsline {section}{Appendix \numberline {G}Tables}{44}{Appendix.1.G}
+\contentsline {section}{Appendix \numberline {A}Geographical and stratigraphic distribution of body size data}{32}{Appendix.1.A}
+\contentsline {section}{Appendix \numberline {B}Sampling accumulation curves}{33}{Appendix.1.B}
+\contentsline {section}{Appendix \numberline {C}Histograms}{34}{Appendix.1.C}
+\contentsline {section}{Appendix \numberline {D}Boxplots}{35}{Appendix.1.D}
+\contentsline {section}{Appendix \numberline {E}Random Sampling}{36}{Appendix.1.E}
+\contentsline {section}{Appendix \numberline {F}paleoTS}{37}{Appendix.1.F}
+\contentsline {section}{Appendix \numberline {G}Tables}{45}{Appendix.1.G}

@@ -1,5 +1,18 @@
 \begin{thebibliography}{}
 
+\bibitem[Angielczyk et~al., 2015]{Angielczyk2015}
+Angielczyk, K.~D., Burroughs, R.~W., and Feldman, C.~R. (2015).
+\newblock {Do turtles follow the rules? Latitudinal gradients in species
+  richness, body size, and geographic range area of the world's turtles}.
+\newblock {\em Journal of Experimental Zoology Part B: Molecular and
+  Developmental Evolution}, 324(3):270--294.
+
+\bibitem[Angilletta et~al., 2004]{AngillettaJr2004a}
+Angilletta, M.~J., Steury, T.~D., and Sears, M.~W. (2004).
+\newblock {Temperature, Growth Rate, and Body Size in Ectotherms : Fitting
+  Pieces of a Life-History Puzzle}.
+\newblock {\em Integrative and Comparative Biology}, 44(6):498--509.
+
 \bibitem[Bai and Ng, 2005]{Bai2005}
 Bai, J. and Ng, S. (2005).
 \newblock {Tests for Skewness, Kurtosis, and Normality for Time Series Data}.
@@ -11,11 +24,31 @@ Barnosky, A.~D. (2004).
   Continents}.
 \newblock {\em Science}, 306(5693):70--75.
 
+\bibitem[Bergmann, 1848]{Bergmann1848}
+Bergmann, C. (1848).
+\newblock {\em {{\{}$\backslash$"{\{}U{\}}{\}}ber die
+  Verh{\{}$\backslash$"{\{}a{\}}{\}}ltnisse der
+  W{\{}$\backslash$"{\{}a{\}}{\}}rme{\{}$\backslash$"{\{}o{\}}{\}}konomie der
+  Thiere zu ihrer Gr{\{}$\backslash$"{\{}o{\}}{\}}sse}}.
+\newblock G{\"{o}}ttinger Studien, G{\"{o}}ttingen.
+
+\bibitem[Blackburn and Gaston, 1994]{Blackburn1994a}
+Blackburn, T.~M. and Gaston, K.~J. (1994).
+\newblock {Animal body size distributions: patterns, mechanisms and
+  implications}.
+\newblock {\em Trends in Ecology {\&} Evolution}, 9(12):471--474.
+
 \bibitem[Blain et~al., 2016]{Blain2016}
 Blain, H.~A., Bailon, S., and Agust{\'{i}}, J. (2016).
 \newblock {The geographical and chronological pattern of herpetofaunal
   Pleistocene extinctions on the Iberian Peninsula}.
 \newblock {\em Comptes Rendus - Palevol}, 15(6):731--744.
+
+\bibitem[Blueweiss et~al., 1978]{Blueweiss1978}
+Blueweiss, L., Fox, H., Kudzma, V., Nakashima, D., Peters, R., and Sams, S.
+  (1978).
+\newblock {Relationships between body size and some life history parameters}.
+\newblock {\em Oecologica}, 37:257--272.
 
 \bibitem[B{\"{o}}hme and Ilg, 2003]{Bohme2003b}
 B{\"{o}}hme, M. and Ilg, A. (2003).
@@ -34,8 +67,13 @@ Brattstrom, B.~H. (1961).
 \newblock {The European turtle fauna from the Triassic to the Present}.
 \newblock {\em Dumerilia}, 4(3):155--217.
 
+\bibitem[Foster, 1964]{Foster1964}
+Foster, J.~B. (1964).
+\newblock {Evolution of mammals on islands}.
+\newblock {\em Nature}, 202:234--235.
+
 \bibitem[Franz et~al., 2001]{Franz2001a}
-Franz, R., Carlson, L.~A., Owen, R. D. R.~D., and Steadman, D. (2001).
+Franz, R., Carlson, L.~A., Owen, R.~D., and Steadman, D. (2001).
 \newblock {Fossil tortoises from the Turks and Caicos Islands, BWI}.
 \newblock In {\em Proceedings of the 8th Symposium on the Natural History of
   the Bahamas. Gerace Research Center, San Salvador, Bahamas}, pages 27--31.
@@ -62,6 +100,13 @@ Gotelli, N.~J. and Colwell, R.~K. (2001).
   and Comparison of Species Richness}.
 \newblock {\em Ecology Letters}, 4(4):379--391.
 
+\bibitem[Hibbard, 1960]{Hibbard1960}
+Hibbard, C.~W. (1960).
+\newblock {An interpretation of the Pliocene and Pleistocene climates in North
+  America}.
+\newblock {\em Annual Report of the Michigan Academy of Science, Arts and
+  Letters}, 62:5--30.
+
 \bibitem[Hunt, 2015]{Hunt2015a}
 Hunt, G. (2015).
 \newblock {\em {paleoTS: Analyze Paleontological Time-Series}}.
@@ -79,6 +124,19 @@ Komsta, L. and Novomestky, F. (2015).
 \newblock {\em {moments: Moments, cumulants, skewness, kurtosis and related
   tests}}.
 
+\bibitem[Kozlowski and Gawelczyk, 2002]{Kozlowski2002}
+Kozlowski, J. and Gawelczyk, A.~T. (2002).
+\newblock {Why are species ' body size distributions usually skewed to the
+  right ?}
+\newblock {\em Functional Ecology}, 16(4):419--432.
+
+\bibitem[Lyons and Smith, 2008]{Lyons2008}
+Lyons, S.~K. and Smith, F.~A. (2008).
+\newblock {Macroecological Patterns of Body Size in Mammals across Time and
+  Space}.
+\newblock {\em Animal Body Size: Linking Pattern and Process across Space,
+  Time, and Taxonomic Group}, pages 116--144.
+
 \bibitem[McNeese, 2016]{McNeese2016}
 McNeese, B. (2016).
 \newblock {Are Skewness and Kurtosis Useful Statistics?}
@@ -95,13 +153,13 @@ Oksanen, J., Blanchet, F.~G., Friendly, M., Kindt, R., Legendre, P., McGlinn,
 \newblock R Foundation for Statistical Computing, Vienna, Austria.
 
 \bibitem[Rhodin et~al., 2015]{rhodin2015turtles}
-Rhodin, A. G.~J., Thomson, S., Georgalis, G.~L., Karl, H.~V., Danilov, I.~G.,
-  Takahashi, A., {De La Fuente}, M.~S., Bourque, J.~R., Delfino, M., Bour, R.,
-  and Others (2015).
+Rhodin, A. G.~J., Thomson, S., Georgalis, G.~L., Karl, H.-V.~V., Danilov,
+  I.~G., Takahashi, A., de~la Fuente, M.~S., Bourque, J.~R., Delfino, M., Bour,
+  R., Iverson, J., Shaffer, B., van Dijk, P.~P., and Others (2015).
 \newblock {Turtles and tortoises of the world during the rise and global spread
   of humanity: first checklist and review of extinct Pleistocene and Holocene
   chelonians}.
-\newblock {\em Chelonian Research Monographs}, 5:1--66.
+\newblock {\em Chelonian Research Monographs}, 5(April):1--66.
 
 \bibitem[Sandom et~al., 2014]{Sandom2014}
 Sandom, C., Faurby, S., Sandel, B., and Svenning, J.-C. (2014).
@@ -119,6 +177,19 @@ Schuster, S. and Sch{\"{u}}le, W. (2000).
 \bibitem[Siegel and Castellan, 1988]{Siegel1988}
 Siegel, S. and Castellan, N.~J. (1988).
 \newblock {Non-Parametric Statistics for the behavioural Sciences}.
+
+\bibitem[Smith and Lyons, 2009]{Smith2009}
+Smith, F.~A. and Lyons, S.~K. (2009).
+\newblock {On Being the Right Size : The Impor tance of Size in Life History ,
+  Ecology , and Evolution}.
+\newblock (Galileo 1638).
+
+\bibitem[Smith et~al., 2016]{Smith2016}
+Smith, F.~A., Payne, J.~L., Heim, N.~A., Balk, M.~A., Finnegan, S., Kowalewski,
+  M., Lyons, S.~K., McClain, C.~R., McShea, D.~W., Novack-Gottshall, P.~M.,
+  Anich, P.~S., and Wang, S.~C. (2016).
+\newblock {Body Size Evolution Across the Geozoic}.
+\newblock {\em Annual Review of Earth and Planetary Sciences}, 44(1):523--553.
 
 \bibitem[Steele and Klein, 2005]{Steele2005}
 Steele, T.~E. and Klein, R.~G. (2005).
