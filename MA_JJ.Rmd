@@ -2053,10 +2053,15 @@ kable(GenusPaleo,caption="paleoTS object, all data")
 paleoGen <-as.paleoTS(GenusPaleo$mm, GenusPaleo$vv, GenusPaleo$nn, GenusPaleo$tt, MM = NULL, genpars = NULL, label = "Testudinidae body size evolution mode, Holocene-Upper Miocene, genus mean CL", reset.time=TRUE)
 
 plot(paleoGen)
-abline(h=mean(PleiPlioCL$CL), lty=5)
 
-abline(h=median(PleiPlioCL$CL), lty=3)
+abline(h=mean(GenusPaleo$mm), lty=5)
 
+# abline(h=median(GenusPaleo$mm), lty=6)
+# 
+# abline(h=mean(PleiPlioCL$CL), lty=5)
+# 
+# abline(h=median(PleiPlioCL$CL), lty=3)
+# 
 
 #abline(h=mean(PleiPlioCL$CL[which(PleiPlioCL$Island=="n")]), lty=5)
 
@@ -2205,9 +2210,14 @@ paleoGenIs <-as.paleoTS(GenusPaleoIs$mm, GenusPaleoIs$vv, GenusPaleoIs$nn, Genus
 
 plot(paleoGenIs)
 
-abline(h=mean(PleiPlioCL$CL[which(PleiPlioCL$Island=="n")]), lty=5)
+abline(h=mean(GenusPaleoIs$mm), lty=5)
 
-abline(h=median(PleiPlioCL$CL[which(PleiPlioCL$Island=="n")]), lty=3)
+#abline(h=median(GenusPaleoIs$mm), lty=6)
+
+
+# abline(h=mean(PleiPlioCL$CL[which(PleiPlioCL$Island=="n")]), lty=5)
+# 
+# abline(h=median(PleiPlioCL$CL[which(PleiPlioCL$Island=="n")]), lty=3)
 
 #plot(density(GenusPaleoIs$mm, breaks=10))
 
@@ -2332,9 +2342,13 @@ paleoGenCon <-as.paleoTS(GenusPaleoCon$mm, GenusPaleoCon$vv, GenusPaleoCon$nn, G
 
 plot(paleoGenCon)
 
-abline(h=mean(PleiPlioCL$CL[which(PleiPlioCL$Island=="y")]), lty=5)
+abline(h=mean(GenusPaleoCon$mm), lty=5)
 
-abline(h=median(PleiPlioCL$CL[which(PleiPlioCL$Island=="y")]), lty=3)
+# abline(h=median(GenusPaleoCon$mm), lty=2)
+# 
+# abline(h=mean(PleiPlioCL$CL[which(PleiPlioCL$Island=="y")]), lty=5)
+# 
+# abline(h=median(PleiPlioCL$CL[which(PleiPlioCL$Island=="y")]), lty=3)
 
 #plot(density(GenusPaleoCon$mm, breaks=10))
 
@@ -2398,10 +2412,13 @@ paleoGenAll <-as.paleoTS(GenusPaleoAll$mm, GenusPaleoAll$vv, GenusPaleoAll$nn, G
 
 plot(paleoGenAll)
 
+abline(h=mean(GenusPaleoAll$mm), lty=5)
 
-abline(h=mean(PleiPlioCL$CL[which(PleiPlioCL$Con == "Europe")]), lty=5)
-
-abline(h=median(PleiPlioCL$CL[which(PleiPlioCL$Con == "Europe")]), lty=3)
+# abline(h=median(GenusPaleoAll$mm), lty=6)
+# 
+# abline(h=mean(PleiPlioCL$CL[which(PleiPlioCL$Con == "Europe")]), lty=5)
+# 
+# abline(h=median(PleiPlioCL$CL[which(PleiPlioCL$Con == "Europe")]), lty=3)
 
 
 
@@ -2462,6 +2479,8 @@ paleoGenAll <-as.paleoTS(GenusPaleoAll$mm, GenusPaleoAll$vv, GenusPaleoAll$nn, G
 
 plot(paleoGenAll)
 
+abline(h=mean(GenusPaleoAll$mm), lty=5)
+
 
 ```
 
@@ -2520,6 +2539,8 @@ kable(GenusPaleoAll, caption="paleoTs object, Europe, insular")
 paleoGenAll <-as.paleoTS(GenusPaleoAll$mm, GenusPaleoAll$vv, GenusPaleoAll$nn, GenusPaleoAll$tt, MM = NULL, genpars = NULL, label = "Testudinidae body size evolution mode", reset.time=TRUE)
 
 plot(paleoGenAll)
+
+abline(h=mean(GenusPaleoAll$mm), lty=5)
 
 
 ```
@@ -2620,6 +2641,8 @@ paleoGenAll <-as.paleoTS(GenusPaleoAll$mm, GenusPaleoAll$vv, GenusPaleoAll$nn, G
 
 plot(paleoGenAll)
 
+abline(h=mean(GenusPaleoAll$mm), lty=5)
+
 
 ```
 
@@ -2643,7 +2666,7 @@ kable(PaleoGenAllFit, caption="Model-fitting results for testudinidae, genera, E
 
 
 \newpage 
-### Eurasia, smaller original bins (See Table 2), genera, continental
+### Eurasia, genera, continental
 
 ```{r "pTSEsC", echo=FALSE, fig.cap="paleoTS, genera, Eurasia, continental"}
 
@@ -2720,6 +2743,8 @@ kable(GenusPaleoAll, caption="paleoTS object, Eurasia, continental")
 paleoGenAll <-as.paleoTS(GenusPaleoAll$mm, GenusPaleoAll$vv, GenusPaleoAll$nn, GenusPaleoAll$tt, MM = NULL, genpars = NULL, label = "Testudinidae body size evolution mode", reset.time=TRUE)
 
 plot(paleoGenAll)
+
+abline(h=mean(GenusPaleoAll$mm), lty=5)
 
 
 ```
@@ -2818,6 +2843,8 @@ kable(GenusPaleoAll, caption="paleoTS object, Eurasia, insular")
 paleoGenAll <-as.paleoTS(GenusPaleoAll$mm, GenusPaleoAll$vv, GenusPaleoAll$nn, GenusPaleoAll$tt, MM = NULL, genpars = NULL, label = "Testudinidae body size evolution mode", reset.time=TRUE)
 
 plot(paleoGenAll)
+
+abline(h=mean(GenusPaleoAll$mm), lty=5)
 
 
 ```

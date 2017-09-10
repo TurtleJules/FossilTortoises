@@ -3401,16 +3401,6 @@ each genus (as pointrange).}
 \end{verbatim}
 
 \begin{verbatim}
-## Multiple comparison test after Kruskal-Wallis 
-## p.value: 0.05 
-## Comparisons
-##      obs.dif critical.dif difference
-## A-B 6.666667     7.378741      FALSE
-## A-C 9.333333     7.378741       TRUE
-## B-C 2.666667     7.378741      FALSE
-\end{verbatim}
-
-\begin{verbatim}
 ##  [1] "bin"          "Taxon"        "CL"           "extraCL"     
 ##  [5] "PL"           "size"         "estimated"    "Age"         
 ##  [9] "Island"       "Continent"    "Genus"        "EpochBins"   
@@ -3763,6 +3753,38 @@ Z and Mess & 0.8876030 & 1.0000000\tabularnewline
 \bottomrule
 \end{longtable}
 
+\includegraphics{MA_JJ_files/figure-latex/Boxplot Modern, Pleistocene etc.-1.pdf}
+\includegraphics{MA_JJ_files/figure-latex/Boxplot Modern, Pleistocene etc.-2.pdf}
+
+\begin{verbatim}
+## 
+##  Kruskal-Wallis rank sum test
+## 
+## data:  list(Modern, Plei, Plio, Mio)
+## Kruskal-Wallis chi-squared = 37.764, df = 3, p-value = 3.172e-08
+\end{verbatim}
+
+\begin{verbatim}
+##  [1] "EpochBins"    "bin"          "Taxon"        "CL"          
+##  [5] "extraCL"      "PL"           "size"         "estimated"   
+##  [9] "Age"          "Island"       "Continent"    "Genus"       
+## [13] "Stages"       "MeanBins"     "nIndividuals" "nSpecies"    
+## [17] "nGenera"      "Time"
+\end{verbatim}
+
+\begin{verbatim}
+## Multiple comparison test after Kruskal-Wallis 
+## p.value: 0.05 
+## Comparisons
+##                         obs.dif critical.dif difference
+## Modern-Pleistocene   110.904114     49.80480       TRUE
+## Modern-Pliocene       67.623302     58.35513       TRUE
+## Modern-Miocene        64.510137     49.57182       TRUE
+## Pleistocene-Pliocene  43.280812     64.36704      FALSE
+## Pleistocene-Miocene   46.393977     56.52575      FALSE
+## Pliocene-Miocene       3.113165     64.18694      FALSE
+\end{verbatim}
+
 \newpage
 
 \subsection{continental vs.~insular per time
@@ -3792,7 +3814,7 @@ species.}
 \end{verbatim}
 
 \begin{verbatim}
-## [1] 526.0098
+## [1] 503.4022
 \end{verbatim}
 
 \begin{verbatim}
@@ -3800,13 +3822,13 @@ species.}
 ##  Wilcoxon rank sum test with continuity correction
 ## 
 ## data:  Modern and Fossil
-## W = 23186, p-value = 8.041e-08
+## W = 23395, p-value = 1.597e-07
 ## alternative hypothesis: true location shift is less than 0
 \end{verbatim}
 
 Wilcoxon Rank Sum Test (unpaired data):
 
-modern \textless{} fossil (P = \(8.040987\times 10^{-8}\))
+modern \textless{} fossil (P = \(1.5974709\times 10^{-7}\))
 
 \newpage
 
@@ -3834,7 +3856,7 @@ vs.~insular}\label{fossil-vs.modern-continental-vs.insular}
 ##  Wilcoxon rank sum test with continuity correction
 ## 
 ## data:  ModernIsland and FossilIsland
-## W = 735.5, p-value = 7.885e-05
+## W = 655.5, p-value = 8.015e-06
 ## alternative hypothesis: true location shift is less than 0
 \end{verbatim}
 
@@ -3853,17 +3875,17 @@ vs.~insular}\label{fossil-vs.modern-continental-vs.insular}
 ##  Wilcoxon rank sum test with continuity correction
 ## 
 ## data:  ModernCon and FossilCon
-## W = 8121.5, p-value = 8.725e-08
+## W = 8148, p-value = 1.042e-07
 ## alternative hypothesis: true location shift is less than 0
 \end{verbatim}
 
 Wilcoxon Rank Sum Test (unpaired data):
 
 modern continental \textless{} fossil continental (P =
-\(8.7248284\times 10^{-8}\))
+\(1.0421763\times 10^{-7}\))
 
 modern insular \textless{} fossil insular (P =
-\(7.8853023\times 10^{-5}\))
+\(8.0150642\times 10^{-6}\))
 
 \newpage
 
@@ -3890,13 +3912,13 @@ modern insular \textless{} fossil insular (P =
 ##  Wilcoxon rank sum test with continuity correction
 ## 
 ## data:  Insular and Continental
-## W = 14466, p-value = 2.552e-07
+## W = 14283, p-value = 9.119e-07
 ## alternative hypothesis: true location shift is greater than 0
 \end{verbatim}
 
 Wilcoxon Rank Sum Test (unpaired data):
 
-continental \textless{} insular (P = \(2.5517631\times 10^{-7}\))
+continental \textless{} insular (P = \(9.119466\times 10^{-7}\))
 
 \newpage
 
@@ -3927,18 +3949,39 @@ bin}\label{continental-vs.insular-per-time-bin-1}
 ## [17] "nGenera"      "Con"
 \end{verbatim}
 
-\begin{verbatim}
-## Multiple comparison test after Kruskal-Wallis 
-## p.value: 0.05 
-## Comparisons
-##                   obs.dif critical.dif difference
-## Africa-America 108.957339     49.63331       TRUE
-## Africa-Asia    118.618286     72.72560       TRUE
-## Africa-Europe   58.612310     53.16766       TRUE
-## America-Asia     9.660947     68.17247      FALSE
-## America-Europe  50.345029     46.74690       TRUE
-## Asia-Europe     60.005976     70.78714      FALSE
-\end{verbatim}
+\begin{table}
+
+\centering
+\begin{tabular}[t]{l}
+\hline
+Multiple comparison test after Kruskal-Wallis\\
+\hline
+\end{tabular}
+\centering
+\begin{tabular}[t]{r}
+\hline
+0.05\\
+\hline
+\end{tabular}
+\centering
+\begin{tabular}[t]{l|r|r|l}
+\hline
+  & obs.dif & critical.dif & difference\\
+\hline
+Africa-America & 108.957339 & 49.63331 & TRUE\\
+\hline
+Africa-Asia & 118.618286 & 72.72560 & TRUE\\
+\hline
+Africa-Europe & 58.612310 & 53.16766 & TRUE\\
+\hline
+America-Asia & 9.660947 & 68.17247 & FALSE\\
+\hline
+America-Europe & 50.345029 & 46.74690 & TRUE\\
+\hline
+Asia-Europe & 60.005976 & 70.78714 & FALSE\\
+\hline
+\end{tabular}
+\end{table}
 
 \begin{verbatim}
 ## [1] 142
@@ -3953,7 +3996,7 @@ bin}\label{continental-vs.insular-per-time-bin-1}
 \end{verbatim}
 
 \begin{verbatim}
-## [1] 427.5865
+## [1] 410.6089
 \end{verbatim}
 
 \begin{verbatim}
@@ -3969,7 +4012,7 @@ bin}\label{continental-vs.insular-per-time-bin-1}
 \end{verbatim}
 
 \begin{verbatim}
-## [1] 483.9718
+## [1] 541.4387
 \end{verbatim}
 
 \includegraphics{MA_JJ_files/figure-latex/RSCon-1.pdf}
@@ -3981,12 +4024,12 @@ bin}\label{continental-vs.insular-per-time-bin-1}
 ##  Kruskal-Wallis rank sum test
 ## 
 ## data:  list(Africa, America, Eurasia, Europe)
-## Kruskal-Wallis chi-squared = 32.295, df = 3, p-value = 4.536e-07
+## Kruskal-Wallis chi-squared = 30.872, df = 3, p-value = 9.043e-07
 \end{verbatim}
 
 Kruskal-Wallis-Test:
 
-Continent means differ (P = \(4.5355877\times 10^{-7}\)) (still have to
+Continent means differ (P = \(9.0433335\times 10^{-7}\)) (still have to
 look into the details\ldots{})
 
 \newpage
@@ -6840,7 +6883,7 @@ number of extant data records 240
 
 number of specimens from MFN collection 67
 
-number of specimens fro literature 173
+number of specimens from literature 173
 
 \begin{verbatim}
 ## [1] 384
