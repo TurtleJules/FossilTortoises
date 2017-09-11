@@ -158,6 +158,12 @@ Itescu, Y., Karraker, N.~E., Raia, P., Pritchard, P. C.~H., and Meiri, S.
 \newblock {Is the island rule general? Turtles disagree}.
 \newblock {\em Global Ecology and Biogeography}, 23(6):689--700.
 
+\bibitem[Jass et~al., 2014]{Jass2014}
+Jass, C.~N., Cobb, T.~P., and Bell, C.~J. (2014).
+\newblock {Regional, Depositional, and Chronologic Comparisons of Pleistocene
+  Turtle Richness in North America}.
+\newblock {\em Chelonian Conservation and Biology}, 13(1):16--26.
+
 \bibitem[Klein and Cruz-Uribe, 2000]{Klein2000}
 Klein, R.~G. and Cruz-Uribe, K. (2000).
 \newblock {Middle and Later Stone Age large mammal and tortoise remains from
@@ -192,19 +198,28 @@ Oksanen, J., Blanchet, F.~G., Friendly, M., Kindt, R., Legendre, P., McGlinn,
   H.~H., Szoecs, E., and Wagner, H. (2017).
 \newblock {\em {vegan: Community Ecology Package}}.
 
+\bibitem[Patterson, 1973]{Patterson1973}
+Patterson, R. (1973).
+\newblock {Why tortoises float}.
+\newblock 7(4):373--375.
+
+\bibitem[Peters, 1983]{Peters1983}
+Peters, R.~H. (1983).
+\newblock {\em {The ecological implications of body size}}.
+
 \bibitem[{R Core Team}, 2017]{RCoreTeam2017}
 {R Core Team} (2017).
 \newblock {\em {R: A Language and Environment for Statistical Computing}}.
 \newblock R Foundation for Statistical Computing, Vienna, Austria.
 
-\bibitem[Rhodin et~al., 2015]{rhodin2015turtles}
-Rhodin, A. G.~J., Thomson, S., Georgalis, G.~L., Karl, H.-V.~V., Danilov,
-  I.~G., Takahashi, A., de~la Fuente, M.~S., Bourque, J.~R., Delfino, M., Bour,
-  R., Iverson, J., Shaffer, B., van Dijk, P.~P., and Others (2015).
+\bibitem[Rhodin et~al., 2015]{Rhodin2015}
+Rhodin, A. G.~J., Thomson, S., Georgalis, G.~L., Karl, H.-V., Danilov, I.~G.,
+  Takahashi, A., de~la Fuente, M.~S., Bourque, J.~R., Delfino, M., Bour, R.,
+  Iverson, J.~B., Shaffer, B.~H., and van Dijk, P.~P. (2015).
 \newblock {Turtles and tortoises of the world during the rise and global spread
   of humanity: first checklist and review of extinct Pleistocene and Holocene
   chelonians}.
-\newblock {\em Chelonian Research Monographs}, 5(April):1--66.
+\newblock {\em Chelonian Research Monographs}, 5(5):1--66.
 
 \bibitem[Sandom et~al., 2014]{Sandom2014}
 Sandom, C., Faurby, S., Sandel, B., and Svenning, J.-C. (2014).
@@ -212,6 +227,11 @@ Sandom, C., Faurby, S., Sandel, B., and Svenning, J.-C. (2014).
   climate change}.
 \newblock {\em Proceedings of the Royal Society B: Biological Sciences},
   281(1787):20133254--20133254.
+
+\bibitem[Schleich, 1981]{Schleich1981}
+Schleich, H.-H. (1981).
+\newblock {Jungterti{\"{a}}re Schildkr{\"{o}}ten S{\"{u}}ddeutschlands unter
+  besonderer-Ber{\"{u}}cksichtigung der Fundstelle Sandelzhausen}.
 
 \bibitem[Schuster and Sch{\"{u}}le, 2000]{Schuster2000}
 Schuster, S. and Sch{\"{u}}le, W. (2000).
