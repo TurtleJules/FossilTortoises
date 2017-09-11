@@ -398,6 +398,11 @@ OverviewGenera <- PleiPlioCL %>%
 
 kable(OverviewGenera, caption="General overview over genera, with sample sizes and mean CL.")
 
+
+
+# plot(tidyCL$CL~tidyCL$Latitude)
+# plot(tidyCL$CL~tidyCL$Longitude)
+
 ```
 
 \newpage
@@ -2056,12 +2061,15 @@ plot(paleoGen)
 
 abline(h=mean(GenusPaleo$mm), lty=5)
 
+#abline(v=3.2)
+
 # abline(h=median(GenusPaleo$mm), lty=6)
 # 
 # abline(h=mean(PleiPlioCL$CL), lty=5)
 # 
 # abline(h=median(PleiPlioCL$CL), lty=3)
-# 
+
+#abline(v=c(2.59, 5.33, 23)) #add lines to indicate Plei/Plio and Plio/Mio borders
 
 #abline(h=mean(PleiPlioCL$CL[which(PleiPlioCL$Island=="n")]), lty=5)
 
@@ -2350,6 +2358,8 @@ abline(h=mean(GenusPaleoCon$mm), lty=5)
 # 
 # abline(h=median(PleiPlioCL$CL[which(PleiPlioCL$Island=="y")]), lty=3)
 
+#abline(v=c(2.59, 5.33, 23)) #add lines to indicate Plei/Plio and Plio/Mio borders
+
 #plot(density(GenusPaleoCon$mm, breaks=10))
 
 ```
@@ -2564,47 +2574,136 @@ kable(PaleoGenAllFit, caption="Model-fitting results for testudinidae, genera, E
 
 
 \newpage 
-### Eurasia, smaller original bins (See Table 2), genera
+### Eurasia, genera
 
 ```{r "paleoTSEurasia", echo=FALSE, fig.cap="paleoTS, genera, Eurasia"}
 
 #paleoTS with different time bins, no bins, genera, Eurasia
 
-GenusMeanAll <- PleiPlioCL %>%
-#  merge(BINS) %>%
-#  filter(EpochBins != "Modern") %>%  # & EpochBins != "Upper Miocene"
+# GenusMeanAll <- PleiPlioCL %>%
+# #  merge(BINS) %>%
+# #  filter(EpochBins != "Modern") %>%  # & EpochBins != "Upper Miocene"
+#   merge(Continents) %>%
+#   filter(Con == "Asia" | Con == "Europe") %>%
+# #  filter(EpochBins != "Aquitanian") %>%
+#   filter(!is.na(CL)) %>%
+#   group_by(MeanBins, Genus) %>%
+#   dplyr::summarise(meanCL = mean(CL), n=n()) %>%
+# #  ungroup() %>%
+# #  group_by(EpochBins) %>%
+#   dplyr::summarise(mm = mean(meanCL), nn=n(), vv=var(meanCL)) %>%
+#  # merge(BINS) %>%
+#   select(mm, nn, vv, tt=MeanBins)
+#   
+# GenusMeanAll[is.na(GenusMeanAll)]<-0
+# 
+# 
+# 
+# sumTort <- read.csv("tortoises_summary.csv", sep=";", header=TRUE)
+# colnames(sumTort)[7] <- "meanCL"
+# colnames(sumTort)[8] <- "sdCL"
+# 
+# 
+# sumTortoisesAll <- sumTort %>%
+# #  dplyr::filter(Island == "y") %>%
+#   merge(Continents) %>%
+#   filter(Con== "Asia" | Con == "Europe") %>%
+#   mutate(Genus= as.character(Genus)) %>%
+#   mutate(MeanBins=(Mamin+Mamax)/2) %>%
+#   select(Genus, MeanBins,  meanCL, sdCL, n) #%>% #n,
+#  # bind_rows(GenusMeanAll)
+# 
+# 
+# SumTortAll <- sumTortoisesAll %>%
+#   group_by(Genus) %>%
+#   mutate(tt=MeanBins, vv=sdCL^2, nn=n, mm=meanCL) %>%
+#   dplyr::select(mm, nn, vv, tt, Genus) %>%
+#   mutate(nx = nn*mm) %>%
+#   mutate(mmall=sum(nx)/sum(nn)) %>%
+#   mutate(SD=sqrt(nx), d=mm-mmall) %>%
+#   mutate(nsd=((nx^2+d^2)*nn)) %>%
+#   mutate(varall=sum(nsd)/sum(nn), n=sum(nn)) %>%
+#   dplyr::select(mm=mmall, vv=varall, nn=n, tt, Genus) %>%
+#   unique() %>%
+#   dplyr::select(CL=mm, n=nn, var=vv, tt, Genus)
+# 
+# 
+# modernMeanGenusAll <- SumTortAll %>%
+#   ungroup() %>%
+#   select(CL, n, tt) %>%
+#   filter( !is.na(CL)) %>%
+#   group_by(tt) %>%
+#   dplyr::summarise(mm = mean(CL), vv=var(CL), nn=n())
+# 
+# #bis hier alle modernen taxa zusammengefasst (summarised and MFN_testudinidae)
+# 
+# 
+# GenusPaleoAll <- modernMeanGenusAll %>%
+#   bind_rows(GenusMeanAll)%>%
+#   arrange(tt)
+# 
+# GenusPaleoAll[is.na(GenusPaleoAll)] <- 0
+# 
+# kable(GenusPaleoAll, caption="paleoTS object, Eurasia")
+# 
+# 
+# paleoGenAll <-as.paleoTS(GenusPaleoAll$mm, GenusPaleoAll$vv, GenusPaleoAll$nn, GenusPaleoAll$tt, MM = NULL, genpars = NULL, label = "Testudinidae body size evolution mode", reset.time=TRUE)
+# 
+# plot(paleoGenAll)
+# 
+# abline(h=mean(GenusPaleoAll$mm), lty=5)
+
+#########################################
+
+GenusMean <- PleiPlioCL %>%
+  dplyr::filter(EpochBins != "Modern") %>%
   merge(Continents) %>%
-  filter(Con == "Asia" | Con == "Europe") %>%
-#  filter(EpochBins != "Aquitanian") %>%
-  filter(!is.na(CL)) %>%
-  group_by(MeanBins, Genus) %>%
+  dplyr::filter(Con== "Asia" | Con == "Europe") %>%
+  dplyr::filter(!is.na(CL)) %>%
+  ungroup() %>%
+  dplyr::group_by(EpochBins, Genus) %>%
   dplyr::summarise(meanCL = mean(CL), n=n()) %>%
+#  filter(EpochBins != "Aquitanian") %>%
 #  ungroup() %>%
 #  group_by(EpochBins) %>%
   dplyr::summarise(mm = mean(meanCL), nn=n(), vv=var(meanCL)) %>%
- # merge(BINS) %>%
+  merge(BINSMio) %>%
   select(mm, nn, vv, tt=MeanBins)
   
-GenusMeanAll[is.na(GenusMeanAll)]<-0
+#na <- PleiPlioCL[!complete.cases(PleiPlioCL),]
+
+GenusMean[is.na(GenusMean)] <- 0
+
+
+GenusModern <- PleiPlioCL %>%
+  filter(EpochBins == "Modern") %>%
+  merge(Continents) %>%
+  filter(Con== "Asia" | Con == "Europe") %>%
+  filter(!is.na(CL)) %>%
+  group_by(Genus) %>%
+  dplyr::summarise(meanCL=mean(CL), sdCL=sd(CL), n=n(), Age=mean(Age), EpochBins=unique(EpochBins), MeanBins=unique(MeanBins)) #%>%
+#  dplyr::summarise(mm=mean(meanCL), nn=n(), vv=var(meanCL), tt=mean(MeanBins))
 
 
 
 sumTort <- read.csv("tortoises_summary.csv", sep=";", header=TRUE)
+#colnames(sumTort)[1] <- "Taxon"
 colnames(sumTort)[7] <- "meanCL"
 colnames(sumTort)[8] <- "sdCL"
+#sumTort$EpochBins <- "Modern"
+#sumTort$MeanBins <- 0.0000005
 
 
-sumTortoisesAll <- sumTort %>%
-#  dplyr::filter(Island == "y") %>%
+sumTortoises <- sumTort %>%
   merge(Continents) %>%
   filter(Con== "Asia" | Con == "Europe") %>%
   mutate(Genus= as.character(Genus)) %>%
   mutate(MeanBins=(Mamin+Mamax)/2) %>%
-  select(Genus, MeanBins,  meanCL, sdCL, n) #%>% #n,
- # bind_rows(GenusMeanAll)
+  select(Genus, MeanBins,  meanCL, sdCL, n) %>% #n,
+  bind_rows(GenusModern)
 
 
-SumTortAll <- sumTortoisesAll %>%
+SumTort <- sumTortoises %>%
   group_by(Genus) %>%
   mutate(tt=MeanBins, vv=sdCL^2, nn=n, mm=meanCL) %>%
   dplyr::select(mm, nn, vv, tt, Genus) %>%
@@ -2617,31 +2716,39 @@ SumTortAll <- sumTortoisesAll %>%
   unique() %>%
   dplyr::select(CL=mm, n=nn, var=vv, tt, Genus)
 
+#write.table(SumTort,file="SumTortModernGenus.txt", sep="\t", row.names = FALSE)
 
-modernMeanGenusAll <- SumTortAll %>%
+#kable(SumTort, caption="Overview over body size means per time bin on genus level.")
+
+#boxplot(SumTort$CL, caption="Body size distribution in time bin 'modern'.")
+
+
+modernMeanGenus <- SumTort %>%
   ungroup() %>%
   select(CL, n, tt) %>%
-  filter( !is.na(CL)) %>%
-  group_by(tt) %>%
-  dplyr::summarise(mm = mean(CL), vv=var(CL), nn=n())
+  dplyr::filter( !is.na(CL)) %>%
+  #group_by(tt) %>%
+  dplyr::summarise(mm = mean(CL), vv=var(CL), nn=n(), tt=5.85e-03)
 
 #bis hier alle modernen taxa zusammengefasst (summarised and MFN_testudinidae)
 
 
-GenusPaleoAll <- modernMeanGenusAll %>%
-  bind_rows(GenusMeanAll)%>%
+GenusPaleo <- modernMeanGenus %>%
+  bind_rows(GenusMean)%>%
   arrange(tt)
 
-GenusPaleoAll[is.na(GenusPaleoAll)] <- 0
 
-kable(GenusPaleoAll, caption="paleoTS object, Eurasia")
+kable(GenusPaleo,caption="paleoTS object, all data")
 
 
-paleoGenAll <-as.paleoTS(GenusPaleoAll$mm, GenusPaleoAll$vv, GenusPaleoAll$nn, GenusPaleoAll$tt, MM = NULL, genpars = NULL, label = "Testudinidae body size evolution mode", reset.time=TRUE)
+paleoGenAll <-as.paleoTS(GenusPaleo$mm, GenusPaleo$vv, GenusPaleo$nn, GenusPaleo$tt, MM = NULL, genpars = NULL, label = "Testudinidae body size evolution mode, Holocene-Upper Miocene, genus mean CL", reset.time=TRUE)
 
 plot(paleoGenAll)
 
 abline(h=mean(GenusPaleoAll$mm), lty=5)
+
+
+
 
 
 ```
@@ -2673,41 +2780,130 @@ kable(PaleoGenAllFit, caption="Model-fitting results for testudinidae, genera, E
 # paleoTS, genera, Eurasia, continental
 
 
-GenusMeanAll <- PleiPlioCL %>%
-#  merge(BINS) %>%
-#  filter(EpochBins != "Modern") %>%  # & EpochBins != "Upper Miocene"
+# GenusMeanAll <- PleiPlioCL %>%
+# #  merge(BINS) %>%
+# #  filter(EpochBins != "Modern") %>%  # & EpochBins != "Upper Miocene"
+#   merge(Continents) %>%
+#   filter(Con == "Asia" | Con == "Europe" & Island == "n") %>%
+#  # filter(EpochBins != "Aquitanian") %>%
+#   filter(!is.na(CL)) %>%
+#   group_by(MeanBins, Genus) %>%
+#   dplyr::summarise(meanCL = mean(CL), n=n()) %>%
+# #  ungroup() %>%
+# #  group_by(EpochBins) %>%
+#   dplyr::summarise(mm = mean(meanCL), nn=n(), vv=var(meanCL)) %>%
+#  # merge(BINS) %>%
+#   select(mm, nn, vv, tt=MeanBins)
+#   
+# GenusMeanAll[is.na(GenusMeanAll)]<-0
+# 
+# 
+# 
+# sumTort <- read.csv("tortoises_summary.csv", sep=";", header=TRUE)
+# colnames(sumTort)[7] <- "meanCL"
+# colnames(sumTort)[8] <- "sdCL"
+# 
+# 
+# sumTortoisesAll <- sumTort %>%
+# #  dplyr::filter(Island == "y") %>%
+#   merge(Continents) %>%
+#   filter(Con== "Asia" | Con == "Europe") %>%
+#   mutate(Genus= as.character(Genus)) %>%
+#   mutate(MeanBins=(Mamin+Mamax)/2) %>%
+#   select(Genus, MeanBins,  meanCL, sdCL, n) #%>% #n,
+#  # bind_rows(GenusMeanAll)
+# 
+# 
+# SumTortAll <- sumTortoisesAll %>%
+#   group_by(Genus) %>%
+#   mutate(tt=MeanBins, vv=sdCL^2, nn=n, mm=meanCL) %>%
+#   dplyr::select(mm, nn, vv, tt, Genus) %>%
+#   mutate(nx = nn*mm) %>%
+#   mutate(mmall=sum(nx)/sum(nn)) %>%
+#   mutate(SD=sqrt(nx), d=mm-mmall) %>%
+#   mutate(nsd=((nx^2+d^2)*nn)) %>%
+#   mutate(varall=sum(nsd)/sum(nn), n=sum(nn)) %>%
+#   dplyr::select(mm=mmall, vv=varall, nn=n, tt, Genus) %>%
+#   unique() %>%
+#   dplyr::select(CL=mm, n=nn, var=vv, tt, Genus)
+# 
+# 
+# modernMeanGenusAll <- SumTortAll %>%
+#   ungroup() %>%
+#   select(CL, n, tt) %>%
+#   filter( !is.na(CL)) %>%
+#   group_by(tt) %>%
+#   dplyr::summarise(mm = mean(CL), vv=var(CL), nn=n())
+# 
+# #bis hier alle modernen taxa zusammengefasst (summarised and MFN_testudinidae)
+# 
+# 
+# GenusPaleoAll <- modernMeanGenusAll %>%
+#   bind_rows(GenusMeanAll)%>%
+#   arrange(tt)
+# 
+# GenusPaleoAll[is.na(GenusPaleoAll)] <- 0
+# 
+# kable(GenusPaleoAll, caption="paleoTS object, Eurasia, continental")
+# 
+# 
+# paleoGenAll <-as.paleoTS(GenusPaleoAll$mm, GenusPaleoAll$vv, GenusPaleoAll$nn, GenusPaleoAll$tt, MM = NULL, genpars = NULL, label = "Testudinidae body size evolution mode", reset.time=TRUE)
+# 
+# plot(paleoGenAll)
+# 
+# abline(h=mean(GenusPaleoAll$mm), lty=5)
+
+###############################################################################################
+
+GenusMean <- PleiPlioCL %>%
+  dplyr::filter(EpochBins != "Modern") %>%
   merge(Continents) %>%
-  filter(Con == "Asia" | Con == "Europe" & Island == "n") %>%
- # filter(EpochBins != "Aquitanian") %>%
-  filter(!is.na(CL)) %>%
-  group_by(MeanBins, Genus) %>%
+  dplyr::filter(Con== "Asia" | Con == "Europe" & Island == "n") %>%
+  dplyr::filter(!is.na(CL)) %>%
+  ungroup() %>%
+  dplyr::group_by(EpochBins, Genus) %>%
   dplyr::summarise(meanCL = mean(CL), n=n()) %>%
+#  filter(EpochBins != "Aquitanian") %>%
 #  ungroup() %>%
 #  group_by(EpochBins) %>%
   dplyr::summarise(mm = mean(meanCL), nn=n(), vv=var(meanCL)) %>%
- # merge(BINS) %>%
+  merge(BINSMio) %>%
   select(mm, nn, vv, tt=MeanBins)
   
-GenusMeanAll[is.na(GenusMeanAll)]<-0
+#na <- PleiPlioCL[!complete.cases(PleiPlioCL),]
+
+GenusMean[is.na(GenusMean)] <- 0
+
+
+GenusModern <- PleiPlioCL %>%
+  filter(EpochBins == "Modern") %>%
+  merge(Continents) %>%
+  filter(Con== "Asia" | Con == "Europe" & Island == "n") %>%
+  filter(!is.na(CL)) %>%
+  group_by(Genus) %>%
+  dplyr::summarise(meanCL=mean(CL), sdCL=sd(CL), n=n(), Age=mean(Age), EpochBins=unique(EpochBins), MeanBins=unique(MeanBins)) #%>%
+#  dplyr::summarise(mm=mean(meanCL), nn=n(), vv=var(meanCL), tt=mean(MeanBins))
 
 
 
 sumTort <- read.csv("tortoises_summary.csv", sep=";", header=TRUE)
+#colnames(sumTort)[1] <- "Taxon"
 colnames(sumTort)[7] <- "meanCL"
 colnames(sumTort)[8] <- "sdCL"
+#sumTort$EpochBins <- "Modern"
+#sumTort$MeanBins <- 0.0000005
 
 
-sumTortoisesAll <- sumTort %>%
-#  dplyr::filter(Island == "y") %>%
+sumTortoises <- sumTort %>%
   merge(Continents) %>%
-  filter(Con== "Asia" | Con == "Europe") %>%
+  filter(Con== "Asia" | Con == "Europe" & Island == "n") %>%
   mutate(Genus= as.character(Genus)) %>%
   mutate(MeanBins=(Mamin+Mamax)/2) %>%
-  select(Genus, MeanBins,  meanCL, sdCL, n) #%>% #n,
- # bind_rows(GenusMeanAll)
+  select(Genus, MeanBins,  meanCL, sdCL, n) %>% #n,
+  bind_rows(GenusModern)
 
 
-SumTortAll <- sumTortoisesAll %>%
+SumTort <- sumTortoises %>%
   group_by(Genus) %>%
   mutate(tt=MeanBins, vv=sdCL^2, nn=n, mm=meanCL) %>%
   dplyr::select(mm, nn, vv, tt, Genus) %>%
@@ -2720,31 +2916,37 @@ SumTortAll <- sumTortoisesAll %>%
   unique() %>%
   dplyr::select(CL=mm, n=nn, var=vv, tt, Genus)
 
+#write.table(SumTort,file="SumTortModernGenus.txt", sep="\t", row.names = FALSE)
 
-modernMeanGenusAll <- SumTortAll %>%
+#kable(SumTort, caption="Overview over body size means per time bin on genus level.")
+
+#boxplot(SumTort$CL, caption="Body size distribution in time bin 'modern'.")
+
+
+modernMeanGenus <- SumTort %>%
   ungroup() %>%
   select(CL, n, tt) %>%
-  filter( !is.na(CL)) %>%
-  group_by(tt) %>%
-  dplyr::summarise(mm = mean(CL), vv=var(CL), nn=n())
+  dplyr::filter( !is.na(CL)) %>%
+  #group_by(tt) %>%
+  dplyr::summarise(mm = mean(CL), vv=var(CL), nn=n(), tt=5.85e-03)
 
 #bis hier alle modernen taxa zusammengefasst (summarised and MFN_testudinidae)
 
 
-GenusPaleoAll <- modernMeanGenusAll %>%
-  bind_rows(GenusMeanAll)%>%
+GenusPaleo <- modernMeanGenus %>%
+  bind_rows(GenusMean)%>%
   arrange(tt)
 
-GenusPaleoAll[is.na(GenusPaleoAll)] <- 0
 
-kable(GenusPaleoAll, caption="paleoTS object, Eurasia, continental")
+kable(GenusPaleo,caption="paleoTS object, all data")
 
 
-paleoGenAll <-as.paleoTS(GenusPaleoAll$mm, GenusPaleoAll$vv, GenusPaleoAll$nn, GenusPaleoAll$tt, MM = NULL, genpars = NULL, label = "Testudinidae body size evolution mode", reset.time=TRUE)
+paleoGenAll <-as.paleoTS(GenusPaleo$mm, GenusPaleo$vv, GenusPaleo$nn, GenusPaleo$tt, MM = NULL, genpars = NULL, label = "Testudinidae body size evolution mode, Holocene-Upper Miocene, genus mean CL", reset.time=TRUE)
 
 plot(paleoGenAll)
 
 abline(h=mean(GenusPaleoAll$mm), lty=5)
+
 
 
 ```
@@ -2773,41 +2975,131 @@ kable(PaleoGenAllFit, caption="Model-fitting results for testudinidae, genera, E
 #paleoTS with different time bins, no bins, genera, Eurasia, insular
 
 
-GenusMeanAll <- PleiPlioCL %>%
-#  merge(BINS) %>%
-#  filter(EpochBins != "Modern") %>%  # & EpochBins != "Upper Miocene"
+# GenusMeanAll <- PleiPlioCL %>%
+# #  merge(BINS) %>%
+# #  filter(EpochBins != "Modern") %>%  # & EpochBins != "Upper Miocene"
+#   merge(Continents) %>%
+#   filter(Con == "Asia" | Con == "Europe" & Island == "y") %>%
+#  # filter(EpochBins != "Aquitanian") %>%
+#   filter(!is.na(CL)) %>%
+#   group_by(MeanBins, Genus) %>%
+#   dplyr::summarise(meanCL = mean(CL), n=n()) %>%
+# #  ungroup() %>%
+# #  group_by(EpochBins) %>%
+#   dplyr::summarise(mm = mean(meanCL), nn=n(), vv=var(meanCL)) %>%
+#  # merge(BINS) %>%
+#   select(mm, nn, vv, tt=MeanBins)
+#   
+# GenusMeanAll[is.na(GenusMeanAll)]<-0
+# 
+# 
+# 
+# sumTort <- read.csv("tortoises_summary.csv", sep=";", header=TRUE)
+# colnames(sumTort)[7] <- "meanCL"
+# colnames(sumTort)[8] <- "sdCL"
+# 
+# 
+# sumTortoisesAll <- sumTort %>%
+# #  dplyr::filter(Island == "y") %>%
+#   merge(Continents) %>%
+#   filter(Con== "Asia" | Con == "Europe") %>%
+#   mutate(Genus= as.character(Genus)) %>%
+#   mutate(MeanBins=(Mamin+Mamax)/2) %>%
+#   select(Genus, MeanBins,  meanCL, sdCL, n) #%>% #n,
+#  # bind_rows(GenusMeanAll)
+# 
+# 
+# SumTortAll <- sumTortoisesAll %>%
+#   group_by(Genus) %>%
+#   mutate(tt=MeanBins, vv=sdCL^2, nn=n, mm=meanCL) %>%
+#   dplyr::select(mm, nn, vv, tt, Genus) %>%
+#   mutate(nx = nn*mm) %>%
+#   mutate(mmall=sum(nx)/sum(nn)) %>%
+#   mutate(SD=sqrt(nx), d=mm-mmall) %>%
+#   mutate(nsd=((nx^2+d^2)*nn)) %>%
+#   mutate(varall=sum(nsd)/sum(nn), n=sum(nn)) %>%
+#   dplyr::select(mm=mmall, vv=varall, nn=n, tt, Genus) %>%
+#   unique() %>%
+#   dplyr::select(CL=mm, n=nn, var=vv, tt, Genus)
+# 
+# 
+# modernMeanGenusAll <- SumTortAll %>%
+#   ungroup() %>%
+#   select(CL, n, tt) %>%
+#   filter( !is.na(CL)) %>%
+#   group_by(tt) %>%
+#   dplyr::summarise(mm = mean(CL), vv=var(CL), nn=n())
+# 
+# #bis hier alle modernen taxa zusammengefasst (summarised and MFN_testudinidae)
+# 
+# 
+# GenusPaleoAll <- modernMeanGenusAll %>%
+#   bind_rows(GenusMeanAll)%>%
+#   arrange(tt)
+# 
+# GenusPaleoAll[is.na(GenusPaleoAll)] <- 0
+# 
+# kable(GenusPaleoAll, caption="paleoTS object, Eurasia, insular")
+# 
+# 
+# paleoGenAll <-as.paleoTS(GenusPaleoAll$mm, GenusPaleoAll$vv, GenusPaleoAll$nn, GenusPaleoAll$tt, MM = NULL, genpars = NULL, label = "Testudinidae body size evolution mode", reset.time=TRUE)
+# 
+# plot(paleoGenAll)
+# 
+# abline(h=mean(GenusPaleoAll$mm), lty=5)
+
+##########################################################
+
+
+GenusMean <- PleiPlioCL %>%
+  dplyr::filter(EpochBins != "Modern") %>%
   merge(Continents) %>%
-  filter(Con == "Asia" | Con == "Europe" & Island == "y") %>%
- # filter(EpochBins != "Aquitanian") %>%
-  filter(!is.na(CL)) %>%
-  group_by(MeanBins, Genus) %>%
+  dplyr::filter(Con== "Asia" | Con == "Europe" & Island == "y") %>%
+  dplyr::filter(!is.na(CL)) %>%
+  ungroup() %>%
+  dplyr::group_by(EpochBins, Genus) %>%
   dplyr::summarise(meanCL = mean(CL), n=n()) %>%
+#  filter(EpochBins != "Aquitanian") %>%
 #  ungroup() %>%
 #  group_by(EpochBins) %>%
   dplyr::summarise(mm = mean(meanCL), nn=n(), vv=var(meanCL)) %>%
- # merge(BINS) %>%
+  merge(BINSMio) %>%
   select(mm, nn, vv, tt=MeanBins)
   
-GenusMeanAll[is.na(GenusMeanAll)]<-0
+#na <- PleiPlioCL[!complete.cases(PleiPlioCL),]
+
+GenusMean[is.na(GenusMean)] <- 0
+
+
+GenusModern <- PleiPlioCL %>%
+  filter(EpochBins == "Modern") %>%
+  merge(Continents) %>%
+  filter(Con== "Asia" | Con == "Europe" & Island == "y") %>%
+  filter(!is.na(CL)) %>%
+  group_by(Genus) %>%
+  dplyr::summarise(meanCL=mean(CL), sdCL=sd(CL), n=n(), Age=mean(Age), EpochBins=unique(EpochBins), MeanBins=unique(MeanBins)) #%>%
+#  dplyr::summarise(mm=mean(meanCL), nn=n(), vv=var(meanCL), tt=mean(MeanBins))
 
 
 
 sumTort <- read.csv("tortoises_summary.csv", sep=";", header=TRUE)
+#colnames(sumTort)[1] <- "Taxon"
 colnames(sumTort)[7] <- "meanCL"
 colnames(sumTort)[8] <- "sdCL"
+#sumTort$EpochBins <- "Modern"
+#sumTort$MeanBins <- 0.0000005
 
 
-sumTortoisesAll <- sumTort %>%
-#  dplyr::filter(Island == "y") %>%
+sumTortoises <- sumTort %>%
   merge(Continents) %>%
-  filter(Con== "Asia" | Con == "Europe") %>%
+  filter(Con== "Asia" | Con == "Europe" & Island == "y") %>%
   mutate(Genus= as.character(Genus)) %>%
   mutate(MeanBins=(Mamin+Mamax)/2) %>%
-  select(Genus, MeanBins,  meanCL, sdCL, n) #%>% #n,
- # bind_rows(GenusMeanAll)
+  select(Genus, MeanBins,  meanCL, sdCL, n) %>% #n,
+  bind_rows(GenusModern)
 
 
-SumTortAll <- sumTortoisesAll %>%
+SumTort <- sumTortoises %>%
   group_by(Genus) %>%
   mutate(tt=MeanBins, vv=sdCL^2, nn=n, mm=meanCL) %>%
   dplyr::select(mm, nn, vv, tt, Genus) %>%
@@ -2820,31 +3112,37 @@ SumTortAll <- sumTortoisesAll %>%
   unique() %>%
   dplyr::select(CL=mm, n=nn, var=vv, tt, Genus)
 
+#write.table(SumTort,file="SumTortModernGenus.txt", sep="\t", row.names = FALSE)
 
-modernMeanGenusAll <- SumTortAll %>%
+#kable(SumTort, caption="Overview over body size means per time bin on genus level.")
+
+#boxplot(SumTort$CL, caption="Body size distribution in time bin 'modern'.")
+
+
+modernMeanGenus <- SumTort %>%
   ungroup() %>%
   select(CL, n, tt) %>%
-  filter( !is.na(CL)) %>%
-  group_by(tt) %>%
-  dplyr::summarise(mm = mean(CL), vv=var(CL), nn=n())
+  dplyr::filter( !is.na(CL)) %>%
+  #group_by(tt) %>%
+  dplyr::summarise(mm = mean(CL), vv=var(CL), nn=n(), tt=5.85e-03)
 
 #bis hier alle modernen taxa zusammengefasst (summarised and MFN_testudinidae)
 
 
-GenusPaleoAll <- modernMeanGenusAll %>%
-  bind_rows(GenusMeanAll)%>%
+GenusPaleo <- modernMeanGenus %>%
+  bind_rows(GenusMean)%>%
   arrange(tt)
 
-GenusPaleoAll[is.na(GenusPaleoAll)] <- 0
 
-kable(GenusPaleoAll, caption="paleoTS object, Eurasia, insular")
+kable(GenusPaleo,caption="paleoTS object, all data")
 
 
-paleoGenAll <-as.paleoTS(GenusPaleoAll$mm, GenusPaleoAll$vv, GenusPaleoAll$nn, GenusPaleoAll$tt, MM = NULL, genpars = NULL, label = "Testudinidae body size evolution mode", reset.time=TRUE)
+paleoGenAll <-as.paleoTS(GenusPaleo$mm, GenusPaleo$vv, GenusPaleo$nn, GenusPaleo$tt, MM = NULL, genpars = NULL, label = "Testudinidae body size evolution mode, Holocene-Upper Miocene, genus mean CL", reset.time=TRUE)
 
 plot(paleoGenAll)
 
 abline(h=mean(GenusPaleoAll$mm), lty=5)
+
 
 
 ```

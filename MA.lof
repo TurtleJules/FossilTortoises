@@ -1,42 +1,42 @@
 \select@language {english}
-\contentsline {figure}{\numberline {1}{\ignorespaces Map: fossil occurrences}}{11}{figure.caption.3}
-\contentsline {figure}{\numberline {2}{\ignorespaces Carapace length over time}}{15}{figure.caption.4}
-\contentsline {figure}{\numberline {3}{\ignorespaces Sample-based accumulation curve on generic level}}{17}{figure.caption.5}
-\contentsline {figure}{\numberline {4}{\ignorespaces CL distribution}}{18}{figure.caption.6}
-\contentsline {figure}{\numberline {5}{\ignorespaces Fossil vs. modern, continental vs. insular.}}{19}{figure.caption.7}
-\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Fossil vs. modern}}}{19}{subfigure.5.1}
-\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Continental vs. insular}}}{19}{subfigure.5.2}
-\contentsline {figure}{\numberline {6}{\ignorespaces Boxplots of mean CL per time bin, including mean and sd CL for each genus (as pointrange).\relax }}{20}{figure.caption.8}
-\contentsline {figure}{\numberline {7}{\ignorespaces Boxplots of CL split into fossil vs. modern (a) and cotinental vs. insular (b)\relax }}{20}{figure.caption.9}
-\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Fossil vs. modern}}}{20}{subfigure.7.1}
-\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Continental vs. insular}}}{20}{subfigure.7.2}
-\contentsline {figure}{\numberline {8}{\ignorespaces Boxplot: body size on different continents, genera summarised\relax }}{21}{figure.caption.10}
-\contentsline {figure}{\numberline {9}{\ignorespaces paleoTS plot with genus mean, all\relax }}{22}{figure.caption.11}
-\contentsline {figure}{\numberline {10}{\ignorespaces paleoTS plot with genus mean, continental\relax }}{23}{figure.caption.12}
-\contentsline {figure}{\numberline {11}{\ignorespaces paleoTS plot with genus mean, insular\relax }}{24}{figure.caption.13}
-\contentsline {figure}{\numberline {12}{\ignorespaces Genera, Europe\relax }}{25}{figure.caption.14}
-\contentsline {figure}{\numberline {13}{\ignorespaces paleoTS, genera, Eurasia\relax }}{26}{figure.caption.15}
-\contentsline {figure}{\numberline {S1}{\ignorespaces Map: body size localities}}{33}{figure.caption.17}
-\contentsline {figure}{\numberline {S2}{\ignorespaces Additional sampling accumulation curves}}{34}{figure.caption.18}
-\contentsline {figure}{\numberline {S3}{\ignorespaces Testing normal distribution}}{35}{figure.caption.19}
-\contentsline {figure}{\numberline {S4}{\ignorespaces Additional histograms}}{35}{figure.caption.20}
-\contentsline {figure}{\numberline {S5}{\ignorespaces Boxplots fossil vs.~modern, continental vs.~insular species.\relax }}{36}{figure.caption.21}
-\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Species per locality}}}{36}{subfigure.2.1}
-\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Species per reference}}}{36}{subfigure.2.2}
-\contentsline {subfigure}{\numberline {(c)}{\ignorespaces {Africa}}}{36}{subfigure.2.3}
-\contentsline {subfigure}{\numberline {(d)}{\ignorespaces {America}}}{36}{subfigure.2.4}
-\contentsline {subfigure}{\numberline {(e)}{\ignorespaces {North America}}}{36}{subfigure.2.5}
-\contentsline {subfigure}{\numberline {(f)}{\ignorespaces {South America}}}{36}{subfigure.2.6}
-\contentsline {subfigure}{\numberline {(g)}{\ignorespaces {Asia}}}{36}{subfigure.2.7}
-\contentsline {subfigure}{\numberline {(h)}{\ignorespaces {Europe}}}{36}{subfigure.2.8}
-\contentsline {subfigure}{\numberline {(i)}{\ignorespaces {Eurasia}}}{36}{subfigure.2.9}
-\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Raw data}}}{36}{subfigure.3.1}
-\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Logtransformed data}}}{36}{subfigure.3.2}
-\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Fossil vs. modern, continental vs. insular}}}{36}{subfigure.4.1}
-\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Per continent}}}{36}{subfigure.4.2}
-\contentsline {figure}{\numberline {S6}{\ignorespaces Random sampling}}{37}{figure.caption.22}
-\contentsline {figure}{\numberline {S7}{\ignorespaces Random sampling, continents}}{37}{figure.caption.23}
-\contentsline {figure}{\numberline {S8}{\ignorespaces paleoTS, genera, Europe, continental\relax }}{41}{figure.caption.24}
-\contentsline {figure}{\numberline {S9}{\ignorespaces paleoTS, genera, Europe, insular\relax }}{42}{figure.caption.25}
-\contentsline {figure}{\numberline {S10}{\ignorespaces paleoTS, genera, Eurasia, continental\relax }}{44}{figure.caption.26}
-\contentsline {figure}{\numberline {S11}{\ignorespaces paleoTS, genera, Eurasia, insular\relax }}{46}{figure.caption.27}
+\contentsline {figure}{\numberline {1}{\ignorespaces Map: fossil occurrences}}{10}{figure.caption.2}
+\contentsline {figure}{\numberline {2}{\ignorespaces Carapace length over time}}{14}{figure.caption.3}
+\contentsline {figure}{\numberline {3}{\ignorespaces Sample-based accumulation curve on generic level}}{16}{figure.caption.4}
+\contentsline {figure}{\numberline {4}{\ignorespaces CL distribution}}{17}{figure.caption.5}
+\contentsline {figure}{\numberline {5}{\ignorespaces Fossil vs. modern, continental vs. insular.}}{18}{figure.caption.6}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Fossil vs. modern}}}{18}{subfigure.5.1}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Continental vs. insular}}}{18}{subfigure.5.2}
+\contentsline {figure}{\numberline {6}{\ignorespaces Boxplots of mean CL per time bin, including mean and sd CL for each genus (as pointrange).\relax }}{19}{figure.caption.7}
+\contentsline {figure}{\numberline {7}{\ignorespaces Boxplots of CL split into fossil vs. modern (a) and cotinental vs. insular (b)\relax }}{19}{figure.caption.8}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Fossil vs. modern}}}{19}{subfigure.7.1}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Continental vs. insular}}}{19}{subfigure.7.2}
+\contentsline {figure}{\numberline {8}{\ignorespaces Boxplot: body size on different continents, genera summarised\relax }}{20}{figure.caption.9}
+\contentsline {figure}{\numberline {9}{\ignorespaces paleoTS plot with genus mean, all\relax }}{21}{figure.caption.10}
+\contentsline {figure}{\numberline {10}{\ignorespaces paleoTS plot with genus mean, continental\relax }}{22}{figure.caption.11}
+\contentsline {figure}{\numberline {11}{\ignorespaces paleoTS plot with genus mean, insular\relax }}{23}{figure.caption.12}
+\contentsline {figure}{\numberline {12}{\ignorespaces Genera, Europe\relax }}{24}{figure.caption.13}
+\contentsline {figure}{\numberline {13}{\ignorespaces paleoTS, genera, Eurasia\relax }}{25}{figure.caption.14}
+\contentsline {figure}{\numberline {S1}{\ignorespaces Map: body size localities}}{34}{figure.caption.15}
+\contentsline {figure}{\numberline {S2}{\ignorespaces Additional sampling accumulation curves}}{35}{figure.caption.16}
+\contentsline {figure}{\numberline {S3}{\ignorespaces Testing normal distribution}}{36}{figure.caption.17}
+\contentsline {figure}{\numberline {S4}{\ignorespaces Additional histograms}}{36}{figure.caption.18}
+\contentsline {figure}{\numberline {S5}{\ignorespaces Boxplots fossil vs.~modern, continental vs.~insular species.\relax }}{37}{figure.caption.19}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Species per locality}}}{37}{subfigure.2.1}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Species per reference}}}{37}{subfigure.2.2}
+\contentsline {subfigure}{\numberline {(c)}{\ignorespaces {Africa}}}{37}{subfigure.2.3}
+\contentsline {subfigure}{\numberline {(d)}{\ignorespaces {America}}}{37}{subfigure.2.4}
+\contentsline {subfigure}{\numberline {(e)}{\ignorespaces {North America}}}{37}{subfigure.2.5}
+\contentsline {subfigure}{\numberline {(f)}{\ignorespaces {South America}}}{37}{subfigure.2.6}
+\contentsline {subfigure}{\numberline {(g)}{\ignorespaces {Asia}}}{37}{subfigure.2.7}
+\contentsline {subfigure}{\numberline {(h)}{\ignorespaces {Europe}}}{37}{subfigure.2.8}
+\contentsline {subfigure}{\numberline {(i)}{\ignorespaces {Eurasia}}}{37}{subfigure.2.9}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Raw data}}}{37}{subfigure.3.1}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Logtransformed data}}}{37}{subfigure.3.2}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Fossil vs. modern, continental vs. insular}}}{37}{subfigure.4.1}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Per continent}}}{37}{subfigure.4.2}
+\contentsline {figure}{\numberline {S6}{\ignorespaces Random sampling}}{38}{figure.caption.20}
+\contentsline {figure}{\numberline {S7}{\ignorespaces Random sampling, continents}}{38}{figure.caption.21}
+\contentsline {figure}{\numberline {S8}{\ignorespaces paleoTS, genera, Europe, continental\relax }}{42}{figure.caption.22}
+\contentsline {figure}{\numberline {S9}{\ignorespaces paleoTS, genera, Europe, insular\relax }}{43}{figure.caption.23}
+\contentsline {figure}{\numberline {S10}{\ignorespaces paleoTS, genera, Eurasia, continental\relax }}{45}{figure.caption.24}
+\contentsline {figure}{\numberline {S11}{\ignorespaces paleoTS, genera, Eurasia, insular\relax }}{47}{figure.caption.25}

@@ -19,10 +19,11 @@ Repeated entry---line 4549 of file MA_fossilTortoises.bib
  : @inproceedings{Franz2001a
  :                          ,
 I'm skipping whatever remains of this entry
-Warning--I didn't find a database entry for "Peters1983"
 Warning--I didn't find a database entry for "Haldane1928"
+Warning--I didn't find a database entry for "Peters1983"
 Warning--I didn't find a database entry for "."
 Warning--I didn't find a database entry for "Millien2006"
+Warning--I didn't find a database entry for "Cope1887"
 Warning--I didn't find a database entry for "Rhodin2015"
 Warning--I didn't find a database entry for ""
 Warning--I didn't find a database entry for "Patterson1973"
@@ -34,7 +35,10 @@ Warning--I didn't find a database entry for "Schleich1981"
 Warning--I didn't find a database entry for "Carlson1999"
 Warning--I didn't find a database entry for "Stojanov2009"
 Warning--I didn't find a database entry for "Sturbaum1982"
+Warning--I didn't find a database entry for "Jass2014"
+Warning--I didn't find a database entry for "Blackburn1994"
 Warning--there's a number but no volume in Gotelli2011
+Warning--empty journal in Hunt2006
 Warning--empty journal in Smith2009
 Warning--there's a number but no volume in Smith2009
 (There were 4 error messages)
