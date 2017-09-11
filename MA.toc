@@ -26,7 +26,7 @@
 \contentsline {subsection}{\numberline {4.1}Data coverage}{26}{subsection.4.1}
 \contentsline {subsection}{\numberline {4.2}Distribution of testudinid body size}{26}{subsection.4.2}
 \contentsline {subsection}{\numberline {4.3}Time-scale analysis}{27}{subsection.4.3}
-\contentsline {subsection}{\numberline {4.4}Conclusion}{28}{subsection.4.4}
+\contentsline {subsection}{\numberline {4.4}Conclusion}{29}{subsection.4.4}
 \contentsline {section}{\numberline {5}References}{30}{section.5}
 \contentsline {section}{Appendix \numberline {A}Geographical and stratigraphic distribution of body size data}{34}{Appendix.1.A}
 \contentsline {section}{Appendix \numberline {B}Sampling accumulation curves}{35}{Appendix.1.B}
