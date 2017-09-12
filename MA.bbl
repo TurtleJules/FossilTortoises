@@ -38,10 +38,8 @@ Barnosky, A.~D. (2004).
 
 \bibitem[Bergmann, 1848]{Bergmann1848}
 Bergmann, C. (1848).
-\newblock {\em {{\{}$\backslash$"{\{}U{\}}{\}}ber die
-  Verh{\{}$\backslash$"{\{}a{\}}{\}}ltnisse der
-  W{\{}$\backslash$"{\{}a{\}}{\}}rme{\{}$\backslash$"{\{}o{\}}{\}}konomie der
-  Thiere zu ihrer Gr{\{}$\backslash$"{\{}o{\}}{\}}sse}}.
+\newblock {\em {{\"{U}}ber die Verh{\"{a}}ltnisse der W{\"{a}}rme{\"{o}}konomie
+  der Thiere zu ihrer Gr{\"{o}}sse}}.
 \newblock G{\"{o}}ttinger Studien, G{\"{o}}ttingen.
 
 \bibitem[Blackburn and Gaston, 1994]{Blackburn1994a}
@@ -195,8 +193,8 @@ Hunt, G., Hopkins, M.~J., and Lidgard, S. (2015).
 
 \bibitem[Hunter et~al., 2013]{Hunter2013}
 Hunter, E.~A., Gibbs, J.~P., Cayot, L.~J., and Tapia, W. (2013).
-\newblock {Equivalency of gal??pagos giant tortoises used as ecological
-  replacement species to restore ecosystem functions}.
+\newblock {Equivalency of Gal{\'{a}}pagos Giant Tortoises Used as Ecological
+  Replacement Species to Restore Ecosystem Functions}.
 \newblock {\em Conservation Biology}, 27(4):701--709.
 
 \bibitem[Hutterer et~al., 1998]{Hutterer1998}
@@ -379,6 +377,12 @@ Steele, T.~E. and Klein, R.~G. (2005).
   density in South Africa: Implications for the evolution of human cultural
   capacity}.
 \newblock {\em Munibe (Antropologia-Arkeologia)}, 57(0):221--237.
+
+\bibitem[Surovell et~al., 2005]{Surovell2005}
+Surovell, T., Waguespack, N., and Brantingham, P.~J. (2005).
+\newblock {Global archaeological evidence for proboscidean overkill}.
+\newblock {\em Proceedings of the National Academy of Sciences},
+  102(17):6231--6236.
 
 \bibitem[Thompson and Withers, 2003]{Thompson2002}
 Thompson, G.~G. and Withers, P.~C. (2003).
