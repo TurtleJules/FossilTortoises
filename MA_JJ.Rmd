@@ -278,7 +278,7 @@ Occurrences <- FossilOccurrences %>%
   select(Locality, Country, Latitude, Longitude, Age, Genus, Taxon, Author) %>%#, comment, Clavailability
   arrange(Age)
 
-kable(Occurrences)
+kable(Occurrences, row.names = TRUE, caption="fossil occurrences")
 #na <- FossOcc[!complete.cases(FossOcc),]
 
 # OccMap <-  merge(Map, FossOcc, by="Locality", incomparables=TRUE) %>%
@@ -3252,9 +3252,9 @@ TabFossil <- PleiPlioCL %>%
   filter(EpochBins!="Modern") %>%
   select(Locality,Genus, Taxon, CL, estimated, EpochBins, Age, Island, Con, Reference) 
 
-kable(Ref, caption="Data set, fossil.")
+kable(Ref, row.names= TRUE, caption="Data set, fossil.")
 
-
+#, row.names = TRUE, caption="fossil occurrences"
 
 
 colnames(Extant)[1] <- "CollNr"
@@ -3268,7 +3268,7 @@ TabExtant <- Extant %>%
   merge(Continents) %>%
   select(Genus, Taxon=Species, CollNr, SCL=CL, CCL, SCW, CCW, CH, PL, PW, estimated, Island, Con, Reference)
   
-kable(TabExtant, caption="Data set, extant")
+kable(TabExtant, row.names=TRUE, caption="Data set, extant")
 
 
 
