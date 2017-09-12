@@ -275,7 +275,8 @@ FossOcc <- FossilOccurrences %>%
 
 Occurrences <- FossilOccurrences %>%
   mutate(Age= (as.numeric(as.character(MA.min)) + as.numeric(as.character(Ma.max)))/2) %>%
-  select(Locality, Country, Latitude, Longitude, Age, Genus, Taxon, Author, comment, Clavailability)
+  select(Locality, Country, Latitude, Longitude, Age, Genus, Taxon, Author) %>%#, comment, Clavailability
+  arrange(Age)
 
 kable(Occurrences)
 #na <- FossOcc[!complete.cases(FossOcc),]
@@ -2041,8 +2042,8 @@ modernMeanGenus <- SumTort %>%
   ungroup() %>%
   select(CL, n, tt) %>%
   filter( !is.na(CL)) %>%
-  group_by(tt) %>%
-  dplyr::summarise(mm = mean(CL), vv=var(CL), nn=n())
+  #group_by(tt) %>%
+  dplyr::summarise(mm = mean(CL), vv=var(CL), nn=n(), tt=5.85e-03)
 
 #bis hier alle modernen taxa zusammengefasst (summarised and MFN_testudinidae)
 
@@ -2200,8 +2201,8 @@ modernMeanGenusIs <- SumTort %>%
   ungroup() %>%
   select(CL, n, tt) %>%
   filter( !is.na(CL)) %>%
-  group_by(tt) %>%
-  dplyr::summarise(mm = mean(CL), vv=var(CL), nn=n())
+#  group_by(tt) %>%
+  dplyr::summarise(mm = mean(CL), vv=var(CL), nn=n(), tt=5.85e-03)
 
 #bis hier alle modernen taxa zusammengefasst (summarised and MFN_testudinidae)
 
@@ -2332,8 +2333,8 @@ modernMeanGenusCon <- SumTortCon %>%
   ungroup() %>%
   select(CL, n, tt) %>%
   filter( !is.na(CL)) %>%
-  group_by(tt) %>%
-  dplyr::summarise(mm = mean(CL), vv=var(CL), nn=n())
+ # group_by(tt) %>%
+  dplyr::summarise(mm = mean(CL), vv=var(CL), nn=n(), tt=5.85e-03)
 
 #bis hier alle modernen taxa zusammengefasst (summarised and MFN_testudinidae)
 
@@ -3175,14 +3176,85 @@ kable(PaleoGenAllFit, caption="Model-fitting results for testudinidae, genera, E
 ```
 
 
+```{r "estimating CL from PL.2", echo=FALSE, results='asis'}
+# CLPLtidy <- tidyCL %>%
+#   filter(!is.na(CL) & !is.na(PL)) %>%
+#   dplyr::select(Taxon, CL, PL, size, Age, Island, Continent, Genus) %>%
+#   mutate(ratio=CL/PL) %>%
+#   group_by(Taxon) %>% #to show ratios per Taxon, leave out to get a total ratio
+#   dplyr::summarise(meanRatio=round(mean(ratio),2), sdRatio=round(sd(ratio),2), n=n(), min=min(ratio), max=max(ratio))
+# 
+# CLPLextant <- Extant %>%
+#   dplyr::filter(!is.na(CL) & !is.na(PL)) %>%
+#   dplyr::select(Taxon=Species, CL, PL, PLmid, Island, Continent, Genus) %>%
+#   mutate(ratio=CL/PL, ratioMid=CL/PLmid) #%>%
+#    # group_by(Taxon) %>% #to show ratios per Taxon, leave out to get a total ratio
+#    #  summarise(meanRatio=round(mean(ratio),2), sdRatio=round(sd(ratio),2), n=n(), min=min(ratio), max=max(ratio))
+# 
+# library(stats)
+# 
+# #kruskal.test(list(M, UPle, MPle, LPle, G, Pia, Z, Mess, Tort, S, L, BA)) #kruskal-wallis-test (im prinzip anova fr nicht paramterische daten)
+# 
+# 
+# #kruskal.test(CLPLextant$meanRatio, CLPLextant$Taxon)
+# #KruskalMC <- data.frame(kruskalmc(CLPLextant$ratio, CLPLextant$Taxon))
+# 
+# 
+# Ratio <- CLPLextant %>%
+#   dplyr::summarise(meanRatio=round(mean(ratio),2), sdRatio=round(sd(ratio),2), n=n(), min=min(ratio), max=max(ratio))
+# 
+# RatioSpecies <- CLPLextant %>%
+#   group_by(Taxon) %>% #to show ratios per Taxon, leave out to get a total ratio
+#   dplyr::summarise(meanRatio=round(mean(ratio),2), sdRatio=round(sd(ratio),2), n=n(), min=min(ratio), max=max(ratio))
+
+
+fossil <- tidyCL %>%
+  mutate(Taxon=as.character(Taxon), Island=as.character(Island), Continent=as.character(Continent), estimated=as.character(estimated), Genus=as.character(Genus)) %>%
+  dplyr::select(Locality, Latitude, Longitude, Taxon, CollNo, CL, PL, size, estimated, Age, Island, Continent, Genus, Reference)
+  
+#modern <- Extant %>%
+#  dplyr::select(Taxon=Species, CL, PL, estimated, Age, Island, Continent, Genus)
+
+#All <- bind_rows(modern, fossil)
+
+testRatio <- fossil %>% #tidyCL
+  dplyr::select(Locality, Latitude, Longitude, Taxon, CollNo, CL, PL, size, estimated, Age, Island, Continent, Genus, Reference) %>%
+  mutate(extraCL = PL*Ratio$meanRatio) %>%
+  dplyr::select(Locality, Latitude, Longitude, Taxon, CollNo, CL, extraCL, PL, size, estimated, Age, Island, Continent, Genus, Reference)
+
+
+# Ref <- tidyCL %>%
+#   select(Locality, Taxon, CL, Reference)
+
+# Dataset <- testRatio %>%
+#   merge(Ref)
+
+
+testRatio$CL[is.na(testRatio$CL)] <- testRatio$extraCL[is.na(testRatio$CL)]
+```
+
 
 ```{r "Data set: fossil", echo=FALSE}
 
+Ref <- testRatio %>%
+  filter(!is.na(CL)) %>%
+  filter(Age < 23.1) %>%
+  arrange(Age)
+
+
 TabFossil <- PleiPlioCL %>%
   merge(Continents) %>%
-  select(Genus, Taxon, CL, estimated, EpochBins, Age, Island, Con)
+  merge(Ref, all.x=FALSE) %>%
+  #left_join(Ref) %>%
+ # filter(Age < 23.1) %>%
+ # merge(BinsMio) %>%
+  filter(!is.na(CL)) %>%
+  filter(EpochBins!="Modern") %>%
+  select(Locality,Genus, Taxon, CL, estimated, EpochBins, Age, Island, Con, Reference) 
 
-kable(TabFossil, caption="Data set, fossil.")
+kable(Ref, caption="Data set, fossil.")
+
+
 
 
 colnames(Extant)[1] <- "CollNr"
