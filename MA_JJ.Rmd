@@ -2049,7 +2049,8 @@ modernMeanGenus <- SumTort %>%
 
 GenusPaleo <- modernMeanGenus %>%
   bind_rows(GenusMean)%>%
-  arrange(tt)
+  arrange(tt) %>%
+  select(tt,nn,mm,vv)
 
 
 kable(GenusPaleo,caption="paleoTS object, all data")
@@ -2207,7 +2208,8 @@ modernMeanGenusIs <- SumTort %>%
 
 GenusPaleoIs <- modernMeanGenusIs %>%
   bind_rows(GenusMeanIs)%>%
-  arrange(tt)
+  arrange(tt) %>%
+  select(tt,nn,mm,vv)
 
 #GenusPaleoIs[is.na(GenusPaleoIs)] <- 0
 
@@ -2338,8 +2340,8 @@ modernMeanGenusCon <- SumTortCon %>%
 
 GenusPaleoCon <- modernMeanGenusCon %>%
   bind_rows(GenusMeanCon)%>%
-  arrange(tt)
-
+  arrange(tt) %>%
+  select(tt,nn,mm,vv)
 
 GenusPaleoCon[is.na(GenusPaleoCon)]<-0
 
@@ -2411,7 +2413,9 @@ GenusMeanAll[is.na(GenusMeanAll)]<-0
 
 
 
-GenusPaleoAll <- GenusMeanAll
+GenusPaleoAll <- GenusMeanAll %>%
+  arrange(tt) %>%
+  select(tt,nn,mm,vv)
 
 GenusPaleoAll[is.na(GenusPaleoAll)] <- 0
 
@@ -2478,7 +2482,9 @@ GenusMeanAll[is.na(GenusMeanAll)]<-0
 
 
 
-GenusPaleoAll <- GenusMeanAll
+GenusPaleoAll <- GenusMeanAll %>%
+  arrange(tt) %>%
+  select(tt,nn,mm,vv)
 
 GenusPaleoAll[is.na(GenusPaleoAll)] <- 0
 
@@ -2539,7 +2545,10 @@ GenusMeanAll[is.na(GenusMeanAll)]<-0
 
 
 
-GenusPaleoAll <- GenusMeanAll
+GenusPaleoAll <- GenusMeanAll %>%
+  arrange(tt) %>%
+  select(tt,nn,mm,vv)
+  
 
 GenusPaleoAll[is.na(GenusPaleoAll)] <- 0
 
@@ -2734,8 +2743,9 @@ modernMeanGenus <- SumTort %>%
 
 
 GenusPaleo <- modernMeanGenus %>%
-  bind_rows(GenusMean)%>%
-  arrange(tt)
+  bind_rows(GenusMean) %>%
+  arrange(tt) %>%
+  select(tt,nn,mm,vv)
 
 
 kable(GenusPaleo,caption="paleoTS object, all data")
@@ -2934,8 +2944,9 @@ modernMeanGenus <- SumTort %>%
 
 
 GenusPaleo <- modernMeanGenus %>%
-  bind_rows(GenusMean)%>%
-  arrange(tt)
+  bind_rows(GenusMean) %>%
+  arrange(tt) %>%
+  select(tt,nn,mm,vv)
 
 
 kable(GenusPaleo,caption="paleoTS object, all data")
@@ -3130,8 +3141,9 @@ modernMeanGenus <- SumTort %>%
 
 
 GenusPaleo <- modernMeanGenus %>%
-  bind_rows(GenusMean)%>%
-  arrange(tt)
+  bind_rows(GenusMean) %>%
+  arrange(tt) %>%
+  select(tt,nn,mm,vv)
 
 
 kable(GenusPaleo,caption="paleoTS object, all data")
