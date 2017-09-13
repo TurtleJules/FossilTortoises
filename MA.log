@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6350 64-bit) (preloaded format=pdflatex 2017.7.2)  13 SEP 2017 03:08
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6350 64-bit) (preloaded format=pdflatex 2017.7.2)  13 SEP 2017 12:44
 entering extended mode
 **./MA.tex
 (MA.tex
@@ -1441,48 +1441,6 @@ Package natbib Warning: Citation `.' on page 6 undefined on input line 43.
 
 Package natbib Warning: Citation `.' on page 7 undefined on input line 51.
 
-Package hyperref Info: bookmark level for unknown todo defaults to 0 on input l
-ine 76.
-
-Overfull \hbox (2.75247pt too wide) in paragraph at lines 76--76
-[][][][]\T1/phv/m/n/10.95 Smith2009 
- []
-
-
-Overfull \hbox (4.86586pt too wide) in paragraph at lines 76--76
-\T1/phv/m/n/10.95 megafauna 
- []
-
-
-Overfull \hbox (2.75247pt too wide) in paragraph at lines 76--76
-[][][][]\T1/phv/m/n/10.95 Smith2009 
- []
-
-
-Overfull \hbox (4.86586pt too wide) in paragraph at lines 76--76
-\T1/phv/m/n/10.95 megafauna 
- []
-
-
-Overfull \hbox (2.75247pt too wide) in paragraph at lines 76--76
-[][][][]\T1/phv/m/n/10.95 Smith2009 
- []
-
-
-Overfull \hbox (4.86586pt too wide) in paragraph at lines 76--76
-\T1/phv/m/n/10.95 megafauna 
- []
-
-
-Overfull \hbox (2.75247pt too wide) in paragraph at lines 76--76
-[][][][]\T1/phv/m/n/10.95 Smith2009 
- []
-
-
-Overfull \hbox (4.86586pt too wide) in paragraph at lines 76--76
-\T1/phv/m/n/10.95 megafauna 
- []
-
 
 Package natbib Warning: Citation `.' on page 7 undefined on input line 78.
 
@@ -1581,7 +1539,7 @@ Package natbib Warning: Citation `rhodin2015turtles' on page 11 undefined on in
 put line 4.
 
 
-<MA_JJ_files/figure-latex/MapFossilOccurrences-1.pdf, id=439, 469.755pt x 325.2
+<MA_JJ_files/figure-latex/MapFossilOccurrences-1.pdf, id=438, 469.755pt x 325.2
 15pt>
 File: MA_JJ_files/figure-latex/MapFossilOccurrences-1.pdf Graphic file (type pd
 f)
@@ -2414,24 +2372,27 @@ LaTeX Warning: There were multiply-defined labels.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 134.
  ) 
 Here is how much of TeX's memory you used:
- 23119 strings out of 493323
- 424269 string characters out of 3139070
- 626685 words of memory out of 3000000
- 25792 multiletter control sequences out of 15000+200000
+ 23048 strings out of 493323
+ 422597 string characters out of 3139070
+ 624686 words of memory out of 3000000
+ 25721 multiletter control sequences out of 15000+200000
  66928 words of font info for 62 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 73i,10n,108p,8842b,708s stack positions out of 5000i,500n,10000p,200000b,50000s
-{C:/Program Files/MiKTeX 2.9/fonts/enc/dvips/lm/lm-mathsy.enc}{C:/Program Fil
-es/MiKTeX 2.9/fonts/enc/dvips/lm/lm-rm.enc}{C:/Program Files/MiKTeX 2.9/fonts/e
-nc/dvips/lm/lm-mathit.enc}{C:/Program Files/MiKTeX 2.9/fonts/enc/dvips/base/8r.
-enc}<C:/Program Files/MiKTeX 2.9/fonts/type1/public/lm/lmmi10.pfb><C:/Program F
-iles/MiKTeX 2.9/fonts/type1/public/lm/lmr10.pfb><C:/Program Files/MiKTeX 2.9/fo
-nts/type1/public/lm/lmr8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/lm
-/lmsy10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/lm/lmsy8.pfb><C:/Pr
-ogram Files/MiKTeX 2.9/fonts/type1/urw/helvetic/uhvb8a.pfb><C:/Program Files/Mi
-KTeX 2.9/fonts/type1/urw/helvetic/uhvr8a.pfb><C:/Program Files/MiKTeX 2.9/fonts
-/type1/urw/helvetic/uhvro8a.pfb>
-Output written on MA.pdf (125 pages, 1828822 bytes).
+ 73i,10n,108p,8842b,673s stack positions out of 5000i,500n,10000p,200000b,50000s
+pdfTeX warning (dest): name{figure.caption.25} has been referenced but does n
+ot exist, replaced by a fixed one
+
+{C:/Program Files/MiKTeX 2.9/fonts/enc/dvips/lm/lm-mathsy.enc}{C:/Program Files
+/MiKTeX 2.9/fonts/enc/dvips/lm/lm-rm.enc}{C:/Program Files/MiKTeX 2.9/fonts/enc
+/dvips/lm/lm-mathit.enc}{C:/Program Files/MiKTeX 2.9/fonts/enc/dvips/base/8r.en
+c}<C:/Program Files/MiKTeX 2.9/fonts/type1/public/lm/lmmi10.pfb><C:/Program Fil
+es/MiKTeX 2.9/fonts/type1/public/lm/lmr10.pfb><C:/Program Files/MiKTeX 2.9/font
+s/type1/public/lm/lmr8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/lm/l
+msy10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/lm/lmsy8.pfb><C:/Prog
+ram Files/MiKTeX 2.9/fonts/type1/urw/helvetic/uhvb8a.pfb><C:/Program Files/MiKT
+eX 2.9/fonts/type1/urw/helvetic/uhvr8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/t
+ype1/urw/helvetic/uhvro8a.pfb>
+Output written on MA.pdf (125 pages, 1828310 bytes).
 PDF statistics:
  1577 PDF objects out of 1728 (max. 8388607)
  295 named destinations out of 1000 (max. 500000)
