@@ -228,7 +228,7 @@ scatter <- testRatio %>%
   merge(Continents) %>%
   mutate(Insularity=ifelse(Island=="y","insular", "continental")) %>%
   select(CL, Age, Insularity, Con, estimated) %>%
-  ggplot(aes(Age, CL))+
+  ggplot(aes(Age, CL))+ # for time to start at the left: -Age
   geom_vline(xintercept = c(0, 0.0117, 0.126, 0.781, 1.806, 2.588, 3.6,
                                   5.332, 7.246, 11.608, 13.82, 15.97, 23.03))+ 
   geom_jitter(aes(shape=Insularity, colour= Con)) +
@@ -847,12 +847,13 @@ HistCLFossilIsland <- PleiPlioCL %>%
   merge(Epochs) %>%
   filter( !is.na(CL)) %>%
   mutate(CL=log(CL)) %>%
+  mutate(Insularity=ifelse(Island=="y","insular", "continental")) %>%
 #  filter(EpochBins != "Modern") %>%
   ggplot(aes(CL)) + 
   geom_histogram( aes(y=..density..),col="black", fill="gray")+
   #geom_density() +
   geom_density(alpha=.2, fill="darkslategray1") + 
-  facet_wrap(EPOCH~Island, scales="free_x")+   #binwidth=10,
+  facet_wrap(EPOCH~Insularity)+   #binwidth=10,, scales="free_x"
   theme_classic()+ 
   #theme_gray() +
   theme(panel.border = element_rect(colour = "black", fill=NA))
@@ -886,12 +887,13 @@ StatsFossilIsland <- PleiPlioCL %>%
 HistCLIsland <- PleiPlioCL %>%
   filter( !is.na(CL)) %>%
   mutate(CL=log(CL)) %>%
+  mutate(Insularity=ifelse(Island=="y","insular", "continental")) %>%
 #  filter(EpochBins != "Modern") %>%
   ggplot(aes(CL)) + 
   geom_histogram( aes(y=..density..),col="black", fill="gray")+
   #geom_density() +
   geom_density(alpha=.2, fill="darkslategray1") + 
-  facet_wrap(~Island, scales="free_x")+   #binwidth=10,
+  facet_wrap(~Insularity, scales="free_x")+   #binwidth=10,
   theme_classic()+ 
   #theme_gray() +
   theme(panel.border = element_rect(colour = "black", fill=NA))
@@ -1103,7 +1105,7 @@ IndGenera[is.na(IndGenera)] <-0
 
 # givesample sizes
 give.n <- function(x){
-  return(c(y = 0, label = length(x)))
+  return(c(y = 2500, label = length(x)))
 }
 
 
@@ -1400,7 +1402,7 @@ IndGenera[is.na(IndGenera)] <- 0
 
 
 give.n <- function(x){
-  return(c(y = 0, label = length(x)))
+  return(c(y = 2500, label = length(x)))
 }
 
 
@@ -1409,6 +1411,7 @@ BinGenera <- PleiPlioCL %>%
   group_by(EpochBins, Genus, Island) %>%
   filter(!is.na(CL)) %>%
   dplyr::summarise(GenusMean=mean(CL), GenusSD=sd(CL), n=n()) %>%
+  mutate(Insularity=ifelse(Island=="y","insular", "continental")) %>%
 #  summarise(TimeBinMean=mean(GenusMean), TimeBinSD=sd(GenusMean), n=n()) %>%
   ungroup() %>%#, CL=CL
   ggplot(aes(EpochBins, GenusMean)) + #, colour=Genus
@@ -1417,7 +1420,7 @@ BinGenera <- PleiPlioCL %>%
   stat_boxplot(geom ='errorbar', width = 0.2) +
   geom_boxplot() +
   geom_pointrange(data=IndGenera, position="jitter", aes(x=EpochBins, y=GenusMean, colour=EpochBins, ymin = GenusMean-GenusSD, ymax = GenusMean+GenusSD)) +
-  facet_wrap(~Island)+
+  facet_wrap(~Insularity)+
   stat_summary(fun.data = give.n, geom = "text") +
   theme(legend.background = element_rect(colour = 'black'),
         panel.border = element_rect(colour = "black", fill=NA)) +
@@ -1572,6 +1575,7 @@ BinGenera <- PleiPlioCL %>%
   merge(Epochs) %>%
   group_by(EPOCH, Genus, Island) %>%
   filter(!is.na(CL)) %>%
+  mutate(Insularity=ifelse(Island=="y","insular", "continental")) %>%
   dplyr::summarise(GenusMean=mean(CL), GenusSD=sd(CL), n=n()) %>%
 #  summarise(TimeBinMean=mean(GenusMean), TimeBinSD=sd(GenusMean), n=n()) %>%
   ungroup() %>%#, CL=CL
@@ -1581,7 +1585,7 @@ BinGenera <- PleiPlioCL %>%
   stat_boxplot(geom ='errorbar', width = 0.2) +
   geom_boxplot() +
   geom_pointrange(data=IndGenera, position="jitter", aes(x=EPOCH, y=GenusMean, colour=EPOCH, ymin = GenusMean-GenusSD, ymax = GenusMean+GenusSD)) +
-  facet_wrap(~Island)+
+  facet_wrap(~Insularity)+
   stat_summary(fun.data = give.n, geom = "text") +
   theme(legend.background = element_rect(colour = 'black'),
         panel.border = element_rect(colour = "black", fill=NA)) +
@@ -1983,6 +1987,7 @@ GenusMean <- PleiPlioCL %>%
   filter(EpochBins != "Modern") %>%
   filter(!is.na(CL)) %>%
   group_by(EpochBins, Genus) %>%
+#  filter(CL < 999 & Island =="y") %>%
   dplyr::summarise(meanCL = mean(CL), n=n()) %>%
 #  filter(EpochBins != "Aquitanian") %>%
 #  ungroup() %>%
@@ -1999,6 +2004,7 @@ GenusMean[is.na(GenusMean)] <- 0
 GenusModern <- PleiPlioCL %>%
   filter(EpochBins == "Modern") %>%
   filter(!is.na(CL)) %>%
+#  filter(CL < 999& Island =="y") %>%
   group_by(Genus) %>%
   dplyr::summarise(meanCL=mean(CL), sdCL=sd(CL), n=n(), Age=mean(Age), EpochBins=unique(EpochBins), MeanBins=unique(MeanBins)) #%>%
 #  dplyr::summarise(mm=mean(meanCL), nn=n(), vv=var(meanCL), tt=mean(MeanBins))
@@ -2016,12 +2022,13 @@ colnames(sumTort)[8] <- "sdCL"
 sumTortoises <- sumTort %>%
   mutate(Genus= as.character(Genus)) %>%
   mutate(MeanBins=(Mamin+Mamax)/2) %>%
-  select(Genus, MeanBins,  meanCL, sdCL, n) %>% #n,
+  select(Genus, MeanBins,  meanCL, sdCL, n, Island) %>% #n,
   bind_rows(GenusModern)
 
 
 SumTort <- sumTortoises %>%
   group_by(Genus) %>%
+#  filter(meanCL < 999 & Island =="y") %>%
   mutate(tt=MeanBins, vv=sdCL^2, nn=n, mm=meanCL) %>%
   dplyr::select(mm, nn, vv, tt, Genus) %>%
   mutate(nx = nn*mm) %>%
@@ -2053,13 +2060,18 @@ modernMeanGenus <- SumTort %>%
 GenusPaleo <- modernMeanGenus %>%
   bind_rows(GenusMean)%>%
   arrange(tt) %>%
-  select(tt,nn,mm,vv)
+  select(tt,nn,mm,vv) %>%
+  filter(nn!=0)
+
+GenusPaleo$vv[is.na(GenusPaleo$vv)] <- 0
 
 
 kable(GenusPaleo,caption="paleoTS object, all data")
 
 
 paleoGen <-as.paleoTS(GenusPaleo$mm, GenusPaleo$vv, GenusPaleo$nn, GenusPaleo$tt, MM = NULL, genpars = NULL, label = "Testudinidae body size evolution mode, Holocene-Upper Miocene, genus mean CL", reset.time=TRUE)
+
+#paleoGen$tt = -paleoGen$tt
 
 plot(paleoGen)
 
@@ -2073,7 +2085,7 @@ abline(h=mean(GenusPaleo$mm), lty=5)
 # 
 # abline(h=median(PleiPlioCL$CL), lty=3)
 
-#abline(v=c(2.59, 5.33, 23)) #add lines to indicate Plei/Plio and Plio/Mio borders
+abline(v=c(2.59, 5.33, 23)) #add lines to indicate Plei/Plio and Plio/Mio borders
 
 #abline(h=mean(PleiPlioCL$CL[which(PleiPlioCL$Island=="n")]), lty=5)
 
