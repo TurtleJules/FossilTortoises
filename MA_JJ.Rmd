@@ -228,15 +228,17 @@ scatter <- testRatio %>%
   merge(Continents) %>%
   mutate(Insularity=ifelse(Island=="y","insular", "continental")) %>%
   select(CL, Age, Insularity, Con, estimated) %>%
-  ggplot(aes(Age, CL)) + geom_jitter(aes(shape=Insularity, colour= Con)) +
-  theme_classic() +
+  ggplot(aes(Age, CL))+
   geom_vline(xintercept = c(0, 0.0117, 0.126, 0.781, 1.806, 2.588, 3.6,
-                                  5.332, 7.246, 11.608, 13.82, 15.97, 23.03))+
+                                  5.332, 7.246, 11.608, 13.82, 15.97, 23.03))+ 
+  geom_jitter(aes(shape=Insularity, colour= Con)) +
+  theme_classic() +
   # geom_vline(xintercept= c(0, 0.0117, 0.126, 0.781, 2.588, 3.6, 5.332, 11.608, 15.97, 23.03)) +
    geom_vline(xintercept= 20.44, linetype="dashed")  +
   scale_color_manual(values=c("#000000", "#E69F00",  "#FF00FF", "#009E73", "#56B4E9","#F0E442", "#0072B2", "#D55E00", "#CC79A7") , name="Continents")+
  # scale_shape_manual(values= c(16, 17), name="Insularity", breaks=c("continental", "insular")) +
-  xlab("Age [mya]") + ylab("Carapace length [mm]") 
+  xlab("Age [mya]") + ylab("Carapace length [mm]")#+ #+ coord_trans(x="log2") +
+  #scale_x_log10()
  # labs(shape="Insularity", colour="Continents")
   # 
 
@@ -428,7 +430,7 @@ library(vegan)
 
 veganSL=veganSL[,-1]
 veganspSL=specaccum(veganSL,method="rarefaction", permutations=1000)
-plot(veganspSL,xlab="Localities",ylab="Richness", xvar="individuals", ci.type="line", ci.lty=2, ci.col="grey", col="deepskyblue4", lwd=2 )
+plot(veganspSL,xlab="No. of Localities",ylab="Species Richness", xvar="individuals", ci.type="line", ci.lty=2, ci.col="grey", col="deepskyblue4", lwd=2 )
 
 
 
@@ -442,7 +444,7 @@ library(vegan)
 
 veganSR=veganSR[,-1]
 veganspSR=specaccum(veganSR,method="rarefaction", permutations=1000)
-plot(veganspSR,xlab="References",ylab="Richness", xvar="individuals", ci.type="line", ci.lty=2, ci.col="grey", col="deepskyblue4", lwd=2)
+plot(veganspSR,xlab="No. of References",ylab="Species Richness", xvar="individuals", ci.type="line", ci.lty=2, ci.col="grey", col="deepskyblue4", lwd=2)
 
 
 ```
@@ -465,7 +467,7 @@ veganGL <- tidyCL %>%
 
 veganGL=veganGL[,-1]
 veganspGL=specaccum(veganGL,method="rarefaction", permutations=1000)
-# plot(veganspGL,xlab="Localities",ylab="Richness", xvar="individuals", ci.type="line", ci.lty=2, ci.col="grey", col="deepskyblue4", lwd=2, main="Fossil genera, CL, per Locality" )
+# plot(veganspGL,xlab="No. of Localities",ylab="Genera Richness", xvar="individuals", ci.type="line", ci.lty=2, ci.col="grey", col="deepskyblue4", lwd=2, main="Fossil genera, CL, per Locality" )
 # --> appendix!
 
 
@@ -479,7 +481,7 @@ veganGR <- tidyCL %>%
 
 veganGR=veganGR[,-1]
 veganspGR=specaccum(veganGR,method="rarefaction", permutations=1000)
-plot(veganspGR,xlab="References",ylab="Richness", xvar="individuals", ci.type="line", ci.lty=2, ci.col="grey", col="deepskyblue4", lwd=2)
+plot(veganspGR,xlab="No. of References",ylab="Genera Richness", xvar="individuals", ci.type="line", ci.lty=2, ci.col="grey", col="deepskyblue4", lwd=2)
 
 
 ```
@@ -510,7 +512,7 @@ veganEA <- tidyCL %>%
 
 veganEA=veganEA[,-1]
 veganspEA=specaccum(veganEA,method="rarefaction", permutations=1000)
-plot(veganspEA,xlab="References",ylab="Richness", xvar="individuals", ci.type="line", ci.lty=2, ci.col="grey", col="deepskyblue4", lwd=2)
+plot(veganspEA,xlab="No. of References",ylab="Genera Richness", xvar="individuals", ci.type="line", ci.lty=2, ci.col="grey", col="deepskyblue4", lwd=2)
 
 
 ```
@@ -533,7 +535,7 @@ veganEu <- tidyCL %>%
 
 veganEu=veganEu[,-1]
 veganspEu=specaccum(veganEu,method="rarefaction", permutations=1000)
-plot(veganspEu,xlab="References",ylab="Richness", xvar="individuals", ci.type="line", ci.lty=2, ci.col="grey", col="deepskyblue4", lwd=2)
+plot(veganspEu,xlab="No. of References",ylab="Genera Richness", xvar="individuals", ci.type="line", ci.lty=2, ci.col="grey", col="deepskyblue4", lwd=2)
 
 
 ```
@@ -557,7 +559,7 @@ veganAf <- tidyCL %>%
 
 veganAf=veganAf[,-1]
 veganspAf=specaccum(veganAf,method="rarefaction", permutations=1000)
-plot(veganspAf,xlab="References",ylab="Richness", xvar="individuals", ci.type="line", ci.lty=2, ci.col="grey", col="deepskyblue4", lwd=2)
+plot(veganspAf,xlab="No. of References",ylab="Genera Richness", xvar="individuals", ci.type="line", ci.lty=2, ci.col="grey", col="deepskyblue4", lwd=2)
 
 
 ```
@@ -579,7 +581,7 @@ veganAm <- tidyCL %>%
 
 veganAm=veganAm[,-1]
 veganspAm=specaccum(veganAm,method="rarefaction", permutations=1000)
-plot(veganspAm,xlab="References",ylab="Richness", xvar="individuals", ci.type="line", ci.lty=2, ci.col="grey", col="deepskyblue4", lwd=2)
+plot(veganspAm,xlab="No. of References",ylab="Genera Richness", xvar="individuals", ci.type="line", ci.lty=2, ci.col="grey", col="deepskyblue4", lwd=2)
 
 
 ```
@@ -603,7 +605,7 @@ veganNA <- tidyCL %>%
 
 veganNA=veganNA[,-1]
 veganspNA=specaccum(veganNA,method="rarefaction", permutations=1000)
-plot(veganspNA,xlab="References",ylab="Richness", xvar="individuals", ci.type="line", ci.lty=2, ci.col="grey", col="deepskyblue4", lwd=2)
+plot(veganspNA,xlab="No. of References",ylab="Genera Richness", xvar="individuals", ci.type="line", ci.lty=2, ci.col="grey", col="deepskyblue4", lwd=2)
 
 
 ```
@@ -625,7 +627,7 @@ veganSA <- tidyCL %>%
 
 veganSA=veganSA[,-1]
 veganspSA=specaccum(veganSA,method="rarefaction", permutations=1000)
-plot(veganspSA,xlab="References",ylab="Richness", xvar="individuals", ci.type="line", ci.lty=2, ci.col="grey", col="deepskyblue4", lwd=2)
+plot(veganspSA,xlab="No. of References",ylab="Genera Richness", xvar="individuals", ci.type="line", ci.lty=2, ci.col="grey", col="deepskyblue4", lwd=2)
 
 
 ```
@@ -647,7 +649,7 @@ veganAs <- tidyCL %>%
 
 veganAs=veganAs[,-1]
 veganspAs=specaccum(veganAs,method="rarefaction", permutations=1000)
-plot(veganspAs,xlab="References",ylab="Richness", xvar="individuals", ci.type="line", ci.lty=2, ci.col="grey", col="deepskyblue4", lwd=2)
+plot(veganspAs,xlab="No. of References",ylab="Genera Richness", xvar="individuals", ci.type="line", ci.lty=2, ci.col="grey", col="deepskyblue4", lwd=2)
 
 
 ```
@@ -666,7 +668,7 @@ SACFossOc <- FossilOccurrences %>%
 
 SACFossOc=SACFossOc[,-1]
 SACFossOcSL=specaccum(SACFossOc,method="rarefaction", permutations=1000)
-plot(SACFossOcSL,xlab="Localities",ylab="Richness", xvar="individuals", ci.type="line", ci.lty=2, ci.col="grey", col="deepskyblue4", lwd=2 )
+plot(SACFossOcSL,xlab="No. of Localities",ylab="Genera Richness", xvar="individuals", ci.type="line", ci.lty=2, ci.col="grey", col="deepskyblue4", lwd=2 )
 ```
 
 
