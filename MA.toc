@@ -33,7 +33,6 @@
 \contentsline {section}{Appendix \numberline {A}Geographical and stratigraphic distribution of body size data}{43}{Appendix.1.A}
 \contentsline {section}{Appendix \numberline {B}Sampling accumulation curves}{44}{Appendix.1.B}
 \contentsline {section}{Appendix \numberline {C}Data structure}{45}{Appendix.1.C}
-\contentsline {subsection}{\numberline {C.1}Normality test}{45}{subsection.1.C.1}
 \contentsline {section}{Appendix \numberline {D}Random Sampling}{46}{Appendix.1.D}
 \contentsline {section}{Appendix \numberline {E}paleoTS}{47}{Appendix.1.E}
 \contentsline {section}{Appendix \numberline {F}Tables}{54}{Appendix.1.F}

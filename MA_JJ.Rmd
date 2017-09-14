@@ -2019,6 +2019,9 @@ paleoGen <-as.paleoTS(GenusPaleo$mm, GenusPaleo$vv, GenusPaleo$nn, GenusPaleo$tt
 
 plot(paleoGen)
 
+# plot(GenusPaleo$tt, GenusPaleo$mm, type="b", xlab="Time", ylab="Trait Mean")
+# arrows(GenusPaleo$tt,GenusPaleo$mm-GenusPaleo$vv,GenusPaleo$tt,GenusPaleo$mm+GenusPaleo$vv, code=3, length=0.02, angle = 90)
+
 abline(h=mean(GenusPaleo$mm), lty=5)
 
 points(x=c(2.59, 5.33), y=c(245, 245), pch=17)
