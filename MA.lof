@@ -1,42 +1,29 @@
 \select@language {english}
-\contentsline {figure}{\numberline {1}{\ignorespaces Map: fossil occurrences}}{11}{figure.caption.1}
-\contentsline {figure}{\numberline {2}{\ignorespaces Carapace length over time}}{15}{figure.caption.2}
-\contentsline {figure}{\numberline {3}{\ignorespaces Sample-based accumulation curve on generic level}}{17}{figure.caption.3}
-\contentsline {figure}{\numberline {4}{\ignorespaces CL distribution}}{18}{figure.caption.4}
-\contentsline {figure}{\numberline {5}{\ignorespaces Fossil vs. modern, continental vs. insular.}}{19}{figure.caption.5}
-\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Fossil vs. modern}}}{19}{subfigure.5.1}
-\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Continental vs. insular}}}{19}{subfigure.5.2}
-\contentsline {figure}{\numberline {6}{\ignorespaces Boxplots of mean CL per time bin, including mean and sd CL for each genus (as pointrange).\relax }}{20}{figure.caption.6}
-\contentsline {figure}{\numberline {7}{\ignorespaces Boxplots of CL split into fossil vs. modern (a) and cotinental vs. insular (b)\relax }}{20}{figure.caption.7}
-\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Fossil vs. modern}}}{20}{subfigure.7.1}
-\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Continental vs. insular}}}{20}{subfigure.7.2}
-\contentsline {figure}{\numberline {8}{\ignorespaces Boxplot: body size on different continents, genera summarised\relax }}{21}{figure.caption.8}
-\contentsline {figure}{\numberline {9}{\ignorespaces paleoTS plot with genus mean, all\relax }}{22}{figure.caption.9}
-\contentsline {figure}{\numberline {10}{\ignorespaces paleoTS plot with genus mean, continental\relax }}{24}{figure.caption.10}
-\contentsline {figure}{\numberline {11}{\ignorespaces paleoTS plot with genus mean, insular\relax }}{25}{figure.caption.11}
-\contentsline {figure}{\numberline {12}{\ignorespaces Genera, Europe\relax }}{27}{figure.caption.12}
-\contentsline {figure}{\numberline {13}{\ignorespaces paleoTS, genera, Eurasia\relax }}{28}{figure.caption.13}
-\contentsline {figure}{\numberline {S1}{\ignorespaces Map: body size localities}}{41}{figure.caption.14}
-\contentsline {figure}{\numberline {S2}{\ignorespaces Additional sampling accumulation curves}}{42}{figure.caption.15}
-\contentsline {figure}{\numberline {S3}{\ignorespaces Testing normal distribution}}{43}{figure.caption.16}
-\contentsline {figure}{\numberline {S4}{\ignorespaces Additional histograms}}{43}{figure.caption.17}
-\contentsline {figure}{\numberline {S5}{\ignorespaces Boxplots fossil vs.~modern, continental vs.~insular species.\relax }}{44}{figure.caption.18}
-\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Species per locality}}}{44}{subfigure.2.1}
-\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Species per reference}}}{44}{subfigure.2.2}
-\contentsline {subfigure}{\numberline {(c)}{\ignorespaces {Africa}}}{44}{subfigure.2.3}
-\contentsline {subfigure}{\numberline {(d)}{\ignorespaces {America}}}{44}{subfigure.2.4}
-\contentsline {subfigure}{\numberline {(e)}{\ignorespaces {North America}}}{44}{subfigure.2.5}
-\contentsline {subfigure}{\numberline {(f)}{\ignorespaces {South America}}}{44}{subfigure.2.6}
-\contentsline {subfigure}{\numberline {(g)}{\ignorespaces {Asia}}}{44}{subfigure.2.7}
-\contentsline {subfigure}{\numberline {(h)}{\ignorespaces {Europe}}}{44}{subfigure.2.8}
-\contentsline {subfigure}{\numberline {(i)}{\ignorespaces {Eurasia}}}{44}{subfigure.2.9}
-\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Raw data}}}{44}{subfigure.3.1}
-\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Logtransformed data}}}{44}{subfigure.3.2}
-\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Fossil vs. modern, continental vs. insular}}}{44}{subfigure.4.1}
-\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Per continent}}}{44}{subfigure.4.2}
-\contentsline {figure}{\numberline {S6}{\ignorespaces Random sampling}}{45}{figure.caption.19}
-\contentsline {figure}{\numberline {S7}{\ignorespaces Random sampling, continents}}{45}{figure.caption.20}
-\contentsline {figure}{\numberline {S8}{\ignorespaces paleoTS, genera, Europe, continental\relax }}{47}{figure.caption.21}
-\contentsline {figure}{\numberline {S9}{\ignorespaces paleoTS, genera, Europe, insular\relax }}{48}{figure.caption.22}
-\contentsline {figure}{\numberline {S10}{\ignorespaces paleoTS, genera, Eurasia, continental\relax }}{50}{figure.caption.23}
-\contentsline {figure}{\numberline {S11}{\ignorespaces paleoTS, genera, Eurasia, insular\relax }}{52}{figure.caption.24}
+\contentsline {figure}{\numberline {1}{\ignorespaces Fossil occurrences of Testudinidae}}{13}{figure.caption.1}
+\contentsline {figure}{\numberline {2}{\ignorespaces Carapace length over time}}{16}{figure.caption.3}
+\contentsline {figure}{\numberline {3}{\ignorespaces Sample-based accumulation curve on generic level}}{18}{figure.caption.6}
+\contentsline {figure}{\numberline {4}{\ignorespaces Body size distribution of complete data set}}{19}{figure.caption.8}
+\contentsline {figure}{\numberline {5}{\ignorespaces Body size distribution comparing fossil/modern and continental/insular taxa.}}{20}{figure.caption.10}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Fossil vs. modern}}}{20}{subfigure.5.1}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Continental vs. insular}}}{20}{subfigure.5.2}
+\contentsline {figure}{\numberline {6}{\ignorespaces Comparison of carapace length across time bins}}{21}{figure.caption.12}
+\contentsline {figure}{\numberline {7}{\ignorespaces Comparing carapace lengths between fossil/modern and continental/insular testudinids}}{21}{figure.caption.14}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Modern testudinids have a smaller average carapace length and variance than their fossil counterparts.}}}{21}{subfigure.7.1}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Continental Testudinidae\xspace have a larger average carapace length and variance than insular testudinids}}}{21}{subfigure.7.2}
+\contentsline {figure}{\numberline {8}{\ignorespaces Comparison of continental and insular testudinids of modern and fossil age}}{22}{figure.caption.16}
+\contentsline {figure}{\numberline {9}{\ignorespaces Comparison of carapace lengths amon continents.}}{22}{figure.caption.17}
+\contentsline {figure}{\numberline {10}{\ignorespaces PaleoTS plot of complete data set}}{24}{figure.caption.20}
+\contentsline {figure}{\numberline {11}{\ignorespaces PaleoTS plot of continental data set}}{26}{figure.caption.23}
+\contentsline {figure}{\numberline {12}{\ignorespaces PaleoTS plot of insular data set}}{27}{figure.caption.27}
+\contentsline {figure}{\numberline {13}{\ignorespaces PaleoTS plot of European Testudinidae\xspace }}{29}{figure.caption.31}
+\contentsline {figure}{\numberline {14}{\ignorespaces PaleoTS plot of Eurasian Testudinidae\xspace }}{31}{figure.caption.35}
+\contentsline {figure}{\numberline {S1}{\ignorespaces Map: body size localities}}{43}{figure.caption.37}
+\contentsline {figure}{\numberline {S2}{\ignorespaces Additional sampling accumulation curves}}{44}{figure.caption.38}
+\contentsline {figure}{\numberline {S3}{\ignorespaces Testing normal distribution}}{45}{figure.caption.39}
+\contentsline {figure}{\numberline {S4}{\ignorespaces Comparison of carapace lengths in subgroups}}{45}{figure.caption.40}
+\contentsline {figure}{\numberline {S5}{\ignorespaces Random sampling}}{46}{figure.caption.41}
+\contentsline {figure}{\numberline {S6}{\ignorespaces Random sampling: continents}}{46}{figure.caption.42}
+\contentsline {figure}{\numberline {S7}{\ignorespaces PaleoTS plot of continental Testudinidae\xspace in Europe}}{48}{figure.caption.43}
+\contentsline {figure}{\numberline {S8}{\ignorespaces PaleoTS plot of insular Testudinidae\xspace in Europe}}{49}{figure.caption.44}
+\contentsline {figure}{\numberline {S9}{\ignorespaces PaleoTS plot of continental Testudinidae\xspace in Eurasia}}{51}{figure.caption.45}
+\contentsline {figure}{\numberline {S10}{\ignorespaces PaleoTS plot of insular Testudinidae\xspace in Eurasia}}{52}{figure.caption.46}

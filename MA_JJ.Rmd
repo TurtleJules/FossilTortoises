@@ -358,7 +358,10 @@ mapCL <- MapCL %>%
   mapWorld +
   theme_classic() +
   geom_point(aes(Longitude, Latitude,size=count, colour=MeanBins)) +  #colour=size, 
-  scale_colour_gradientn(colors=c("orange", "red", "purple", "blue", "green", "yellow"))
+  scale_colour_gradientn(name="Age [mya]", colors=c("orange", "red", "purple", "blue", "green", "yellow"))+
+scale_x_continuous(breaks=c(-180, -100, 0, 100, 180)) +
+  scale_y_continuous(breaks=c(-90, -50, 0, 50, 90)) +
+  scale_size_continuous(name="n")
 
 #values=c("#000000", "#E69F00",  "#FF00FF", "#009E73", "#56B4E9","#F0E442", "#0072B2", "#D55E00", "#CC79A7")
 
@@ -697,7 +700,8 @@ HistCL <- PleiPlioCL %>%
   #facet_wrap(~EpochBins, scales="free_x")+   #binwidth=10,
   theme_classic()+ 
   #theme_gray() +
-  theme(panel.border = element_rect(colour = "black", fill=NA))
+  theme(panel.border = element_rect(colour = "black", fill=NA))+
+  xlab("Log Carapace length [mm]")
 
 #HistCLModern
 HistCL  
@@ -755,7 +759,8 @@ HistCLBins <- PleiPlioCL %>%
   facet_wrap(~EpochBins, scales="free_x")+   #binwidth=10,
   theme_classic()+ 
   #theme_gray() +
-  theme(panel.border = element_rect(colour = "black", fill=NA))
+  theme(panel.border = element_rect(colour = "black", fill=NA))+ 
+  xlab("Log Carapace length [mm]")
 
 
 HistCLBins
@@ -809,10 +814,11 @@ HistCLFossil <- PleiPlioCL %>%
   geom_histogram( aes(y=..density..),col="black", fill="gray")+
   #geom_density() +
   geom_density(alpha=.2, fill="darkslategray1") +
-  facet_wrap(~EPOCH, scales="free_x")+   #binwidth=10,
+  facet_wrap(~EPOCH)+   #binwidth=10,, scales="free_x"
   theme_classic()+ 
   #theme_gray() +
-  theme(panel.border = element_rect(colour = "black", fill=NA))
+  theme(panel.border = element_rect(colour = "black", fill=NA))+
+  xlab("Log Carapace length [mm]")
 
 
 HistCLFossil
@@ -853,10 +859,11 @@ HistCLFossilIsland <- PleiPlioCL %>%
   geom_histogram( aes(y=..density..),col="black", fill="gray")+
   #geom_density() +
   geom_density(alpha=.2, fill="darkslategray1") + 
-  facet_wrap(EPOCH~Insularity)+   #binwidth=10,, scales="free_x"
+  facet_grid(EPOCH~Insularity)+   #binwidth=10,, scales="free_x"
   theme_classic()+ 
   #theme_gray() +
-  theme(panel.border = element_rect(colour = "black", fill=NA))
+  theme(panel.border = element_rect(colour = "black", fill=NA))+
+  xlab("Log Carapace length [mm]")
 
 
 HistCLFossilIsland
@@ -893,10 +900,11 @@ HistCLIsland <- PleiPlioCL %>%
   geom_histogram( aes(y=..density..),col="black", fill="gray")+
   #geom_density() +
   geom_density(alpha=.2, fill="darkslategray1") + 
-  facet_wrap(~Insularity, scales="free_x")+   #binwidth=10,
+  facet_wrap(~Insularity)+   #binwidth=10,, scales="free_x"
   theme_classic()+ 
   #theme_gray() +
-  theme(panel.border = element_rect(colour = "black", fill=NA))
+  theme(panel.border = element_rect(colour = "black", fill=NA))+
+  xlab("Log Carapace length [mm]")
 
 #HistCLModern
 HistCLIsland
@@ -934,10 +942,11 @@ HistCLContinents <- PleiPlioCL %>%
   geom_histogram( aes(y=..density..),col="black", fill="gray")+
   #geom_density() +
   geom_density(alpha=.2, fill="darkslategray1") +
-  facet_wrap(~Con, scales="free_x")+   #binwidth=10,
+  facet_wrap(~Con)+   #binwidth=10,, scales="free_x"
   theme_classic()+ 
   #theme_gray() +
-  theme(panel.border = element_rect(colour = "black", fill=NA))
+  theme(panel.border = element_rect(colour = "black", fill=NA))+
+  xlab("Log Carapace length [mm]")
 
 
 HistCLContinents
@@ -974,7 +983,7 @@ HistCLGenera <- PleiPlioCL %>%
   geom_histogram( aes(y=..density..),col="black", fill="gray")+
   #geom_density() +
   geom_density(alpha=.2, fill="darkslategray1") + 
-  facet_wrap(~Genus, scales="free_x")+   #binwidth=10,
+  facet_wrap(~Genus)+   #binwidth=10,, scales="free_x"
   theme_classic()+ 
   #theme_gray() +
   theme(panel.border = element_rect(colour = "black", fill=NA))
@@ -1033,67 +1042,7 @@ kable(Stats, caption="General statistics of body size data: all, per time bin, i
 
 ```{r "BPGBins", echo=FALSE, warning=FALSE, fig.cap="Boxplots of mean CL per time bin, including mean and sd CL for each genus (as pointrange)."}
 
-#Boxplots of each genus per time bin
 
-# PleiPlioCL <- PleiPlioCL %>%
-#   filter(!is.na(CL))
-# 
-# Model4 <- aov(CL~EpochBins, data=PleiPlioCL)
-# tHSD <- TukeyHSD(Model4, ordered = FALSE, conf.level = 0.95)
-# plot(tHSD , las=1 , col="brown" )
-# 
-# 
-# generate_label_df <- function(TUKEY, variable){
-#   
-#   # Extract labels and factor levels from Tukey post-hoc 
-#   Tukey.levels <- TUKEY[[variable]][,4]
-#   Tukey.labels <- data.frame(multcompLetters(Tukey.levels)['Letters'])
-#   
-#   #I need to put the labels in the same order as in the boxplot :
-#   Tukey.labels$treatment=rownames(Tukey.labels)
-#   Tukey.labels=Tukey.labels[order(Tukey.labels$treatment) , ]
-#   return(Tukey.labels)
-# }
-# 
-# model=lm(PleiPlioCL$CL~PleiPlioCL$EpochBins)
-# ANOVA=aov(model)
-# 
-# # Tukey test to study each pair of treatment :
-# TUKEY <- TukeyHSD(x=ANOVA, 'PleiPlioCL$EpochBins', conf.level=0.95)
-# 
-# labels<-generate_label_df(TUKEY , "PleiPlioCL$EpochBins")#generate labels using function
-# 
-# names(labels)<-c('Letters','EpochBins')#rename columns for merging
-# 
-# #yvalue<-aggregate(.~CL, data=PleiPlioCL, mean)# obtain letter position for y axis using means
-# 
-# yvalue <- PleiPlioCL %>%
-#   filter(!is.na(CL)) %>%
-#   group_by(EpochBins) %>%
-#   select(EpochBins, CL) %>%
-#   dplyr::summarise(CL=median(CL), mean=mean(CL))
-# 
-# 
-# 
-# 
-# final<-merge(labels,yvalue) #merge dataframes
-# 
-# ggplot(PleiPlioCL, aes(x = EpochBins, y = CL)) +
-#   geom_blank() +
-#   theme_bw() +
-# #  theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank()) +
-#  # labs(x = 'Age', y = 'CL [mm]') +
-# #  ggtitle(expression(atop(bold("CL"), atop(italic("(Dry Mass)"), "")))) +
-# #  theme(plot.title = element_text(hjust = 0.5, face='bold')) +
-# #  annotate(geom = "rect", xmin = 1.5, xmax = 4.5, ymin = -Inf, ymax = Inf, alpha = 0.6, fill = "grey90") +
-#   geom_boxplot(fill = 'green2', stat = "boxplot") +
-#   geom_text(data = final, aes(x = EpochBins, y = CL, label = Letters),vjust=-1) +  #,hjust=-.5
-# #  geom_vline(aes(xintercept=4.5), linetype="dashed") +
-#   theme(plot.title = element_text(vjust=-0.6)) +
-#   geom_text(data = final, aes(x = EpochBins, y = mean, label = "*")) 
-# 
-
-########
 
 IndGenera <- PleiPlioCL %>%
   group_by(EpochBins, Genus) %>%
@@ -1107,46 +1056,6 @@ IndGenera[is.na(IndGenera)] <-0
 give.n <- function(x){
   return(c(y = 2500, label = length(x)))
 }
-
-
-# #add tukey letter: differences between groups
-# Model4 <- aov(CL~EpochBins, data=PleiPlioCL)
-# tHSD <- TukeyHSD(Model4, ordered = FALSE, conf.level = 0.95)
-# plot(tHSD , las=1 , col="brown" )
-# 
-# 
-# generate_label_df <- function(TUKEY, variable){
-#   
-#   # Extract labels and factor levels from Tukey post-hoc 
-#   Tukey.levels <- TUKEY[[variable]][,4]
-#   Tukey.labels <- data.frame(multcompLetters(Tukey.levels)['Letters'])
-#   
-#   #I need to put the labels in the same order as in the boxplot :
-#   Tukey.labels$treatment=rownames(Tukey.labels)
-#   Tukey.labels=Tukey.labels[order(Tukey.labels$treatment) , ]
-#   return(Tukey.labels)
-# }
-# 
-# model=lm(PleiPlioCL$CL~PleiPlioCL$EpochBins)
-# ANOVA=aov(model)
-# 
-# # Tukey test to study each pair of treatment :
-# TUKEY <- TukeyHSD(x=ANOVA, 'PleiPlioCL$EpochBins', conf.level=0.95)
-# 
-# labels<-generate_label_df(TUKEY , "PleiPlioCL$EpochBins")#generate labels using function
-# 
-# names(labels)<-c('Letters','EpochBins')#rename columns for merging
-# 
-# yvalue <- PleiPlioCL %>%
-#   filter(!is.na(CL)) %>%
-#   group_by(EpochBins) %>%
-#   select(EpochBins, CL) %>%
-#   dplyr::summarise(CL=median(CL), mean=mean(CL))
-# 
-# 
-# 
-# 
-# final<-merge(labels,yvalue) #merge dataframes
 
 
 
@@ -1170,7 +1079,8 @@ BinGenera <- PleiPlioCL %>%
                                "#999999", "#999999", "#999999", "#969696", "#999999",
                                "#999999", "#969696", "#999999", "#999999", "#999999",
                                "#999999", "#999999")) +
-  theme(legend.position="none")
+  theme(legend.position="none") + ylab("Carapace length [mm]") + xlab("Stratigraphic Stages")+
+ annotate("text", x=0.7, y=2500,label= "n=")
 
 BinGenera
 
@@ -1427,7 +1337,9 @@ BinGenera <- PleiPlioCL %>%
   scale_colour_manual(values=c("#808080", "#848484", "#878787", "#8B8B8B", "#8F8F8F", "#929292",
                                "#969696", "#999999", "#969696", "#999999",
                                "#969696", "#999999", "#969696", "#999999", "#999999")) +
-  theme(legend.position="none")
+  theme(legend.position="none")+
+  theme(legend.position="none") + ylab("Carapace length [mm]") + xlab("Stratigraphic Stages")+
+ annotate("text", x=0.7, y=2500,label= "n=")
 
 BinGenera
 
@@ -1453,7 +1365,7 @@ IndGenera[is.na(IndGenera)] <- 0
 
 
 give.n <- function(x){
-  return(c(y = 0, label = length(x)))
+  return(c(y = 2200, label = length(x)))
 }
 
 
@@ -1478,7 +1390,9 @@ BinGenera <- PleiPlioCL %>%
   scale_colour_manual(values=c("#808080", "#848484", "#878787", "#8B8B8B", "#8F8F8F", "#929292",
                                "#969696", "#999999", "#969696", "#999999",
                                "#969696", "#999999", "#969696", "#999999", "#999999")) +
-  theme(legend.position="none")
+  theme(legend.position="none")+
+  theme(legend.position="none") + ylab("Carapace length [mm]") + xlab("Age")+
+ annotate("text", x=0.5, y=2200,label= "n =")
 
 BinGenera
 
@@ -1566,16 +1480,14 @@ IndGenera[is.na(IndGenera)] <- 0
 
 
 give.n <- function(x){
-  return(c(y = 0, label = length(x)))
+  return(c(y = 2200, label = length(x)))
 }
-
-
 
 BinGenera <- PleiPlioCL %>%
   merge(Epochs) %>%
-  group_by(EPOCH, Genus, Island) %>%
-  filter(!is.na(CL)) %>%
   mutate(Insularity=ifelse(Island=="y","insular", "continental")) %>%
+  group_by(EPOCH, Genus, Insularity) %>%
+  filter(!is.na(CL)) %>%
   dplyr::summarise(GenusMean=mean(CL), GenusSD=sd(CL), n=n()) %>%
 #  summarise(TimeBinMean=mean(GenusMean), TimeBinSD=sd(GenusMean), n=n()) %>%
   ungroup() %>%#, CL=CL
@@ -1584,15 +1496,23 @@ BinGenera <- PleiPlioCL %>%
   theme(axis.text.x = element_text(angle = 45, vjust = 1, hjust=1)) +
   stat_boxplot(geom ='errorbar', width = 0.2) +
   geom_boxplot() +
-  geom_pointrange(data=IndGenera, position="jitter", aes(x=EPOCH, y=GenusMean, colour=EPOCH, ymin = GenusMean-GenusSD, ymax = GenusMean+GenusSD)) +
-  facet_wrap(~Insularity)+
+  geom_pointrange(position="jitter", aes(x=EPOCH, y=GenusMean, colour=EPOCH, ymin = GenusMean-GenusSD, ymax = GenusMean+GenusSD)) +   #   #data=IndGenera, 
+  facet_grid(~Insularity)+
   stat_summary(fun.data = give.n, geom = "text") +
   theme(legend.background = element_rect(colour = 'black'),
         panel.border = element_rect(colour = "black", fill=NA)) +
   scale_colour_manual(values=c("#808080", "#848484", "#878787", "#8B8B8B", "#8F8F8F", "#929292",
                                "#969696", "#999999", "#969696", "#999999",
                                "#969696", "#999999", "#969696", "#999999", "#999999")) +
-  theme(legend.position="none")
+  theme(legend.position="none")+
+  theme(legend.position="none") + ylab("Carapace length [mm]") + xlab("Age")+
+  annotate("text", x=0.75, y=2200,label= "n =")
+
+
+#  geom_pointrange(data=IndGenera, position="jitter", aes(x=EPOCH, y=GenusMean, colour=EPOCH, ymin = GenusMean-GenusSD, ymax = GenusMean+GenusSD)) +
+#  facet_wrap(~Island)+
+#  stat_summary(fun.data = give.n, geom = "text") +
+
 
 BinGenera
 
@@ -1680,33 +1600,52 @@ modern insular < fossil insular (P = $`r ModernFossilIsland$p.value`$)
 
 #Boxplot continental vs. insular
 
-give.n <- function(x){
-  return(c(y = 0, label = length(x)))
-}
 
 
 IslandGenus <- testRatio %>%
   filter(!is.na(CL)) %>%
-  select(CL, Island, Genus) %>%
+  mutate(Insularity=ifelse(Island=="y","insular", "continental")) %>%
+  select(CL, Insularity, Genus) %>%
   filter(!is.na(CL)) %>%
-  group_by(Genus, Island) %>%
+  group_by(Genus, Insularity) %>%
   dplyr::summarise(meanCL=mean(CL), sdCL=sd(CL))
 
 IslandGenus[is.na(IslandGenus)] <- 0
 
 
+give.n <- function(x){
+  return(data=IslandGenus,c(y = 2600, label = length(x)))
+}
+
+test <- testRatio %>%
+ filter(Age<23)
+
 IslandAll <- testRatio %>%
-  select(CL, Island, Genus) %>%
+  filter(Age < 23) %>%
+  mutate(Insularity=ifelse(Island=="y","insular", "continental")) %>%
+  select(CL, Insularity, Genus) %>%
   filter(!is.na(CL)) %>%
-  ggplot(aes(Island, CL)) + geom_boxplot() + 
-  geom_pointrange(data=IslandGenus, position="jitter", aes(x=Island, y=meanCL,  colour= Island , ymin = meanCL-sdCL, ymax = meanCL+sdCL)) +   #colour=Genus,
+  ggplot(aes(Insularity, CL)) + 
+  stat_boxplot(geom ='errorbar', width = 0.2) +
+  geom_boxplot() + 
+  geom_pointrange(data=IslandGenus, position="jitter", aes(x=Insularity, y=meanCL,  colour= Insularity ,
+                                                           ymin = meanCL-sdCL, ymax = meanCL+sdCL)) +   #colour=Genus,
+ # stat_summary(fun.data = give.n, geom = "text") +
   theme_classic() + # for white background 
-  stat_summary(fun.data = give.n, geom = "text") +
   theme(legend.background = element_rect(colour = 'black'),
         panel.border = element_rect(colour = "black", fill=NA)) +
   scale_colour_manual(values=c("#808080", "#848484", "#878787", "#8B8B8B", "#8F8F8F", "#929292",
                                "#969696", "#999999")) +
-  theme(legend.position="none")
+  theme(legend.position="none") +
+  theme(legend.position="none") + ylab("Carapace length [mm]") +
+ annotate("text", x=0.75, y=2600,label= "n =") +
+ annotate("text", x=1, y=2600,label=length(unique(test$Genus[which(test$Island=="n")]))) +
+ annotate("text", x=2, y=2600,label=length(unique(test$Genus[which(test$Island=="y")])))
+
+
+
+#length(unique(test$Genus[which(test$Island=="n")]))
+
 
 IslandAll
 
@@ -1802,7 +1741,7 @@ IslandAll
 #Boxplot body size split into continents
 
 give.n <- function(x){
-  return(c(y = 0, label = length(x)))
+  return(c(y = 2600, label = length(x)))
 }
 
 
@@ -1821,15 +1760,20 @@ ContinentAll <- PleiPlioCL %>%
   merge(Continents) %>%
   select(CL, Con, Genus) %>%
   filter(!is.na(CL)) %>%
-  ggplot(aes(Con, CL)) + geom_boxplot() + 
+  ggplot(aes(Con, CL)) + 
+  stat_boxplot(geom ='errorbar', width = 0.2) +
+  geom_boxplot() + 
   geom_pointrange(data=ContinentGenus, position="jitter", aes(x=Con, y=meanCL,  colour= Con , ymin = meanCL-sdCL, ymax = meanCL+sdCL)) +   #colour=Genus,
   theme_classic() + # for white background 
+  ylab("Carapace length [mm]") +
+  xlab("Continents") +
   stat_summary(fun.data = give.n, geom = "text") +
   theme(legend.background = element_rect(colour = 'black'),
         panel.border = element_rect(colour = "black", fill=NA)) +
   scale_colour_manual(values=c("#808080", "#848484", "#878787", "#8B8B8B", "#8F8F8F", "#929292",
                                "#969696", "#999999")) +
-  theme(legend.position="none")
+  theme(legend.position="none")+
+ annotate("text", x=0.75, y=2600,label= "n =")
 
 ContinentAll
 
@@ -2069,13 +2013,17 @@ GenusPaleo$vv[is.na(GenusPaleo$vv)] <- 0
 kable(GenusPaleo,caption="paleoTS object, all data")
 
 
-paleoGen <-as.paleoTS(GenusPaleo$mm, GenusPaleo$vv, GenusPaleo$nn, GenusPaleo$tt, MM = NULL, genpars = NULL, label = "Testudinidae body size evolution mode, Holocene-Upper Miocene, genus mean CL", reset.time=TRUE)
+paleoGen <-as.paleoTS(GenusPaleo$mm, GenusPaleo$vv, GenusPaleo$nn, GenusPaleo$tt, MM = NULL, genpars = NULL, reset.time=TRUE)
 
 #paleoGen$tt = -paleoGen$tt
 
 plot(paleoGen)
 
 abline(h=mean(GenusPaleo$mm), lty=5)
+
+points(x=c(2.59, 5.33), y=c(245, 245), pch=17)
+
+#symbols(2.59, 200, circles, add=TRUE)
 
 #abline(v=3.2)
 
@@ -2085,7 +2033,7 @@ abline(h=mean(GenusPaleo$mm), lty=5)
 # 
 # abline(h=median(PleiPlioCL$CL), lty=3)
 
-abline(v=c(2.59, 5.33, 23)) #add lines to indicate Plei/Plio and Plio/Mio borders
+#abline(v=c(2.59, 5.33, 23)) #add lines to indicate Plei/Plio and Plio/Mio borders
 
 #abline(h=mean(PleiPlioCL$CL[which(PleiPlioCL$Island=="n")]), lty=5)
 
@@ -2231,11 +2179,14 @@ GenusPaleoIs <- modernMeanGenusIs %>%
 kable(GenusPaleoIs, caption="paleoTS object, continental")
 
 
-paleoGenIs <-as.paleoTS(GenusPaleoIs$mm, GenusPaleoIs$vv, GenusPaleoIs$nn, GenusPaleoIs$tt, MM = NULL, genpars = NULL, label = "Testudinidae body size evolution mode, Holocene-Upper Miocene, genus mean CL", reset.time=TRUE)
+paleoGenIs <-as.paleoTS(GenusPaleoIs$mm, GenusPaleoIs$vv, GenusPaleoIs$nn, GenusPaleoIs$tt, MM = NULL, genpars = NULL, reset.time=TRUE)
+
 
 plot(paleoGenIs)
 
 abline(h=mean(GenusPaleoIs$mm), lty=5)
+
+points(x=c(2.59, 5.33), y=c(175, 175), pch=17)
 
 #abline(h=median(GenusPaleoIs$mm), lty=6)
 
@@ -2363,11 +2314,15 @@ GenusPaleoCon[is.na(GenusPaleoCon)]<-0
 kable(GenusPaleoCon, caption="paleoTS object, insular")
 
 
-paleoGenCon <-as.paleoTS(GenusPaleoCon$mm, GenusPaleoCon$vv, GenusPaleoCon$nn, GenusPaleoCon$tt, MM = NULL, genpars = NULL, label = "Testudinidae body size evolution mode, Holocene-Upper Miocene, genus mean CL, insular genera", reset.time=TRUE)
+paleoGenCon <-as.paleoTS(GenusPaleoCon$mm, GenusPaleoCon$vv, GenusPaleoCon$nn, GenusPaleoCon$tt, MM = NULL, genpars = NULL, reset.time=TRUE)
+
 
 plot(paleoGenCon)
 
 abline(h=mean(GenusPaleoCon$mm), lty=5)
+
+points(x=c(2.59, 5.33), y=c(290, 290), pch=17)
+
 
 # abline(h=median(GenusPaleoCon$mm), lty=2)
 # 
@@ -2437,11 +2392,14 @@ GenusPaleoAll[is.na(GenusPaleoAll)] <- 0
 kable(GenusPaleoAll, caption="paleoTS object, Europe")
 
 
-paleoGenAll <-as.paleoTS(GenusPaleoAll$mm, GenusPaleoAll$vv, GenusPaleoAll$nn, GenusPaleoAll$tt, MM = NULL, genpars = NULL, label = "Testudinidae body size evolution mode", reset.time=TRUE)
+paleoGenAll <-as.paleoTS(GenusPaleoAll$mm, GenusPaleoAll$vv, GenusPaleoAll$nn, GenusPaleoAll$tt, MM = NULL, genpars = NULL, reset.time=TRUE)
 
 plot(paleoGenAll)
 
 abline(h=mean(GenusPaleoAll$mm), lty=5)
+
+points(x=c(2.59, 5.33), y=c(50, 50), pch=17)
+
 
 # abline(h=median(GenusPaleoAll$mm), lty=6)
 # 
@@ -2506,11 +2464,13 @@ GenusPaleoAll[is.na(GenusPaleoAll)] <- 0
 kable(GenusPaleoAll, caption="paleoTs object, Europe, continental")
 
 
-paleoGenAll <-as.paleoTS(GenusPaleoAll$mm, GenusPaleoAll$vv, GenusPaleoAll$nn, GenusPaleoAll$tt, MM = NULL, genpars = NULL, label = "Testudinidae body size evolution mode", reset.time=TRUE)
+paleoGenAll <-as.paleoTS(GenusPaleoAll$mm, GenusPaleoAll$vv, GenusPaleoAll$nn, GenusPaleoAll$tt, MM = NULL, genpars = NULL, reset.time=TRUE)
 
 plot(paleoGenAll)
 
 abline(h=mean(GenusPaleoAll$mm), lty=5)
+
+points(x=c(2.59, 5.33), y=c(60, 60), pch=17)
 
 
 ```
@@ -2570,11 +2530,13 @@ GenusPaleoAll[is.na(GenusPaleoAll)] <- 0
 kable(GenusPaleoAll, caption="paleoTs object, Europe, insular")
 
 
-paleoGenAll <-as.paleoTS(GenusPaleoAll$mm, GenusPaleoAll$vv, GenusPaleoAll$nn, GenusPaleoAll$tt, MM = NULL, genpars = NULL, label = "Testudinidae body size evolution mode", reset.time=TRUE)
+paleoGenAll <-as.paleoTS(GenusPaleoAll$mm, GenusPaleoAll$vv, GenusPaleoAll$nn, GenusPaleoAll$tt, MM = NULL, genpars = NULL, reset.time=TRUE)
 
 plot(paleoGenAll)
 
 abline(h=mean(GenusPaleoAll$mm), lty=5)
+
+points(x=c(2.59, 5.33), y=c(95, 95), pch=17)
 
 
 ```
@@ -2763,14 +2725,23 @@ GenusPaleo <- modernMeanGenus %>%
   select(tt,nn,mm,vv)
 
 
-kable(GenusPaleo,caption="paleoTS object, all data")
+kable(GenusPaleo,caption="paleoTS object, all data, Eurasia")
 
 
-paleoGenAll <-as.paleoTS(GenusPaleo$mm, GenusPaleo$vv, GenusPaleo$nn, GenusPaleo$tt, MM = NULL, genpars = NULL, label = "Testudinidae body size evolution mode, Holocene-Upper Miocene, genus mean CL", reset.time=TRUE)
+
+paleoGenAll <-as.paleoTS(GenusPaleo$mm, GenusPaleo$vv, GenusPaleo$nn, GenusPaleo$tt, MM = NULL, genpars = NULL, reset.time=TRUE)
+
+#paleoGenAll$tt <- -paleoGenAll$tt
 
 plot(paleoGenAll)
 
+#ylim=c(10, 1)
+
+#axis(1, at=c(0, -5, -10, -15, -20), labels=c(0,5,10,15,20))
+
 abline(h=mean(GenusPaleoAll$mm), lty=5)
+
+points(x=c(2.59, 5.33), y=c(115, 115), pch=17) # add minus if you flip it vertically
 
 
 
@@ -2967,11 +2938,13 @@ GenusPaleo <- modernMeanGenus %>%
 kable(GenusPaleo,caption="paleoTS object, all data")
 
 
-paleoGenAll <-as.paleoTS(GenusPaleo$mm, GenusPaleo$vv, GenusPaleo$nn, GenusPaleo$tt, MM = NULL, genpars = NULL, label = "Testudinidae body size evolution mode, Holocene-Upper Miocene, genus mean CL", reset.time=TRUE)
+paleoGenAll <-as.paleoTS(GenusPaleo$mm, GenusPaleo$vv, GenusPaleo$nn, GenusPaleo$tt, MM = NULL, genpars = NULL, reset.time=TRUE)
 
 plot(paleoGenAll)
 
 abline(h=mean(GenusPaleoAll$mm), lty=5)
+
+points(x=c(2.59, 5.33), y=c(125, 125), pch=17)
 
 
 
@@ -3001,86 +2974,11 @@ kable(PaleoGenAllFit, caption="Model-fitting results for testudinidae, genera, E
 #paleoTS with different time bins, no bins, genera, Eurasia, insular
 
 
-# GenusMeanAll <- PleiPlioCL %>%
-# #  merge(BINS) %>%
-# #  filter(EpochBins != "Modern") %>%  # & EpochBins != "Upper Miocene"
-#   merge(Continents) %>%
-#   filter(Con == "Asia" | Con == "Europe" & Island == "y") %>%
-#  # filter(EpochBins != "Aquitanian") %>%
-#   filter(!is.na(CL)) %>%
-#   group_by(MeanBins, Genus) %>%
-#   dplyr::summarise(meanCL = mean(CL), n=n()) %>%
-# #  ungroup() %>%
-# #  group_by(EpochBins) %>%
-#   dplyr::summarise(mm = mean(meanCL), nn=n(), vv=var(meanCL)) %>%
-#  # merge(BINS) %>%
-#   select(mm, nn, vv, tt=MeanBins)
-#   
-# GenusMeanAll[is.na(GenusMeanAll)]<-0
-# 
-# 
-# 
-# sumTort <- read.csv("tortoises_summary.csv", sep=";", header=TRUE)
-# colnames(sumTort)[7] <- "meanCL"
-# colnames(sumTort)[8] <- "sdCL"
-# 
-# 
-# sumTortoisesAll <- sumTort %>%
-# #  dplyr::filter(Island == "y") %>%
-#   merge(Continents) %>%
-#   filter(Con== "Asia" | Con == "Europe") %>%
-#   mutate(Genus= as.character(Genus)) %>%
-#   mutate(MeanBins=(Mamin+Mamax)/2) %>%
-#   select(Genus, MeanBins,  meanCL, sdCL, n) #%>% #n,
-#  # bind_rows(GenusMeanAll)
-# 
-# 
-# SumTortAll <- sumTortoisesAll %>%
-#   group_by(Genus) %>%
-#   mutate(tt=MeanBins, vv=sdCL^2, nn=n, mm=meanCL) %>%
-#   dplyr::select(mm, nn, vv, tt, Genus) %>%
-#   mutate(nx = nn*mm) %>%
-#   mutate(mmall=sum(nx)/sum(nn)) %>%
-#   mutate(SD=sqrt(nx), d=mm-mmall) %>%
-#   mutate(nsd=((nx^2+d^2)*nn)) %>%
-#   mutate(varall=sum(nsd)/sum(nn), n=sum(nn)) %>%
-#   dplyr::select(mm=mmall, vv=varall, nn=n, tt, Genus) %>%
-#   unique() %>%
-#   dplyr::select(CL=mm, n=nn, var=vv, tt, Genus)
-# 
-# 
-# modernMeanGenusAll <- SumTortAll %>%
-#   ungroup() %>%
-#   select(CL, n, tt) %>%
-#   filter( !is.na(CL)) %>%
-#   group_by(tt) %>%
-#   dplyr::summarise(mm = mean(CL), vv=var(CL), nn=n())
-# 
-# #bis hier alle modernen taxa zusammengefasst (summarised and MFN_testudinidae)
-# 
-# 
-# GenusPaleoAll <- modernMeanGenusAll %>%
-#   bind_rows(GenusMeanAll)%>%
-#   arrange(tt)
-# 
-# GenusPaleoAll[is.na(GenusPaleoAll)] <- 0
-# 
-# kable(GenusPaleoAll, caption="paleoTS object, Eurasia, insular")
-# 
-# 
-# paleoGenAll <-as.paleoTS(GenusPaleoAll$mm, GenusPaleoAll$vv, GenusPaleoAll$nn, GenusPaleoAll$tt, MM = NULL, genpars = NULL, label = "Testudinidae body size evolution mode", reset.time=TRUE)
-# 
-# plot(paleoGenAll)
-# 
-# abline(h=mean(GenusPaleoAll$mm), lty=5)
-
-##########################################################
-
-
 GenusMean <- PleiPlioCL %>%
   dplyr::filter(EpochBins != "Modern") %>%
   merge(Continents) %>%
-  dplyr::filter(Con== "Asia" | Con == "Europe" & Island == "y") %>%
+  dplyr::filter(Con== "Asia" | Con == "Europe") %>%
+  dplyr::filter(Island == "y") %>%
   dplyr::filter(!is.na(CL)) %>%
   ungroup() %>%
   dplyr::group_by(EpochBins, Genus) %>%
@@ -3100,7 +2998,8 @@ GenusMean[is.na(GenusMean)] <- 0
 GenusModern <- PleiPlioCL %>%
   filter(EpochBins == "Modern") %>%
   merge(Continents) %>%
-  filter(Con== "Asia" | Con == "Europe" & Island == "y") %>%
+  filter(Con== "Asia" | Con == "Europe") %>%
+  dplyr::filter(Island == "y") %>%
   filter(!is.na(CL)) %>%
   group_by(Genus) %>%
   dplyr::summarise(meanCL=mean(CL), sdCL=sd(CL), n=n(), Age=mean(Age), EpochBins=unique(EpochBins), MeanBins=unique(MeanBins)) #%>%
@@ -3118,7 +3017,8 @@ colnames(sumTort)[8] <- "sdCL"
 
 sumTortoises <- sumTort %>%
   merge(Continents) %>%
-  filter(Con== "Asia" | Con == "Europe" & Island == "y") %>%
+  filter(Con== "Asia" | Con == "Europe") %>%
+  dplyr::filter(Island == "y") %>%
   mutate(Genus= as.character(Genus)) %>%
   mutate(MeanBins=(Mamin+Mamax)/2) %>%
   select(Genus, MeanBins,  meanCL, sdCL, n) %>% #n,
@@ -3164,11 +3064,13 @@ GenusPaleo <- modernMeanGenus %>%
 kable(GenusPaleo,caption="paleoTS object, all data")
 
 
-paleoGenAll <-as.paleoTS(GenusPaleo$mm, GenusPaleo$vv, GenusPaleo$nn, GenusPaleo$tt, MM = NULL, genpars = NULL, label = "Testudinidae body size evolution mode, Holocene-Upper Miocene, genus mean CL", reset.time=TRUE)
+paleoGenAll <-as.paleoTS(GenusPaleo$mm, GenusPaleo$vv, GenusPaleo$nn, GenusPaleo$tt, MM = NULL, genpars = NULL, reset.time=TRUE)
 
 plot(paleoGenAll)
 
 abline(h=mean(GenusPaleoAll$mm), lty=5)
+
+points(x=c(2.59, 5.33), y=c(165, 165), pch=17)
 
 
 
