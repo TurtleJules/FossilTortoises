@@ -1,29 +1,29 @@
 \select@language {english}
-\contentsline {figure}{\numberline {1}{\ignorespaces Fossil occurrences of Testudinidae}}{13}{figure.caption.1}
-\contentsline {figure}{\numberline {2}{\ignorespaces Carapace length over time}}{16}{figure.caption.3}
-\contentsline {figure}{\numberline {3}{\ignorespaces Sample-based accumulation curve on generic level}}{18}{figure.caption.6}
-\contentsline {figure}{\numberline {4}{\ignorespaces Body size distribution of complete data set}}{19}{figure.caption.8}
-\contentsline {figure}{\numberline {5}{\ignorespaces Body size distribution comparing fossil/modern and continental/insular taxa.}}{20}{figure.caption.10}
-\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Fossil vs. modern}}}{20}{subfigure.5.1}
-\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Continental vs. insular}}}{20}{subfigure.5.2}
-\contentsline {figure}{\numberline {6}{\ignorespaces Comparison of carapace length across time bins}}{21}{figure.caption.12}
-\contentsline {figure}{\numberline {7}{\ignorespaces Comparing carapace lengths between fossil/modern and continental/insular testudinids}}{21}{figure.caption.14}
-\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Modern testudinids have a smaller average carapace length and variance than their fossil counterparts.}}}{21}{subfigure.7.1}
-\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Continental Testudinidae\xspace have a larger average carapace length and variance than insular testudinids}}}{21}{subfigure.7.2}
-\contentsline {figure}{\numberline {8}{\ignorespaces Comparison of continental and insular testudinids of modern and fossil age}}{22}{figure.caption.16}
-\contentsline {figure}{\numberline {9}{\ignorespaces Comparison of carapace lengths amon continents.}}{22}{figure.caption.17}
-\contentsline {figure}{\numberline {10}{\ignorespaces PaleoTS plot of complete data set}}{24}{figure.caption.20}
-\contentsline {figure}{\numberline {11}{\ignorespaces PaleoTS plot of continental data set}}{26}{figure.caption.23}
-\contentsline {figure}{\numberline {12}{\ignorespaces PaleoTS plot of insular data set}}{27}{figure.caption.27}
-\contentsline {figure}{\numberline {13}{\ignorespaces PaleoTS plot of European Testudinidae\xspace }}{29}{figure.caption.31}
-\contentsline {figure}{\numberline {14}{\ignorespaces PaleoTS plot of Eurasian Testudinidae\xspace }}{31}{figure.caption.35}
-\contentsline {figure}{\numberline {S1}{\ignorespaces Map: body size localities}}{43}{figure.caption.37}
-\contentsline {figure}{\numberline {S2}{\ignorespaces Additional sampling accumulation curves}}{44}{figure.caption.38}
-\contentsline {figure}{\numberline {S3}{\ignorespaces Testing normal distribution}}{45}{figure.caption.39}
-\contentsline {figure}{\numberline {S4}{\ignorespaces Comparison of carapace lengths in subgroups}}{45}{figure.caption.40}
-\contentsline {figure}{\numberline {S5}{\ignorespaces Random sampling}}{46}{figure.caption.41}
-\contentsline {figure}{\numberline {S6}{\ignorespaces Random sampling: continents}}{46}{figure.caption.42}
-\contentsline {figure}{\numberline {S7}{\ignorespaces PaleoTS plot of continental Testudinidae\xspace in Europe}}{48}{figure.caption.43}
-\contentsline {figure}{\numberline {S8}{\ignorespaces PaleoTS plot of insular Testudinidae\xspace in Europe}}{49}{figure.caption.44}
-\contentsline {figure}{\numberline {S9}{\ignorespaces PaleoTS plot of continental Testudinidae\xspace in Eurasia}}{51}{figure.caption.45}
-\contentsline {figure}{\numberline {S10}{\ignorespaces PaleoTS plot of insular Testudinidae\xspace in Eurasia}}{52}{figure.caption.46}
+\contentsline {figure}{\numberline {1}{\ignorespaces Fossil occurrences of Testudinidae}}{14}{figure.caption.1}
+\contentsline {figure}{\numberline {2}{\ignorespaces Carapace length over time}}{17}{figure.caption.3}
+\contentsline {figure}{\numberline {3}{\ignorespaces Sample-based accumulation curve on generic level}}{19}{figure.caption.6}
+\contentsline {figure}{\numberline {4}{\ignorespaces Body size distribution of the complete data set}}{20}{figure.caption.8}
+\contentsline {figure}{\numberline {5}{\ignorespaces Body size distribution comparing fossil/modern and continental/insular taxa.}}{21}{figure.caption.10}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Fossil vs. modern}}}{21}{subfigure.5.1}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Continental vs. insular}}}{21}{subfigure.5.2}
+\contentsline {figure}{\numberline {6}{\ignorespaces Comparison of carapace length among time bins}}{22}{figure.caption.12}
+\contentsline {figure}{\numberline {7}{\ignorespaces Comparing carapace lengths between fossil/modern and continental/insular testudinids}}{23}{figure.caption.14}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Modern testudinids have a smaller average carapace length and variance than their fossil counterparts.}}}{23}{subfigure.7.1}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Continental Testudinidae\xspace have a larger average carapace length and variance than insular testudinids}}}{23}{subfigure.7.2}
+\contentsline {figure}{\numberline {8}{\ignorespaces Comparison of continental and insular testudinids of modern and fossil age}}{23}{figure.caption.16}
+\contentsline {figure}{\numberline {9}{\ignorespaces Comparison of carapace lengths among continents.}}{24}{figure.caption.17}
+\contentsline {figure}{\numberline {10}{\ignorespaces PaleoTS plot of the complete data set}}{26}{figure.caption.20}
+\contentsline {figure}{\numberline {11}{\ignorespaces PaleoTS plot of continental data set}}{28}{figure.caption.23}
+\contentsline {figure}{\numberline {12}{\ignorespaces PaleoTS plot of insular data set}}{30}{figure.caption.27}
+\contentsline {figure}{\numberline {13}{\ignorespaces PaleoTS plot of European Testudinidae\xspace }}{32}{figure.caption.31}
+\contentsline {figure}{\numberline {14}{\ignorespaces PaleoTS plot of Eurasian Testudinidae\xspace }}{34}{figure.caption.35}
+\contentsline {figure}{\numberline {S1}{\ignorespaces Map: body size localities}}{48}{figure.caption.37}
+\contentsline {figure}{\numberline {S2}{\ignorespaces Additional sampling accumulation curves}}{49}{figure.caption.38}
+\contentsline {figure}{\numberline {S3}{\ignorespaces Testing normal distribution}}{50}{figure.caption.39}
+\contentsline {figure}{\numberline {S4}{\ignorespaces Comparison of carapace lengths in subgroups}}{50}{figure.caption.40}
+\contentsline {figure}{\numberline {S5}{\ignorespaces Random sampling}}{51}{figure.caption.41}
+\contentsline {figure}{\numberline {S6}{\ignorespaces Random sampling: continents}}{51}{figure.caption.42}
+\contentsline {figure}{\numberline {S7}{\ignorespaces PaleoTS plot of continental Testudinidae\xspace in Europe}}{53}{figure.caption.43}
+\contentsline {figure}{\numberline {S8}{\ignorespaces PaleoTS plot of insular Testudinidae\xspace in Europe}}{54}{figure.caption.44}
+\contentsline {figure}{\numberline {S9}{\ignorespaces PaleoTS plot of continental Testudinidae\xspace in Eurasia}}{56}{figure.caption.46}
+\contentsline {figure}{\numberline {S10}{\ignorespaces PaleoTS plot of insular Testudinidae\xspace in Eurasia}}{57}{figure.caption.47}

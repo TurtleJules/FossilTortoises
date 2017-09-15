@@ -4,15 +4,16 @@
 
 % read Thompson and Withers, 2003: Species Accumulation Curve
 \subsection{Sample-based accumulation curves}
-The sample-based accumulation curve (SAC) on the generic level shows a relatively low intial slope and a long upward slope to the asymptote, which does not reach full saturation (Fig. \ref{fig:SACGen}).
+To see if sampling was sufficient, sample-based accumulation curves were created. The sample-based accumulation curve (SAC) on the generic level shows a relatively low intial slope and a long upward slope to the asymptote, which does not reach full saturation (Fig. \ref{fig:SACGen}).
 %Although the SAC does not completely plateau, considering the large area covered and the high number of rare genera in the dataset, it can be considered well enough sampled for our purposes.
 In contrast, the species accumulation curves, both per reference and per locality, show only a slight initial increase and, for the same number of references/sampling units, are far from reaching an asymptote (Fig. \ref{fig:SACall} (a), (b)).
+This demonstates that sampling is sufficient on the generic but not on the species level, which is the following analyses were conducted on the generic level. 
 % DISCUSSION: as could be expected, since there are less genera than species \citep{Gotelli2001}. At a large geographic scale, it can be expected, that an asymptote is not reached \citep{Thompson2002}. Fig. \ref{fig:SACGen} corresponds to the shape one would expect, when there are many genera that are rare and only a few abundant ones. For the different continents, only Europe and Eurasia show some sort of "typical" SAC shape.
 %%%____
 % DISCUSSION ? 
 %Since there are less genera than species, it is to be expected that genera reach an asymptote earlier than species.
 %%%____
-Accumulation curves for individual continents show that Europe reflects the trend of the overall dataset, with a long upward slope after the inflection point, whereas the other continents require further sampling (Fig. \ref{fig:SACall} (c) - (i)). For this reason, the timescale analysis was only conducted for Europe and Eurasia, but not for the other continents.
+Accumulation curves for individual continents show that Europe reflects the trend of the overall dataset, with a long upward slope after the initial steep slope (Fig. \ref{fig:SACall} (h) - (i)). This shows that Europe and Eurasia are sufficiently sampled, whereas the other continents would require further sampling (Fig. \ref{fig:SACall} (c) - (g)). For this reason, the timescale analysis was only conducted for Europe and Eurasia, but not for the other continents.
 
 %--> genera sufficiently sampled, species not
 %--> for genera, when splitting up continents only Europe and Eurasia are sampled well enough --> ask Johannes again, I feel like Asia is screwing up the results, would stick with Europe.
@@ -22,7 +23,7 @@ Accumulation curves for individual continents show that Europe reflects the tren
 \begin{figure}[htbp]
 	\centering
 	\includegraphics[width=0.8\textwidth]{MA_JJ_files/figure-latex/SACGenera-1.pdf}
-	\caption[Sample-based accumulation curve on generic level]{Sample-based accumulation curve of fossil genera per reference. Dashed lines represent the confidence inteval.}
+	\caption[Sample-based accumulation curve on generic level]{Sample-based accumulation curve of fossil genera per reference. Dashed lines represent the confidence interval.}
 	\phantomsection
 	\label{fig:SACGen}
 \end{figure}
@@ -38,21 +39,22 @@ Accumulation curves for individual continents show that Europe reflects the tren
 %as most animal groups/clades (?) right-skewed = smaller body size more frequent, BUT island species are left-skewed with more larger body sizes! (logtransformed data, skewness: negative for Zanclean, Messinian ??, insular, fossil-insular, but not modern-insular!!)
 \subsection{Descriptive statistics}
 
+To explore the strucure of the data set, histograms with density curves were created.
 The histograms indicate that testudinid body size is not normally distributed (Fig. \ref{fig:histAll}), which is supported by QQ-Plots for raw as well as log-transformed data (Fig. \ref{fig:NormDis}).
 
 The body size distribution is moderately right-skewed (Table \ref{tab:stats}), with a higher frequency of smaller body sizes.
-Body size ranges from a minimum of 80 mm to a maximum of 2500 mm for the entire data set. When comparing body sizes on a temporal scale, the minimum body size per stratigraphic stages excluding modern taxa ranges from 90 mm to 270 mm, while the maximum 1100 mm to 2500 mm. The highest maximum body size was observed in the fossil record from continental Europe (CL = 2500 mm).
+Body size ranges from a minimum of 80 mm to a maximum of 2500 mm for the entire data set. When comparing body sizes on a temporal scale, the minimum body size per stratigraphic stages excluding modern taxa ranges from 90 mm to 270 mm, while the maximum reaches values between 1100 mm to 2500 mm. The highest maximum body size was observed in the fossil record from continental Europe with a carapace length of 2500 mm.
 %________________________________________________________________________
 
 \begin{figure}[htbp]
 	\centering
-	\includegraphics[width=0.8\textwidth]{MA_JJ_files/figure-latex/HistAll-1.pdf}
-	\caption[Body size distribution of complete data set]{Body size distribution of complete data set. The data is bimodally distributed and right-skewed.}
+	\includegraphics[width=0.75\textwidth]{MA_JJ_files/figure-latex/HistAll-1.pdf}
+	\caption[Body size distribution of the complete data set]{Body size distribution of the complete data set. The data is bimodally distributed and right-skewed.}
 	\phantomsection
 	\label{fig:histAll}
 \end{figure}
 
-This pattern is also apparent when splitting the data set into fossil and modern taxa (Fig. \ref{fig:HistFMCI} (a)). Considering insularity, body size distribution is right-skewed for continental taxa, but left-skewed for insular species, meaning larger body size is more frequent than smaller body size on islands. Insular taxa are also left-skewed when only considering fossil taxa, but modern insular taxa have a skewness close to 0, indicating a symmetric distribution (Table \ref{tab:stats}).
+Considering insularity, body size distribution is right-skewed for continental taxa, but left-skewed for insular species, meaning larger body size is more frequent than smaller body size on islands. The overall pattern of bimodality is also apparent when splitting the data set into fossil and modern taxa (Fig. \ref{fig:HistFMCI} (a)). Insular taxa are left-skewed when only considering fossil taxa, but modern insular taxa have a skewness close to 0, indicating a symmetric distribution (Table \ref{tab:stats}).
 Kurtosis suggests light tails with no/few outliers (kurtosis < 3) for insular and modern insular species, whereas continental species have a heavy tail (kurtosis > 3; Table \ref{tab:stats}).
 
 \begin{center}
@@ -76,21 +78,29 @@ Body size distributions are similar, right-skewed and bimodal, for the four cont
 %__________________________
 
 
-
+To investigate differences in carapace length among stratigraphic stages, between modern and fossil testudinids, and continental and insular testudinids, boxplots were created.
 Mean body size differs significantly across time bins (Kruskal Wallis Test, $\chi^2$ = 71.441, P < 0.01; Fig. \ref{fig:boxBins}). 
 The multiple comparison test showed that modern median body size is smaller than body size in the Upper Pleistocene. %(Wilcoxon Rank Sum Test, W = 3853.5, P < 0.01 )
-There is no difference in body size within the Pleistocene %(Wilcoxon Rank Sum Test, P > 0.05)
-and Pleistocene body size does not differ from body size in the Upper Miocene%(Wilcoxon Rank Sum Test, P > 0.05)
-. Serravallian body size is smaller than Langhian body size in the Middle Miocene%(Wilcoxon Rank Sum Test, W = 45, P < 0.01)
+Body size within the Pleistocene and between Pleistocene and Pliocene/Upper Miocene does not differ.
+%Body size within the Pleistocene and between Pleistocene .... does not differ.
+Serravallian body size is smaller than Langhian body size in the Middle Miocene%(Wilcoxon Rank Sum Test, W = 45, P < 0.01)
 , but Langhian body size is not different from Lower Miocene body size%(Wilcoxon Rank Sum Test, W = 311, P = 0.06)
 .
+These results show that body size is relatively steady over time, only between Modern and Upper Pleistocene as well as within the Middle Miocene a significant difference in carapace length is observed. 
+
+
+Comparison of modern and fossil testudinids showed that modern tortoises are significantly smaller than fossil ones (Wilcoxon Rank Sum Test, W = 22318, P < 0.01; Fig. \ref{fig:boxFMCI}). Furthermore, continental testudinids are significantly smaller than insular taxa (Wilcoxon Rank Sum Test, W = 13854, P < 0.01; Fig. \ref{fig:boxFMCI}).
+
+
+These results can even be considered in combination as modern continental taxa are smaller than fossil continental taxa (Wilcoxon Rank Sum Test, W = 8046, P < 0.01; Fig. \ref{BoxFoMCI}) and modern insular taxa are smaller than fossil insular taxa (Wilcoxon Rank Sum Test, W = 631.5, P < 0.01; Fig. \ref{BoxFoMCI}))
+
 
 
 %__________________________________________________________________________
 \begin{figure}[hbtp]
 	\centering
 	\includegraphics[width=0.9\textwidth]{MA_JJ_files/figure-latex/BPGBins-1.pdf}
-	\caption[Comparison of carapace length across time bins]{Comparison of carapace length across all time bins. Bold lines indicate medians, boxes indicate lower and upper quartiles, whiskers indicate largest and smallest observations and outliers represent extreme values. Numbers refer to number of genera per time bin. The mean carapace lengths per genera are depicted as grey circles with errorbars indicating the respective standard deviation. Smallest average carapace length and variance is found in modern testudinids.}
+	\caption[Comparison of carapace length among time bins]{Comparison of carapace length across all time bins. Bold lines indicate medians, boxes indicate lower and upper quartiles, whiskers indicate largest and smallest observations and outliers represent extreme values. Numbers refer to number of genera per time bin. The mean carapace lengths per genera are depicted as grey circles with errorbars indicating the respective standard deviation. Smallest average carapace length and variance is found in modern testudinids.}
 	\phantomsection
 	\label{fig:boxBins}
 \end{figure}
@@ -215,26 +225,23 @@ and Pleistocene body size does not differ from body size in the Upper Miocene%(W
 
 
 
-Comparison of modern and fossil testudinids showed that modern tortoises are significantly smaller than fossil ones (Wilcoxon Rank Sum Test, W = 22318, P < 0.01; Fig. \ref{fig:boxFMCI}). Furthermore, continental testudinids are significantly smaller than insular taxa (Wilcoxon Rank Sum Test, W = 13854, P < 0.01; Fig. \ref{fig:boxFMCI}).
 
 
 \begin{figure}[htbp]
 	\centering
 	\includegraphics[width=0.75\textwidth]{MA_JJ_files/figure-latex/BPFMCI-1.pdf}
 	\caption[Comparison of continental and insular testudinids of modern and fossil age]{Boxplots fossil vs.~modern, continental vs.~insular species.
-		Comparison of carapace length among continental and insular \T of different age. Bold lines indicate medians, boxes indicate lower and upper quartiles, whiskers indicate largest and smallest observations and outliers represent extreme values. Numbers refer to number of genera per time bin. The mean carapace lengths per genera are depicted as grey circles with errorbars indicating the respective standard deviation. Modern testudinids are smaller than fossil ones both on continents and on islands.}
+		Comparison of carapace length among continental and insular \T of different age. Bold lines indicate medians, boxes indicate lower and upper quartiles, whiskers indicate largest and smallest observations and outliers represent extreme values. Numbers refer to number of genera per time bin. The mean carapace lengths per genera are depicted as grey circles with errorbars indicating the respective standard deviation. Modern testudinids are smaller than fossil ones on both, continents and islands.}
 	\label{BoxFoMCI}
 \end{figure}
 
 
 
-These results can even be considered in combination: modern continental taxa are smaller than fossil continental taxa (Wilcoxon Rank Sum Test, W = 8046, P < 0.01; Fig. \ref{BoxFoMCI}) and modern insular taxa are smaller than fossil insular taxa (Wilcoxon Rank Sum Test, W = 631.5, P < 0.01; Fig. \ref{BoxFoMCI}))
-
 
 \begin{figure}[htbp]
 	\centering
 	\includegraphics[width=0.75\textwidth]{MA_JJ_files/figure-latex/BPCon-1.pdf}
-	\caption[Comparison of carapace lengths amon continents.]{Comparison of testudinid carapace length among continents. Bold lines indicate medians, boxes indicate lower and upper quartiles, whiskers indicate largest and smallest observations and outliers represent extreme values. Numbers refer to number of genera per time bin. The mean carapace lengths per genera are depicted as grey circles with errorbars indicating the respective standard deviation. African testudinids have the smallest average carapace length compared to the other continents.}
+	\caption[Comparison of carapace lengths among continents.]{Comparison of testudinid carapace length among continents. Bold lines indicate medians, boxes indicate lower and upper quartiles, whiskers indicate largest and smallest observations and outliers represent extreme values. Numbers refer to number of genera per time bin. The mean carapace lengths per genera are depicted as grey circles with errorbars indicating the respective standard deviation. African testudinids have the smallest average carapace length compared to the other continents.}
 	\phantomsection
 	\label{fig:boxCon}
 \end{figure}
@@ -242,26 +249,27 @@ These results can even be considered in combination: modern continental taxa are
 
 
 
-Finally, body size differs among continents (Kruskal Wallis Test, $\chi^2$ = 34.343, P < 0.01; Fig. \ref{fig:boxCon}). The multiple comparison test showed that African testudinids differ significantly from the other three continents in body size. American testudinid body size is comparable to that of Asia, but differs from those of Africa and Europe. Furthermore, Asian and European testidinids are similar in body size. %Since only Europe/Eurasia are well sampled, these relationships could change with further sampling. ??
+Finally, body size differs among continents (Kruskal Wallis Test, $\chi^2$ = 34.343, P < 0.01; Fig. \ref{fig:boxCon}). The multiple comparison test showed that African testudinids differ significantly from the other three continents in body size. American testudinid body size is comparable to that of Asia, but differs from those of Africa and Europe. Furthermore, Asian and European testudinids are similar in body size. %Since only Europe/Eurasia are well sampled, these relationships could change with further sampling. ??
 
 
 
 \FloatBarrier
 %__________________________________________________________________________
 
-\subsection{paleoTS analysis}\label{paleots-analysis}
+\subsection{PaleoTS analysis}\label{paleots-analysis}
 
 
-\subsubsection{complete dataset}\label{all-continental-and-insular}
+\subsubsection{Complete dataset}\label{all-continental-and-insular}
 
-How mean body size progresses over time is similar for the complete data set as well as continental and insular subgroups. All show peaks in the Upper Miocene and Lower Pleistocene and dip during the Pliocene. However, the decline in body size is very pronounced for continental testudinids, whereas body size only slowly decreases on islands. All three data sets also show a very sharp decline in the youngest time bin.
-For the complete data set as well as the continental one, body size seems to increase constantly during the Miocene. For the insular data set, the Upper Miocene is the starting point for the analysis, but mean carapace length is even larger than on continents.
-The model fittings showed that stasis is best supported for both the complete and the insular data set. However, while is very well supported for insular testudinids (100\,\%), the model support for the complete data set is rather weak (50\,\%). In conrast, on continents an unbiased random walk is the best supported model, but also with only a rather weak support.\\
+To investigate the evolutionary trajectory of body size across time, time scale analysis based on the mean carapace length and variance per time bin were conducted and fitted to three evolutionary models (stasis, unbiased random walk and generalized random walk).
+How mean body size progresses over time is similar for the complete data set as well as continental and insular subgroups (Fig. \ref{fig:pTSall}, \ref{fig:pTSC}, \ref{fig:pTSI}). All show peaks in the Upper Miocene and Lower Pleistocene and a dip during the Pliocene (Table \ref{tab:pTSall}, \ref{tab:pTSC}, \ref{tab:pTSI}). However, the decline in body size is very pronounced for continental testudinids (Fig. \ref{fig:pTSC}), whereas body size only slowly decreases on islands (Fig. \ref{fig:pTSI}). All three data sets also show a very sharp decline in the youngest time bin.
+For the complete data set as well as the continental one, body size seems to increase constantly during the Miocene. For the insular data set, the Upper Miocene is the starting point for the analysis, where mean carapace length is even larger than on continents.
+The model fittings showed that stasis is best supported for both the complete and the insular data set (Table \ref{tab:pTSallEM}, \ref{tab:pTSIEM}). However, while it is very well supported for insular testudinids (100\,\%, Table \ref{tab:pTSIEM}), the model support for the complete data set is rather weak (50\,\%, Table \ref{tab:pTSallEM}). In conrast, on continents an unbiased random walk is the best supported model, but also with only a rather weak support (Table \ref{tab:pTSCEM}).\\
 
-Fitting of the three evolutionary models favoured stasis for the entire data set, although model support was only 51\,\% followed by 33\,\% support for the unbiased random walk (Fig. \ref{fig:pTSall}, Table \ref{tab:pTSall}). When solely considering continental genera, the best-fitting model was the unbiased random walk, but again not ideally supported with 55\,\% followed by a modest model support of 30\,\% for generalized random walk (Fig. \ref{fig:pTSC}, Table \ref{tab:pTSCEM}). In contrast, insular genera are best described by stasis, which was very well supported (100\,\%; Fig. \ref{fig:pTSI}, Table \ref{tab:pTSIEM})). 
+%Fitting of the three evolutionary models favoured stasis for the entire data set, although model support was only 51\,\% followed by 33\,\% support for the unbiased random walk (Fig. \ref{fig:pTSall}, Table \ref{tab:pTSall}). When solely considering continental genera, the best-fitting model was the unbiased random walk, but again not ideally supported with 55\,\% followed by a modest model support of 30\,\% for generalized random walk (Fig. \ref{fig:pTSC}, Table \ref{tab:pTSCEM}). In contrast, insular genera are best described by stasis, which was very well supported (100\,\%; Fig. \ref{fig:pTSI}, Table \ref{tab:pTSIEM})). 
 
 \begin{longtable}[]{@{}rrrr@{}}
-	\caption[PaleoTS object of complete dataset]{PaleoTS object of the complete data set. Mean Age (tt), sample size (nn), mean carapace lengths (mm) and variance (vv) are shown. Largest mean carapace length occurs in the Upper Miocene, followed by the Lower Pleistocene.}
+	\caption[PaleoTS object of the complete dataset]{PaleoTS object of the complete data set. Mean Age [mya] (tt), sample size [individuals] (nn), mean carapace lengths [mm] (mm) and variance (vv) are shown. Largest mean carapace length occurs in the Upper Miocene, followed by the Lower Pleistocene.}
 	\phantomsection
 	\label{tab:pTSall}\tabularnewline
 	\toprule
@@ -291,7 +299,7 @@ Fitting of the three evolutionary models favoured stasis for the entire data set
 \begin{figure}[H]
 	\centering
 	\includegraphics{MA_JJ_files/figure-latex/paleoTSAll-1.pdf}
-	\caption[PaleoTS plot of complete data set]{Evolutionary trajectory of Testudinidae body size. Bars respresent standard errors of mean. The dashed line depicts the mean carapace length averaged across all time bins. The triangles indicate the Pleistocene/Pliocene and Pliocene/Miocene borders, respectively. Body size seems to continuously increase until the Upper Miocene, dip and go back up again in the Pliocene and steadily drop with onset of the Pleistocene.}
+	\caption[PaleoTS plot of the complete data set]{Evolutionary trajectory of Testudinidae body size (Trait Mean) over time. Bars respresent standard errors of mean. The dashed line depicts the mean carapace length averaged across all time bins. The triangles indicate the Pleistocene/Pliocene and Pliocene/Miocene borders, respectively. Body size seems to continuously increase until the Upper Miocene, dip and go back up again in the Pliocene and steadily drop with onset of the Pleistocene.}
 	\label{fig:pTSall}
 \end{figure}
 
@@ -316,12 +324,12 @@ Fitting of the three evolutionary models favoured stasis for the entire data set
 \FloatBarrier
 %__________________________________________________________________________
 
-\subsubsection{continental dataset (excluding insular
+\subsubsection{Continental dataset (excluding insular
 	species)}\label{continental-excluding-insular-species}
 
 
 \begin{longtable}[H]{@{}rrrr@{}}
-	\caption[PaleoTS object of continental \T]{PaleoTS object of the continental data set. Mean Age (tt), sample size (nn), mean carapace lengths (mm) and variance (vv) are shown. Largest mean carapace length occurs in the Lower Pleistocene, followed closely by the Upper Miocene.}
+	\caption[PaleoTS object of continental \T]{PaleoTS object of the continental data set. Mean Age [mya] (tt), sample size [individuals] (nn), mean carapace lengths [mm] (mm) and variance (vv) are shown. Largest mean carapace length occurs in the Lower Pleistocene, followed closely by the Upper Miocene.}
 	\phantomsection
 	\label{tab:pTSC}\tabularnewline
 	\toprule
@@ -350,14 +358,14 @@ Fitting of the three evolutionary models favoured stasis for the entire data set
 \begin{figure}[H]
 	\centering
 	\includegraphics{MA_JJ_files/figure-latex/paleoTSC-1.pdf}
-	\caption[PaleoTS plot of continental data set]{Evolutionary trajectory of Testudinidae body size on the continents. Bars respresent standard errors of mean. The dashed line depicts the mean carapace length averaged across all time bins. The triangles indicate the Pleistocene/Pliocene and Pliocene/Miocene borders, respectively. Body size seems to increase until the Upper Miocene, dip and go back up again in the Pliocene and steadily drop with onset of the Pleistocene.
+	\caption[PaleoTS plot of continental data set]{Evolutionary trajectory of Testudinidae body size (Trait Mean) on the continents over time. Bars respresent standard errors of mean. The dashed line depicts the mean carapace length averaged across all time bins. The triangles indicate the Pleistocene/Pliocene and Pliocene/Miocene borders, respectively. Body size seems to increase until the Upper Miocene, dip and go back up again in the Pliocene and steadily drop with onset of the Pleistocene.
 	}
 	\phantomsection
 	\label{fig:pTSC}
 \end{figure}
 
 \begin{longtable}[]{@{}lrrrr@{}}
-	\caption[Model fits for continental data set]{Model-fitting results for the continental data set. URW is the best although not very strongly supported model, followed by GRW.}
+	\caption[Model fits for the continental data set]{Model-fitting results for the continental data set. URW is the best although not very strongly supported model, followed by GRW.}
 	\phantomsection
 	\label{tab:pTSCEM}\tabularnewline
 	\toprule
@@ -378,11 +386,11 @@ Fitting of the three evolutionary models favoured stasis for the entire data set
 \FloatBarrier
 %__________________________________________________________________________
 
-\subsubsection{insular dataset (excluding
-	continental)}\label{insular-excluding-continental}
+\subsubsection{Insular dataset (excluding
+	continental species)}\label{insular-excluding-continental}
 
 \begin{longtable}[]{@{}rrrr@{}}
-	\caption[PaleoTS object of insular \T]{PaleoTS object of the insular data set. Mean Age (tt), sample size (nn), mean carapace lengths (mm) and variance (vv) are shown. First records are from the Upper Miocene, where the largest mean carapace length occurs, followed by the Lower Pleistocene.}
+	\caption[PaleoTS object of insular \T]{PaleoTS object of the insular data set. Mean Age [mya] (tt), sample size [individuals] (nn), mean carapace lengths [mm] (mm) and variance (vv) are shown. First records are from the Upper Miocene, where the largest mean carapace length occurs, followed by the Lower Pleistocene.}
 	\phantomsection
 	\label{tab:pTSI}\tabularnewline
 	\toprule
@@ -407,13 +415,13 @@ Fitting of the three evolutionary models favoured stasis for the entire data set
 \begin{figure}[H]
 	\centering
 	\includegraphics{MA_JJ_files/figure-latex/paleoTSI-1.pdf}
-	\caption[PaleoTS plot of insular data set]{Evolutionary trajectory of Testudinidae body size on islands. Bars respresent standard errors of mean. The dashed line depicts the mean carapace length averaged across all time bins. The triangles indicate the Pleistocene/Pliocene and Pliocene/Miocene borders, respectively. Body size decreases during the Pliocene and goes back up again in the Lower Pleistocene, then drops slowly until it declines sharply in the Holocene.}
+	\caption[PaleoTS plot of insular data set]{Evolutionary trajectory of Testudinidae body size (Trait Mean) on islands over time. Bars respresent standard errors of mean. The dashed line depicts the mean carapace length averaged across all time bins. The triangles indicate the Pleistocene/Pliocene and Pliocene/Miocene borders, respectively. Body size decreases during the Pliocene and goes back up again in the Lower Pleistocene, then drops slowly until it declines sharply in the Holocene.}
 	\phantomsection
 	\label{fig:pTSI}
 \end{figure}
 
 \begin{longtable}[]{@{}lrrrr@{}}
-	\caption[Model fits for insular data set]{Model-fitting results for the insular data set. Stasis is the best supported model.
+	\caption[Model fits for the insular data set]{Model-fitting results for the insular data set. Stasis is the best supported model.
 	}
 	\phantomsection
 	\label{tab:pTSIEM}\tabularnewline
@@ -434,14 +442,16 @@ Fitting of the three evolutionary models favoured stasis for the entire data set
 \FloatBarrier
 %__________________________________________________________________________
 
-\subsubsection{per continent}\label{per-continent}
+\subsubsection{Per continent}\label{per-continent}
 
-\paragraph{Europe, genera}\label{europe-genera}
+The time-scale analysis was repeated for sufficiently sampled continents, Europe and Eurasia.
 
-When repeating the analysis for European taxa only, all three groups -- complete, continental and insular data -- are best described by stasis with a model support between 92\,-\,99\,\% (Fig. \ref{fig:pTSEu}, \ref{fig:pTSEuC}, \ref{fig:pTSEuI}; Tables \ref{tab:pTSEuEM}, \ref{tab:pTSEuCEM}, \ref{tab:pTSEuIEM}).
+\subsubsection*{Europe, genera}\label{europe-genera}
+
+When repeating the analysis for European taxa only, all three groups -- complete, continental and insular data -- are best described by stasis with a model support between 92\,-\,99\,\% (Fig. \ref{fig:pTSEu}, \ref{fig:pTSEuC}, \ref{fig:pTSEuI}; Tables \ref{tab:pTSEuEM}, \ref{tab:pTSEuCEM}, \ref{tab:pTSEuIEM}). Mean carapace length over time is similar to the global analysis, althought the drop during is the Pleistocene is much more pronounced in continental European testudinids (Fig. \ref{fig:pTSEuC}), while it is a lot less pronounced in insular European testudinids (Fig. \ref{fig:pTSEuI}). Also, the highest carapace length for European testudinids are found during the Lower Pliocene and Upper Miocene (Table \ref{tab:pTSEu}, \ref{tab:pTSEuC}, \ref{tab:pTSEuI})
 
 \begin{longtable}[]{@{}rrrr@{}}
-	\caption[PaleoTS object of European \T]{PaleoTS object of European testudinids. Mean Age (tt), sample size (nn), mean carapace lengths (mm) and variance (vv) are shown. Largest mean carapace length occurs in the Lower Pliocene.}
+	\caption[PaleoTS object of European \T]{PaleoTS object of European testudinids. Mean Age [mya] (tt), sample size [individuals] (nn), mean carapace lengths [mm] (mm) and variance (vv) are shown. Largest mean carapace length occurs in the Lower Pliocene.}
 	\phantomsection
 	\label{tab:pTSEu}\tabularnewline
 	\toprule
@@ -471,7 +481,7 @@ When repeating the analysis for European taxa only, all three groups -- complete
 \begin{figure}[H]
 	\centering
 	\includegraphics{MA_JJ_files/figure-latex/paleoTSEurope-1.pdf}
-	\caption[PaleoTS plot of European \T]{Evolutionary trajectory of Testudinidae body size in Europe. Bars respresent standard errors of mean. The dashed line depicts the mean carapace length averaged across all time bins. The triangles indicate the Pleistocene/Pliocene and Pliocene/Miocene borders, respectively. Body size seems to increase until the Lower Pliocene and generally decline afterwards. However, body size shows two slight peaks, one at the beginnign and one at the end of the Pleistocene.}
+	\caption[PaleoTS plot of European \T]{Evolutionary trajectory of Testudinidae body size (Trait Mean) in Europe over time. Bars respresent standard errors of mean. The dashed line depicts the mean carapace length averaged across all time bins. The triangles indicate the Pleistocene/Pliocene and Pliocene/Miocene borders, respectively. Body size seems to increase until the Lower Pliocene and generally decline afterwards. However, body size shows two slight peaks, one at the beginnign and one at the end of the Pleistocene.}
 	\phantomsection
 	\label{fig:pTSEu}
 \end{figure}
@@ -499,17 +509,21 @@ When repeating the analysis for European taxa only, all three groups -- complete
 
 
 
-\paragraph{Eurasia,	genera}\label{eurasia-genera}
+\subsubsection*{Eurasia, genera}\label{eurasia-genera}
 
 
-For Eurasia, the complete data set (Fig. \ref{fig:pTSEs}, Table \ref{tab:pTSEus}) and insular taxa are best described by stasis (Fig. \ref{fig:pTSEsI}, Table \ref{tab:pTSEsI}), with higher model supports than for the complete data set. Continental taxa are best described by an unbiased random walk (Fig. \ref{fig:pTSEsC}, Table \ref{tab:pTSEsC}), which reflects the results for the complete data set, although model support for Eurasian continental taxxa is even higher.
+The results for Eurasian taxa only generally coincide with the results for the complete data set. 
+For Eurasia, the complete data set (Fig. \ref{fig:pTSEus}, Table \ref{tab:pTSEur}) and insular taxa (Fig. \ref{fig:pTSEsI}, Table \ref{tab:pTSEurI}) are best described by stasis, with higher model supports than for the global data set (Table \ref{tab:pTSEsEM}, \ref{tab:pTSEsI}). Continental taxa (Fig. \ref{fig:pTSEsC}, Table \ref{tab:pTSEsC}) are best described by an unbiased random walk (Table \ref{tab:pTSEsC} ), which reflects the results for the global data set, although model support for Eurasian continental taxa is even higher.
 
+
+Mean carapace length over time differs from the complete and the European data, at least for entire Eurasia and mainland Eurasia because body size does not peak during the Lower Pleistocene but drops steadily from the Upper Miocene onwards (Fig. \ref{fig:pTSEus}, \ref{fig:pTSEsC}). On Eurasian islands, however, body size shows a second peak during the Lower Pleistocene (Fig. \ref{fig:pTSEsI}), similar to the complete and European data sets on insular testudinids.  
+
+%, althought the drop during is the Pleistocene is much more pronounced in continental European testudinids (Fig. \ref{fig:pTSEuC}), while it is a lot less pronounced in insular European testudinids (Fig. \ref{fig:pTSEuI}). Also, the highest carapace length for European testudinids are found during the Lower Pliocene and Upper Miocene (Table \ref{tab:pTSEu}, \ref{tab:pTSEuC}, \ref{tab:pTSEuI})
 
 \begin{longtable}[]{@{}rrrr@{}}
-	\caption[PaleoTS object of Eurasian \T]{PaleoTS object of the Eurasian testudinids. Mean Age (tt), sample size (nn), mean carapace lengths (mm) and variance (vv) are shown. Largest mean carapace length occurs from the Upper Miocene to the Lower Pliocene.}
-	
+	\caption[PaleoTS object of Eurasian \T]{PaleoTS object of the Eurasian testudinids. Mean Age [mya] (tt), sample size [individuals] (nn), mean carapace lengths [mm] (mm) and variance (vv) are shown. Largest mean carapace length occurs from the Upper Miocene to the Lower Pliocene.}
 	\phantomsection
-	\label{tab:pTSEs}\tabularnewline
+	\label{tab:pTSEur}\tabularnewline
 	\toprule
 	tt & nn & mm & vv\tabularnewline
 	\midrule
@@ -537,14 +551,14 @@ For Eurasia, the complete data set (Fig. \ref{fig:pTSEs}, Table \ref{tab:pTSEus}
 \begin{figure}[H]
 	\centering
 	\includegraphics{MA_JJ_files/figure-latex/paleoTSEurasia-1.pdf}
-	\caption[PaleoTS plot of Eurasian \T]{Evolutionary trajectory of Testudinidae body size in Eurasia. Bars respresent standard errors of mean. The dashed line depicts the mean carapace length averaged across all time bins. The triangles indicate the Pleistocene/Pliocene and Pliocene/Miocene borders, respectively. Body size seems to increase until the Upper Miocene and then decline continuously with only one slight peak during the Upper Pleistocene.}
+	\caption[PaleoTS plot of Eurasian \T]{Evolutionary trajectory of Testudinidae body size (Trait Mean) in Eurasia over time. Bars respresent standard errors of mean. The dashed line depicts the mean carapace length averaged across all time bins. The triangles indicate the Pleistocene/Pliocene and Pliocene/Miocene borders, respectively. Body size seems to increase until the Upper Miocene and then decline continuously with only one slight peak during the Upper Pleistocene.}
 	\phantomsection
-	\label{tab:pTSEus}
+	\label{fig:pTSEus}
 \end{figure}
 
 \begin{longtable}[]{@{}lrrrr@{}}
 	\caption[Model fits for Eurasian \T]{Model-fitting results for Eurasian testudinids. Stasis is the best supported model.}
-	\label{fig:pTSEs}\tabularnewline
+	\label{tab:pTSEsEM}\tabularnewline
 	\toprule
 	& logL & K & AICc & Akaike.wt\tabularnewline
 	\midrule

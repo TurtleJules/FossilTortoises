@@ -1087,6 +1087,8 @@ BinGenera
 ####generic level
 # Multiple comparison after Kruskal-Wallis Test
 
+
+
 names(IndGenera)
 library(pgirmess)
 kruskalmc(IndGenera$GenusMean,IndGenera$EpochBins)
@@ -1434,7 +1436,7 @@ FossilRan <- (replicate(1000, {
  sample(FossilR$CL, length(Modern), replace=FALSE)
   }))
 
-hist(FossilRan, main="Fossil, random sampling")
+hist(FossilRan, main="Fossil, random sampling", xlab="CL [mm]")
 abline(v=median(FossilR$CL))#locates actual statistics with all data
 
 #hist(sample(FossilR$CL, 251, replace=FALSE))
@@ -1537,7 +1539,7 @@ ModernIslandRan <- (replicate(1000, {
  sample(PleiPlioCL$CL[which(PleiPlioCL$EpochBins=="Modern" & PleiPlioCL$Island=="y")], length(FossilIsland), replace=FALSE)
   }))
 
-hist(ModernIslandRan, main="Modern, insular, random sampling")
+hist(ModernIslandRan, main="Modern, insular, random sampling", xlab="CL [mm]")
 abline(v=median(PleiPlioCL$CL[which(PleiPlioCL$EpochBins=="Modern" & PleiPlioCL$Island=="y")]))#locates actual statistics with all data
 
 
@@ -1569,7 +1571,7 @@ FossilConRan <- (replicate(1000, {
         length(ModernCon), replace=FALSE)
   }))
 
-hist(FossilConRan, main="Fossil, continental, random sampling")
+hist(FossilConRan, main="Fossil, continental, random sampling", xlab="CL [mm]")
 abline(v=median(PleiPlioCL$CL[which(PleiPlioCL$EpochBins!="Modern" & PleiPlioCL$Island=="n")]))#locates actual statistics with all data
 
 
@@ -1671,7 +1673,7 @@ ContinentalRan <- (replicate(1000, {
  sample(PleiPlioCL$CL[which(PleiPlioCL$Island=="n")], length(Insular), replace=FALSE)
   }))
 
-hist(ContinentalRan, main="Continental, random sampling")
+hist(ContinentalRan, main="Continental, random sampling", xlab="CL [mm]")
 abline(v=median(PleiPlioCL$CL[which(PleiPlioCL$Island=="n")]))#locates actual statistics (skewness) with all data
 
 
@@ -1825,7 +1827,7 @@ AmericaRan <- (replicate(1000, {
  sample(continent$CL[which(continent$Con=="America")], length(Africa), replace=FALSE)
   }))
 
-hist(AmericaRan, main="America, random sampling")
+hist(AmericaRan, main="America, random sampling", xlab="CL [mm]")
 abline(v=median(continent$CL[which(continent$Con=="America")]))#locates actual statistics (skewness) with all data
 
 
@@ -1834,7 +1836,7 @@ EuropeRan <- (replicate(1000, {
  sample(continent$CL[which(continent$Con=="Europe")], length(Africa), replace=FALSE)
   }))
 
-hist(EuropeRan, main="Europe, random sampling")
+hist(EuropeRan, main="Europe, random sampling", xlab="CL [mm]")
 abline(v=median(continent$CL[which(continent$Con=="Europe")]))#locates actual statistics (skewness) with all data
 
 
@@ -1843,7 +1845,7 @@ EurasiaRan <- (replicate(1000, {
  sample(continent$CL[which(continent$Con=="Europe" | continent$Con=="Asia")], length(Africa), replace=FALSE)
   }))
 
-hist(EurasiaRan, main="Eurasia, random sampling")
+hist(EurasiaRan, main="Eurasia, random sampling", xlab="CL [mm]")
 abline(v=median(continent$CL[which(continent$Con=="Europe" | continent$Con=="Asia")]))#locates actual statistics (skewness) with all data
 
 
@@ -2026,7 +2028,6 @@ abline(h=mean(GenusPaleo$mm), lty=5)
 
 points(x=c(2.59, 5.33), y=c(245, 245), pch=17)
 
-#symbols(2.59, 200, circles, add=TRUE)
 
 #abline(v=3.2)
 
@@ -3171,7 +3172,7 @@ TabFossil <- PleiPlioCL %>%
   filter(EpochBins!="Modern") %>%
   select(Locality,Genus, Taxon, CL, estimated, EpochBins, Age, Island, Con, Reference) 
 
-kable(Ref, row.names= TRUE, caption="Data set, fossil.")
+kable(TabFossil, row.names= TRUE, caption="Data set, fossil.")
 
 #, row.names = TRUE, caption="fossil occurrences"
 
@@ -3185,7 +3186,7 @@ colnames(Extant)[13] <- "PW"
 
 TabExtant <- Extant %>%
   merge(Continents) %>%
-  select(Genus, Taxon=Species, CollNr, SCL=CL, CCL, SCW, CCW, CH, PL, PW, estimated, Island, Con, Reference)
+  select(Genus, Taxon=Species, CollNr, SCL=CL, CCL, SCW, CCW, CH, PL, PW, Island, Con, Reference)
   
 kable(TabExtant, row.names=TRUE, caption="Data set, extant")
 

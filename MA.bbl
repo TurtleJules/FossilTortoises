@@ -108,31 +108,52 @@ Cheke, A.~S., Pedrono, M., Bour, R., Anderson, A., Griffiths, C., Iverson,
   (2016a)}.
 \newblock {\em Journal of Biogeography}, pages 1426--1429.
 
+\bibitem[Cope, 1887]{Cope1887}
+Cope, E.~D. (1887).
+\newblock {\em {The origin of the fittest: essays on evolution}}.
+\newblock D. Appleton.
+
 \bibitem[{de Lapparent de Broin}, 2001]{DeLapparentdeBroin2001}
 {de Lapparent de Broin}, F. (2001).
 \newblock {The European turtle fauna from the Triassic to the Present}.
 \newblock {\em Dumerilia}, 4(3):155--217.
+
+\bibitem[{De Lapparent De Broin}, 2002]{DeLapparentdeBroin2002}
+{De Lapparent De Broin}, F. (2002).
+\newblock {A giant tortoise from the Late Pliocene of Lesvos Island (Greece)
+  and its possible relationships}.
+
+\bibitem[Delfino et~al., 2003]{Delfino2003}
+Delfino, M., Rage, J.-C., and Rook, L. (2003).
+\newblock {Tertiary mammal turnover phenomena: what happened to the
+  herpetofauna?}
+\newblock {\em Deinsea}, 10(10):153--161.
 
 \bibitem[Foster, 1964]{Foster1964}
 Foster, J.~B. (1964).
 \newblock {Evolution of mammals on islands}.
 \newblock {\em Nature}, 202:234--235.
 
-\bibitem[Franz et~al., 2001a]{Franz2001a}
+\bibitem[Franz et~al., 2001a]{Franz2001}
 Franz, R., Carlson, L.~A., Owen, R.~D., and Steadman, D. (2001a).
+\newblock {Fossil tortoises from the Turks and Caicos Islands, B.W.I.}
+
+\bibitem[Franz et~al., 2001b]{Franz2001a}
+Franz, R., Carlson, L.~A., Owen, R. D. R.~D., and Steadman, D. (2001b).
 \newblock {Fossil tortoises from the Turks and Caicos Islands, BWI}.
 \newblock In {\em Proceedings of the 8th Symposium on the Natural History of
   the Bahamas. Gerace Research Center, San Salvador, Bahamas}, pages 27--31.
-
-\bibitem[Franz et~al., 2001b]{Franz2001}
-Franz, R., Carlson, L.~A., Owen, R.~D., and Steadman, D. (2001b).
-\newblock {Fossil tortoises from the Turks and Caicos Islands, B.W.I.}
 
 \bibitem[Franz and {Quitmyer Irvy}, 2005]{Franz2005}
 Franz, R. and {Quitmyer Irvy}, R. (2005).
 \newblock {A fossil and zooarchaeological history of the gopher tortoise
   (Gopherus polyphemus) in the Southeastern United States}.
 \newblock {\em Bulletin of the Florida Museum of Natural History}, 45:179--199.
+
+\bibitem[Fritz and Hava{\v{s}}, 2007]{Fritz2007}
+Fritz, U. and Hava{\v{s}}, P. (2007).
+\newblock {Checklist of Chelonians of the World}.
+\newblock {\em Vertebrate Zoology}, 57(2):148--368.
 
 \bibitem[Froyd et~al., 2014]{Froyd2014}
 Froyd, C.~A., Coffey, E. E.~D., van~der Knaap, W.~O., van Leeuwen, J. F.~N.,
@@ -187,9 +208,22 @@ Hunt, G. (2007).
 \newblock {\em Proceedings of the National Academy of Sciences},
   104(47):18404--18408.
 
+\bibitem[Hunt, 2008]{Hunt2008}
+Hunt, G. (2008).
+\newblock {Evolutionary patterns within fossil lineages: Model-based assessment
+  of modes, rates, punctuations and process}.
+\newblock {\em From Evolution to Geobiology: Research Questions Driving
+  Paleontology at the Start of a New Century}, 14:117--131.
+
 \bibitem[Hunt, 2015]{Hunt2015a}
 Hunt, G. (2015).
 \newblock {\em {paleoTS: Analyze Paleontological Time-Series}}.
+
+\bibitem[Hunt and Carrano, 2010]{Hunt2010}
+Hunt, G. and Carrano, M.~T. (2010).
+\newblock {Models and Methods for Analyzing Phenotypic Evolution in Lineages
+  and Clades}.
+\newblock {\em Quantitative Methods in Paleobiology}, 16(October):245--269.
 
 \bibitem[Hunt et~al., 2015]{Hunt2015}
 Hunt, G., Hopkins, M.~J., and Lidgard, S. (2015).
@@ -218,6 +252,12 @@ Itescu, Y., Karraker, N.~E., Raia, P., Pritchard, P. C.~H., and Meiri, S.
 \newblock {Is the island rule general? Turtles disagree}.
 \newblock {\em Global Ecology and Biogeography}, 23(6):689--700.
 
+\bibitem[Jaffe et~al., 2011]{Jaffe2011a}
+Jaffe, A.~L., Slater, G.~J., and Alfaro, M.~E. (2011).
+\newblock {The evolution of island gigantism and body size variation in
+  tortoises and turtles}.
+\newblock {\em Biology Letters}, 7(4):558--561.
+
 \bibitem[Jass et~al., 2014]{Jass2014}
 Jass, C.~N., Cobb, T.~P., and Bell, C.~J. (2014).
 \newblock {Regional, Depositional, and Chronologic Comparisons of Pleistocene
@@ -229,12 +269,6 @@ Karl, H.~V. (2012).
 \newblock {Human consumption of turtles of the Homo rudolfensis site Uraha
   (Malawi, East Africa)}.
 \newblock {\em Archaeofauna}, 21:267--279.
-
-\bibitem[Karl and Staesche, 2006]{Karl2006}
-Karl, H.-V. and Staesche, U. (2006).
-\newblock {Fossile Riesen-Landschildkr{\"{o}}ten von den Philippinen und ihre
-  pal{\"{a}}ogeographische Bedeutung}.
-\newblock {\em Geologisches Jahrbuch}, 160(February):171--197.
 
 \bibitem[Klein and Cruz-Uribe, 2000]{Klein2000}
 Klein, R.~G. and Cruz-Uribe, K. (2000).
@@ -263,6 +297,14 @@ Lyons, S.~K. and Smith, F.~A. (2008).
 \bibitem[McNeese, 2016]{McNeese2016}
 McNeese, B. (2016).
 \newblock {Are Skewness and Kurtosis Useful Statistics?}
+\newblock {\em BPI Consulting, LLC}, (https://www.spcforexcel.com).
+
+\bibitem[Millien et~al., 2006]{Millien2006}
+Millien, V., {Kathleen Lyons}, S., Olson, L., Smith, F.~A., Wilson, A.~B., and
+  Yom-Tov, Y. (2006).
+\newblock {Ecotypic variation in the context of global climate change:
+  revisiting the rules}.
+\newblock {\em Ecology Letters}, 9(7):853--869.
 
 \bibitem[Mudar and Anderson, 2007]{Mudar2007}
 Mudar, K. and Anderson, D.~D. (2007).
@@ -303,9 +345,23 @@ Peres, C.~A. and Nascimento, H.~S. (2006).
   reserves}.
 \newblock {\em Biodiversity and Conservation}, 15(8):2627--2653.
 
+\bibitem[{P{\'{e}}rez Garc{\'{i}}a} et~al., 2016]{Perez-Garcia2016a}
+{P{\'{e}}rez Garc{\'{i}}a}, A., Ortega, F., and {Jim{\'{e}}nez Fuentes}, E.
+  (2016).
+\newblock {Taxonomy, systematics, and diversity of the European oldest
+  testudinids}.
+\newblock {\em Zoological Journal of the Linnean Society}, 177(3):648--675.
+
 \bibitem[Peters, 1983]{Peters1983}
 Peters, R.~H. (1983).
 \newblock {\em {The ecological implications of body size}}.
+
+\bibitem[Pimiento et~al., 2015]{Pimiento2015}
+Pimiento, C., Nifong, J.~C., Hunter, M.~E., Monaco, E., and Silliman, B.~R.
+  (2015).
+\newblock {Habitat use patterns of the invasive red lionfish Pterois volitans:
+  A comparison between mangrove and reef systems in San Salvador, Bahamas}.
+\newblock {\em Marine Ecology}, 36(1):28--37.
 
 \bibitem[Pritchard, 2013]{Pritchard2013}
 Pritchard, P. (2013).

@@ -3,18 +3,23 @@ The style file: apalike.bst
 A level-1 auxiliary file: FossilTab.aux
 A level-1 auxiliary file: ExtantTab.aux
 Database file #1: MA_fossilTortoises.bib
-Repeated entry---line 2239 of file MA_fossilTortoises.bib
- : @article{Bohme2003b
- :                    ,
-I'm skipping whatever remains of this entry
-Repeated entry---line 6288 of file MA_fossilTortoises.bib
+Repeated entry---line 1528 of file MA_fossilTortoises.bib
  : @inproceedings{Franz2001a
  :                          ,
 I'm skipping whatever remains of this entry
+Repeated entry---line 1943 of file MA_fossilTortoises.bib
+ : @article{Bohme2003b
+ :                    ,
+I'm skipping whatever remains of this entry
 Warning--I didn't find a database entry for "Haldane1928"
 Warning--I didn't find a database entry for "."
-Warning--I didn't find a database entry for "Millien2006"
-Warning--I didn't find a database entry for "Cope1887"
+Warning--I didn't find a database entry for "Stearns2000"
+Warning--I didn't find a database entry for "Downhower1988"
+Warning--I didn't find a database entry for "Stearn2000"
+Warning--I didn't find a database entry for "Anderson1025"
+Warning--I didn't find a database entry for "Sterli2015"
+Warning--I didn't find a database entry for "Cope1872"
+Warning--I didn't find a database entry for "LapparentdeBroin2001"
 Warning--I didn't find a database entry for "Stiner1999"
 Warning--I didn't find a database entry for "Stiner2000"
 Warning--I didn't find a database entry for "Swingland1979a"
@@ -22,12 +27,14 @@ Warning--I didn't find a database entry for "Swingland1979b"
 Warning--I didn't find a database entry for "Carlson1999"
 Warning--I didn't find a database entry for "Stojanov2009"
 Warning--I didn't find a database entry for "Sturbaum1982"
-Warning--I didn't find a database entry for "rhodin2015turtles"
 Warning--I didn't find a database entry for "Blackburn1994"
+Warning--I didn't find a database entry for "Smith2004"
+Warning--I didn't find a database entry for "Pritchard1996"
 Warning--I didn't find a database entry for "White2010"
 Warning--I didn't find a database entry for "Cione2003"
 Warning--there's a number but no volume in Gotelli2011
 Warning--empty journal in Hunt2006
+Warning--there's a number but no volume in McNeese2016
 Warning--empty journal in Patterson1973
 Warning--empty publisher in Peters1983
 Warning--empty journal in Pritchard2013

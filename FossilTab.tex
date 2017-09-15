@@ -1,1253 +1,1946 @@
 \begin{landscape}
 
-\begin{longtable}[]{@{}llrllrll@{}}
-	\caption{Data set, fossil.}
+\tiny{
+\begin{longtable}[]{@{}llllrllrlll@{}}
+	\caption[Body size data set of fossil \T]{Body size data set of fossil testudinids. Contains information on locality, taxonomy (Genus and Species name), carapace length [mm], age and geographic distribution. Additionaly, it is stated whether carapace length was directly measured (m: exact measurements provided in reference, mf: measured from scaled figure, mo: estimated by original authors) or estimated (e: estimated from fragmentary carapace/plastron, ev: estimated from verbal description, ep: estimated from plastron length, ef: estimated from femur length, eh: estimated from humerus length, ec: estimated from claw phalanges). Further, it is stated on which continent the fossil record was recovered and whether it was continental (n: no) or insular (y: yes). Finally, the references from which the data were obtained are listed.}
+	\phantomsection
 	\label{tab:DataFossil}\tabularnewline
 	\toprule
-	Genus & Taxon & CL & estimated & EpochBins & Age & Island &
-	Con\tabularnewline
+	& Locality & Genus & Taxon & CL & estimated & Stages & Age & Insular &
+	Continent & Reference\tabularnewline
 	\midrule
 	\endfirsthead
-	\multicolumn{8}{c}%
+	\multicolumn{10}{c}%
 	{\tablename\ \thetable\ -- \textit{continued from previous page}}\tabularnewline
 	\toprule
-	Genus & Taxon & CL & estimated & EpochBins & Age & Island &
-	Con\tabularnewline
+	& Locality & Genus & Taxon & CL & estimated & Stages & Age & Insular &
+	Continent & Reference\tabularnewline
 	\midrule
 	\endhead
-	Astrochelys & Astrochelys radiata & 395.00 & m & Modern & 0.000001 & y &
-	Africa\tabularnewline
-	Kinixys & Kinixys belliana & 162.00 & m & Modern & 0.000001 & n &
-	Africa\tabularnewline
-	Psammobates & Psammobates geometricus & 107.00 & m & Modern & 0.000001 &
-	n & Africa\tabularnewline
-	Kinixys & Kinixys belliana & 157.00 & m & Modern & 0.000001 & n &
-	Africa\tabularnewline
-	Aldabrachelys & Aldabrachelys gigantea & 870.00 & m & Modern & 0.000001
-	& y & Africa\tabularnewline
-	Kinixys & Kinixys belliana & 174.00 & m & Modern & 0.000001 & n &
-	Africa\tabularnewline
-	Stigmochelys & Stigmochelys pardalis & 345.00 & m & Modern & 0.000001 &
-	n & Africa\tabularnewline
-	Psammobates & Psammobates geometricus & 92.00 & m & Modern & 0.000001 &
-	n & Africa\tabularnewline
-	Chersina & Chersina angulata & 179.30 & m & Modern & 0.000001 & n &
-	Africa\tabularnewline
-	Chersina & Chersina angulata & 170.00 & m & Modern & 0.000001 & n &
-	Africa\tabularnewline
-	Testudo & Testudo kleinmanni & 144.00 & m & Modern & 0.000001 & n &
-	Africa\tabularnewline
-	Malacochersus & Malacochersus tornieri & 153.00 & m & Modern & 0.000001
-	& n & Africa\tabularnewline
-	Psammobates & Psammobates oculifer & 119.00 & m & Modern & 0.000001 & n
-	& Africa\tabularnewline
-	Kinixys & Kinixys homeana & 193.00 & m & Modern & 0.000001 & n &
-	Africa\tabularnewline
-	Cylindraspis & Cylindraspis vosmaeri & 500.00 & m & Modern & 0.000001 &
-	y & Africa\tabularnewline
-	Homopus & Homopus aerolatus & 88.00 & m & Modern & 0.000001 & n &
-	Africa\tabularnewline
-	Stigmochelys & Stigmochelys pardalis & 405.00 & m & Modern & 0.000001 &
-	n & Africa\tabularnewline
-	Chersina & Chersina angulata & 162.00 & m & Modern & 0.000001 & n &
-	Africa\tabularnewline
-	Kinixys & Kinixys belliana & 180.00 & m & Modern & 0.000001 & n &
-	Africa\tabularnewline
-	Astrochelys & Astrochelys radiata & 285.00 & m & Modern & 0.000001 & y &
-	Africa\tabularnewline
-	Kinixys & Kinixys erosa & 400.00 & m & Modern & 0.000001 & n &
-	Africa\tabularnewline
-	Astrochelys & Astrochelys radiata & 242.00 & m & Modern & 0.000001 & y &
-	Africa\tabularnewline
-	Aldabrachelys & Aldabrachelys gigantea & 810.00 & m & Modern & 0.000001
-	& y & Africa\tabularnewline
-	Pyxis & Pyxis planicauda & 126.00 & m & Modern & 0.000001 & y &
-	Africa\tabularnewline
-	Cylindraspis & Cylindraspis indica & 600.00 & m & Modern & 0.000001 & y
-	& Africa\tabularnewline
-	Psammobates & Psammobates tentorius & 111.00 & m & Modern & 0.000001 & n
-	& Africa\tabularnewline
-	Kinixys & Kinixys erosa & 164.00 & m & Modern & 0.000001 & n &
-	Africa\tabularnewline
-	Kinixys & Kinixys erosa & 271.00 & m & Modern & 0.000001 & n &
-	Africa\tabularnewline
-	Indotestudo & Indotestudo travancorica & 224.00 & m & Modern & 0.000001
-	& n & Africa\tabularnewline
-	Psammobates & Psammobates oculifer & 101.00 & m & Modern & 0.000001 & n
-	& Africa\tabularnewline
-	Homopus & Homopus signatus & 94.00 & m & Modern & 0.000001 & n &
-	Africa\tabularnewline
-	Kinixys & Kinixys belliana & 194.00 & m & Modern & 0.000001 & n &
-	Africa\tabularnewline
-	Kinixys & Kinixys belliana & 230.00 & m & Modern & 0.000001 & n &
-	Africa\tabularnewline
-	Stigmochelys & Stigmochelys pardalis & 720.00 & m & Modern & 0.000001 &
-	n & Africa\tabularnewline
-	Kinixys & Kinixys homeana & 223.00 & m & Modern & 0.000001 & n &
-	Africa\tabularnewline
-	Kinixys & Kinixys lobatsiana & 200.00 & m & Modern & 0.000001 & n &
-	Africa\tabularnewline
-	Kinixys & Kinixys natalensis & 160.00 & m & Modern & 0.000001 & n &
-	Africa\tabularnewline
-	Chersina & Chersina angulata & 202.00 & m & Modern & 0.000001 & n &
-	Africa\tabularnewline
-	Chersina & Chersina angulata & 351.00 & m & Modern & 0.000001 & y &
-	Africa\tabularnewline
-	Homopus & Homopus femoralis & 168.00 & m & Modern & 0.000001 & n &
-	Africa\tabularnewline
-	Centrochelys & Centrochelys sulcata & 215.00 & m & Modern & 0.000001 & n
-	& Africa\tabularnewline
-	Astrochelys & Astrochelys yniphora & 307.00 & m & Modern & 0.000001 & y
-	& Africa\tabularnewline
-	Chersina & Chersina angulata & 181.00 & m & Modern & 0.000001 & n &
-	Africa\tabularnewline
-	Psammobates & Psammobates tentorius & 145.00 & m & Modern & 0.000001 & n
-	& Africa\tabularnewline
-	Stigmochelys & Stigmochelys pardalis & 315.00 & m & Modern & 0.000001 &
-	n & Africa\tabularnewline
-	Pyxis & Pyxis planicauda & 160.00 & m & Modern & 0.000001 & y &
-	Africa\tabularnewline
-	Psammobates & Psammobates antiquorum & 107.80 & m & Lower Pleistocene &
-	1.800000 & n & Africa\tabularnewline
-	Stigmochelys & Stigmochelys pardalis & 350.00 & m & Modern & 0.000001 &
-	n & Africa\tabularnewline
-	Aldabrachelys & Aldabrachelys abrupta & 1000.00 & mo & Modern & 0.002000
-	& y & Africa\tabularnewline
-	Chersina & Chersina angulata & 181.90 & m & Modern & 0.000001 & y &
-	Africa\tabularnewline
-	Psammobates & Psammobates tentorius & 116.00 & m & Modern & 0.000001 & y
-	& Africa\tabularnewline
-	Astrochelys & Astrochelys yniphora & 415.00 & m & Modern & 0.000001 & y
-	& Africa\tabularnewline
-	Aldabrachelys & Aldabrachelys gigantea & 770.00 & m & Modern & 0.000001
-	& y & Africa\tabularnewline
-	Chersina & Chersina angulata & 160.00 & m & Modern & 0.000001 & n &
-	Africa\tabularnewline
-	Chersina & Chersina angulata & 148.00 & m & Modern & 0.000001 & n &
-	Africa\tabularnewline
-	Aldabrachelys & Aldabrachelys gigantea & 720.00 & m & Modern & 0.000001
-	& y & Africa\tabularnewline
-	Astrochelys & Astrochelys yniphora & 426.00 & m & Modern & 0.000001 & y
-	& Africa\tabularnewline
-	Astrochelys & Astrochelys radiata & 334.00 & m & Modern & 0.000001 & y &
-	Africa\tabularnewline
-	Centrochelys & Centrochelys sulcata & 830.00 & m & Modern & 0.000001 & n
-	& Africa\tabularnewline
-	Pyxis & Pyxis arachnoides & 144.00 & m & Modern & 0.000001 & y &
-	Africa\tabularnewline
-	Pyxis & Pyxis arachnoides & 86.00 & m & Modern & 0.000001 & y &
-	Africa\tabularnewline
-	Pyxis & Pyxis arachnoides & 154.00 & m & Modern & 0.000001 & y &
-	Africa\tabularnewline
-	Pyxis & Pyxis arachnoides & 110.00 & m & Modern & 0.000001 & y &
-	Africa\tabularnewline
-	Namibchersus & Namibchersus namaquensis & 254.00 & m &
-	Burdigalian/Aquitanian & 18.000000 & n & Africa\tabularnewline
-	Pyxis & Pyxis planicauda & 132.00 & m & Modern & 0.000001 & y &
-	Africa\tabularnewline
-	Homopus & Homopus boulengeri & 110.00 & m & Modern & 0.000001 & n &
-	Africa\tabularnewline
-	Pyxis & Pyxis planicauda & 134.00 & m & Modern & 0.000001 & y &
-	Africa\tabularnewline
-	Pyxis & Pyxis planicauda & 120.00 & m & Modern & 0.000001 & y &
-	Africa\tabularnewline
-	Homopus & Homopus solus & 109.00 & m & Modern & 0.000001 & n &
-	Africa\tabularnewline
-	Centrochelys & Centrochelys sulcata & 435.00 & m & Modern & 0.000001 & n
-	& Africa\tabularnewline
-	Pyxis & Pyxis arachnoides & 110.00 & m & Modern & 0.000001 & y &
-	Africa\tabularnewline
-	Pyxis & Pyxis arachnoides & 80.00 & m & Modern & 0.000001 & y &
-	Africa\tabularnewline
-	Astrochelys & Astrochelys radiata & 305.00 & m & Modern & 0.000001 & y &
-	Africa\tabularnewline
-	Stigmochelys & Stigmochelys pardalis & 297.00 & m & Modern & 0.000001 &
-	n & Africa\tabularnewline
-	Namibchersus & Namibchersus aff. namaquensis & 1100.00 & mo &
-	Burdigalian/Aquitanian & 17.250000 & n & Africa\tabularnewline
-	Aldabrachelys & Aldabrachelys gigantea & 875.00 & m & Modern & 0.000001
-	& y & Africa\tabularnewline
-	Namibchersus & Namibchersus aff. namaquensis & 550.00 & mo &
-	Burdigalian/Aquitanian & 17.250000 & n & Africa\tabularnewline
-	Chersina & Chersina angulata & 166.40 & m & Modern & 0.000001 & n &
-	Africa\tabularnewline
-	Chersina & Chersina angulata & 171.60 & m & Modern & 0.000001 & y &
-	Africa\tabularnewline
-	Chersina & Chersina angulata & 136.00 & m & Modern & 0.000001 & n &
-	Africa\tabularnewline
-	Geochelone & Geochelone stromeri & 425.00 & m & Zanclean & 4.466000 & n
-	& Africa\tabularnewline
-	Testudo & Testudo sp. & 184.00 & mf & Gelasian & 2.500000 & n &
-	Africa\tabularnewline
-	Geochelone & Geochelone stromeri & 350.00 & m & Zanclean & 4.466000 & n
-	& Africa\tabularnewline
+	1 & Laetoli, Tanzania & Aldabrachelys & ``Aldabrachelys'' laetoliensis &
+	1000.00 & mo & Piacencian & 2.70300 & n & Africa & Meylan and
+	Auffenberg, 1986\tabularnewline
+	2 & Sal Island & Centrochelys & Centrochelys atlantica & 400.00 & mo &
+	Lower Pleistocene & 1.30000 & y & Africa & Lopez-Jurado et al.,
+	1998\tabularnewline
+	3 & Ahl al Oughlam (near Casablanca) & Centrochelys & Centrochelys
+	marocana & 2050.00 & mo & Gelasian & 2.50000 & n & Africa & Lapparent de
+	Broin F.de, 2002a: A giant tortoise from the Late Pliocene of Lesvos
+	Island (Greece) and its possible relationships. Annales Geologiques des
+	Pays Helleniques, 1e Serie, t.XXXIX, fasc. A: 99-130\tabularnewline
+	4 & Kanapoi & Geochelone & Geochelone crassa & 865.00 & mf & Zanclean &
+	4.14500 & n & Africa & Harris et al., 2003\tabularnewline
+	5 & Djebel Krechem & Geochelone & Geochelone sp. & 1446.00 & eh &
+	Tortonian & 8.47600 & n & Africa & Geraads, 1989\tabularnewline
+	6 & Pellatal Phosphate Member, E Quarry
+	Langebaanweg & Geochelone & Geochelone stromeri & 350.00 & m & Zanclean
+	& 4.46600 & n & Africa & Meylan and Auffenberg, 1986\tabularnewline
+	7 & Pellatal Phosphate Member, E Quarry
+	Langebaanweg & Geochelone & Geochelone stromeri & 425.00 & m & Zanclean
+	& 4.46600 & n & Africa & Meylan and Auffenberg, 1986\tabularnewline
+	8 & South Africa & Homopus & Homopus fenestratus & 90.00 & mo &
+	Piacencian & 3.05650 & n & Africa & Rhodin et al., 2015\tabularnewline
+	9 & Rusinga Island, Lake Victoria, Kenya & Impregnochelys &
+	Impregnochelys pachytectis & 620.00 & m & Burdigalian/Aquitanian &
+	19.50000 & n & Africa & Meylan and Auffenberg, 1986\tabularnewline
+	10 & Arrisdrift & Mesocherus & Mesocherus orangeus & 160.00 & mo &
+	Burdigalian/Aquitanian & 17.25000 & n & Africa & Lapparent de Broin
+	F.de, 2003: Miocene Chelonians from southern Namibia. in: B. Senut \& M.
+	Pickford coord., Faunas from the southern Namibia. Memoir Geol. Surv.
+	Namibia 19: 67-102aus den Diamantfeldern Deutsch Südwestafrica. in: Die
+	Diamantenwüste Südwest-Afrikas, Erich Kaiser (ed.) 2: 139-141, D.
+	Reimer, Berlin\tabularnewline
+	11 & Arrisdrift & Mesocherus & Mesocherus orangeus & 180.00 & mo &
+	Burdigalian/Aquitanian & 17.25000 & n & Africa & Lapparent de Broin
+	F.de, 2003: Miocene Chelonians from southern Namibia. in: B. Senut \& M.
+	Pickford coord., Faunas from the southern Namibia. Memoir Geol. Surv.
+	Namibia 19: 67-102aus den Diamantfeldern Deutsch Südwestafrica. in: Die
+	Diamantenwüste Südwest-Afrikas, Erich Kaiser (ed.) 2: 139-141, D.
+	Reimer, Berlin\tabularnewline
+	12 & Arrisdrift & Mesocherus & Mesocherus orangeus & 180.00 & mo &
+	Burdigalian/Aquitanian & 17.25000 & n & Africa & Lapparent de Broin
+	F.de, 2003: Miocene Chelonians from southern Namibia. in: B. Senut \& M.
+	Pickford coord., Faunas from the southern Namibia. Memoir Geol. Surv.
+	Namibia 19: 67-102aus den Diamantfeldern Deutsch Südwestafrica. in: Die
+	Diamantenwüste Südwest-Afrikas, Erich Kaiser (ed.) 2: 139-141, D.
+	Reimer, Berlin\tabularnewline
+	13 & Arrisdrift & Mesocherus & Mesocherus orangeus & 180.00 & mo &
+	Burdigalian/Aquitanian & 17.25000 & n & Africa & Lapparent de Broin
+	F.de, 2003: Miocene Chelonians from southern Namibia. in: B. Senut \& M.
+	Pickford coord., Faunas from the southern Namibia. Memoir Geol. Surv.
+	Namibia 19: 67-102aus den Diamantfeldern Deutsch Südwestafrica. in: Die
+	Diamantenwüste Südwest-Afrikas, Erich Kaiser (ed.) 2: 139-141, D.
+	Reimer, Berlin\tabularnewline
+	14 & Arrisdrift & Mesocherus & Mesocherus orangeus & 180.00 & mo &
+	Burdigalian/Aquitanian & 17.25000 & n & Africa & Lapparent de Broin
+	F.de, 2003: Miocene Chelonians from southern Namibia. in: B. Senut \& M.
+	Pickford coord., Faunas from the southern Namibia. Memoir Geol. Surv.
+	Namibia 19: 67-102aus den Diamantfeldern Deutsch Südwestafrica. in: Die
+	Diamantenwüste Südwest-Afrikas, Erich Kaiser (ed.) 2: 139-141, D.
+	Reimer, Berlin\tabularnewline
+	15 & Arrisdrift & Mesocherus & Mesocherus orangeus & 180.00 & mo &
+	Burdigalian/Aquitanian & 17.25000 & n & Africa & Lapparent de Broin
+	F.de, 2003: Miocene Chelonians from southern Namibia. in: B. Senut \& M.
+	Pickford coord., Faunas from the southern Namibia. Memoir Geol. Surv.
+	Namibia 19: 67-102aus den Diamantfeldern Deutsch Südwestafrica. in: Die
+	Diamantenwüste Südwest-Afrikas, Erich Kaiser (ed.) 2: 139-141, D.
+	Reimer, Berlin\tabularnewline
+	16 & Arrisdrift & Mesocherus & Mesocherus orangeus & 200.00 & mo &
+	Burdigalian/Aquitanian & 17.25000 & n & Africa & Lapparent de Broin
+	F.de, 2003: Miocene Chelonians from southern Namibia. in: B. Senut \& M.
+	Pickford coord., Faunas from the southern Namibia. Memoir Geol. Surv.
+	Namibia 19: 67-102aus den Diamantfeldern Deutsch Südwestafrica. in: Die
+	Diamantenwüste Südwest-Afrikas, Erich Kaiser (ed.) 2: 139-141, D.
+	Reimer, Berlin\tabularnewline
+	17 & Arrisdrift & Namibchersus & Namibchersus aff. namaquensis & 1100.00
+	& mo & Burdigalian/Aquitanian & 17.25000 & n & Africa & Lapparent de
+	Broin F.de, 2003: Miocene Chelonians from southern Namibia. in: B. Senut
+	\& M. Pickford coord., Faunas from the southern Namibia. Memoir Geol.
+	Surv. Namibia 19: 67-102aus den Diamantfeldern Deutsch Südwestafrica.
+	in: Die Diamantenwüste Südwest-Afrikas, Erich Kaiser (ed.) 2: 139-141,
+	D. Reimer, Berlin\tabularnewline
+	18 & Arrisdrift & Namibchersus & Namibchersus aff. namaquensis & 440.00
+	& mo & Burdigalian/Aquitanian & 17.25000 & n & Africa & Lapparent de
+	Broin F.de, 2003: Miocene Chelonians from southern Namibia. in: B. Senut
+	\& M. Pickford coord., Faunas from the southern Namibia. Memoir Geol.
+	Surv. Namibia 19: 67-102aus den Diamantfeldern Deutsch Südwestafrica.
+	in: Die Diamantenwüste Südwest-Afrikas, Erich Kaiser (ed.) 2: 139-141,
+	D. Reimer, Berlin\tabularnewline
+	19 & Arrisdrift & Namibchersus & Namibchersus aff. namaquensis & 550.00
+	& mo & Burdigalian/Aquitanian & 17.25000 & n & Africa & Lapparent de
+	Broin F.de, 2003: Miocene Chelonians from southern Namibia. in: B. Senut
+	\& M. Pickford coord., Faunas from the southern Namibia. Memoir Geol.
+	Surv. Namibia 19: 67-102aus den Diamantfeldern Deutsch Südwestafrica.
+	in: Die Diamantenwüste Südwest-Afrikas, Erich Kaiser (ed.) 2: 139-141,
+	D. Reimer, Berlin\tabularnewline
+	20 & Auchas & Namibchersus & Namibchersus namaquensis & 254.00 & m &
+	Burdigalian/Aquitanian & 18.00000 & n & Africa & Lapparent de Broin
+	F.de, 2003: Miocene Chelonians from southern Namibia. in: B. Senut \& M.
+	Pickford coord., Faunas from the southern Namibia. Memoir Geol. Surv.
+	Namibia 19: 67-102aus den Diamantfeldern Deutsch Südwestafrica. in: Die
+	Diamantenwüste Südwest-Afrikas, Erich Kaiser (ed.) 2: 139-141, D.
+	Reimer, Berlin\tabularnewline
+	21 & Elisabethfeld (= Elisabeth Bay) area, northern Sperrgebiet &
 	Namibchersus & Namibchersus namaquensis & 264.00 & m &
-	Burdigalian/Aquitanian & 19.500000 & n & Africa\tabularnewline
-	Pyxis & Pyxis arachnoides & 150.00 & m & Modern & 0.000001 & y &
-	Africa\tabularnewline
-	Psammobates & Psammobates oculifer & 103.00 & m & Modern & 0.000001 & n
-	& Africa\tabularnewline
-	Psammobates & Psammobates oculifer & 105.00 & m & Modern & 0.000001 & n
-	& Africa\tabularnewline
-	Psammobates & Psammobates geometricus & 118.00 & m & Modern & 0.000001 &
-	n & Africa\tabularnewline
-	Psammobates & Psammobates geometricus & 105.00 & m & Modern & 0.000001 &
-	n & Africa\tabularnewline
-	Testudo & Testudo oughlamensis & 120.00 & mo & Gelasian & 2.500000 & n &
-	Africa\tabularnewline
-	Astrochelys & Astrochelys radiata & 355.00 & m & Modern & 0.000001 & y &
-	Africa\tabularnewline
-	Aldabrachelys & Aldabrachelys gigantea & 800.00 & m & Modern & 0.000001
-	& y & Africa\tabularnewline
-	Namibchersus & Namibchersus aff. namaquensis & 440.00 & mo &
-	Burdigalian/Aquitanian & 17.250000 & n & Africa\tabularnewline
-	Chersina & Chersina angulata & 153.50 & m & Modern & 0.000001 & n &
-	Africa\tabularnewline
-	Cylindraspis & Cylindraspis triserrata & 1100.00 & m & Modern & 0.000001
-	& y & Africa\tabularnewline
-	Astrochelys & Astrochelys yniphora & 486.00 & m & Modern & 0.000001 & y
-	& Africa\tabularnewline
-	Chersina & Chersina angulata & 161.30 & m & Modern & 0.000001 & y &
-	Africa\tabularnewline
-	Aldabrachelys & ``Aldabrachelys'' laetoliensis & 1000.00 & mo &
-	Piacencian & 2.703000 & n & Africa\tabularnewline
-	Geochelone & Geochelone sp. & 1446.00 & eh & Tortonian & 8.476000 & n &
-	Africa\tabularnewline
-	Kinixys & Kinixys sp. & 268.00 & ef & Modern & 0.009500 & n &
-	Africa\tabularnewline
-	Aldabrachelys & Aldabrachelys grandidieri & 1240.00 & m & Modern &
-	0.001500 & y & Africa\tabularnewline
-	Testudo & Testudo aff. kenitrensis & 142.00 & mf & Gelasian & 2.500000 &
-	n & Africa\tabularnewline
-	Testudo & Testudo sp. & 200.00 & mf & Gelasian & 2.500000 & n &
-	Africa\tabularnewline
-	Aldabrachelys & Aldabrachelys gigantea & 1190.00 & m & Modern & 0.000001
-	& y & Africa\tabularnewline
-	Psammobates & Psammobates tentorius & 95.00 & m & Modern & 0.000001 & n
-	& Africa\tabularnewline
-	Psammobates & Psammobates tentorius & 81.00 & m & Modern & 0.000001 & n
-	& Africa\tabularnewline
-	Pyxis & Pyxis planicauda & 114.00 & m & Modern & 0.000001 & y &
-	Africa\tabularnewline
-	Mesocherus & Mesocherus orangeus & 160.00 & mo & Burdigalian/Aquitanian
-	& 17.250000 & n & Africa\tabularnewline
-	Pyxis & Pyxis planicauda & 148.00 & m & Modern & 0.000001 & y &
-	Africa\tabularnewline
-	Psammobates & Psammobates oculifer & 111.00 & m & Modern & 0.000001 & n
-	& Africa\tabularnewline
-	Geochelone & Geochelone crassa & 865.00 & mf & Zanclean & 4.145000 & n &
-	Africa\tabularnewline
-	Pyxis & Pyxis arachnoides & 111.00 & m & Modern & 0.000001 & y &
-	Africa\tabularnewline
-	Impregnochelys & Impregnochelys pachytectis & 620.00 & m &
-	Burdigalian/Aquitanian & 19.500000 & n & Africa\tabularnewline
-	Mesocherus & Mesocherus orangeus & 200.00 & mo & Burdigalian/Aquitanian
-	& 17.250000 & n & Africa\tabularnewline
-	Namibchersus & Namibchersus namaquensis & 815.00 & m &
-	Burdigalian/Aquitanian & 18.000000 & n & Africa\tabularnewline
-	Chersina & Chersina angulata & 120.00 & m & Modern & 0.000001 & n &
-	Africa\tabularnewline
+	Burdigalian/Aquitanian & 19.50000 & n & Africa & Lapparent de Broin
+	F.de, 2003: Miocene Chelonians from southern Namibia. in: B. Senut \& M.
+	Pickford coord., Faunas from the southern Namibia. Memoir Geol. Surv.
+	Namibia 19: 67-102aus den Diamantfeldern Deutsch Südwestafrica. in: Die
+	Diamantenwüste Südwest-Afrikas, Erich Kaiser (ed.) 2: 139-141, D.
+	Reimer, Berlin\tabularnewline
+	22 & Elisabethfeld (= Elisabeth Bay) area, northern Sperrgebiet &
 	Namibchersus & Namibchersus namaquensis & 300.00 & m &
-	Burdigalian/Aquitanian & 19.500000 & n & Africa\tabularnewline
-	Aldabrachelys & Aldabrachelys gigantea & 1140.00 & m & Modern & 0.000001
-	& y & Africa\tabularnewline
-	Astrochelys & Astrochelys radiata & 400.00 & m & Modern & 0.000001 & y &
-	Africa\tabularnewline
-	Aldabrachelys & Aldabrachelys grandidieri & 1250.00 & mo & Modern &
-	0.001500 & y & Africa\tabularnewline
-	Astrochelys & Astrochelys yniphora & 446.00 & m & Modern & 0.000001 & y
-	& Africa\tabularnewline
-	Cylindraspis & Cylindraspis peltastes & 420.00 & m & Modern & 0.000001 &
-	y & Africa\tabularnewline
-	Psammobates & Psammobates geometricus & 165.00 & m & Modern & 0.000001 &
-	n & Africa\tabularnewline
-	Mesocherus & Mesocherus orangeus & 180.00 & mo & Burdigalian/Aquitanian
-	& 17.250000 & n & Africa\tabularnewline
-	Psammobates & Psammobates oculifer & 147.00 & m & Modern & 0.000001 & n
-	& Africa\tabularnewline
-	Cylindraspis & Cylindraspis inepta & 1000.00 & m & Modern & 0.000001 & y
-	& Africa\tabularnewline
-	Centrochelys & Centrochelys atlantica & 400.00 & mo & Lower Pleistocene
-	& 1.300000 & y & Africa\tabularnewline
-	Aldabrachelys & Aldabrachelys gigantea & 1030.00 & m & Modern & 0.000001
-	& y & Africa\tabularnewline
-	Homopus & Homopus aerolatus & 300.00 & m & Modern & 0.000001 & n &
-	Africa\tabularnewline
-	Psammobates & Psammobates oculifer & 107.00 & m & Modern & 0.000001 & n
-	& Africa\tabularnewline
-	Namibchersus & Namibchersus namaquensis & 470.00 & m &
-	Burdigalian/Aquitanian & 18.000000 & n & Africa\tabularnewline
-	Astrochelys & Astrochelys yniphora & 370.00 & m & Modern & 0.000001 & y
-	& Africa\tabularnewline
-	Centrochelys & Centrochelys marocana & 2050.00 & mo & Gelasian &
-	2.500000 & n & Africa\tabularnewline
-	Kinixys & Kinixys spekii & 220.00 & m & Modern & 0.000001 & n &
-	Africa\tabularnewline
-	Homopus & Homopus fenestratus & 90.00 & mo & Piacencian & 3.056500 & n &
-	Africa\tabularnewline
-	Malacochersus & Malacochersus tornieri & 180.00 & m & Modern & 0.000001
-	& n & Africa\tabularnewline
-	Homopus & Homopus signatus & 106.00 & m & Modern & 0.000001 & n &
-	Africa\tabularnewline
-	Mesocherus & Mesocherus orangeus & 180.00 & mo & Burdigalian/Aquitanian
-	& 17.250000 & n & Africa\tabularnewline
-	Testudo & Testudo kenitrensis & 132.00 & mo & Middle Pleistocene &
-	0.453500 & n & Africa\tabularnewline
-	Mesocherus & Mesocherus orangeus & 180.00 & mo & Burdigalian/Aquitanian
-	& 17.250000 & n & Africa\tabularnewline
-	Astrochelys & Astrochelys yniphora & 361.00 & m & Modern & 0.000001 & y
-	& Africa\tabularnewline
-	Namibchersus & Namibchersus namaquensis & 470.00 & m &
-	Burdigalian/Aquitanian & 18.000000 & n & Africa\tabularnewline
-	Geochelone & Geochelone elegans & 208.00 & m & Modern & 0.000001 & n &
-	Asia\tabularnewline
-	Geochelone & Geochelone elegans & 245.00 & m & Modern & 0.000001 & n &
-	Asia\tabularnewline
-	Geochelone & Geochelone elegans & 221.00 & m & Modern & 0.000001 & n &
-	Asia\tabularnewline
-	Geochelone & Geochelone elegans & 220.00 & m & Modern & 0.000001 & y &
-	Asia\tabularnewline
-	Geochelone & Geochelone elegans & 221.00 & m & Modern & 0.000001 & n &
-	Asia\tabularnewline
-	Geochelone & Geochelone platynota & 222.00 & m & Modern & 0.000001 & n &
-	Asia\tabularnewline
-	Indotestudo & Indotestudo forstenii & 202.00 & m & Modern & 0.000001 & y
-	& Asia\tabularnewline
-	Megalochelys & Megalochelys sondaari & 1000.00 & ec & Lower Pleistocene
-	& 1.350000 & y & Asia\tabularnewline
-	Indotestudo & Indotestudo forstenii & 309.00 & m & Modern & 0.000001 & y
-	& Asia\tabularnewline
-	Megalochelys & Megalochelys atlas & 1650.00 & mo & Gelasian & 2.000000 &
-	y & Asia\tabularnewline
-	Indotestudo & Indotestudo forstenii & 199.00 & m & Modern & 0.000001 & y
-	& Asia\tabularnewline
-	Indotestudo & Indotestudo elongata & 244.20 & m & Modern & 0.000001 & n
-	& Asia\tabularnewline
-	Indotestudo & Indotestudo travancorica & 244.20 & m & Modern & 0.000001
-	& n & Asia\tabularnewline
-	Testudo & Testudo graeca & 300.00 & m & Modern & 0.000001 & n &
-	Asia\tabularnewline
-	Manouria & Manouria impressa & 165.00 & m & Modern & 0.000001 & n &
-	Asia\tabularnewline
-	Indotestudo & Indotestudo elongata & 276.00 & m & Modern & 0.000001 & n
-	& Asia\tabularnewline
-	Indotestudo & Indotestudo elongata & 235.00 & m & Modern & 0.000001 & n
-	& Asia\tabularnewline
-	Indotestudo & Indotestudo elongata & 208.00 & m & Modern & 0.000001 & n
-	& Asia\tabularnewline
-	Indotestudo & Indotestudo elongata & 166.00 & m & Modern & 0.000001 & n
-	& Asia\tabularnewline
-	Manouria & Manouria impressa & 350.00 & m & Modern & 0.000001 & n &
-	Asia\tabularnewline
-	Testudo & Testudo graeca & 250.00 & m & Modern & 0.000001 & n &
-	Asia\tabularnewline
-	Testudo & Testudo graeca & 280.00 & m & Modern & 0.000001 & y &
-	Asia\tabularnewline
-	Manouria & Manouria emys & 212.00 & m & Modern & 0.000001 & n &
-	Asia\tabularnewline
-	Manouria & Manouria emys & 445.00 & m & Modern & 0.000001 & n &
-	Asia\tabularnewline
-	Manouria & Manouria emys & 330.00 & m & Modern & 0.000001 & n &
-	Asia\tabularnewline
-	Megalochelys & Megalochelys atlas & 2000.00 & mo & Gelasian & 2.190500 &
-	n & Asia\tabularnewline
-	Testudo & Testudo changshanesis & 330.00 & mo & Lower Pleistocene &
-	1.684500 & n & Asia\tabularnewline
-	Indotestudo & Indotestudo forstenii & 200.50 & m & Modern & 0.000001 & y
-	& Asia\tabularnewline
-	Testudo & Testudo horsfieldii & 280.00 & m & Modern & 0.000001 & n &
-	Asia\tabularnewline
-	Megalochelys & Megalochelys sondaari & 818.00 & ec & Lower Pleistocene &
-	1.350000 & y & Asia\tabularnewline
-	Indotestudo & Indotestudo travancorica & 249.70 & m & Modern & 0.000001
-	& n & Asia\tabularnewline
-	Manouria & Manouria punjabiensis & 900.00 & mo & Gelasian & 2.190500 & n
-	& Asia\tabularnewline
-	Megalochelys & Megalochelys sp. & 1200.00 & ev & Lower Pleistocene &
-	0.900000 & y & Asia\tabularnewline
-	Indotestudo & Indotestudo elongata & 270.00 & m & Upper Pleistocene &
-	0.037000 & n & Asia\tabularnewline
-	Ergilemys & Ergilemys oskarkuhni & 220.00 & m & Zanclean & 3.950000 & n
-	& Asia\tabularnewline
-	Megalochelys & Megalochelys atlas & 1600.00 & mo & Piacencian & 3.094000
-	& n & Asia\tabularnewline
-	Geochelone & Geochelone platynota & 300.00 & m & Modern & 0.000001 & n &
-	Asia\tabularnewline
-	Aldabrachelys & Aldabrachelys ? sp. & 1500.00 & mo & Piacencian &
-	3.000000 & n & Asia\tabularnewline
-	Indotestudo & Indotestudo travancorica & 219.60 & m & Modern & 0.000001
-	& n & Asia\tabularnewline
-	Megalochelys & Megalochelys sp. & 191.40 & m & Lower Pleistocene &
-	1.684500 & y & Asia\tabularnewline
-	Manouria & Manouria oyamai & 450.00 & mo & Modern & 0.011000 & y &
-	Asia\tabularnewline
-	Indotestudo & Indotestudo elongata & 219.60 & m & Modern & 0.000001 & n
-	& Asia\tabularnewline
-	Megalochelys & Megalochelys atlas & 1800.00 & m & Messinian & 5.423000 &
-	n & Asia\tabularnewline
-	Testudo & Testudo transcaucasia & 150.00 & mo & Gelasian & 2.190500 & n
-	& Asia\tabularnewline
-	Megalochelys & Megalochelys atlas & 1600.00 & mo & Piacencian & 3.094000
-	& n & Asia\tabularnewline
-	Manouria & Manouria emys & 600.00 & m & Modern & 0.000001 & n &
-	Asia\tabularnewline
-	Indotestudo & Indotestudo travancorica & 331.00 & m & Modern & 0.000001
-	& n & Asia\tabularnewline
-	Geochelone & Geochelone sp. & 800.00 & ev & Burdigalian/Aquitanian &
-	16.500000 & n & Asia\tabularnewline
-	Manouria & Manouria impressa & 275.00 & m & Modern & 0.000001 & n &
-	Asia\tabularnewline
-	Indotestudo & Indotestudo elongata & 360.00 & m & Modern & 0.000001 & n
-	& Asia\tabularnewline
-	Manouria & Manouria emys & 600.00 & m & Modern & 0.000001 & n &
-	Asia\tabularnewline
-	Ergilemys & Ergilemys oskarkuhni & 198.00 & m & Zanclean & 3.950000 & n
-	& Asia\tabularnewline
-	Megalochelys & Megalochelys sp. & 2000.00 & m & Lower Pleistocene &
-	1.684500 & y & Asia\tabularnewline
-	Megalochelys & Megalochelys atlas & 1400.00 & mo & Gelasian & 2.000000 &
-	y & Asia\tabularnewline
-	Geochelone & Geochelone elegans & 380.00 & m & Modern & 0.000001 & n &
-	Asia\tabularnewline
-	gen. & gen. indet. & 900.00 & mo & Lower Pleistocene & 1.684500 & n &
-	Asia\tabularnewline
-	Testudo & Testudo ranovi & 200.00 & mo & Gelasian & 2.190500 & n &
-	Asia\tabularnewline
-	Aldabrachelys & Aldabrachelys ? sp. & 1500.00 & mo & Piacencian &
-	3.000000 & n & Asia\tabularnewline
-	Megalochelys & Megalochelys atlas & 2100.00 & mo & Messinian & 5.423000
-	& n & Asia\tabularnewline
-	Chelonoidis & Chelonoidis sp. & 550.00 & m & Modern & 0.001000 & y &
-	America\tabularnewline
-	Gopherus & Gopherus morafkai & 299.00 & m & Modern & 0.000001 & n &
-	America\tabularnewline
-	Hesperotestudo & Hesperotestudo bermudae & 500.00 & m & Middle
-	Pleistocene & 0.310000 & y & America\tabularnewline
-	Chelonoidis & Chelonoidis monensis & 500.00 & m & Upper Pleistocene &
-	0.064500 & y & America\tabularnewline
-	Chelonoidis & Chelonoidis alburyorum & 453.00 & m & Piacencian &
-	3.201500 & y & America\tabularnewline
-	Chelonoidis & Chelonoidis marcanoi & 614.00 & eh & Upper Pleistocene &
-	0.069000 & y & America\tabularnewline
-	Chelonoidis & Chelonoidis marcanoi & 767.00 & eh & Upper Pleistocene &
-	0.069000 & y & America\tabularnewline
-	Gopherus & Gopherus flavomarginatus & 450.00 & m & Lower Pleistocene &
-	1.050000 & n & America\tabularnewline
-	Chelonoidis & Chelonoidis alburyorum & 428.00 & m & Piacencian &
-	3.201500 & y & America\tabularnewline
-	Chelonoidis & Chelonoidis marcanoi & 778.00 & eh & Upper Pleistocene &
-	0.069000 & y & America\tabularnewline
-	Chelonoidis & Chelonoidis sombrerensis & 990.00 & m & Upper Pleistocene
-	& 0.069000 & y & America\tabularnewline
-	Geochelone & Geochelone sp. & 340.00 & mo & Lower Pleistocene & 1.050000
-	& n & America\tabularnewline
-	Hesperotestudo & Hesperotestudo sp. & 1500.00 & mo & Lower Pleistocene &
-	0.966000 & n & America\tabularnewline
-	Gopherus & Gopherus flavomarginatus & 400.00 & m & Modern & 0.000001 & n
-	& America\tabularnewline
-	Chelonoidis & Chelonoidis alburyorum & 466.00 & m & Piacencian &
-	3.201500 & y & America\tabularnewline
-	Chelonoidis & Chelonoidis sp. & 600.00 & mo & Upper Pleistocene &
-	0.069000 & y & America\tabularnewline
-	Chelonoidis & Chelonoidis sp. & 400.00 & mo & Upper Pleistocene &
-	0.069000 & y & America\tabularnewline
-	Gopherus & Gopherus berlandieri & 195.00 & m & Lower Pleistocene &
-	1.050000 & n & America\tabularnewline
-	Chelonoidis & Chelonoidis sp. & 440.00 & mo & Modern & 0.001000 & y &
-	America\tabularnewline
-	Chelonoidis & Chelonoidis marcanoi & 530.00 & eh & Upper Pleistocene &
-	0.069000 & y & America\tabularnewline
-	Chelonoidis & Chelonoidis cubensis & 1139.00 & ef & Middle Pleistocene &
-	0.393500 & y & America\tabularnewline
-	Chelonoidis & Chelonoidis sp. & 800.00 & mo & Lower Pleistocene &
-	1.357000 & y & America\tabularnewline
-	Gopherus & Gopherus berlandieri & 240.00 & m & Modern & 0.000001 & n &
-	America\tabularnewline
-	Chelonoidis & Chelonoidis sp. & 660.00 & mo & Modern & 0.001000 & y &
-	America\tabularnewline
-	Chelonoidis & Chelonoidis sp. & 512.00 & mo & Modern & 0.001000 & y &
-	America\tabularnewline
-	Chelonoidis & Chelonoidis sp. & 854.00 & mo & Modern & 0.001000 & y &
-	America\tabularnewline
-	Chelonoidis & Chelonoidis sp. & 750.00 & mo & Lower Pleistocene &
-	1.357000 & y & America\tabularnewline
-	Chelonoidis & Chelonoidis alburyorum & 424.00 & m & Piacencian &
-	3.201500 & y & America\tabularnewline
-	Chelonoidis & Chelonoidis sp. & 550.00 & mo & Modern & 0.001000 & y &
-	America\tabularnewline
-	Gopherus & Gopherus donlaloi & 580.00 & mo & Modern & 0.000175 & n &
-	America\tabularnewline
-	Hesperotestudo & Hesperotestudo bermudae & 270.00 & m & Middle
-	Pleistocene & 0.310000 & y & America\tabularnewline
-	Gopherus & Gopherus berlandieri & 256.30 & m & Lower Pleistocene &
-	1.050000 & n & America\tabularnewline
-	Chelonoidis & Chelonoidis sp. & 600.00 & mo & Lower Pleistocene &
-	1.357000 & y & America\tabularnewline
-	Ergilemys & Ergilemys sp. & 1000.00 & m & Langhian & 14.000000 & n &
-	Europe\tabularnewline
-	Testudo & Testudo graeca & 195.00 & mf & Lower Pleistocene & 1.770000 &
-	n & Europe\tabularnewline
-	Eurotestudo & Eurotestudo aff. hermanni & 194.70 & mf & Middle
-	Pleistocene & 0.740000 & n & Europe\tabularnewline
-	Centrochelys & Centrochelys burchardi & 940.00 & mo & Middle Pleistocene
-	& 0.435000 & y & Europe\tabularnewline
-	Titanochelon & Titanochelon bacharidisi & 1164.00 & m & Zanclean &
-	3.950000 & n & Europe\tabularnewline
-	Paleotestudo & Paleotestudo antiqua & 159.50 & m & Serravallian &
-	13.000000 & n & Europe\tabularnewline
-	Testudo & Testudo horsfieldii & 111.00 & m & Modern & 0.000001 & n &
-	Europe\tabularnewline
-	Testudo & Testudo marginata & 210.00 & m & Lower Pleistocene & 1.720000
-	& n & Europe\tabularnewline
-	Testudo & Testudo graeca & 178.20 & m & Modern & 0.000001 & n &
-	Europe\tabularnewline
-	Testudo & Testudo graeca & 200.00 & mf & Messinian & 5.500000 & n &
-	Europe\tabularnewline
-	Testudo & Testudo lunellensis & 260.70 & mf & Middle Pleistocene &
-	0.450000 & n & Europe\tabularnewline
-	Testudo & Testudo sp. & 500.00 & mo & Zanclean & 3.900000 & n &
-	Europe\tabularnewline
-	Testudo & Testudo sp. & 200.00 & mf & Messinian & 6.165000 & n &
-	Europe\tabularnewline
-	Testudo & Testudo hermanni & 143.50 & m & Modern & 0.000001 & y &
-	Europe\tabularnewline
-	Pyxis & Pyxis arachnoides & 108.00 & m & Modern & 0.000001 & n &
-	Europe\tabularnewline
-	Eurotestudo & Eurotestudo hermanni & 237.60 & mf & Middle Pleistocene &
-	0.600000 & n & Europe\tabularnewline
-	Testudo & Testudo marginata & 246.00 & m & Modern & 0.000001 & n &
-	Europe\tabularnewline
-	Paleotestudo & Paleotestudo sp. & 179.30 & m & Burdigalian/Aquitanian &
-	16.550000 & n & Europe\tabularnewline
-	Centrochelys & Centrochelys burchardi & 500.00 & mo & Middle Pleistocene
-	& 0.435000 & y & Europe\tabularnewline
-	Testudo & Testudo graeca & 167.00 & m & Messinian & 5.500000 & n &
-	Europe\tabularnewline
-	Testudo & Testudo marginata & 290.00 & m & Modern & 0.000001 & n &
-	Europe\tabularnewline
-	Paleotestudo & Paleotestudo antiqua & 191.00 & mf & Serravallian &
-	13.600000 & n & Europe\tabularnewline
-	Testudo & Testudo hermanni & 130.00 & m & Modern & 0.000001 & n &
-	Europe\tabularnewline
-	Testudo & Testudo hermanni & 138.50 & m & Modern & 0.000001 & n &
-	Europe\tabularnewline
-	Testudo & Testudo kalksburgensis & 230.00 & m & Burdigalian/Aquitanian &
-	19.965000 & n & Europe\tabularnewline
-	Testudo & Testudo marginata & 250.00 & m & Modern & 0.000001 & y &
-	Europe\tabularnewline
-	Testudo & Testudo marginata & 242.50 & m & Modern & 0.000001 & y &
-	Europe\tabularnewline
-	Cheirogaster & Cheirogaster sp. & 925.00 & ef & Lower Pleistocene &
-	0.965000 & y & Europe\tabularnewline
-	Testudo & Testudo marginata & 246.00 & m & Modern & 0.000001 & n &
-	Europe\tabularnewline
-	Testudo & Testudo horsfieldii & 123.00 & m & Modern & 0.000001 & n &
-	Europe\tabularnewline
-	Testudo & Testudo marginata & 246.70 & m & Modern & 0.000001 & n &
-	Europe\tabularnewline
-	Testudo & Testudo marginata & 241.70 & m & Modern & 0.000001 & n &
-	Europe\tabularnewline
-	Testudo & Testudo hermanni & 195.00 & m & Modern & 0.000001 & y &
-	Europe\tabularnewline
-	Testudo & Testudo hermanni & 250.00 & m & Modern & 0.000001 & n &
-	Europe\tabularnewline
-	Paleotestudo & Paleotestudo antiqua & 203.00 & m & Serravallian &
-	12.150000 & n & Europe\tabularnewline
-	Testudo & Testudo horsfieldii & 114.00 & m & Modern & 0.000001 & n &
-	Europe\tabularnewline
-	Testudo & Testudo horsfieldii & 132.00 & m & Modern & 0.000001 & n &
-	Europe\tabularnewline
-	Centrochelys & Centrochelys robusta & 1200.00 & ev & Lower Pleistocene &
-	1.300000 & y & Europe\tabularnewline
-	Testudo & Testudo hermanni & 183.30 & m & Modern & 0.000001 & y &
-	Europe\tabularnewline
-	Testudo & Testudo hermanni & 196.00 & m & Modern & 0.000001 & n &
-	Europe\tabularnewline
-	Testudo & Testudo hermanni & 176.90 & m & Modern & 0.000001 & n &
-	Europe\tabularnewline
-	Titanochelon & Titanochelon bacharidisi & 900.00 & mo & Zanclean &
-	3.950000 & n & Europe\tabularnewline
-	gen. & gen. indet. & 1000.00 & mo & Langhian & 14.700000 & n &
-	Europe\tabularnewline
-	gen. & gen. indet. & 270.00 & mo & Serravallian & 12.200000 & n &
-	Europe\tabularnewline
-	Paleotestudo & Paleotestudo cf.~antiqua & 113.00 & mf &
-	Burdigalian/Aquitanian & 17.300000 & n & Europe\tabularnewline
-	Testudo & Testudo graeca & 194.60 & m & Modern & 0.000001 & n &
-	Europe\tabularnewline
-	Testudo & Testudo lunellensis & 231.00 & ev & Middle Pleistocene &
-	0.453500 & n & Europe\tabularnewline
-	Testudo & Testudo lunellensis & 176.00 & mo & Middle Pleistocene &
-	0.453500 & n & Europe\tabularnewline
-	Testudo & Testudo hermanni & 168.30 & m & Modern & 0.000001 & y &
-	Europe\tabularnewline
-	Testudo & Testudo sp. & 2500.00 & mf & Zanclean & 3.900000 & n &
-	Europe\tabularnewline
-	Testudo & Testudo burgenlandica & 275.00 & m & Tortonian & 8.750000 & n
-	& Europe\tabularnewline
-	Testudo & Testudo kalksburgensis & 275.00 & m & Langhian & 14.500000 & n
-	& Europe\tabularnewline
-	Titanochelon & Titanochelon bolivari & 1150.00 & m & Messinian &
-	6.289000 & n & Europe\tabularnewline
-	Paleotestudo & Paleotestudo cf.~sp. & 270.00 & mo & Langhian & 14.700000
-	& n & Europe\tabularnewline
-	gen. & gen. indet. & 880.00 & m & Tortonian & 8.750000 & n &
-	Europe\tabularnewline
-	Eurotestudo & Eurotestudo globosa & 263.00 & m & Lower Pleistocene &
-	1.800000 & n & Europe\tabularnewline
-	Paleotestudo & Paleotestudo antiqua & 195.00 & mf & Serravallian &
-	13.000000 & n & Europe\tabularnewline
-	Testudo & Testudo sp. & 1200.00 & mf & Zanclean & 3.960000 & n &
-	Europe\tabularnewline
-	Centrochelys & Centrochelys burchardi & 650.00 & mo & Middle Pleistocene
-	& 0.435000 & y & Europe\tabularnewline
-	Centrochelys & Centrochelys robusta & 850.00 & ev & Lower Pleistocene &
-	1.300000 & y & Europe\tabularnewline
-	Testudo & Testudo catalaunica & 232.00 & m & Serravallian & 12.350000 &
-	n & Europe\tabularnewline
-	Geochelone & Geochelone sp. & 1000.00 & m & Burdigalian/Aquitanian &
-	16.650000 & n & Europe\tabularnewline
-	Geochelone & Geochelone s. l. & 1750.00 & mo & Zanclean & 4.466000 & n &
-	Europe\tabularnewline
+	Burdigalian/Aquitanian & 19.50000 & n & Africa & Lapparent de Broin
+	F.de, 2003: Miocene Chelonians from southern Namibia. in: B. Senut \& M.
+	Pickford coord., Faunas from the southern Namibia. Memoir Geol. Surv.
+	Namibia 19: 67-102aus den Diamantfeldern Deutsch Südwestafrica. in: Die
+	Diamantenwüste Südwest-Afrikas, Erich Kaiser (ed.) 2: 139-141, D.
+	Reimer, Berlin\tabularnewline
+	23 & Auchas & Namibchersus & Namibchersus namaquensis & 470.00 & m &
+	Burdigalian/Aquitanian & 18.00000 & n & Africa & Lapparent de Broin
+	F.de, 2003: Miocene Chelonians from southern Namibia. in: B. Senut \& M.
+	Pickford coord., Faunas from the southern Namibia. Memoir Geol. Surv.
+	Namibia 19: 67-102aus den Diamantfeldern Deutsch Südwestafrica. in: Die
+	Diamantenwüste Südwest-Afrikas, Erich Kaiser (ed.) 2: 139-141, D.
+	Reimer, Berlin\tabularnewline
+	24 & Auchas & Namibchersus & Namibchersus namaquensis & 470.00 & m &
+	Burdigalian/Aquitanian & 18.00000 & n & Africa & Lapparent de Broin
+	F.de, 2003: Miocene Chelonians from southern Namibia. in: B. Senut \& M.
+	Pickford coord., Faunas from the southern Namibia. Memoir Geol. Surv.
+	Namibia 19: 67-102aus den Diamantfeldern Deutsch Südwestafrica. in: Die
+	Diamantenwüste Südwest-Afrikas, Erich Kaiser (ed.) 2: 139-141, D.
+	Reimer, Berlin\tabularnewline
+	25 & Auchas & Namibchersus & Namibchersus namaquensis & 815.00 & m &
+	Burdigalian/Aquitanian & 18.00000 & n & Africa & Lapparent de Broin
+	F.de, 2003: Miocene Chelonians from southern Namibia. in: B. Senut \& M.
+	Pickford coord., Faunas from the southern Namibia. Memoir Geol. Surv.
+	Namibia 19: 67-102aus den Diamantfeldern Deutsch Südwestafrica. in: Die
+	Diamantenwüste Südwest-Afrikas, Erich Kaiser (ed.) 2: 139-141, D.
+	Reimer, Berlin\tabularnewline
+	26 & Drimolon, Sterkfontein, Krugersdorp District, Gauteng Province &
+	Psammobates & Psammobates antiquorum & 107.80 & m & Lower Pleistocene &
+	1.80000 & n & Africa & Broadley, 1997\tabularnewline
+	27 & Ahl al Oughlam (near Casablanca) & Testudo & Testudo aff.
+	kenitrensis & 142.00 & mf & Gelasian & 2.50000 & n & Africa & Gmira s.,
+	2013\tabularnewline
+	28 & Kénitra, Guilloux quarry, near Rabat & Testudo & Testudo
+	kenitrensis & 132.00 & mo & Middle Pleistocene & 0.45350 & n & Africa &
+	Gmira S., 1993: Une nouvelle espèce de tortue Testudininei (Testudo
+	kenitrensis n. sp.) de l'Inter Amirien-Tensiftien de Kénitra (Maroc).
+	Comptes rendus de l'Académie des Sciences de Paris -II 316:
+	701-707\tabularnewline
+	29 & Ahl al Oughlam (near Casablanca) & Testudo & Testudo oughlamensis &
+	120.00 & mo & Gelasian & 2.50000 & n & Africa & Gmira s.,
+	2013\tabularnewline
+	30 & Ahl al Oughlam (near Casablanca) & Testudo & Testudo sp. & 184.00 &
+	mf & Gelasian & 2.50000 & n & Africa & Gmira s., 2013\tabularnewline
+	31 & Ahl al Oughlam (near Casablanca) & Testudo & Testudo sp. & 200.00 &
+	mf & Gelasian & 2.50000 & n & Africa & Gmira s., 2013\tabularnewline
+	32 & Tha Chang area, Nakhon Ratchasima
+	Province & Aldabrachelys & Aldabrachelys ? sp. & 1500.00 & mo &
+	Piacencian & 3.00000 & n & Asia & Claude J., Naksri W., Boonchai N.,
+	Buffetaut E., Duangkrayom J., Laojumpon C., Jintasakul P., Lauprasert
+	K., Martin J., Sutheethorn V., Tong H., 2011: Neogene reptiles of
+	northeastern Thailand and their paleogeographical significance. Annales
+	de Paléontologie (2011)
+	\url{doi:10.1016/j.annpal.2011.08.002}\tabularnewline
+	33 & Tha Chang area, Nakhon Ratchasima
+	Province & Aldabrachelys & Aldabrachelys ? sp. & 1500.00 & mo &
+	Piacencian & 3.00000 & n & Asia & Claude J., Naksri W., Boonchai N.,
+	Buffetaut E., Duangkrayom J., Laojumpon C., Jintasakul P., Lauprasert
+	K., Martin J., Sutheethorn V., Tong H., 2011: Neogene reptiles of
+	northeastern Thailand and their paleogeographical significance. Annales
+	de Paléontologie (2011)
+	\url{doi:10.1016/j.annpal.2011.08.002}\tabularnewline
+	34 & Tha Chang area, Chaloem Pra Kiat district, Nakhon Ratchasima
+	Province & Aldabrachelys & Aldabrachelys ? sp. & 1500.00 & mo &
+	Piacencian & 3.00000 & n & Asia & Claude J., Naksri W., Boonchai N.,
+	Buffetaut E., Duangkrayom J., Laojumpon C., Jintasakul P., Lauprasert
+	K., Martin J., Sutheethorn V., Tong H., 2011: Neogene reptiles of
+	northeastern Thailand and their paleogeographical significance. Annales
+	de Paléontologie (2011)
+	\url{doi:10.1016/j.annpal.2011.08.002}\tabularnewline
+	35 & Tha Chang area, Chaloem Pra Kiat district, Nakhon Ratchasima
+	Province & Aldabrachelys & Aldabrachelys ? sp. & 1500.00 & mo &
+	Piacencian & 3.00000 & n & Asia & Claude J., Naksri W., Boonchai N.,
+	Buffetaut E., Duangkrayom J., Laojumpon C., Jintasakul P., Lauprasert
+	K., Martin J., Sutheethorn V., Tong H., 2011: Neogene reptiles of
+	northeastern Thailand and their paleogeographical significance. Annales
+	de Paléontologie (2011)
+	\url{doi:10.1016/j.annpal.2011.08.002}\tabularnewline
+	36 & Altan-Teli main fossiliferous bed (Dzereg valley) & Ergilemys &
+	Ergilemys oskarkuhni & 198.00 & m & Zanclean & 3.95000 & n & Asia &
+	Mlynarski, 1968: Notes on tortoises (Testudinidae) from the tertiary of
+	Mongolia. Paleontologica Polonica, 19: 85-99\tabularnewline
+	37 & Altan-Teli main fossiliferous bed (Dzereg valley) & Ergilemys &
+	Ergilemys oskarkuhni & 220.00 & m & Zanclean & 3.95000 & n & Asia &
+	Mlynarski, 1968: Notes on tortoises (Testudinidae) from the tertiary of
+	Mongolia. Paleontologica Polonica, 19: 85-99\tabularnewline
+	38 & Guangxi & gen. & gen. indet. & 900.00 & mo & Lower Pleistocene &
+	1.68450 & n & Asia & Rhodin et al., 2015\tabularnewline
+	39 & Ghaba & Geochelone & Geochelone sp. & 800.00 & ev &
+	Burdigalian/Aquitanian & 16.50000 & n & Asia & Roger,
+	1994\tabularnewline
+	40 & Lang Rongrien Rockshelter, Krabi, Thailand & Indotestudo &
+	Indotestudo elongata & 270.00 & m & Upper Pleistocene & 0.03700 & n &
+	Asia & Mudar and Anderson, 2007\tabularnewline
+	41 & Punjab & Manouria & Manouria punjabiensis & 900.00 & mo & Gelasian
+	& 2.19050 & n & Asia & Rhodin et al., 2015\tabularnewline
+	42 & Sulawesi (Celebes), Indonesia & Megalochelys & Megalochelys atlas &
+	1400.00 & mo & Gelasian & 2.00000 & y & Asia & Hooijer,
+	1951\tabularnewline
+	43 & Northwest of Naipli & Megalochelys & Megalochelys atlas & 1600.00 &
+	mo & Piacencian & 3.09400 & n & Asia & Badam, 1981\tabularnewline
+	44 & Northwest of Naipli & Megalochelys & Megalochelys atlas & 1600.00 &
+	mo & Piacencian & 3.09400 & n & Asia & Badam, 1981\tabularnewline
+	45 & Northwest of Naipli & Megalochelys & Megalochelys atlas & 1600.00 &
+	mo & Piacencian & 3.09400 & n & Asia & Badam, 1981\tabularnewline
+	46 & Northwest of Naipli & Megalochelys & Megalochelys atlas & 1600.00 &
+	mo & Piacencian & 3.09400 & n & Asia & Badam, 1981\tabularnewline
+	47 & Sulawesi (Celebes), Indonesia & Megalochelys & Megalochelys atlas &
+	1650.00 & mo & Gelasian & 2.00000 & y & Asia & Setiyabudi,
+	2009\tabularnewline
+	48 & Pauk Twonship & Megalochelys & Megalochelys atlas & 1800.00 & m &
+	Messinian & 5.42300 & n & Asia & Hirayama, R., Sonoda, T., Takai, M.,
+	Htike, T., Thein, Z. M. M., \& Takahashi, A. (2015).~Megalochelys:
+	gigantic tortoise from the Neogene of Myanmar~(No. e1185). PeerJ
+	PrePrints.\tabularnewline
+	49 & Siwalik & Megalochelys & Megalochelys atlas & 2000.00 & mo &
+	Gelasian & 2.19050 & n & Asia & Setiyabudi, 2009\tabularnewline
+	50 & Pauk Twonship & Megalochelys & Megalochelys atlas & 2100.00 & mo &
+	Messinian & 5.42300 & n & Asia & Hirayama, R., Sonoda, T., Takai, M.,
+	Htike, T., Thein, Z. M. M., \& Takahashi, A. (2015).~Megalochelys:
+	gigantic tortoise from the Neogene of Myanmar~(No. e1185). PeerJ
+	PrePrints.\tabularnewline
+	51 & Tres Hermanas, Manila, Luzon & Megalochelys & Megalochelys sondaari
+	& 1000.00 & ec & Lower Pleistocene & 1.35000 & y & Asia & Karl, H., \&
+	Staesche, U. (2007). Fossile Riesen-Landschildkroten von den Philippinen
+	und ihre palaogeographische Bedeutung. Geologisches Jahrbuch Reihe B,
+	98, 171.\tabularnewline
+	52 & Tres Hermanas, Manila, Luzon & Megalochelys & Megalochelys sondaari
+	& 818.00 & ec & Lower Pleistocene & 1.35000 & y & Asia & Karl, H., \&
+	Staesche, U. (2007). Fossile Riesen-Landschildkroten von den Philippinen
+	und ihre palaogeographische Bedeutung. Geologisches Jahrbuch Reihe B,
+	98, 171.\tabularnewline
+	53 & Flores & Megalochelys & Megalochelys sp. & 1200.00 & ev & Lower
+	Pleistocene & 0.90000 & y & Asia & Setiyabudi, 2009\tabularnewline
+	54 & Bumiayu, Java Island & Megalochelys & Megalochelys sp. & 191.40 & m
+	& Lower Pleistocene & 1.68450 & y & Asia & Setiyabudi,
+	2009\tabularnewline
+	55 & Java Island & Megalochelys & Megalochelys sp. & 2000.00 & m & Lower
+	Pleistocene & 1.68450 & y & Asia & Hirayama, R., Sonoda, T., Takai, M.,
+	Htike, T., Thein, Z. M. M., \& Takahashi, A. (2015).~Megalochelys:
+	gigantic tortoise from the Neogene of Myanmar~(No. e1185). PeerJ
+	PrePrints.\tabularnewline
+	56 & Zhejiang & Testudo & Testudo changshanesis & 330.00 & mo & Lower
+	Pleistocene & 1.68450 & n & Asia & Rhodin et al., 2015\tabularnewline
+	57 & Khatlon & Testudo & Testudo ranovi & 200.00 & mo & Gelasian &
+	2.19050 & n & Asia & Rhodin et al., 2015\tabularnewline
+	58 & Gerogia (Caucasus) & Testudo & Testudo transcaucasia & 150.00 & mo
+	& Gelasian & 2.19050 & n & Asia & Rhodin et al., 2015\tabularnewline
+	59 & Sawmill Sink, Abaco & Chelonoidis & Chelonoidis alburyorum & 424.00
+	& m & Piacencian & 3.20150 & y & America & Franz, R., \& Franz, S. E.
+	(2009). A new fossil land tortoise in the genus Chelonoidis (Testudines:
+	Testudinidae) from the Northern Bahamas: with an osteological assessment
+	of other neotropical tortoises. University of Florida.\tabularnewline
+	60 & Sawmill Sink, Abaco & Chelonoidis & Chelonoidis alburyorum & 428.00
+	& m & Piacencian & 3.20150 & y & America & Franz, R., \& Franz, S. E.
+	(2009). A new fossil land tortoise in the genus Chelonoidis (Testudines:
+	Testudinidae) from the Northern Bahamas: with an osteological assessment
+	of other neotropical tortoises. University of Florida.\tabularnewline
+	61 & Sawmill Sink, Abaco & Chelonoidis & Chelonoidis alburyorum & 453.00
+	& m & Piacencian & 3.20150 & y & America & Franz, R., \& Franz, S. E.
+	(2009). A new fossil land tortoise in the genus Chelonoidis (Testudines:
+	Testudinidae) from the Northern Bahamas: with an osteological assessment
+	of other neotropical tortoises. University of Florida.\tabularnewline
+	62 & Sawmill Sink, Abaco & Chelonoidis & Chelonoidis alburyorum & 466.00
+	& m & Piacencian & 3.20150 & y & America & Franz, R., \& Franz, S. E.
+	(2009). A new fossil land tortoise in the genus Chelonoidis (Testudines:
+	Testudinidae) from the Northern Bahamas: with an osteological assessment
+	of other neotropical tortoises. University of Florida.\tabularnewline
+	63 & Santa Clara & Chelonoidis & Chelonoidis cubensis & 1139.00 & ef &
+	Middle Pleistocene & 0.39350 & y & America & Williams, E. E. (1950).
+	Testudo cubensis and the evolution of western hemisphere tortoises.
+	Bulletin of the AMNH; v. 95, article 1.\tabularnewline
+	64 & Cueva del Papayo, Pedernales & Chelonoidis & Chelonoidis marcanoi &
+	530.00 & eh & Upper Pleistocene & 0.06900 & y & America & Turvey, S. T.,
+	Almonte, J., Hansford, J., Scofield, R. P., Brocca, J. L., \& Chapman,
+	S. D. (2017). A new species of extinct Late Quaternary giant tortoise
+	from Hispaniola.~Zootaxa,~4277(1), 1-16.\tabularnewline
+	65 & Cueva del Papayo, Pedernales & Chelonoidis & Chelonoidis marcanoi &
+	614.00 & eh & Upper Pleistocene & 0.06900 & y & America & Turvey, S. T.,
+	Almonte, J., Hansford, J., Scofield, R. P., Brocca, J. L., \& Chapman,
+	S. D. (2017). A new species of extinct Late Quaternary giant tortoise
+	from Hispaniola.~Zootaxa,~4277(1), 1-16.\tabularnewline
+	66 & Cueva del Papayo, Pedernales & Chelonoidis & Chelonoidis marcanoi &
+	767.00 & eh & Upper Pleistocene & 0.06900 & y & America & Turvey, S. T.,
+	Almonte, J., Hansford, J., Scofield, R. P., Brocca, J. L., \& Chapman,
+	S. D. (2017). A new species of extinct Late Quaternary giant tortoise
+	from Hispaniola.~Zootaxa,~4277(1), 1-16.\tabularnewline
+	67 & Cueva del Papayo, Pedernales & Chelonoidis & Chelonoidis marcanoi &
+	778.00 & eh & Upper Pleistocene & 0.06900 & y & America & Turvey, S. T.,
+	Almonte, J., Hansford, J., Scofield, R. P., Brocca, J. L., \& Chapman,
+	S. D. (2017). A new species of extinct Late Quaternary giant tortoise
+	from Hispaniola.~Zootaxa,~4277(1), 1-16.\tabularnewline
+	68 & Mona Island & Chelonoidis & Chelonoidis monensis & 500.00 & m &
+	Upper Pleistocene & 0.06450 & y & America & Williams,
+	1952\tabularnewline
+	69 & Sombrero Island & Chelonoidis & Chelonoidis sombrerensis & 990.00 &
+	m & Upper Pleistocene & 0.06900 & y & America & Carlson, L. A. (2000).
+	Aftermath of a feast: Human colonization of the southern Bahamian
+	archipelago and its effects on the indigenous fauna.\tabularnewline
+	70 & Navassa Island & Chelonoidis & Chelonoidis sp. & 400.00 & mo &
+	Upper Pleistocene & 0.06900 & y & America & Auffenberg, W. (1967). Notes
+	on West Indian tortoises. Herpetologica, 23(1), 34-44.\tabularnewline
+	71 & San Pedro, Curaçao & Chelonoidis & Chelonoidis sp. & 600.00 & mo &
+	Lower Pleistocene & 1.35700 & y & America & Hooijer, D. A. (1963).
+	Geochelone from the Pleistocene of Curaçao, Netherlands Antilles.
+	Copeia, 3, 579-580.\tabularnewline
+	72 & Bayaguana, Los Haitises, San Cristobal & Chelonoidis & Chelonoidis
+	sp. & 600.00 & mo & Upper Pleistocene & 0.06900 & y & America & Franz,
+	R., \& Woods, C. A. (1983). A fossil tortoise from Hispaniola. Journal
+	of Herpetology, 17(1), 79-81.\tabularnewline
+	73 & San Pedro, Curaçao & Chelonoidis & Chelonoidis sp. & 750.00 & mo &
+	Lower Pleistocene & 1.35700 & y & America & Hooijer, D. A. (1963).
+	Geochelone from the Pleistocene of Curaçao, Netherlands Antilles.
+	Copeia, 3, 579-580.\tabularnewline
+	74 & San Pedro, Curaçao & Chelonoidis & Chelonoidis sp. & 800.00 & mo &
+	Lower Pleistocene & 1.35700 & y & America & Hooijer, D. A. (1963).
+	Geochelone from the Pleistocene of Curaçao, Netherlands Antilles.
+	Copeia, 3, 579-580.\tabularnewline
+	75 & Cedazo local fauna, Aguascalientes, Mexico & Geochelone &
+	Geochelone sp. & 340.00 & mo & Lower Pleistocene & 1.05000 & n & America
+	& Mooser, 1972\tabularnewline
+	76 & Cedazo local fauna, Aguascalientes, Mexico & Gopherus & Gopherus
+	berlandieri & 195.00 & m & Lower Pleistocene & 1.05000 & n & America &
+	Mooser, 1972\tabularnewline
+	77 & Cedazo local fauna, Aguascalientes, Mexico & Gopherus & Gopherus
+	berlandieri & 256.30 & m & Lower Pleistocene & 1.05000 & n & America &
+	Mooser, 1972\tabularnewline
+	78 & Cedazo local fauna, Aguascalientes, Mexico & Gopherus & Gopherus
+	flavomarginatus & 450.00 & m & Lower Pleistocene & 1.05000 & n & America
+	& Mooser, 1972\tabularnewline
+	79 & Smith's Parrish, No. 3Verdmont Valley Close & Hesperotestudo &
+	Hesperotestudo bermudae & 270.00 & m & Middle Pleistocene & 0.31000 & y
+	& America & Meylan and Sterrer, 2000\tabularnewline
+	80 & Smith's Parrish, No. 3Verdmont Valley Close & Hesperotestudo &
+	Hesperotestudo bermudae & 500.00 & m & Middle Pleistocene & 0.31000 & y
+	& America & Olson and Meylan, 2009\tabularnewline
+	81 & Río Tomayate, Apopa Municipality & Hesperotestudo & Hesperotestudo
+	sp. & 1500.00 & mo & Lower Pleistocene & 0.96600 & n & America &
+	Cisneros, 2005\tabularnewline
+	82 & Belomechetskaya & Ergilemys & Ergilemys sp. & 1000.00 & m &
+	Langhian & 14.00000 & n & Europe & FosFarBase\tabularnewline
+	83 & Dmanisi & Testudo & Testudo graeca & 195.00 & mf & Lower
+	Pleistocene & 1.77000 & n & Europe & Blain H.A., Agustí H.,
+	Lordkipanidze D., Rook L., Delfino M., 2014: Paleoclimatic and
+	paleoenvironmental context of the Early Pleistocene hominins from
+	Dmanisi (Georgia, Lesser Caucasus) inferred from the herpetofaunal
+	assemblage. Quaternary Science Reviews 105: 136-150\tabularnewline
+	84 & Prottes & ``Hadrianus'' & ``Hadrianus sp.'' & 1000.00 & m &
+	Tortonian & 8.30000 & n & Europe & Bachmayer F., M?ynarski M., 1985: Die
+	Landschildkröten (Testudinidae) aus den Schotter-Ablagerungen (Pontien)
+	von Prottes, Niederösterreich.. Annalen des Naturhistorischen Museums in
+	Wien 87 A: 65-77\tabularnewline
+	85 & Adeje, Tenerife & Centrochelys & Centrochelys burchardi & 500.00 &
+	mo & Middle Pleistocene & 0.43500 & y & Europe & Ahl, E. (1925). Über
+	eine ausgestorbene Riesenschildkröte der Insel Teneriffa. Zeitschrift
+	der Deutschen Geologischen Gesellschaft, 575-580.\tabularnewline
+	86 & Callao de Fañabé, Tenerife & Centrochelys & Centrochelys burchardi
+	& 650.00 & mo & Middle Pleistocene & 0.43500 & y & Europe & Hutterer et
+	al., 1998\tabularnewline
+	87 & Adeje, Tenerife & Centrochelys & Centrochelys burchardi & 800.00 &
+	m & Middle Pleistocene & 0.43500 & y & Europe & Ahl, E. (1925). Über
+	eine ausgestorbene Riesenschildkröte der Insel Teneriffa. Zeitschrift
+	der Deutschen Geologischen Gesellschaft, 575-580.\tabularnewline
+	88 & Callao de Fañabé, Tenerife & Centrochelys & Centrochelys burchardi
+	& 940.00 & mo & Middle Pleistocene & 0.43500 & y & Europe & Hutterer et
+	al., 1998\tabularnewline
+	89 & Corrida, Malta & Centrochelys & Centrochelys robusta & 1100.00 & mo
+	& Zanclean & 4.91700 & y & Europe & Adams A.L., 1877: On gigantic
+	land-tortoises and a small freshwater species from the ossiferous
+	caverns of Malta, together with a list of their fossil fauna; and a note
+	on Chelonian remains from the rock-cavities of Gibraltar. Quarterly
+	Journal of the Geological Society of London 33: 177-191\tabularnewline
+	90 & Ghar Dalam & Centrochelys & Centrochelys robusta & 1200.00 & ev &
+	Lower Pleistocene & 1.30000 & y & Europe & Hunt and Schembri,
+	1999\tabularnewline
+	91 & Ghar Dalam & Centrochelys & Centrochelys robusta & 600.00 & ev &
+	Lower Pleistocene & 1.30000 & y & Europe & Hunt and Schembri,
+	1999\tabularnewline
+	92 & Mnaidra Gap, Malta & Centrochelys & Centrochelys robusta & 790.00 &
+	ef & Zanclean & 4.91700 & y & Europe & Adams A.L., 1877: On gigantic
+	land-tortoises and a small freshwater species from the ossiferous
+	caverns of Malta, together with a list of their fossil fauna; and a note
+	on Chelonian remains from the rock-cavities of Gibraltar. Quarterly
+	Journal of the Geological Society of London 33: 177-191\tabularnewline
+	93 & Corrida, Malta & Centrochelys & Centrochelys robusta & 850.00 & mo
+	& Zanclean & 4.91700 & y & Europe & Adams A.L., 1877: On gigantic
+	land-tortoises and a small freshwater species from the ossiferous
+	caverns of Malta, together with a list of their fossil fauna; and a note
+	on Chelonian remains from the rock-cavities of Gibraltar. Quarterly
+	Journal of the Geological Society of London 33: 177-191\tabularnewline
+	94 & Zebbug and Gahr Dalam Cave deposits & Centrochelys & Centrochelys
+	robusta & 850.00 & mo & Upper Pleistocene & 0.06600 & y & Europe &
+	Lapparent de Broin F.de, 2002a: A giant tortoise from the Late Pliocene
+	of Lesvos Island (Greece) and its possible relationships. Annales
+	Geologiques des Pays Helleniques, 1e Serie, t.XXXIX, fasc. A:
+	99-130\tabularnewline
+	95 & Ghar Dalam & Centrochelys & Centrochelys robusta & 850.00 & ev &
+	Lower Pleistocene & 1.30000 & y & Europe & Hunt and Schembri,
+	1999\tabularnewline
+	96 & Barranco de las Ballenas, Las Palmas, Gran Canaria & Centrochelys &
+	Centrochelys vulcanica & 610.00 & mo & Piacencian & 3.09400 & y & Europe
+	& Hutterer et al., 1998\tabularnewline
+	97 & Pujo d'es Fum, Formentera, Balearic Islands & Cheirogaster &
+	Cheirogaster cf.~gymnesica & 789.00 & mo & Lower Pleistocene & 1.80000 &
+	y & Europe & Filella-Subira et al., 1999\tabularnewline
+	98 & Punta Nati near Ciutadella, Minorca & Cheirogaster & Cheirogaster
+	gymnesica & 739.00 & ef & Zanclean & 4.45000 & y & Europe & Mercadal B.,
+	Pretus Real L., 1980: Nuevo yacimiento de Testudo gymnesicus Bate, 1914
+	en la isla de Menorca. Boletín de la Sociedad de Historia Natural de
+	Baleares 24: 15-21\tabularnewline
+	99 & Hostalets de Piérola, Barcelone province, Cataluña & Cheirogaster & Cheirogaster richardi & 1155.00 & mo & Tortonian
+	& 10.40000 & n & Europe & Pérez-García A., Vlachos E., 2014: New generic
+	proposal for the European Neogene large testudinids (Cryptodira) and the
+	?rst phylogenetic hypothesis for the medium and large representatives of
+	the European Cenozoic record. Zoological Journal of the Linnean Society
+	172: 653-719\tabularnewline
+	100 & La Ciesma 1, Aragón & Cheirogaster & Cheirogaster sp. & 1000.00 &
+	mo & Serravallian & 12.20000 & n & Europe & Murelaga X., Azanza B.,
+	Astibia H., 2006: Restos de quelonios del Mioceno medio del área de
+	Tarazona de Aragón (Cuenca del Ebro, Aragón, España). Estudios
+	Geológicos 62(1): 205-212\tabularnewline
+	101 & El Lugarejo (Arévalo), Ávilla, Castilla & Cheirogaster &
+	Cheirogaster sp. & 1170.00 & m & Tortonian & 10.25000 & n & Europe &
+	Jiménez Fuentes, E., Acosta, P., \& Fincias San Martín, B. (1986). Un
+	nuevo ejemplar de tortuga gigante del Mioceno de Arévalo (Ávila). Studia
+	Geologica. Salmanticensia, 23, 11.\tabularnewline
+	102 & Chañe, Segovia & Cheirogaster & Cheirogaster sp. & 1500.00 & e &
+	Serravallian & 13.80000 & n & Europe & Jiménez Fuentes E., 2000:
+	Tortugas gigantes fósiles de la provincia de Segovia (Castilla y León,
+	España). Nueva localidad: Chañe. Studia Geologica Salamanticensia 36:
+	109-115\tabularnewline
+	103 & Crevillente 2 & Cheirogaster & Cheirogaster sp. & 1540.00 & ef &
+	Tortonian & 8.30000 & n & Europe & Jiménez E., Montoya P., 2002:
+	Quelonios del Mioceno superior de Crevillente 2 (Alicante, Espana).
+	Studia Geologica Salamanticensia, 38: 87-103 or Pickford M., Morales J.,
+	1994: Biostratigraphy and palaeobiogeography of East Africa and the
+	Iberian peninsula. Palaeogeography, Palaeoclimatology, Palaeoecology
+	112: 297-322\tabularnewline
+	104 & Rock-Cavities, Gibraltar Peninsula & Cheirogaster & Cheirogaster
+	sp. & 925.00 & ef & Lower Pleistocene & 0.96500 & y & Europe & Adams
+	A.L., 1877: On gigantic land-tortoises and a small freshwater species
+	from the ossiferous caverns of Malta, together with a list of their
+	fossil fauna; and a note on Chelonian remains from the rock-cavities of
+	Gibraltar. Quarterly Journal of the Geological Society of London 33:
+	177-191\tabularnewline
+	105 & Soave, Zoppega 2 cave, Verona & Eurotestudo & Eurotestudo aff.
+	hermanni & 179.30 & mf & Middle Pleistocene & 0.74000 & n & Europe &
+	Lapparent de Broin F. de, Bour R., Perälä J., 2006: Morphological
+	definition of Eurotestudo (Testudinidae, Chelonii): First part. Annales
+	de Paléontologie 92(3): 255-304\tabularnewline
+	106 & Soave, Zoppega 2 cave, Verona & Eurotestudo & Eurotestudo aff.
+	hermanni & 194.70 & mf & Middle Pleistocene & 0.74000 & n & Europe &
+	Lapparent de Broin F. de, Bour R., Perälä J., 2006: Morphological
+	definition of Eurotestudo (Testudinidae, Chelonii): First part. Annales
+	de Paléontologie 92(3): 255-304\tabularnewline
+	107 & Monte Tuttavista VII mustelide, Sardinia & Eurotestudo &
+	Eurotestudo cf.~hermanni & 150.00 & mo & Gelasian & 2.00000 & y & Europe
+	& Abbazzi L., Angelone C., Arca M., Barisone G., Bedetti C., Delfino M.,
+	Kotsakis T., Marcolini F., Palombo M.R., Pavia M., Piras P., Rook L.,
+	Torre D., Tuveri C., Valli A.M.F., Wilkens B., 2004: Plio-Pleistocene
+	fossil vertebrates of Monte Tuttavista (Orosei, Eastern Sardinia,
+	Italy), an overview. Rivista Italiana di Paleontologia e Stratigraphia
+	110(3): 681-706\tabularnewline
+	108 & Le Ville, Upper Valdarno & Eurotestudo & Eurotestudo globosa &
+	263.00 & m & Lower Pleistocene & 1.80000 & n & Europe & Portis A., 1890:
+	I Rettili pliocenici del Valdarno superiore e di alcune altre località
+	plioceniche di Toscana. Le Monnier Suc., Firenze (1--32) or Lapparent de
+	Broin F. de, Bour R., Perälä J., 2006: Morphological definition of
+	Eurotestudo (Testudinidae, Chelonii): First part. Annales de
+	Paléontologie 92(3): 255-304 or Lapparent de Broin F. de, Bour R.,
+	Perälä J., 2006a: Morphological definition of Eurotestudo (Testudinidae,
+	Chelonii): second part. Annales de Paléontologie 92(4):
+	325-357\tabularnewline
+	109 & Cueva de la Victoria-1 (CV-1), Carthagène, Murcia & Eurotestudo &
+	Eurotestudo hermanni & 126.00 & mf & Lower Pleistocene & 1.15000 & n &
+	Europe & Pérez-García, 2012\tabularnewline
+	110 & Saint-Estève-Janson, l'Escale Cave (Bouches du Rhône) &
 	Eurotestudo & Eurotestudo hermanni & 170.50 & mf & Middle Pleistocene &
-	0.600000 & n & Europe\tabularnewline
-	Testudo & Testudo hermanni & 160.00 & m & Modern & 0.000001 & y &
-	Europe\tabularnewline
-	Testudo & Testudo hermanni & 157.00 & m & Modern & 0.000001 & y &
-	Europe\tabularnewline
-	gen. & gen. indet. & 270.00 & mo & Burdigalian/Aquitanian & 16.400000 &
-	n & Europe\tabularnewline
-	Testudo & Testudo hermanni & 161.00 & m & Modern & 0.000001 & n &
-	Europe\tabularnewline
-	Testudo & Testudo marginata & 242.50 & m & Modern & 0.000001 & y &
-	Europe\tabularnewline
-	Centrochelys & Centrochelys robusta & 1100.00 & mo & Zanclean & 4.917000
-	& y & Europe\tabularnewline
-	Testudo & Testudo rectogularis & 213.00 & mo & Burdigalian/Aquitanian &
-	16.370000 & n & Europe\tabularnewline
-	Testudo & Testudo kalksburgensis & 225.00 & mo & Burdigalian/Aquitanian
-	& 18.000000 & n & Europe\tabularnewline
-	Testudo & Testudo marginata & 400.00 & m & Modern & 0.000001 & n &
-	Europe\tabularnewline
-	Testudo & Testudo brevitesta & 300.00 & mf & Piacencian & 2.600000 & n &
-	Europe\tabularnewline
-	Testudo & Testudo sp. & 232.10 & m & Tortonian & 10.750000 & n &
-	Europe\tabularnewline
-	Testudo & Testudo horsfieldii & 136.00 & m & Modern & 0.000001 & n &
-	Europe\tabularnewline
-	Titanochelon & Titanochelon cf.~bolivari & 1300.00 & ev & Langhian &
-	14.895000 & n & Europe\tabularnewline
-	Testudo & Testudo marginata & 290.00 & m & Lower Pleistocene & 1.300000
-	& y & Europe\tabularnewline
-	Testudo & Testudo hermanni & 147.00 & m & Modern & 0.000001 & n &
-	Europe\tabularnewline
-	Eurotestudo & Eurotestudo hermanni & 187.00 & mf & Upper Pleistocene &
-	0.110500 & n & Europe\tabularnewline
-	Eurotestudo & Eurotestudo aff. hermanni & 179.30 & mf & Middle
-	Pleistocene & 0.740000 & n & Europe\tabularnewline
-	Titanochelon & Titanochelon cf.~perpiniana & 1001.00 & mo &
-	Burdigalian/Aquitanian & 16.370000 & n & Europe\tabularnewline
-	Testudo & Testudo sp. & 245.00 & m & Tortonian & 8.300000 & n &
-	Europe\tabularnewline
-	Testudo & Testudo amiatae & 140.00 & mo & Messinian & 5.815000 & n &
-	Europe\tabularnewline
-	Cheirogaster & Cheirogaster cf.~gymnesica & 789.00 & mo & Lower
-	Pleistocene & 1.800000 & y & Europe\tabularnewline
-	Eurotestudo & Eurotestudo hermanni & 126.00 & mf & Lower Pleistocene &
-	1.150000 & n & Europe\tabularnewline
-	Paleotestudo & Paleotestudo antiqua & 283.80 & mf & Serravallian &
-	12.500000 & n & Europe\tabularnewline
-	Cheirogaster & Cheirogaster sp. & 1000.00 & mo & Serravallian &
-	12.200000 & n & Europe\tabularnewline
-	Paleotestudo & Paleotestudo cf.~sp. & 270.00 & mo & Serravallian &
-	12.400000 & n & Europe\tabularnewline
-	Paleotestudo & Paleotestudo antiqua & 240.00 & mf & Serravallian &
-	13.600000 & n & Europe\tabularnewline
-	Paleotestudo & Paleotestudo antiqua & 195.00 & m & Serravallian &
-	13.000000 & n & Europe\tabularnewline
-	Titanochelon & Titanochelon bolivari & 1353.00 & mo & Serravallian &
-	12.500000 & n & Europe\tabularnewline
-	Testudo & Testudo hermanni & 154.00 & m & Modern & 0.000001 & n &
-	Europe\tabularnewline
-	Centrochelys & Centrochelys robusta & 600.00 & ev & Lower Pleistocene &
-	1.300000 & y & Europe\tabularnewline
-	Paleotestudo & Paleotestudo antiqua & 185.00 & mf & Serravallian &
-	13.000000 & n & Europe\tabularnewline
-	Titanochelon & Titanochelon schafferi & 2500.00 & mo & Zanclean &
-	4.466000 & n & Europe\tabularnewline
-	Testudo & Testudo promarginata & 310.00 & mf & Burdigalian/Aquitanian &
-	18.000000 & n & Europe\tabularnewline
-	Paleotestudo & Paleotestudo antiqua & 206.00 & mf & Serravallian &
-	13.000000 & n & Europe\tabularnewline
-	Testudo & Testudo steinheimensis & 227.70 & mf & Serravallian &
-	13.000000 & n & Europe\tabularnewline
-	Paleotestudo & Paleotestudo antiqua & 234.00 & mf & Serravallian &
-	13.600000 & n & Europe\tabularnewline
-	Centrochelys & Centrochelys robusta & 850.00 & mo & Upper Pleistocene &
-	0.066000 & y & Europe\tabularnewline
-	Testudo & Testudo promarginata & 230.00 & mf & Burdigalian/Aquitanian &
-	21.500000 & n & Europe\tabularnewline
-	Titanochelon & Titanochelon sp. & 1420.00 & mo & Gelasian & 1.850000 & n
-	& Europe\tabularnewline
-	Paleotestudo & Paleotestudo antiqua & 240.00 & m & Serravallian &
-	13.000000 & n & Europe\tabularnewline
-	Titanochelon & Titanochelon aff. schafferi & 1860.00 & m & Gelasian &
-	2.000000 & y & Europe\tabularnewline
-	Testudo & Testudo hermanni & 200.00 & m & Modern & 0.000001 & y &
-	Europe\tabularnewline
-	Testudo & Testudo steinheimensis & 111.00 & m & Serravallian & 12.150000
-	& n & Europe\tabularnewline
-	Titanochelon & Titanochelon perpiniana & 1140.00 & m & Zanclean &
-	3.900000 & n & Europe\tabularnewline
-	Testudo & Testudo cf.~graeca & 185.00 & m & Zanclean & 3.900000 & n &
-	Europe\tabularnewline
-	Paleotestudo & Paleotestudo antiqua & 145.00 & mf & Serravallian &
-	13.000000 & n & Europe\tabularnewline
-	Cheirogaster & Cheirogaster sp. & 1170.00 & m & Tortonian & 10.250000 &
-	n & Europe\tabularnewline
-	Testudo & Testudo cf.~promarginata & 250.00 & m & Tortonian & 8.300000 &
-	n & Europe\tabularnewline
-	Titanochelon & Titanochelon bolivari & 1100.00 & mo & Langhian &
-	15.000000 & n & Europe\tabularnewline
-	Centrochelys & Centrochelys robusta & 790.00 & ef & Zanclean & 4.917000
-	& y & Europe\tabularnewline
-	Titanochelon & Titanochelon cf.~bolivari & 1600.00 & ef & Langhian &
-	14.895000 & n & Europe\tabularnewline
-	Eurotestudo & Testudo hermanni & 133.10 & mf & Lower Pleistocene &
-	1.220000 & n & Europe\tabularnewline
-	Testudo & Testudo hermanni & 176.60 & m & Modern & 0.000001 & y &
-	Europe\tabularnewline
-	Testudo & Testudo s. s. & 189.00 & m & Tortonian & 8.000000 & n &
-	Europe\tabularnewline
-	Centrochelys & Centrochelys robusta & 850.00 & mo & Zanclean & 4.917000
-	& y & Europe\tabularnewline
-	Testudo & Testudo lunellensis & 194.00 & mf & Middle Pleistocene &
-	0.450000 & n & Europe\tabularnewline
-	Testudo & Testudo hermanni & 173.00 & m & Modern & 0.000001 & y &
-	Europe\tabularnewline
-	Paleotestudo & Paleotestudo antiqua & 229.00 & mf & Serravallian &
-	13.000000 & n & Europe\tabularnewline
-	Cheirogaster & Cheirogaster sp. & 1500.00 & e & Serravallian & 13.800000
-	& n & Europe\tabularnewline
-	Testudo & Testudo catalaunica & 181.00 & m & Tortonian & 11.500000 & n &
-	Europe\tabularnewline
-	gen. & gen. indet. & 813.00 & ef & Upper Pleistocene & 0.012500 & y &
-	Europe\tabularnewline
-	Titanochelon & Titanochelon cf.~bolivari & 1500.00 & mf & Tortonian &
-	9.433000 & n & Europe\tabularnewline
-	Testudo & Testudo sp. & 245.00 & m & Tortonian & 8.300000 & n &
-	Europe\tabularnewline
-	Paleotestudo & Paleotestudo antiqua & 213.00 & mf & Serravallian &
-	13.600000 & n & Europe\tabularnewline
-	Testudo & Testudo sp. & 2500.00 & mf & Zanclean & 3.900000 & n &
-	Europe\tabularnewline
-	Paleotestudo & Paleotestudo antiqua & 180.00 & m & Serravallian &
-	13.000000 & n & Europe\tabularnewline
-	Paleotestudo & Paleotestudo sp. & 270.00 & mf & Tortonian & 9.500000 & n
-	& Europe\tabularnewline
-	Testudo & Testudo hermanni & 220.00 & mf & Lower Pleistocene & 1.300000
-	& n & Europe\tabularnewline
-	Paleotestudo & Paleotestudo sp. & 170.00 & mf & Tortonian & 9.500000 & n
-	& Europe\tabularnewline
-	Paleotestudo & Paleotestudo antiqua & 183.70 & m & Serravallian &
-	12.150000 & n & Europe\tabularnewline
-	Testudo & Testudo sp. & 245.00 & m & Tortonian & 8.300000 & n &
-	Europe\tabularnewline
-	Eurotestudo & Eurotestudo cf.~hermanni & 150.00 & mo & Gelasian &
-	2.000000 & y & Europe\tabularnewline
-	Cheirogaster & Cheirogaster gymnesica & 739.00 & ef & Zanclean &
-	4.450000 & y & Europe\tabularnewline
-	Titanochelon & Titanochelon bolivari & 1300.00 & mf & Tortonian &
-	9.500000 & n & Europe\tabularnewline
-	Testudo & Testudo graeca & 210.00 & mf & Tortonian & 8.450000 & n &
-	Europe\tabularnewline
-	Cheirogaster & Cheirogaster richardi & 1155.00 & mo & Tortonian &
-	10.400000 & n & Europe\tabularnewline
-	Paleotestudo & Paleotestudo antiqua & 275.00 & mf & Langhian & 15.000000
-	& n & Europe\tabularnewline
-	Testudo & Testudo cf.~promarginata & 250.00 & m & Tortonian & 8.300000 &
-	n & Europe\tabularnewline
-	Titanochelon & Titanochelon bacharidisi & 900.00 & mo & Zanclean &
-	3.950000 & n & Europe\tabularnewline
+	0.60000 & n & Europe & Lapparent de Broin F. de, Bour R., Perälä J.,
+	2006: Morphological definition of Eurotestudo (Testudinidae, Chelonii):
+	First part. Annales de Paléontologie 92(3): 255-304\tabularnewline
+	111 & Cova del Rinoceront, eastern Garraf Massif, Castelldelfs & Eurotestudo & Eurotestudo hermanni & 187.00 & mf & Upper
+	Pleistocene & 0.11050 & n & Europe & Daura J., Sanz M., Julià R.,
+	García-Fernández D., Fornós J.J., Vaquero M., Allué E., López-García
+	J.M., Blain H.A., Ortiz J.E., Torres T., Albert J.M., et al., 2015: Cova
+	del Rinoceront (Castelldefels, Barcelona): a terrestrial record for the
+	Last Interglacial period (MIS 5) in the Mediterranean coast of the
+	Iberian Peninsula. Quaternay Science Reviews 114: 203-227\tabularnewline
+	112 & Saint-Estève-Janson, l'Escale Cave (Bouches du Rhône) &
+	Eurotestudo & Eurotestudo hermanni & 237.60 & mf & Middle Pleistocene &
+	0.60000 & n & Europe & Lapparent de Broin F. de, Bour R., Perälä J.,
+	2006: Morphological definition of Eurotestudo (Testudinidae, Chelonii):
+	First part. Annales de Paléontologie 92(3): 255-304\tabularnewline
+	113 & Sierra de Quibas, Abanilla, Murcia & Eurotestudo & Eurotestudo
+	hermanni & 284.00 & mf & Lower Pleistocene & 1.35000 & n & Europe &
+	Pérez-García et al., 2015\tabularnewline
+	114 & Tarazona de Aragón & gen. & gen. indet. & 1000.00 & mo & Langhian
+	& 14.70000 & n & Europe & Murelaga X., Azanza B., Astibia H., 2006:
+	Restos de quelonios del Mioceno medio del área de Tarazona de Aragón
+	(Cuenca del Ebro, Aragón, España). Estudios Geológicos 62(1):
+	205-212\tabularnewline
+	115 & La Ciesma 1, Aragón & gen. & gen. indet. & 270.00 & mo &
+	Serravallian & 12.20000 & n & Europe & Murelaga X., Azanza B., Astibia
+	H., 2006: Restos de quelonios del Mioceno medio del área de Tarazona de
+	Aragón (Cuenca del Ebro, Aragón, España). Estudios Geológicos 62(1):
+	205-212\tabularnewline
+	116 & Monteagudo, Aragón & gen. & gen. indet. & 270.00 & mo &
+	Burdigalian/Aquitanian & 16.40000 & n & Europe & Murelaga X., Azanza B.,
+	Astibia H., 2006: Restos de quelonios del Mioceno medio del área de
+	Tarazona de Aragón (Cuenca del Ebro, Aragón, España). Estudios
+	Geológicos 62(1): 205-212\tabularnewline
+	117 & Kohfidisch & gen. & gen. indet. & 440.00 & m & Tortonian & 8.75000
+	& n & Europe & Bachmayer F., M?ynarski M., 1983: Die Fauna der
+	pontischen Höhlen- und Spaltenfüllungen bei Kohfidisch, Burgenland
+	(Österreich)-Schildkröten (Emydidae und Testudinidae). Annalen des
+	Naturhistorischen Museums in Wien 85/A: 107-128\tabularnewline
+	118 & Kohfidisch & gen. & gen. indet. & 660.00 & m & Tortonian & 8.75000
+	& n & Europe & Bachmayer F., M?ynarski M., 1983: Die Fauna der
+	pontischen Höhlen- und Spaltenfüllungen bei Kohfidisch, Burgenland
+	(Österreich)-Schildkröten (Emydidae und Testudinidae). Annalen des
+	Naturhistorischen Museums in Wien 85/A: 107-128\tabularnewline
+	119 & Zubbio di Cozzo San Pietro & gen. & gen. indet. & 813.00 & ef &
+	Upper Pleistocene & 0.01250 & y & Europe & Delfino et al.,
+	2015\tabularnewline
+	120 & Kohfidisch & gen. & gen. indet. & 880.00 & m & Tortonian & 8.75000
+	& n & Europe & Bachmayer F., M?ynarski M., 1983: Die Fauna der
+	pontischen Höhlen- und Spaltenfüllungen bei Kohfidisch, Burgenland
+	(Österreich)-Schildkröten (Emydidae und Testudinidae). Annalen des
+	Naturhistorischen Museums in Wien 85/A: 107-128\tabularnewline
+	121 & Jambol & Geochelone & Geochelone s. l. & 1750.00 & mo & Zanclean &
+	4.46600 & n & Europe & Stojanoc, A. (2009). Erster Nachweis einer
+	Riesenlandschildkröte (Geochelone sl Gray, 1872) aus Bulgarien.~Revue de
+	Paléobiologie,~28, 457-470.\tabularnewline
+	122 & Kirchdorf an der Iller & Geochelone & Geochelone sp. & 1000.00 & m
+	& Burdigalian/Aquitanian & 16.65000 & n & Europe &
+	FosFarBase\tabularnewline
+	123 & Hohenhöwen, Engen, Hegau, southwestern Germany & Paleotestudo &
+	Paleotestudo antiqua & 145.00 & mf & Serravallian & 13.00000 & n &
+	Europe & Corsini J.A., Böhme M., Joyce W.G., 2014: Reappraisal of
+	Testudo antiqua (Testudines, Testudinidae) from the Miocene of
+	Hohenhöwen, Germany. Journal of Paleontology
+	88(5):948-966\tabularnewline
+	124 & Hohenhöwen, Engen, Hegau, southwestern Germany & Paleotestudo &
+	Paleotestudo antiqua & 152.00 & m & Serravallian & 13.00000 & n & Europe
+	& Schleich H.H., 1981: Jungtertiäre Schildkröten Süddeutschlands unter
+	besonderer Berücksichtigung der Fundstelle Sandelzhausen. Courier
+	Forschungsinstitut Senckenberg 48: 372pp., Frankfurt\tabularnewline
+	125 & Hohenhöwen, Engen, Hegau, southwestern Germany & Paleotestudo &
+	Paleotestudo antiqua & 159.50 & m & Serravallian & 13.00000 & n & Europe
+	& Corsini J.A., Böhme M., Joyce W.G., 2014: Reappraisal of Testudo
+	antiqua (Testudines, Testudinidae) from the Miocene of Hohenhöwen,
+	Germany. Journal of Paleontology 88(5):948-966\textbar{}Schleich H.H.,
+	1981: Jungtertiäre Schildkröten Süddeutschlands unter besonderer
+	Berücksichtigung der Fundstelle Sandelzhausen. Courier
+	Forschungsinstitut Senckenberg 48: 372pp., Frankfurt\tabularnewline
+	126 & Hohenhöwen, Engen, Hegau, southwestern Germany & Paleotestudo &
+	Paleotestudo antiqua & 180.00 & m & Serravallian & 13.00000 & n & Europe
+	& Corsini J.A., Böhme M., Joyce W.G., 2014: Reappraisal of Testudo
+	antiqua (Testudines, Testudinidae) from the Miocene of Hohenhöwen,
+	Germany. Journal of Paleontology 88(5):948-966\textbar{}Schleich H.H.,
+	1981: Jungtertiäre Schildkröten Süddeutschlands unter besonderer
+	Berücksichtigung der Fundstelle Sandelzhausen. Courier
+	Forschungsinstitut Senckenberg 48: 372pp., Frankfurt\tabularnewline
+	127 & Gammelsdorf & Paleotestudo & Paleotestudo antiqua & 183.70 & m &
+	Serravallian & 12.15000 & n & Europe & Schleich H.H., 1981: Jungtertiäre
+	Schildkröten Süddeutschlands unter besonderer Berücksichtigung der
+	Fundstelle Sandelzhausen. Courier Forschungsinstitut Senckenberg 48:
+	372pp., Frankfurt\tabularnewline
+	128 & Hohenhöwen, Engen, Hegau, southwestern Germany & Paleotestudo &
+	Paleotestudo antiqua & 185.00 & mf & Serravallian & 13.00000 & n &
+	Europe & Corsini J.A., Böhme M., Joyce W.G., 2014: Reappraisal of
+	Testudo antiqua (Testudines, Testudinidae) from the Miocene of
+	Hohenhöwen, Germany. Journal of Paleontology
+	88(5):948-966\tabularnewline
+	129 & Sansan, Gers (lake) & Paleotestudo & Paleotestudo antiqua & 191.00
+	& mf & Serravallian & 13.60000 & n & Europe & Pérez-García A., 2016:
+	Analysis of the Iberian Aragonian record of Paleotestudo, and refutation
+	of the validity of the Spanish
+	\texttt{Testudo\ catalaunica'\ and\ the\ French}Paleotestudo
+	canetotiana'. Spanish Journal of Palaeontology 31(2):
+	321-340\tabularnewline
+	130 & Hohenhöwen, Engen, Hegau, southwestern Germany & Paleotestudo &
+	Paleotestudo antiqua & 195.00 & m & Serravallian & 13.00000 & n & Europe
+	& Corsini J.A., Böhme M., Joyce W.G., 2014: Reappraisal of Testudo
+	antiqua (Testudines, Testudinidae) from the Miocene of Hohenhöwen,
+	Germany. Journal of Paleontology 88(5):948-966\textbar{}Schleich H.H.,
+	1981: Jungtertiäre Schildkröten Süddeutschlands unter besonderer
+	Berücksichtigung der Fundstelle Sandelzhausen. Courier
+	Forschungsinstitut Senckenberg 48: 372pp., Frankfurt\tabularnewline
+	131 & Hohenhöwen, Engen, Hegau, southwestern Germany & Paleotestudo &
+	Paleotestudo antiqua & 195.00 & mf & Serravallian & 13.00000 & n &
+	Europe & Corsini J.A., Böhme M., Joyce W.G., 2014: Reappraisal of
+	Testudo antiqua (Testudines, Testudinidae) from the Miocene of
+	Hohenhöwen, Germany. Journal of Paleontology
+	88(5):948-966\tabularnewline
+	132 & Gammelsdorf & Paleotestudo & Paleotestudo antiqua & 203.00 & m &
+	Serravallian & 12.15000 & n & Europe & Schleich H.H., 1981: Jungtertiäre
+	Schildkröten Süddeutschlands unter besonderer Berücksichtigung der
+	Fundstelle Sandelzhausen. Courier Forschungsinstitut Senckenberg 48:
+	372pp., Frankfurt\tabularnewline
+	133 & Hohenhöwen, Engen, Hegau, southwestern Germany & Paleotestudo &
+	Paleotestudo antiqua & 206.00 & mf & Serravallian & 13.00000 & n &
+	Europe & Corsini J.A., Böhme M., Joyce W.G., 2014: Reappraisal of
+	Testudo antiqua (Testudines, Testudinidae) from the Miocene of
+	Hohenhöwen, Germany. Journal of Paleontology
+	88(5):948-966\tabularnewline
+	134 & Sansan, Gers (lake) & Paleotestudo & Paleotestudo antiqua & 213.00
+	& mf & Serravallian & 13.60000 & n & Europe & Lapparent de Broin F. de,
+	Bour R., Perälä J., 2006: Morphological definition of Eurotestudo
+	(Testudinidae, Chelonii): First part. Annales de Paléontologie 92(3):
+	255-304\tabularnewline
+	135 & Hohenhöwen, Engen, Hegau, southwestern Germany & Paleotestudo &
+	Paleotestudo antiqua & 220.00 & mf & Serravallian & 13.00000 & n &
+	Europe & Corsini J.A., Böhme M., Joyce W.G., 2014: Reappraisal of
+	Testudo antiqua (Testudines, Testudinidae) from the Miocene of
+	Hohenhöwen, Germany. Journal of Paleontology
+	88(5):948-966\tabularnewline
+	136 & Hohenhöwen, Engen, Hegau, southwestern Germany & Paleotestudo &
+	Paleotestudo antiqua & 229.00 & mf & Serravallian & 13.00000 & n &
+	Europe & Corsini J.A., Böhme M., Joyce W.G., 2014: Reappraisal of
+	Testudo antiqua (Testudines, Testudinidae) from the Miocene of
+	Hohenhöwen, Germany. Journal of Paleontology
+	88(5):948-966\tabularnewline
+	137 & Sansan, Gers (lake) & Paleotestudo & Paleotestudo antiqua & 234.00
+	& mf & Serravallian & 13.60000 & n & Europe & Pérez-García A., 2016:
+	Analysis of the Iberian Aragonian record of Paleotestudo, and refutation
+	of the validity of the Spanish
+	\texttt{Testudo\ catalaunica'\ and\ the\ French}Paleotestudo
+	canetotiana'. Spanish Journal of Palaeontology 31(2):
+	321-340\tabularnewline
+	138 & Hohenhöwen, Engen, Hegau, southwestern Germany & Paleotestudo &
+	Paleotestudo antiqua & 240.00 & m & Serravallian & 13.00000 & n & Europe
+	& Schleich H.H., 1981: Jungtertiäre Schildkröten Süddeutschlands unter
+	besonderer Berücksichtigung der Fundstelle Sandelzhausen. Courier
+	Forschungsinstitut Senckenberg 48: 372pp., Frankfurt\tabularnewline
+	139 & Sansan, Gers (lake) & Paleotestudo & Paleotestudo antiqua & 240.00
+	& mf & Serravallian & 13.60000 & n & Europe & Pérez-García A., 2016:
+	Analysis of the Iberian Aragonian record of Paleotestudo, and refutation
+	of the validity of the Spanish
+	\texttt{Testudo\ catalaunica'\ and\ the\ French}Paleotestudo
+	canetotiana'. Spanish Journal of Palaeontology 31(2):
+	321-340\tabularnewline
+	140 & Barajas, Madrid & Paleotestudo & Paleotestudo antiqua & 275.00 &
+	mf & Langhian & 15.00000 & n & Europe & Pérez-García A., 2016: Analysis
+	of the Iberian Aragonian record of Paleotestudo, and refutation of the
+	validity of the Spanish
+	\texttt{Testudo\ catalaunica'\ and\ the\ French}Paleotestudo
+	canetotiana'. Spanish Journal of Palaeontology 31(2):
+	321-340\tabularnewline
+	141 & Illescas, Toledo & Paleotestudo & Paleotestudo antiqua & 283.80 &
+	mf & Serravallian & 12.50000 & n & Europe & Pérez-García A., 2016:
+	Analysis of the Iberian Aragonian record of Paleotestudo, and refutation
+	of the validity of the Spanish
+	\texttt{Testudo\ catalaunica'\ and\ the\ French}Paleotestudo
+	canetotiana'. Spanish Journal of Palaeontology 31(2):
+	321-340\tabularnewline
+	142 & Can Mas near El Papiol, Barcelone province, Cataluña & Paleotestudo & Paleotestudo cf.~antiqua & 113.00
+	& mf & Burdigalian/Aquitanian & 17.30000 & n & Europe & Pérez-García A.,
+	2016: Analysis of the Iberian Aragonian record of Paleotestudo, and
+	refutation of the validity of the Spanish
+	\texttt{Testudo\ catalaunica'\ and\ the\ French}Paleotestudo
+	canetotiana'. Spanish Journal of Palaeontology 31(2):
+	321-340\tabularnewline
+	143 & El Buste, Aragón & Paleotestudo & Paleotestudo cf.~sp. & 270.00 &
+	mo & Serravallian & 12.40000 & n & Europe & Murelaga X., Azanza B.,
+	Astibia H., 2006: Restos de quelonios del Mioceno medio del área de
+	Tarazona de Aragón (Cuenca del Ebro, Aragón, España). Estudios
+	Geológicos 62(1): 205-212\tabularnewline
+	144 & Tarazona de Aragón & Paleotestudo & Paleotestudo cf.~sp. & 270.00
+	& mo & Langhian & 14.70000 & n & Europe & Murelaga X., Azanza B.,
+	Astibia H., 2006: Restos de quelonios del Mioceno medio del área de
+	Tarazona de Aragón (Cuenca del Ebro, Aragón, España). Estudios
+	Geológicos 62(1): 205-212\tabularnewline
+	145 & Cerro de los Batallones, Madrid & Paleotestudo & Paleotestudo sp.
+	& 170.00 & mf & Tortonian & 9.50000 & n & Europe & Pérez-García and
+	Murelaga, 2013\tabularnewline
+	146 & Teiritzberg (T1 = 001/D/C), Korneuburg Basin, Lower Austria &
+	Paleotestudo & Paleotestudo sp. & 179.30 & m & Burdigalian/Aquitanian &
+	16.55000 & n & Europe & Gemel R., 2002b: Weitere Schildkrötenreste aus
+	dem Karpatium des Korneuburger Beckens (Untermiozän; Niederösterreich).
+	in: Sovis W. \& Schmid B.: Das Karpat des Korneuburger Beckens, Teil 2,
+	Beitr.Paläont. 27: 373-393, Wien\tabularnewline
+	147 & Cerro de los Batallones, Madrid & Paleotestudo & Paleotestudo sp.
+	& 261.00 & mf & Tortonian & 9.50000 & n & Europe & Pérez-García and
+	Murelaga, 2013\tabularnewline
+	148 & Cerro de los Batallones, Madrid & Paleotestudo & Paleotestudo sp.
+	& 270.00 & mf & Tortonian & 9.50000 & n & Europe & Pérez-García and
+	Murelaga, 2013\tabularnewline
+	149 & Torrente Melacce, Cinigiano (GR) & Testudo & Testudo amiatae &
+	140.00 & mo & Messinian & 5.81500 & n & Europe & Chesi, F. (2009). Il
+	registro fossile italiano dei cheloni (Doctoral dissertation, PhD Thesis
+	in Earth Sciences, Università di Firenze).\tabularnewline
+	150 & Milia, Grevena, W Macedonia & Testudo & Testudo brevitesta &
+	165.00 & mf & Piacencian & 2.60000 & n & Europe & Vlachos E., Tsoukala
+	E., 2016: The diverse fossil chelonians from Milia (Late Pliocene,
+	Grevena, Greece) with a new species of Testudo Linnaeus, 1758
+	(Testudines: Testudinidae). Papers in Palaeontology 2(1):
+	71-86\tabularnewline
+	151 & Milia, Grevena, W Macedonia & Testudo & Testudo brevitesta &
+	300.00 & mf & Piacencian & 2.60000 & n & Europe & Vlachos E., Tsoukala
+	E., 2016: The diverse fossil chelonians from Milia (Late Pliocene,
+	Grevena, Greece) with a new species of Testudo Linnaeus, 1758
+	(Testudines: Testudinidae). Papers in Palaeontology 2(1):
+	71-86\tabularnewline
+	152 & Kohfidisch & Testudo & Testudo burgenlandica & 112.00 & m &
+	Tortonian & 8.75000 & n & Europe & Karl, ??? (Einige Bemerkungen über
+	die fossilen Schildkröten des Bundeslandes Salzburg)\tabularnewline
+	153 & Kohfidisch & Testudo & Testudo burgenlandica & 275.00 & m &
+	Tortonian & 8.75000 & n & Europe & Bachmayer F., M?ynarski M., 1983: Die
+	Fauna der pontischen Höhlen- und Spaltenfüllungen bei Kohfidisch,
+	Burgenland (Österreich)-Schildkröten (Emydidae und Testudinidae).
+	Annalen des Naturhistorischen Museums in Wien 85/A:
+	107-128\tabularnewline
+	154 & Sant Quirze de Terrassa/de Galliners (del Vallès), Barcelona &
+	Testudo & Testudo catalaunica & 107.00 & m & Tortonian & 11.50000 & n &
+	Europe & Luján et al., 2016\tabularnewline
+	155 & Castell de Barbera & Testudo & Testudo catalaunica & 165.00 & m &
+	Tortonian & 11.50000 & n & Europe & Luján et al., 2016\tabularnewline
+	156 & Sant Quirze de Terrassa/de Galliners (del Vallès), Barcelona &
+	Testudo & Testudo catalaunica & 175.00 & m & Tortonian & 11.50000 & n &
+	Europe & Luján et al., 2016\tabularnewline
+	157 & Sant Quirze de Terrassa/de Galliners (del Vallès), Barcelona &
+	Testudo & Testudo catalaunica & 181.00 & m & Tortonian & 11.50000 & n &
+	Europe & Luján et al., 2016\tabularnewline
+	158 & Abocador de Can Mata (els Hostalets de Pierola), Cataluña & Testudo & Testudo catalaunica & 232.00
+	& m & Serravallian & 12.35000 & n & Europe & Luján et al.,
+	2016\tabularnewline
+	159 & Megalo Emvolon 1 (MEV), 20 km SW Thessaloniki & Testudo & Testudo
+	cf.~graeca & 185.00 & m & Zanclean & 3.90000 & n & Europe & Bachmayer
+	F., M?ynarski M., Symeonidis N., 1980: Fossile Schiildkröten aus dem
+	Pliozän von Megalo Emvolo (Karaburun) bei Saloniki (Griechenland) A.
+	Eine fossile Maurische Landschildkröte (Testudo cf.~graeca LINNE) B.
+	Fossile Reste von Riesenschildkröten. Annales Géologiques des Pays
+	Hellénique 31: 267-276\tabularnewline
+	160 & Prottes & Testudo & Testudo cf.~promarginata & 250.00 & m &
+	Tortonian & 8.30000 & n & Europe & Bachmayer F., M?ynarski M., 1985: Die
+	Landschildkröten (Testudinidae) aus den Schotter-Ablagerungen (Pontien)
+	von Prottes, Niederösterreich.. Annalen des Naturhistorischen Museums in
+	Wien 87 A: 65-77\tabularnewline
+	161 & Prottes & Testudo & Testudo cf.~promarginata & 250.00 & m &
+	Tortonian & 8.30000 & n & Europe & Bachmayer F., M?ynarski M., 1985: Die
+	Landschildkröten (Testudinidae) aus den Schotter-Ablagerungen (Pontien)
+	von Prottes, Niederösterreich.. Annalen des Naturhistorischen Museums in
+	Wien 87 A: 65-77\tabularnewline
+	162 & Prottes & Testudo & Testudo cf.~promarginata & 250.00 & m &
+	Tortonian & 8.30000 & n & Europe & Bachmayer F., M?ynarski M., 1985: Die
+	Landschildkröten (Testudinidae) aus den Schotter-Ablagerungen (Pontien)
+	von Prottes, Niederösterreich.. Annalen des Naturhistorischen Museums in
+	Wien 87 A: 65-77\tabularnewline
+	163 & Prottes & Testudo & Testudo cf.~promarginata & 250.00 & m &
+	Tortonian & 8.30000 & n & Europe & Bachmayer F., M?ynarski M., 1985: Die
+	Landschildkröten (Testudinidae) aus den Schotter-Ablagerungen (Pontien)
+	von Prottes, Niederösterreich.. Annalen des Naturhistorischen Museums in
+	Wien 87 A: 65-77\tabularnewline
+	164 & Prottes & Testudo & Testudo cf.~promarginata & 250.00 & m &
+	Tortonian & 8.30000 & n & Europe & Bachmayer F., M?ynarski M., 1985: Die
+	Landschildkröten (Testudinidae) aus den Schotter-Ablagerungen (Pontien)
+	von Prottes, Niederösterreich.. Annalen des Naturhistorischen Museums in
+	Wien 87 A: 65-77\tabularnewline
+	165 & Prottes & Testudo & Testudo cf.~promarginata & 250.00 & m &
+	Tortonian & 8.30000 & n & Europe & Bachmayer F., M?ynarski M., 1985: Die
+	Landschildkröten (Testudinidae) aus den Schotter-Ablagerungen (Pontien)
+	von Prottes, Niederösterreich.. Annalen des Naturhistorischen Museums in
+	Wien 87 A: 65-77\tabularnewline
+	166 & Prottes & Testudo & Testudo cf.~promarginata & 250.00 & m &
+	Tortonian & 8.30000 & n & Europe & Bachmayer F., M?ynarski M., 1985: Die
+	Landschildkröten (Testudinidae) aus den Schotter-Ablagerungen (Pontien)
+	von Prottes, Niederösterreich.. Annalen des Naturhistorischen Museums in
+	Wien 87 A: 65-77\tabularnewline
+	167 & Prottes & Testudo & Testudo cf.~promarginata & 250.00 & m &
+	Tortonian & 8.30000 & n & Europe & Bachmayer F., M?ynarski M., 1985: Die
+	Landschildkröten (Testudinidae) aus den Schotter-Ablagerungen (Pontien)
+	von Prottes, Niederösterreich.. Annalen des Naturhistorischen Museums in
+	Wien 87 A: 65-77\tabularnewline
+	168 & Prottes & Testudo & Testudo cf.~promarginata & 250.00 & m &
+	Tortonian & 8.30000 & n & Europe & Bachmayer F., M?ynarski M., 1985: Die
+	Landschildkröten (Testudinidae) aus den Schotter-Ablagerungen (Pontien)
+	von Prottes, Niederösterreich.. Annalen des Naturhistorischen Museums in
+	Wien 87 A: 65-77\tabularnewline
+	169 & Prottes & Testudo & Testudo cf.~promarginata & 250.00 & m &
+	Tortonian & 8.30000 & n & Europe & Bachmayer F., M?ynarski M., 1985: Die
+	Landschildkröten (Testudinidae) aus den Schotter-Ablagerungen (Pontien)
+	von Prottes, Niederösterreich.. Annalen des Naturhistorischen Museums in
+	Wien 87 A: 65-77\tabularnewline
+	170 & Prottes & Testudo & Testudo cf.~promarginata & 250.00 & m &
+	Tortonian & 8.30000 & n & Europe & Bachmayer F., M?ynarski M., 1985: Die
+	Landschildkröten (Testudinidae) aus den Schotter-Ablagerungen (Pontien)
+	von Prottes, Niederösterreich.. Annalen des Naturhistorischen Museums in
+	Wien 87 A: 65-77\tabularnewline
+	171 & Prottes & Testudo & Testudo cf.~promarginata & 250.00 & m &
+	Tortonian & 8.30000 & n & Europe & Bachmayer F., M?ynarski M., 1985: Die
+	Landschildkröten (Testudinidae) aus den Schotter-Ablagerungen (Pontien)
+	von Prottes, Niederösterreich.. Annalen des Naturhistorischen Museums in
+	Wien 87 A: 65-77\tabularnewline
+	172 & Prottes & Testudo & Testudo cf.~promarginata & 250.00 & m &
+	Tortonian & 8.30000 & n & Europe & Bachmayer F., M?ynarski M., 1985: Die
+	Landschildkröten (Testudinidae) aus den Schotter-Ablagerungen (Pontien)
+	von Prottes, Niederösterreich.. Annalen des Naturhistorischen Museums in
+	Wien 87 A: 65-77\tabularnewline
+	173 & Prottes & Testudo & Testudo cf.~promarginata & 250.00 & m &
+	Tortonian & 8.30000 & n & Europe & Bachmayer F., M?ynarski M., 1985: Die
+	Landschildkröten (Testudinidae) aus den Schotter-Ablagerungen (Pontien)
+	von Prottes, Niederösterreich.. Annalen des Naturhistorischen Museums in
+	Wien 87 A: 65-77\tabularnewline
+	174 & Prottes & Testudo & Testudo cf.~promarginata & 250.00 & m &
+	Tortonian & 8.30000 & n & Europe & Bachmayer F., M?ynarski M., 1985: Die
+	Landschildkröten (Testudinidae) aus den Schotter-Ablagerungen (Pontien)
+	von Prottes, Niederösterreich.. Annalen des Naturhistorischen Museums in
+	Wien 87 A: 65-77\tabularnewline
+	175 & Prottes & Testudo & Testudo cf.~promarginata & 250.00 & m &
+	Tortonian & 8.30000 & n & Europe & Bachmayer F., M?ynarski M., 1985: Die
+	Landschildkröten (Testudinidae) aus den Schotter-Ablagerungen (Pontien)
+	von Prottes, Niederösterreich.. Annalen des Naturhistorischen Museums in
+	Wien 87 A: 65-77\tabularnewline
+	176 & Prottes & Testudo & Testudo cf.~promarginata & 250.00 & m &
+	Tortonian & 8.30000 & n & Europe & Bachmayer F., M?ynarski M., 1985: Die
+	Landschildkröten (Testudinidae) aus den Schotter-Ablagerungen (Pontien)
+	von Prottes, Niederösterreich.. Annalen des Naturhistorischen Museums in
+	Wien 87 A: 65-77\tabularnewline
+	177 & Prottes & Testudo & Testudo cf.~promarginata & 250.00 & m &
+	Tortonian & 8.30000 & n & Europe & Bachmayer F., M?ynarski M., 1985: Die
+	Landschildkröten (Testudinidae) aus den Schotter-Ablagerungen (Pontien)
+	von Prottes, Niederösterreich.. Annalen des Naturhistorischen Museums in
+	Wien 87 A: 65-77\tabularnewline
+	178 & Prottes & Testudo & Testudo cf.~promarginata & 250.00 & m &
+	Tortonian & 8.30000 & n & Europe & Bachmayer F., M?ynarski M., 1985: Die
+	Landschildkröten (Testudinidae) aus den Schotter-Ablagerungen (Pontien)
+	von Prottes, Niederösterreich.. Annalen des Naturhistorischen Museums in
+	Wien 87 A: 65-77\tabularnewline
+	179 & Prottes & Testudo & Testudo cf.~promarginata & 250.00 & m &
+	Tortonian & 8.30000 & n & Europe & Bachmayer F., M?ynarski M., 1985: Die
+	Landschildkröten (Testudinidae) aus den Schotter-Ablagerungen (Pontien)
+	von Prottes, Niederösterreich.. Annalen des Naturhistorischen Museums in
+	Wien 87 A: 65-77\tabularnewline
+	180 & Prottes & Testudo & Testudo cf.~promarginata & 250.00 & m &
+	Tortonian & 8.30000 & n & Europe & Bachmayer F., M?ynarski M., 1985: Die
+	Landschildkröten (Testudinidae) aus den Schotter-Ablagerungen (Pontien)
+	von Prottes, Niederösterreich.. Annalen des Naturhistorischen Museums in
+	Wien 87 A: 65-77\tabularnewline
+	181 & Prottes & Testudo & Testudo cf.~promarginata & 250.00 & m &
+	Tortonian & 8.30000 & n & Europe & Bachmayer F., M?ynarski M., 1985: Die
+	Landschildkröten (Testudinidae) aus den Schotter-Ablagerungen (Pontien)
+	von Prottes, Niederösterreich.. Annalen des Naturhistorischen Museums in
+	Wien 87 A: 65-77\tabularnewline
+	182 & Prottes & Testudo & Testudo cf.~promarginata & 250.00 & m &
+	Tortonian & 8.30000 & n & Europe & Bachmayer F., M?ynarski M., 1985: Die
+	Landschildkröten (Testudinidae) aus den Schotter-Ablagerungen (Pontien)
+	von Prottes, Niederösterreich.. Annalen des Naturhistorischen Museums in
+	Wien 87 A: 65-77\tabularnewline
+	183 & Prottes & Testudo & Testudo cf.~promarginata & 250.00 & m &
+	Tortonian & 8.30000 & n & Europe & Bachmayer F., M?ynarski M., 1985: Die
+	Landschildkröten (Testudinidae) aus den Schotter-Ablagerungen (Pontien)
+	von Prottes, Niederösterreich.. Annalen des Naturhistorischen Museums in
+	Wien 87 A: 65-77\tabularnewline
+	184 & Prottes & Testudo & Testudo cf.~promarginata & 250.00 & m &
+	Tortonian & 8.30000 & n & Europe & Bachmayer F., M?ynarski M., 1985: Die
+	Landschildkröten (Testudinidae) aus den Schotter-Ablagerungen (Pontien)
+	von Prottes, Niederösterreich.. Annalen des Naturhistorischen Museums in
+	Wien 87 A: 65-77\tabularnewline
+	185 & Pylea, eastern part of Thessaloniki, western Chalkidiki peninsula
+	& Testudo & Testudo graeca & 167.00 & m & Messinian & 5.50000 & n &
+	Europe & Vlachos E., Kotsakis T., Delfino M., 2015: The chelonians from
+	the Latest Miocene--Earliest Pliocene localities of Allatini and Pylea
+	(East Thessaloniki, Macedonia, Greece). Comptes Rendus Palevol 14:
+	187-205\tabularnewline
+	186 & Allatini, eastern part of Thessaloniki, western Chalkidiki
+	peninsula & Testudo & Testudo graeca & 200.00 & mf & Messinian & 5.50000
+	& n & Europe & Vlachos E., Kotsakis T., Delfino M., 2015: The chelonians
+	from the Latest Miocene--Earliest Pliocene localities of Allatini and
+	Pylea (East Thessaloniki, Macedonia, Greece). Comptes Rendus Palevol 14:
+	187-205\tabularnewline
+	187 & Platania, Drama basin & Testudo & Testudo graeca & 210.00 & mf &
+	Tortonian & 8.45000 & n & Europe & Vlachos and Tsoukala,
+	2014\tabularnewline
+	188 & Sima del Elefante TE14, Sierra de Atapuerca, Burgos & Eurotestudo
+	& Testudo hermanni & 133.10 & mf & Lower Pleistocene & 1.22000 & n &
+	Europe & Blasco R., Blain H.A., Rosell J., Díez J.C., Huguet R.,
+	Rodríguez J., Arsuga J.L., Bermúdez de Castro J.M., Carbonell E., 2011:
+	Earliest evidence for human consumption of tortoises in the European
+	Early Pleistocene from Sima del Elefante, Sierra de Atapuerca, Spain.
+	Journal of Human Evolution
+	\url{doi:10.1016/jhevol.2011.06.002}\tabularnewline
+	189 & Obermaintor, Ebensfeld (Lichtenfels), Franken & Testudo & Testudo
+	hermanni & 220.00 & mf & Lower Pleistocene & 1.30000 & n & Europe & Karl
+	\& Tichy, 2002\tabularnewline
+	190 & Leithagebirge between Au and Loretto & Testudo & Testudo
+	kalksburgensis & 225.00 & mo & Burdigalian/Aquitanian & 18.00000 & n &
+	Europe & Siebenrock F., 1914: Testudo kalksburgensis Toula aus dem
+	Leithagebirge. Jahrbuch der Kaiserlich-Königlichen Geologischen
+	Reichsanstalt 64(1-2): 357-362\tabularnewline
+	191 & Eggenburg-Schindergraben, Lower Austria & Testudo & Testudo
+	kalksburgensis & 230.00 & m & Burdigalian/Aquitanian & 19.96500 & n &
+	Europe & Gemel R., 2002b: Weitere Schildkrötenreste aus dem Karpatium
+	des Korneuburger Beckens (Untermiozän; Niederösterreich). in: Sovis W.
+	\& Schmid B.: Das Karpat des Korneuburger Beckens, Teil 2,
+	Beitr.Paläont. 27: 373-393, Wien\tabularnewline
+	192 & Wien-Kalksburg & Testudo & Testudo kalksburgensis & 275.00 & m &
+	Langhian & 14.50000 & n & Europe & Bachmayer M.F., M?ynarski M., 1981:
+	Testudo kalksburgensis Toula, 1896, eine valide Schildkrötenart aus den
+	miozänen Strandbildungen von Kalksburg bei Wien. Sitzungsberichte der
+	Akademie der Wissenschaften mathematisch-naturwissenschaftliche Klasse
+	190: 111-119\tabularnewline
+	193 & Cova de Gràcia, Park Güell, Barcelona & Testudo & Testudo
+	lunellensis & 176.00 & mo & Middle Pleistocene & 0.45350 & n & Europe &
+	Delfino M., Luján À.H., Carmona R., Alba D.M., 2012: Revision of the
+	extinct Pleistocene tortoise Testudo lunellensis Almera and Bo?ll, 1903
+	from Cova de Gràcia (Barcelona, Spain). Amphibia-Reptilia 33:
+	215-225\tabularnewline
+	194 & Caverna de Gràcia, Güell park, Barcelona & Testudo & Testudo
+	lunellensis & 194.00 & mf & Middle Pleistocene & 0.45000 & n & Europe &
+	Lapparent de Broin F. de, Bour R., Perälä J., 2006: Morphological
+	definition of Eurotestudo (Testudinidae, Chelonii): First part. Annales
+	de Paléontologie 92(3): 255-304\tabularnewline
+	195 & Cova de Gràcia, Park Güell, Barcelona & Testudo & Testudo
+	lunellensis & 231.00 & ev & Middle Pleistocene & 0.45350 & n & Europe &
+	Delfino M., Luján À.H., Carmona R., Alba D.M., 2012: Revision of the
+	extinct Pleistocene tortoise Testudo lunellensis Almera and Bo?ll, 1903
+	from Cova de Gràcia (Barcelona, Spain). Amphibia-Reptilia 33:
+	215-225\tabularnewline
+	196 & Caverna de Gràcia, Güell park, Barcelona & Testudo & Testudo
+	lunellensis & 260.70 & mf & Middle Pleistocene & 0.45000 & n & Europe &
+	Lapparent de Broin F. de, Bour R., Perälä J., 2006: Morphological
+	definition of Eurotestudo (Testudinidae, Chelonii): First part. Annales
+	de Paléontologie 92(3): 255-304\tabularnewline
+	197 & Lakonia & Testudo & Testudo marginata & 210.00 & m & Lower
+	Pleistocene & 1.72000 & n & Europe & Schleich H.H., 1982a: Testudo
+	marginata Schoepff aus plio/pleistozänen Ablagerungen SE-Lakoniens
+	(Peloponnes, Griechenland). Paläontologische Zeitschrift
+	56:259-264\tabularnewline
+	198 & Zourida-Höhle & Testudo & Testudo marginata & 290.00 & m & Lower
+	Pleistocene & 1.30000 & y & Europe & Bachmayer, Brinkerink and
+	Symeonidis, 1975\tabularnewline
+	199 & Gerani-Höhle an der Nordküste Kretamin der Nähe von Rethymnon &
+	Testudo & Testudo marginata & 310.00 & m & Lower Pleistocene & 1.30000 &
+	y & Europe & Bachmayer, Brinkerink and Symeonidis, 1975\tabularnewline
+	200 & Capo Mannu near San Vero Milis, base of D4 dune, Sardinia &
+	Testudo & Testudo pecorinii & 225.00 & m & Piacencian & 3.09400 & y &
+	Europe & Abbazzi L., Carboni S., Delfino M., Gallai G., Lecca L., Rook
+	L., 2008: Fossil vertebrates (Mammalia and Reptilia) from Capo Mannu
+	Formation (Late Pliocene, Sardinia, Italy), with description of a new
+	Testudo (Chelonii, Testudinidae) species. Rivista Italiana di
+	Paleontologia e Stratigrafia 114: 119-132\tabularnewline
+	201 & Saint-Gérand-le-Puy, Allier & Testudo & Testudo promarginata &
+	230.00 & mf & Burdigalian/Aquitanian & 21.50000 & n & Europe &
+	Pérez-García A., 2016: Analysis of the Iberian Aragonian record of
+	Paleotestudo, and refutation of the validity of the Spanish
+	\texttt{Testudo\ catalaunica'\ and\ the\ French}Paleotestudo
+	canetotiana'. Spanish Journal of Palaeontology 31(2):
+	321-340\tabularnewline
+	202 & Saint-Gérand-le-Puy, Allier & Testudo & Testudo promarginata &
+	304.70 & mf & Burdigalian/Aquitanian & 21.50000 & n & Europe &
+	Pérez-García A., 2016: Analysis of the Iberian Aragonian record of
+	Paleotestudo, and refutation of the validity of the Spanish
+	\texttt{Testudo\ catalaunica'\ and\ the\ French}Paleotestudo
+	canetotiana'. Spanish Journal of Palaeontology 31(2):
+	321-340\tabularnewline
+	203 & Neuville-aux-Bois, Loiret & Testudo & Testudo promarginata &
+	310.00 & mf & Burdigalian/Aquitanian & 18.00000 & n & Europe &
+	Pérez-García A., 2016: Analysis of the Iberian Aragonian record of
+	Paleotestudo, and refutation of the validity of the Spanish
+	\texttt{Testudo\ catalaunica'\ and\ the\ French}Paleotestudo
+	canetotiana'. Spanish Journal of Palaeontology 31(2):
+	321-340\tabularnewline
+	204 & Sandelzhausen & Testudo & Testudo rectogularis & 213.00 & mo &
+	Burdigalian/Aquitanian & 16.37000 & n & Europe & Schleich H.H., 1981:
+	Jungtertiäre Schildkröten Süddeutschlands unter besonderer
+	Berücksichtigung der Fundstelle Sandelzhausen. Courier
+	Forschungsinstitut Senckenberg 48: 372pp., Frankfurt\tabularnewline
+	205 & Nikiti 2, Chalkidiki, Macedonia & Testudo & Testudo s. s. & 189.00
+	& m & Tortonian & 8.00000 & n & Europe & Garcia et al.,
+	2016\tabularnewline
+	206 & Liossati, Kiourka & Testudo & Testudo sp. & 1200.00 & mf &
+	Zanclean & 3.96000 & n & Europe & Bachmayer, F., \& Symeonidis, N.
+	(1977). Eine neue „Pikermi ``Fundstelle im Gebiet von Liossati (Kiourka)
+	nördlich von Athen (Griechenland)(Beschreibung einer Riesenschildkröte).
+	In Annales Géologiques des Pays Helléniques (Vol. 28,
+	pp.~8-16).\tabularnewline
+	207 & Santa-Vittoria d'Alba & Testudo & Testudo sp. & 200.00 & mf &
+	Messinian & 6.16500 & n & Europe & Chesi, F. (2009). Il registro fossile
+	italiano dei cheloni (Doctoral dissertation, PhD Thesis in Earth
+	Sciences, Università di Firenze).\tabularnewline
+	208 & Holzmannsdorfberg bei St.~Marein & Testudo & Testudo sp. & 232.10
+	& m & Tortonian & 10.75000 & n & Europe & Gross M., 2002: Aus der
+	paläontologischen Sammlung des Landesmuseums Joanneum - Die fossilen
+	Schildkröten (Testudines). Joannea Geol. Paläont. 4: 5-68,
+	Taf.1-22\tabularnewline
+	209 & Prottes & Testudo & Testudo sp. & 245.00 & m & Tortonian & 8.30000
+	& n & Europe & Bachmayer F., M?ynarski M., 1985: Die Landschildkröten
+	(Testudinidae) aus den Schotter-Ablagerungen (Pontien) von Prottes,
+	Niederösterreich.. Annalen des Naturhistorischen Museums in Wien 87 A:
+	65-77\tabularnewline
+	210 & Prottes & Testudo & Testudo sp. & 245.00 & m & Tortonian & 8.30000
+	& n & Europe & Bachmayer F., M?ynarski M., 1985: Die Landschildkröten
+	(Testudinidae) aus den Schotter-Ablagerungen (Pontien) von Prottes,
+	Niederösterreich.. Annalen des Naturhistorischen Museums in Wien 87 A:
+	65-77\tabularnewline
+	211 & Prottes & Testudo & Testudo sp. & 245.00 & m & Tortonian & 8.30000
+	& n & Europe & Bachmayer F., M?ynarski M., 1985: Die Landschildkröten
+	(Testudinidae) aus den Schotter-Ablagerungen (Pontien) von Prottes,
+	Niederösterreich.. Annalen des Naturhistorischen Museums in Wien 87 A:
+	65-77\tabularnewline
+	212 & Prottes & Testudo & Testudo sp. & 245.00 & m & Tortonian & 8.30000
+	& n & Europe & Bachmayer F., M?ynarski M., 1985: Die Landschildkröten
+	(Testudinidae) aus den Schotter-Ablagerungen (Pontien) von Prottes,
+	Niederösterreich.. Annalen des Naturhistorischen Museums in Wien 87 A:
+	65-77\tabularnewline
+	213 & Prottes & Testudo & Testudo sp. & 245.00 & m & Tortonian & 8.30000
+	& n & Europe & Bachmayer F., M?ynarski M., 1985: Die Landschildkröten
+	(Testudinidae) aus den Schotter-Ablagerungen (Pontien) von Prottes,
+	Niederösterreich.. Annalen des Naturhistorischen Museums in Wien 87 A:
+	65-77\tabularnewline
+	214 & Prottes & Testudo & Testudo sp. & 245.00 & m & Tortonian & 8.30000
+	& n & Europe & Bachmayer F., M?ynarski M., 1985: Die Landschildkröten
+	(Testudinidae) aus den Schotter-Ablagerungen (Pontien) von Prottes,
+	Niederösterreich.. Annalen des Naturhistorischen Museums in Wien 87 A:
+	65-77\tabularnewline
+	215 & Prottes & Testudo & Testudo sp. & 245.00 & m & Tortonian & 8.30000
+	& n & Europe & Bachmayer F., M?ynarski M., 1985: Die Landschildkröten
+	(Testudinidae) aus den Schotter-Ablagerungen (Pontien) von Prottes,
+	Niederösterreich.. Annalen des Naturhistorischen Museums in Wien 87 A:
+	65-77\tabularnewline
+	216 & Prottes & Testudo & Testudo sp. & 245.00 & m & Tortonian & 8.30000
+	& n & Europe & Bachmayer F., M?ynarski M., 1985: Die Landschildkröten
+	(Testudinidae) aus den Schotter-Ablagerungen (Pontien) von Prottes,
+	Niederösterreich.. Annalen des Naturhistorischen Museums in Wien 87 A:
+	65-77\tabularnewline
+	217 & Prottes & Testudo & Testudo sp. & 245.00 & m & Tortonian & 8.30000
+	& n & Europe & Bachmayer F., M?ynarski M., 1985: Die Landschildkröten
+	(Testudinidae) aus den Schotter-Ablagerungen (Pontien) von Prottes,
+	Niederösterreich.. Annalen des Naturhistorischen Museums in Wien 87 A:
+	65-77\tabularnewline
+	218 & Prottes & Testudo & Testudo sp. & 245.00 & m & Tortonian & 8.30000
+	& n & Europe & Bachmayer F., M?ynarski M., 1985: Die Landschildkröten
+	(Testudinidae) aus den Schotter-Ablagerungen (Pontien) von Prottes,
+	Niederösterreich.. Annalen des Naturhistorischen Museums in Wien 87 A:
+	65-77\tabularnewline
+	219 & Prottes & Testudo & Testudo sp. & 245.00 & m & Tortonian & 8.30000
+	& n & Europe & Bachmayer F., M?ynarski M., 1985: Die Landschildkröten
+	(Testudinidae) aus den Schotter-Ablagerungen (Pontien) von Prottes,
+	Niederösterreich.. Annalen des Naturhistorischen Museums in Wien 87 A:
+	65-77\tabularnewline
+	220 & Prottes & Testudo & Testudo sp. & 245.00 & m & Tortonian & 8.30000
+	& n & Europe & Bachmayer F., M?ynarski M., 1985: Die Landschildkröten
+	(Testudinidae) aus den Schotter-Ablagerungen (Pontien) von Prottes,
+	Niederösterreich.. Annalen des Naturhistorischen Museums in Wien 87 A:
+	65-77\tabularnewline
+	221 & Prottes & Testudo & Testudo sp. & 245.00 & m & Tortonian & 8.30000
+	& n & Europe & Bachmayer F., M?ynarski M., 1985: Die Landschildkröten
+	(Testudinidae) aus den Schotter-Ablagerungen (Pontien) von Prottes,
+	Niederösterreich.. Annalen des Naturhistorischen Museums in Wien 87 A:
+	65-77\tabularnewline
+	222 & Prottes & Testudo & Testudo sp. & 245.00 & m & Tortonian & 8.30000
+	& n & Europe & Bachmayer F., M?ynarski M., 1985: Die Landschildkröten
+	(Testudinidae) aus den Schotter-Ablagerungen (Pontien) von Prottes,
+	Niederösterreich.. Annalen des Naturhistorischen Museums in Wien 87 A:
+	65-77\tabularnewline
+	223 & Prottes & Testudo & Testudo sp. & 245.00 & m & Tortonian & 8.30000
+	& n & Europe & Bachmayer F., M?ynarski M., 1985: Die Landschildkröten
+	(Testudinidae) aus den Schotter-Ablagerungen (Pontien) von Prottes,
+	Niederösterreich.. Annalen des Naturhistorischen Museums in Wien 87 A:
+	65-77\tabularnewline
+	224 & Prottes & Testudo & Testudo sp. & 245.00 & m & Tortonian & 8.30000
+	& n & Europe & Bachmayer F., M?ynarski M., 1985: Die Landschildkröten
+	(Testudinidae) aus den Schotter-Ablagerungen (Pontien) von Prottes,
+	Niederösterreich.. Annalen des Naturhistorischen Museums in Wien 87 A:
+	65-77\tabularnewline
+	225 & Prottes & Testudo & Testudo sp. & 245.00 & m & Tortonian & 8.30000
+	& n & Europe & Bachmayer F., M?ynarski M., 1985: Die Landschildkröten
+	(Testudinidae) aus den Schotter-Ablagerungen (Pontien) von Prottes,
+	Niederösterreich.. Annalen des Naturhistorischen Museums in Wien 87 A:
+	65-77\tabularnewline
+	226 & Prottes & Testudo & Testudo sp. & 245.00 & m & Tortonian & 8.30000
+	& n & Europe & Bachmayer F., M?ynarski M., 1985: Die Landschildkröten
+	(Testudinidae) aus den Schotter-Ablagerungen (Pontien) von Prottes,
+	Niederösterreich.. Annalen des Naturhistorischen Museums in Wien 87 A:
+	65-77\tabularnewline
+	227 & Prottes & Testudo & Testudo sp. & 245.00 & m & Tortonian & 8.30000
+	& n & Europe & Bachmayer F., M?ynarski M., 1985: Die Landschildkröten
+	(Testudinidae) aus den Schotter-Ablagerungen (Pontien) von Prottes,
+	Niederösterreich.. Annalen des Naturhistorischen Museums in Wien 87 A:
+	65-77\tabularnewline
+	228 & Prottes & Testudo & Testudo sp. & 245.00 & m & Tortonian & 8.30000
+	& n & Europe & Bachmayer F., M?ynarski M., 1985: Die Landschildkröten
+	(Testudinidae) aus den Schotter-Ablagerungen (Pontien) von Prottes,
+	Niederösterreich.. Annalen des Naturhistorischen Museums in Wien 87 A:
+	65-77\tabularnewline
+	229 & Prottes & Testudo & Testudo sp. & 245.00 & m & Tortonian & 8.30000
+	& n & Europe & Bachmayer F., M?ynarski M., 1985: Die Landschildkröten
+	(Testudinidae) aus den Schotter-Ablagerungen (Pontien) von Prottes,
+	Niederösterreich.. Annalen des Naturhistorischen Museums in Wien 87 A:
+	65-77\tabularnewline
+	230 & Prottes & Testudo & Testudo sp. & 245.00 & m & Tortonian & 8.30000
+	& n & Europe & Bachmayer F., M?ynarski M., 1985: Die Landschildkröten
+	(Testudinidae) aus den Schotter-Ablagerungen (Pontien) von Prottes,
+	Niederösterreich.. Annalen des Naturhistorischen Museums in Wien 87 A:
+	65-77\tabularnewline
+	231 & Prottes & Testudo & Testudo sp. & 245.00 & m & Tortonian & 8.30000
+	& n & Europe & Bachmayer F., M?ynarski M., 1985: Die Landschildkröten
+	(Testudinidae) aus den Schotter-Ablagerungen (Pontien) von Prottes,
+	Niederösterreich.. Annalen des Naturhistorischen Museums in Wien 87 A:
+	65-77\tabularnewline
+	232 & Prottes & Testudo & Testudo sp. & 245.00 & m & Tortonian & 8.30000
+	& n & Europe & Bachmayer F., M?ynarski M., 1985: Die Landschildkröten
+	(Testudinidae) aus den Schotter-Ablagerungen (Pontien) von Prottes,
+	Niederösterreich.. Annalen des Naturhistorischen Museums in Wien 87 A:
+	65-77\tabularnewline
+	233 & Prottes & Testudo & Testudo sp. & 245.00 & m & Tortonian & 8.30000
+	& n & Europe & Bachmayer F., M?ynarski M., 1985: Die Landschildkröten
+	(Testudinidae) aus den Schotter-Ablagerungen (Pontien) von Prottes,
+	Niederösterreich.. Annalen des Naturhistorischen Museums in Wien 87 A:
+	65-77\tabularnewline
+	234 & Prottes & Testudo & Testudo sp. & 245.00 & m & Tortonian & 8.30000
+	& n & Europe & Bachmayer F., M?ynarski M., 1985: Die Landschildkröten
+	(Testudinidae) aus den Schotter-Ablagerungen (Pontien) von Prottes,
+	Niederösterreich.. Annalen des Naturhistorischen Museums in Wien 87 A:
+	65-77\tabularnewline
+	235 & Prottes & Testudo & Testudo sp. & 245.00 & m & Tortonian & 8.30000
+	& n & Europe & Bachmayer F., M?ynarski M., 1985: Die Landschildkröten
+	(Testudinidae) aus den Schotter-Ablagerungen (Pontien) von Prottes,
+	Niederösterreich.. Annalen des Naturhistorischen Museums in Wien 87 A:
+	65-77\tabularnewline
+	236 & Prottes & Testudo & Testudo sp. & 245.00 & m & Tortonian & 8.30000
+	& n & Europe & Bachmayer F., M?ynarski M., 1985: Die Landschildkröten
+	(Testudinidae) aus den Schotter-Ablagerungen (Pontien) von Prottes,
+	Niederösterreich.. Annalen des Naturhistorischen Museums in Wien 87 A:
+	65-77\tabularnewline
+	237 & Prottes & Testudo & Testudo sp. & 245.00 & m & Tortonian & 8.30000
+	& n & Europe & Bachmayer F., M?ynarski M., 1985: Die Landschildkröten
+	(Testudinidae) aus den Schotter-Ablagerungen (Pontien) von Prottes,
+	Niederösterreich.. Annalen des Naturhistorischen Museums in Wien 87 A:
+	65-77\tabularnewline
+	238 & Prottes & Testudo & Testudo sp. & 245.00 & m & Tortonian & 8.30000
+	& n & Europe & Bachmayer F., M?ynarski M., 1985: Die Landschildkröten
+	(Testudinidae) aus den Schotter-Ablagerungen (Pontien) von Prottes,
+	Niederösterreich.. Annalen des Naturhistorischen Museums in Wien 87 A:
+	65-77\tabularnewline
+	239 & Prottes & Testudo & Testudo sp. & 245.00 & m & Tortonian & 8.30000
+	& n & Europe & Bachmayer F., M?ynarski M., 1985: Die Landschildkröten
+	(Testudinidae) aus den Schotter-Ablagerungen (Pontien) von Prottes,
+	Niederösterreich.. Annalen des Naturhistorischen Museums in Wien 87 A:
+	65-77\tabularnewline
+	240 & Prottes & Testudo & Testudo sp. & 245.00 & m & Tortonian & 8.30000
+	& n & Europe & Bachmayer F., M?ynarski M., 1985: Die Landschildkröten
+	(Testudinidae) aus den Schotter-Ablagerungen (Pontien) von Prottes,
+	Niederösterreich.. Annalen des Naturhistorischen Museums in Wien 87 A:
+	65-77\tabularnewline
+	241 & Prottes & Testudo & Testudo sp. & 245.00 & m & Tortonian & 8.30000
+	& n & Europe & Bachmayer F., M?ynarski M., 1985: Die Landschildkröten
+	(Testudinidae) aus den Schotter-Ablagerungen (Pontien) von Prottes,
+	Niederösterreich.. Annalen des Naturhistorischen Museums in Wien 87 A:
+	65-77\tabularnewline
+	242 & Prottes & Testudo & Testudo sp. & 245.00 & m & Tortonian & 8.30000
+	& n & Europe & Bachmayer F., M?ynarski M., 1985: Die Landschildkröten
+	(Testudinidae) aus den Schotter-Ablagerungen (Pontien) von Prottes,
+	Niederösterreich.. Annalen des Naturhistorischen Museums in Wien 87 A:
+	65-77\tabularnewline
+	243 & Prottes & Testudo & Testudo sp. & 245.00 & m & Tortonian & 8.30000
+	& n & Europe & Bachmayer F., M?ynarski M., 1985: Die Landschildkröten
+	(Testudinidae) aus den Schotter-Ablagerungen (Pontien) von Prottes,
+	Niederösterreich.. Annalen des Naturhistorischen Museums in Wien 87 A:
+	65-77\tabularnewline
+	244 & Prottes & Testudo & Testudo sp. & 245.00 & m & Tortonian & 8.30000
+	& n & Europe & Bachmayer F., M?ynarski M., 1985: Die Landschildkröten
+	(Testudinidae) aus den Schotter-Ablagerungen (Pontien) von Prottes,
+	Niederösterreich.. Annalen des Naturhistorischen Museums in Wien 87 A:
+	65-77\tabularnewline
+	245 & Megalo Emvolon 1 (MEV), 20 km SW Thessaloniki & Testudo & Testudo
+	sp. & 2500.00 & mf & Zanclean & 3.90000 & n & Europe & Bachmayer F.,
+	M?ynarski M., Symeonidis N., 1980: Fossile Schiildkröten aus dem Pliozän
+	von Megalo Emvolo (Karaburun) bei Saloniki (Griechenland) A. Eine
+	fossile Maurische Landschildkröte (Testudo cf.~graeca LINNE) B. Fossile
+	Reste von Riesenschildkröten. Annales Géologiques des Pays Hellénique
+	31: 267-276\tabularnewline
+	246 & Megalo Emvolon 1 (MEV), 20 km SW Thessaloniki & Testudo & Testudo
+	sp. & 2500.00 & mf & Zanclean & 3.90000 & n & Europe & Bachmayer F.,
+	M?ynarski M., Symeonidis N., 1980: Fossile Schiildkröten aus dem Pliozän
+	von Megalo Emvolo (Karaburun) bei Saloniki (Griechenland) A. Eine
+	fossile Maurische Landschildkröte (Testudo cf.~graeca LINNE) B. Fossile
+	Reste von Riesenschildkröten. Annales Géologiques des Pays Hellénique
+	31: 267-276\tabularnewline
+	247 & Megalo Emvolon 1 (MEV), 20 km SW Thessaloniki & Testudo & Testudo
+	sp. & 2500.00 & mf & Zanclean & 3.90000 & n & Europe & Bachmayer F.,
+	M?ynarski M., Symeonidis N., 1980: Fossile Schiildkröten aus dem Pliozän
+	von Megalo Emvolo (Karaburun) bei Saloniki (Griechenland) A. Eine
+	fossile Maurische Landschildkröte (Testudo cf.~graeca LINNE) B. Fossile
+	Reste von Riesenschildkröten. Annales Géologiques des Pays Hellénique
+	31: 267-276\tabularnewline
+	248 & Megalo Emvolon 1 (MEV), 20 km SW Thessaloniki & Testudo & Testudo
+	sp. & 2500.00 & mf & Zanclean & 3.90000 & n & Europe & Bachmayer F.,
+	M?ynarski M., Symeonidis N., 1980: Fossile Schiildkröten aus dem Pliozän
+	von Megalo Emvolo (Karaburun) bei Saloniki (Griechenland) A. Eine
+	fossile Maurische Landschildkröte (Testudo cf.~graeca LINNE) B. Fossile
+	Reste von Riesenschildkröten. Annales Géologiques des Pays Hellénique
+	31: 267-276\tabularnewline
+	249 & W??e 1 & Testudo & Testudo sp. & 500.00 & mo & Zanclean & 3.90000
+	& n & Europe & M?ynarski M., 1955: Zolwie z pliocenu Polski {[}Tortoises
+	from the Pliocene of Poland{]}. Acta Geologica Polonica 5: 161--214
+	(Engl. Consp., 46--62) or M?ynarski M., 1956a: On a new species of
+	emydid-tortoise from the Pliocene of Poland. Acta Palaeontologica
+	Polonica 1(2): 153-164 or Lapparent de Broin F. de, Bour R., Perälä J.,
+	2006: Morphological definition of Eurotestudo (Testudinidae, Chelonii):
+	First part. Annales de Paléontologie 92(3): 255-304 or Lapparent de
+	Broin F. de, Bour R., Perälä J., 2006a: Morphological definition of
+	Eurotestudo (Testudinidae, Chelonii): second part. Annales de
+	Paléontologie 92(4): 325-357\tabularnewline
+	250 & Altenstadt, 7 km S Illertissen & Testudo & Testudo steinheimensis
+	& 111.00 & m & Serravallian & 12.15000 & n & Europe & Staesche K., 1931:
+	Die Schildkröten des Steinheimer Beckens. A. Testudinidae.
+	Palaeontographica, suppl. Bd.8(2): 1-17\tabularnewline
+	251 & Steinheim a. Albuch & Testudo & Testudo steinheimensis & 227.70 &
+	mf & Serravallian & 13.00000 & n & Europe & Schleich H.H., 1981:
+	Jungtertiäre Schildkröten Süddeutschlands unter besonderer
+	Berücksichtigung der Fundstelle Sandelzhausen. Courier
+	Forschungsinstitut Senckenberg 48: 372pp., Frankfurt\tabularnewline
+	252 & Lesbos Island, F-Site & Titanochelon & Titanochelon aff. schafferi
+	& 1860.00 & m & Gelasian & 2.00000 & y & Europe & Lapparent de Broin
+	F.de, 2002a: A giant tortoise from the Late Pliocene of Lesvos Island
+	(Greece) and its possible relationships. Annales Geologiques des Pays
+	Helleniques, 1e Serie, t.XXXIX, fasc. A: 99-130\tabularnewline
+	253 & Epanomi (EPN II), western Chalkidiki Peninsula, Thessaloniki area
+	& Titanochelon & Titanochelon bacharidisi & 1164.00 & m & Zanclean &
+	3.95000 & n & Europe & Vlachos E., Tsoukala E., Corsini J., 2014:
+	Cheirogaster bacharidisi, sp. nov., a new species of a giant tortoise
+	from the Pliocene of Thessaloniki (Macedonia, Greece). Journal of
+	Vertebrate Paleontology 34(3): 560-575\tabularnewline
+	254 & Epanomi (EPN I), western Chalkidiki Peninsula, Thessaloniki area &
 	Titanochelon & Titanochelon bacharidisi & 1196.00 & m & Zanclean &
-	3.950000 & n & Europe\tabularnewline
-	Paleotestudo & Paleotestudo antiqua & 152.00 & m & Serravallian &
-	13.000000 & n & Europe\tabularnewline
-	Cheirogaster & Cheirogaster sp. & 1540.00 & ef & Tortonian & 8.300000 &
-	n & Europe\tabularnewline
-	Testudo & Testudo sp. & 245.00 & m & Tortonian & 8.300000 & n &
-	Europe\tabularnewline
-	Paleotestudo & Paleotestudo antiqua & 220.00 & mf & Serravallian &
-	13.000000 & n & Europe\tabularnewline
-	gen. & gen. indet. & 660.00 & m & Tortonian & 8.750000 & n &
-	Europe\tabularnewline
-	Testudo & Testudo pecorinii & 225.00 & m & Piacencian & 3.094000 & y &
-	Europe\tabularnewline
-	Testudo & Testudo catalaunica & 107.00 & m & Tortonian & 11.500000 & n &
-	Europe\tabularnewline
-	Titanochelon & Titanochelon schafferi & 1850.00 & m & Messinian &
-	6.250000 & y & Europe\tabularnewline
-	Testudo & Testudo catalaunica & 175.00 & m & Tortonian & 11.500000 & n &
-	Europe\tabularnewline
-	Titanochelon & Titanochelon sp. & 520.00 & mo & Piacencian & 2.600000 &
-	y & Europe\tabularnewline
-	Testudo & Testudo promarginata & 304.70 & mf & Burdigalian/Aquitanian &
-	21.500000 & n & Europe\tabularnewline
-	Titanochelon & Titanochelon gymnesica & 1300.00 & ef & Lower Pleistocene
-	& 1.300000 & y & Europe\tabularnewline
-	Testudo & Testudo burgenlandica & 112.00 & m & Tortonian & 8.750000 & n
-	& Europe\tabularnewline
-	Centrochelys & Centrochelys vulcanica & 610.00 & mo & Piacencian &
-	3.094000 & y & Europe\tabularnewline
-	Testudo & Testudo brevitesta & 165.00 & mf & Piacencian & 2.600000 & n &
-	Europe\tabularnewline
-	Testudo & Testudo sp. & 245.00 & m & Tortonian & 8.300000 & n &
-	Europe\tabularnewline
-	gen. & gen. indet. & 440.00 & m & Tortonian & 8.750000 & n &
-	Europe\tabularnewline
-	Testudo & Testudo sp. & 245.00 & m & Tortonian & 8.300000 & n &
-	Europe\tabularnewline
-	Eurotestudo & Eurotestudo hermanni & 284.00 & mf & Lower Pleistocene &
-	1.350000 & n & Europe\tabularnewline
-	Testudo & Testudo hermanni & 145.90 & m & Modern & 0.000001 & y &
-	Europe\tabularnewline
-	Testudo & Testudo cf.~promarginata & 250.00 & m & Tortonian & 8.300000 &
-	n & Europe\tabularnewline
-	Testudo & Testudo cf.~promarginata & 250.00 & m & Tortonian & 8.300000 &
-	n & Europe\tabularnewline
-	Testudo & Testudo marginata & 310.00 & m & Lower Pleistocene & 1.300000
-	& y & Europe\tabularnewline
-	Testudo & Testudo cf.~promarginata & 250.00 & m & Tortonian & 8.300000 &
-	n & Europe\tabularnewline
-	Paleotestudo & Paleotestudo sp. & 261.00 & mf & Tortonian & 9.500000 & n
-	& Europe\tabularnewline
-	Testudo & Testudo catalaunica & 165.00 & m & Tortonian & 11.500000 & n &
-	Europe\tabularnewline
-	``Hadrianus'' & ``Hadrianus sp.'' & 1000.00 & m & Tortonian & 8.300000 &
-	n & Europe\tabularnewline
-	Titanochelon & Titanochelon bolivari & 1250.00 & mo & Langhian &
-	15.000000 & n & Europe\tabularnewline
-	Centrochelys & Centrochelys burchardi & 800.00 & m & Middle Pleistocene
-	& 0.435000 & y & Europe\tabularnewline
-	Gopherus & Gopherus polyphemus & 217.90 & mo & Lower Pleistocene &
-	1.200000 & n & America\tabularnewline
-	Gopherus & Gopherus polyphemus & 238.90 & m & Modern & 0.000001 & n &
-	America\tabularnewline
-	Gopherus & Gopherus polyphemus & 102.44 & mo & Upper Pleistocene &
-	0.069000 & n & America\tabularnewline
-	Gopherus & Gopherus polyphemus & 327.60 & mo & Upper Pleistocene &
-	0.069000 & n & America\tabularnewline
-	Hesperotestudo & Hesperotestudo crassiscutata & 284.90 & m & Upper
-	Pleistocene & 0.069000 & n & America\tabularnewline
-	Gopherus & Gopherus polyphemus & 276.60 & mo & Lower Pleistocene &
-	1.200000 & n & America\tabularnewline
-	Gopherus & Gopherus praecedens & 360.00 & mo & Upper Pleistocene &
-	0.069000 & n & America\tabularnewline
-	Gopherus & Gopherus polyphemus & 278.00 & mo & Upper Pleistocene &
-	0.069000 & n & America\tabularnewline
-	Gopherus & Gopherus sp. & 236.70 & mo & Gelasian & 1.900000 & n &
-	America\tabularnewline
-	Gopherus & Gopherus polyphemus & 273.24 & mo & Upper Pleistocene &
-	0.069000 & n & America\tabularnewline
-	Gopherus & Gopherus polyphemus & 302.40 & mo & Upper Pleistocene &
-	0.069000 & n & America\tabularnewline
-	Gopherus & Gopherus polyphemus & 268.80 & m & Modern & 0.000001 & y &
-	America\tabularnewline
-	Hesperotestudo & Hesperotestudo crassiscutata & 425.00 & mo & Upper
-	Pleistocene & 0.012000 & n & America\tabularnewline
-	Gopherus & Gopherus polyphemus & 334.70 & mo & Upper Pleistocene &
-	0.069000 & n & America\tabularnewline
-	Gopherus & Gopherus polyphemus & 300.00 & m & Modern & 0.000001 & y &
-	America\tabularnewline
-	Gopherus & Gopherus polyphemus & 350.00 & mo & Upper Pleistocene &
-	0.069000 & n & America\tabularnewline
-	Gopherus & Gopherus polyphemus & 258.30 & mo & Upper Pleistocene &
-	0.069000 & n & America\tabularnewline
-	Hesperotestudo & Hesperotestudo crassiscutata & 180.40 & m & Upper
-	Pleistocene & 0.069000 & n & America\tabularnewline
-	Gopherus & Gopherus flavomarginatus & 371.00 & m & Modern & 0.000001 & n
-	& America\tabularnewline
-	Gopherus & Gopherus polyphemus & 284.90 & mo & Upper Pleistocene &
-	0.069000 & n & America\tabularnewline
-	Hesperotestudo & Hesperotestudo crassiscutata & 188.00 & mo & Upper
-	Pleistocene & 0.012000 & n & America\tabularnewline
-	Gopherus & Gopherus ? sp. & 500.00 & m & Serravallian & 11.850000 & n &
-	America\tabularnewline
-	Hesperotestudo & Hesperotestudo crassiscutata & 168.00 & m & Lower
-	Pleistocene & 1.300000 & n & America\tabularnewline
-	Gopherus & Gopherus agassizii & 400.00 & m & Modern & 0.000001 & n &
-	America\tabularnewline
-	Hesperotestudo & Hesperotestudo orthopygia & 1200.00 & mo & Messinian &
-	5.500000 & n & America\tabularnewline
-	Gopherus & Gopherus polyphemus & 353.30 & mo & Middle Pleistocene &
-	0.400000 & n & America\tabularnewline
-	Gopherus & Gopherus sp. & 202.80 & mo & Lower Pleistocene & 1.800000 & n
-	& America\tabularnewline
-	Gopherus & Gopherus polyphemus & 387.00 & m & Modern & 0.000001 & n &
-	America\tabularnewline
-	Gopherus & Gopherus polyphemus & 279.94 & mo & Upper Pleistocene &
-	0.069000 & n & America\tabularnewline
-	Gopherus & Gopherus sp. & 224.10 & mo & Lower Pleistocene & 1.800000 & n
-	& America\tabularnewline
-	Gopherus & Gopherus polyphemus & 268.90 & mo & Lower Pleistocene &
-	1.200000 & n & America\tabularnewline
-	Hesperotestudo & Hesperotestudo sp. & 639.00 & m & Upper Pleistocene &
-	0.060000 & n & America\tabularnewline
-	Gopherus & Gopherus flavomarginatus & 281.00 & m & Modern & 0.000001 & n
-	& America\tabularnewline
-	Gopherus & Gopherus polyphemus & 252.56 & mo & Upper Pleistocene &
-	0.069000 & n & America\tabularnewline
-	Gopherus & Gopherus polyphemus & 293.00 & mo & Middle Pleistocene &
-	0.400000 & n & America\tabularnewline
-	Gopherus & Gopherus polyphemus & 155.50 & mo & Upper Pleistocene &
-	0.069000 & n & America\tabularnewline
-	Gopherus & Gopherus polyphemus & 260.50 & mo & Middle Pleistocene &
-	0.400000 & n & America\tabularnewline
-	Gopherus & Gopherus polyphemus & 256.44 & mo & Middle Pleistocene &
-	0.250000 & n & America\tabularnewline
-	Hesperotestudo & Hesperotestudo sp. & 1000.00 & mo & Gelasian & 2.000000
-	& n & America\tabularnewline
-	Geochelone & Geochelone sp. & 350.00 & ef & Upper Pleistocene & 0.069000
-	& n & America\tabularnewline
-	Gopherus & Gopherus sp. & 181.00 & mo & Gelasian & 1.900000 & n &
-	America\tabularnewline
-	Geochelone & Geochelone sp. & 600.00 & mo & Upper Pleistocene & 0.012500
-	& y & America\tabularnewline
-	Gopherus & Gopherus polyphemus & 303.00 & m & Modern & 0.000001 & y &
-	America\tabularnewline
-	Gopherus & Gopherus polyphemus & 342.00 & m & Modern & 0.000001 & n &
-	America\tabularnewline
-	Gopherus & Gopherus sp. & 256.08 & m & Modern & 0.000001 & n &
-	America\tabularnewline
-	Gopherus & Gopherus sp. & 180.90 & mo & Gelasian & 1.900000 & n &
-	America\tabularnewline
-	Hesperotestudo & Hesperotestudo incisa & 232.76 & m & Upper Pleistocene
-	& 0.069000 & n & America\tabularnewline
-	Gopherus & Gopherus sp. & 181.00 & mo & Gelasian & 1.900000 & n &
-	America\tabularnewline
-	Geochelone & Geochelone tedwhitei & 440.00 & m & Burdigalian/Aquitanian
-	& 18.500000 & n & America\tabularnewline
-	Gopherus & Gopherus polyphemus & 239.80 & mo & Middle Pleistocene &
-	0.250000 & n & America\tabularnewline
-	Hesperotestudo & Hesperotestudo sp. & 974.00 & ep & Upper Pleistocene &
-	0.060000 & n & America\tabularnewline
-	Gopherus & Gopherus polyphemus & 260.11 & mo & Upper Pleistocene &
-	0.069000 & n & America\tabularnewline
-	Gopherus & Gopherus sp. & 204.40 & mo & Gelasian & 1.900000 & n &
-	America\tabularnewline
-	Hesperotestudo & Hesperotestudo crassiscutata & 192.00 & m & Lower
-	Pleistocene & 1.300000 & n & America\tabularnewline
-	Gopherus & Gopherus sp. & 194.90 & mo & Gelasian & 1.900000 & n &
-	America\tabularnewline
-	Gopherus & Gopherus polyphemus & 391.90 & mo & Upper Pleistocene &
-	0.069000 & n & America\tabularnewline
-	Gopherus & Gopherus sp. & 259.50 & mo & Lower Pleistocene & 1.800000 & n
-	& America\tabularnewline
-	Geochelone & Geochelone sp. & 170.00 & mf & Middle Pleistocene &
-	0.700000 & n & America\tabularnewline
-	Gopherus & Gopherus sp. & 230.10 & mo & Lower Pleistocene & 1.800000 & n
-	& America\tabularnewline
-	Hesperotestudo & Hesperotestudo incisa & 224.00 & m & Lower Pleistocene
-	& 1.300000 & n & America\tabularnewline
-	Hesperotestudo & Hesperotestudo equicomes & 340.00 & ev & Middle
-	Pleistocene & 0.300000 & n & America\tabularnewline
-	Hesperotestudo & Hesperotestudo incisa & 228.00 & m & Lower Pleistocene
-	& 1.300000 & n & America\tabularnewline
-	Gopherus & Gopherus flavomarginatus & 303.00 & m & Modern & 0.000001 & n
-	& America\tabularnewline
-	Testudo & Testudo sp. & 400.00 & mo & Langhian & 14.181000 & n &
-	America\tabularnewline
-	Gopherus & Gopherus pertenuis & 1050.00 & mo & Lower Pleistocene &
-	1.684500 & n & America\tabularnewline
-	Hesperotestudo & Hesperotestudo incisa & 231.00 & m & Lower Pleistocene
-	& 1.300000 & n & America\tabularnewline
-	Hesperotestudo & Hesperotestudo crassiscutata & 327.00 & m & Lower
-	Pleistocene & 1.300000 & n & America\tabularnewline
-	Hesperotestudo & Hesperotestudo incisa & 241.00 & m & Lower Pleistocene
-	& 1.300000 & n & America\tabularnewline
-	Hesperotestudo & Hesperotestudo incisa & 250.00 & e & Modern & 0.007500
-	& n & America\tabularnewline
-	Gopherus & Gopherus polyphemus & 352.00 & mo & Upper Pleistocene &
-	0.012000 & n & America\tabularnewline
-	Hesperotestudo & Hesperotestudo johnstoni & 235.00 & m & Piacencian &
-	3.350000 & n & America\tabularnewline
-	Gopherus & Gopherus polyphemus & 274.30 & mo & Middle Pleistocene &
-	0.250000 & n & America\tabularnewline
-	Gopherus & Gopherus flavomarginatus & 222.00 & m & Modern & 0.000001 & n
-	& America\tabularnewline
-	Gopherus & Gopherus sp. & 241.90 & mo & Lower Pleistocene & 1.800000 & n
-	& America\tabularnewline
-	Gopherus & Gopherus sp. & 216.37 & m & Modern & 0.000001 & n &
-	America\tabularnewline
-	Hesperotestudo & Hesperotestudo sp. & 1200.00 & ev & Tortonian &
-	9.500000 & n & America\tabularnewline
-	Gopherus & Gopherus polyphemus & 257.80 & mo & Middle Pleistocene &
-	0.250000 & n & America\tabularnewline
-	Hesperotestudo & Hesperotestudo crassiscutata & 282.70 & m & Upper
-	Pleistocene & 0.069000 & n & America\tabularnewline
-	Hesperotestudo & Hesperotestudo campester & 1000.00 & mo & Gelasian &
-	2.190500 & n & America\tabularnewline
-	Hesperotestudo & Hesperotestudo incisa & 216.00 & m & Lower Pleistocene
-	& 1.300000 & n & America\tabularnewline
-	Hesperotestudo & Hesperotestudo mlynarskii & 203.50 & m & Lower
-	Pleistocene & 1.250000 & n & America\tabularnewline
-	Geochelone & Geochelone sp. & 880.00 & m & Zanclean & 4.500000 & n &
-	America\tabularnewline
-	Gopherus & Gopherus polyphemus & 431.48 & mo & Upper Pleistocene &
-	0.069000 & n & America\tabularnewline
-	Gopherus & Gopherus polyphemus & 308.00 & m & Modern & 0.000001 & n &
-	America\tabularnewline
-	Gopherus & Gopherus mohavetus & 315.00 & m & Tortonian & 8.476000 & n &
-	America\tabularnewline
-	Gopherus & Gopherus sp. & 264.11 & m & Modern & 0.000001 & n &
-	America\tabularnewline
-	Gopherus & Gopherus sp. & 118.90 & mo & Gelasian & 1.900000 & n &
-	America\tabularnewline
-	Gopherus & Gopherus polyphemus & 337.30 & mo & Middle Pleistocene &
-	0.250000 & n & America\tabularnewline
-	Gopherus & Gopherus sp. & 163.50 & mo & Gelasian & 1.900000 & n &
-	America\tabularnewline
-	Caudochelys & Caudochelys rexroadensis & 830.00 & m & Zanclean &
-	4.550000 & n & America\tabularnewline
-	Hesperotestudo & Hesperotestudo riggsi & 159.50 & mo & Tortonian &
-	7.600000 & n & America\tabularnewline
-	Gopherus & Gopherus polyphemus & 306.00 & mo & Middle Pleistocene &
-	0.250000 & n & America\tabularnewline
-	Hesperotestudo & Hesperotestudo crassiscutata & 561.00 & m & Lower
-	Pleistocene & 1.250000 & n & America\tabularnewline
-	Geochelone & Geochelone sp. & 176.00 & e & Zanclean & 5.000000 & n &
-	America\tabularnewline
-	Gopherus & Gopherus sp. & 218.80 & mo & Gelasian & 1.900000 & n &
-	America\tabularnewline
-	Gopherus & Gopherus agassizi & 252.00 & m & Upper Pleistocene & 0.025500
-	& n & America\tabularnewline
-	Hesperotestudo & Hesperotestudo crassiscutata & 180.00 & m & Lower
-	Pleistocene & 1.300000 & n & America\tabularnewline
-	Caudochelys & Caudochelys williamsi & 334.00 & m &
-	Burdigalian/Aquitanian & 17.750000 & n & America\tabularnewline
-	Hesperotestudo & Hesperotestudo incisa & 290.40 & m & Lower Pleistocene
-	& 1.300000 & n & America\tabularnewline
-	Gopherus & Gopherus sp. & 245.40 & mo & Lower Pleistocene & 1.800000 & n
-	& America\tabularnewline
-	Gopherus & Gopherus polyphemus & 301.97 & mo & Upper Pleistocene &
-	0.069000 & n & America\tabularnewline
-	Hesperotestudo & Hesperotestudo incisa & 212.00 & m & Lower Pleistocene
-	& 1.300000 & n & America\tabularnewline
-	Gopherus & Gopherus sp. & 188.30 & mo & Gelasian & 1.900000 & n &
-	America\tabularnewline
-	Hesperotestudo & Hesperotestudo crassiscutata & 1250.00 & ev & Upper
-	Pleistocene & 0.012000 & n & America\tabularnewline
-	Gopherus & Gopherus polyphemus & 350.83 & mo & Middle Pleistocene &
-	0.400000 & n & America\tabularnewline
-	Hesperotestudo & Hesperotestudo riggsi & 176.00 & m & Piacencian &
-	3.000000 & n & America\tabularnewline
-	Gopherus & Gopherus polyphemus & 304.70 & mo & Middle Pleistocene &
-	0.400000 & n & America\tabularnewline
-	Gopherus & Gopherus sp. & 143.90 & mo & Gelasian & 1.900000 & n &
-	America\tabularnewline
-	Hesperotestudo & Hesperotestudo sp. & 176.00 & mf & Piacencian &
-	3.100000 & n & America\tabularnewline
-	Gopherus & Gopherus polyphemus & 260.51 & mo & Middle Pleistocene &
-	0.400000 & n & America\tabularnewline
-	Gopherus & Gopherus sp. & 241.56 & m & Modern & 0.000001 & n &
-	America\tabularnewline
-	Hesperotestudo & Hesperotestudo orthopygia & 682.00 & mo & Messinian &
-	5.500000 & n & America\tabularnewline
-	Hesperotestudo & Hesperotestudo wilsoni & 226.00 & m & Upper Pleistocene
-	& 0.018000 & n & America\tabularnewline
-	Gopherus & Gopherus sp. & 211.31 & m & Modern & 0.000001 & n &
-	America\tabularnewline
-	Gopherus & Gopherus polyphemus & 304.20 & mo & Upper Pleistocene &
-	0.069000 & n & America\tabularnewline
-	Hesperotestudo & Hesperotestudo oelrichi & 283.80 & m & Piacencian &
-	3.000000 & n & America\tabularnewline
-	Gopherus & Gopherus laticaudatus & 375.00 & mo & Middle Pleistocene &
-	0.396350 & n & America\tabularnewline
-	Gopherus & Gopherus mohavetus & 334.50 & m & Tortonian & 8.476000 & n &
-	America\tabularnewline
-	Hesperotestudo & Hesperotestudo riggsi & 159.50 & mo & Tortonian &
-	7.600000 & n & America\tabularnewline
-	Caudochelys & Caudochelys rexroadensis & 781.00 & m & Zanclean &
-	4.550000 & n & America\tabularnewline
-	Gopherus & Gopherus polyphemus & 267.00 & mo & Middle Pleistocene &
-	0.250000 & n & America\tabularnewline
-	Gopherus & Gopherus polyphemus & 295.90 & mo & Middle Pleistocene &
-	0.400000 & n & America\tabularnewline
-	Hesperotestudo & Hesperotestudo riggsi & 195.80 & m & Zanclean &
-	4.550000 & n & America\tabularnewline
-	Gopherus & Gopherus polyphemus & 324.00 & mo & Upper Pleistocene &
-	0.069000 & n & America\tabularnewline
-	Gopherus & Gopherus sp. & 182.30 & mo & Gelasian & 1.900000 & n &
-	America\tabularnewline
-	Gopherus & Gopherus polyphemus & 294.16 & mo & Upper Pleistocene &
-	0.069000 & n & America\tabularnewline
+	3.95000 & n & Europe & Vlachos E., Tsoukala E., Corsini J., 2014:
+	Cheirogaster bacharidisi, sp. nov., a new species of a giant tortoise
+	from the Pliocene of Thessaloniki (Macedonia, Greece). Journal of
+	Vertebrate Paleontology 34(3): 560-575\tabularnewline
+	255 & Nea Michaniona, western Chalkidiki Peninsula, Thessaloniki area &
+	Titanochelon & Titanochelon bacharidisi & 900.00 & mo & Zanclean &
+	3.95000 & n & Europe & Vlachos E., Tsoukala E., Corsini J., 2014:
+	Cheirogaster bacharidisi, sp. nov., a new species of a giant tortoise
+	from the Pliocene of Thessaloniki (Macedonia, Greece). Journal of
+	Vertebrate Paleontology 34(3): 560-575\tabularnewline
+	256 & Nea Kallikratia, western Chalkidiki Peninsula, Thessaloniki area &
+	Titanochelon & Titanochelon bacharidisi & 900.00 & mo & Zanclean &
+	3.95000 & n & Europe & Vlachos E., Tsoukala E., Corsini J., 2014:
+	Cheirogaster bacharidisi, sp. nov., a new species of a giant tortoise
+	from the Pliocene of Thessaloniki (Macedonia, Greece). Journal of
+	Vertebrate Paleontology 34(3): 560-575\tabularnewline
+	257 & Nea Michaniona, western Chalkidiki Peninsula, Thessaloniki area &
+	Titanochelon & Titanochelon bacharidisi & 900.00 & mo & Zanclean &
+	3.95000 & n & Europe & Vlachos E., Tsoukala E., Corsini J., 2014:
+	Cheirogaster bacharidisi, sp. nov., a new species of a giant tortoise
+	from the Pliocene of Thessaloniki (Macedonia, Greece). Journal of
+	Vertebrate Paleontology 34(3): 560-575\tabularnewline
+	258 & Nea Kallikratia, western Chalkidiki Peninsula, Thessaloniki area &
+	Titanochelon & Titanochelon bacharidisi & 900.00 & mo & Zanclean &
+	3.95000 & n & Europe & Vlachos E., Tsoukala E., Corsini J., 2014:
+	Cheirogaster bacharidisi, sp. nov., a new species of a giant tortoise
+	from the Pliocene of Thessaloniki (Macedonia, Greece). Journal of
+	Vertebrate Paleontology 34(3): 560-575\tabularnewline
+	259 & Vallecas, Madrid & Titanochelon & Titanochelon bolivari & 1100.00
+	& mo & Langhian & 15.00000 & n & Europe & Pérez-García A., Vlachos E.,
+	2014: New generic proposal for the European Neogene large testudinids
+	(Cryptodira) and the ?rst phylogenetic hypothesis for the medium and
+	large representatives of the European Cenozoic record. Zoological
+	Journal of the Linnean Society 172: 653-719\tabularnewline
+	260 & Puerto de la Cadena, Murcia & Titanochelon & Titanochelon bolivari
+	& 1150.00 & m & Messinian & 6.28900 & n & Europe & Jiménez et al.,
+	2001\tabularnewline
+	261 & Alcalá de Henares, Cerro del Viso, Madrid & Titanochelon & Titanochelon bolivari &
+	1250.00 & mo & Langhian & 15.00000 & n & Europe & Pérez-García A.,
+	Vlachos E., 2014: New generic proposal for the European Neogene large
+	testudinids (Cryptodira) and the ?rst phylogenetic hypothesis for the
+	medium and large representatives of the European Cenozoic record.
+	Zoological Journal of the Linnean Society 172: 653-719\tabularnewline
+	262 & Cerro de los Batallones, Madrid & Titanochelon & Titanochelon
+	bolivari & 1300.00 & mf & Tortonian & 9.50000 & n & Europe &
+	Pérez-García and Murelaga, 2013\tabularnewline
+	263 & Cerro del Otero, Palencia & Titanochelon & Titanochelon bolivari &
+	1353.00 & mo & Serravallian & 12.50000 & n & Europe & Pérez-García A.,
+	Vlachos E., 2014: New generic proposal for the European Neogene large
+	testudinids (Cryptodira) and the ?rst phylogenetic hypothesis for the
+	medium and large representatives of the European Cenozoic record.
+	Zoological Journal of the Linnean Society 172: 653-719\tabularnewline
+	264 & Charneco do Lumiar & Titanochelon & Titanochelon cf.~bolivari &
+	1300.00 & ev & Langhian & 14.89500 & n & Europe & Pérez-García et al.,
+	2016: Westernmost records of extinct large tortoises\tabularnewline
+	265 & Aveiras de Baixo, Azambuja & Titanochelon & Titanochelon
+	cf.~bolivari & 1500.00 & mf & Tortonian & 9.43300 & n & Europe &
+	Pérez-García et al., 2016: Westernmost records of extinct large
+	tortoises\tabularnewline
+	266 & Quinta da Farinheira & Titanochelon & Titanochelon cf.~bolivari &
+	1600.00 & ef & Langhian & 14.89500 & n & Europe & Pérez-García et al.,
+	2016: Westernmost records of extinct large tortoises\tabularnewline
+	267 & Sandelzhausen unterer Geröllmergel (B) & Titanochelon &
+	Titanochelon cf.~perpiniana & 1001.00 & mo & Burdigalian/Aquitanian &
+	16.37000 & n & Europe & Schleich H.H., 1981: Jungtertiäre Schildkröten
+	Süddeutschlands unter besonderer Berücksichtigung der Fundstelle
+	Sandelzhausen. Courier Forschungsinstitut Senckenberg 48: 372pp.,
+	Frankfurt\tabularnewline
+	268 & Cala Es Pous near Ciutadella, Minorca & Titanochelon &
+	Titanochelon gymnesica & 1300.00 & ef & Lower Pleistocene & 1.30000 & y
+	& Europe & Bate, D. M. (1914). II.---On Remains of a Gigantic Land
+	Tortoise (Testudo Gymnesious, N. Sp.) from the Pleistocene of
+	Menorca.~Geological Magazine,~1(3), 100-107.\tabularnewline
+	269 & Serrat-d'en-Vacquer near Perpignan, Pyrénées-Orientales &
+	Titanochelon & Titanochelon perpiniana & 1140.00 & m & Zanclean &
+	3.90000 & n & Europe & Lapparent de Broin F.de, 2002a: A giant tortoise
+	from the Late Pliocene of Lesvos Island (Greece) and its possible
+	relationships. Annales Geologiques des Pays Helleniques, 1e Serie,
+	t.XXXIX, fasc. A: 99-130\tabularnewline
+	270 & Samos 1 & Titanochelon & Titanochelon schafferi & 1850.00 & m &
+	Messinian & 6.25000 & y & Europe & Lapparent de Broin F.de, 2002a: A
+	giant tortoise from the Late Pliocene of Lesvos Island (Greece) and its
+	possible relationships. Annales Geologiques des Pays Helleniques, 1e
+	Serie, t.XXXIX, fasc. A: 99-130\tabularnewline
+	271 & Pikermi & Titanochelon & Titanochelon schafferi & 2500.00 & mo &
+	Zanclean & 4.46600 & n & Europe & Bachmayer, F. (1967).~Eine
+	Riesenschildkröte aus den altpliozänen Schichten von Pikermi,
+	Griechenland.\tabularnewline
+	272 & Fonelas P-1, Guadix Basin & Titanochelon & Titanochelon sp. &
+	1420.00 & mo & Gelasian & 1.85000 & n & Europe & Pérez-García, A.,
+	Vlachos, E., \& Arribas, A. (2017). The last giant continental tortoise
+	of Europe: A survivor in the Spanish Pleistocene site of Fonelas P-1.
+	Palaeogeography, Palaeoclimatology, Palaeoecology.\tabularnewline
+	273 & Cova de Ca Na Reia, Eivissa, Ibiza & Titanochelon & Titanochelon
+	sp. & 520.00 & mo & Piacencian & 2.60000 & y & Europe & Bour R., 1985:
+	Una nova tortuga terrestre del Pleistocè d'Eivissa: la tortuga de la
+	Cova de Ca Na Reia. Endins 10-11: 57-62\tabularnewline
+	274 & Plum Point, Calvert County, Maryland & Caudochelys & Caudochelys
+	ducateli & 339.90 & m & Langhian & 15.00000 & n & America & Collins \&
+	Lynns, 1936\tabularnewline
+	275 & Rexroad local fauna (Fox Canyon locality 3), Meade County, Kansas
+	& Caudochelys & Caudochelys rexroadensis & 781.00 & m & Zanclean &
+	4.55000 & n & America & Oelrich T.M., 1952: A New Testudo from the Upper
+	Pliocene of Kansas with Additional Notes on Associated Rexroad Mammals.
+	Transactions of the Kansas Academy of Science 55(3):
+	300-311\tabularnewline
+	276 & Rexroad local fauna (Fox Canyon locality 3), Meade County, Kansas
+	& Caudochelys & Caudochelys rexroadensis & 830.00 & m & Zanclean &
+	4.55000 & n & America & Oelrich T.M., 1952: A New Testudo from the Upper
+	Pliocene of Kansas with Additional Notes on Associated Rexroad Mammals.
+	Transactions of the Kansas Academy of Science 55(3):
+	300-311\tabularnewline
+	277 & Garvin Gullv, 2 mi. north of Navasota, Jl J . Grimes County,
+	Texas & Caudochelys & Caudochelys williamsi &
+	334.00 & m & Burdigalian/Aquitanian & 17.75000 & n & America &
+	Auffenberg, 1964\tabularnewline
+	278 & Gilliland local fauna, Burnett Ranch, Knox
+	County, Texas & Geochelone & Geochelone sp. & 170.00 & mf & Middle
+	Pleistocene & 0.70000 & n & America & Preston, 1966\tabularnewline
+	279 & Santee, Knox County, Nebraska & Geochelone & Geochelone sp. &
+	176.00 & e & Zanclean & 5.00000 & n & America & Parmley D., 1992a:
+	Turtles from the late Hemphillian (latest Miocene) of Knox County,
+	Nebraska. The Texas Journal of Science 44(3): 339--348 or Parmley D.,
+	Holman J.A., 1995: Hemphillian (late Miocene) snakes from Nebraska, with
+	comments on Arikareean through Blancan snakes of midcontinental North
+	America. Journal of Vertebrate Paleontology 15: 79-95\tabularnewline
+	280 & Orange Lake 2 miles south, Marion County, Florida & Geochelone &
+	Geochelone sp. & 350.00 & ef & Upper Pleistocene & 0.06900 & n & America
+	& Holman J.A., 1959b: A Pleistocene herpetofauna near Orange Lake,
+	Florida. Herpetologica 15(3): 121-125\tabularnewline
+	281 & Ricardo Fauna, Mojave Desert, Kern County, California & Geochelone
+	& Geochelone sp. & 500.00 & m & Tortonian & 10.10000 & n & America &
+	Whistler D.P., Tedford R.H., Takeuchi G.T., Wang X., Tseng Z., Perkins
+	M.E., 2009: Revised Miocene biostratigraphy and biochronology of the
+	Dove Spring Formation, Mojave Desert, California. in: Albright L.B.
+	(ed.) Papers on Geology, Vertebrate Paleontology, and Biostratigraphy in
+	Honor of Michael O. Woodburne. Museum of Northern Arizona Bulletin 65:
+	331-362\tabularnewline
+	282 & Banana Hole, New Providence Island & Geochelone & Geochelone sp. &
+	600.00 & mo & Upper Pleistocene & 0.01250 & y & America & Olson,
+	1982\tabularnewline
+	283 & Lee Creek Mine, Yorktown Sample, Beaufort County, North Carolina &
+	Geochelone & Geochelone sp. & 880.00 & m & Zanclean & 4.50000 & n &
+	America & Zug G.R., 2001: Turtles of the Lee Creek Mine (Pliocene: North
+	Carolina). Smithsonian Contributions to Paleobiology 90: 203-218 or Ray
+	C.E., Bohaska D.J., 2001: Geology and Paleontology of the Lee Creek
+	Mine, North Carolina, III. Smithsonian Contributions to Paleobiology 90,
+	365 pages, 127 figures, 45 plates, 32 tables\tabularnewline
+	284 & Thomas Farm Local Fauna, Gilchrist County, Florida & Geochelone &
+	Geochelone tedwhitei & 370.00 & m & Burdigalian/Aquitanian & 18.50000 &
+	n & America & Williams E., 1953: A new fossil tortoise from the Thomas
+	Farm Miocene of Florida. Bulletin of the Museum of Comparative Zoology
+	107(11): 537-552 or Williams M.J., 2009: Miocene herpetofaunas from the
+	central Gulf Coast USA: their paleoecology, biogeography, and
+	biostratigraphy. Thesis Louisiana State University and Agricultural and
+	Mechanical College, Department of Geology and Geophysics,
+	152pp\tabularnewline
+	285 & Thomas Farm Local Fauna, Gilchrist County, Florida & Geochelone &
+	Geochelone tedwhitei & 440.00 & m & Burdigalian/Aquitanian & 18.50000 &
+	n & America & Williams E., 1953: A new fossil tortoise from the Thomas
+	Farm Miocene of Florida. Bulletin of the Museum of Comparative Zoology
+	107(11): 537-552 or Williams M.J., 2009: Miocene herpetofaunas from the
+	central Gulf Coast USA: their paleoecology, biogeography, and
+	biostratigraphy. Thesis Louisiana State University and Agricultural and
+	Mechanical College, Department of Geology and Geophysics,
+	152pp\tabularnewline
+	286 & Ricardo Fauna, Mojave Desert, Kern County, California & Gopherus &
+	Gopherus ? sp. & 500.00 & m & Tortonian & 10.10000 & n & America &
+	Whistler D.P., Tedford R.H., Takeuchi G.T., Wang X., Tseng Z., Perkins
+	M.E., 2009: Revised Miocene biostratigraphy and biochronology of the
+	Dove Spring Formation, Mojave Desert, California. in: Albright L.B.
+	(ed.) Papers on Geology, Vertebrate Paleontology, and Biostratigraphy in
+	Honor of Michael O. Woodburne. Museum of Northern Arizona Bulletin 65:
+	331-362\tabularnewline
+	287 & Iron Canyon Fauna, Mojave Desert, Kern County, California &
+	Gopherus & Gopherus ? sp. & 500.00 & m & Serravallian & 11.85000 & n &
+	America & Whistler D.P., Tedford R.H., Takeuchi G.T., Wang X., Tseng Z.,
+	Perkins M.E., 2009: Revised Miocene biostratigraphy and biochronology of
+	the Dove Spring Formation, Mojave Desert, California. in: Albright L.B.
+	(ed.) Papers on Geology, Vertebrate Paleontology, and Biostratigraphy in
+	Honor of Michael O. Woodburne. Museum of Northern Arizona Bulletin 65:
+	331-362\tabularnewline
+	288 & Sabertooth Camel Maze, Eddy County, New Mexico
+	& Gopherus & Gopherus agassizi & 252.00 & m & Upper Pleistocene &
+	0.02550 & n & America & Van Devender T.R., Moodie K.B., Harris A.H.,
+	1976: The desert tortoise (Gopherus agassizi) in the Pleistocene of the
+	northern Chihuahuan Desert. Herpetologica 32: 298-304\tabularnewline
+	289 & Pecos River near Melena and Acme, Chaves
+	County, New Mexico & Gopherus & Gopherus agassizi & 445.00 & mo & Middle
+	Pleistocene & 0.15600 & n & America & Lucas and Morgan,
+	1996\tabularnewline
+	290 & North Cita Canyon (Middle Stratum), Randall County, Texas &
+	Gopherus & Gopherus canyonensis & 885.50 & m & Piacencian & 2.70000 & n
+	& America & Johnston C.S., 1937: Osteology of Bysmachelys canyonensis a
+	new turtle from the Pliocene of Texas. Journal of Paleontology 45(4):
+	439-447\tabularnewline
+	291 & Texas & Gopherus & Gopherus laticaudatus & 375.00 & mo & Middle
+	Pleistocene & 0.39635 & n & America & Rhodin et al., 2015\tabularnewline
+	292 & Barstow Beds, San Bernardino County, California & Gopherus &
+	Gopherus mohavetus & 202.00 & m & Tortonian & 8.47600 & n & America &
+	Brattstrom, 1961\tabularnewline
+	293 & Cache Peak fauna, Tehachapi Mountains, Kern County, California &
+	Gopherus & Gopherus mohavetus & 315.00 & m & Tortonian & 8.47600 & n &
+	America & Brattstrom, 1961\tabularnewline
+	294 & Barstow Beds, San Bernardino County, California & Gopherus &
+	Gopherus mohavetus & 334.50 & m & Tortonian & 8.47600 & n & America &
+	Brattstrom, 1961\tabularnewline
+	295 & Barstow Beds, San Bernardino County, California & Gopherus &
+	Gopherus mohavetus & 360.00 & m & Tortonian & 8.47600 & n & America &
+	Brattstrom, 1961\tabularnewline
+	296 & Barstow Beds, San Bernardino County, California & Gopherus &
+	Gopherus mohavetus & 412.50 & m & Tortonian & 8.47600 & n & America &
+	Brattstrom, 1961\tabularnewline
+	297 & Texas & Gopherus & Gopherus pertenuis & 1050.00 & mo & Lower
+	Pleistocene & 1.68450 & n & America & Rhodin et al., 2015\tabularnewline
+	298 & Surprise Cave, Alachua, Florida & Gopherus & Gopherus polyphemus &
+	102.44 & mo & Upper Pleistocene & 0.06900 & n & America & Franz and
+	Quitmyer, 2005\tabularnewline
+	299 & Reddick IA+B, Marion County, Florida & Gopherus & Gopherus
+	polyphemus & 155.50 & mo & Upper Pleistocene & 0.06900 & n & America &
+	Franz and Quitmyer, 2005\tabularnewline
+	300 & Leisey Shell Pit 1A, Hillsborough County, Florida & Gopherus &
+	Gopherus polyphemus & 217.90 & mo & Lower Pleistocene & 1.20000 & n &
+	America & Franz and Quitmyer, 2005\tabularnewline
+	301 & Haile, Alachua County, Florida & Gopherus & Gopherus polyphemus &
+	239.80 & mo & Middle Pleistocene & 0.25000 & n & America & Franz and
+	Quitmyer, 2005\tabularnewline
+	302 & Surprise Cave, Alachua, Florida & Gopherus & Gopherus polyphemus &
+	252.56 & mo & Upper Pleistocene & 0.06900 & n & America & Franz and
+	Quitmyer, 2005\tabularnewline
+	303 & Haile, Alachua County, Florida & Gopherus & Gopherus polyphemus &
+	253.70 & mo & Middle Pleistocene & 0.25000 & n & America & Franz and
+	Quitmyer, 2005\tabularnewline
+	304 & Haile, Alachua County, Florida & Gopherus & Gopherus polyphemus &
+	256.44 & mo & Middle Pleistocene & 0.25000 & n & America & Franz and
+	Quitmyer, 2005\tabularnewline
+	305 & Haile, Alachua County, Florida & Gopherus & Gopherus polyphemus &
+	257.80 & mo & Middle Pleistocene & 0.25000 & n & America & Franz and
+	Quitmyer, 2005\tabularnewline
+	306 & Surprise Cave, Alachua, Florida & Gopherus & Gopherus polyphemus &
+	258.30 & mo & Upper Pleistocene & 0.06900 & n & America & Franz and
+	Quitmyer, 2005\tabularnewline
+	307 & Surprise Cave, Alachua, Florida & Gopherus & Gopherus polyphemus &
+	260.11 & mo & Upper Pleistocene & 0.06900 & n & America & Franz and
+	Quitmyer, 2005\tabularnewline
+	308 & Coleman 2A & Gopherus & Gopherus polyphemus & 260.50 & mo & Middle
+	Pleistocene & 0.40000 & n & America & Franz and Quitmyer,
+	2005\tabularnewline
+	309 & Coleman 2A & Gopherus & Gopherus polyphemus & 260.51 & mo & Middle
+	Pleistocene & 0.40000 & n & America & Franz and Quitmyer,
+	2005\tabularnewline
+	310 & Haile, Alachua County, Florida & Gopherus & Gopherus polyphemus &
+	267.00 & mo & Middle Pleistocene & 0.25000 & n & America & Franz and
+	Quitmyer, 2005\tabularnewline
+	311 & Leisey Shell Pit 1A, Hillsborough County, Florida & Gopherus &
+	Gopherus polyphemus & 268.90 & mo & Lower Pleistocene & 1.20000 & n &
+	America & Franz and Quitmyer, 2005\tabularnewline
+	312 & Haile, Alachua County, Florida & Gopherus & Gopherus polyphemus &
+	272.48 & mo & Middle Pleistocene & 0.25000 & n & America & Franz and
+	Quitmyer, 2005\tabularnewline
+	313 & Coleman 2A & Gopherus & Gopherus polyphemus & 272.57 & mo & Middle
+	Pleistocene & 0.40000 & n & America & Franz and Quitmyer,
+	2005\tabularnewline
+	314 & Surprise Cave, Alachua, Florida & Gopherus & Gopherus polyphemus &
+	273.24 & mo & Upper Pleistocene & 0.06900 & n & America & Franz and
+	Quitmyer, 2005\tabularnewline
+	315 & Haile, Alachua County, Florida & Gopherus & Gopherus polyphemus &
+	274.30 & mo & Middle Pleistocene & 0.25000 & n & America & Franz and
+	Quitmyer, 2005\tabularnewline
+	316 & Leisey Shell Pit 1A, Hillsborough County, Florida & Gopherus &
+	Gopherus polyphemus & 276.60 & mo & Lower Pleistocene & 1.20000 & n &
+	America & Franz and Quitmyer, 2005\tabularnewline
+	317 & Surprise Cave, Alachua, Florida & Gopherus & Gopherus polyphemus &
+	278.00 & mo & Upper Pleistocene & 0.06900 & n & America & Franz and
+	Quitmyer, 2005\tabularnewline
+	318 & Surprise Cave, Alachua, Florida & Gopherus & Gopherus polyphemus &
+	279.94 & mo & Upper Pleistocene & 0.06900 & n & America & Franz and
+	Quitmyer, 2005\tabularnewline
+	319 & Haile, Alachua County, Florida & Gopherus & Gopherus polyphemus &
+	283.00 & mo & Middle Pleistocene & 0.25000 & n & America & Franz and
+	Quitmyer, 2005\tabularnewline
+	320 & Haile, Alachua County, Florida & Gopherus & Gopherus polyphemus &
+	283.41 & mo & Middle Pleistocene & 0.25000 & n & America & Franz and
+	Quitmyer, 2005\tabularnewline
+	321 & Surprise Cave, Alachua, Florida & Gopherus & Gopherus polyphemus &
+	284.90 & mo & Upper Pleistocene & 0.06900 & n & America & Franz and
+	Quitmyer, 2005\tabularnewline
+	322 & Haile, Alachua County, Florida & Gopherus & Gopherus polyphemus &
+	285.20 & mo & Middle Pleistocene & 0.25000 & n & America & Franz and
+	Quitmyer, 2005\tabularnewline
+	323 & Coleman 2A & Gopherus & Gopherus polyphemus & 285.60 & mo & Middle
+	Pleistocene & 0.40000 & n & America & Franz and Quitmyer,
+	2005\tabularnewline
+	324 & Haile, Alachua County, Florida & Gopherus & Gopherus polyphemus &
+	292.00 & mo & Middle Pleistocene & 0.25000 & n & America & Franz and
+	Quitmyer, 2005\tabularnewline
+	325 & Haile, Alachua County, Florida & Gopherus & Gopherus polyphemus &
+	292.94 & mo & Middle Pleistocene & 0.25000 & n & America & Franz and
+	Quitmyer, 2005\tabularnewline
+	326 & Coleman 2A & Gopherus & Gopherus polyphemus & 293.00 & mo & Middle
+	Pleistocene & 0.40000 & n & America & Franz and Quitmyer,
+	2005\tabularnewline
+	327 & Coleman 2A & Gopherus & Gopherus polyphemus & 293.57 & mo & Middle
+	Pleistocene & 0.40000 & n & America & Franz and Quitmyer,
+	2005\tabularnewline
+	328 & Surprise Cave, Alachua, Florida & Gopherus & Gopherus polyphemus &
+	294.16 & mo & Upper Pleistocene & 0.06900 & n & America & Franz and
+	Quitmyer, 2005\tabularnewline
+	329 & Coleman 2A & Gopherus & Gopherus polyphemus & 295.90 & mo & Middle
+	Pleistocene & 0.40000 & n & America & Franz and Quitmyer,
+	2005\tabularnewline
+	330 & Surprise Cave, Alachua, Florida & Gopherus & Gopherus polyphemus &
+	301.97 & mo & Upper Pleistocene & 0.06900 & n & America & Franz and
+	Quitmyer, 2005\tabularnewline
+	331 & Surprise Cave, Alachua, Florida & Gopherus & Gopherus polyphemus &
+	302.40 & mo & Upper Pleistocene & 0.06900 & n & America & Franz and
+	Quitmyer, 2005\tabularnewline
+	332 & Haile, Alachua County, Florida & Gopherus & Gopherus polyphemus &
+	302.40 & mo & Middle Pleistocene & 0.25000 & n & America & Franz and
+	Quitmyer, 2005\tabularnewline
+	333 & Surprise Cave, Alachua, Florida & Gopherus & Gopherus polyphemus &
+	304.20 & mo & Upper Pleistocene & 0.06900 & n & America & Franz and
+	Quitmyer, 2005\tabularnewline
+	334 & Coleman 2A & Gopherus & Gopherus polyphemus & 304.70 & mo & Middle
+	Pleistocene & 0.40000 & n & America & Franz and Quitmyer,
+	2005\tabularnewline
+	335 & Haile, Alachua County, Florida & Gopherus & Gopherus polyphemus &
+	306.00 & mo & Middle Pleistocene & 0.25000 & n & America & Franz and
+	Quitmyer, 2005\tabularnewline
+	336 & Haile, Alachua County, Florida & Gopherus & Gopherus polyphemus &
+	306.00 & mo & Middle Pleistocene & 0.25000 & n & America & Franz and
+	Quitmyer, 2005\tabularnewline
+	337 & Haile, Alachua County, Florida & Gopherus & Gopherus polyphemus &
+	306.00 & mo & Middle Pleistocene & 0.25000 & n & America & Franz and
+	Quitmyer, 2005\tabularnewline
+	338 & Haile, Alachua County, Florida & Gopherus & Gopherus polyphemus &
+	306.00 & mo & Middle Pleistocene & 0.25000 & n & America & Franz and
+	Quitmyer, 2005\tabularnewline
+	339 & Coleman 2A & Gopherus & Gopherus polyphemus & 308.20 & mo & Middle
+	Pleistocene & 0.40000 & n & America & Franz and Quitmyer,
+	2005\tabularnewline
+	340 & Haile, Alachua County, Florida & Gopherus & Gopherus polyphemus &
+	314.60 & mo & Middle Pleistocene & 0.25000 & n & America & Franz and
+	Quitmyer, 2005\tabularnewline
+	341 & Haile, Alachua County, Florida & Gopherus & Gopherus polyphemus &
+	322.63 & mo & Middle Pleistocene & 0.25000 & n & America & Franz and
+	Quitmyer, 2005\tabularnewline
+	342 & Surprise Cave, Alachua, Florida & Gopherus & Gopherus polyphemus &
+	324.00 & mo & Upper Pleistocene & 0.06900 & n & America & Franz and
+	Quitmyer, 2005\tabularnewline
+	343 & Reddick IA+B, Marion County, Florida & Gopherus & Gopherus
+	polyphemus & 327.60 & mo & Upper Pleistocene & 0.06900 & n & America &
+	Franz and Quitmyer, 2005\tabularnewline
+	344 & Surprise Cave, Alachua, Florida & Gopherus & Gopherus polyphemus &
+	334.70 & mo & Upper Pleistocene & 0.06900 & n & America & Franz and
+	Quitmyer, 2005\tabularnewline
+	345 & Haile, Alachua County, Florida & Gopherus & Gopherus polyphemus &
+	337.30 & mo & Middle Pleistocene & 0.25000 & n & America & Franz and
+	Quitmyer, 2005\tabularnewline
+	346 & Coleman 2A & Gopherus & Gopherus polyphemus & 348.70 & mo & Middle
+	Pleistocene & 0.40000 & n & America & Franz and Quitmyer,
+	2005\tabularnewline
+	347 & Surprise Cave, Alachua, Florida & Gopherus & Gopherus polyphemus &
+	350.00 & mo & Upper Pleistocene & 0.06900 & n & America & Franz and
+	Quitmyer, 2005\tabularnewline
+	348 & Coleman 2A & Gopherus & Gopherus polyphemus & 350.83 & mo & Middle
+	Pleistocene & 0.40000 & n & America & Franz and Quitmyer,
+	2005\tabularnewline
+	349 & Little Salt Spring, Florida & Gopherus & Gopherus polyphemus &
+	352.00 & mo & Upper Pleistocene & 0.01200 & n & America & Holman \&
+	Clausenm, 1984\tabularnewline
+	350 & Coleman 2A & Gopherus & Gopherus polyphemus & 353.30 & mo & Middle
+	Pleistocene & 0.40000 & n & America & Franz and Quitmyer,
+	2005\tabularnewline
+	351 & Reddick IA+B, Marion County, Florida & Gopherus & Gopherus
+	polyphemus & 391.90 & mo & Upper Pleistocene & 0.06900 & n & America &
+	Franz and Quitmyer, 2005\tabularnewline
+	352 & Surprise Cave, Alachua, Florida & Gopherus & Gopherus polyphemus &
+	431.48 & mo & Upper Pleistocene & 0.06900 & n & America & Franz and
+	Quitmyer, 2005\tabularnewline
+	353 & Gilliland local fauna, Burnett Ranch, Knox
+	County, Texas & Gopherus & Gopherus polyphemus & 539.00 & mf & Middle
+	Pleistocene & 0.70000 & n & America & Preston, 1966\tabularnewline
+	354 & Melbourne, Brevard County, Florida & Gopherus & Gopherus
+	praecedens & 360.00 & mo & Upper Pleistocene & 0.06900 & n & America &
+	Franz and Quitmyer, 2005\tabularnewline
+	355 & Inglis 1A, Florida & Gopherus & Gopherus sp. & 118.90 & mo &
+	Gelasian & 1.90000 & n & America & Franz and Quitmyer,
+	2005\tabularnewline
+	356 & Inglis 1A, Florida & Gopherus & Gopherus sp. & 143.90 & mo &
+	Gelasian & 1.90000 & n & America & Franz and Quitmyer,
+	2005\tabularnewline
+	357 & Inglis 1A, Florida & Gopherus & Gopherus sp. & 163.50 & mo &
+	Gelasian & 1.90000 & n & America & Franz and Quitmyer,
+	2005\tabularnewline
+	358 & Inglis 1A, Florida & Gopherus & Gopherus sp. & 180.90 & mo &
+	Gelasian & 1.90000 & n & America & Franz and Quitmyer,
+	2005\tabularnewline
+	359 & Inglis 1A, Florida & Gopherus & Gopherus sp. & 181.00 & mo &
+	Gelasian & 1.90000 & n & America & Franz and Quitmyer,
+	2005\tabularnewline
+	360 & Inglis 1A, Florida & Gopherus & Gopherus sp. & 181.00 & mo &
+	Gelasian & 1.90000 & n & America & Franz and Quitmyer,
+	2005\tabularnewline
+	361 & Inglis 1A, Florida & Gopherus & Gopherus sp. & 181.00 & mo &
+	Gelasian & 1.90000 & n & America & Franz and Quitmyer,
+	2005\tabularnewline
+	362 & Inglis 1A, Florida & Gopherus & Gopherus sp. & 181.00 & mo &
+	Gelasian & 1.90000 & n & America & Franz and Quitmyer,
+	2005\tabularnewline
+	363 & Inglis 1A, Florida & Gopherus & Gopherus sp. & 182.30 & mo &
+	Gelasian & 1.90000 & n & America & Franz and Quitmyer,
+	2005\tabularnewline
+	364 & Inglis 1A, Florida & Gopherus & Gopherus sp. & 188.30 & mo &
+	Gelasian & 1.90000 & n & America & Franz and Quitmyer,
+	2005\tabularnewline
+	365 & Inglis 1A, Florida & Gopherus & Gopherus sp. & 188.70 & mo &
+	Gelasian & 1.90000 & n & America & Franz and Quitmyer,
+	2005\tabularnewline
+	366 & Inglis 1A, Florida & Gopherus & Gopherus sp. & 193.30 & mo &
+	Gelasian & 1.90000 & n & America & Franz and Quitmyer,
+	2005\tabularnewline
+	367 & Inglis 1A, Florida & Gopherus & Gopherus sp. & 194.90 & mo &
+	Gelasian & 1.90000 & n & America & Franz and Quitmyer,
+	2005\tabularnewline
+	368 & Inglis 1C, Florida & Gopherus & Gopherus sp. & 202.80 & mo & Lower
+	Pleistocene & 1.80000 & n & America & Franz and Quitmyer,
+	2005\tabularnewline
+	369 & Inglis 1A, Florida & Gopherus & Gopherus sp. & 204.40 & mo &
+	Gelasian & 1.90000 & n & America & Franz and Quitmyer,
+	2005\tabularnewline
+	370 & Inglis 1A, Florida & Gopherus & Gopherus sp. & 209.60 & mo &
+	Gelasian & 1.90000 & n & America & Franz and Quitmyer,
+	2005\tabularnewline
+	371 & Inglis 1A, Florida & Gopherus & Gopherus sp. & 218.80 & mo &
+	Gelasian & 1.90000 & n & America & Franz and Quitmyer,
+	2005\tabularnewline
+	372 & Inglis 1C, Florida & Gopherus & Gopherus sp. & 224.10 & mo & Lower
+	Pleistocene & 1.80000 & n & America & Franz and Quitmyer,
+	2005\tabularnewline
+	373 & Inglis 1C, Florida & Gopherus & Gopherus sp. & 230.10 & mo & Lower
+	Pleistocene & 1.80000 & n & America & Franz and Quitmyer,
+	2005\tabularnewline
+	374 & Inglis 1A, Florida & Gopherus & Gopherus sp. & 236.70 & mo &
+	Gelasian & 1.90000 & n & America & Franz and Quitmyer,
+	2005\tabularnewline
+	375 & Inglis 1C, Florida & Gopherus & Gopherus sp. & 241.90 & mo & Lower
+	Pleistocene & 1.80000 & n & America & Franz and Quitmyer,
+	2005\tabularnewline
+	376 & Inglis 1C, Florida & Gopherus & Gopherus sp. & 245.40 & mo & Lower
+	Pleistocene & 1.80000 & n & America & Franz and Quitmyer,
+	2005\tabularnewline
+	377 & Inglis 1C, Florida & Gopherus & Gopherus sp. & 259.50 & mo & Lower
+	Pleistocene & 1.80000 & n & America & Franz and Quitmyer,
+	2005\tabularnewline
+	378 & McGehee Farm near Newberry, Alachua County, Florida &
 	Hesperotestudo & Hesperotestudo alleni & 240.90 & m & Tortonian &
-	10.950000 & n & America\tabularnewline
-	Gopherus & Gopherus polyphemus & 283.41 & mo & Middle Pleistocene &
-	0.250000 & n & America\tabularnewline
-	Gopherus & Gopherus polyphemus & 272.48 & mo & Middle Pleistocene &
-	0.250000 & n & America\tabularnewline
-	Hesperotestudo & Hesperotestudo riggsi & 185.00 & m & Piacencian &
-	3.000000 & n & America\tabularnewline
-	Geochelone & Geochelone tedwhitei & 370.00 & m & Burdigalian/Aquitanian
-	& 18.500000 & n & America\tabularnewline
-	Gopherus & Gopherus ? sp. & 500.00 & m & Tortonian & 10.100000 & n &
-	America\tabularnewline
-	Gopherus & Gopherus sp. & 209.60 & mo & Gelasian & 1.900000 & n &
-	America\tabularnewline
-	Gopherus & Gopherus polyphemus & 308.20 & mo & Middle Pleistocene &
-	0.400000 & n & America\tabularnewline
-	Gopherus & Gopherus polyphemus & 314.60 & mo & Middle Pleistocene &
-	0.250000 & n & America\tabularnewline
-	Gopherus & Gopherus sp. & 193.30 & mo & Gelasian & 1.900000 & n &
-	America\tabularnewline
-	Gopherus & Gopherus sp. & 188.70 & mo & Gelasian & 1.900000 & n &
-	America\tabularnewline
-	Gopherus & Gopherus polyphemus & 302.40 & mo & Middle Pleistocene &
-	0.250000 & n & America\tabularnewline
-	Gopherus & Gopherus polyphemus & 292.00 & mo & Middle Pleistocene &
-	0.250000 & n & America\tabularnewline
-	Gopherus & Gopherus polyphemus & 306.00 & mo & Middle Pleistocene &
-	0.250000 & n & America\tabularnewline
-	Hesperotestudo & Hesperotestudo turgida & 230.00 & mo & Lower
-	Pleistocene & 1.684500 & n & America\tabularnewline
-	Gopherus & Gopherus polyphemus & 272.57 & mo & Middle Pleistocene &
-	0.400000 & n & America\tabularnewline
-	Gopherus & Gopherus polyphemus & 322.63 & mo & Middle Pleistocene &
-	0.250000 & n & America\tabularnewline
-	Gopherus & Gopherus flavomarginatus & 278.00 & m & Modern & 0.000001 & n
-	& America\tabularnewline
-	Geochelone & Geochelone sp. & 500.00 & m & Tortonian & 10.100000 & n &
-	America\tabularnewline
-	Caudochelys & Caudochelys ducateli & 339.90 & m & Langhian & 15.000000 &
-	n & America\tabularnewline
-	Gopherus & Gopherus polyphemus & 292.94 & mo & Middle Pleistocene &
-	0.250000 & n & America\tabularnewline
-	Gopherus & Gopherus polyphemus & 348.70 & mo & Middle Pleistocene &
-	0.400000 & n & America\tabularnewline
-	Hesperotestudo & Hesperotestudo sp. & 1500.00 & mo & Middle Pleistocene
-	& 0.700000 & n & America\tabularnewline
-	Gopherus & Gopherus polyphemus & 285.20 & mo & Middle Pleistocene &
-	0.250000 & n & America\tabularnewline
-	Gopherus & Gopherus mohavetus & 412.50 & m & Tortonian & 8.476000 & n &
-	America\tabularnewline
-	Hesperotestudo & Hesperotestudo sp. & 1800.00 & mo & Middle Pleistocene
-	& 0.700000 & n & America\tabularnewline
-	Gopherus & Gopherus polyphemus & 285.60 & mo & Middle Pleistocene &
-	0.400000 & n & America\tabularnewline
-	Gopherus & Gopherus canyonensis & 885.50 & m & Piacencian & 2.700000 & n
-	& America\tabularnewline
-	Gopherus & Gopherus polyphemus & 253.70 & mo & Middle Pleistocene &
-	0.250000 & n & America\tabularnewline
-	Gopherus & Gopherus polyphemus & 293.57 & mo & Middle Pleistocene &
-	0.400000 & n & America\tabularnewline
-	Gopherus & Gopherus mohavetus & 202.00 & m & Tortonian & 8.476000 & n &
-	America\tabularnewline
-	Gopherus & Gopherus mohavetus & 360.00 & m & Tortonian & 8.476000 & n &
-	America\tabularnewline
-	Gopherus & Gopherus agassizi & 445.00 & mo & Middle Pleistocene &
-	0.156000 & n & America\tabularnewline
-	Gopherus & Gopherus polyphemus & 539.00 & mf & Middle Pleistocene &
-	0.700000 & n & America\tabularnewline
-	Gopherus & Gopherus polyphemus & 283.00 & mo & Middle Pleistocene &
-	0.250000 & n & America\tabularnewline
-	Hesperotestudo & Hesperotestudo mlynarskii & 165.00 & m & Lower
-	Pleistocene & 1.250000 & n & America\tabularnewline
-	Gopherus & Gopherus flavomarginatus & 246.00 & m & Modern & 0.000001 & n
-	& America\tabularnewline
-	Chelonoidis & Chelonoidis chilensis & 169.00 & m & Modern & 0.000001 & n
-	& America\tabularnewline
-	Chelonoidis & Chelonoidis carbonaria & 296.50 & m & Modern & 0.000001 &
-	n & America\tabularnewline
-	Chelonoidis & Chelonoidis carbonaria & 242.00 & m & Modern & 0.000001 &
-	n & America\tabularnewline
-	Chelonoidis & Chelonoidis chilensis & 200.00 & m & Modern & 0.000001 & n
-	& America\tabularnewline
-	Chelonoidis & Chelonoidis carbonaria & 253.00 & m & Modern & 0.000001 &
-	n & America\tabularnewline
-	Chelonoidis & Chelonoidis denticulata & 333.40 & m & Modern & 0.000001 &
-	n & America\tabularnewline
-	Chelonoidis & Chelonoidis carbonaria & 247.00 & m & Modern & 0.000001 &
-	n & America\tabularnewline
-	Chelonoidis & Chelonoidis chilensis & 186.00 & m & Modern & 0.000001 & n
-	& America\tabularnewline
-	Chelonoidis & Chelonoidis chilensis & 157.00 & m & Modern & 0.000001 & n
-	& America\tabularnewline
-	Chelonoidis & Chelonoidis sp. & 1000.00 & mo & Upper Pleistocene &
-	0.069000 & n & America\tabularnewline
-	Chelonoidis & Chelonoidis carbonaria & 333.40 & m & Modern & 0.000001 &
-	n & America\tabularnewline
-	Chelonoidis & Chelonoidis nigra & 745.70 & m & Modern & 0.000001 & y &
-	America\tabularnewline
-	Chelonoidis & Chelonoidis carbonaria & 290.00 & m & Modern & 0.000001 &
-	y & America\tabularnewline
-	Chelonoidis & Chelonoidis sp. & 300.00 & mo & Langhian & 15.900000 & n &
-	America\tabularnewline
-	Chelonoidis & Chelonoidis denticulata & 365.00 & m & Modern & 0.000001 &
-	n & America\tabularnewline
-	Chelonoidis & Chelonoidis chilensis & 183.00 & m & Modern & 0.000001 & n
-	& America\tabularnewline
-	Chelonoidis & Chelonoidis denticulata & 317.00 & m & Modern & 0.000001 &
-	n & America\tabularnewline
-	Chelonoidis & Chelonoidis chilensis & 169.00 & m & Modern & 0.000001 & n
-	& America\tabularnewline
-	Chelonoidis & Chelonoidis hoodensis & 813.00 & m & Modern & 0.000001 & y
-	& America\tabularnewline
-	Chelonoidis & Chelonoidis phantastica & 860.00 & m & Modern & 0.000001 &
-	y & America\tabularnewline
-	Chelonoidis & Chelonoidis lutzae & 830.00 & m & Upper Pleistocene &
-	0.038500 & n & America\tabularnewline
-	Chelonoidis & Chelonoidis nigra & 1300.00 & m & Modern & 0.000001 & y &
-	America\tabularnewline
-	Chelonoidis & Chelonoidis becki & 1050.00 & m & Modern & 0.000001 & y &
-	America\tabularnewline
-	Chelonoidis & Chelonoidis nigra & 595.00 & m & Modern & 0.000001 & y &
-	America\tabularnewline
-	Chelonoidis & Chelonoidis sp. & 300.00 & mo & Langhian & 15.900000 & n &
-	America\tabularnewline
-	Chelonoidis & Chelonoidis chilensis & 450.00 & m & Modern & 0.000001 & n
-	& America\tabularnewline
-	Chelonoidis & Chelonoidis darwini & 965.00 & m & Modern & 0.000001 & y &
-	America\tabularnewline
-	Chelonoidis & Chelonoidis nigra & 731.30 & m & Modern & 0.000001 & y &
-	America\tabularnewline
-	Chelonoidis & Chelonoidis denticulata & 616.00 & m & Upper Pleistocene &
-	0.120000 & n & America\tabularnewline
-	Chelonoidis & Chelonoidis duncanensis & 840.00 & m & Modern & 0.000001 &
-	y & America\tabularnewline
-	Chelonoidis & Chelonoidis denticulata & 820.00 & m & Modern & 0.000001 &
-	n & America\tabularnewline
-	Chelonoidis & Chelonoidis abingdonii & 980.00 & m & Modern & 0.000001 &
-	y & America\tabularnewline
-	Chelonoidis & Chelonoidis sp. & 1060.00 & ec & Langhian & 15.900000 & n
-	& America\tabularnewline
-	Chelonoidis & Chelonoidis nigra & 588.00 & m & Modern & 0.000001 & y &
-	America\tabularnewline
-	Chelonoidis & Chelonoidis carbonaria & 189.00 & m & Modern & 0.000001 &
-	n & America\tabularnewline
-	Chelonoidis & Chelonoidis chathamensis & 890.00 & m & Modern & 0.000001
-	& y & America\tabularnewline
-	Chelonoidis & Chelonoidis chilensis & 222.00 & m & Modern & 0.000001 & n
-	& America\tabularnewline
-	Chelonoidis & Chelonoidis carbonaria & 593.00 & m & Modern & 0.000001 &
-	n & America\tabularnewline
-	Chelonoidis & Chelonoidis denticulata & 333.00 & m & Modern & 0.000001 &
-	n & America\tabularnewline
-	Chelonoidis & Chelonoidis nigra & 610.00 & m & Modern & 0.000001 & y &
-	America\tabularnewline
-	Chelonoidis & Chelonoidis vicina & 1250.00 & m & Modern & 0.000001 & y &
-	America\tabularnewline
-	Chelonoidis & Chelonoidis nigra & 717.00 & m & Modern & 0.000001 & y &
-	America\tabularnewline
-	Geochelone & Geochelone hesterna & 278.00 & m & Tortonian & 8.500000 & n
-	& America\tabularnewline
-	Chelonoidis & Chelonoidis denticulata & 377.00 & m & Modern & 0.000001 &
-	n & America\tabularnewline
-	Chelonoidis & Chelonoidis denticulata & 466.00 & m & Modern & 0.000001 &
-	n & America\tabularnewline
-	Chelonoidis & Chelonoidis carbonaria & 226.00 & m & Modern & 0.000001 &
-	n & America\tabularnewline
+	10.95000 & n & America & Holman J.A., 1972b: Amphibian and Reptiles. in:
+	M.F. Skinner \& C.W. Hibbard (eds.) Early Pleistocene periglacial and
+	glacial rocks and faunas of north-central Nebraska. Bulletin of the
+	American Museum of Natural History 148(1): 55-71\tabularnewline
+	379 & Texas & Hesperotestudo & Hesperotestudo campester & 1000.00 & mo &
+	Gelasian & 2.19050 & n & America & Rhodin et al., 2015\tabularnewline
+	380 & Little Salt Spring, Florida & Hesperotestudo & Hesperotestudo
+	crassiscutata & 1250.00 & ev & Upper Pleistocene & 0.01200 & n & America
+	& Holman \& Clausenm, 1984\tabularnewline
+	381 & Haile, Alachua County, Florida & Hesperotestudo & Hesperotestudo
+	crassiscutata & 168.00 & m & Lower Pleistocene & 1.30000 & n & America &
+	Auffenberg, W. (1963).~Fossil testudinine turtles of Florida, genera
+	Geochelone and Floridemys. University of Florida.\tabularnewline
+	382 & Haile, Alachua County, Florida & Hesperotestudo & Hesperotestudo
+	crassiscutata & 180.00 & m & Lower Pleistocene & 1.30000 & n & America &
+	Auffenberg, W. (1963).~Fossil testudinine turtles of Florida, genera
+	Geochelone and Floridemys. University of Florida.\tabularnewline
+	383 & Reddick IA+B, Marion County, Florida & Hesperotestudo &
+	Hesperotestudo crassiscutata & 180.40 & m & Upper Pleistocene & 0.06900
+	& n & America & Auffenberg, W. (1963).~Fossil testudinine turtles of
+	Florida, genera Geochelone and Floridemys. University of
+	Florida.\tabularnewline
+	384 & Little Salt Spring, Florida & Hesperotestudo & Hesperotestudo
+	crassiscutata & 188.00 & mo & Upper Pleistocene & 0.01200 & n & America
+	& Holman \& Clausenm, 1984\tabularnewline
+	385 & Haile, Alachua County, Florida & Hesperotestudo & Hesperotestudo
+	crassiscutata & 192.00 & m & Lower Pleistocene & 1.30000 & n & America &
+	Auffenberg, W. (1963).~Fossil testudinine turtles of Florida, genera
+	Geochelone and Floridemys. University of Florida.\tabularnewline
+	386 & Reddick IA+B, Marion County, Florida & Hesperotestudo &
+	Hesperotestudo crassiscutata & 282.70 & m & Upper Pleistocene & 0.06900
+	& n & America & Auffenberg, W. (1963).~Fossil testudinine turtles of
+	Florida, genera Geochelone and Floridemys. University of
+	Florida.\tabularnewline
+	387 & Reddick IA+B, Marion County, Florida & Hesperotestudo &
+	Hesperotestudo crassiscutata & 284.90 & m & Upper Pleistocene & 0.06900
+	& n & America & Auffenberg, W. (1963).~Fossil testudinine turtles of
+	Florida, genera Geochelone and Floridemys. University of
+	Florida.\tabularnewline
+	388 & Haile, Alachua County, Florida & Hesperotestudo & Hesperotestudo
+	crassiscutata & 327.00 & m & Lower Pleistocene & 1.30000 & n & America &
+	Auffenberg, W. (1963).~Fossil testudinine turtles of Florida, genera
+	Geochelone and Floridemys. University of Florida.\tabularnewline
+	389 & Little Salt Spring, Florida & Hesperotestudo & Hesperotestudo
+	crassiscutata & 425.00 & mo & Upper Pleistocene & 0.01200 & n & America
+	& Holman \& Clausenm, 1984\tabularnewline
+	390 & Leisey Shell Pit 1A, Hillsborough County, Florida & Hesperotestudo
+	& Hesperotestudo crassiscutata & 561.00 & m & Lower Pleistocene &
+	1.25000 & n & America & Meylan P.A., 1995: Pleistocene amphibians and
+	reptiles from the Leisey Shell Pit, Hillsborough County, Florida.
+	Florida Museum Natural History 37(Part I, 9): 273-297 or Morgan G.S.,
+	Emslie S.D., 2010: Tropical and western in?uences in vertebrate faunas
+	from the Pliocene and Pleistocene of Florida. Quaternary International
+	217: 143-158 or MacFadden B.J., 1995: Magnetic polarity stratigraphy and
+	correlation of the Leisey Shell Pits, Tampa Bay, Hillsborough County,
+	Florida. Bulletin Florida Museum Natural History 37(Part I, 3) 107-116
+	or Morgan G.S., Hulbert R., 1995: Overview of the geology and vertebrate
+	paleontology of the Leisey Shell Pit Local Fauna, Hillsborough County,
+	Florida. Bulletin Florida Museum Natural History 37(Part I, 1) 1-92 or
+	Hulbert R.C., Morgan G.S., 1989: Stratigraphy, paleoecology, and
+	vertebrate fauna of the Leisey Shell Pit Local Fauna, early Pleistocene
+	(Irvingtonian) of southwestern Florida. Papers in Florida Paleontology
+	2: 1-19\tabularnewline
+	391 & Cragin Quarry Local Fauna, Meade County, Kansas & Hesperotestudo &
+	Hesperotestudo equicomes & 340.00 & ev & Middle Pleistocene & 0.30000 &
+	n & America & Holman J.A., 1972b: Amphibian and Reptiles. in: M.F.
+	Skinner \& C.W. Hibbard (eds.) Early Pleistocene periglacial and glacial
+	rocks and faunas of north-central Nebraska. Bulletin of the American
+	Museum of Natural History 148(1): 55-71\tabularnewline
+	392 & Haile, Alachua County, Florida & Hesperotestudo & Hesperotestudo
+	incisa & 212.00 & m & Lower Pleistocene & 1.30000 & n & America &
+	Auffenberg, W. (1963).~Fossil testudinine turtles of Florida, genera
+	Geochelone and Floridemys. University of Florida.\tabularnewline
+	393 & Haile, Alachua County, Florida & Hesperotestudo & Hesperotestudo
+	incisa & 216.00 & m & Lower Pleistocene & 1.30000 & n & America &
+	Auffenberg, W. (1963).~Fossil testudinine turtles of Florida, genera
+	Geochelone and Floridemys. University of Florida.\tabularnewline
+	394 & Haile, Alachua County, Florida & Hesperotestudo & Hesperotestudo
+	incisa & 224.00 & m & Lower Pleistocene & 1.30000 & n & America &
+	Auffenberg, W. (1963).~Fossil testudinine turtles of Florida, genera
+	Geochelone and Floridemys. University of Florida.\tabularnewline
+	395 & Haile, Alachua County, Florida & Hesperotestudo & Hesperotestudo
+	incisa & 228.00 & m & Lower Pleistocene & 1.30000 & n & America &
+	Auffenberg, W. (1963).~Fossil testudinine turtles of Florida, genera
+	Geochelone and Floridemys. University of Florida.\tabularnewline
+	396 & Haile, Alachua County, Florida & Hesperotestudo & Hesperotestudo
+	incisa & 231.00 & m & Lower Pleistocene & 1.30000 & n & America &
+	Auffenberg, W. (1963).~Fossil testudinine turtles of Florida, genera
+	Geochelone and Floridemys. University of Florida.\tabularnewline
+	397 & Arredondo IIA, Alachua County, Florida & Hesperotestudo &
+	Hesperotestudo incisa & 232.76 & m & Upper Pleistocene & 0.06900 & n &
+	America & Holman J.A., 1972b: Amphibian and Reptiles. in: M.F. Skinner
+	\& C.W. Hibbard (eds.) Early Pleistocene periglacial and glacial rocks
+	and faunas of north-central Nebraska. Bulletin of the American Museum of
+	Natural History 148(1): 55-71\tabularnewline
+	398 & Haile, Alachua County, Florida & Hesperotestudo & Hesperotestudo
+	incisa & 241.00 & m & Lower Pleistocene & 1.30000 & n & America &
+	Auffenberg, W. (1963).~Fossil testudinine turtles of Florida, genera
+	Geochelone and Floridemys. University of Florida.\tabularnewline
+	399 & Haile, Alachua County, Florida & Hesperotestudo & Hesperotestudo
+	incisa & 290.40 & m & Lower Pleistocene & 1.30000 & n & America &
+	Auffenberg, W. (1963).~Fossil testudinine turtles of Florida, genera
+	Geochelone and Floridemys. University of Florida.\tabularnewline
+	400 & Cita Canyon, UCMP V-3721, Harrell Ranch, Randall County, Texas &
+	Hesperotestudo & Hesperotestudo johnstoni & 235.00 & m & Piacencian &
+	3.35000 & n & America & Auffenberg W., 1962: A new species of Geochelone
+	from the Pleistocene of Texas. Copeia 1962(3): 627-636\tabularnewline
+	401 & Leisey Shell Pit 1A, Hillsborough County, Florida & Hesperotestudo
+	& Hesperotestudo mlynarskii & 165.00 & m & Lower Pleistocene & 1.25000 &
+	n & America & Auffenberg, 1988\tabularnewline
+	402 & Leisey Shell Pit 2, Hillsborough County, Florida & Hesperotestudo
+	& Hesperotestudo mlynarskii & 203.50 & m & Lower Pleistocene & 1.25000 &
+	n & America & Auffenberg, 1988\tabularnewline
+	403 & Sand Draw local fauna, Brown County, Nebraska & Hesperotestudo &
+	Hesperotestudo oelrichi & 283.80 & m & Piacencian & 3.00000 & n &
+	America & Preston R.E., 1979: Late Pleistocene cold-blooded vertebrate
+	faunas from the mid-continental United States. I. Reptilia: Testudines,
+	Crocodilia. Papers on Paleontology 19, Claude W. Hibbard Memorial Volume
+	6: 1-53\tabularnewline
+	404 & UCMP V71137, Turlock Lake 10, Stanislaus County, California &
+	Hesperotestudo & Hesperotestudo orthopygia & 1200.00 & mo & Messinian &
+	5.50000 & n & America & Biewer J., Sankey J., Hutchison H., Garber D.,
+	2016: A fossil giant tortoise from the Mehrten Formation of Northern
+	California. PaleoBios 33: 1-13 or Brattstrom B.H., 1961: Some new fossil
+	tortoises from western North America with remarks on the zoogeography
+	and paleoecology of tortoises. Journal of Paleontology 35(3):
+	543-560\tabularnewline
+	405 & UCMP V81248, Turlock Lake 11, Stanislaus County, California &
+	Hesperotestudo & Hesperotestudo orthopygia & 682.00 & mo & Messinian &
+	5.50000 & n & America & Biewer J., Sankey J., Hutchison H., Garber D.,
+	2016: A fossil giant tortoise from the Mehrten Formation of Northern
+	California. PaleoBios 33: 1-13\tabularnewline
+	406 & Buis Ranch Local Fauna, Beaver County, Oklahoma & Hesperotestudo &
+	Hesperotestudo riggsi & 159.50 & mo & Tortonian & 7.60000 & n & America
+	& Oelrich, 1957\tabularnewline
+	407 & Buis Ranch Local Fauna, Beaver County, Oklahoma & Hesperotestudo &
+	Hesperotestudo riggsi & 159.50 & mo & Tortonian & 7.60000 & n & America
+	& Oelrich, 1957\tabularnewline
+	408 & Buis Ranch Local Fauna, Beaver County, Oklahoma & Hesperotestudo &
+	Hesperotestudo riggsi & 159.50 & mo & Tortonian & 7.60000 & n & America
+	& Oelrich, 1957\tabularnewline
+	409 & Buis Ranch Local Fauna, Beaver County, Oklahoma & Hesperotestudo &
+	Hesperotestudo riggsi & 159.50 & mo & Tortonian & 7.60000 & n & America
+	& Oelrich, 1957\tabularnewline
+	410 & Sawrock Canyon local fauna, Seward County, Kansas & Hesperotestudo
+	& Hesperotestudo riggsi & 176.00 & m & Piacencian & 3.00000 & n &
+	America & Hibbard C.W., 1944: A new land tortoise, Testudo riggsi, from
+	the Middle Pliocene of Seward County, Kansas. The University of Kansas
+	Science Bulletin 30(7): 71-76\tabularnewline
+	411 & Sawrock Canyon local fauna, Seward County, Kansas & Hesperotestudo
+	& Hesperotestudo riggsi & 185.00 & m & Piacencian & 3.00000 & n &
+	America & Hibbard C.W., 1944: A new land tortoise, Testudo riggsi, from
+	the Middle Pliocene of Seward County, Kansas. The University of Kansas
+	Science Bulletin 30(7): 71-76\tabularnewline
+	412 & Rexroad local fauna (Fox Canyon locality 3), Meade County, Kansas
+	& Hesperotestudo & Hesperotestudo riggsi & 195.80 & m & Zanclean &
+	4.55000 & n & America & Oelrich, 1957\tabularnewline
+	413 & Caballo Local Fauna, Palomas Basin, Sierra County, New Mexico &
+	Hesperotestudo & Hesperotestudo sp. & 1000.00 & mo & Gelasian & 2.00000
+	& n & America & Morgan et al., 2011\tabularnewline
+	414 & UCMP V-3952, Ingram Creek site 8, Stanislaus County, California &
+	Hesperotestudo & Hesperotestudo sp. & 1200.00 & ev & Tortonian & 9.50000
+	& n & America & Biewer J., Sankey J., Hutchison H., Garber D., 2016: A
+	fossil giant tortoise from the Mehrten Formation of Northern California.
+	PaleoBios 33: 1-13\tabularnewline
+	415 & Gilliland local fauna, Burnett Ranch, Knox
+	County, Texas & Hesperotestudo & Hesperotestudo sp. & 1500.00 & mo &
+	Middle Pleistocene & 0.70000 & n & America & Holman, 1969; Preston,
+	1966\tabularnewline
+	416 & Cuchillo Negro Creek Local Fauna, Sierra County, New
+	Mexico & Hesperotestudo & Hesperotestudo sp. & 176.00 & mf & Piacencian
+	& 3.10000 & n & America & Morgan et al., 2011\tabularnewline
+	417 & Gilliland local fauna, Burnett Ranch, Knox
+	County, Texas & Hesperotestudo & Hesperotestudo sp. & 1800.00 & mo &
+	Middle Pleistocene & 0.70000 & n & America & Preston,
+	1966\tabularnewline
+	418 & Ingleside Local Fauna, San Patricio County, Texas & Hesperotestudo
+	& Hesperotestudo sp. & 639.00 & m & Upper Pleistocene & 0.06000 & n &
+	America & Auffenberg, 1962: A Redescription of Testudo hexagonata
+	Cope\tabularnewline
+	419 & Ingleside Local Fauna, San Patricio County, Texas & Hesperotestudo
+	& Hesperotestudo sp. & 974.00 & ep & Upper Pleistocene & 0.06000 & n &
+	America & Auffenberg, 1962: A Redescription of Testudo hexagonata
+	Cope\tabularnewline
+	420 & Kansas & Hesperotestudo & Hesperotestudo turgida & 230.00 & mo &
+	Lower Pleistocene & 1.68450 & n & America & Rhodin et al.,
+	2015\tabularnewline
+	421 & Friesenhahn Cave, Bexar County, Texas & Hesperotestudo &
+	Hesperotestudo wilsoni & 226.00 & m & Upper Pleistocene & 0.01800 & n &
+	America & Milstead W.W., 1956: Fossil turtles of Friesenhahn Cave,
+	Texas, with the description of a new species of Testudo. Copeia 1956(3):
+	162-171\tabularnewline
+	422 & Atascosa county, Texas & Testudo & Testudo sp. & 400.00 & mo &
+	Langhian & 14.18100 & n & America & Hay, 1902\tabularnewline
+	423 & Libertador San Martín, Entre Rios Province & Chelonoidis & Chelonoidis denticulata &
+	616.00 & m & Upper Pleistocene & 0.12000 & n & America & Manzano A.S.,
+	Noriega J.I., Joyce W.G., 2009: The tropical tortoise Chelonoidis
+	denticulata (Testudines: Testudinidae) from the Late Pleistocene of
+	Argentina and its paleoclimatological implications. Journal of
+	Paleontology 83(6): 975-980\tabularnewline
+	424 & Arroyo Toropí, Corrientes & Chelonoidis & Chelonoidis lutzae &
+	830.00 & m & Upper Pleistocene & 0.03850 & n & America & Zacarías et
+	al., 2013\tabularnewline
+	425 & Quebrada de Ñuapua, Chuquisaca department & Chelonoidis &
+	Chelonoidis sp. & 1000.00 & mo & Upper Pleistocene & 0.06900 & n &
+	America & De Broin, 1991\tabularnewline
+	426 & Beautiful Bone, Alta Guajira Peninsula, Cocinetas basin &
+	Chelonoidis & Chelonoidis sp. & 1060.00 & ec & Langhian & 15.90000 & n &
+	America & Cadena, 2015\tabularnewline
+	427 & Beautiful Bone, Alta Guajira Peninsula, Cocinetas basin &
+	Chelonoidis & Chelonoidis sp. & 300.00 & mo & Langhian & 15.90000 & n &
+	America & Cadena, 2015\tabularnewline
+	428 & Beautiful Bone, Alta Guajira Peninsula, Cocinetas basin &
+	Chelonoidis & Chelonoidis sp. & 300.00 & mo & Langhian & 15.90000 & n &
+	America & Cadena, 2015\tabularnewline
+	429 & Beautiful Bone, Alta Guajira Peninsula, Cocinetas basin &
+	Chelonoidis & Chelonoidis sp. & 300.00 & mo & Langhian & 15.90000 & n &
+	America & Cadena, 2015\tabularnewline
+	430 & Beautiful Bone, Alta Guajira Peninsula, Cocinetas basin &
+	Chelonoidis & Chelonoidis sp. & 300.00 & mo & Langhian & 15.90000 & n &
+	America & Cadena, 2015\tabularnewline
+	431 & San Nicolas, UCMP locality V4536 & Geochelone & Geochelone
+	hesterna & 278.00 & m & Tortonian & 8.50000 & n & America & Auffenberg
+	W., 1971: A new fossil tortoise, with remarks on the origin of South
+	American testudinines. Copeia 1: 106-117\tabularnewline
 	\bottomrule
 \end{longtable}
+}
 
 \end{landscape}
