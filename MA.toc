@@ -1,7 +1,7 @@
 \select@language {english}
 \contentsline {section}{\nonumberline List of Figures}{4}{Doc-Start}
 \contentsline {section}{\nonumberline List of Tables}{5}{Doc-Start}
-\contentsline {section}{\numberline {1}Abstract}{6}{section.1}
+\contentsline {section}{\numberline {1}Zusammenfassung}{6}{section.1}
 \contentsline {section}{\numberline {2}Introduction}{7}{section.2}
 \contentsline {subsection}{\numberline {2.1}Body size evolution}{7}{subsection.2.1}
 \contentsline {subsection}{\numberline {2.2}Maximum body size - Megafauna}{8}{subsection.2.2}
@@ -27,10 +27,10 @@
 \contentsline {subsection}{\numberline {5.3}Time-scale analysis}{37}{subsection.5.3}
 \contentsline {subsection}{\numberline {5.4}Causes for extinction}{38}{subsection.5.4}
 \contentsline {subsection}{\numberline {5.5}Conclusion}{40}{subsection.5.5}
-\contentsline {section}{\numberline {6}References}{42}{section.6}
-\contentsline {section}{Appendix \numberline {A}Geographical and stratigraphic distribution of body size data}{50}{Appendix.1.A}
-\contentsline {section}{Appendix \numberline {B}Sampling accumulation curves}{51}{Appendix.1.B}
-\contentsline {section}{Appendix \numberline {C}Data structure}{52}{Appendix.1.C}
-\contentsline {section}{Appendix \numberline {D}Random Sampling}{53}{Appendix.1.D}
-\contentsline {section}{Appendix \numberline {E}paleoTS}{54}{Appendix.1.E}
-\contentsline {section}{Appendix \numberline {F}Tables}{61}{Appendix.1.F}
+\contentsline {section}{\numberline {6}References}{41}{section.6}
+\contentsline {section}{Appendix \numberline {A}Geographical and stratigraphic distribution of body size data}{52}{Appendix.1.A}
+\contentsline {section}{Appendix \numberline {B}Sampling accumulation curves}{53}{Appendix.1.B}
+\contentsline {section}{Appendix \numberline {C}Data structure}{54}{Appendix.1.C}
+\contentsline {section}{Appendix \numberline {D}Random Sampling}{55}{Appendix.1.D}
+\contentsline {section}{Appendix \numberline {E}paleoTS}{56}{Appendix.1.E}
+\contentsline {section}{Appendix \numberline {F}Tables}{63}{Appendix.1.F}
