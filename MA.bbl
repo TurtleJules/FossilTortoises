@@ -36,11 +36,22 @@ Barnosky, A.~D. (2004).
   Continents}.
 \newblock {\em Science}, 306(5693):70--75.
 
+\bibitem[Benton and Pearson, 2001]{Benton2001}
+Benton, M.~J. and Pearson, P.~N. (2001).
+\newblock {Speciation in the fossil record}.
+\newblock {\em Trends in Ecology and Evolution}, 16(7):405--411.
+
 \bibitem[Bergmann, 1848]{Bergmann1848}
 Bergmann, C. (1848).
 \newblock {\em {{\"{U}}ber die Verh{\"{a}}ltnisse der W{\"{a}}rme{\"{o}}konomie
   der Thiere zu ihrer Gr{\"{o}}sse}}.
 \newblock G{\"{o}}ttinger Studien, G{\"{o}}ttingen.
+
+\bibitem[Biton et~al., 2017]{Biton2017}
+Biton, R., Sharon, G., Oron, M., Steiner, T., and Rabinovich, R. (2017).
+\newblock {Freshwater turtle or tortoise? The exploitation of testudines at the
+  Mousterian Site of Nahal Mahanayeem Outlet, Hula Valley, Israel}.
+\newblock {\em Journal of Human Evolution}, 14(May):409--419.
 
 \bibitem[Blackburn and Gaston, 1994]{Blackburn1994a}
 Blackburn, T.~M. and Gaston, K.~J. (1994).
@@ -108,6 +119,12 @@ Cheke, A.~S., Pedrono, M., Bour, R., Anderson, A., Griffiths, C., Iverson,
   (2016a)}.
 \newblock {\em Journal of Biogeography}, pages 1426--1429.
 
+\bibitem[Cione et~al., 2003]{Cione2003}
+Cione, A.~L., Tonni, E.~P., and Soibelzon, L.~H. (2003).
+\newblock {The Broken Zig-Zag: Late Cenozoic large mammal and tortoise
+  extintion in South America}.
+\newblock {\em Revista del Museo Argentino de Ciencias Naturales}, 5(1).
+
 \bibitem[Cope, 1887]{Cope1887}
 Cope, E.~D. (1887).
 \newblock {\em {The origin of the fittest: essays on evolution}}.
@@ -128,6 +145,12 @@ Delfino, M., Rage, J.-C., and Rook, L. (2003).
 \newblock {Tertiary mammal turnover phenomena: what happened to the
   herpetofauna?}
 \newblock {\em Deinsea}, 10(10):153--161.
+
+\bibitem[Domingo et~al., 2009]{Domingo2009}
+Domingo, L., Grimes, S.~T., Domingo, M.~S., and Alberdi, M.~T. (2009).
+\newblock {Paleoenvironmental conditions in the Spanish Miocene-Pliocene
+  boundary: Isotopic analyses of Hipparion dental enamel}.
+\newblock {\em Naturwissenschaften}, 96(4):503--511.
 
 \bibitem[Foster, 1964]{Foster1964}
 Foster, J.~B. (1964).
@@ -184,6 +207,12 @@ Gotelli, N.~J. and Colwell, R.~K. (2001).
   and Comparison of Species Richness}.
 \newblock {\em Ecology Letters}, 4(4):379--391.
 
+\bibitem[Hansen et~al., 2010]{Hansen2010}
+Hansen, D.~M., Donlan, C.~J., Griffiths, C.~J., and Campbell, K.~J. (2010).
+\newblock {Ecological history and latent conservation potential: Large and
+  giant tortoises as a model for taxon substitutions}.
+\newblock {\em Ecography}, 33(2):272--284.
+
 \bibitem[Hibbard, 1960]{Hibbard1960}
 Hibbard, C.~W. (1960).
 \newblock {An interpretation of the Pliocene and Pleistocene climates in North
@@ -196,17 +225,16 @@ Hooijer, D.~A. (1951).
 \newblock {Pygmy Elephant and Giant Tortoise}.
 \newblock {\em The Scientific Monthly}, 72(1):3--8.
 
+\bibitem[Hunt, 2004]{Hunt2004}
+Hunt, G. (2004).
+\newblock {Phenotypic variation in fossil samples: modeling the consequences of
+  time-averaging}.
+\newblock {\em Paleobiology}, 30(3):426--443.
+
 \bibitem[Hunt, 2006]{Hunt2006}
 Hunt, G. (2006).
 \newblock {Data Analysis in Paleontology Using}.
 \newblock pages 1--9.
-
-\bibitem[Hunt, 2007]{Hunt2007}
-Hunt, G. (2007).
-\newblock {The relative importance of directional change, random walks, and
-  stasis in the evolution of fossil lineages}.
-\newblock {\em Proceedings of the National Academy of Sciences},
-  104(47):18404--18408.
 
 \bibitem[Hunt, 2008]{Hunt2008}
 Hunt, G. (2008).
@@ -368,6 +396,11 @@ Pritchard, P. (2013).
 \newblock {Madagascar: island continent of tortoises great and small}.
 \newblock (6):17--24.
 
+\bibitem[Pritchard, 1996]{Pritchard1996}
+Pritchard, P. C.~H. (1996).
+\newblock {The Gal{\'{a}}pagos Tortoises: Nomenclatural and Survival Status}.
+\newblock {\em Chelonian Research Monographs}, 1(9):1996.
+
 \bibitem[{R Core Team}, 2017]{RCoreTeam2017}
 {R Core Team} (2017).
 \newblock {\em {R: A Language and Environment for Statistical Computing}}.
@@ -411,6 +444,13 @@ Schuster, S. and Sch{\"{u}}le, W. (2000).
   Quaternary extinctions of large vertebrates}.
 \newblock {\em Oxford Journal of Archaeology}, 19(3):223--239.
 
+\bibitem[Sheldon, 1996]{Sheldon1996}
+Sheldon, P.~R. (1996).
+\newblock {Plus ca change - A model for stasis and evolution in different
+  environments}.
+\newblock {\em Palaeogeography, Palaeoclimatology, Palaeoecology},
+  127(1-4):209--227.
+
 \bibitem[Siegel and Castellan, 1988]{Siegel1988}
 Siegel, S. and Castellan, N.~J. (1988).
 \newblock {Non-Parametric Statistics for the behavioural Sciences}.
@@ -447,11 +487,30 @@ Steele, T.~E. and Klein, R.~G. (2005).
   capacity}.
 \newblock {\em Munibe (Antropologia-Arkeologia)}, 57(0):221--237.
 
+\bibitem[Stiner et~al., 1999]{Stiner1999}
+Stiner, M.~C., Munro, N.~D., Surovell, T.~A., Tchernov, E., and Bar-Yosef, O.
+  (1999).
+\newblock {Paleolithic Population Growth Pulses Evidenced by Small Animal
+  Exploitation}.
+\newblock {\em Science}, 283(5399):190--194.
+
+\bibitem[Sturbaum, 1982]{Sturbaum1982}
+Sturbaum, B.~A. (1982).
+\newblock {Temperature Regulation in Turtles}.
+\newblock {\em Comparative Biochemistry and Physiology Part A: Physiology},
+  72(4):615--620.
+
 \bibitem[Surovell et~al., 2005]{Surovell2005}
 Surovell, T., Waguespack, N., and Brantingham, P.~J. (2005).
 \newblock {Global archaeological evidence for proboscidean overkill}.
 \newblock {\em Proceedings of the National Academy of Sciences},
   102(17):6231--6236.
+
+\bibitem[Swingland and Lessells, 1979]{Swingland1979}
+Swingland, I.~R. and Lessells, C.~M. (1979).
+\newblock {The Natural Regulation of Giant Tortoise Populations on Aldabra
+  Atoll . Movement Polymorphism , Reproductive Success and Mortality Author}.
+\newblock {\em Journal of Animal Ecology}, 48(2):639--654.
 
 \bibitem[Thompson and Withers, 2003]{Thompson2002}
 Thompson, G.~G. and Withers, P.~C. (2003).

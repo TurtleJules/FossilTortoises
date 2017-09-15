@@ -26,11 +26,11 @@
 \contentsline {subsection}{\numberline {5.2}Distribution of testudinid body size}{36}{subsection.5.2}
 \contentsline {subsection}{\numberline {5.3}Time-scale analysis}{37}{subsection.5.3}
 \contentsline {subsection}{\numberline {5.4}Causes for extinction}{38}{subsection.5.4}
-\contentsline {subsection}{\numberline {5.5}Conclusion}{39}{subsection.5.5}
-\contentsline {section}{\numberline {6}References}{40}{section.6}
-\contentsline {section}{Appendix \numberline {A}Geographical and stratigraphic distribution of body size data}{48}{Appendix.1.A}
-\contentsline {section}{Appendix \numberline {B}Sampling accumulation curves}{49}{Appendix.1.B}
-\contentsline {section}{Appendix \numberline {C}Data structure}{50}{Appendix.1.C}
-\contentsline {section}{Appendix \numberline {D}Random Sampling}{51}{Appendix.1.D}
-\contentsline {section}{Appendix \numberline {E}paleoTS}{52}{Appendix.1.E}
-\contentsline {section}{Appendix \numberline {F}Tables}{59}{Appendix.1.F}
+\contentsline {subsection}{\numberline {5.5}Conclusion}{40}{subsection.5.5}
+\contentsline {section}{\numberline {6}References}{42}{section.6}
+\contentsline {section}{Appendix \numberline {A}Geographical and stratigraphic distribution of body size data}{50}{Appendix.1.A}
+\contentsline {section}{Appendix \numberline {B}Sampling accumulation curves}{51}{Appendix.1.B}
+\contentsline {section}{Appendix \numberline {C}Data structure}{52}{Appendix.1.C}
+\contentsline {section}{Appendix \numberline {D}Random Sampling}{53}{Appendix.1.D}
+\contentsline {section}{Appendix \numberline {E}paleoTS}{54}{Appendix.1.E}
+\contentsline {section}{Appendix \numberline {F}Tables}{61}{Appendix.1.F}

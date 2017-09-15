@@ -228,13 +228,13 @@ scatter <- testRatio %>%
   merge(Continents) %>%
   mutate(Insularity=ifelse(Island=="y","insular", "continental")) %>%
   select(CL, Age, Insularity, Con, estimated) %>%
-  ggplot(aes(Age, CL))+ # for time to start at the left: -Age
-  geom_vline(xintercept = c(0, 0.0117, 0.126, 0.781, 1.806, 2.588, 3.6,
-                                  5.332, 7.246, 11.608, 13.82, 15.97, 23.03))+ 
+  ggplot(aes(-Age, CL))+ # for time to start at the left: -Age
+  geom_vline(xintercept = c(0, -0.0117, -0.126, -0.781, -1.806, -2.588, -3.6,
+                                  -5.332, -7.246, -11.608, -13.82, -15.97, -23.03))+ 
   geom_jitter(aes(shape=Insularity, colour= Con)) +
   theme_classic() +
   # geom_vline(xintercept= c(0, 0.0117, 0.126, 0.781, 2.588, 3.6, 5.332, 11.608, 15.97, 23.03)) +
-   geom_vline(xintercept= 20.44, linetype="dashed")  +
+   geom_vline(xintercept= -20.44, linetype="dashed")  +
   scale_color_manual(values=c("#000000", "#E69F00",  "#FF00FF", "#009E73", "#56B4E9","#F0E442", "#0072B2", "#D55E00", "#CC79A7") , name="Continents")+
  # scale_shape_manual(values= c(16, 17), name="Insularity", breaks=c("continental", "insular")) +
   xlab("Age [mya]") + ylab("Carapace length [mm]")#+ #+ coord_trans(x="log2") +
@@ -2017,7 +2017,7 @@ kable(GenusPaleo,caption="paleoTS object, all data")
 
 paleoGen <-as.paleoTS(GenusPaleo$mm, GenusPaleo$vv, GenusPaleo$nn, GenusPaleo$tt, MM = NULL, genpars = NULL, reset.time=TRUE)
 
-#paleoGen$tt = -paleoGen$tt
+paleoGen$tt = -paleoGen$tt
 
 plot(paleoGen)
 
@@ -2026,7 +2026,7 @@ plot(paleoGen)
 
 abline(h=mean(GenusPaleo$mm), lty=5)
 
-points(x=c(2.59, 5.33), y=c(245, 245), pch=17)
+points(x=c(-2.59, -5.33), y=c(245, 245), pch=17)
 
 
 #abline(v=3.2)
@@ -2185,12 +2185,13 @@ kable(GenusPaleoIs, caption="paleoTS object, continental")
 
 paleoGenIs <-as.paleoTS(GenusPaleoIs$mm, GenusPaleoIs$vv, GenusPaleoIs$nn, GenusPaleoIs$tt, MM = NULL, genpars = NULL, reset.time=TRUE)
 
+paleoGenIs$tt = -paleoGenIs$tt
 
 plot(paleoGenIs)
 
 abline(h=mean(GenusPaleoIs$mm), lty=5)
 
-points(x=c(2.59, 5.33), y=c(175, 175), pch=17)
+points(x=c(-2.59, -5.33), y=c(175, 175), pch=17)
 
 #abline(h=median(GenusPaleoIs$mm), lty=6)
 
@@ -2320,12 +2321,13 @@ kable(GenusPaleoCon, caption="paleoTS object, insular")
 
 paleoGenCon <-as.paleoTS(GenusPaleoCon$mm, GenusPaleoCon$vv, GenusPaleoCon$nn, GenusPaleoCon$tt, MM = NULL, genpars = NULL, reset.time=TRUE)
 
+paleoGenCon$tt = -paleoGenCon$tt
 
 plot(paleoGenCon)
 
 abline(h=mean(GenusPaleoCon$mm), lty=5)
 
-points(x=c(2.59, 5.33), y=c(290, 290), pch=17)
+points(x=c(-2.59, -5.33), y=c(290, 290), pch=17)
 
 
 # abline(h=median(GenusPaleoCon$mm), lty=2)
@@ -2387,22 +2389,24 @@ GenusMeanAll[is.na(GenusMeanAll)]<-0
 
 
 
-GenusPaleoAll <- GenusMeanAll %>%
+GenusPaleoAll1 <- GenusMeanAll %>%
   arrange(tt) %>%
   select(tt,nn,mm,vv)
 
-GenusPaleoAll[is.na(GenusPaleoAll)] <- 0
+GenusPaleoAll1[is.na(GenusPaleoAll1)] <- 0
 
-kable(GenusPaleoAll, caption="paleoTS object, Europe")
+kable(GenusPaleoAll1, caption="paleoTS object, Europe")
 
 
-paleoGenAll <-as.paleoTS(GenusPaleoAll$mm, GenusPaleoAll$vv, GenusPaleoAll$nn, GenusPaleoAll$tt, MM = NULL, genpars = NULL, reset.time=TRUE)
+paleoGenAll1 <-as.paleoTS(GenusPaleoAll1$mm, GenusPaleoAll1$vv, GenusPaleoAll1$nn, GenusPaleoAll1$tt, MM = NULL, genpars = NULL, reset.time=TRUE)
 
-plot(paleoGenAll)
+paleoGenAll1$tt = -paleoGenAll1$tt
 
-abline(h=mean(GenusPaleoAll$mm), lty=5)
+plot(paleoGenAll1)
 
-points(x=c(2.59, 5.33), y=c(50, 50), pch=17)
+abline(h=mean(GenusPaleoAll1$mm), lty=5)
+
+points(x=c(-2.59, -5.33), y=c(50, 50), pch=17)
 
 
 # abline(h=median(GenusPaleoAll$mm), lty=6)
@@ -2470,11 +2474,13 @@ kable(GenusPaleoAll, caption="paleoTs object, Europe, continental")
 
 paleoGenAll <-as.paleoTS(GenusPaleoAll$mm, GenusPaleoAll$vv, GenusPaleoAll$nn, GenusPaleoAll$tt, MM = NULL, genpars = NULL, reset.time=TRUE)
 
+paleoGenAll$tt = -paleoGenAll$tt
+
 plot(paleoGenAll)
 
 abline(h=mean(GenusPaleoAll$mm), lty=5)
 
-points(x=c(2.59, 5.33), y=c(60, 60), pch=17)
+points(x=c(-2.59, -5.33), y=c(60, 60), pch=17)
 
 
 ```
@@ -2536,11 +2542,13 @@ kable(GenusPaleoAll, caption="paleoTs object, Europe, insular")
 
 paleoGenAll <-as.paleoTS(GenusPaleoAll$mm, GenusPaleoAll$vv, GenusPaleoAll$nn, GenusPaleoAll$tt, MM = NULL, genpars = NULL, reset.time=TRUE)
 
+paleoGenAll$tt = -paleoGenAll$tt
+
 plot(paleoGenAll)
 
 abline(h=mean(GenusPaleoAll$mm), lty=5)
 
-points(x=c(2.59, 5.33), y=c(95, 95), pch=17)
+points(x=c(-2.59, -5.33), y=c(95, 95), pch=17)
 
 
 ```
@@ -2737,6 +2745,8 @@ paleoGenAll <-as.paleoTS(GenusPaleo$mm, GenusPaleo$vv, GenusPaleo$nn, GenusPaleo
 
 #paleoGenAll$tt <- -paleoGenAll$tt
 
+paleoGenAll$tt = -paleoGenAll$tt
+
 plot(paleoGenAll)
 
 #ylim=c(10, 1)
@@ -2745,7 +2755,7 @@ plot(paleoGenAll)
 
 abline(h=mean(GenusPaleoAll$mm), lty=5)
 
-points(x=c(2.59, 5.33), y=c(115, 115), pch=17) # add minus if you flip it vertically
+points(x=c(-2.59, -5.33), y=c(115, 115), pch=17) # add minus if you flip it vertically
 
 
 
@@ -2777,83 +2787,7 @@ kable(PaleoGenAllFit, caption="Model-fitting results for testudinidae, genera, E
 
 ```{r "pTSEsC", echo=FALSE, fig.cap="paleoTS, genera, Eurasia, continental"}
 
-# paleoTS, genera, Eurasia, continental
 
-
-# GenusMeanAll <- PleiPlioCL %>%
-# #  merge(BINS) %>%
-# #  filter(EpochBins != "Modern") %>%  # & EpochBins != "Upper Miocene"
-#   merge(Continents) %>%
-#   filter(Con == "Asia" | Con == "Europe" & Island == "n") %>%
-#  # filter(EpochBins != "Aquitanian") %>%
-#   filter(!is.na(CL)) %>%
-#   group_by(MeanBins, Genus) %>%
-#   dplyr::summarise(meanCL = mean(CL), n=n()) %>%
-# #  ungroup() %>%
-# #  group_by(EpochBins) %>%
-#   dplyr::summarise(mm = mean(meanCL), nn=n(), vv=var(meanCL)) %>%
-#  # merge(BINS) %>%
-#   select(mm, nn, vv, tt=MeanBins)
-#   
-# GenusMeanAll[is.na(GenusMeanAll)]<-0
-# 
-# 
-# 
-# sumTort <- read.csv("tortoises_summary.csv", sep=";", header=TRUE)
-# colnames(sumTort)[7] <- "meanCL"
-# colnames(sumTort)[8] <- "sdCL"
-# 
-# 
-# sumTortoisesAll <- sumTort %>%
-# #  dplyr::filter(Island == "y") %>%
-#   merge(Continents) %>%
-#   filter(Con== "Asia" | Con == "Europe") %>%
-#   mutate(Genus= as.character(Genus)) %>%
-#   mutate(MeanBins=(Mamin+Mamax)/2) %>%
-#   select(Genus, MeanBins,  meanCL, sdCL, n) #%>% #n,
-#  # bind_rows(GenusMeanAll)
-# 
-# 
-# SumTortAll <- sumTortoisesAll %>%
-#   group_by(Genus) %>%
-#   mutate(tt=MeanBins, vv=sdCL^2, nn=n, mm=meanCL) %>%
-#   dplyr::select(mm, nn, vv, tt, Genus) %>%
-#   mutate(nx = nn*mm) %>%
-#   mutate(mmall=sum(nx)/sum(nn)) %>%
-#   mutate(SD=sqrt(nx), d=mm-mmall) %>%
-#   mutate(nsd=((nx^2+d^2)*nn)) %>%
-#   mutate(varall=sum(nsd)/sum(nn), n=sum(nn)) %>%
-#   dplyr::select(mm=mmall, vv=varall, nn=n, tt, Genus) %>%
-#   unique() %>%
-#   dplyr::select(CL=mm, n=nn, var=vv, tt, Genus)
-# 
-# 
-# modernMeanGenusAll <- SumTortAll %>%
-#   ungroup() %>%
-#   select(CL, n, tt) %>%
-#   filter( !is.na(CL)) %>%
-#   group_by(tt) %>%
-#   dplyr::summarise(mm = mean(CL), vv=var(CL), nn=n())
-# 
-# #bis hier alle modernen taxa zusammengefasst (summarised and MFN_testudinidae)
-# 
-# 
-# GenusPaleoAll <- modernMeanGenusAll %>%
-#   bind_rows(GenusMeanAll)%>%
-#   arrange(tt)
-# 
-# GenusPaleoAll[is.na(GenusPaleoAll)] <- 0
-# 
-# kable(GenusPaleoAll, caption="paleoTS object, Eurasia, continental")
-# 
-# 
-# paleoGenAll <-as.paleoTS(GenusPaleoAll$mm, GenusPaleoAll$vv, GenusPaleoAll$nn, GenusPaleoAll$tt, MM = NULL, genpars = NULL, label = "Testudinidae body size evolution mode", reset.time=TRUE)
-# 
-# plot(paleoGenAll)
-# 
-# abline(h=mean(GenusPaleoAll$mm), lty=5)
-
-###############################################################################################
 
 GenusMean <- PleiPlioCL %>%
   dplyr::filter(EpochBins != "Modern") %>%
@@ -2944,11 +2878,13 @@ kable(GenusPaleo,caption="paleoTS object, all data")
 
 paleoGenAll <-as.paleoTS(GenusPaleo$mm, GenusPaleo$vv, GenusPaleo$nn, GenusPaleo$tt, MM = NULL, genpars = NULL, reset.time=TRUE)
 
+paleoGenAll$tt = -paleoGenAll$tt
+
 plot(paleoGenAll)
 
 abline(h=mean(GenusPaleoAll$mm), lty=5)
 
-points(x=c(2.59, 5.33), y=c(125, 125), pch=17)
+points(x=c(-2.59, -5.33), y=c(125, 125), pch=17)
 
 
 
@@ -3070,11 +3006,13 @@ kable(GenusPaleo,caption="paleoTS object, all data")
 
 paleoGenAll <-as.paleoTS(GenusPaleo$mm, GenusPaleo$vv, GenusPaleo$nn, GenusPaleo$tt, MM = NULL, genpars = NULL, reset.time=TRUE)
 
+paleoGenAll$tt = -paleoGenAll$tt
+
 plot(paleoGenAll)
 
 abline(h=mean(GenusPaleoAll$mm), lty=5)
 
-points(x=c(2.59, 5.33), y=c(165, 165), pch=17)
+points(x=c(-2.59, -5.33), y=c(165, 165), pch=17)
 
 
 
