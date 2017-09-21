@@ -1,0 +1,90 @@
+\documentclass{beamer} %[handout]
+%\usepackage{amsmath, amsfonts, amssymb}
+\usepackage{natbib, apalike}
+\usepackage[english,ngerman]{babel}
+\usepackage[utf8x]{inputenc}				%fuer Umlaute
+\usepackage[math]{iwona}
+\usepackage[absolute,overlay]{textpos}		%fuer textblocks
+\usepackage{wasysym} 					   %für verschiedene Sonderzeichen/Symbole
+\usepackage[listings,theorems]{tcolorbox}	%fuer colorboxes
+\usepackage{graphicx}
+\usepackage{ifsym}
+\usepackage{ulem}
+\usepackage{xspace}
+\usepackage{todonotes}
+
+% Choose theme:
+\usetheme{Amsterdam}
+
+% MAKE PRESENTATION MORE PRETTY:
+	%%remove navigation symbols
+	\setbeamertemplate{navigation symbols}{}	
+	%% avoid hyphenation:
+	%\tolerance=1
+	%\emergencystretch=\maxdimen
+	%\hyphenpenalty=10000
+	%\hbadness=10000
+\setbeamertemplate{footline}[frame number]
+%% Custom commands and definitions:
+\newcommand{\wichtig}[1]{\large{}\colorbox{blue}{#1}\normal size{}}
+\newcommand{\p}{\item}
+\newcommand{\pf}{$\rightarrow$}
+\definecolor{darkblue}{HTML}{300000}
+
+% Define title page contents:
+\title{Body size trends in Neogene tortoises}
+\subtitle{\small Did tortoises evolve towards a smaller body size?}
+\author{Julia Joos}
+\institute[OS]{Humboldt-Universität zu Berlin}
+\date{20.07.2016}
+%\titlegraphic{\includegraphics[scale=0.35]{pics/hu.png}}
+
+
+% HERE WE GO:
+\begin{document}
+%\nocite{*}
+
+% Title page:
+\begin{frame}[plain]
+	\setcounter{framenumber}{0}
+	\titlepage
+\end{frame}
+
+
+% Table of contents:	
+%\begin{frame}[plain]
+%	\tableofcontents
+%\end{frame}
+
+\include{IntroPres}
+\include{MMPres}
+\include{ResPres}
+%\include{Dis}
+\include{SumPres}
+
+
+
+
+
+% CONTENT OF APPENDIX WON'T APPEAR IN THE HEADER. NUMBERING STOPS.
+\appendix
+\section[]{Backup}
+\subsection[]{}
+
+% First the references:
+\begin{frame}[noframenumbering]{Image sources}%[shrink=10]
+\begin{footnotesize}
+\begin{enumerate}
+\item http://www.schule-und-familie.de/assets/images/Malen/Natur/schmetterling4.gif (butterfly)
+\item https://robinpenning.files.wordpress.com/2013/02/lake-tahoe-ski-resort-map-mediumthumb.jpg (altitude map)
+\end{enumerate}
+%\bibliographystyle{apalike}%ieeetr
+%\bibliography{sea stars.bib}	% my bib-file
+\end{footnotesize}
+\end{frame}
+
+\newcounter{finalframe}
+\setcounter{finalframe}{\value{framenumber}}
+
+
+\end{document}
