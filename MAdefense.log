@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6350 64-bit) (preloaded format=pdflatex 2017.7.2)  22 SEP 2017 00:13
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6350 64-bit) (preloaded format=pdflatex 2017.7.2)  22 SEP 2017 16:17
 entering extended mode
 **./MAdefense.tex
 (MAdefense.tex
@@ -1184,160 +1184,236 @@ File: uni-0.def 2013/05/13 UCS: Unicode data U+0000..U+00FF
 \openout2 = `IntroPres.aux'.
 
  (IntroPres.tex
-Overfull \hbox (309.72078pt too wide) detected at line 22
- [][] 
- []
-
-LaTeX Font Info:    Try loading font information for OMS+iwona on input line 22
+LaTeX Font Info:    Try loading font information for OMS+iwona on input line 25
 .
+
 ("C:\Program Files\MiKTeX 2.9\tex\latex\iwona\omsiwona.fd"
 File: omsiwona.fd 2008/07/22 v0.995 font definition file for OMS/iwona (MW)
 )
-Overfull \vbox (38.50395pt too high) detected at line 22
+Overfull \vbox (38.50395pt too high) detected at line 25
  []
 
 [2
 
 
 ]
-Overfull \hbox (309.72078pt too wide) detected at line 22
- [][] 
- []
-
-
-Overfull \vbox (38.50395pt too high) detected at line 22
+Overfull \vbox (38.50395pt too high) detected at line 25
  []
 
 [3
 
 ]
-Overfull \hbox (309.72078pt too wide) detected at line 22
- [][] 
- []
-
-
-Overfull \vbox (38.50395pt too high) detected at line 22
+Overfull \vbox (38.50395pt too high) detected at line 25
  []
 
 [4
 
 ]
-Overfull \hbox (309.72078pt too wide) detected at line 22
- [][] 
- []
-
-
-Overfull \vbox (38.50395pt too high) detected at line 22
+Overfull \vbox (38.50395pt too high) detected at line 25
  []
 
 [5
 
 ]
-Overfull \hbox (309.72078pt too wide) detected at line 41
- [][] 
- []
-
-
-Overfull \vbox (38.50395pt too high) detected at line 41
+Overfull \vbox (38.50395pt too high) detected at line 25
  []
 
 [6
 
 ]
-Overfull \hbox (309.72078pt too wide) detected at line 41
- [][] 
- []
-
-
-Overfull \vbox (38.50395pt too high) detected at line 41
+Overfull \vbox (38.50395pt too high) detected at line 25
  []
 
 [7
 
 ]
-Overfull \hbox (309.72078pt too wide) detected at line 41
- [][] 
- []
+LaTeX Font Info:    Try loading font information for OT1+iwonam on input line 4
+4.
+ ("C:\Program Files\MiKTeX 2.9\tex\latex\iwona\ot1iwonam.fd"
+File: ot1iwonam.fd 2005/10/05 v1.2 font definition file for OT1/iwonam (MW)
+)
+LaTeX Font Info:    Try loading font information for OML+iwona on input line 44
+.
 
+("C:\Program Files\MiKTeX 2.9\tex\latex\iwona\omliwona.fd"
+File: omliwona.fd 2008/07/22 v0.995 font definition file for OML/iwona (MW)
+)
+LaTeX Font Info:    Try loading font information for OMX+iwona on input line 44
+.
 
-Overfull \vbox (38.50395pt too high) detected at line 41
+("C:\Program Files\MiKTeX 2.9\tex\latex\iwona\omxiwona.fd"
+File: omxiwona.fd 2008/07/22 v0.995 font definition file for OMX/iwona (MW)
+)
+LaTeX Font Info:    Try loading font information for U+msa on input line 44.
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\amsfonts\umsa.fd"
+File: umsa.fd 2013/01/14 v3.01 AMS symbols A
+)
+LaTeX Font Info:    Try loading font information for U+msb on input line 44.
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\amsfonts\umsb.fd"
+File: umsb.fd 2013/01/14 v3.01 AMS symbols B
+)
+LaTeX Font Info:    Try loading font information for U+wasy on input line 44.
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\wasysym\uwasy.fd"
+File: uwasy.fd 2003/10/30 v2.0 Wasy-2 symbol font definitions
+)
+LaTeX Font Info:    Try loading font information for OT1+mathkerncmss on input 
+line 44.
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\sansmathaccent\ot1mathkerncmss.fd"
+File: ot1mathkerncmss.fd 2013/03/27 Fontinst v1.933 font definitions for OT1/ma
+thkerncmss.
+)
+Overfull \vbox (38.50395pt too high) detected at line 44
  []
 
 [8
 
 ]
-Overfull \hbox (309.72078pt too wide) detected at line 41
- [][] 
- []
-
-
-Overfull \vbox (38.50395pt too high) detected at line 41
+Overfull \vbox (38.50395pt too high) detected at line 44
  []
 
 [9
 
 ]
-Overfull \hbox (309.72078pt too wide) detected at line 60
- [][] 
- []
-
-
-Overfull \vbox (38.50395pt too high) detected at line 60
+Overfull \vbox (38.50395pt too high) detected at line 44
  []
 
 [10
 
 ]
-Overfull \hbox (309.72078pt too wide) detected at line 60
- [][] 
- []
-
-
-Overfull \vbox (38.50395pt too high) detected at line 60
+Overfull \vbox (38.50395pt too high) detected at line 44
  []
 
 [11
 
 ]
-Overfull \hbox (309.72078pt too wide) detected at line 60
- [][] 
- []
-
-
-Overfull \vbox (38.50395pt too high) detected at line 60
+Overfull \vbox (38.50395pt too high) detected at line 63
  []
 
 [12
 
 ]
-Overfull \hbox (309.72078pt too wide) detected at line 60
- [][] 
- []
-
-
-Overfull \vbox (38.50395pt too high) detected at line 60
+Overfull \vbox (38.50395pt too high) detected at line 63
  []
 
 [13
 
+]
+Overfull \vbox (38.50395pt too high) detected at line 63
+ []
+
+[14
+
+]
+Overfull \vbox (38.50395pt too high) detected at line 63
+ []
+
+[15
+
+] [16
+
+] [17
+
+] [18
+
 ])
 \openout2 = `MMPres.aux'.
 
+ (MMPres.tex
+<MA_JJ_files/figure-latex/MapFossilOccurrences-1.pdf, id=409, 469.755pt x 325.2
+15pt>
+File: MA_JJ_files/figure-latex/MapFossilOccurrences-1.pdf Graphic file (type pd
+f)
+ <use MA_JJ_files/figure-latex/MapFossilOccurrences-1.pdf>
+Package pdftex.def Info: MA_JJ_files/figure-latex/MapFossilOccurrences-1.pdf us
+ed on input line 29.
+(pdftex.def)             Requested size: 215.10196pt x 148.91591pt.
 
-No file MMPres.tex.
+Overfull \vbox (26.41989pt too high) detected at line 29
+ []
+
+[19
+
+
+
+ <./MA_JJ_files/figure-latex/MapFossilOccurrences-1.pdf>]
+File: MA_JJ_files/figure-latex/MapFossilOccurrences-1.pdf Graphic file (type pd
+f)
+
+<use MA_JJ_files/figure-latex/MapFossilOccurrences-1.pdf>
+Package pdftex.def Info: MA_JJ_files/figure-latex/MapFossilOccurrences-1.pdf us
+ed on input line 29.
+(pdftex.def)             Requested size: 215.10196pt x 148.91591pt.
+
+Overfull \vbox (26.41989pt too high) detected at line 29
+ []
+
+[20
+
+]
+File: MA_JJ_files/figure-latex/MapFossilOccurrences-1.pdf Graphic file (type pd
+f)
+ <use MA_JJ_files/figure-latex/MapFossilOccurrences-1.pdf>
+Package pdftex.def Info: MA_JJ_files/figure-latex/MapFossilOccurrences-1.pdf us
+ed on input line 29.
+(pdftex.def)             Requested size: 215.10196pt x 148.91591pt.
+
+Overfull \vbox (26.41989pt too high) detected at line 29
+ []
+
+[21
+
+] [22
+
+] [23
+
+] [24
+
+] [25
+
+] [26
+
+] [27
+
+])
 \openout2 = `ResPres.aux'.
 
-No file ResPres.tex.
+ (ResPres.tex [28
+
+
+
+] [29
+
+] [30
+
+] [31
+
+])
 \openout2 = `SumPres.aux'.
 
-No file SumPres.tex.
-[14
+
+(SumPres.tex [32
 
 
 
+] [33
 
+] [34
 
+] [35
 
+] [36
+
+] [37
+
+] [38
+
+] [39
+
+]) [40
 
 
 ]
@@ -1353,27 +1429,42 @@ No file SumPres.tex.
 
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 90.
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 90.
- (MAdefense.aux (IntroPres.aux) (MMPres.aux) (ResPres.aux) (SumPres.aux))
+ (MAdefense.aux
+(IntroPres.aux) (MMPres.aux) (ResPres.aux) (SumPres.aux))
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 90.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 90.
-Package rerunfilecheck Info: File `MAdefense.out' has not changed.
-(rerunfilecheck)             Checksum: 549985558492749462E4E297F02DE86E;150.
+
+
+Package rerunfilecheck Warning: File `MAdefense.out' has changed.
+(rerunfilecheck)                Rerun to get outlines right
+(rerunfilecheck)                or use package `bookmark'.
+
+Package rerunfilecheck Info: Checksums for `MAdefense.out':
+(rerunfilecheck)             Before: 3D2844010983E1D4F2CE98A4C6A524E9;698
+(rerunfilecheck)             After:  02A6C07C6505E356A6E015EEDAA143CC;698.
  ) 
 Here is how much of TeX's memory you used:
- 26041 strings out of 493323
- 505516 string characters out of 3139070
- 593248 words of memory out of 3000000
- 28953 multiletter control sequences out of 15000+200000
- 25808 words of font info for 25 fonts, out of 3000000 for 9000
+ 26359 strings out of 493323
+ 511001 string characters out of 3139070
+ 597264 words of memory out of 3000000
+ 29163 multiletter control sequences out of 15000+200000
+ 47897 words of font info for 74 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 56i,19n,79p,806b,794s stack positions out of 5000i,500n,10000p,200000b,50000s
-{C:/Program Files/MiKTeX 2.9/fonts/enc/dvips/iwona/sy-iwona.enc}{C:/Program F
-iles/MiKTeX 2.9/fonts/enc/dvips/iwona/rm-iwona.enc}<C:/Program Files/MiKTeX 2.9
-/fonts/type1/nowacki/iwona/iwonar.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/
-nowacki/iwona/iwonari.pfb>
-Output written on MAdefense.pdf (14 pages, 60612 bytes).
+ 56i,19n,79p,806b,803s stack positions out of 5000i,500n,10000p,200000b,50000s
+pdfTeX warning (dest): name{Outline0.6.1.25} has been referenced but does not
+ exist, replaced by a fixed one
+
+pdfTeX warning (dest): name{Outline0.3.1.22} has been referenced but does not e
+xist, replaced by a fixed one
+
+{C:/Program Files/MiKTeX 2.9/fonts/enc/dvips/iwona/mi-iwona.enc}{C:/Program Fil
+es/MiKTeX 2.9/fonts/enc/dvips/iwona/rm-iwona.enc}{C:/Program Files/MiKTeX 2.9/f
+onts/enc/dvips/iwona/sy-iwona.enc}<C:/Program Files/MiKTeX 2.9/fonts/type1/nowa
+cki/iwona/iwonab.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/nowacki/iwona/iwo
+nar.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/nowacki/iwona/iwonari.pfb>
+Output written on MAdefense.pdf (40 pages, 727897 bytes).
 PDF statistics:
- 160 PDF objects out of 1000 (max. 8388607)
- 34 named destinations out of 1000 (max. 500000)
- 67 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 867 PDF objects out of 1000 (max. 8388607)
+ 96 named destinations out of 1000 (max. 500000)
+ 136 words of extra memory for PDF output out of 10000 (max. 10000000)
 
