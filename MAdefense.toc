@@ -5,8 +5,8 @@
 \beamer@subsectionintoc {2}{1}{Body size trends in Neogene tortoises}{19}{0}{2}
 \beamer@sectionintoc {3}{Body size distribution}{28}{0}{3}
 \beamer@subsectionintoc {3}{1}{Body size trends in Neogene tortoises}{28}{0}{3}
-\beamer@sectionintoc {4}{Differences}{30}{0}{4}
-\beamer@sectionintoc {5}{Body size trends}{31}{0}{5}
-\beamer@sectionintoc {6}{Summary}{32}{0}{6}
-\beamer@subsectionintoc {6}{1}{Body size trends in Neogene tortoises}{32}{0}{6}
-\beamer@sectionintoc {7}{Backup}{40}{1}{7}
+\beamer@sectionintoc {4}{Differences}{33}{0}{4}
+\beamer@sectionintoc {5}{Body size trends}{37}{0}{5}
+\beamer@sectionintoc {6}{Summary}{41}{0}{6}
+\beamer@subsectionintoc {6}{1}{Body size trends in Neogene tortoises}{41}{0}{6}
+\beamer@sectionintoc {7}{Backup}{49}{1}{7}

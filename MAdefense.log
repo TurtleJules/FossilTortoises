@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6350 64-bit) (preloaded format=pdflatex 2017.7.2)  22 SEP 2017 16:17
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6350 64-bit) (preloaded format=pdflatex 2017.7.2)  23 SEP 2017 00:20
 entering extended mode
 **./MAdefense.tex
 (MAdefense.tex
@@ -964,6 +964,20 @@ librarypositioning.code.tex"
 File: tikzlibrarypositioning.code.tex 2008/10/06 v3.0.1a (rcs-revision 1.7)
 )
 \c@@todonotes@numberoftodonotes=\count186
+)
+("C:\Program Files\MiKTeX 2.9\tex\latex\subfloat\subfloat.sty"
+Package: subfloat 2003/08/21 version 2.14
+
+Package `subfloat', Version 2.14 of 2003/08/21.
+
+Package subfloat Warning: Numbers of floats not counted:
+(subfloat)                If you use one of the counters subfloatfiguremax or
+(subfloat)                subfloattablemax you will get strange error messages
+(subfloat)                containing \c@subfloatfiguremax or
+(subfloat)                \c@subfloattablemax:
+(subfloat)                Please switch on countmax or remove the code using
+(subfloat)                the counter then..
+
 ) (beamerthemeAmsterdam.sty
 ("C:\Program Files\MiKTeX 2.9\tex\latex\beamer\themes\outer\beamerouterthememin
 iframes.sty")
@@ -976,20 +990,20 @@ hid.sty")) (MAdefense.aux (IntroPres.aux) (MMPres.aux) (ResPres.aux)
 (SumPres.aux))
 \openout1 = `MAdefense.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 44.
-LaTeX Font Info:    ... okay on input line 44.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 44.
-LaTeX Font Info:    ... okay on input line 44.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 44.
-LaTeX Font Info:    ... okay on input line 44.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 44.
-LaTeX Font Info:    ... okay on input line 44.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 44.
-LaTeX Font Info:    ... okay on input line 44.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 44.
-LaTeX Font Info:    ... okay on input line 44.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 44.
-LaTeX Font Info:    ... okay on input line 44.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 45.
+LaTeX Font Info:    ... okay on input line 45.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 45.
+LaTeX Font Info:    ... okay on input line 45.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 45.
+LaTeX Font Info:    ... okay on input line 45.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 45.
+LaTeX Font Info:    ... okay on input line 45.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 45.
+LaTeX Font Info:    ... okay on input line 45.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 45.
+LaTeX Font Info:    ... okay on input line 45.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 45.
+LaTeX Font Info:    ... okay on input line 45.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -1053,7 +1067,7 @@ G,.JBIG2,.JB2,.eps]
 )
 ABD: EveryShipout initializing macros
 \AtBeginShipoutBox=\box74
-Package hyperref Info: Link coloring OFF on input line 44.
+Package hyperref Info: Link coloring OFF on input line 45.
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\hyperref\nameref.sty"
 Package: nameref 2016/05/21 v2.44 Cross-referencing by name of section
@@ -1063,89 +1077,89 @@ Package: gettitlestring 2016/05/16 v1.5 Cleanup title references (HO)
 )
 \c@section@level=\count193
 )
-LaTeX Info: Redefining \ref on input line 44.
-LaTeX Info: Redefining \pageref on input line 44.
-LaTeX Info: Redefining \nameref on input line 44.
+LaTeX Info: Redefining \ref on input line 45.
+LaTeX Info: Redefining \pageref on input line 45.
+LaTeX Info: Redefining \nameref on input line 45.
 
 (MAdefense.out) (MAdefense.out)
 \@outlinefile=\write7
 \openout7 = `MAdefense.out'.
 
 LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
-(Font)                  OT1/iwonam/m/n --> OT1/cmss/m/n on input line 44.
+(Font)                  OT1/iwonam/m/n --> OT1/cmss/m/n on input line 45.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `bold'
-(Font)                  OT1/iwonam/b/n --> OT1/cmss/b/n on input line 44.
+(Font)                  OT1/iwonam/b/n --> OT1/cmss/b/n on input line 45.
 \symnumbers=\mathgroup7
 \sympureletters=\mathgroup8
 LaTeX Font Info:    Overwriting math alphabet `\mathrm' in version `normal'
-(Font)                  OT1/cmss/m/n --> OT1/iwona/m/n on input line 44.
-LaTeX Font Info:    Redeclaring math alphabet \mathbf on input line 44.
+(Font)                  OT1/cmss/m/n --> OT1/iwona/m/n on input line 45.
+LaTeX Font Info:    Redeclaring math alphabet \mathbf on input line 45.
 LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `normal'
-(Font)                  OT1/iwona/bx/n --> OT1/cmss/b/n on input line 44.
+(Font)                  OT1/iwona/bx/n --> OT1/cmss/b/n on input line 45.
 LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `bold'
-(Font)                  OT1/cmr/bx/n --> OT1/cmss/b/n on input line 44.
+(Font)                  OT1/cmr/bx/n --> OT1/cmss/b/n on input line 45.
 LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `iwona'
-(Font)                  OT1/iwona/bx/n --> OT1/cmss/b/n on input line 44.
+(Font)                  OT1/iwona/bx/n --> OT1/cmss/b/n on input line 45.
 LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `iwonabold'
-(Font)                  OT1/cmr/bx/n --> OT1/cmss/b/n on input line 44.
-LaTeX Font Info:    Redeclaring math alphabet \mathsf on input line 44.
+(Font)                  OT1/cmr/bx/n --> OT1/cmss/b/n on input line 45.
+LaTeX Font Info:    Redeclaring math alphabet \mathsf on input line 45.
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `normal'
-(Font)                  OT1/iwona/m/n --> OT1/cmss/m/n on input line 44.
+(Font)                  OT1/iwona/m/n --> OT1/cmss/m/n on input line 45.
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `bold'
-(Font)                  OT1/iwona/bx/n --> OT1/cmss/m/n on input line 44.
+(Font)                  OT1/iwona/bx/n --> OT1/cmss/m/n on input line 45.
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `iwona'
-(Font)                  OT1/iwona/m/n --> OT1/cmss/m/n on input line 44.
+(Font)                  OT1/iwona/m/n --> OT1/cmss/m/n on input line 45.
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `iwonabold'
-(Font)                  OT1/iwona/bx/n --> OT1/cmss/m/n on input line 44.
-LaTeX Font Info:    Redeclaring math alphabet \mathit on input line 44.
+(Font)                  OT1/iwona/bx/n --> OT1/cmss/m/n on input line 45.
+LaTeX Font Info:    Redeclaring math alphabet \mathit on input line 45.
 LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `normal'
-(Font)                  OT1/iwona/m/it --> OT1/cmss/m/it on input line 44.
+(Font)                  OT1/iwona/m/it --> OT1/cmss/m/it on input line 45.
 LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `bold'
-(Font)                  OT1/iwona/bx/it --> OT1/cmss/m/it on input line 44.
+(Font)                  OT1/iwona/bx/it --> OT1/cmss/m/it on input line 45.
 LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `iwona'
-(Font)                  OT1/iwona/m/it --> OT1/cmss/m/it on input line 44.
+(Font)                  OT1/iwona/m/it --> OT1/cmss/m/it on input line 45.
 LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `iwonabold'
-(Font)                  OT1/iwona/bx/it --> OT1/cmss/m/it on input line 44.
-LaTeX Font Info:    Redeclaring math alphabet \mathtt on input line 44.
+(Font)                  OT1/iwona/bx/it --> OT1/cmss/m/it on input line 45.
+LaTeX Font Info:    Redeclaring math alphabet \mathtt on input line 45.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `normal'
-(Font)                  OT1/iwona/m/n --> OT1/cmtt/m/n on input line 44.
+(Font)                  OT1/iwona/m/n --> OT1/cmtt/m/n on input line 45.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
-(Font)                  OT1/cmtt/m/n --> OT1/cmtt/m/n on input line 44.
+(Font)                  OT1/cmtt/m/n --> OT1/cmtt/m/n on input line 45.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `iwona'
-(Font)                  OT1/iwona/m/n --> OT1/cmtt/m/n on input line 44.
+(Font)                  OT1/iwona/m/n --> OT1/cmtt/m/n on input line 45.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `iwonabold'
-(Font)                  OT1/cmtt/m/n --> OT1/cmtt/m/n on input line 44.
+(Font)                  OT1/cmtt/m/n --> OT1/cmtt/m/n on input line 45.
 LaTeX Font Info:    Overwriting symbol font `numbers' in version `bold'
-(Font)                  OT1/cmss/m/n --> OT1/cmss/b/n on input line 44.
+(Font)                  OT1/cmss/m/n --> OT1/cmss/b/n on input line 45.
 LaTeX Font Info:    Overwriting symbol font `pureletters' in version `bold'
-(Font)                  OT1/cmss/m/it --> OT1/cmss/b/it on input line 44.
+(Font)                  OT1/cmss/m/it --> OT1/cmss/b/it on input line 45.
 LaTeX Font Info:    Overwriting math alphabet `\mathrm' in version `bold'
-(Font)                  OT1/cmss/b/n --> OT1/iwona/b/n on input line 44.
+(Font)                  OT1/cmss/b/n --> OT1/iwona/b/n on input line 45.
 LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `bold'
-(Font)                  OT1/cmss/b/n --> OT1/cmss/b/n on input line 44.
+(Font)                  OT1/cmss/b/n --> OT1/cmss/b/n on input line 45.
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `bold'
-(Font)                  OT1/cmss/m/n --> OT1/cmss/b/n on input line 44.
+(Font)                  OT1/cmss/m/n --> OT1/cmss/b/n on input line 45.
 LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `bold'
-(Font)                  OT1/cmss/m/it --> OT1/cmss/b/it on input line 44.
+(Font)                  OT1/cmss/m/it --> OT1/cmss/b/it on input line 45.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
-(Font)                  OT1/cmtt/m/n --> OT1/cmtt/b/n on input line 44.
-LaTeX Font Info:    Redeclaring symbol font `pureletters' on input line 44.
+(Font)                  OT1/cmtt/m/n --> OT1/cmtt/b/n on input line 45.
+LaTeX Font Info:    Redeclaring symbol font `pureletters' on input line 45.
 LaTeX Font Info:    Overwriting symbol font `pureletters' in version `normal'
 (Font)                  OT1/cmss/m/it --> OT1/mathkerncmss/m/sl on input line 4
-4.
+5.
 LaTeX Font Info:    Overwriting symbol font `pureletters' in version `bold'
 (Font)                  OT1/cmss/b/it --> OT1/mathkerncmss/m/sl on input line 4
-4.
+5.
 LaTeX Font Info:    Overwriting symbol font `pureletters' in version `iwona'
 (Font)                  OT1/cmss/m/it --> OT1/mathkerncmss/m/sl on input line 4
-4.
+5.
 LaTeX Font Info:    Overwriting symbol font `pureletters' in version `iwonabold
 '
 (Font)                  OT1/cmss/m/it --> OT1/mathkerncmss/m/sl on input line 4
-4.
+5.
 LaTeX Font Info:    Overwriting symbol font `pureletters' in version `bold'
 (Font)                  OT1/mathkerncmss/m/sl --> OT1/mathkerncmss/bx/sl on inp
-ut line 44.
+ut line 45.
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\beamer\translator\dicts\translator-basi
 c-dictionary\translator-basic-dictionary-English.dict"
@@ -1323,16 +1337,16 @@ Overfull \vbox (38.50395pt too high) detected at line 63
 \openout2 = `MMPres.aux'.
 
  (MMPres.tex
-<MA_JJ_files/figure-latex/MapFossilOccurrences-1.pdf, id=409, 469.755pt x 325.2
+<MA_JJ_files/figure-latex/MapFossilOccurrences-1.pdf, id=523, 469.755pt x 325.2
 15pt>
 File: MA_JJ_files/figure-latex/MapFossilOccurrences-1.pdf Graphic file (type pd
 f)
  <use MA_JJ_files/figure-latex/MapFossilOccurrences-1.pdf>
 Package pdftex.def Info: MA_JJ_files/figure-latex/MapFossilOccurrences-1.pdf us
-ed on input line 29.
+ed on input line 32.
 (pdftex.def)             Requested size: 215.10196pt x 148.91591pt.
 
-Overfull \vbox (26.41989pt too high) detected at line 29
+Overfull \vbox (38.41989pt too high) detected at line 32
  []
 
 [19
@@ -1345,10 +1359,10 @@ f)
 
 <use MA_JJ_files/figure-latex/MapFossilOccurrences-1.pdf>
 Package pdftex.def Info: MA_JJ_files/figure-latex/MapFossilOccurrences-1.pdf us
-ed on input line 29.
+ed on input line 32.
 (pdftex.def)             Requested size: 215.10196pt x 148.91591pt.
 
-Overfull \vbox (26.41989pt too high) detected at line 29
+Overfull \vbox (38.41989pt too high) detected at line 32
  []
 
 [20
@@ -1358,10 +1372,10 @@ File: MA_JJ_files/figure-latex/MapFossilOccurrences-1.pdf Graphic file (type pd
 f)
  <use MA_JJ_files/figure-latex/MapFossilOccurrences-1.pdf>
 Package pdftex.def Info: MA_JJ_files/figure-latex/MapFossilOccurrences-1.pdf us
-ed on input line 29.
+ed on input line 32.
 (pdftex.def)             Requested size: 215.10196pt x 148.91591pt.
 
-Overfull \vbox (26.41989pt too high) detected at line 29
+Overfull \vbox (38.41989pt too high) detected at line 32
  []
 
 [21
@@ -1385,35 +1399,144 @@ Overfull \vbox (26.41989pt too high) detected at line 29
 
 
 
-] [29
+]
+<MA_JJ_files/figure-latex/HistAll-1.pdf, id=783, 469.755pt x 325.215pt>
+File: MA_JJ_files/figure-latex/HistAll-1.pdf Graphic file (type pdf)
 
-] [30
+<use MA_JJ_files/figure-latex/HistAll-1.pdf>
+Package pdftex.def Info: MA_JJ_files/figure-latex/HistAll-1.pdf used on input l
+ine 29.
+(pdftex.def)             Requested size: 230.46739pt x 159.55524pt.
+ [29
 
-] [31
+ <./MA_JJ_files/figure-latex/HistAll-1.pdf>]
+<MA_JJ_files/figure-latex/HistFosMo-1.pdf, id=816, 469.755pt x 325.215pt>
+File: MA_JJ_files/figure-latex/HistFosMo-1.pdf Graphic file (type pdf)
 
-])
-\openout2 = `SumPres.aux'.
+<use MA_JJ_files/figure-latex/HistFosMo-1.pdf>
+Package pdftex.def Info: MA_JJ_files/figure-latex/HistFosMo-1.pdf used on input
+ line 42.
+(pdftex.def)             Requested size: 140.92758pt x 97.56525pt.
 
+<MA_JJ_files/figure-latex/HistCI-1.pdf, id=817, 469.755pt x 325.215pt>
+File: MA_JJ_files/figure-latex/HistCI-1.pdf Graphic file (type pdf)
 
-(SumPres.tex [32
+<use MA_JJ_files/figure-latex/HistCI-1.pdf>
+Package pdftex.def Info: MA_JJ_files/figure-latex/HistCI-1.pdf used on input li
+ne 42.
+(pdftex.def)             Requested size: 140.92758pt x 97.56525pt.
+ [30
 
+ <./MA_JJ_files/figure-latex/HistFosMo-1.pdf> <./MA_JJ_files/figure-latex/HistC
+I-1.pdf>]
+<MA_JJ_files/figure-latex/HistFMCI-1.pdf, id=858, 469.755pt x 325.215pt>
+File: MA_JJ_files/figure-latex/HistFMCI-1.pdf Graphic file (type pdf)
 
+<use MA_JJ_files/figure-latex/HistFMCI-1.pdf>
+Package pdftex.def Info: MA_JJ_files/figure-latex/HistFMCI-1.pdf used on input 
+line 49.
+(pdftex.def)             Requested size: 211.3878pt x 146.3454pt.
+ [31
+
+ <./MA_JJ_files/figure-latex/HistFMCI-1.pdf>] [32
 
 ] [33
 
-] [34
+]
+<MA_JJ_files/figure-latex/BPGBins-1.pdf, id=939, 469.755pt x 325.215pt>
+File: MA_JJ_files/figure-latex/BPGBins-1.pdf Graphic file (type pdf)
 
-] [35
+<use MA_JJ_files/figure-latex/BPGBins-1.pdf>
+Package pdftex.def Info: MA_JJ_files/figure-latex/BPGBins-1.pdf used on input l
+ine 92.
+(pdftex.def)             Requested size: 276.559pt x 191.4633pt.
 
-] [36
+Overfull \vbox (21.68576pt too high) detected at line 92
+ []
 
-] [37
+[34
 
-] [38
+ <./MA_JJ_files/figure-latex/BPGBins-1.pdf>]
+<MA_JJ_files/figure-latex/BPMF-1.pdf, id=969, 469.755pt x 325.215pt>
+File: MA_JJ_files/figure-latex/BPMF-1.pdf Graphic file (type pdf)
 
-] [39
+<use MA_JJ_files/figure-latex/BPMF-1.pdf>
+Package pdftex.def Info: MA_JJ_files/figure-latex/BPMF-1.pdf used on input line
+ 101.
+(pdftex.def)             Requested size: 140.92758pt x 97.56525pt.
 
-]) [40
+<MA_JJ_files/figure-latex/BPCI-1.pdf, id=970, 469.755pt x 325.215pt>
+File: MA_JJ_files/figure-latex/BPCI-1.pdf Graphic file (type pdf)
+
+<use MA_JJ_files/figure-latex/BPCI-1.pdf>
+Package pdftex.def Info: MA_JJ_files/figure-latex/BPCI-1.pdf used on input line
+ 101.
+(pdftex.def)             Requested size: 140.92758pt x 97.56525pt.
+ [35
+
+ <./MA_JJ_files/figure-latex/BPMF-1.pdf> <./MA_JJ_files/figure-latex/BPCI-1.pdf
+>]
+<MA_JJ_files/figure-latex/BPFMCI-1.pdf, id=1005, 469.755pt x 325.215pt>
+File: MA_JJ_files/figure-latex/BPFMCI-1.pdf Graphic file (type pdf)
+
+<use MA_JJ_files/figure-latex/BPFMCI-1.pdf>
+Package pdftex.def Info: MA_JJ_files/figure-latex/BPFMCI-1.pdf used on input li
+ne 109.
+(pdftex.def)             Requested size: 230.46739pt x 159.55524pt.
+ [36
+
+ <./MA_JJ_files/figure-latex/BPFMCI-1.pdf>] [37
+
+]
+<MA_JJ_files/figure-latex/paleoTScombined1.pdf, id=1059, 469.755pt x 325.215pt>
+File: MA_JJ_files/figure-latex/paleoTScombined1.pdf Graphic file (type pdf)
+<use MA_JJ_files/figure-latex/paleoTScombined1.pdf>
+Package pdftex.def Info: MA_JJ_files/figure-latex/paleoTScombined1.pdf used on 
+input line 140.
+(pdftex.def)             Requested size: 230.46739pt x 159.55524pt.
+ [38
+
+ <./MA_JJ_files/figure-latex/paleoTScombined1.pdf>]
+<MA_JJ_files/figure-latex/paleoTScombined2.pdf, id=1089, 469.755pt x 325.215pt>
+File: MA_JJ_files/figure-latex/paleoTScombined2.pdf Graphic file (type pdf)
+<use MA_JJ_files/figure-latex/paleoTScombined2.pdf>
+Package pdftex.def Info: MA_JJ_files/figure-latex/paleoTScombined2.pdf used on 
+input line 140.
+(pdftex.def)             Requested size: 230.46739pt x 159.55524pt.
+ [39
+
+ <./MA_JJ_files/figure-latex/paleoTScombined2.pdf>]
+<MA_JJ_files/figure-latex/paleoTScombined3.pdf, id=1119, 469.755pt x 325.215pt>
+File: MA_JJ_files/figure-latex/paleoTScombined3.pdf Graphic file (type pdf)
+<use MA_JJ_files/figure-latex/paleoTScombined3.pdf>
+Package pdftex.def Info: MA_JJ_files/figure-latex/paleoTScombined3.pdf used on 
+input line 140.
+(pdftex.def)             Requested size: 230.46739pt x 159.55524pt.
+ [40
+
+ <./MA_JJ_files/figure-latex/paleoTScombined3.pdf>])
+\openout2 = `SumPres.aux'.
+
+ (SumPres.tex [41
+
+
+
+] [42
+
+] [43
+
+] [44
+
+] [45
+
+] [46
+
+]
+[47
+
+] [48
+
+]) [49
 
 
 ]
@@ -1427,12 +1550,12 @@ Overfull \vbox (26.41989pt too high) detected at line 29
 \tf@snm=\write10
 \openout10 = `MAdefense.snm'.
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 90.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 90.
- (MAdefense.aux
-(IntroPres.aux) (MMPres.aux) (ResPres.aux) (SumPres.aux))
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 90.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 90.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 91.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 91.
+ (MAdefense.aux (IntroPres.aux) (MMPres.aux) (ResPres.aux)
+(SumPres.aux))
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 91.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 91.
 
 
 Package rerunfilecheck Warning: File `MAdefense.out' has changed.
@@ -1440,31 +1563,28 @@ Package rerunfilecheck Warning: File `MAdefense.out' has changed.
 (rerunfilecheck)                or use package `bookmark'.
 
 Package rerunfilecheck Info: Checksums for `MAdefense.out':
-(rerunfilecheck)             Before: 3D2844010983E1D4F2CE98A4C6A524E9;698
-(rerunfilecheck)             After:  02A6C07C6505E356A6E015EEDAA143CC;698.
+(rerunfilecheck)             Before: D3F6BE0587DB1F374070F1221F18AE20;698
+(rerunfilecheck)             After:  DDBE8BF5788EF23617511DE2385F28C8;698.
  ) 
 Here is how much of TeX's memory you used:
- 26359 strings out of 493323
- 511001 string characters out of 3139070
- 597264 words of memory out of 3000000
- 29163 multiletter control sequences out of 15000+200000
- 47897 words of font info for 74 fonts, out of 3000000 for 9000
+ 26506 strings out of 493323
+ 514393 string characters out of 3139070
+ 604205 words of memory out of 3000000
+ 29276 multiletter control sequences out of 15000+200000
+ 50173 words of font info for 82 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
  56i,19n,79p,806b,803s stack positions out of 5000i,500n,10000p,200000b,50000s
-pdfTeX warning (dest): name{Outline0.6.1.25} has been referenced but does not
+pdfTeX warning (dest): name{Outline0.6.1.39} has been referenced but does not
  exist, replaced by a fixed one
-
-pdfTeX warning (dest): name{Outline0.3.1.22} has been referenced but does not e
-xist, replaced by a fixed one
 
 {C:/Program Files/MiKTeX 2.9/fonts/enc/dvips/iwona/mi-iwona.enc}{C:/Program Fil
 es/MiKTeX 2.9/fonts/enc/dvips/iwona/rm-iwona.enc}{C:/Program Files/MiKTeX 2.9/f
 onts/enc/dvips/iwona/sy-iwona.enc}<C:/Program Files/MiKTeX 2.9/fonts/type1/nowa
 cki/iwona/iwonab.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/nowacki/iwona/iwo
 nar.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/nowacki/iwona/iwonari.pfb>
-Output written on MAdefense.pdf (40 pages, 727897 bytes).
+Output written on MAdefense.pdf (49 pages, 936598 bytes).
 PDF statistics:
- 867 PDF objects out of 1000 (max. 8388607)
- 96 named destinations out of 1000 (max. 500000)
- 136 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 1403 PDF objects out of 1440 (max. 8388607)
+ 113 named destinations out of 1000 (max. 500000)
+ 191 words of extra memory for PDF output out of 10000 (max. 10000000)
 

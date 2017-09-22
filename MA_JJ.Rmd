@@ -2357,7 +2357,7 @@ kable(PaleoGenConFit, caption="Model-fitting results for testudinidae, genera, i
 
 ```
 
-```{r "Combine paleoTS plots", echo=FALSE, fig.cap="Combined paleoTS plots"}
+```{r "paleoTScombined", echo=FALSE, fig.cap="Combined paleoTS plots"}
 
 # GenusPaleo
 # GenusPaleoIs
@@ -2369,22 +2369,77 @@ GenusPaleoCon$tt <- -GenusPaleoCon$tt
 
 
 
-allPTS <- GenusPaleo %>%
+allPTS1 <- GenusPaleo %>%
   ggplot(aes(tt,mm)) + geom_line(colour="black") + geom_point(size=3,colour="black") +
-  #geom_linerange(position="jitter", aes(ymin = mm-(sqrt(vv/nn)), ymax = mm+(sqrt(vv/nn)), colour="black")) +
-  geom_line(data=GenusPaleoIs, aes(tt,mm, colour="blue")) + geom_point(data=GenusPaleoIs, aes(tt,mm, colour="blue")) +
+  geom_linerange(position="jitter", aes(ymin = mm-(sqrt(vv/nn)), ymax = mm+(sqrt(vv/nn)), colour="black")) +
+ # geom_line(data=GenusPaleoIs, aes(tt,mm, colour="blue")) + geom_point(data=GenusPaleoIs, aes(tt,mm, colour="blue")) +
   #geom_linerange(data=GenusPaleoIs,position="jitter", aes(ymin = mm-(sqrt(vv/nn)), ymax = mm+(sqrt(vv/nn)), colour="blue")) +
-  geom_line(data=GenusPaleoCon, aes(tt,mm, colour="red")) + geom_point(data=GenusPaleoCon, aes(tt,mm, colour="red")) +
+ # geom_line(data=GenusPaleoCon, aes(tt,mm, colour="red")) + geom_point(data=GenusPaleoCon, aes(tt,mm, colour="red")) +
   #geom_linerange(data=GenusPaleoCon,position="jitter", aes(ymin = mm-(sqrt(vv/nn)), ymax = mm+(sqrt(vv/nn)), colour="red")) +
   theme_classic() +
   theme(legend.background = element_rect(colour = 'black'),
         panel.border = element_rect(colour = "black", fill=NA)) +
-  scale_colour_brewer(palette="Set1") +
-  xlab("Timme [mya]") +
+  scale_colour_brewer(palette="Set1" ,
+                      guide="none"
+                      #name="Geographic\nDistribution",
+                     #    labels=c("continental", "insular")
+                      ) +  #"general", 
+  xlab("Time [mya]") +
+  ylab("Carapace length [mm]") #+
+#  scale_x_continuous(limits = c(-6.5,0))
+  
+
+allPTS1
+
+
+
+allPTS2 <- GenusPaleo %>%
+  ggplot(aes(tt,mm)) + geom_line(colour="black") + geom_point(size=3,colour="black") +
+  geom_linerange(position="jitter", aes(ymin = mm-(sqrt(vv/nn)), ymax = mm+(sqrt(vv/nn)), colour="black")) +
+  geom_line(data=GenusPaleoIs, aes(tt,mm, colour="blue")) + geom_point(data=GenusPaleoIs, aes(tt,mm, colour="blue")) +
+  geom_linerange(data=GenusPaleoIs,position="jitter", aes(ymin = mm-(sqrt(vv/nn)), ymax = mm+(sqrt(vv/nn)), colour="blue")) +
+ # geom_line(data=GenusPaleoCon, aes(tt,mm, colour="red")) + geom_point(data=GenusPaleoCon, aes(tt,mm, colour="red")) +
+  #geom_linerange(data=GenusPaleoCon,position="jitter", aes(ymin = mm-(sqrt(vv/nn)), ymax = mm+(sqrt(vv/nn)), colour="red")) +
+  theme_classic() +
+  theme(legend.background = element_rect(colour = 'black'),
+        panel.border = element_rect(colour = "black", fill=NA)) +
+  scale_colour_brewer(palette="Set1" , guide="none"
+                      #name="Geographic\nDistribution",
+                     #    labels=c("continental", "insular")
+                      ) +  #"general", 
+  xlab("Time [mya]") +
+  ylab("Carapace length [mm]") #+
+#  scale_x_continuous(limits = c(-6.5,0))
+  
+
+allPTS2
+
+
+
+
+
+allPTS3 <- GenusPaleo %>%
+  ggplot(aes(tt,mm)) + geom_line(colour="black") + geom_point(size=3,colour="black") +
+  geom_linerange(position="jitter", aes(ymin = mm-(sqrt(vv/nn)), ymax = mm+(sqrt(vv/nn)), colour="black")) +
+  geom_line(data=GenusPaleoIs, aes(tt,mm, colour="blue")) + geom_point(data=GenusPaleoIs, aes(tt,mm, colour="blue")) +
+  geom_linerange(data=GenusPaleoIs,position="jitter", aes(ymin = mm-(sqrt(vv/nn)), ymax = mm+(sqrt(vv/nn)), colour="blue")) +
+  geom_line(data=GenusPaleoCon, aes(tt,mm, colour="red")) + geom_point(data=GenusPaleoCon, aes(tt,mm, colour="red")) +
+  geom_linerange(data=GenusPaleoCon,position="jitter", aes(ymin = mm-(sqrt(vv/nn)), ymax = mm+(sqrt(vv/nn)), colour="red")) +
+  theme_classic() +
+  theme(legend.background = element_rect(colour = 'black'),
+        panel.border = element_rect(colour = "black", fill=NA)) +
+  scale_colour_brewer(palette="Set1" ,guide="none"
+                      #name="Geographic\nDistribution",
+                     #    labels=c("continental", "insular")
+                      ) +  #"general", 
+  xlab("Time [mya]") +
   ylab("Carapace length [mm]") +
   scale_x_continuous(limits = c(-6.5,0))
+  
 
-allPTS
+allPTS3
+
+
 
 #plot(GenusPaleo$tt, GenusPaleo$mm, type="l")
 
