@@ -7,7 +7,7 @@
 %\begin{picture}(300,250)
 %\put(170,80){
 \begin{center}
-	\includegraphics[width=0.7\textwidth]{MA_JJ_files/figure-latex/MapFossilOccurrences-1.pdf}
+	\includegraphics[width=0.6\textwidth]{MA_JJ_files/figure-latex/MapFossilOccurrences-1.pdf}
 \end{center}
 
 %\includegraphics[height=5 cm]<4-5>{pics/mm2.png}
@@ -21,9 +21,9 @@
 \begin{itemize} %[<+->]
 \p<1-> occurrences (black): 796 individuals, 647 localitis (Eocene - recent)
 \bigskip
-\p<2-> body size data (blue): 376 individuals, 193 localities (Miocene - recent)
-\bigskip
-\p<3-> of those: 106 from FosFarBase
+\p<2-> body size data (blue): 376 individuals, 193 localities (Miocene - recent) (106 loc in FFB)
+%\bigskip
+%\p<3-> of those: 106 from FosFarBase
 \end{itemize}
 %\end{minipage}}
 %}
@@ -36,7 +36,14 @@
 \begin{frame}{Carapace length measurements/estimations}
 %\begin{picture}(300,250)
 %\put(170,80){
-%\includegraphics[width=0.7\textwidth]{MA_JJ_files/figure-latex/MapFossilOccurrences-1.pdf}
+\begin{center}
+	\includegraphics<1>[width=\textwidth]{pics/cl4.png}
+	\includegraphics<2>[width=\textwidth]{pics/cl3.png}
+	\includegraphics<3>[width=\textwidth]{pics/cl2.png}
+	\includegraphics<4>[width=\textwidth]{pics/cl1.png}
+\end{center}
+
+
 %\includegraphics[height=5 cm]<4-5>{pics/mm2.png}
 %\includegraphics[height=5 cm]<6>{pics/mm3.png}
 %\includegraphics[height=5 cm]<7->{pics/mm4.png}
@@ -45,13 +52,13 @@
 %\put(20,190){
 %\fbox{
 %\begin{minipage}[t]{0.5\linewidth}
-\begin{itemize} %[<+->]
-	\p<1-> exact measurements or estimations by original authors (n=...)
-	\bigskip
-	\p<2-> estimations from CL/PL ratio (--> extant measurements)
-	\bigskip
-	\p<3-> estimations from humeri/femora length, others (claw phalanges, verbal desription etc.)
-\end{itemize}
+%\begin{itemize} %[<+->]
+%	\p<1-> exact measurements or estimations by original authors (n=...)
+%	\bigskip
+%	\p<2-> estimations from CL/PL ratio (--> extant measurements)
+%	\bigskip
+%	\p<3-> estimations from humeri/femora length, others (claw phalanges, verbal desription etc.)
+%\end{itemize}
 %\end{minipage}}
 %}
 
@@ -62,7 +69,8 @@
 \begin{frame}{Methods}
 %\begin{picture}(300,250)
 %\put(170,80){
-%\includegraphics[width=0.7\textwidth]{MA_JJ_files/figure-latex/MapFossilOccurrences-1.pdf}
+
+
 %\includegraphics[height=5 cm]<4-5>{pics/mm2.png}
 %\includegraphics[height=5 cm]<6>{pics/mm3.png}
 %\includegraphics[height=5 cm]<7->{pics/mm4.png}
@@ -72,14 +80,37 @@
 %\fbox{
 %\begin{minipage}[t]{0.5\linewidth}
 \begin{itemize} %[<+->]
-	\p<1-> SACs to check if sampling was sufficient --> generic level! add figure!!
+	\p<1-> sampling accumulation curves to check if sampling was sufficient 
+	\p[\pf]<2-> use genera
+	%\bigskip
+\end{itemize}
+\begin{center}
+	\includegraphics<2>[width=0.8\textwidth]{MA_JJ_files/figure-latex/SACGenera-1.pdf}
+\end{center}
+\begin{itemize}
+	\p<3-> histograms/density plots and boxplots (plus kruskal-wallis test, wilcoxon rank test)
 	\bigskip
-	\p<2-> histograms/density plots and boxplots (plus kruskal-wallis test, wilcoxon rank test)
-	\bigskip
-	\p<3-> paleoTS: fit different models to evolutionary trajectory of testudinid body size
+	\p<4-> paleoTS: fit different models to evolutionary trajectory of testudinid body size
 \end{itemize}
 %\end{minipage}}
 %}
 
 %\end{picture}
+\end{frame}
+
+\begin{frame}
+
+\begin{center}
+	\includegraphics<1>[width=0.75\textwidth]{pics/evolution1.png}
+	\includegraphics<2>[width=0.75\textwidth]{pics/evolution2.png}
+	\includegraphics<3>[width=0.75\textwidth]{pics/evolution3.png}
+\end{center}
+
+\end{frame}
+
+\begin{frame}
+\begin{center}
+\includegraphics[width=0.75\textwidth]{MA_JJ_files/figure-latex/overviewData-1.pdf}
+\end{center}
+
 \end{frame}
