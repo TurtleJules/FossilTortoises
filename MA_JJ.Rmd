@@ -231,19 +231,21 @@ scatter <- testRatio %>%
   ggplot(aes(-Age, CL))+ # for time to start at the left: -Age
   geom_vline(xintercept = c(0, -0.0117, -0.126, -0.781, -1.806, -2.588, -3.6,
                                   -5.332, -7.246, -11.608, -13.82, -15.97, -23.03))+ 
-  geom_jitter(aes(shape=Insularity, colour= Con)) +
+  geom_jitter() + #aes(shape=Insularity, colour= Con)
   theme_classic() +
   # geom_vline(xintercept= c(0, 0.0117, 0.126, 0.781, 2.588, 3.6, 5.332, 11.608, 15.97, 23.03)) +
    geom_vline(xintercept= -20.44, linetype="dashed")  +
   scale_color_manual(values=c("#000000", "#E69F00",  "#FF00FF", "#009E73", "#56B4E9","#F0E442", "#0072B2", "#D55E00", "#CC79A7") , name="Continents")+
  # scale_shape_manual(values= c(16, 17), name="Insularity", breaks=c("continental", "insular")) +
-  xlab("Age [mya]") + ylab("Carapace length [mm]")#+ #+ coord_trans(x="log2") +
+  xlab("Time [mya]") + ylab("Carapace length [mm]")#+ #+ coord_trans(x="log2") +
   #scale_x_log10()
  # labs(shape="Insularity", colour="Continents")
   # 
 
 
 scatter
+
+ggsave("OvervieData.png", height=5, width=8, units='in', dpi=800)
 
 #length(scatter$CL)
 
@@ -311,6 +313,8 @@ scale_x_continuous(breaks=c(-180, -100, 0, 100, 180)) +
 
 mapOc
 
+ggsave("MapOccurrences.png", height=5, width=8, units='in', dpi=800)
+
 # require(plotly)
 # ggplotly(mapOc)
 
@@ -369,6 +373,7 @@ scale_x_continuous(breaks=c(-180, -100, 0, 100, 180)) +
 
 mapCL
 
+ggsave("MapBodysize.png", height=5, width=8, units='in', dpi=800)
 
 ```
 
@@ -447,7 +452,9 @@ library(vegan)
 
 veganSR=veganSR[,-1]
 veganspSR=specaccum(veganSR,method="rarefaction", permutations=1000)
+jpeg('SACSpecies.jpg')
 plot(veganspSR,xlab="No. of References",ylab="Species Richness", xvar="individuals", ci.type="line", ci.lty=2, ci.col="grey", col="deepskyblue4", lwd=2)
+dev.off()
 
 
 ```
@@ -484,8 +491,9 @@ veganGR <- tidyCL %>%
 
 veganGR=veganGR[,-1]
 veganspGR=specaccum(veganGR,method="rarefaction", permutations=1000)
+jpeg('SACGenera.jpg')
 plot(veganspGR,xlab="No. of References",ylab="Genera Richness", xvar="individuals", ci.type="line", ci.lty=2, ci.col="grey", col="deepskyblue4", lwd=2)
-
+dev.off()
 
 ```
 
@@ -706,6 +714,7 @@ HistCL <- PleiPlioCL %>%
 #HistCLModern
 HistCL  
 
+ggsave("HistAll.png", height=5, width=8, units='in', dpi=800)
 
 
 
@@ -823,6 +832,8 @@ HistCLFossil <- PleiPlioCL %>%
 
 HistCLFossil
 
+ggsave("HistModernFossil.png", height=5, width=8, units='in', dpi=800)
+
 
 StatsFossil <- PleiPlioCL %>%
   merge(Epochs) %>%
@@ -868,6 +879,8 @@ HistCLFossilIsland <- PleiPlioCL %>%
 
 HistCLFossilIsland
 
+ggsave("HistModernFossilInsularContinental.png", height=5, width=8, units='in', dpi=800)
+
 
 StatsFossilIsland <- PleiPlioCL %>%
   merge(Epochs) %>%
@@ -908,6 +921,8 @@ HistCLIsland <- PleiPlioCL %>%
 
 #HistCLModern
 HistCLIsland
+
+ggsave("HistInsularContinental.png", height=5, width=8, units='in', dpi=800)
 
 
 StatsIsland <- PleiPlioCL %>%
@@ -1084,6 +1099,8 @@ BinGenera <- PleiPlioCL %>%
 
 BinGenera
 
+ggsave("BoxplotBins.png", height=5, width=8, units='in', dpi=800)
+
 ####generic level
 # Multiple comparison after Kruskal-Wallis Test
 
@@ -1110,6 +1127,10 @@ MCKW <- data.frame(kruskalmc(PleiPlioCL$CL,PleiPlioCL$EpochBins))
 
 
 ```{r "Kruskal Wallis Test", echo=FALSE}
+
+# PleiPlioCL <- PleiPlioCL %>%
+#   dplyr::filter(Island == "y") # n
+
 
 M <- PleiPlioCL$CL[which(PleiPlioCL$EpochBins=="Modern")]
 UPle <- PleiPlioCL$CL[which(PleiPlioCL$EpochBins=="Upper Pleistocene")]
@@ -1235,6 +1256,8 @@ TimeSlice <- PleiPlioCL %>%
   
 TimeSlice
 
+ggsave("BoxplotModernFossils.png", height=5, width=8, units='in', dpi=800)
+
 
 TimeSlice <- PleiPlioCL %>%
   merge(TimeSlices) %>%
@@ -1345,6 +1368,9 @@ BinGenera <- PleiPlioCL %>%
 
 BinGenera
 
+ggsave("BoxplotBinsConIs.png", height=5, width=8, units='in', dpi=800)
+
+
 ```
 
 
@@ -1397,6 +1423,8 @@ BinGenera <- PleiPlioCL %>%
  annotate("text", x=0.5, y=2200,label= "n =")
 
 BinGenera
+
+ggsave("BoxplotMoFos.png", height=5, width=8, units='in', dpi=800)
 
 # library(plotly)
 # ggplotly(BinGenera)
@@ -1518,6 +1546,7 @@ BinGenera <- PleiPlioCL %>%
 
 BinGenera
 
+ggsave("BoxplotModernFossilContinentalIsland.png", height=5, width=8, units='in', dpi=800)
 
 
 
@@ -1651,6 +1680,7 @@ IslandAll <- testRatio %>%
 
 IslandAll
 
+ggsave("BoxplotContinentalIsland.png", height=5, width=8, units='in', dpi=800)
 
 
 
@@ -1779,6 +1809,7 @@ ContinentAll <- PleiPlioCL %>%
 
 ContinentAll
 
+ggsave("BoxplotContinents.png", height=5, width=8, units='in', dpi=800)
 
 ######
 
@@ -2019,6 +2050,8 @@ paleoGen <-as.paleoTS(GenusPaleo$mm, GenusPaleo$vv, GenusPaleo$nn, GenusPaleo$tt
 
 paleoGen$tt = -paleoGen$tt
 
+
+jpeg('paleoTSAll.jpg', width=800, height=500)
 plot(paleoGen)
 
 # plot(GenusPaleo$tt, GenusPaleo$mm, type="b", xlab="Time", ylab="Trait Mean")
@@ -2027,7 +2060,7 @@ plot(paleoGen)
 abline(h=mean(GenusPaleo$mm), lty=5)
 
 points(x=c(-2.59, -5.33), y=c(245, 245), pch=17)
-
+dev.off()
 
 #abline(v=3.2)
 
@@ -2187,12 +2220,13 @@ paleoGenIs <-as.paleoTS(GenusPaleoIs$mm, GenusPaleoIs$vv, GenusPaleoIs$nn, Genus
 
 paleoGenIs$tt = -paleoGenIs$tt
 
+jpeg('paleoTSContinental.jpg')
 plot(paleoGenIs)
 
 abline(h=mean(GenusPaleoIs$mm), lty=5)
 
 points(x=c(-2.59, -5.33), y=c(175, 175), pch=17)
-
+dev.off()
 #abline(h=median(GenusPaleoIs$mm), lty=6)
 
 
@@ -2323,12 +2357,13 @@ paleoGenCon <-as.paleoTS(GenusPaleoCon$mm, GenusPaleoCon$vv, GenusPaleoCon$nn, G
 
 paleoGenCon$tt = -paleoGenCon$tt
 
+jpeg('paleoTSInsular.jpg')
 plot(paleoGenCon)
 
 abline(h=mean(GenusPaleoCon$mm), lty=5)
 
 points(x=c(-2.59, -5.33), y=c(290, 290), pch=17)
-
+dev.off()
 
 # abline(h=median(GenusPaleoCon$mm), lty=2)
 # 
