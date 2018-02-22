@@ -3,31 +3,20 @@ The style file: apalike.bst
 A level-1 auxiliary file: FossilTab.aux
 A level-1 auxiliary file: ExtantTab.aux
 Database file #1: MA_fossilTortoises.bib
-Repeated entry---line 1586 of file MA_fossilTortoises.bib
- : @inproceedings{Franz2001a
- :                          ,
+Repeated entry---line 3681 of file MA_fossilTortoises.bib
+ : @article{Bohme2003
+ :                   ,
 I'm skipping whatever remains of this entry
-Repeated entry---line 2015 of file MA_fossilTortoises.bib
- : @article{Bohme2003b
- :                    ,
-I'm skipping whatever remains of this entry
-Repeated entry---line 6114 of file MA_fossilTortoises.bib
- : @article{Pimiento2015
- :                      ,
-I'm skipping whatever remains of this entry
+Warning--I didn't find a database entry for "Franz2001"
 Warning--empty booktitle in Carlson1999
 Warning--empty publisher in Carlson1999
 Warning--there's a number but no volume in Gotelli2011
-Warning--empty journal in Hay1908
-Warning--empty journal in Hunt2006
+Warning--empty publisher in Lyons2008
 Warning--there's a number but no volume in McNeese2016
-Warning--empty publisher in Peters1983
-Warning--empty journal in Pritchard2013
-Warning--there's a number but no volume in Pritchard2013
 Warning--empty journal in Schleich1981
 Warning--empty booktitle in Smith2009
 Warning--empty publisher in Smith2009
 Warning--there's a number but no volume in Tong2006
 Warning--empty journal in VanDijk2014
 Warning--empty journal in Vlachos2014
-(There were 3 error messages)
+(There was 1 error message)

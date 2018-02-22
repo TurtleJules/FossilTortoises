@@ -579,7 +579,12 @@ ggplotly(mapAll) # check if plotly and tidyverse have been loaded
 
 
 ########### PHYLOGENY ############
-setwd("//naturkundemuseum-berlin.de/MuseumDFSRoot/Benutzer/Julia.Joos/Eigene Dateien/MA/Tortoise_Analyses")
+#setwd("//naturkundemuseum-berlin.de/MuseumDFSRoot/Benutzer/Julia.Joos/Eigene Dateien/MA/Tortoise_Analyses")
+
+setwd("C:/Users/Jule/Documents/Uni/MA")
+
+library(ape)
+library(phytools)
 #read tree
 tree<-read.nexus("tree.nex") #package ape
 plot(tree)
@@ -592,7 +597,7 @@ writeNexus(tree2, file="tree_testudinidae.nex")
 #add fossils
 targetNode<-findMRCA(tree2,c("Astrochelys_radiata","Aldabrachelys_grandidieri")) #gives common ancestor 
 targetNode<-findMRCA(tree2,c("Aldabrachelys_gigantea","Aldabrachelys_grandidieri")) #gives common ancestor     #phytools
-tree_fossil<-bind.tip(tree2,"Aldabrachelys_abrupta†",where=targetNode,position=0,edge.length=32) #phytools
+tree_fossil<-bind.tip(tree2,"Aldabrachelys_abrupta",where=targetNode,position=0,edge.length=32) #phytools
 #position is ma before the node, lenght is how long it lasted
 #A. abrupta: position=0,edge.length=24.85501
 #34.855759-0.00075 = edge.lentgh -> but can't be right, because A. abrupta lasted till Late Holocene

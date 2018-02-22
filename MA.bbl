@@ -9,7 +9,7 @@ Angielczyk, K.~D., Burroughs, R.~W., and Feldman, C.~R. (2015).
 
 \bibitem[Angilletta et~al., 2004]{AngillettaJr2004a}
 Angilletta, M.~J., Steury, T.~D., and Sears, M.~W. (2004).
-\newblock {Temperature, Growth Rate, and Body Size in Ectotherms : Fitting
+\newblock {Temperature, Growth Rate, and Body Size in Ectotherms: Fitting
   Pieces of a Life-History Puzzle}.
 \newblock {\em Integrative and Comparative Biology}, 44(6):498--509.
 
@@ -50,12 +50,15 @@ Austin, J.~J. and {Nicholas Arnold}, E. (2001).
 Avery, G., Kandel, A., Klein, R.~G., Conard, N.~J., and Cruz-Uribe, K. (2004).
 \newblock {Tortoises as food and taphonomic elements in palaeo
   “landscapes”}.
-\newblock {\em Petits animaux et {\ldots}}, pages 147--161.
+\newblock {\em Petits animaux et societes humaines: du complement alimentaire
+  aux ressources utilitaires, Editions APDCA, Antibes}, pages 147--161.
 
 \bibitem[Bachmayer, 1979]{Bachmayer1979}
 Bachmayer, F. (1979).
 \newblock {Fossile Schildkr{\"{o}}ten aus dem Plioz{\"{a}}n von Megalo Emvolo
   bei Saloniki Griechenland}.
+\newblock {\em Annales G{\'{e}}ologiques des Pays Hell{\'{e}}niques},
+  31:267284.
 
 \bibitem[Bai and Ng, 2005]{Bai2005}
 Bai, J. and Ng, S. (2005).
@@ -88,7 +91,7 @@ Bergmann, C. (1848).
 Biton, R., Sharon, G., Oron, M., Steiner, T., and Rabinovich, R. (2017).
 \newblock {Freshwater turtle or tortoise? The exploitation of testudines at the
   Mousterian Site of Nahal Mahanayeem Outlet, Hula Valley, Israel}.
-\newblock {\em Journal of Human Evolution}, 14(May):409--419.
+\newblock {\em Journal of Human Evolution}, 14:409--419.
 
 \bibitem[Blackburn and Gaston, 1994]{Blackburn1994a}
 Blackburn, T.~M. and Gaston, K.~J. (1994).
@@ -129,11 +132,10 @@ Blueweiss, L., Fox, H., Kudzma, V., Nakashima, D., Peters, R., and Sams, S.
 \newblock {Relationships between body size and some life history parameters}.
 \newblock {\em Oecologica}, 37:257--272.
 
-\bibitem[B{\"{o}}hme and Ilg, 2003]{Bohme2003b}
+\bibitem[B{\"{o}}hme and Ilg, 2003]{Bohme2003}
 B{\"{o}}hme, M. and Ilg, A. (2003).
 \newblock {FosFARbase}.
-\newblock {\em Available at www. wahre- staerke. com/. Accessed October},
-  10:2011.
+\newblock {\em Available at www. wahre- staerke.com/}.
 
 \bibitem[Braithwaite, 2016]{Braithwaite2016}
 Braithwaite, C.~J. (2016).
@@ -164,8 +166,8 @@ Carlson, L.~A. (2000).
 Cheke, A.~S., Pedrono, M., Bour, R., Anderson, A., Griffiths, C., Iverson,
   J.~B., Hume, J.~P., and Walsh, M. (2016).
 \newblock {Giant tortoises spread to western Indian Ocean islands by sea drift
-  in pre-Holocene times, not by later human agency - response to Wilm?? et al.
-  (2016a)}.
+  in pre-Holocene times, not by later human agency - response to Wilm{\'{e}} et
+  al. (2016a)}.
 \newblock {\em Journal of Biogeography}, pages 1426--1429.
 
 \bibitem[Cione et~al., 2003]{Cione2003}
@@ -180,12 +182,13 @@ Claude, J., Naksri, W., Boonchai, N., Buffetaut, E., Duangkrayom, J.,
   Suteethorn, Varavudh, Tong}, H. (2011).
 \newblock {Neogene reptiles of northeastern Thailand and their paleogeographcal
   significance}.
+\newblock {\em Annales de Pal{\'{e}}ontologie}, 97:113--131.
 
 \bibitem[Cope, 1871]{Cope1871}
 Cope, E.~D. (1871).
 \newblock {Second Account of New Vertebrata from the Bridger Eoceno}.
-\newblock {\em Proceedings of the Ame Author ( s ): Edward D . Cope Source :
-  Proceedings rican Philosophical Society}, 12(86):466--468.
+\newblock {\em Proceedings of the American Philosophical Society},
+  12(86):466--468.
 
 \bibitem[Cope, 1887]{Cope1887}
 Cope, E.~D. (1887).
@@ -208,11 +211,11 @@ Cope, E.~D. (1887).
 \newblock {A giant tortoise from the Late Pliocene of Lesvos Island (Greece)
   and its possible relationships}.
 
-\bibitem[{de Lapparent de Broin} et~al., 2006]{DeLapparentdeBroin2006}
-{de Lapparent de Broin}, F., Bour, R., Parham, J.~F., and Per{\"{a}}l{\"{a}},
+\bibitem[{De Lapparent de Broin} et~al., 2006]{DeLapparentdeBroin2006}
+{De Lapparent de Broin}, F., Bour, R., Parham, J.~F., and Per{\"{a}}l{\"{a}},
   J. (2006).
-\newblock {Eurotestudo, a??new genus for??the??species Testudo??hermanni
-  Gmelin, 1789 (Chelonii, Testudinidae)}.
+\newblock {Eurotestudo, a new genus for the species Testudo hermanni Gmelin,
+  1789 (Chelonii, Testudinidae)}.
 \newblock {\em Comptes Rendus - Palevol}, 5(6):803--811.
 
 \bibitem[{De Lapparent De Broin} et~al., 2006]{LapparentdeBroin2006}
@@ -243,12 +246,8 @@ Foster, J.~B. (1964).
 \newblock {Evolution of mammals on islands}.
 \newblock {\em Nature}, 202:234--235.
 
-\bibitem[Franz et~al., 2001a]{Franz2001}
-Franz, R., Carlson, L.~A., Owen, R.~D., and Steadman, D. (2001a).
-\newblock {Fossil tortoises from the Turks and Caicos Islands, B.W.I.}
-
-\bibitem[Franz et~al., 2001b]{Franz2001a}
-Franz, R., Carlson, L.~A., Owen, R. D. R.~D., and Steadman, D. (2001b).
+\bibitem[Franz et~al., 2001]{Franz2001a}
+Franz, R., Carlson, L.~A., Owen, R. D. R.~D., and Steadman, D.~W. (2001).
 \newblock {Fossil tortoises from the Turks and Caicos Islands, BWI}.
 \newblock In {\em Proceedings of the 8th Symposium on the Natural History of
   the Bahamas. Gerace Research Center, San Salvador, Bahamas}, pages 27--31.
@@ -311,8 +310,8 @@ Hansen, D.~M., Donlan, C.~J., Griffiths, C.~J., and Campbell, K.~J. (2010).
 
 \bibitem[Hay, 1908]{Hay1908}
 Hay, O.~P. (1908).
-\newblock {The fossil turtles of North America, by Oliver Perry Hay.}
-\newblock page 568.
+\newblock {\em {The fossil turtles of North America}}.
+\newblock Carnegie institution of Washington.
 
 \bibitem[Hibbard, 1960]{Hibbard1960}
 Hibbard, C.~W. (1960).
@@ -339,8 +338,9 @@ Hunt, G. (2004).
 
 \bibitem[Hunt, 2006]{Hunt2006}
 Hunt, G. (2006).
-\newblock {Data Analysis in Paleontology Using}.
-\newblock pages 1--9.
+\newblock {Fitting and comparing models of phyletic evolution: random walks and
+  beyond}.
+\newblock {\em Paleobiology}, 32(04):578--601.
 
 \bibitem[Hunt, 2008]{Hunt2008}
 Hunt, G. (2008).
@@ -373,12 +373,12 @@ Hunter, E.~A., Gibbs, J.~P., Cayot, L.~J., and Tapia, W. (2013).
 \newblock {\em Conservation Biology}, 27(4):701--709.
 
 \bibitem[Hutterer et~al., 1998]{Hutterer1998}
-Hutterer, R., Garc{\'{i}}a-Talavera, F., L{\'{o}}pez-Mart{\'{i}}nez, N.,
-  Michaux, J., Hutterer, F., Garc{\'{i}}a-Talavera, F.,
-  L{\'{o}}pez-Mart{\'{i}}nez, N., and Michaux, J. (1998).
+Hutterer, R., Garc{\'{i}}a-Talavera, F., L{\'{o}}pez-Mart{\'{i}}nez, N., and
+  Michaux, J. (1998).
 \newblock {New chelonian eggs fom the tertiary of Lanzarote and Fuerteventura
   and a review of fossil tortoises of the Canary Islands (Reptilia,
   Testudinidae)}.
+\newblock {\em Vieraea}, 26(1997):139--161.
 
 \bibitem[Itescu et~al., 2014]{Itescu2014}
 Itescu, Y., Karraker, N.~E., Raia, P., Pritchard, P. C.~H., and Meiri, S.
@@ -423,8 +423,8 @@ Komsta, L. and Novomestky, F. (2015).
 
 \bibitem[Kozlowski and Gawelczyk, 2002]{Kozlowski2002}
 Kozlowski, J. and Gawelczyk, A.~T. (2002).
-\newblock {Why are species ' body size distributions usually skewed to the
-  right ?}
+\newblock {Why are species body size distributions usually skewed to the right
+  ?}
 \newblock {\em Functional Ecology}, 16(4):419--432.
 
 \bibitem[Lujan et~al., 2014]{Lujan2014}
@@ -434,11 +434,11 @@ Lujan, A.~H., Alba, D.~M., Fortuny, J., Carmona, R., and Delfino, M. (2014).
   Basin, NE Iberian Peninsula): taxonomic and phylogenetic implications}.
 \newblock {\em Journal of Systematic Palaeontology}, 12(7):833--864.
 
-\bibitem[Lyons and Smith, 2008]{Lyons2008}
-Lyons, S.~K. and Smith, F.~A. (2008).
+\bibitem[Lyons and Smith, 2013]{Lyons2008}
+Lyons, S.~K. and Smith, F.~A. (2013).
 \newblock {Macroecological Patterns of Body Size in Mammals across Time and
   Space}.
-\newblock {\em Animal Body Size: Linking Pattern and Process across Space,
+\newblock In {\em Animal Body Size: Linking Pattern and Process across Space,
   Time, and Taxonomic Group}, pages 116--144.
 
 \bibitem[McNeese, 2016]{McNeese2016}
@@ -487,9 +487,9 @@ Pedrono, M., Griffiths, O.~L., Clausen, A., Smith, L.~L., Griffiths, C.~J.,
 
 \bibitem[Peres and Nascimento, 2006]{Peres2006}
 Peres, C.~A. and Nascimento, H.~S. (2006).
-\newblock {Impact of game hunting by the Kayap?? of south-eastern Amazonia:
-  Implications for wildlife conservation in tropical forest indigenous
-  reserves}.
+\newblock {Impact of game hunting by the Kayap{\'{o}} of south-eastern
+  Amazonia: Implications for wildlife conservation in tropical forest
+  indigenous reserves}.
 \newblock {\em Biodiversity and Conservation}, 15(8):2627--2653.
 
 \bibitem[{P{\'{e}}rez Garc{\'{i}}a} et~al., 2016]{Perez-Garcia2016a}
@@ -509,23 +509,23 @@ Peres, C.~A. and Nascimento, H.~S. (2006).
 \bibitem[Peters, 1983]{Peters1983}
 Peters, R.~H. (1983).
 \newblock {\em {The ecological implications of body size}}.
+\newblock Cambridge Studies in Ecology.
 
-\bibitem[Pimiento et~al., 2015]{Pimiento2015}
-Pimiento, C., Nifong, J.~C., Hunter, M.~E., Monaco, E., and Silliman, B.~R.
-  (2015).
-\newblock {Habitat use patterns of the invasive red lionfish Pterois volitans:
-  A comparison between mangrove and reef systems in San Salvador, Bahamas}.
-\newblock {\em Marine Ecology}, 36(1):28--37.
-
-\bibitem[Pritchard, 2013]{Pritchard2013}
-Pritchard, P. (2013).
-\newblock {Madagascar: island continent of tortoises great and small}.
-\newblock (6):17--24.
+\bibitem[Pimiento and Balk, 2015]{Pimiento2015}
+Pimiento, C. and Balk, M.~A. (2015).
+\newblock {Body-size trends of the extinct giant shark Carcharocles megalodon:
+  a deep-time perspective on marine apex predators}.
+\newblock {\em Paleobiology}, 41(03):479--490.
 
 \bibitem[Pritchard, 1996]{Pritchard1996}
 Pritchard, P. C.~H. (1996).
 \newblock {The Gal{\'{a}}pagos Tortoises: Nomenclatural and Survival Status}.
 \newblock {\em Chelonian Research Monographs}, 1(9):1996.
+
+\bibitem[Pritchard, 2013]{Pritchard2013}
+Pritchard, P. C.~H. (2013).
+\newblock {Madagascar: island continent of tortoises great and small}.
+\newblock {\em Chelonian Research Monographs}, 6:17--24.
 
 \bibitem[{R Core Team}, 2017]{RCoreTeam2017}
 {R Core Team} (2017).
@@ -592,7 +592,7 @@ Smith, F.~A., Brown, J.~H., Haskell, J.~P., Lyons, S.~K., Alroy, J., Charnov,
 
 \bibitem[Smith and Lyons, 2009]{Smith2009}
 Smith, F.~A. and Lyons, S.~K. (2009).
-\newblock {On Being the Right Size: The Impor tance of Size in Life History,
+\newblock {On Being the Right Size: The Importance of Size in Life History,
   Ecology, and Evolution}.
 
 \bibitem[Smith et~al., 2016]{Smith2016}
@@ -629,7 +629,7 @@ Steele, T.~E. and Klein, R.~G. (2005).
 \bibitem[Sterli, 2015]{Sterli2015}
 Sterli, J. (2015).
 \newblock {A Review of the Fossil Record of Gondwanan Turtles of the Clade
-  Meilaniformes}.
+  Meiolaniformes}.
 \newblock {\em Bulletin of the Peabody Museum of Natural History},
   56(2):147--183.
 
@@ -712,8 +712,8 @@ van Dijk, P.~P., Iverson, J., Rhodin, A., Shaffer, B., and Bour, R. (2014).
 
 \bibitem[Vlachos and Tsoukala, 2014]{Vlachos2014}
 Vlachos, E. and Tsoukala, E. (2014).
-\newblock {Testudo cf . graeca from the new Late Miocene locality of Platania (
-  Drama basin , N . Greece ) and a reappraisal of previously published
+\newblock {Testudo cf . graeca from the new Late Miocene locality of Platania
+  (Drama basin, N. Greece) and a reappraisal of previously published
   specimens}.
 \newblock XLVIII(April 2015):27--40.
 

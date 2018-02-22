@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6350 64-bit) (preloaded format=pdflatex 2017.7.2)  23 SEP 2017 18:06
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6350 64-bit) (preloaded format=pdflatex 2017.7.2)  29 SEP 2017 22:09
 entering extended mode
 **./MAdefense.tex
 (MAdefense.tex
@@ -1250,12 +1250,12 @@ Overfull \vbox (38.50395pt too high) detected at line 32
 [2
 
 
-] <pics/meiolania.png, id=164, 407.5225pt x 599.23875pt>
+] <pics/meiolania.png, id=168, 407.5225pt x 324.21124pt>
 File: pics/meiolania.png Graphic file (type png)
 
 <use pics/meiolania.png>
 Package pdftex.def Info: pics/meiolania.png used on input line 32.
-(pdftex.def)             Requested size: 106.41971pt x 156.49014pt.
+(pdftex.def)             Requested size: 196.70299pt x 156.49014pt.
 
 Overfull \vbox (38.50395pt too high) detected at line 32
  []
@@ -1263,7 +1263,7 @@ Overfull \vbox (38.50395pt too high) detected at line 32
 [3
 
  <./pics/meiolania.png>]
-<pics/testudinidae.png, id=203, 407.5225pt x 599.23875pt>
+<pics/testudinidae.png, id=209, 407.5225pt x 599.23875pt>
 File: pics/testudinidae.png Graphic file (type png)
 
 <use pics/testudinidae.png>
@@ -1308,7 +1308,7 @@ Overfull \vbox (38.50395pt too high) detected at line 32
 
 [7
 
-] <pics/gianttort.png, id=356, 576.1525pt x 392.46625pt>
+] <pics/gianttort.png, id=362, 576.1525pt x 392.46625pt>
 File: pics/gianttort.png Graphic file (type png)
 
 <use pics/gianttort.png>
@@ -1320,7 +1320,7 @@ Overfull \vbox (9.83353pt too high) detected at line 40
 
 [8
 
- <./pics/gianttort.png>] <pics/megafauna.png, id=394, 321.2pt x 186.6975pt>
+ <./pics/gianttort.png>] <pics/megafauna.png, id=400, 321.2pt x 186.6975pt>
 File: pics/megafauna.png Graphic file (type png)
 
 <use pics/megafauna.png>
@@ -1364,7 +1364,7 @@ Overfull \vbox (38.50395pt too high) detected at line 58
 \openout2 = `MMPres.aux'.
 
  (MMPres.tex
-<MA_JJ_files/figure-latex/MapFossilOccurrences-1.pdf, id=623, 469.755pt x 325.2
+<MA_JJ_files/figure-latex/MapFossilOccurrences-1.pdf, id=629, 469.755pt x 325.2
 15pt>
 File: MA_JJ_files/figure-latex/MapFossilOccurrences-1.pdf Graphic file (type pd
 f)
@@ -1387,7 +1387,7 @@ ed on input line 32.
  [16
 
 ]
-<pics/cl4.png, id=710, 1068.99374pt x 702.625pt>
+<pics/cl4.png, id=716, 1068.99374pt x 702.625pt>
 File: pics/cl4.png Graphic file (type png)
  <use pics/cl4.png>
 Package pdftex.def Info: pics/cl4.png used on input line 66.
@@ -1398,7 +1398,7 @@ Overfull \vbox (16.08026pt too high) detected at line 66
 
 [17
 
- <./pics/cl4.png>] <pics/cl3.png, id=749, 1068.99374pt x 702.625pt>
+ <./pics/cl4.png>] <pics/cl3.png, id=755, 1068.99374pt x 702.625pt>
 File: pics/cl3.png Graphic file (type png)
 
 <use pics/cl3.png>
@@ -1410,7 +1410,7 @@ Overfull \vbox (16.08026pt too high) detected at line 66
 
 [18
 
- <./pics/cl3.png>] <pics/cl2.png, id=788, 1068.99374pt x 702.625pt>
+ <./pics/cl3.png>] <pics/cl2.png, id=794, 1068.99374pt x 702.625pt>
 File: pics/cl2.png Graphic file (type png)
 
 <use pics/cl2.png>
@@ -1422,7 +1422,7 @@ Overfull \vbox (2.48026pt too high) detected at line 66
 
 [19
 
- <./pics/cl2.png>] <pics/cl1.png, id=828, 1068.99374pt x 702.625pt>
+ <./pics/cl2.png>] <pics/cl1.png, id=834, 1068.99374pt x 702.625pt>
 File: pics/cl1.png Graphic file (type png)
 
 <use pics/cl1.png>
@@ -1437,7 +1437,7 @@ Overfull \vbox (2.48026pt too high) detected at line 66
  <./pics/cl1.png>] [21
 
 ]
-<MA_JJ_files/figure-latex/SACGenera-1.pdf, id=904, 469.755pt x 325.215pt>
+<MA_JJ_files/figure-latex/SACGenera-1.pdf, id=910, 469.755pt x 325.215pt>
 File: MA_JJ_files/figure-latex/SACGenera-1.pdf Graphic file (type pdf)
 
 <use MA_JJ_files/figure-latex/SACGenera-1.pdf>
@@ -1455,7 +1455,7 @@ Overfull \vbox (86.43059pt too high) detected at line 99
 ] [24
 
 ]
-<pics/evolution1.png, id=1023, 767.86874pt x 548.0475pt>
+<pics/evolution1.png, id=1029, 767.86874pt x 548.0475pt>
 File: pics/evolution1.png Graphic file (type png)
 
 <use pics/evolution1.png>
@@ -1464,7 +1464,7 @@ Package pdftex.def Info: pics/evolution1.png used on input line 109.
  [25
 
  <./pics/evolution1.png>]
-<pics/evolution2.png, id=1063, 767.86874pt x 548.0475pt>
+<pics/evolution2.png, id=1069, 767.86874pt x 548.0475pt>
 File: pics/evolution2.png Graphic file (type png)
 
 <use pics/evolution2.png>
@@ -1473,7 +1473,7 @@ Package pdftex.def Info: pics/evolution2.png used on input line 109.
  [26
 
  <./pics/evolution2.png>]
-<pics/evolution3.png, id=1102, 767.86874pt x 548.0475pt>
+<pics/evolution3.png, id=1108, 767.86874pt x 548.0475pt>
 File: pics/evolution3.png Graphic file (type png)
 
 <use pics/evolution3.png>
@@ -1482,7 +1482,7 @@ Package pdftex.def Info: pics/evolution3.png used on input line 109.
  [27
 
  <./pics/evolution3.png>]
-<MA_JJ_files/figure-latex/overviewData-1.pdf, id=1140, 469.755pt x 325.215pt>
+<MA_JJ_files/figure-latex/overviewData-1.pdf, id=1146, 469.755pt x 325.215pt>
 File: MA_JJ_files/figure-latex/overviewData-1.pdf Graphic file (type pdf)
 
 <use MA_JJ_files/figure-latex/overviewData-1.pdf>
@@ -1499,7 +1499,7 @@ put line 116.
 
 
 ]
-<MA_JJ_files/figure-latex/HistAll-1.pdf, id=1220, 469.755pt x 325.215pt>
+<MA_JJ_files/figure-latex/HistAll-1.pdf, id=1226, 469.755pt x 325.215pt>
 File: MA_JJ_files/figure-latex/HistAll-1.pdf Graphic file (type pdf)
 
 <use MA_JJ_files/figure-latex/HistAll-1.pdf>
@@ -1509,7 +1509,7 @@ ine 29.
  [30
 
  <./MA_JJ_files/figure-latex/HistAll-1.pdf>]
-<MA_JJ_files/figure-latex/HistFosMo-1.pdf, id=1266, 469.755pt x 325.215pt>
+<MA_JJ_files/figure-latex/HistFosMo-1.pdf, id=1272, 469.755pt x 325.215pt>
 File: MA_JJ_files/figure-latex/HistFosMo-1.pdf Graphic file (type pdf)
 
 <use MA_JJ_files/figure-latex/HistFosMo-1.pdf>
@@ -1517,7 +1517,7 @@ Package pdftex.def Info: MA_JJ_files/figure-latex/HistFosMo-1.pdf used on input
  line 42.
 (pdftex.def)             Requested size: 140.92758pt x 97.56525pt.
 
-<MA_JJ_files/figure-latex/HistCI-1.pdf, id=1267, 469.755pt x 325.215pt>
+<MA_JJ_files/figure-latex/HistCI-1.pdf, id=1273, 469.755pt x 325.215pt>
 File: MA_JJ_files/figure-latex/HistCI-1.pdf Graphic file (type pdf)
 
 <use MA_JJ_files/figure-latex/HistCI-1.pdf>
@@ -1528,7 +1528,7 @@ ne 42.
 
  <./MA_JJ_files/figure-latex/HistFosMo-1.pdf> <./MA_JJ_files/figure-latex/HistC
 I-1.pdf>]
-<MA_JJ_files/figure-latex/HistFMCI-1.pdf, id=1322, 469.755pt x 325.215pt>
+<MA_JJ_files/figure-latex/HistFMCI-1.pdf, id=1328, 469.755pt x 325.215pt>
 File: MA_JJ_files/figure-latex/HistFMCI-1.pdf Graphic file (type pdf)
 
 <use MA_JJ_files/figure-latex/HistFMCI-1.pdf>
@@ -1542,7 +1542,7 @@ line 52.
 ] [34
 
 ]
-<MA_JJ_files/figure-latex/BPGBins-1.pdf, id=1442, 469.755pt x 325.215pt>
+<MA_JJ_files/figure-latex/BPGBins-1.pdf, id=1448, 469.755pt x 325.215pt>
 File: MA_JJ_files/figure-latex/BPGBins-1.pdf Graphic file (type pdf)
 
 <use MA_JJ_files/figure-latex/BPGBins-1.pdf>
@@ -1556,7 +1556,7 @@ Overfull \vbox (21.68576pt too high) detected at line 97
 [35
 
  <./MA_JJ_files/figure-latex/BPGBins-1.pdf>]
-<MA_JJ_files/figure-latex/BPMF-1.pdf, id=1485, 469.755pt x 325.215pt>
+<MA_JJ_files/figure-latex/BPMF-1.pdf, id=1491, 469.755pt x 325.215pt>
 File: MA_JJ_files/figure-latex/BPMF-1.pdf Graphic file (type pdf)
 
 <use MA_JJ_files/figure-latex/BPMF-1.pdf>
@@ -1564,7 +1564,7 @@ Package pdftex.def Info: MA_JJ_files/figure-latex/BPMF-1.pdf used on input line
  106.
 (pdftex.def)             Requested size: 140.92758pt x 97.56525pt.
 
-<MA_JJ_files/figure-latex/BPCI-1.pdf, id=1486, 469.755pt x 325.215pt>
+<MA_JJ_files/figure-latex/BPCI-1.pdf, id=1492, 469.755pt x 325.215pt>
 File: MA_JJ_files/figure-latex/BPCI-1.pdf Graphic file (type pdf)
 
 <use MA_JJ_files/figure-latex/BPCI-1.pdf>
@@ -1575,7 +1575,7 @@ Package pdftex.def Info: MA_JJ_files/figure-latex/BPCI-1.pdf used on input line
 
  <./MA_JJ_files/figure-latex/BPMF-1.pdf> <./MA_JJ_files/figure-latex/BPCI-1.pdf
 >]
-<MA_JJ_files/figure-latex/BPFMCI-1.pdf, id=1534, 469.755pt x 325.215pt>
+<MA_JJ_files/figure-latex/BPFMCI-1.pdf, id=1540, 469.755pt x 325.215pt>
 File: MA_JJ_files/figure-latex/BPFMCI-1.pdf Graphic file (type pdf)
 
 <use MA_JJ_files/figure-latex/BPFMCI-1.pdf>
@@ -1587,7 +1587,7 @@ ne 114.
  <./MA_JJ_files/figure-latex/BPFMCI-1.pdf>] [38
 
 ]
-<MA_JJ_files/figure-latex/paleoTSAll-1.pdf, id=1615, 469.755pt x 325.215pt>
+<MA_JJ_files/figure-latex/paleoTSAll-1.pdf, id=1621, 469.755pt x 325.215pt>
 File: MA_JJ_files/figure-latex/paleoTSAll-1.pdf Graphic file (type pdf)
 
 <use MA_JJ_files/figure-latex/paleoTSAll-1.pdf>
@@ -1597,7 +1597,7 @@ t line 148.
  [39
 
  <./MA_JJ_files/figure-latex/paleoTSAll-1.pdf>]
-<MA_JJ_files/figure-latex/paleoTSC-1.pdf, id=1658, 469.755pt x 325.215pt>
+<MA_JJ_files/figure-latex/paleoTSC-1.pdf, id=1664, 469.755pt x 325.215pt>
 File: MA_JJ_files/figure-latex/paleoTSC-1.pdf Graphic file (type pdf)
 
 <use MA_JJ_files/figure-latex/paleoTSC-1.pdf>
@@ -1607,7 +1607,7 @@ line 155.
  [40
 
  <./MA_JJ_files/figure-latex/paleoTSC-1.pdf>]
-<MA_JJ_files/figure-latex/paleoTSI-1.pdf, id=1701, 469.755pt x 325.215pt>
+<MA_JJ_files/figure-latex/paleoTSI-1.pdf, id=1707, 469.755pt x 325.215pt>
 File: MA_JJ_files/figure-latex/paleoTSI-1.pdf Graphic file (type pdf)
 
 <use MA_JJ_files/figure-latex/paleoTSI-1.pdf>
@@ -1617,7 +1617,7 @@ line 162.
  [41
 
  <./MA_JJ_files/figure-latex/paleoTSI-1.pdf>]
-<MA_JJ_files/figure-latex/paleoTScombined3.pdf, id=1744, 469.755pt x 325.215pt>
+<MA_JJ_files/figure-latex/paleoTScombined3.pdf, id=1750, 469.755pt x 325.215pt>
 File: MA_JJ_files/figure-latex/paleoTScombined3.pdf Graphic file (type pdf)
 <use MA_JJ_files/figure-latex/paleoTScombined3.pdf>
 Package pdftex.def Info: MA_JJ_files/figure-latex/paleoTScombined3.pdf used on 
@@ -1684,21 +1684,14 @@ Package atveryend Info: Empty hook `AfterLastShipout' on input line 97.
 (IntroPres.aux) (MMPres.aux) (ResPres.aux) (SumPres.aux))
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 97.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 97.
-
-
-Package rerunfilecheck Warning: File `MAdefense.out' has changed.
-(rerunfilecheck)                Rerun to get outlines right
-(rerunfilecheck)                or use package `bookmark'.
-
-Package rerunfilecheck Info: Checksums for `MAdefense.out':
-(rerunfilecheck)             Before: A27B281235963252902CDFC5006F70E8;835
-(rerunfilecheck)             After:  5D1F37AE5ABB61F76ABC8000441ADF1F;876.
+Package rerunfilecheck Info: File `MAdefense.out' has not changed.
+(rerunfilecheck)             Checksum: 5D1F37AE5ABB61F76ABC8000441ADF1F;876.
  ) 
 Here is how much of TeX's memory you used:
- 26605 strings out of 493323
- 516240 string characters out of 3139070
- 620750 words of memory out of 3000000
- 29337 multiletter control sequences out of 15000+200000
+ 26615 strings out of 493323
+ 516322 string characters out of 3139070
+ 620870 words of memory out of 3000000
+ 29347 multiletter control sequences out of 15000+200000
  47447 words of font info for 82 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
  56i,19n,79p,806b,803s stack positions out of 5000i,500n,10000p,200000b,50000s
@@ -1707,9 +1700,9 @@ iles/MiKTeX 2.9/fonts/enc/dvips/iwona/sy-iwona.enc}{C:/Program Files/MiKTeX 2.9
 /fonts/enc/dvips/iwona/rm-iwona.enc}<C:/Program Files/MiKTeX 2.9/fonts/type1/no
 wacki/iwona/iwonar.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/nowacki/iwona/i
 wonari.pfb>
-Output written on MAdefense.pdf (60 pages, 10465557 bytes).
+Output written on MAdefense.pdf (60 pages, 10464360 bytes).
 PDF statistics:
- 2486 PDF objects out of 2487 (max. 8388607)
+ 2492 PDF objects out of 2984 (max. 8388607)
  136 named destinations out of 1000 (max. 500000)
- 269 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 277 words of extra memory for PDF output out of 10000 (max. 10000000)
 
