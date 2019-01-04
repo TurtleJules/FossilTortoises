@@ -373,6 +373,7 @@ scale_x_continuous(breaks=c(-180, -100, 0, 100, 180)) +
 
 mapCL
 
+
 ggsave("MapBodysize.png", height=5, width=8, units='in', dpi=800)
 
 ```
@@ -1126,7 +1127,7 @@ MCKW <- data.frame(kruskalmc(PleiPlioCL$CL,PleiPlioCL$EpochBins))
 ```
 
 
-```{r "Kruskal Wallis Test", echo=FALSE}
+```{r "Kruskal Wallis Test", echo=FALSE, include=FALSE}
 
 PleiPlioCL <- Miocene %>%
   merge(BINSMio) %>%
@@ -1153,710 +1154,698 @@ BA <- PleiPlioCL$CL[which(PleiPlioCL$EpochBins=="Burdigalian/Aquitanian")]
 library(pgirmess)
 kruskal.test(list(M, UPle, MPle, LPle, G, Pia, Z, Mess, Tort, S, L, BA)) #kruskal-wallis-test (im prinzip anova fr nicht paramterische daten)
 #Show in New WindowClear OutputExpand/Collapse Output
-
-Show in New WindowClear OutputExpand/Collapse Output
-
-Show in New WindowClear OutputExpand/Collapse Output
-
-Show in New WindowClear OutputExpand/Collapse Output
-
-Show in New WindowClear OutputExpand/Collapse Output
-
-knit_asis
-
-knit_asis
-
-knit_asis
-
-knit_asis
-
-Show in New WindowClear OutputExpand/Collapse Output
-null device 
-          1 
-Show in New WindowClear OutputExpand/Collapse Output
-null device 
-          1 
-Show in New WindowClear OutputExpand/Collapse Output
-
-Show in New WindowClear OutputExpand/Collapse Output
-
-Show in New WindowClear OutputExpand/Collapse Output
-
-Show in New WindowClear OutputExpand/Collapse Output
-
-Show in New WindowClear OutputExpand/Collapse Output
-
-Show in New WindowClear OutputExpand/Collapse Output
-
-Show in New WindowClear OutputExpand/Collapse Output
-
-Show in New WindowClear OutputExpand/Collapse Output
-
-Show in New WindowClear OutputExpand/Collapse Output
-	
-`stat_bin()` using `bins = 30`. Pick better value with `binwidth`.
-
-Show in New WindowClear OutputExpand/Collapse Output
-
-
-
-Show in New WindowClear OutputExpand/Collapse Output
-	
-`stat_bin()` using `bins = 30`. Pick better value with `binwidth`.
-
-Show in New WindowClear OutputExpand/Collapse Output
-	
-`stat_bin()` using `bins = 30`. Pick better value with `binwidth`.
-
-Show in New WindowClear OutputExpand/Collapse Output
-	
-`stat_bin()` using `bins = 30`. Pick better value with `binwidth`.
-
-Show in New WindowClear OutputExpand/Collapse Output
-	
-`stat_bin()` using `bins = 30`. Pick better value with `binwidth`.
-
-Show in New WindowClear OutputExpand/Collapse Output
-	
-`stat_bin()` using `bins = 30`. Pick better value with `binwidth`.
-
-Show in New WindowClear OutputExpand/Collapse Output
-
-Show in New WindowClear OutputExpand/Collapse Output
-
-Show in New WindowClear OutputExpand/Collapse Output
-
-	Kruskal-Wallis rank sum test
-
-data:  list(M, UPle, MPle, LPle, G, Pia, Z, Mess, Tort, S, L, BA)
-Kruskal-Wallis chi-squared = 80.037, df = 11, p-value = 1.452e-12
-
-Show in New WindowClear OutputExpand/Collapse Output
-
-
-
-	Kruskal-Wallis rank sum test
-
-data:  list(Modern, Plei, Plio, Mio)
-Kruskal-Wallis chi-squared =
-43.71, df = 3, p-value =
-1.739e-09
-
- [1] "EpochBins"    "Continent"   
- [3] "bin"          "Taxon"       
- [5] "CL"           "extraCL"     
- [7] "PL"           "size"        
- [9] "estimated"    "Age"         
-[11] "Island"       "Genus"       
-[13] "Stages"       "MeanBins"    
-[15] "nIndividuals" "nSpecies"    
-[17] "nGenera"      "Con"         
-[19] "Time"        
-Multiple comparison test after Kruskal-Wallis 
-p.value: 0.05 
-Comparisons
-                        obs.dif
-Modern-Pleistocene    72.627990
-Modern-Pliocene      164.549323
-Modern-Miocene        67.546537
-Pleistocene-Pliocene  91.921333
-Pleistocene-Miocene    5.081454
-Pliocene-Miocene      97.002786
-                     critical.dif
-Modern-Pleistocene       45.07381
-Modern-Pliocene          74.57803
-Modern-Miocene           51.19571
-Pleistocene-Pliocene     76.49057
-Pleistocene-Miocene      53.94372
-Pliocene-Miocene         80.25060
-                     difference
-Modern-Pleistocene         TRUE
-Modern-Pliocene            TRUE
-Modern-Miocene             TRUE
-Pleistocene-Pliocene       TRUE
-Pleistocene-Miocene       FALSE
-Pliocene-Miocene           TRUE
-R Console
-
-	Kruskal-Wallis rank sum test
-
-data:  list(Modern, Plei, Plio, Mio)
-Kruskal-Wallis chi-squared =
-43.71, df = 3, p-value =
-1.739e-09
-
- [1] "EpochBins"    "Continent"   
- [3] "bin"          "Taxon"       
- [5] "CL"           "extraCL"     
- [7] "PL"           "size"        
- [9] "estimated"    "Age"         
-[11] "Island"       "Genus"       
-[13] "Stages"       "MeanBins"    
-[15] "nIndividuals" "nSpecies"    
-[17] "nGenera"      "Con"         
-[19] "Time"        
-Multiple comparison test after Kruskal-Wallis 
-p.value: 0.05 
-Comparisons
-                        obs.dif
-Modern-Pleistocene    72.627990
-Modern-Pliocene      164.549323
-Modern-Miocene        67.546537
-Pleistocene-Pliocene  91.921333
-Pleistocene-Miocene    5.081454
-Pliocene-Miocene      97.002786
-                     critical.dif
-Modern-Pleistocene       45.07381
-Modern-Pliocene          74.57803
-Modern-Miocene           51.19571
-Pleistocene-Pliocene     76.49057
-Pleistocene-Miocene      53.94372
-Pliocene-Miocene         80.25060
-                     difference
-Modern-Pleistocene         TRUE
-Modern-Pliocene            TRUE
-Modern-Miocene             TRUE
-Pleistocene-Pliocene       TRUE
-Pleistocene-Miocene       FALSE
-Pliocene-Miocene           TRUE
-Show in New WindowClear OutputExpand/Collapse Output
-
-Show in New WindowClear OutputExpand/Collapse Output
-
-Show in New WindowClear OutputExpand/Collapse Output
-
-[1] 330.3495
-[1] 510.7542
-
-	Wilcoxon rank sum test with continuity correction
-
-data:  Modern and Fossil
-W = 23616, p-value = 3.234e-07
-alternative hypothesis: true location shift is less than 0
-
-R Console
-[1] 330.3495
-[1] 510.7542
-
-	Wilcoxon rank sum test with continuity correction
-
-data:  Modern and Fossil
-W = 23616, p-value = 3.234e-07
-alternative hypothesis: true location shift is less than 0
-
-Show in New WindowClear OutputExpand/Collapse Output
-
-Show in New WindowClear OutputExpand/Collapse Output
-[1] 51
-[1] 51
-
-	Wilcoxon rank sum test with continuity correction
-
-data:  ModernIsland and FossilIsland
-W = 819.5, p-value = 0.0006496
-alternative hypothesis: true location shift is less than 0
-
-[1] 157
-[1] 157
-
-	Wilcoxon rank sum test with continuity correction
-
-data:  ModernCon and FossilCon
-W = 8419, p-value = 6.028e-07
-alternative hypothesis: true location shift is less than 0
-
-R Console
-
-
-
-Show in New WindowClear OutputExpand/Collapse Output
-
-Show in New WindowClear OutputExpand/Collapse Output
-[1] 147
-[1] 147
-
-	Wilcoxon rank sum test with continuity correction
-
-data:  Insular and Continental
-W = 14386, p-value = 4.493e-07
-alternative hypothesis: true location shift is greater than 0
-
-R Console
-
-
-Show in New WindowClear OutputExpand/Collapse Output
-
-Show in New WindowClear OutputExpand/Collapse Output
-
- [1] "Continent"    "Con"         
- [3] "bin"          "Taxon"       
- [5] "CL"           "extraCL"     
- [7] "PL"           "size"        
- [9] "estimated"    "Age"         
-[11] "Island"       "Genus"       
-[13] "EpochBins"    "Stages"      
-[15] "MeanBins"     "nIndividuals"
-[17] "nSpecies"     "nGenera"     
-The table should have a header (column names)The table should have a header (column names)
-R Console
-
-knit_asis
-
-Show in New WindowClear OutputExpand/Collapse Output
-[1] 142
-[1] 347.6887
-[1] 142
-[1] 429.3285
-[1] 59
-[1] 173
-[1] 142
-[1] 522.8387
-
-	Kruskal-Wallis rank sum test
-
-data:  list(Africa, America, Eurasia, Europe)
-Kruskal-Wallis chi-squared = 33.509, df = 3, p-value = 2.515e-07
-
-R Console
-
-
-
-
-Show in New WindowClear OutputExpand/Collapse Output
-
-Show in New WindowClear OutputExpand/Collapse Output
-Locality
-<fctr>
-San Nicolas, UCMP locality V4536	
-Serrat-d´en-Vacquer near Perpignan, Pyrénées-Orientales	
-Toulouse Puits Borderouge niveau inférieur, Haute-Garonne	
-Baby 2, Saint-André-et-Appelles, Gironde	
-Dmanisi	
-Altenstadt, 7 km S Illertissen	
-Gammelsdorf	
-Gammelsdorf	
-Hohenhöwen, Engen, Hegau, southwestern Germany	
-Hohenhöwen, Engen, Hegau, southwestern Germany	
-Next123456...39Previous
-1-10 of 384 rows | 1-1 of 8 columns
-Show in New WindowClear OutputExpand/Collapse Output
-
-Show in New WindowClear OutputExpand/Collapse Output
-
-Show in New WindowClear OutputExpand/Collapse Output
-
-Show in New WindowClear OutputExpand/Collapse Output
-
-
-
-
-	
-Removed 4 rows containing missing values (geom_path).
-Removed 4 rows containing missing values (geom_point).
-Removed 4 rows containing missing values (geom_linerange).
-Removed 4 rows containing missing values (geom_path).
-Removed 4 rows containing missing values (geom_point).
-Removed 4 rows containing missing values (geom_linerange).
-
-Show in New WindowClear OutputExpand/Collapse Output
-
-knit_asis
-
-knit_asis
-
-Show in New WindowClear OutputExpand/Collapse Output
-[1] 193
-[1] 186
-[1] 647
-[1] 112
-[1] 534
-[1] 108
-Show in New WindowClear OutputExpand/Collapse Output
-[1] 384
-[1] 119
-[1] 384
-[1] 26
-[1] 144
-[1] 11
- [1] Ergilemys    Testudo      Cheirogaster Titanochelon Paleotestudo Geochelone   Centrochelys gen.        
- [9] "Hadrianus"  Eurotestudo  Taraschelon 
-26 Levels: "Hadrianus" Aldabrachelys Caudochelys Centrochelys Cheirogaster Chelonoidis Ergilemys ... Titanochelon
-[1] 7
-[1] 2
-[1] Geochelone  Chelonoidis
-26 Levels: "Hadrianus" Aldabrachelys Caudochelys Centrochelys Cheirogaster Chelonoidis Ergilemys ... Titanochelon
-[1] 167
-[1] 15
- [1] Testudo       Geochelone    Ergilemys     Aldabrachelys Megalochelys  Manouria      Indotestudo  
- [8] gen.          Cheirogaster  Titanochelon  Paleotestudo  Centrochelys  "Hadrianus"   Eurotestudo  
-[15] Taraschelon  
-26 Levels: "Hadrianus" Aldabrachelys Caudochelys Centrochelys Cheirogaster Chelonoidis Ergilemys ... Titanochelon
-R Console
-
-knit_asis
-
-Modify Chunk OptionsRun All Chunks AboveRun Current ChunkModify Chunk OptionsRun All Chunks AboveRun Current ChunkModify Chunk OptionsRun All Chunks AboveRun Current ChunkModify Chunk OptionsRun All Chunks AboveRun Current ChunkModify Chunk OptionsRun All Chunks AboveRun Current ChunkModify Chunk OptionsRun All Chunks AboveRun Current ChunkModify Chunk OptionsRun All Chunks AboveRun Current ChunkModify Chunk OptionsRun All Chunks AboveRun Current ChunkModify Chunk OptionsRun All Chunks AboveRun Current ChunkModify Chunk OptionsRun All Chunks AboveRun Current ChunkModify Chunk OptionsRun All Chunks AboveRun Current ChunkModify Chunk OptionsRun All Chunks AboveRun Current ChunkModify Chunk OptionsRun All Chunks AboveRun Current ChunkModify Chunk OptionsRun All Chunks AboveRun Current ChunkModify Chunk OptionsRun All Chunks AboveRun Current ChunkModify Chunk OptionsRun All Chunks AboveRun Current ChunkModify Chunk OptionsRun All Chunks AboveRun Current ChunkModify Chunk OptionsRun All Chunks AboveRun Current ChunkModify Chunk OptionsRun All Chunks AboveRun Current ChunkModify Chunk OptionsRun All Chunks AboveRun Current ChunkModify Chunk OptionsRun All Chunks AboveRun Current ChunkModify Chunk OptionsRun All Chunks AboveRun Current ChunkModify Chunk OptionsRun All Chunks AboveRun Current ChunkModify Chunk OptionsRun All Chunks AboveRun Current ChunkModify Chunk OptionsRun All Chunks AboveRun Current ChunkModify Chunk OptionsRun All Chunks AboveRun Current ChunkModify Chunk OptionsRun All Chunks AboveRun Current ChunkModify Chunk OptionsRun All Chunks AboveRun Current ChunkModify Chunk OptionsRun All Chunks AboveRun Current ChunkModify Chunk OptionsRun All Chunks AboveRun Current ChunkModify Chunk OptionsRun All Chunks AboveRun Current ChunkModify Chunk OptionsRun All Chunks AboveRun Current ChunkModify Chunk OptionsRun All Chunks AboveRun Current ChunkModify Chunk OptionsRun All Chunks AboveRun Current ChunkModify Chunk OptionsRun All Chunks AboveRun Current ChunkModify Chunk OptionsRun All Chunks AboveRun Current ChunkModify Chunk OptionsRun All Chunks AboveRun Current ChunkModify Chunk OptionsRun All Chunks AboveRun Current ChunkModify Chunk OptionsRun All Chunks AboveRun Current ChunkModify Chunk OptionsRun All Chunks AboveRun Current ChunkModify Chunk OptionsRun All Chunks AboveRun Current ChunkModify Chunk OptionsRun All Chunks AboveRun Current ChunkModify Chunk OptionsRun All Chunks AboveRun Current ChunkModify Chunk OptionsRun All Chunks AboveRun Current ChunkModify Chunk OptionsRun All Chunks AboveRun Current ChunkModify Chunk OptionsRun All Chunks AboveRun Current ChunkModify Chunk OptionsRun All Chunks AboveRun Current ChunkModify Chunk OptionsRun All Chunks AboveRun Current ChunkModify Chunk OptionsRun All Chunks AboveRun Current ChunkModify Chunk OptionsRun All Chunks AboveRun Current ChunkModify Chunk OptionsRun All Chunks AboveRun Current ChunkModify Chunk OptionsRun All Chunks AboveRun Current ChunkModify Chunk OptionsRun All Chunks AboveRun Current ChunkModify Chunk OptionsRun All Chunks AboveRun Current ChunkModify Chunk OptionsRun All Chunks AboveRun Current ChunkModify Chunk OptionsRun All Chunks AboveRun Current ChunkModify Chunk OptionsRun All Chunks AboveRun Current ChunkModify Chunk OptionsRun All Chunks AboveRun Current ChunkModify Chunk OptionsRun All Chunks AboveRun Current ChunkModify Chunk OptionsRun All Chunks AboveRun Current ChunkModify Chunk OptionsRun All Chunks AboveRun Current ChunkModify Chunk OptionsRun All Chunks AboveRun Current ChunkModify Chunk OptionsRun All Chunks AboveRun Current ChunkModify Chunk OptionsRun All Chunks AboveRun Current ChunkModify Chunk OptionsRun All Chunks AboveRun Current ChunkModify Chunk OptionsRun All Chunks AboveRun Current ChunkModify Chunk OptionsRun All Chunks AboveRun Current ChunkModify Chunk OptionsRun All Chunks AboveRun Current ChunkModify Chunk OptionsRun All Chunks AboveRun Current ChunkModify Chunk OptionsRun All Chunks AboveRun Current ChunkModify Chunk OptionsRun All Chunks AboveRun Current ChunkModify Chunk OptionsRun All Chunks AboveRun Current ChunkModify Chunk OptionsRun All Chunks AboveRun Current ChunkModify Chunk OptionsRun All Chunks AboveRun Current Chunk
-Console~/
-			
-
-R version 3.4.1 (2017-06-30) -- "Single Candle"
-Copyright (C) 2017 The R Foundation for Statistical Computing
-Platform: x86_64-w64-mingw32/x64 (64-bit)
-
-R is free software and comes with ABSOLUTELY NO WARRANTY.
-You are welcome to redistribute it under certain conditions.
-Type 'license()' or 'licence()' for distribution details.
-
-R is a collaborative project with many contributors.
-Type 'contributors()' for more information and
-'citation()' on how to cite R or R packages in publications.
-
-Type 'demo()' for some demos, 'help()' for on-line help, or
-'help.start()' for an HTML browser interface to help.
-Type 'q()' to quit R.
-
-[Workspace loaded from ~/.RData]
-
-> CL
-> CL
-# A tibble: 384 x 8
-                                                    Locality        Genus                   Taxon Latitude Longitude
-                                                      <fctr>       <fctr>                  <fctr>    <dbl>     <dbl>
- 1                          San Nicolas, UCMP locality V4536   Geochelone     Geochelone hesterna   3.2000  -75.2000
- 2   Serrat-d´en-Vacquer near Perpignan, Pyrénées-Orientales Titanochelon Titanochelon perpiniana  42.8800    2.8800
- 3 Toulouse Puits Borderouge niveau inférieur, Haute-Garonne    Ergilemys       Ergilemys bruneti  43.6000    1.4333
- 4                  Baby 2, Saint-André-et-Appelles, Gironde Cheirogaster    Cheirogaster maurini  44.8120    0.2133
- 5                                                   Dmanisi      Testudo          Testudo graeca  41.3200   44.3500
- 6                            Altenstadt, 7 km S Illertissen      Testudo  Testudo steinheimensis  48.1542   10.1178
- 7                                               Gammelsdorf Paleotestudo    Paleotestudo antiqua  48.5495   11.9382
- 8                                               Gammelsdorf Paleotestudo    Paleotestudo antiqua  48.5495   11.9382
- 9            Hohenhöwen, Engen, Hegau, southwestern Germany Paleotestudo    Paleotestudo antiqua  47.8356    8.7490
-10            Hohenhöwen, Engen, Hegau, southwestern Germany Paleotestudo    Paleotestudo antiqua  47.8356    8.7490
-# ... with 374 more rows, and 3 more variables: Country <fctr>, Age <dbl>, count <int>
-> View(modernMeanGenus)
-> View(GenusPaleo)
-> CL
-# A tibble: 384 x 8
-                                                    Locality        Genus                   Taxon Latitude Longitude
-                                                      <fctr>       <fctr>                  <fctr>    <dbl>     <dbl>
- 1                          San Nicolas, UCMP locality V4536   Geochelone     Geochelone hesterna   3.2000  -75.2000
- 2   Serrat-d´en-Vacquer near Perpignan, Pyrénées-Orientales Titanochelon Titanochelon perpiniana  42.8800    2.8800
- 3 Toulouse Puits Borderouge niveau inférieur, Haute-Garonne    Ergilemys       Ergilemys bruneti  43.6000    1.4333
- 4                  Baby 2, Saint-André-et-Appelles, Gironde Cheirogaster    Cheirogaster maurini  44.8120    0.2133
- 5                                                   Dmanisi      Testudo          Testudo graeca  41.3200   44.3500
- 6                            Altenstadt, 7 km S Illertissen      Testudo  Testudo steinheimensis  48.1542   10.1178
- 7                                               Gammelsdorf Paleotestudo    Paleotestudo antiqua  48.5495   11.9382
- 8                                               Gammelsdorf Paleotestudo    Paleotestudo antiqua  48.5495   11.9382
- 9            Hohenhöwen, Engen, Hegau, southwestern Germany Paleotestudo    Paleotestudo antiqua  47.8356    8.7490
-10            Hohenhöwen, Engen, Hegau, southwestern Germany Paleotestudo    Paleotestudo antiqua  47.8356    8.7490
-# ... with 374 more rows, and 3 more variables: Country <fctr>, Age <dbl>, count <int>
-> SumTort
-# A tibble: 22 x 5
-         CL     n        var       tt         Genus
-      <dbl> <int>      <dbl>    <dbl>         <chr>
- 1 860.9268   123  172810623 5.00e-07 Aldabrachelys
- 2 239.2051   665  372410171 5.00e-07      Gopherus
- 3 367.6919   210  446520817 5.00e-07   Chelonoidis
- 4 140.0327   849 2949618378 5.00e-07       Testudo
- 5 860.9268   123  172810623 5.85e-03 Aldabrachelys
- 6 366.2143    14   26286129 5.85e-03   Astrochelys
- 7 493.3333     3    2190400 5.85e-03  Centrochelys
- 8 367.6919   210  446520817 5.85e-03   Chelonoidis
- 9 176.2667    15    6990736 5.85e-03      Chersina
-10 724.0000     5   13104400 5.85e-03  Cylindraspis
-# ... with 12 more rows
-> var(SumTortAll$CL)
-[1] NA
-> (SumTortAll$CL)
-[1] 137.2637
-> fit3models(paleoGenIs, silent=FALSE, method="AD", pool=FALSE)
-Error in fit3models(paleoGenIs, silent = FALSE, method = "AD", pool = FALSE) : 
-  could not find function "fit3models"
-> library(paleoTS)
-> fit3models(paleoGenIs, silent=FALSE, method="AD", pool=FALSE)
-
-Comparing 3 models [n = 12, method = AD]
-
-            logL K     AICc Akaike.wt
-GRW    -82.26287 2 169.8591     0.300
-URW    -83.12577 1 168.6515     0.548
-Stasis -82.93984 2 171.2130     0.152
-> fit9models(paleoGenIs, silent=FALSE, method="AD", pool=FALSE)
-Fitting simple models...
-Fitting punctuational model...
-Total # hypotheses:  0 
-1  0  
-Error in { : task 1 failed - "subscript out of bounds"
-> 
-> M <- PleiPlioCL$CL[which(PleiPlioCL$EpochBins=="Modern")]
-> UPle <- PleiPlioCL$CL[which(PleiPlioCL$EpochBins=="Upper Pleistocene")]
-> MPle <- PleiPlioCL$CL[which(PleiPlioCL$EpochBins=="Middle Pleistocene")]
-> LPle <- PleiPlioCL$CL[which(PleiPlioCL$EpochBins=="Lower Pleistocene")]
-> G <- PleiPlioCL$CL[which(PleiPlioCL$EpochBins=="Gelasian")]
-> Pia <- PleiPlioCL$CL[which(PleiPlioCL$EpochBins=="Piacencian")]
-> Z <- PleiPlioCL$CL[which(PleiPlioCL$EpochBins=="Zanclean")]
-> Mess <- PleiPlioCL$CL[which(PleiPlioCL$EpochBins=="Messinian")]
-> Tort <- PleiPlioCL$CL[which(PleiPlioCL$EpochBins=="Tortonian")]
-> S <- PleiPlioCL$CL[which(PleiPlioCL$EpochBins=="Serravallian")]
-> L<- PleiPlioCL$CL[which(PleiPlioCL$EpochBins=="Langhian")]
-> BA <- PleiPlioCL$CL[which(PleiPlioCL$EpochBins=="Burdigalian/Aquitanian")]
-> 
-> 
-> 
-> kruskal.test(list(M, UPle, MPle, LPle, G, Pia, Z, Mess, Tort, S, L, BA)) #kruskal-wallis-test (im prinzip anova fr nicht paramterische daten)
-
-	Kruskal-Wallis rank sum test
-
-data:  list(M, UPle, MPle, LPle, G, Pia, Z, Mess, Tort, S, L, BA)
-Kruskal-Wallis chi-squared = 71.441, df = 11, p-value = 6.496e-11
-
-> kruskalmc(list(M, UPle, MPle, LPle, G, Pia, Z, Mess, Tort, S, L, BA)
-+ 
-+ Mwil <- wilcox.test(M,UPle, paired=FALSE, alternative="l")    #, alternative="g"
-Error: unexpected symbol in:
-"
-Mwil"
-> kruskalmc(list(M, UPle, MPle, LPle, G, Pia, Z, Mess, Tort, S, L, BA))
-Error in kruskalmc(list(M, UPle, MPle, LPle, G, Pia, Z, Mess, Tort, S,  : 
-  could not find function "kruskalmc"
-> kruskalmc(TimeSlice$CL,TimeSlice$Time)
-Error in kruskalmc(TimeSlice$CL, TimeSlice$Time) : 
-  could not find function "kruskalmc"
-> ??kruskalmc
-> library(pgirmess)
-> kruskalmc(TimeSlice$CL,TimeSlice$Time)
-Multiple comparison test after Kruskal-Wallis 
-p.value: 0.05 
-Comparisons
-                        obs.dif critical.dif difference
-Modern-Pleistocene   110.904114     49.80480       TRUE
-Modern-Pliocene       67.623302     58.35513       TRUE
-Modern-Miocene        64.510137     49.57182       TRUE
-Pleistocene-Pliocene  43.280812     64.36704      FALSE
-Pleistocene-Miocene   46.393977     56.52575      FALSE
-Pliocene-Miocene       3.113165     64.18694      FALSE
-> kruskalmc(PleiPlioCL$CL,PleiPlioCL$EpochBins)
-Multiple comparison test after Kruskal-Wallis 
-p.value: 0.05 
-Comparisons
-                                             obs.dif critical.dif difference
-Modern-Upper Pleistocene                  116.987013     93.54915       TRUE
-Modern-Middle Pleistocene                  80.140652     90.54349      FALSE
-Modern-Lower Pleistocene                   66.123604     87.87753      FALSE
-Modern-Gelasian                             1.627566    114.05459      FALSE
-Modern-Piacencian                         113.296537    136.11314      FALSE
-Modern-Zanclean                           205.945804    123.43828       TRUE
-Modern-Messinian                          137.122727    193.24680      FALSE
-Modern-Tortonian                           61.739394     96.96976      FALSE
-Modern-Serravallian                        21.764310    121.34770      FALSE
-Modern-Langhian                           202.487013    164.56067       TRUE
-Modern-Burdigalian/Aquitanian              70.472727    115.73561      FALSE
-Upper Pleistocene-Middle Pleistocene       36.846361    118.78423      FALSE
-Upper Pleistocene-Lower Pleistocene        50.863409    116.76486      FALSE
-Upper Pleistocene-Gelasian                115.359447    137.55006      FALSE
-Upper Pleistocene-Piacencian                3.690476    156.32773      FALSE
-Upper Pleistocene-Zanclean                 88.958791    145.42551      FALSE
-Upper Pleistocene-Messinian                20.135714    207.98052      FALSE
-Upper Pleistocene-Tortonian                55.247619    123.75260      FALSE
-Upper Pleistocene-Serravallian            138.751323    143.65527      FALSE
-Upper Pleistocene-Langhian                 85.500000    181.63641      FALSE
-Upper Pleistocene-Burdigalian/Aquitanian   46.514286    138.94713      FALSE
-Middle Pleistocene-Lower Pleistocene       14.017047    114.37094      FALSE
-Middle Pleistocene-Gelasian                78.513086    135.52379      FALSE
-Middle Pleistocene-Piacencian              33.155885    154.54785      FALSE
-Middle Pleistocene-Zanclean               125.805152    143.51048      FALSE
-Middle Pleistocene-Messinian               56.982075    206.64601      FALSE
-Middle Pleistocene-Tortonian               18.401258    121.49644      FALSE
-Middle Pleistocene-Serravallian           101.904962    141.71632      FALSE
-Middle Pleistocene-Langhian               122.346361    180.10681      FALSE
-Middle Pleistocene-Burdigalian/Aquitanian   9.667925    136.94153      FALSE
-Lower Pleistocene-Gelasian                 64.496038    133.75738      FALSE
-Lower Pleistocene-Piacencian               47.172932    153.00123      FALSE
-Lower Pleistocene-Zanclean                139.822200    141.84356      FALSE
-Lower Pleistocene-Messinian                70.999123    205.49188      FALSE
-Lower Pleistocene-Tortonian                 4.384211    119.52289      FALSE
-Lower Pleistocene-Serravallian             87.887914    140.02804      FALSE
-Lower Pleistocene-Langhian                136.363409    178.78144      FALSE
-Lower Pleistocene-Burdigalian/Aquitanian    4.349123    135.19364      FALSE
-Gelasian-Piacencian                       111.668971    169.39706      FALSE
-Gelasian-Zanclean                         204.318238    159.39129       TRUE
-Gelasian-Messinian                        135.495161    217.97454      FALSE
-Gelasian-Tortonian                         60.111828    139.89893      FALSE
-Gelasian-Serravallian                      23.391876    157.77782      FALSE
-Gelasian-Langhian                         200.859447    192.99946       TRUE
-Gelasian-Burdigalian/Aquitanian            68.845161    153.50345      FALSE
-Piacencian-Zanclean                        92.649267    175.85199      FALSE
-Piacencian-Messinian                       23.826190    230.28513      FALSE
-Piacencian-Tortonian                       51.557143    158.39839      FALSE
-Piacencian-Serravallian                   135.060847    174.39088      FALSE
-Piacencian-Langhian                        89.190476    206.80215      FALSE
-Piacencian-Burdigalian/Aquitanian          42.823810    170.53342      FALSE
-Zanclean-Messinian                         68.823077    223.02794      FALSE
-Zanclean-Tortonian                        144.206410    147.64914      FALSE
-Zanclean-Serravallian                     227.710114    164.68880       TRUE
-Zanclean-Langhian                           3.458791    198.68908      FALSE
-Zanclean-Burdigalian/Aquitanian           135.473077    160.59847      FALSE
-Messinian-Tortonian                        75.383333    209.54137      FALSE
-Messinian-Serravallian                    158.887037    221.87771      FALSE
-Messinian-Langhian                         65.364286    248.16258      FALSE
-Messinian-Burdigalian/Aquitanian           66.650000    218.85882      FALSE
-Tortonian-Serravallian                     83.503704    145.90588      FALSE
-Tortonian-Langhian                        140.747619    183.42158      FALSE
-Tortonian-Burdigalian/Aquitanian            8.733333    141.27276      FALSE
-Serravallian-Langhian                     224.251323    197.39708       TRUE
-Serravallian-Burdigalian/Aquitanian        92.237037    158.99725      FALSE
-Langhian-Burdigalian/Aquitanian           132.014286    193.99761      FALSE
-> PleiPlioCL <- PleiPlioCL %>%
-+   dplyr::filter(Island == "y") # n
-Error in PleiPlioCL %>% dplyr::filter(Island == "y") : 
-  could not find function "%>%"
-> 
-> library(dplyr)
-
-Attache Paket: 'dplyr'
-
-The following objects are masked from 'package:stats':
-
-    filter, lag
-
-The following objects are masked from 'package:base':
-
-    intersect, setdiff, setequal, union
-
-> PleiPlioCL <- PleiPlioCL %>%
-+   dplyr::filter(Island == "y") # n
-> 
-> M <- PleiPlioCL$CL[which(PleiPlioCL$EpochBins=="Modern")]
-> UPle <- PleiPlioCL$CL[which(PleiPlioCL$EpochBins=="Upper Pleistocene")]
-> MPle <- PleiPlioCL$CL[which(PleiPlioCL$EpochBins=="Middle Pleistocene")]
-> LPle <- PleiPlioCL$CL[which(PleiPlioCL$EpochBins=="Lower Pleistocene")]
-> G <- PleiPlioCL$CL[which(PleiPlioCL$EpochBins=="Gelasian")]
-> Pia <- PleiPlioCL$CL[which(PleiPlioCL$EpochBins=="Piacencian")]
-> Z <- PleiPlioCL$CL[which(PleiPlioCL$EpochBins=="Zanclean")]
-> Mess <- PleiPlioCL$CL[which(PleiPlioCL$EpochBins=="Messinian")]
-> Tort <- PleiPlioCL$CL[which(PleiPlioCL$EpochBins=="Tortonian")]
-> S <- PleiPlioCL$CL[which(PleiPlioCL$EpochBins=="Serravallian")]
-> L<- PleiPlioCL$CL[which(PleiPlioCL$EpochBins=="Langhian")]
-> BA <- PleiPlioCL$CL[which(PleiPlioCL$EpochBins=="Burdigalian/Aquitanian")]
-> 
-> 
-> library(pgirmess)
-> kruskal.test(list(M, UPle, MPle, LPle, G, Pia, Z, Mess, Tort, S, L, BA)) #kruskal-wallis-test (im prinzip anova fr nicht paramterische daten)
-Error in kruskal.test.default(list(M, UPle, MPle, LPle, G, Pia, Z, Mess,  : 
-  alle Gruppen müssen Daten enthalten
-> View(PleiPlioCL)
-> kruskal.test(list(M, UPle, MPle, LPle, G, Pia, Z, Mess)) #kruskal-wallis-test (im prinzip anova fr nicht paramterische daten)
-
-	Kruskal-Wallis rank sum test
-
-data:  list(M, UPle, MPle, LPle, G, Pia, Z, Mess)
-Kruskal-Wallis chi-squared = 26.322, df = 7, p-value = 0.0004411
-
-> kruskalmc(PleiPlioCL$CL,PleiPlioCL$EpochBins)
-Multiple comparison test after Kruskal-Wallis 
-p.value: 0.05 
-Comparisons
-                                            obs.dif critical.dif difference
-Modern-Upper Pleistocene                  30.962595     45.64689      FALSE
-Modern-Middle Pleistocene                 29.598958     56.14166      FALSE
-Modern-Lower Pleistocene                  37.657782     37.73379      FALSE
-Modern-Gelasian                           49.973958     73.17886      FALSE
-Modern-Piacencian                          5.384673     56.14166      FALSE
-Modern-Zanclean                           49.223958     73.17886      FALSE
-Modern-Messinian                          82.598958    144.14565      FALSE
-Modern-Tortonian                                NaN          Inf         NA
-Modern-Serravallian                             NaN          Inf         NA
-Modern-Langhian                                 NaN          Inf         NA
-Modern-Burdigalian/Aquitanian                   NaN          Inf         NA
-Upper Pleistocene-Middle Pleistocene       1.363636     69.33335      FALSE
-Upper Pleistocene-Lower Pleistocene        6.695187     55.48933      FALSE
-Upper Pleistocene-Gelasian                19.011364     83.72797      FALSE
-Upper Pleistocene-Piacencian              25.577922     69.33335      FALSE
-Upper Pleistocene-Zanclean                18.261364     83.72797      FALSE
-Upper Pleistocene-Messinian               51.636364    149.77715      FALSE
-Upper Pleistocene-Tortonian                     NaN          Inf         NA
-Upper Pleistocene-Serravallian                  NaN          Inf         NA
-Upper Pleistocene-Langhian                      NaN          Inf         NA
-Upper Pleistocene-Burdigalian/Aquitanian        NaN          Inf         NA
-Middle Pleistocene-Lower Pleistocene       8.058824     64.39964      FALSE
-Middle Pleistocene-Gelasian               20.375000     89.88115      FALSE
-Middle Pleistocene-Piacencian             24.214286     76.65090      FALSE
-Middle Pleistocene-Zanclean               19.625000     89.88115      FALSE
-Middle Pleistocene-Messinian              53.000000    153.30180      FALSE
-Middle Pleistocene-Tortonian                    NaN          Inf         NA
-Middle Pleistocene-Serravallian                 NaN          Inf         NA
-Middle Pleistocene-Langhian                     NaN          Inf         NA
-Middle Pleistocene-Burdigalian/Aquitanian       NaN          Inf         NA
-Lower Pleistocene-Gelasian                12.316176     79.69048      FALSE
-Lower Pleistocene-Piacencian              32.273109     64.39964      FALSE
-Lower Pleistocene-Zanclean                11.566176     79.69048      FALSE
-Lower Pleistocene-Messinian               44.941176    147.55811      FALSE
-Lower Pleistocene-Tortonian                     NaN          Inf         NA
-Lower Pleistocene-Serravallian                  NaN          Inf         NA
-Lower Pleistocene-Langhian                      NaN          Inf         NA
-Lower Pleistocene-Burdigalian/Aquitanian        NaN          Inf         NA
-Gelasian-Piacencian                       44.589286     89.88115      FALSE
-Gelasian-Zanclean                          0.750000    101.39961      FALSE
-Gelasian-Messinian                        32.625000    160.32686      FALSE
-Gelasian-Tortonian                              NaN          Inf         NA
-Gelasian-Serravallian                           NaN          Inf         NA
-Gelasian-Langhian                               NaN          Inf         NA
-Gelasian-Burdigalian/Aquitanian                 NaN          Inf         NA
-Piacencian-Zanclean                       43.839286     89.88115      FALSE
-Piacencian-Messinian                      77.214286    153.30180      FALSE
-Piacencian-Tortonian                            NaN          Inf         NA
-Piacencian-Serravallian                         NaN          Inf         NA
-Piacencian-Langhian                             NaN          Inf         NA
-Piacencian-Burdigalian/Aquitanian               NaN          Inf         NA
-Zanclean-Messinian                        33.375000    160.32686      FALSE
-Zanclean-Tortonian                              NaN          Inf         NA
-Zanclean-Serravallian                           NaN          Inf         NA
-Zanclean-Langhian                               NaN          Inf         NA
-Zanclean-Burdigalian/Aquitanian                 NaN          Inf         NA
-Messinian-Tortonian                             NaN          Inf         NA
-Messinian-Serravallian                          NaN          Inf         NA
-Messinian-Langhian                              NaN          Inf         NA
-Messinian-Burdigalian/Aquitanian                NaN          Inf         NA
-Tortonian-Serravallian                          NaN          Inf         NA
-Tortonian-Langhian                              NaN          Inf         NA
-Tortonian-Burdigalian/Aquitanian                NaN          Inf         NA
-Serravallian-Langhian                           NaN          Inf         NA
-Serravallian-Burdigalian/Aquitanian             NaN          Inf         NA
-Langhian-Burdigalian/Aquitanian                 NaN          Inf         NA
-> kruskal.test(list(M, UPle, MPle, LPle, G, Pia, Z, Mess)) #kruskal-wallis-test (im prinzip anova fr nicht paramterische daten)
-
-	Kruskal-Wallis rank sum test
-
-data:  list(M, UPle, MPle, LPle, G, Pia, Z, Mess)
-Kruskal-Wallis chi-squared = 26.322, df = 7, p-value = 0.0004411
-
-> PleiPlioCL <- PleiPlioCL %>%
-+   dplyr::filter(Island == "n") # n
-> PleiPlioCL <- PleiPlioCL %>%
-+   dplyr::filter(Island == "n") # n
-> PleiPlioCL <- Miocene %>%
-+   merge(BINSMio) %>%
-+   filter(!is.na(CL))
-> PleiPlioCL <- PleiPlioCL %>%
-+   dplyr::filter(Island == "n") # n
-> 
-> 
-> M <- PleiPlioCL$CL[which(PleiPlioCL$EpochBins=="Modern")]
-> UPle <- PleiPlioCL$CL[which(PleiPlioCL$EpochBins=="Upper Pleistocene")]
-> MPle <- PleiPlioCL$CL[which(PleiPlioCL$EpochBins=="Middle Pleistocene")]
-> LPle <- PleiPlioCL$CL[which(PleiPlioCL$EpochBins=="Lower Pleistocene")]
-> G <- PleiPlioCL$CL[which(PleiPlioCL$EpochBins=="Gelasian")]
-> Pia <- PleiPlioCL$CL[which(PleiPlioCL$EpochBins=="Piacencian")]
-> Z <- PleiPlioCL$CL[which(PleiPlioCL$EpochBins=="Zanclean")]
-> Mess <- PleiPlioCL$CL[which(PleiPlioCL$EpochBins=="Messinian")]
-> Tort <- PleiPlioCL$CL[which(PleiPlioCL$EpochBins=="Tortonian")]
-> S <- PleiPlioCL$CL[which(PleiPlioCL$EpochBins=="Serravallian")]
-> L<- PleiPlioCL$CL[which(PleiPlioCL$EpochBins=="Langhian")]
-> BA <- PleiPlioCL$CL[which(PleiPlioCL$EpochBins=="Burdigalian/Aquitanian")]
-> 
-> 
-> library(pgirmess)
-> kruskal.test(list(M, UPle, MPle, LPle, G, Pia, Z, Mess, Tort, S, L, BA)) #kruskal-wallis-test (im prinzip anova fr nicht paramterische daten)
+# 
+# Show in New WindowClear OutputExpand/Collapse Output
+# 
+# Show in New WindowClear OutputExpand/Collapse Output
+# 
+# Show in New WindowClear OutputExpand/Collapse Output
+# 
+# Show in New WindowClear OutputExpand/Collapse Output
+# 
+# knit_asis
+# 
+# knit_asis
+# 
+# knit_asis
+# 
+# knit_asis
+# 
+# Show in New WindowClear OutputExpand/Collapse Output
+# null device 
+#           1 
+# Show in New WindowClear OutputExpand/Collapse Output
+# null device 
+#           1 
+# Show in New WindowClear OutputExpand/Collapse Output
+# 
+# Show in New WindowClear OutputExpand/Collapse Output
+# 
+# Show in New WindowClear OutputExpand/Collapse Output
+# 
+# Show in New WindowClear OutputExpand/Collapse Output
+# 
+# Show in New WindowClear OutputExpand/Collapse Output
+# 
+# Show in New WindowClear OutputExpand/Collapse Output
+# 
+# Show in New WindowClear OutputExpand/Collapse Output
+# 
+# Show in New WindowClear OutputExpand/Collapse Output
+# 
+# Show in New WindowClear OutputExpand/Collapse Output
+# 	
+# `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.
+# 
+# Show in New WindowClear OutputExpand/Collapse Output
+# 
+# 
+# 
+# Show in New WindowClear OutputExpand/Collapse Output
+# 	
+# `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.
+# 
+# Show in New WindowClear OutputExpand/Collapse Output
+# 	
+# `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.
+# 
+# Show in New WindowClear OutputExpand/Collapse Output
+# 	
+# `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.
+# 
+# Show in New WindowClear OutputExpand/Collapse Output
+# 	
+# `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.
+# 
+# Show in New WindowClear OutputExpand/Collapse Output
+# 	
+# `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.
+# 
+# Show in New WindowClear OutputExpand/Collapse Output
+# 
+# Show in New WindowClear OutputExpand/Collapse Output
+# 
+# Show in New WindowClear OutputExpand/Collapse Output
+# 
+# 	Kruskal-Wallis rank sum test
+# 
+# data:  list(M, UPle, MPle, LPle, G, Pia, Z, Mess, Tort, S, L, BA)
+# Kruskal-Wallis chi-squared = 80.037, df = 11, p-value = 1.452e-12
+# 
+# Show in New WindowClear OutputExpand/Collapse Output
+# 
+# 
+# 
+# 	Kruskal-Wallis rank sum test
+# 
+# data:  list(Modern, Plei, Plio, Mio)
+# Kruskal-Wallis chi-squared =
+# 43.71, df = 3, p-value =
+# 1.739e-09
+# 
+#  [1] "EpochBins"    "Continent"   
+#  [3] "bin"          "Taxon"       
+#  [5] "CL"           "extraCL"     
+#  [7] "PL"           "size"        
+#  [9] "estimated"    "Age"         
+# [11] "Island"       "Genus"       
+# [13] "Stages"       "MeanBins"    
+# [15] "nIndividuals" "nSpecies"    
+# [17] "nGenera"      "Con"         
+# [19] "Time"        
+# Multiple comparison test after Kruskal-Wallis 
+# p.value: 0.05 
+# Comparisons
+#                         obs.dif
+# Modern-Pleistocene    72.627990
+# Modern-Pliocene      164.549323
+# Modern-Miocene        67.546537
+# Pleistocene-Pliocene  91.921333
+# Pleistocene-Miocene    5.081454
+# Pliocene-Miocene      97.002786
+#                      critical.dif
+# Modern-Pleistocene       45.07381
+# Modern-Pliocene          74.57803
+# Modern-Miocene           51.19571
+# Pleistocene-Pliocene     76.49057
+# Pleistocene-Miocene      53.94372
+# Pliocene-Miocene         80.25060
+#                      difference
+# Modern-Pleistocene         TRUE
+# Modern-Pliocene            TRUE
+# Modern-Miocene             TRUE
+# Pleistocene-Pliocene       TRUE
+# Pleistocene-Miocene       FALSE
+# Pliocene-Miocene           TRUE
+# R Console
+# 
+# 	Kruskal-Wallis rank sum test
+# 
+# data:  list(Modern, Plei, Plio, Mio)
+# Kruskal-Wallis chi-squared =
+# 43.71, df = 3, p-value =
+# 1.739e-09
+# 
+#  [1] "EpochBins"    "Continent"   
+#  [3] "bin"          "Taxon"       
+#  [5] "CL"           "extraCL"     
+#  [7] "PL"           "size"        
+#  [9] "estimated"    "Age"         
+# [11] "Island"       "Genus"       
+# [13] "Stages"       "MeanBins"    
+# [15] "nIndividuals" "nSpecies"    
+# [17] "nGenera"      "Con"         
+# [19] "Time"        
+# Multiple comparison test after Kruskal-Wallis 
+# p.value: 0.05 
+# Comparisons
+#                         obs.dif
+# Modern-Pleistocene    72.627990
+# Modern-Pliocene      164.549323
+# Modern-Miocene        67.546537
+# Pleistocene-Pliocene  91.921333
+# Pleistocene-Miocene    5.081454
+# Pliocene-Miocene      97.002786
+#                      critical.dif
+# Modern-Pleistocene       45.07381
+# Modern-Pliocene          74.57803
+# Modern-Miocene           51.19571
+# Pleistocene-Pliocene     76.49057
+# Pleistocene-Miocene      53.94372
+# Pliocene-Miocene         80.25060
+#                      difference
+# Modern-Pleistocene         TRUE
+# Modern-Pliocene            TRUE
+# Modern-Miocene             TRUE
+# Pleistocene-Pliocene       TRUE
+# Pleistocene-Miocene       FALSE
+# Pliocene-Miocene           TRUE
+# Show in New WindowClear OutputExpand/Collapse Output
+# 
+# Show in New WindowClear OutputExpand/Collapse Output
+# 
+# Show in New WindowClear OutputExpand/Collapse Output
+# 
+# [1] 330.3495
+# [1] 510.7542
+# 
+# 	Wilcoxon rank sum test with continuity correction
+# 
+# data:  Modern and Fossil
+# W = 23616, p-value = 3.234e-07
+# alternative hypothesis: true location shift is less than 0
+# 
+# R Console
+# [1] 330.3495
+# [1] 510.7542
+# 
+# 	Wilcoxon rank sum test with continuity correction
+# 
+# data:  Modern and Fossil
+# W = 23616, p-value = 3.234e-07
+# alternative hypothesis: true location shift is less than 0
+# 
+# Show in New WindowClear OutputExpand/Collapse Output
+# 
+# Show in New WindowClear OutputExpand/Collapse Output
+# [1] 51
+# [1] 51
+# 
+# 	Wilcoxon rank sum test with continuity correction
+# 
+# data:  ModernIsland and FossilIsland
+# W = 819.5, p-value = 0.0006496
+# alternative hypothesis: true location shift is less than 0
+# 
+# [1] 157
+# [1] 157
+# 
+# 	Wilcoxon rank sum test with continuity correction
+# 
+# data:  ModernCon and FossilCon
+# W = 8419, p-value = 6.028e-07
+# alternative hypothesis: true location shift is less than 0
+# 
+# R Console
+# 
+# 
+# 
+# Show in New WindowClear OutputExpand/Collapse Output
+# 
+# Show in New WindowClear OutputExpand/Collapse Output
+# [1] 147
+# [1] 147
+# 
+# 	Wilcoxon rank sum test with continuity correction
+# 
+# data:  Insular and Continental
+# W = 14386, p-value = 4.493e-07
+# alternative hypothesis: true location shift is greater than 0
+# 
+# R Console
+# 
+# 
+# Show in New WindowClear OutputExpand/Collapse Output
+# 
+# Show in New WindowClear OutputExpand/Collapse Output
+# 
+#  [1] "Continent"    "Con"         
+#  [3] "bin"          "Taxon"       
+#  [5] "CL"           "extraCL"     
+#  [7] "PL"           "size"        
+#  [9] "estimated"    "Age"         
+# [11] "Island"       "Genus"       
+# [13] "EpochBins"    "Stages"      
+# [15] "MeanBins"     "nIndividuals"
+# [17] "nSpecies"     "nGenera"     
+# The table should have a header (column names)The table should have a header (column names)
+# R Console
+# 
+# knit_asis
+# 
+# Show in New WindowClear OutputExpand/Collapse Output
+# [1] 142
+# [1] 347.6887
+# [1] 142
+# [1] 429.3285
+# [1] 59
+# [1] 173
+# [1] 142
+# [1] 522.8387
+# 
+# 	Kruskal-Wallis rank sum test
+# 
+# data:  list(Africa, America, Eurasia, Europe)
+# Kruskal-Wallis chi-squared = 33.509, df = 3, p-value = 2.515e-07
+# 
+# R Console
+# 
+# 
+# 
+# 
+# Show in New WindowClear OutputExpand/Collapse Output
+# 
+# Show in New WindowClear OutputExpand/Collapse Output
+# Locality
+# <fctr>
+# San Nicolas, UCMP locality V4536	
+# Serrat-d´en-Vacquer near Perpignan, Pyrénées-Orientales	
+# Toulouse Puits Borderouge niveau inférieur, Haute-Garonne	
+# Baby 2, Saint-André-et-Appelles, Gironde	
+# Dmanisi	
+# Altenstadt, 7 km S Illertissen	
+# Gammelsdorf	
+# Gammelsdorf	
+# Hohenhöwen, Engen, Hegau, southwestern Germany	
+# Hohenhöwen, Engen, Hegau, southwestern Germany	
+# Next123456...39Previous
+# 1-10 of 384 rows | 1-1 of 8 columns
+# Show in New WindowClear OutputExpand/Collapse Output
+# 
+# Show in New WindowClear OutputExpand/Collapse Output
+# 
+# Show in New WindowClear OutputExpand/Collapse Output
+# 
+# Show in New WindowClear OutputExpand/Collapse Output
+# 
+# 
+# 
+# 
+# 	
+# Removed 4 rows containing missing values (geom_path).
+# Removed 4 rows containing missing values (geom_point).
+# Removed 4 rows containing missing values (geom_linerange).
+# Removed 4 rows containing missing values (geom_path).
+# Removed 4 rows containing missing values (geom_point).
+# Removed 4 rows containing missing values (geom_linerange).
+# 
+# Show in New WindowClear OutputExpand/Collapse Output
+# 
+# knit_asis
+# 
+# knit_asis
+# 
+# Show in New WindowClear OutputExpand/Collapse Output
+# [1] 193
+# [1] 186
+# [1] 647
+# [1] 112
+# [1] 534
+# [1] 108
+# Show in New WindowClear OutputExpand/Collapse Output
+# [1] 384
+# [1] 119
+# [1] 384
+# [1] 26
+# [1] 144
+# [1] 11
+#  [1] Ergilemys    Testudo      Cheirogaster Titanochelon Paleotestudo Geochelone   Centrochelys gen.        
+#  [9] "Hadrianus"  Eurotestudo  Taraschelon 
+# 26 Levels: "Hadrianus" Aldabrachelys Caudochelys Centrochelys Cheirogaster Chelonoidis Ergilemys ... Titanochelon
+# [1] 7
+# [1] 2
+# [1] Geochelone  Chelonoidis
+# 26 Levels: "Hadrianus" Aldabrachelys Caudochelys Centrochelys Cheirogaster Chelonoidis Ergilemys ... Titanochelon
+# [1] 167
+# [1] 15
+#  [1] Testudo       Geochelone    Ergilemys     Aldabrachelys Megalochelys  Manouria      Indotestudo  
+#  [8] gen.          Cheirogaster  Titanochelon  Paleotestudo  Centrochelys  "Hadrianus"   Eurotestudo  
+# [15] Taraschelon  
+# 26 Levels: "Hadrianus" Aldabrachelys Caudochelys Centrochelys Cheirogaster Chelonoidis Ergilemys ... Titanochelon
+# R Console
+# 
+# knit_asis
+# 
+# Modify Chunk OptionsRun All Chunks AboveRun Current ChunkModify Chunk OptionsRun All Chunks AboveRun Current ChunkModify Chunk OptionsRun All Chunks AboveRun Current ChunkModify Chunk OptionsRun All Chunks AboveRun Current ChunkModify Chunk OptionsRun All Chunks AboveRun Current ChunkModify Chunk OptionsRun All Chunks AboveRun Current ChunkModify Chunk OptionsRun All Chunks AboveRun Current ChunkModify Chunk OptionsRun All Chunks AboveRun Current ChunkModify Chunk OptionsRun All Chunks AboveRun Current ChunkModify Chunk OptionsRun All Chunks AboveRun Current ChunkModify Chunk OptionsRun All Chunks AboveRun Current ChunkModify Chunk OptionsRun All Chunks AboveRun Current ChunkModify Chunk OptionsRun All Chunks AboveRun Current ChunkModify Chunk OptionsRun All Chunks AboveRun Current ChunkModify Chunk OptionsRun All Chunks AboveRun Current ChunkModify Chunk OptionsRun All Chunks AboveRun Current ChunkModify Chunk OptionsRun All Chunks AboveRun Current ChunkModify Chunk OptionsRun All Chunks AboveRun Current ChunkModify Chunk OptionsRun All Chunks AboveRun Current ChunkModify Chunk OptionsRun All Chunks AboveRun Current ChunkModify Chunk OptionsRun All Chunks AboveRun Current ChunkModify Chunk OptionsRun All Chunks AboveRun Current ChunkModify Chunk OptionsRun All Chunks AboveRun Current ChunkModify Chunk OptionsRun All Chunks AboveRun Current ChunkModify Chunk OptionsRun All Chunks AboveRun Current ChunkModify Chunk OptionsRun All Chunks AboveRun Current ChunkModify Chunk OptionsRun All Chunks AboveRun Current ChunkModify Chunk OptionsRun All Chunks AboveRun Current ChunkModify Chunk OptionsRun All Chunks AboveRun Current ChunkModify Chunk OptionsRun All Chunks AboveRun Current ChunkModify Chunk OptionsRun All Chunks AboveRun Current ChunkModify Chunk OptionsRun All Chunks AboveRun Current ChunkModify Chunk OptionsRun All Chunks AboveRun Current ChunkModify Chunk OptionsRun All Chunks AboveRun Current ChunkModify Chunk OptionsRun All Chunks AboveRun Current ChunkModify Chunk OptionsRun All Chunks AboveRun Current ChunkModify Chunk OptionsRun All Chunks AboveRun Current ChunkModify Chunk OptionsRun All Chunks AboveRun Current ChunkModify Chunk OptionsRun All Chunks AboveRun Current ChunkModify Chunk OptionsRun All Chunks AboveRun Current ChunkModify Chunk OptionsRun All Chunks AboveRun Current ChunkModify Chunk OptionsRun All Chunks AboveRun Current ChunkModify Chunk OptionsRun All Chunks AboveRun Current ChunkModify Chunk OptionsRun All Chunks AboveRun Current ChunkModify Chunk OptionsRun All Chunks AboveRun Current ChunkModify Chunk OptionsRun All Chunks AboveRun Current ChunkModify Chunk OptionsRun All Chunks AboveRun Current ChunkModify Chunk OptionsRun All Chunks AboveRun Current ChunkModify Chunk OptionsRun All Chunks AboveRun Current ChunkModify Chunk OptionsRun All Chunks AboveRun Current ChunkModify Chunk OptionsRun All Chunks AboveRun Current ChunkModify Chunk OptionsRun All Chunks AboveRun Current ChunkModify Chunk OptionsRun All Chunks AboveRun Current ChunkModify Chunk OptionsRun All Chunks AboveRun Current ChunkModify Chunk OptionsRun All Chunks AboveRun Current ChunkModify Chunk OptionsRun All Chunks AboveRun Current ChunkModify Chunk OptionsRun All Chunks AboveRun Current ChunkModify Chunk OptionsRun All Chunks AboveRun Current ChunkModify Chunk OptionsRun All Chunks AboveRun Current ChunkModify Chunk OptionsRun All Chunks AboveRun Current ChunkModify Chunk OptionsRun All Chunks AboveRun Current ChunkModify Chunk OptionsRun All Chunks AboveRun Current ChunkModify Chunk OptionsRun All Chunks AboveRun Current ChunkModify Chunk OptionsRun All Chunks AboveRun Current ChunkModify Chunk OptionsRun All Chunks AboveRun Current ChunkModify Chunk OptionsRun All Chunks AboveRun Current ChunkModify Chunk OptionsRun All Chunks AboveRun Current ChunkModify Chunk OptionsRun All Chunks AboveRun Current ChunkModify Chunk OptionsRun All Chunks AboveRun Current ChunkModify Chunk OptionsRun All Chunks AboveRun Current ChunkModify Chunk OptionsRun All Chunks AboveRun Current ChunkModify Chunk OptionsRun All Chunks AboveRun Current ChunkModify Chunk OptionsRun All Chunks AboveRun Current ChunkModify Chunk OptionsRun All Chunks AboveRun Current Chunk
+# Console~/
+# 			
+
+# 
+# > CL
+# > CL
+# # A tibble: 384 x 8
+#                                                     Locality        Genus                   Taxon Latitude Longitude
+#                                                       <fctr>       <fctr>                  <fctr>    <dbl>     <dbl>
+#  1                          San Nicolas, UCMP locality V4536   Geochelone     Geochelone hesterna   3.2000  -75.2000
+#  2   Serrat-d´en-Vacquer near Perpignan, Pyrénées-Orientales Titanochelon Titanochelon perpiniana  42.8800    2.8800
+#  3 Toulouse Puits Borderouge niveau inférieur, Haute-Garonne    Ergilemys       Ergilemys bruneti  43.6000    1.4333
+#  4                  Baby 2, Saint-André-et-Appelles, Gironde Cheirogaster    Cheirogaster maurini  44.8120    0.2133
+#  5                                                   Dmanisi      Testudo          Testudo graeca  41.3200   44.3500
+#  6                            Altenstadt, 7 km S Illertissen      Testudo  Testudo steinheimensis  48.1542   10.1178
+#  7                                               Gammelsdorf Paleotestudo    Paleotestudo antiqua  48.5495   11.9382
+#  8                                               Gammelsdorf Paleotestudo    Paleotestudo antiqua  48.5495   11.9382
+#  9            Hohenhöwen, Engen, Hegau, southwestern Germany Paleotestudo    Paleotestudo antiqua  47.8356    8.7490
+# 10            Hohenhöwen, Engen, Hegau, southwestern Germany Paleotestudo    Paleotestudo antiqua  47.8356    8.7490
+# # ... with 374 more rows, and 3 more variables: Country <fctr>, Age <dbl>, count <int>
+# > View(modernMeanGenus)
+# > View(GenusPaleo)
+# > CL
+# # A tibble: 384 x 8
+#                                                     Locality        Genus                   Taxon Latitude Longitude
+#                                                       <fctr>       <fctr>                  <fctr>    <dbl>     <dbl>
+#  1                          San Nicolas, UCMP locality V4536   Geochelone     Geochelone hesterna   3.2000  -75.2000
+#  2   Serrat-d´en-Vacquer near Perpignan, Pyrénées-Orientales Titanochelon Titanochelon perpiniana  42.8800    2.8800
+#  3 Toulouse Puits Borderouge niveau inférieur, Haute-Garonne    Ergilemys       Ergilemys bruneti  43.6000    1.4333
+#  4                  Baby 2, Saint-André-et-Appelles, Gironde Cheirogaster    Cheirogaster maurini  44.8120    0.2133
+#  5                                                   Dmanisi      Testudo          Testudo graeca  41.3200   44.3500
+#  6                            Altenstadt, 7 km S Illertissen      Testudo  Testudo steinheimensis  48.1542   10.1178
+#  7                                               Gammelsdorf Paleotestudo    Paleotestudo antiqua  48.5495   11.9382
+#  8                                               Gammelsdorf Paleotestudo    Paleotestudo antiqua  48.5495   11.9382
+#  9            Hohenhöwen, Engen, Hegau, southwestern Germany Paleotestudo    Paleotestudo antiqua  47.8356    8.7490
+# 10            Hohenhöwen, Engen, Hegau, southwestern Germany Paleotestudo    Paleotestudo antiqua  47.8356    8.7490
+# # ... with 374 more rows, and 3 more variables: Country <fctr>, Age <dbl>, count <int>
+# > SumTort
+# # A tibble: 22 x 5
+#          CL     n        var       tt         Genus
+#       <dbl> <int>      <dbl>    <dbl>         <chr>
+#  1 860.9268   123  172810623 5.00e-07 Aldabrachelys
+#  2 239.2051   665  372410171 5.00e-07      Gopherus
+#  3 367.6919   210  446520817 5.00e-07   Chelonoidis
+#  4 140.0327   849 2949618378 5.00e-07       Testudo
+#  5 860.9268   123  172810623 5.85e-03 Aldabrachelys
+#  6 366.2143    14   26286129 5.85e-03   Astrochelys
+#  7 493.3333     3    2190400 5.85e-03  Centrochelys
+#  8 367.6919   210  446520817 5.85e-03   Chelonoidis
+#  9 176.2667    15    6990736 5.85e-03      Chersina
+# 10 724.0000     5   13104400 5.85e-03  Cylindraspis
+# # ... with 12 more rows
+# > var(SumTortAll$CL)
+# [1] NA
+# > (SumTortAll$CL)
+# [1] 137.2637
+# > fit3models(paleoGenIs, silent=FALSE, method="AD", pool=FALSE)
+# Error in fit3models(paleoGenIs, silent = FALSE, method = "AD", pool = FALSE) : 
+#   could not find function "fit3models"
+# > library(paleoTS)
+# > fit3models(paleoGenIs, silent=FALSE, method="AD", pool=FALSE)
+# 
+# Comparing 3 models [n = 12, method = AD]
+# 
+#             logL K     AICc Akaike.wt
+# GRW    -82.26287 2 169.8591     0.300
+# URW    -83.12577 1 168.6515     0.548
+# Stasis -82.93984 2 171.2130     0.152
+# > fit9models(paleoGenIs, silent=FALSE, method="AD", pool=FALSE)
+# Fitting simple models...
+# Fitting punctuational model...
+# Total # hypotheses:  0 
+# 1  0  
+# Error in { : task 1 failed - "subscript out of bounds"
+# > 
+
+M <- PleiPlioCL$CL[which(PleiPlioCL$EpochBins=="Modern")]
+UPle <- PleiPlioCL$CL[which(PleiPlioCL$EpochBins=="Upper Pleistocene")]
+MPle <- PleiPlioCL$CL[which(PleiPlioCL$EpochBins=="Middle Pleistocene")]
+LPle <- PleiPlioCL$CL[which(PleiPlioCL$EpochBins=="Lower Pleistocene")]
+G <- PleiPlioCL$CL[which(PleiPlioCL$EpochBins=="Gelasian")]
+Pia <- PleiPlioCL$CL[which(PleiPlioCL$EpochBins=="Piacencian")]
+Z <- PleiPlioCL$CL[which(PleiPlioCL$EpochBins=="Zanclean")]
+Mess <- PleiPlioCL$CL[which(PleiPlioCL$EpochBins=="Messinian")]
+Tort <- PleiPlioCL$CL[which(PleiPlioCL$EpochBins=="Tortonian")]
+S <- PleiPlioCL$CL[which(PleiPlioCL$EpochBins=="Serravallian")]
+L<- PleiPlioCL$CL[which(PleiPlioCL$EpochBins=="Langhian")]
+BA <- PleiPlioCL$CL[which(PleiPlioCL$EpochBins=="Burdigalian/Aquitanian")]
+
+
+ kruskal.test(list(M, UPle, MPle, LPle, G, Pia, Z, Mess, Tort, S, L, BA)) #kruskal-wallis-test (im prinzip anova fr nicht paramterische daten)
+# 
+# 	Kruskal-Wallis rank sum test
+# 
+# data:  list(M, UPle, MPle, LPle, G, Pia, Z, Mess, Tort, S, L, BA)
+# Kruskal-Wallis chi-squared = 71.441, df = 11, p-value = 6.496e-11
+ 
+# kruskalmc(list(M, UPle, MPle, LPle, G, Pia, Z, Mess, Tort, S, L, BA),as.factor(c("M", "UPle", "MPle", "LPle", "G", "Pia", "Z", "Mess", "Tort", "S", "L", "BA")))
+ 
+Mwil <- wilcox.test(M,UPle, paired=FALSE, alternative="l")    #, alternative="g"
+
+
+
+#kruskalmc(list(M, UPle, MPle, LPle, G, Pia, Z, Mess, Tort, S, L, BA))
+
+#kruskalmc(TimeSlice$CL,TimeSlice$Time)
+
+
+#library(pgirmess)
+#kruskalmc(TimeSlice$CL,TimeSlice$Time)
+
+# Multiple comparison test after Kruskal-Wallis 
+# p.value: 0.05 
+# Comparisons
+#                         obs.dif critical.dif difference
+# Modern-Pleistocene   110.904114     49.80480       TRUE
+# Modern-Pliocene       67.623302     58.35513       TRUE
+# Modern-Miocene        64.510137     49.57182       TRUE
+# Pleistocene-Pliocene  43.280812     64.36704      FALSE
+# Pleistocene-Miocene   46.393977     56.52575      FALSE
+# Pliocene-Miocene       3.113165     64.18694      FALSE
+# > kruskalmc(PleiPlioCL$CL,PleiPlioCL$EpochBins)
+# Multiple comparison test after Kruskal-Wallis 
+# p.value: 0.05 
+# Comparisons
+#                                              obs.dif critical.dif difference
+# Modern-Upper Pleistocene                  116.987013     93.54915       TRUE
+# Modern-Middle Pleistocene                  80.140652     90.54349      FALSE
+# Modern-Lower Pleistocene                   66.123604     87.87753      FALSE
+# Modern-Gelasian                             1.627566    114.05459      FALSE
+# Modern-Piacencian                         113.296537    136.11314      FALSE
+# Modern-Zanclean                           205.945804    123.43828       TRUE
+# Modern-Messinian                          137.122727    193.24680      FALSE
+# Modern-Tortonian                           61.739394     96.96976      FALSE
+# Modern-Serravallian                        21.764310    121.34770      FALSE
+# Modern-Langhian                           202.487013    164.56067       TRUE
+# Modern-Burdigalian/Aquitanian              70.472727    115.73561      FALSE
+# Upper Pleistocene-Middle Pleistocene       36.846361    118.78423      FALSE
+# Upper Pleistocene-Lower Pleistocene        50.863409    116.76486      FALSE
+# Upper Pleistocene-Gelasian                115.359447    137.55006      FALSE
+# Upper Pleistocene-Piacencian                3.690476    156.32773      FALSE
+# Upper Pleistocene-Zanclean                 88.958791    145.42551      FALSE
+# Upper Pleistocene-Messinian                20.135714    207.98052      FALSE
+# Upper Pleistocene-Tortonian                55.247619    123.75260      FALSE
+# Upper Pleistocene-Serravallian            138.751323    143.65527      FALSE
+# Upper Pleistocene-Langhian                 85.500000    181.63641      FALSE
+# Upper Pleistocene-Burdigalian/Aquitanian   46.514286    138.94713      FALSE
+# Middle Pleistocene-Lower Pleistocene       14.017047    114.37094      FALSE
+# Middle Pleistocene-Gelasian                78.513086    135.52379      FALSE
+# Middle Pleistocene-Piacencian              33.155885    154.54785      FALSE
+# Middle Pleistocene-Zanclean               125.805152    143.51048      FALSE
+# Middle Pleistocene-Messinian               56.982075    206.64601      FALSE
+# Middle Pleistocene-Tortonian               18.401258    121.49644      FALSE
+# Middle Pleistocene-Serravallian           101.904962    141.71632      FALSE
+# Middle Pleistocene-Langhian               122.346361    180.10681      FALSE
+# Middle Pleistocene-Burdigalian/Aquitanian   9.667925    136.94153      FALSE
+# Lower Pleistocene-Gelasian                 64.496038    133.75738      FALSE
+# Lower Pleistocene-Piacencian               47.172932    153.00123      FALSE
+# Lower Pleistocene-Zanclean                139.822200    141.84356      FALSE
+# Lower Pleistocene-Messinian                70.999123    205.49188      FALSE
+# Lower Pleistocene-Tortonian                 4.384211    119.52289      FALSE
+# Lower Pleistocene-Serravallian             87.887914    140.02804      FALSE
+# Lower Pleistocene-Langhian                136.363409    178.78144      FALSE
+# Lower Pleistocene-Burdigalian/Aquitanian    4.349123    135.19364      FALSE
+# Gelasian-Piacencian                       111.668971    169.39706      FALSE
+# Gelasian-Zanclean                         204.318238    159.39129       TRUE
+# Gelasian-Messinian                        135.495161    217.97454      FALSE
+# Gelasian-Tortonian                         60.111828    139.89893      FALSE
+# Gelasian-Serravallian                      23.391876    157.77782      FALSE
+# Gelasian-Langhian                         200.859447    192.99946       TRUE
+# Gelasian-Burdigalian/Aquitanian            68.845161    153.50345      FALSE
+# Piacencian-Zanclean                        92.649267    175.85199      FALSE
+# Piacencian-Messinian                       23.826190    230.28513      FALSE
+# Piacencian-Tortonian                       51.557143    158.39839      FALSE
+# Piacencian-Serravallian                   135.060847    174.39088      FALSE
+# Piacencian-Langhian                        89.190476    206.80215      FALSE
+# Piacencian-Burdigalian/Aquitanian          42.823810    170.53342      FALSE
+# Zanclean-Messinian                         68.823077    223.02794      FALSE
+# Zanclean-Tortonian                        144.206410    147.64914      FALSE
+# Zanclean-Serravallian                     227.710114    164.68880       TRUE
+# Zanclean-Langhian                           3.458791    198.68908      FALSE
+# Zanclean-Burdigalian/Aquitanian           135.473077    160.59847      FALSE
+# Messinian-Tortonian                        75.383333    209.54137      FALSE
+# Messinian-Serravallian                    158.887037    221.87771      FALSE
+# Messinian-Langhian                         65.364286    248.16258      FALSE
+# Messinian-Burdigalian/Aquitanian           66.650000    218.85882      FALSE
+# Tortonian-Serravallian                     83.503704    145.90588      FALSE
+# Tortonian-Langhian                        140.747619    183.42158      FALSE
+# Tortonian-Burdigalian/Aquitanian            8.733333    141.27276      FALSE
+# Serravallian-Langhian                     224.251323    197.39708       TRUE
+# Serravallian-Burdigalian/Aquitanian        92.237037    158.99725      FALSE
+# Langhian-Burdigalian/Aquitanian           132.014286    193.99761      FALSE
+
+PleiPlioCL <- PleiPlioCL %>%
+   dplyr::filter(Island == "y") # n
+# Error in PleiPlioCL %>% dplyr::filter(Island == "y") : 
+#   could not find function "%>%"
+
+library(dplyr)
+# 
+# Attache Paket: 'dplyr'
+# 
+# The following objects are masked from 'package:stats':
+# 
+#     filter, lag
+# 
+# The following objects are masked from 'package:base':
+# 
+#     intersect, setdiff, setequal, union
+
+PleiPlioCL <- PleiPlioCL %>%
+  dplyr::filter(Island == "y") # n
+ 
+M <- PleiPlioCL$CL[which(PleiPlioCL$EpochBins=="Modern")]
+UPle <- PleiPlioCL$CL[which(PleiPlioCL$EpochBins=="Upper Pleistocene")]
+MPle <- PleiPlioCL$CL[which(PleiPlioCL$EpochBins=="Middle Pleistocene")]
+LPle <- PleiPlioCL$CL[which(PleiPlioCL$EpochBins=="Lower Pleistocene")]
+G <- PleiPlioCL$CL[which(PleiPlioCL$EpochBins=="Gelasian")]
+Pia <- PleiPlioCL$CL[which(PleiPlioCL$EpochBins=="Piacencian")]
+Z <- PleiPlioCL$CL[which(PleiPlioCL$EpochBins=="Zanclean")]
+Mess <- PleiPlioCL$CL[which(PleiPlioCL$EpochBins=="Messinian")]
+Tort <- PleiPlioCL$CL[which(PleiPlioCL$EpochBins=="Tortonian")]
+S <- PleiPlioCL$CL[which(PleiPlioCL$EpochBins=="Serravallian")]
+L<- PleiPlioCL$CL[which(PleiPlioCL$EpochBins=="Langhian")]
+BA <- PleiPlioCL$CL[which(PleiPlioCL$EpochBins=="Burdigalian/Aquitanian")]
+
+library(pgirmess)
+kruskal.test(list(M, UPle, MPle, LPle, G, Pia, Z, Mess, Tort, S, L, BA)) #kruskal-wallis-test (im prinzip anova fr nicht paramterische daten)
+
+# Error in kruskal.test.default(list(M, UPle, MPle, LPle, G, Pia, Z, Mess,  : 
+#   alle Gruppen müssen Daten enthalten
+#View(PleiPlioCL)
+
+kruskal.test(list(M, UPle, MPle, LPle, G, Pia, Z, Mess)) #kruskal-wallis-test (im prinzip anova fr nicht paramterische daten)
+
+# 	Kruskal-Wallis rank sum test
+# 
+# data:  list(M, UPle, MPle, LPle, G, Pia, Z, Mess)
+# Kruskal-Wallis chi-squared = 26.322, df = 7, p-value = 0.0004411
+
+##kruskalmc(PleiPlioCL$CL,PleiPlioCL$EpochBins)
+
+# Multiple comparison test after Kruskal-Wallis 
+# p.value: 0.05 
+# Comparisons
+#                                             obs.dif critical.dif difference
+# Modern-Upper Pleistocene                  30.962595     45.64689      FALSE
+# Modern-Middle Pleistocene                 29.598958     56.14166      FALSE
+# Modern-Lower Pleistocene                  37.657782     37.73379      FALSE
+# Modern-Gelasian                           49.973958     73.17886      FALSE
+# Modern-Piacencian                          5.384673     56.14166      FALSE
+# Modern-Zanclean                           49.223958     73.17886      FALSE
+# Modern-Messinian                          82.598958    144.14565      FALSE
+# Modern-Tortonian                                NaN          Inf         NA
+# Modern-Serravallian                             NaN          Inf         NA
+# Modern-Langhian                                 NaN          Inf         NA
+# Modern-Burdigalian/Aquitanian                   NaN          Inf         NA
+# Upper Pleistocene-Middle Pleistocene       1.363636     69.33335      FALSE
+# Upper Pleistocene-Lower Pleistocene        6.695187     55.48933      FALSE
+# Upper Pleistocene-Gelasian                19.011364     83.72797      FALSE
+# Upper Pleistocene-Piacencian              25.577922     69.33335      FALSE
+# Upper Pleistocene-Zanclean                18.261364     83.72797      FALSE
+# Upper Pleistocene-Messinian               51.636364    149.77715      FALSE
+# Upper Pleistocene-Tortonian                     NaN          Inf         NA
+# Upper Pleistocene-Serravallian                  NaN          Inf         NA
+# Upper Pleistocene-Langhian                      NaN          Inf         NA
+# Upper Pleistocene-Burdigalian/Aquitanian        NaN          Inf         NA
+# Middle Pleistocene-Lower Pleistocene       8.058824     64.39964      FALSE
+# Middle Pleistocene-Gelasian               20.375000     89.88115      FALSE
+# Middle Pleistocene-Piacencian             24.214286     76.65090      FALSE
+# Middle Pleistocene-Zanclean               19.625000     89.88115      FALSE
+# Middle Pleistocene-Messinian              53.000000    153.30180      FALSE
+# Middle Pleistocene-Tortonian                    NaN          Inf         NA
+# Middle Pleistocene-Serravallian                 NaN          Inf         NA
+# Middle Pleistocene-Langhian                     NaN          Inf         NA
+# Middle Pleistocene-Burdigalian/Aquitanian       NaN          Inf         NA
+# Lower Pleistocene-Gelasian                12.316176     79.69048      FALSE
+# Lower Pleistocene-Piacencian              32.273109     64.39964      FALSE
+# Lower Pleistocene-Zanclean                11.566176     79.69048      FALSE
+# Lower Pleistocene-Messinian               44.941176    147.55811      FALSE
+# Lower Pleistocene-Tortonian                     NaN          Inf         NA
+# Lower Pleistocene-Serravallian                  NaN          Inf         NA
+# Lower Pleistocene-Langhian                      NaN          Inf         NA
+# Lower Pleistocene-Burdigalian/Aquitanian        NaN          Inf         NA
+# Gelasian-Piacencian                       44.589286     89.88115      FALSE
+# Gelasian-Zanclean                          0.750000    101.39961      FALSE
+# Gelasian-Messinian                        32.625000    160.32686      FALSE
+# Gelasian-Tortonian                              NaN          Inf         NA
+# Gelasian-Serravallian                           NaN          Inf         NA
+# Gelasian-Langhian                               NaN          Inf         NA
+# Gelasian-Burdigalian/Aquitanian                 NaN          Inf         NA
+# Piacencian-Zanclean                       43.839286     89.88115      FALSE
+# Piacencian-Messinian                      77.214286    153.30180      FALSE
+# Piacencian-Tortonian                            NaN          Inf         NA
+# Piacencian-Serravallian                         NaN          Inf         NA
+# Piacencian-Langhian                             NaN          Inf         NA
+# Piacencian-Burdigalian/Aquitanian               NaN          Inf         NA
+# Zanclean-Messinian                        33.375000    160.32686      FALSE
+# Zanclean-Tortonian                              NaN          Inf         NA
+# Zanclean-Serravallian                           NaN          Inf         NA
+# Zanclean-Langhian                               NaN          Inf         NA
+# Zanclean-Burdigalian/Aquitanian                 NaN          Inf         NA
+# Messinian-Tortonian                             NaN          Inf         NA
+# Messinian-Serravallian                          NaN          Inf         NA
+# Messinian-Langhian                              NaN          Inf         NA
+# Messinian-Burdigalian/Aquitanian                NaN          Inf         NA
+# Tortonian-Serravallian                          NaN          Inf         NA
+# Tortonian-Langhian                              NaN          Inf         NA
+# Tortonian-Burdigalian/Aquitanian                NaN          Inf         NA
+# Serravallian-Langhian                           NaN          Inf         NA
+# Serravallian-Burdigalian/Aquitanian             NaN          Inf         NA
+# Langhian-Burdigalian/Aquitanian                 NaN          Inf         NA
+
+kruskal.test(list(M, UPle, MPle, LPle, G, Pia, Z, Mess)) #kruskal-wallis-test (im prinzip anova fr nicht paramterische daten)
+# 
+# 	Kruskal-Wallis rank sum test
+# 
+# data:  list(M, UPle, MPle, LPle, G, Pia, Z, Mess)
+# Kruskal-Wallis chi-squared = 26.322, df = 7, p-value = 0.0004411
+
+PleiPlioCL <- PleiPlioCL %>%
+   dplyr::filter(Island == "n") # n
+
+PleiPlioCL <- PleiPlioCL %>%
+   dplyr::filter(Island == "n") # n
+
+PleiPlioCL <- Miocene %>%
+   merge(BINSMio) %>%
+   filter(!is.na(CL))
+
+PleiPlioCL <- PleiPlioCL %>%
+   dplyr::filter(Island == "n") # n
+
+M <- PleiPlioCL$CL[which(PleiPlioCL$EpochBins=="Modern")]
+UPle <- PleiPlioCL$CL[which(PleiPlioCL$EpochBins=="Upper Pleistocene")]
+MPle <- PleiPlioCL$CL[which(PleiPlioCL$EpochBins=="Middle Pleistocene")]
+LPle <- PleiPlioCL$CL[which(PleiPlioCL$EpochBins=="Lower Pleistocene")]
+G <- PleiPlioCL$CL[which(PleiPlioCL$EpochBins=="Gelasian")]
+Pia <- PleiPlioCL$CL[which(PleiPlioCL$EpochBins=="Piacencian")]
+Z <- PleiPlioCL$CL[which(PleiPlioCL$EpochBins=="Zanclean")]
+Mess <- PleiPlioCL$CL[which(PleiPlioCL$EpochBins=="Messinian")]
+Tort <- PleiPlioCL$CL[which(PleiPlioCL$EpochBins=="Tortonian")]
+S <- PleiPlioCL$CL[which(PleiPlioCL$EpochBins=="Serravallian")]
+L<- PleiPlioCL$CL[which(PleiPlioCL$EpochBins=="Langhian")]
+BA <- PleiPlioCL$CL[which(PleiPlioCL$EpochBins=="Burdigalian/Aquitanian")]
+
+
+library(pgirmess)
+kruskal.test(list(M, UPle, MPle, LPle, G, Pia, Z, Mess, Tort, S, L, BA)) #kruskal-wallis-test (im prinzip anova fr nicht paramterische daten)
 
 #	Kruskal-Wallis rank sum test
 
@@ -1866,7 +1855,7 @@ Kruskal-Wallis chi-squared = 26.322, df = 7, p-value = 0.0004411
 # continental:
 
 
-kruskalmc(PleiPlioCL$CL,PleiPlioCL$EpochBins)
+##kruskalmc(PleiPlioCL$CL,PleiPlioCL$EpochBins)
 
 
 #insular
@@ -2205,7 +2194,7 @@ BinGenera <- PleiPlioCL %>%
   stat_boxplot(geom ='errorbar', width = 0.2) +
   geom_boxplot() +
   geom_pointrange(data=IndGenera, position="jitter", aes(x=EPOCH, y=GenusMean, colour=EPOCH, ymin = GenusMean-GenusSD, ymax = GenusMean+GenusSD)) +
-#  facet_wrap(~Island)+
+ # facet_wrap(~Island)+
   stat_summary(fun.data = give.n, geom = "text") +
   theme(legend.background = element_rect(colour = 'black'),
         panel.border = element_rect(colour = "black", fill=NA)) +
