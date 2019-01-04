@@ -3,9 +3,7 @@ Git Workflow
 
 pwd (show current path)
 
-cd "U:/Eigene Dateien/MA/Tortoise_Analyses"
-
-C:\Users\Jule\Documents\Uni\MA\Tortoise_Analyses\MA_fossil_tortoises
+cd "C:/Users/Jule/Documents/Uni/MA/Tortoise_Analyses/MA_fossil_tortoises"
 
 git pull origin master
 
@@ -20,3 +18,7 @@ git status
 git commit -m"commit message"
 
 git push -u origin master
+
+
+
+REPOSITORY: https://github.com/TurtleJules/FossilTortoises.git
